@@ -1,0 +1,88 @@
+GEOMETRY TO STATE: FIRST-BRIDGE VERIFICATION
+
+Predicates supplement analytic proofs; this is not a theorem count.
+No kernel changes; no historical execution; no trajectories or scans.
+
+01 PASS [PROVENANCE] Recorded frozen manuscripts and kernel files match initial hashes
+02 PASS [EXACT] Actual face centers cycle A=P1 -> B=P2 -> C=P3 under geometric C3
+03 PASS [EXACT] Vertical mirror swaps actual faces A,C and fixes B
+04 PASS [EXACT] Horizontal mirror fixes each actual face center
+05 PASS [EXACT] D3 generator relations R^3=T^2=I and TRT=R^-1
+06 PASS [EXACT] Balanced fixed space is exactly one real dimension
+07 PASS [EXACT] Balanced/transverse frame is orthonormal
+08 PASS [EXACT] Orthogonal projectors have ranks 1,2 and resolve identity
+09 PASS [EXACT] Balanced projector equals C3 group average
+10 PASS [EXACT] Actual kernel L3 equals negative three times transverse projector
+11 PASS [EXACT] Actual face-sharing adjacency has L3 as its unweighted negative Laplacian
+12 PASS [EXACT] Full face-permutation commutant has dimension two, spanned by Pb,Pt
+13 PASS [EXACT] No nonzero full-D3-equivariant real skew generator on the face channels
+14 PASS [EXACT] Coupling-only balanced/transverse multipliers are 1 and 1-3g
+15 PASS [EXACT] Unitary Fourier basis diagonalizes R with 1,omega,omega^2
+16 PASS [EXACT] Fourier coefficients of a real channel vector obey c0 real,c2=conj(c1)
+17 PASS [EXACT] Transverse J is skew, kills u, and squares to -Pt
+18 PASS [EXACT] Transverse J sends x to y and y to -x
+19 PASS [EXACT] C3 is the 120-degree sample of an abstract transverse rotation group
+20 PASS [EXACT] Vertical mirror reverses the transverse complex orientation
+21 PASS [EXACT] Every real 3-by-3 skew matrix is singular
+22 PASS [EXACT] Each actual face frame is an oriented orthonormal tangent frame
+23 PASS [EXACT] Outward-normal cross product acts as J2 on each face tangent plane
+24 PASS [EXACT] Direct sum of the three oriented tangent planes admits orthogonal J6
+25 PASS [EXACT] Geometric C3 permutes tangent complex coefficients without a phase offset
+26 PASS [EXACT] Horizontal mirror conjugates each tangent coefficient
+27 PASS [EXACT] Vertical mirror acts as minus conjugation plus A,C swap
+28 PASS [EXACT] Cellular boundary-of-boundary vanishes
+29 PASS [EXACT] Graph cycle dimension four reduces to shell homology dimension one
+30 PASS [EXACT] Right local seam of each panel equals left seam of next panel for every z
+31 PASS [EXACT] Opposite first-harmonic perimeter traces have cos-minus,sin-plus signs
+32 PASS [EXACT] First-harmonic welded scalar continuity leaves one real coefficient
+33 PASS [EXACT] First-harmonic continuous subspace is not invariant under phase rotation
+34 PASS [EXACT] Even-harmonic opposite-edge sign case also leaves one real coefficient
+35 PASS [EXACT] Spanning invariant phase planes need not have a common phase frequency
+36 PASS [EXACT] A mixed-frequency vector does not lie in any invariant real two-plane
+37 PASS [EXACT] Polar normalization supplies complex structure given an invertible skew K
+38 PASS [EXACT] Stated quadrature phase rotations preserve the real norm
+39 PASS [EXACT] One chosen quadrature per real channel realizes multiplication by i
+40 PASS [NUMERICAL] Read-only kernel coupling agrees with balanced/transverse split
+41 PASS [NUMERICAL] Equal-k full reference map respects C3 on a fixed nonsingular state
+42 PASS [NUMERICAL] Phase synchronizer preserves the already-supplied amplitudes
+43 PASS [NUMERICAL] Zero-strength synchronizer takes the exact identity branch
+44 PASS [NUMERICAL] In-phase and 120-degree phase patterns both have zero sync increment
+45 PASS [NUMERICAL] 120-degree Fourier state is transverse, not the balanced mode
+46 PASS [NUMERICAL] Common phase equivariance holds at a fixed nonzero synchronizer state
+47 PASS [NUMERICAL_COUNTEREXAMPLE] Arg0 singular stratum does not supply global U1 equivariance
+48 PASS [NUMERICAL_COUNTEREXAMPLE] Fixed unequal amplitude coefficients need not preserve geometric C3 symmetry
+49 PASS [EXACT] Paper-A pre-sync increment is a real negative gradient
+50 PASS [EXACT] Harmonic-3 increment is a phase gradient with zero summed increment
+51 PASS [PROVENANCE] Recorded frozen manuscripts and kernel files remain unchanged
+
+{
+  "zero_stratum_equivariance_error": 0.09317017645041971,
+  "unequal_k_C3_error": 0.05794410895157131,
+  "face_order": [
+    "P1",
+    "P2",
+    "P3"
+  ],
+  "face_centers": [
+    "Matrix([[-1/4, sqrt(3)/4, 0]])",
+    "Matrix([[0, 0, 0]])",
+    "Matrix([[1/4, sqrt(3)/4, 0]])"
+  ],
+  "face_normals": [
+    "Matrix([[-sqrt(3)/2, 1/2, 0]])",
+    "Matrix([[0, -1, 0]])",
+    "Matrix([[sqrt(3)/2, 1/2, 0]])"
+  ],
+  "cell_boundary_ranks": [
+    17,
+    3
+  ],
+  "first_harmonic_continuity_rank": 5,
+  "python": "3.11.15",
+  "sympy": "1.14.0",
+  "numpy": "2.4.4",
+  "protected_hash_record_count": 10
+}
+
+PREDICATES_PASSED = 51
+PREDICATES_FAILED = 0
