@@ -52,15 +52,15 @@ PHYSICAL_ENCODING_READY_FOR_IMPLEMENTATION = NO
 
 The exact balanced/transverse identity is
 
-$$ u=rac{(1,1,1)^T}{sqrt3}, qquad P_perp=I-uu^T, qquad L_3=-3P_perp. $$
+$$ u=\frac{(1,1,1)^T}{\sqrt3}, \qquad P_\perp=I-uu^T, \qquad L_3=-3P_\perp. $$
 
 On each oriented face tangent plane, with outward unit normal $n_i$,
 
-$$ J_i v=n_i	imes v, qquad J_i^2=-I. $$
+$$ J_i v=n_i\times v, \qquad J_i^2=-I. $$
 
-Here $v$ is tangent, so $n_icdot v=0$. The square identity applies to that
+Here $v$ is tangent, so $n_i\cdot v=0$. The square identity applies to that
 two-dimensional plane, not all of ambient three-space. The direct sum of the
-three planes admits a geometric identification with $mathbb C^3$. A physical
+three planes admits a geometric identification with $\mathbb C^3$. A physical
 observable and dynamical phase generator have not been selected or derived.
 
 The scalar-perimeter obstruction concerns one common Fourier harmonic per
