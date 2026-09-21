@@ -1,0 +1,392 @@
+{
+  "baseline": "562fbb5d82b1d05937fda4929eca615e6b8991a1",
+  "claude_report_sha256": "e9bc4cf19d5292aa26e69095a75f9f7a64280b11292e8e33d2020a3f03e47b57",
+  "predicate_count": 53,
+  "passed": 53,
+  "failed": 0,
+  "runtime": {
+    "python": "3.11.15",
+    "sympy": "1.14.0",
+    "numpy": "2.4.4"
+  },
+  "execution_scope": "This script only; read-only geometry/dynamics calls; no old tests, random scans, ODE trajectory integration or historical code.",
+  "claude_prior_execution_provenance": "UNRESOLVED: original written assertion and user-reported conversation differ; no inference made.",
+  "preexisting_repository_files_protected": 58,
+  "predicates": [
+    {
+      "id": 1,
+      "name": "All existing tracked files match the specified baseline",
+      "kind": "INTEGRITY",
+      "pass": true
+    },
+    {
+      "id": 2,
+      "name": "Claude report copy and external original have the recorded identical bytes",
+      "kind": "INTEGRITY",
+      "pass": true
+    },
+    {
+      "id": 3,
+      "name": "Reported face frames follow the existing exact panel-coordinate derivatives",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 4,
+      "name": "Each outward-normal cross product gives J2 in its orthonormal tangent frame",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 5,
+      "name": "Metric, J and area form are compatible; area matrix is -J and nondegenerate",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 6,
+      "name": "omega(v,w)=g(Jv,w)=dq wedge dp(v,w)",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 7,
+      "name": "i_X omega=dH fixes the Hamiltonian sign X=-nu Jv",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 8,
+      "name": "Complex Hamiltonian velocity equals -i nu Omega",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 9,
+      "name": "The stated negative-sign rotation solves the Hamiltonian equation",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 10,
+      "name": "The positive-sign generator does not satisfy the same nonzero Hamiltonian convention",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 11,
+      "name": "Each oscillator action (q^2+p^2)/2 is conserved",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 12,
+      "name": "A positive but anisotropic quadratic is not uniform rotation in the fixed complex coordinate",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 13,
+      "name": "C3 covariance of the diagonal free generator is equivalent to equal face frequencies",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 14,
+      "name": "A general C3-invariant quadratic need not have a common mode frequency",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 15,
+      "name": "Equal-frequency scalar generator commutes with every complex linear map",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 16,
+      "name": "A free-flow unitary can preserve total norm while changing individual face actions",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 17,
+      "name": "All twelve tangent actions obey the determinant-weighted symplectic pullback",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 18,
+      "name": "Horizontal and vertical mirrors square to identity and reverse common phase flow",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 19,
+      "name": "An improper D3h element need not be an involution: C3 times horizontal mirror has order six",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 20,
+      "name": "Paper-A amplitude/coupling increment is exactly the negative real gradient",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 21,
+      "name": "Phase force is a gradient and has zero total angular increment",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 22,
+      "name": "General phase Jacobian has off-diagonals 3K cos(3 delta) and zero row sums",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 23,
+      "name": "All nine third-harmonic synchronized relative branches have Jacobian 3K L3",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 24,
+      "name": "Third-harmonic synchronized transverse eigenvalues are -9K,-9K",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 25,
+      "name": "A cancelling equilibrium exists with nonzero pairwise sine terms",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 26,
+      "name": "Antipodal 2+1 equilibria in theta=3phi have transverse eigenvalues -3K,9K",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 27,
+      "name": "Splay in theta=3phi has transverse eigenvalues 9K/2,9K/2",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 28,
+      "name": "Phase-only Euler has synchronous transverse multiplier 1-9hK",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 29,
+      "name": "A transverse complex vector need not be an equal-amplitude 120-degree splay state",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 30,
+      "name": "Cyclic 120-degree eigenstates are not fixed vectors of the cyclic permutation",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 31,
+      "name": "Z equals Im(conj Omega_j Omega_k) in the stated component order",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 32,
+      "name": "Z is invariant under every common phase shift",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 33,
+      "name": "Z and J_eff are conjugation-odd",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 34,
+      "name": "Z is a channel pseudovector under all six permutations",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 35,
+      "name": "Horizontal and vertical spatial mirrors send Z to -Z and T Z",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 36,
+      "name": "The complex cubic has phase weight +1; real J mixes with its real part",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 37,
+      "name": "Cubic monomials permute as a triple under every channel permutation",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 38,
+      "name": "J_eff is generally not cyclic-invariant",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 39,
+      "name": "Horizontal and vertical spatial mirrors send J_eff to -J_eff and +J_eff",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 40,
+      "name": "The proposed scalar-amplitude loop product is real nonnegative, with identically zero imaginary part",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 41,
+      "name": "Cyclic sum of pairwise imaginary products equals the sum of Z components",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 42,
+      "name": "Nonzero-Z witness: same Z for Omega and i Omega, different J_eff",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 43,
+      "name": "Four polynomials (Zx,Zy,Zz,J_eff) have a full-rank Jacobian witness",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 44,
+      "name": "Orthonormal balanced/transverse frame diagonalizes the actual L3",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 45,
+      "name": "General complex commutant is exactly a 1-by-1 plus 2-by-2 block",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 46,
+      "name": "Special-unitary condition on the commuting blocks is d0 det(V)=1",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 47,
+      "name": "Unitary block condition separates into |d0|^2=1 and V dagger V=I2",
+      "kind": "SYMBOLIC",
+      "pass": true
+    },
+    {
+      "id": 48,
+      "name": "Scaled actual kernel step matches independently formed S_h(A_h) at all four fixed h values",
+      "kind": "NUMERICAL",
+      "pass": true
+    },
+    {
+      "id": 49,
+      "name": "Local comparison errors scale quadratically and approach the derived coefficient",
+      "kind": "NUMERICAL",
+      "pass": true
+    },
+    {
+      "id": 50,
+      "name": "Actual frozen pre-sync step is A_1=I+A on the fixed fixture",
+      "kind": "NUMERICAL",
+      "pass": true
+    },
+    {
+      "id": 51,
+      "name": "Arg0 zero stratum prevents an unrestricted global-U1 claim for the frozen synchronizer",
+      "kind": "NUMERICAL_COUNTEREXAMPLE",
+      "pass": true
+    },
+    {
+      "id": 52,
+      "name": "All pre-existing repository file bytes and modification times remain unchanged",
+      "kind": "INTEGRITY",
+      "pass": true
+    },
+    {
+      "id": 53,
+      "name": "Claude original remains unchanged in bytes and modification time",
+      "kind": "INTEGRITY",
+      "pass": true
+    }
+  ],
+  "details": {
+    "algebraic_independence_witness": {
+      "a": [
+        1,
+        2,
+        1
+      ],
+      "b": [
+        1,
+        1,
+        -1
+      ],
+      "minor_variables": [
+        "a0",
+        "a1",
+        "a2",
+        "b0"
+      ],
+      "minor_determinant": "12"
+    },
+    "splitting_fixture": {
+      "h_results": [
+        {
+          "h": 0.01,
+          "kernel_formula_max_error": 5.551115123125783e-16,
+          "local_Taylor_comparison_error": 7.013903317139261e-06,
+          "coefficient_error": 0.0006387961817933264
+        },
+        {
+          "h": 0.005,
+          "kernel_formula_max_error": 6.661338147750939e-16,
+          "local_Taylor_comparison_error": 1.7511203236719847e-06,
+          "coefficient_error": 0.00031889781429808475
+        },
+        {
+          "h": 0.0025,
+          "kernel_formula_max_error": 2.482534153247273e-16,
+          "local_Taylor_comparison_error": 4.374864290735564e-07,
+          "coefficient_error": 0.00015932373621620725
+        },
+        {
+          "h": 0.00125,
+          "kernel_formula_max_error": 2.482534153247273e-16,
+          "local_Taylor_comparison_error": 1.0933494927696418e-07,
+          "coefficient_error": 7.963048838717682e-05
+        }
+      ],
+      "successive_error_ratios": [
+        4.005380568270469,
+        4.002684900147067,
+        4.001341126205933
+      ],
+      "predicted_error_coefficient_norm": 0.06995092743624745,
+      "comparison": "second-order Taylor expansion of the exact flow; not an integrated reference trajectory"
+    },
+    "zero_stratum_U1_counterexample_error": 0.09317017645041971
+  }
+}

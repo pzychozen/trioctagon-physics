@@ -2,12 +2,14 @@
 
 Snapshot: 2026-09-21.
 
-Every row is a copied scientific artifact. SHA-256 is identical
-before copying, after copying at the original, and in this repository.
-Direct byte comparisons and unchanged original modification times
-were also verified. No line ending normalization or scientific
-transformation was performed. Original absolute paths are provenance,
-not required locations for reading the repository.
+The first table records copied scientific artifacts. The original 48 rows
+preserve their initial copy-time observations. The additional Claude report
+was already copied for Phase Bridge II; its external original and existing copy
+were checked byte-for-byte at this freeze, with the original unchanged.
+The separate table below records four repository-native research artifacts,
+whose existing bytes were frozen in place; no external-copy claim is made for them.
+No scientific transformation or line ending normalization was performed.
+Original absolute paths are provenance, not required locations for reading the repository.
 
 | Repository path | Original authoritative path | SHA-256 | Role | Status |
 |---|---|---|---|---|
@@ -59,6 +61,27 @@ not required locations for reading the repository.
 | `research/top_to_recursive_bridge/bridge_symbolic_results.txt` | `C:\TORMENT\TRIOCTAGON_new\research\top_to_recursive_bridge\bridge_symbolic_results.txt` | `4f0cc72b8502322aec108a9456521379a330a229e8ea8ae056fa182a71906902` | Completed first-bridge research or its recorded verification/provenance | CURRENT_RESEARCH |
 | `research/top_to_recursive_bridge/bridge_symbolic_results.json` | `C:\TORMENT\TRIOCTAGON_new\research\top_to_recursive_bridge\bridge_symbolic_results.json` | `6ff1b2cc8ab53820b86af4441318cfaeb7dd4aefdb8d91f171614a8829bc120f` | Completed first-bridge research or its recorded verification/provenance | CURRENT_RESEARCH |
 | `research/top_to_recursive_bridge/source_manifest.json` | `C:\TORMENT\TRIOCTAGON_new\research\top_to_recursive_bridge\source_manifest.json` | `26488614d010a7610a02bbb98e43e19495d06a3f07695c5111458840b986a188` | Completed first-bridge research or its recorded verification/provenance | CURRENT_RESEARCH |
+| `research/phase_bridge_II/PHASE_BRIDGE_II_HAMILTONIAN_DYNAMICS.md` | `C:\TORMENT\TRIOCTAGON_new\research\phase_bridge_II\PHASE_BRIDGE_II_HAMILTONIAN_DYNAMICS.md` | `e9bc4cf19d5292aa26e69095a75f9f7a64280b11292e8e33d2020a3f03e47b57` | Claude original report, existing copy preserved unchanged; read with the Codex review | CURRENT_RESEARCH |
+
+## Phase Bridge II repository-native research freeze
+
+Pre-freeze baseline: `562fbb5d82b1d05937fda4929eca615e6b8991a1`.
+Recorded independent verification: **53 / 53 PASSED**. This freeze runs archive
+verification only; it does not rerun or reinterpret the scientific checks.
+These four artifacts were created directly at the repository locations below
+and are preserved byte-for-byte from the completed review. Claude's original
+report is the separate copied-source row above. The five files are archived
+together; freezing them does not erase the review's corrections or unresolved
+physical interfaces. The scientific verifier and its output retain their original
+baseline and execution provenance; do not rerun them merely to validate this freeze.
+
+| Repository path | Original authoritative path | SHA-256 | Role | Status |
+|---|---|---|---|---|
+| `research/phase_bridge_II/PHASE_BRIDGE_II_CODEX_REVIEW.md` | `C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\research\phase_bridge_II\PHASE_BRIDGE_II_CODEX_REVIEW.md` | `fab671ec7321d3e2cfe8aca99e96bfeabe32873f0711ec91e87ea40494646380` | Independent mathematical review and corrected claim dispositions | CURRENT_RESEARCH |
+| `research/phase_bridge_II/phase_bridge_II_results.json` | `C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\research\phase_bridge_II\phase_bridge_II_results.json` | `37dbd01288a56bc81b481a2895ec9537c78d0862068f263246cf311b9200544c` | Recorded independent verification results, machine-readable | CURRENT_RESEARCH |
+| `research/phase_bridge_II/phase_bridge_II_results.txt` | `C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\research\phase_bridge_II\phase_bridge_II_results.txt` | `8a52086a808e8465685a66e9d35a1faecab8bd1c0848ed042b67bba6ac6d314e` | Recorded independent verification results, human-readable | CURRENT_RESEARCH |
+| `research/phase_bridge_II/verify_phase_bridge_II.py` | `C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\research\phase_bridge_II\verify_phase_bridge_II.py` | `66ae6ddaeb0a037f6110b81bb687c5e05adc764c373e7d7e288b88bae30360fe` | Independent verification script; retained unchanged and not run during freeze | CURRENT_RESEARCH |
+
 
 ## New packaging records
 
@@ -80,6 +103,8 @@ Scientific links and original execution paths inside copied files
 are intentionally unchanged. CURRENT_STATE.md provides the portable
 navigation and explains the bridge script's original-path dependency.
 
-COPIED_SCIENTIFIC_ARTIFACTS = 48
+COPIED_SCIENTIFIC_ARTIFACTS = 49
+REPOSITORY_NATIVE_RESEARCH_ARTIFACTS = 4
+TOTAL_SCIENTIFIC_ARTIFACTS = 53
 FILES_TRANSFORMED = 0
 AUTHORITATIVE_SOURCE_MODIFIED = NO

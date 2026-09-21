@@ -1,0 +1,119 @@
+PHASE BRIDGE II INDEPENDENT VERIFICATION
+
+Finite predicates are not a theorem count.
+This script only; read-only geometry/dynamics calls; no old tests, random scans, ODE trajectory integration or historical code.
+
+01 PASS [INTEGRITY] All existing tracked files match the specified baseline
+02 PASS [INTEGRITY] Claude report copy and external original have the recorded identical bytes
+03 PASS [SYMBOLIC] Reported face frames follow the existing exact panel-coordinate derivatives
+04 PASS [SYMBOLIC] Each outward-normal cross product gives J2 in its orthonormal tangent frame
+05 PASS [SYMBOLIC] Metric, J and area form are compatible; area matrix is -J and nondegenerate
+06 PASS [SYMBOLIC] omega(v,w)=g(Jv,w)=dq wedge dp(v,w)
+07 PASS [SYMBOLIC] i_X omega=dH fixes the Hamiltonian sign X=-nu Jv
+08 PASS [SYMBOLIC] Complex Hamiltonian velocity equals -i nu Omega
+09 PASS [SYMBOLIC] The stated negative-sign rotation solves the Hamiltonian equation
+10 PASS [SYMBOLIC] The positive-sign generator does not satisfy the same nonzero Hamiltonian convention
+11 PASS [SYMBOLIC] Each oscillator action (q^2+p^2)/2 is conserved
+12 PASS [SYMBOLIC] A positive but anisotropic quadratic is not uniform rotation in the fixed complex coordinate
+13 PASS [SYMBOLIC] C3 covariance of the diagonal free generator is equivalent to equal face frequencies
+14 PASS [SYMBOLIC] A general C3-invariant quadratic need not have a common mode frequency
+15 PASS [SYMBOLIC] Equal-frequency scalar generator commutes with every complex linear map
+16 PASS [SYMBOLIC] A free-flow unitary can preserve total norm while changing individual face actions
+17 PASS [SYMBOLIC] All twelve tangent actions obey the determinant-weighted symplectic pullback
+18 PASS [SYMBOLIC] Horizontal and vertical mirrors square to identity and reverse common phase flow
+19 PASS [SYMBOLIC] An improper D3h element need not be an involution: C3 times horizontal mirror has order six
+20 PASS [SYMBOLIC] Paper-A amplitude/coupling increment is exactly the negative real gradient
+21 PASS [SYMBOLIC] Phase force is a gradient and has zero total angular increment
+22 PASS [SYMBOLIC] General phase Jacobian has off-diagonals 3K cos(3 delta) and zero row sums
+23 PASS [SYMBOLIC] All nine third-harmonic synchronized relative branches have Jacobian 3K L3
+24 PASS [SYMBOLIC] Third-harmonic synchronized transverse eigenvalues are -9K,-9K
+25 PASS [SYMBOLIC] A cancelling equilibrium exists with nonzero pairwise sine terms
+26 PASS [SYMBOLIC] Antipodal 2+1 equilibria in theta=3phi have transverse eigenvalues -3K,9K
+27 PASS [SYMBOLIC] Splay in theta=3phi has transverse eigenvalues 9K/2,9K/2
+28 PASS [SYMBOLIC] Phase-only Euler has synchronous transverse multiplier 1-9hK
+29 PASS [SYMBOLIC] A transverse complex vector need not be an equal-amplitude 120-degree splay state
+30 PASS [SYMBOLIC] Cyclic 120-degree eigenstates are not fixed vectors of the cyclic permutation
+31 PASS [SYMBOLIC] Z equals Im(conj Omega_j Omega_k) in the stated component order
+32 PASS [SYMBOLIC] Z is invariant under every common phase shift
+33 PASS [SYMBOLIC] Z and J_eff are conjugation-odd
+34 PASS [SYMBOLIC] Z is a channel pseudovector under all six permutations
+35 PASS [SYMBOLIC] Horizontal and vertical spatial mirrors send Z to -Z and T Z
+36 PASS [SYMBOLIC] The complex cubic has phase weight +1; real J mixes with its real part
+37 PASS [SYMBOLIC] Cubic monomials permute as a triple under every channel permutation
+38 PASS [SYMBOLIC] J_eff is generally not cyclic-invariant
+39 PASS [SYMBOLIC] Horizontal and vertical spatial mirrors send J_eff to -J_eff and +J_eff
+40 PASS [SYMBOLIC] The proposed scalar-amplitude loop product is real nonnegative, with identically zero imaginary part
+41 PASS [SYMBOLIC] Cyclic sum of pairwise imaginary products equals the sum of Z components
+42 PASS [SYMBOLIC] Nonzero-Z witness: same Z for Omega and i Omega, different J_eff
+43 PASS [SYMBOLIC] Four polynomials (Zx,Zy,Zz,J_eff) have a full-rank Jacobian witness
+44 PASS [SYMBOLIC] Orthonormal balanced/transverse frame diagonalizes the actual L3
+45 PASS [SYMBOLIC] General complex commutant is exactly a 1-by-1 plus 2-by-2 block
+46 PASS [SYMBOLIC] Special-unitary condition on the commuting blocks is d0 det(V)=1
+47 PASS [SYMBOLIC] Unitary block condition separates into |d0|^2=1 and V dagger V=I2
+48 PASS [NUMERICAL] Scaled actual kernel step matches independently formed S_h(A_h) at all four fixed h values
+49 PASS [NUMERICAL] Local comparison errors scale quadratically and approach the derived coefficient
+50 PASS [NUMERICAL] Actual frozen pre-sync step is A_1=I+A on the fixed fixture
+51 PASS [NUMERICAL_COUNTEREXAMPLE] Arg0 zero stratum prevents an unrestricted global-U1 claim for the frozen synchronizer
+52 PASS [INTEGRITY] All pre-existing repository file bytes and modification times remain unchanged
+53 PASS [INTEGRITY] Claude original remains unchanged in bytes and modification time
+
+{
+  "algebraic_independence_witness": {
+    "a": [
+      1,
+      2,
+      1
+    ],
+    "b": [
+      1,
+      1,
+      -1
+    ],
+    "minor_variables": [
+      "a0",
+      "a1",
+      "a2",
+      "b0"
+    ],
+    "minor_determinant": "12"
+  },
+  "splitting_fixture": {
+    "h_results": [
+      {
+        "h": 0.01,
+        "kernel_formula_max_error": 5.551115123125783e-16,
+        "local_Taylor_comparison_error": 7.013903317139261e-06,
+        "coefficient_error": 0.0006387961817933264
+      },
+      {
+        "h": 0.005,
+        "kernel_formula_max_error": 6.661338147750939e-16,
+        "local_Taylor_comparison_error": 1.7511203236719847e-06,
+        "coefficient_error": 0.00031889781429808475
+      },
+      {
+        "h": 0.0025,
+        "kernel_formula_max_error": 2.482534153247273e-16,
+        "local_Taylor_comparison_error": 4.374864290735564e-07,
+        "coefficient_error": 0.00015932373621620725
+      },
+      {
+        "h": 0.00125,
+        "kernel_formula_max_error": 2.482534153247273e-16,
+        "local_Taylor_comparison_error": 1.0933494927696418e-07,
+        "coefficient_error": 7.963048838717682e-05
+      }
+    ],
+    "successive_error_ratios": [
+      4.005380568270469,
+      4.002684900147067,
+      4.001341126205933
+    ],
+    "predicted_error_coefficient_norm": 0.06995092743624745,
+    "comparison": "second-order Taylor expansion of the exact flow; not an integrated reference trajectory"
+  },
+  "zero_stratum_U1_counterexample_error": 0.09317017645041971
+}
+
+PREDICATES_PASSED = 53
+PREDICATES_FAILED = 0
