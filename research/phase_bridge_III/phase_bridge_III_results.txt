@@ -1,0 +1,722 @@
+Phase Bridge III: independent execution record
+{
+  "started_utc": "2026-09-22T03:43:46.640185+00:00",
+  "finished_utc": "2026-09-22T03:44:11.664532+00:00",
+  "baseline": "899d0fa900dc0d0ab8406e889908e47468d343db",
+  "python": "3.11.15",
+  "numpy": "2.4.4",
+  "scipy": "1.17.1",
+  "sympy": "1.14.0",
+  "script_sha256": "b2b07bcd003387630b36e21a4ef92f994338bd8b93e934e6699455efd732ec7a",
+  "command": "python -B research/phase_bridge_III/verify_phase_bridge_III.py",
+  "random_draws": 0,
+  "imports_frozen_kernel": false,
+  "old_suites_executed": false,
+  "claude_checks_reexecuted": false
+}
+Computed predicates: 73 / 73 passed; failed=0
+These are finite regression/symbolic predicates, not independent theorems.
+Counts by kind: {"integrity": 5, "numerical": 40, "symbolic": 28}
+PASS [integrity] frozen_tracked_content_preserved
+PASS [integrity] baseline_head_preserved
+PASS [integrity] original_phase_III_preserved
+PASS [integrity] claude_copy_byte_identical
+PASS [integrity] external_claude_preserved
+PASS [symbolic] N1_full_field_jacobian_matches_blocks
+PASS [symbolic] N1_splay_skew_matrix_square
+PASS [symbolic] N1_full_six_dimensional_characteristic_polynomial
+PASS [symbolic] N1_imaginary_root_real_equation
+PASS [symbolic] N1_imaginary_root_imag_equation
+PASS [symbolic] N1_routh_hurwitz_second_minor
+PASS [symbolic] N1_routh_hurwitz_third_minor
+PASS [symbolic] N1_witness_alpha_squared_224
+PASS [symbolic] N1_witness_frequency
+PASS [symbolic] N4_synchronous_radial_invariance
+PASS [symbolic] N4_synchronous_equal_angular_rates
+PASS [symbolic] N4_splay_plus_radial_invariance
+PASS [symbolic] N4_splay_plus_equal_angular_rates
+PASS [symbolic] N4_splay_minus_radial_invariance
+PASS [symbolic] N4_splay_minus_equal_angular_rates
+PASS [symbolic] N4_total_action_balance_identity
+PASS [symbolic] N4_phase_terms_absent_from_balance
+PASS [symbolic] oscillator_equivalence_K_zero
+PASS [symbolic] nonzero_K_extra_term_counterexample
+PASS [numerical] N1_fixture_1_1_1_6_crossing
+PASS [numerical] N1_fixture_1_1_1_6_frequency
+PASS [numerical] N1_fixture_1_0.8_0.5_5_crossing
+PASS [numerical] N1_fixture_1_0.8_0.5_5_frequency
+PASS [numerical] N1_fixture_0.7_1.3_2_9_crossing
+PASS [numerical] N1_fixture_0.7_1.3_2_9_frequency
+PASS [numerical] N1_fixture_2_0.5_0.25_4_crossing
+PASS [numerical] N1_fixture_2_0.5_0.25_4_frequency
+PASS [symbolic] N2_first_integral_derivative
+PASS [symbolic] N3_multiplier_divergence
+PASS [symbolic] N3_general_multiplier_transport_equation
+PASS [symbolic] N3_contraction_sign
+PASS [symbolic] H1_log_chart_vector_field
+PASS [symbolic] H1_divergence_log_identity
+PASS [numerical] N2_positive_mean_early_lower_exit
+PASS [numerical] N2_same_forcing_fast_warp_survives
+PASS [numerical] N2_zero_mean_early_exit_counterexample
+PASS [symbolic] N6_exact_jordan_characteristic
+PASS [symbolic] N6_exact_nonsemisimple
+PASS [symbolic] N6_square_root_perturbation_law
+PASS [numerical] N6_machine_scale_splitting_-1
+PASS [numerical] N6_machine_scale_splitting_1
+PASS [numerical] N5_quotient_cartesian_derivative_0
+PASS [numerical] N5_quotient_cartesian_derivative_1
+PASS [numerical] N5_quotient_cartesian_derivative_2
+PASS [numerical] N5_above_005_standard_solver_and_arrival
+PASS [numerical] N5_above_005_tight_solver_and_arrival
+PASS [numerical] N5_above_005_tolerance_destination_agreement
+PASS [numerical] N5_above_005_tolerance_trajectory_agreement
+PASS [numerical] N5_above_025_standard_solver_and_arrival
+PASS [numerical] N5_above_025_tight_solver_and_arrival
+PASS [numerical] N5_above_025_tolerance_destination_agreement
+PASS [numerical] N5_above_025_tolerance_trajectory_agreement
+PASS [numerical] N5_above_100_standard_solver_and_arrival
+PASS [numerical] N5_above_100_tight_solver_and_arrival
+PASS [numerical] N5_above_100_tolerance_destination_agreement
+PASS [numerical] N5_above_100_tolerance_trajectory_agreement
+PASS [numerical] N5_below_small_standard_solver_and_arrival
+PASS [numerical] N5_below_small_tight_solver_and_arrival
+PASS [numerical] N5_below_small_tolerance_destination_agreement
+PASS [numerical] N5_below_small_tolerance_trajectory_agreement
+PASS [numerical] N5_below_large_standard_solver_and_arrival
+PASS [numerical] N5_below_large_tight_solver_and_arrival
+PASS [numerical] N5_below_large_tolerance_destination_agreement
+PASS [numerical] N5_below_large_tolerance_trajectory_agreement
+PASS [numerical] N5_below_inphase_standard_solver_and_arrival
+PASS [numerical] N5_below_inphase_tight_solver_and_arrival
+PASS [numerical] N5_below_inphase_tolerance_destination_agreement
+PASS [numerical] N5_below_inphase_tolerance_trajectory_agreement
+
+threshold_fixtures
+[
+  {
+    "eps": 1,
+    "g": 1,
+    "K": 1,
+    "k": 6,
+    "r_squared": 3.0,
+    "a": -4.5,
+    "d": -7.5,
+    "alpha_threshold": 14.966629547095765,
+    "frequency": 5.612486080160915,
+    "below_abscissa": -0.02806500857987193,
+    "at_abscissa": 4.6629367034256575e-15,
+    "above_abscissa": 0.027935583022084653
+  },
+  {
+    "eps": 1,
+    "g": 0.8,
+    "K": 0.5,
+    "k": 5,
+    "r_squared": 2.5999999999999996,
+    "a": -3.999999999999999,
+    "d": -3.3,
+    "alpha_threshold": 8.023649093347458,
+    "frequency": 3.4292856398964435,
+    "below_abscissa": -0.017153096600010964,
+    "at_abscissa": 0.0,
+    "above_abscissa": 0.017073523234028998
+  },
+  {
+    "eps": 0.7,
+    "g": 1.3,
+    "K": 2,
+    "k": 9,
+    "r_squared": 3.428571428571428,
+    "a": -2.8499999999999988,
+    "d": -16.05,
+    "alpha_threshold": 18.307464647905768,
+    "frequency": 6.476109943476873,
+    "below_abscissa": -0.0302270314766937,
+    "at_abscissa": -1.1102230246251565e-15,
+    "above_abscissa": 0.030169860391169756
+  },
+  {
+    "eps": 2,
+    "g": 0.5,
+    "K": 0.25,
+    "k": 4,
+    "r_squared": 3.25,
+    "a": -12.25,
+    "d": -1.5,
+    "alpha_threshold": 23.807868356086598,
+    "frequency": 4.220485754033536,
+    "below_abscissa": -0.018823870730669823,
+    "at_abscissa": 1.6653345369377348e-15,
+    "above_abscissa": 0.01881091225422829
+  }
+]
+
+h1_domain_counterexamples
+{
+  "rho_initial": 0.01,
+  "positive_case_phi_initial": 4.71238898038469,
+  "positive_mean": 0.2794775355327257,
+  "initial_short_integral": -0.09745948603700942,
+  "quadrature_error_bound": 1.082017653664218e-15,
+  "slow_v_1_y_after_segment": -0.08740915018350798,
+  "fast_v_1000_lower_y_bound": 0.003767150546321864,
+  "zero_mean": 2.9441816668125507e-16,
+  "zero_case_halfturn_integral": -2.3611599671285592,
+  "zero_case_extended_rho_after_halfturn": -9.497211298563634
+}
+
+jordan_controlled_perturbations
+[
+  {
+    "perturbation": -2.220446049250313e-16,
+    "eigenvalues": [
+      [
+        1.0,
+        3.0497512458160184e-08
+      ],
+      [
+        1.0,
+        -3.0497512458160184e-08
+      ]
+    ],
+    "max_split": 3.0497512458160184e-08,
+    "predicted_split": 3.049751245816018e-08,
+    "trace": 2.0,
+    "determinant": 1.0000000000000009
+  },
+  {
+    "perturbation": 2.220446049250313e-16,
+    "eigenvalues": [
+      [
+        1.0000000304975125,
+        0.0
+      ],
+      [
+        0.9999999695024876,
+        0.0
+      ]
+    ],
+    "max_split": 3.0497512515381686e-08,
+    "predicted_split": 3.049751245816018e-08,
+    "trace": 2.0,
+    "determinant": 0.9999999999999991
+  }
+]
+
+N5_observed_outcomes
+{
+  "above_005": "in_phase",
+  "above_025": "in_phase",
+  "above_100": "in_phase",
+  "below_small": "splay_plus",
+  "below_large": "in_phase",
+  "below_inphase": "in_phase"
+}
+
+quotient_runs
+[
+  {
+    "label": "above_005",
+    "alpha": 15.016629547095766,
+    "precision": "standard",
+    "initial_log_action_relative_phase": [
+      0.4094651081081644,
+      0.4024651081081644,
+      0.4044651081081644,
+      2.1013951023931954,
+      4.183790204786391
+    ],
+    "initial_branch_errors": [
+      1.7355401916226818,
+      0.006999985708342196,
+      1.7295453975170882
+    ],
+    "rtol": 2e-12,
+    "atol": 2e-14,
+    "max_step": 0.1,
+    "time_horizon": 2400.0,
+    "termination_time": 250.47637515124723,
+    "nfev": 61127,
+    "solver_success": true,
+    "destination": "in_phase",
+    "final_branch_errors": [
+      9.99999969429593e-09,
+      1.7320508125259784,
+      1.732050812568877
+    ],
+    "final_actions": [
+      2.9999999979842555,
+      2.9999999980014755,
+      2.9999999980021905
+    ],
+    "final_relative_phases_wrapped": [
+      9.99999969429593e-09,
+      9.914201658952898e-09
+    ],
+    "minimum_sampled_action": 1.1763563957855214,
+    "sampled_max_splay_departure": 1.9923668370169292,
+    "five_unit_tail_error": 4.440892098500626e-16
+  },
+  {
+    "label": "above_005",
+    "alpha": 15.016629547095766,
+    "precision": "tight",
+    "initial_log_action_relative_phase": [
+      0.4094651081081644,
+      0.4024651081081644,
+      0.4044651081081644,
+      2.1013951023931954,
+      4.183790204786391
+    ],
+    "initial_branch_errors": [
+      1.7355401916226818,
+      0.006999985708342196,
+      1.7295453975170882
+    ],
+    "rtol": 5e-14,
+    "atol": 5e-16,
+    "max_step": 0.05,
+    "time_horizon": 2400.0,
+    "termination_time": 250.4763751120476,
+    "nfev": 96524,
+    "solver_success": true,
+    "destination": "in_phase",
+    "final_branch_errors": [
+      9.99999969429593e-09,
+      1.7320508125259688,
+      1.732050812568877
+    ],
+    "final_actions": [
+      2.9999999979842595,
+      2.9999999980014755,
+      2.999999998002199
+    ],
+    "final_relative_phases_wrapped": [
+      9.99999969429593e-09,
+      9.914182119027664e-09
+    ],
+    "minimum_sampled_action": 1.1763574210550511,
+    "sampled_max_splay_departure": 1.9923672662963474,
+    "five_unit_tail_error": 4.440892098500626e-16
+  },
+  {
+    "label": "above_025",
+    "alpha": 15.216629547095765,
+    "precision": "standard",
+    "initial_log_action_relative_phase": [
+      0.4094651081081644,
+      0.4024651081081644,
+      0.4044651081081644,
+      2.1013951023931954,
+      4.183790204786391
+    ],
+    "initial_branch_errors": [
+      1.7355401916226818,
+      0.006999985708342196,
+      1.7295453975170882
+    ],
+    "rtol": 2e-12,
+    "atol": 2e-14,
+    "max_step": 0.1,
+    "time_horizon": 2400.0,
+    "termination_time": 68.62160664261289,
+    "nfev": 19505,
+    "solver_success": true,
+    "destination": "in_phase",
+    "final_branch_errors": [
+      9.999999999999686e-09,
+      1.732050807602509,
+      1.7320508125688774
+    ],
+    "final_actions": [
+      2.9999999980247822,
+      2.9999999980254737,
+      2.9999999980077567
+    ],
+    "final_relative_phases_wrapped": [
+      -6.726355256498777e-11,
+      -9.999999999999686e-09
+    ],
+    "minimum_sampled_action": 1.1375497325455097,
+    "sampled_max_splay_departure": 1.9843025345434266,
+    "five_unit_tail_error": 4.440892098500626e-16
+  },
+  {
+    "label": "above_025",
+    "alpha": 15.216629547095765,
+    "precision": "tight",
+    "initial_log_action_relative_phase": [
+      0.4094651081081644,
+      0.4024651081081644,
+      0.4044651081081644,
+      2.1013951023931954,
+      4.183790204786391
+    ],
+    "initial_branch_errors": [
+      1.7355401916226818,
+      0.006999985708342196,
+      1.7295453975170882
+    ],
+    "rtol": 5e-14,
+    "atol": 5e-16,
+    "max_step": 0.05,
+    "time_horizon": 2400.0,
+    "termination_time": 68.62160674445336,
+    "nfev": 30587,
+    "solver_success": true,
+    "destination": "in_phase",
+    "final_branch_errors": [
+      1.0000000000000558e-08,
+      1.732050807602509,
+      1.7320508125688774
+    ],
+    "final_actions": [
+      2.9999999980247782,
+      2.9999999980254697,
+      2.9999999980077545
+    ],
+    "final_relative_phases_wrapped": [
+      -6.726407489992887e-11,
+      -1.0000000000000558e-08
+    ],
+    "minimum_sampled_action": 1.1375498759329663,
+    "sampled_max_splay_departure": 1.9843023527323578,
+    "five_unit_tail_error": 4.440892098500626e-16
+  },
+  {
+    "label": "above_100",
+    "alpha": 15.966629547095765,
+    "precision": "standard",
+    "initial_log_action_relative_phase": [
+      0.4094651081081644,
+      0.4024651081081644,
+      0.4044651081081644,
+      2.1013951023931954,
+      4.183790204786391
+    ],
+    "initial_branch_errors": [
+      1.7355401916226818,
+      0.006999985708342196,
+      1.7295453975170882
+    ],
+    "rtol": 2e-12,
+    "atol": 2e-14,
+    "max_step": 0.1,
+    "time_horizon": 2400.0,
+    "termination_time": 22.228154141222255,
+    "nfev": 7853,
+    "solver_success": true,
+    "destination": "in_phase",
+    "final_branch_errors": [
+      1.0000000000000185e-08,
+      1.7320508125688774,
+      1.7320508075509085
+    ],
+    "final_actions": [
+      2.9999999980547445,
+      2.9999999980376773,
+      2.999999998053856
+    ],
+    "final_relative_phases_wrapped": [
+      -1.0000000000000185e-08,
+      3.593811846696634e-11
+    ],
+    "minimum_sampled_action": 1.1184461004477224,
+    "sampled_max_splay_departure": 1.8520966383730157,
+    "five_unit_tail_error": 4.440892098500626e-16
+  },
+  {
+    "label": "above_100",
+    "alpha": 15.966629547095765,
+    "precision": "tight",
+    "initial_log_action_relative_phase": [
+      0.4094651081081644,
+      0.4024651081081644,
+      0.4044651081081644,
+      2.1013951023931954,
+      4.183790204786391
+    ],
+    "initial_branch_errors": [
+      1.7355401916226818,
+      0.006999985708342196,
+      1.7295453975170882
+    ],
+    "rtol": 5e-14,
+    "atol": 5e-16,
+    "max_step": 0.05,
+    "time_horizon": 2400.0,
+    "termination_time": 22.228154121802092,
+    "nfev": 12086,
+    "solver_success": true,
+    "destination": "in_phase",
+    "final_branch_errors": [
+      9.999999999999828e-09,
+      1.7320508125688774,
+      1.7320508075509118
+    ],
+    "final_actions": [
+      2.9999999980547476,
+      2.9999999980376795,
+      2.9999999980538496
+    ],
+    "final_relative_phases_wrapped": [
+      -9.999999999999828e-09,
+      3.593190121802844e-11
+    ],
+    "minimum_sampled_action": 1.1184461067252518,
+    "sampled_max_splay_departure": 1.852096637514576,
+    "five_unit_tail_error": 4.440892098500626e-16
+  },
+  {
+    "label": "below_small",
+    "alpha": 14.916629547095765,
+    "precision": "standard",
+    "initial_log_action_relative_phase": [
+      0.4094651081081644,
+      0.4024651081081644,
+      0.4044651081081644,
+      2.1013951023931954,
+      4.183790204786391
+    ],
+    "initial_branch_errors": [
+      1.7355401916226818,
+      0.006999985708342196,
+      1.7295453975170882
+    ],
+    "rtol": 2e-12,
+    "atol": 2e-14,
+    "max_step": 0.1,
+    "time_horizon": 2400.0,
+    "termination_time": 1330.517190993431,
+    "nfev": 204902,
+    "solver_success": true,
+    "destination": "splay_plus",
+    "final_branch_errors": [
+      1.7320508125688774,
+      9.999999971519674e-09,
+      1.7320508028795012
+    ],
+    "final_actions": [
+      1.4999999957156902,
+      1.5000000069508277,
+      1.49999999733348
+    ],
+    "final_relative_phases_wrapped": [
+      2.0943951117719477,
+      -2.094395112393196
+    ],
+    "minimum_sampled_action": 1.4955067432550595,
+    "sampled_max_splay_departure": 0.006999985708342196,
+    "five_unit_tail_error": 1.332017078550723e-08
+  },
+  {
+    "label": "below_small",
+    "alpha": 14.916629547095765,
+    "precision": "tight",
+    "initial_log_action_relative_phase": [
+      0.4094651081081644,
+      0.4024651081081644,
+      0.4044651081081644,
+      2.1013951023931954,
+      4.183790204786391
+    ],
+    "initial_branch_errors": [
+      1.7355401916226818,
+      0.006999985708342196,
+      1.7295453975170882
+    ],
+    "rtol": 5e-14,
+    "atol": 5e-16,
+    "max_step": 0.05,
+    "time_horizon": 2400.0,
+    "termination_time": 1329.9570014635576,
+    "nfev": 399362,
+    "solver_success": true,
+    "destination": "splay_plus",
+    "final_branch_errors": [
+      1.7320508028280277,
+      9.999999956645507e-09,
+      1.7320508125688767
+    ],
+    "final_actions": [
+      1.500000004324389,
+      1.4999999930156096,
+      1.5000000026600022
+    ],
+    "final_relative_phases_wrapped": [
+      2.0943950929114967,
+      -2.094395092393196
+    ],
+    "minimum_sampled_action": 1.4955067432550595,
+    "sampled_max_splay_departure": 0.006999985708342196,
+    "five_unit_tail_error": 1.3349545480505442e-08
+  },
+  {
+    "label": "below_large",
+    "alpha": 14.916629547095765,
+    "precision": "standard",
+    "initial_log_action_relative_phase": [
+      0.4854651081081644,
+      0.3454651081081644,
+      0.38546510810816437,
+      2.2343951023931954,
+      4.088790204786391
+    ],
+    "initial_branch_errors": [
+      1.797751862917367,
+      0.13988569467506562,
+      1.6799070258060491
+    ],
+    "rtol": 2e-12,
+    "atol": 2e-14,
+    "max_step": 0.1,
+    "time_horizon": 2400.0,
+    "termination_time": 17.330918737474338,
+    "nfev": 7664,
+    "solver_success": true,
+    "destination": "in_phase",
+    "final_branch_errors": [
+      9.99999999999996e-09,
+      1.7320508125688774,
+      1.7320508075020482
+    ],
+    "final_actions": [
+      2.999999997935344,
+      2.9999999979169685,
+      2.9999999979345837
+    ],
+    "final_relative_phases_wrapped": [
+      -9.99999999999996e-09,
+      1.336590609160529e-10
+    ],
+    "minimum_sampled_action": 1.100104016515827,
+    "sampled_max_splay_departure": 1.8419653604732218,
+    "five_unit_tail_error": 4.440892098500626e-16
+  },
+  {
+    "label": "below_large",
+    "alpha": 14.916629547095765,
+    "precision": "tight",
+    "initial_log_action_relative_phase": [
+      0.4854651081081644,
+      0.3454651081081644,
+      0.38546510810816437,
+      2.2343951023931954,
+      4.088790204786391
+    ],
+    "initial_branch_errors": [
+      1.797751862917367,
+      0.13988569467506562,
+      1.6799070258060491
+    ],
+    "rtol": 5e-14,
+    "atol": 5e-16,
+    "max_step": 0.05,
+    "time_horizon": 2400.0,
+    "termination_time": 17.33091870639873,
+    "nfev": 11630,
+    "solver_success": true,
+    "destination": "in_phase",
+    "final_branch_errors": [
+      1.000000000000019e-08,
+      1.7320508125688774,
+      1.7320508075020495
+    ],
+    "final_actions": [
+      2.999999997935343,
+      2.999999997916963,
+      2.9999999979345837
+    ],
+    "final_relative_phases_wrapped": [
+      -1.000000000000019e-08,
+      1.336563963807938e-10
+    ],
+    "minimum_sampled_action": 1.1001040228752117,
+    "sampled_max_splay_departure": 1.8419653596243986,
+    "five_unit_tail_error": 4.440892098500626e-16
+  },
+  {
+    "label": "below_inphase",
+    "alpha": 14.916629547095765,
+    "precision": "standard",
+    "initial_log_action_relative_phase": [
+      1.1026122886681098,
+      1.09561228866811,
+      1.09761228866811,
+      0.006999999999999999,
+      -0.005
+    ],
+    "initial_branch_errors": [
+      0.012024032032025733,
+      1.729545397517089,
+      1.7355401916226816
+    ],
+    "rtol": 2e-12,
+    "atol": 2e-14,
+    "max_step": 0.1,
+    "time_horizon": 2400.0,
+    "termination_time": 1.3388477047098248,
+    "nfev": 722,
+    "solver_success": true,
+    "destination": "in_phase",
+    "final_branch_errors": [
+      1.0000000000000002e-08,
+      1.7320508125688774,
+      1.732050811660845
+    ],
+    "final_actions": [
+      3.0000000000027,
+      2.999999999963317,
+      2.9999999999747198
+    ],
+    "final_relative_phases_wrapped": [
+      -1.0000000000000002e-08,
+      -8.183935364043848e-09
+    ],
+    "minimum_sampled_action": 2.9910134865101194,
+    "sampled_max_splay_departure": 1.7350660065836159,
+    "five_unit_tail_error": 4.440892098500626e-16
+  },
+  {
+    "label": "below_inphase",
+    "alpha": 14.916629547095765,
+    "precision": "tight",
+    "initial_log_action_relative_phase": [
+      1.1026122886681098,
+      1.09561228866811,
+      1.09761228866811,
+      0.006999999999999999,
+      -0.005
+    ],
+    "initial_branch_errors": [
+      0.012024032032025733,
+      1.729545397517089,
+      1.7355401916226816
+    ],
+    "rtol": 5e-14,
+    "atol": 5e-16,
+    "max_step": 0.05,
+    "time_horizon": 2400.0,
+    "termination_time": 1.3388477518170987,
+    "nfev": 1112,
+    "solver_success": true,
+    "destination": "in_phase",
+    "final_branch_errors": [
+      1.0000000000000007e-08,
+      1.7320508125688774,
+      1.7320508116608462
+    ],
+    "final_actions": [
+      3.0000000000026983,
+      2.999999999963321,
+      2.9999999999747153
+    ],
+    "final_relative_phases_wrapped": [
+      -1.0000000000000007e-08,
+      -8.183937089701867e-09
+    ],
+    "minimum_sampled_action": 2.9910134865101194,
+    "sampled_max_splay_departure": 1.7350660065830519,
+    "five_unit_tail_error": 4.440892098500626e-16
+  }
+]

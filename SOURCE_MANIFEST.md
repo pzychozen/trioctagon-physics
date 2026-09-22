@@ -3,10 +3,10 @@
 Snapshot: 2026-09-21.
 
 The first table records copied scientific artifacts. The original 48 rows
-preserve their initial copy-time observations. The additional Claude report
-was already copied for Phase Bridge II; its external original and existing copy
-were checked byte-for-byte at this freeze, with the original unchanged.
-The separate table below records four repository-native research artifacts,
+preserve their initial copy-time observations. The additional Claude reports
+were already copied for Phases II and III; each external original and existing
+copy was checked byte-for-byte at its freeze, with the original unchanged.
+The separate tables below record ten repository-native research artifacts,
 whose existing bytes were frozen in place; no external-copy claim is made for them.
 No scientific transformation or line ending normalization was performed.
 Original absolute paths are provenance, not required locations for reading the repository.
@@ -62,6 +62,7 @@ Original absolute paths are provenance, not required locations for reading the r
 | `research/top_to_recursive_bridge/bridge_symbolic_results.json` | `C:\TORMENT\TRIOCTAGON_new\research\top_to_recursive_bridge\bridge_symbolic_results.json` | `6ff1b2cc8ab53820b86af4441318cfaeb7dd4aefdb8d91f171614a8829bc120f` | Completed first-bridge research or its recorded verification/provenance | CURRENT_RESEARCH |
 | `research/top_to_recursive_bridge/source_manifest.json` | `C:\TORMENT\TRIOCTAGON_new\research\top_to_recursive_bridge\source_manifest.json` | `26488614d010a7610a02bbb98e43e19495d06a3f07695c5111458840b986a188` | Completed first-bridge research or its recorded verification/provenance | CURRENT_RESEARCH |
 | `research/phase_bridge_II/PHASE_BRIDGE_II_HAMILTONIAN_DYNAMICS.md` | `C:\TORMENT\TRIOCTAGON_new\research\phase_bridge_II\PHASE_BRIDGE_II_HAMILTONIAN_DYNAMICS.md` | `e9bc4cf19d5292aa26e69095a75f9f7a64280b11292e8e33d2020a3f03e47b57` | Claude original report, existing copy preserved unchanged; read with the Codex review | CURRENT_RESEARCH |
+| `research/phase_bridge_III/PHASE_BRIDGE_III_CLAUDE_ADVERSARIAL_REVIEW.md` | `C:\TORMENT\TRIOCTAGON_new\research\phase_bridge_III_claude_review\PHASE_BRIDGE_III_CLAUDE_ADVERSARIAL_REVIEW.md` | `bd051995d03cec556ac291575249164755c23351ef1102a3af34a3cb373c8a5c` | Claude adversarial review, external original copied unchanged; read with the accepted synthesis | CURRENT_RESEARCH |
 
 ## Phase Bridge II repository-native research freeze
 
@@ -83,6 +84,28 @@ baseline and execution provenance; do not rerun them merely to validate this fre
 | `research/phase_bridge_II/verify_phase_bridge_II.py` | `C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\research\phase_bridge_II\verify_phase_bridge_II.py` | `66ae6ddaeb0a037f6110b81bb687c5e05adc764c373e7d7e288b88bae30360fe` | Independent verification script; retained unchanged and not run during freeze | CURRENT_RESEARCH |
 
 
+## Phase Bridge III repository-native research
+
+Freeze date: 2026-09-22. These six artifacts were authored in the repository
+and are preserved byte-for-byte from the accepted verification state. Claude's
+adversarial review is the separate copied-source row above. The seven files
+are archived together; PHASE_BRIDGE_III_ACCEPTED_RESULTS.md governs the scoped
+accepted conclusions without rewriting either original report.
+
+The scientific verifier and recorded outputs retain their verification-time
+baseline and hashes. Statements about an uncommitted verification task in those
+reports are historical execution provenance. This freeze does not rerun them;
+use tools/verify_archive.py for archive integrity.
+
+| Repository path | Original authoritative path | SHA-256 | Role | Status |
+|---|---|---|---|---|
+| `research/phase_bridge_III/PHASE_BRIDGE_III_RECURSIVE_TIME_ACTION_ANGLE.md` | `C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\research\phase_bridge_III\PHASE_BRIDGE_III_RECURSIVE_TIME_ACTION_ANGLE.md` | `d19178a45b44f422a0f9f5c38494c79778914be846f3e2eddb118e29baa68f95` | Original Phase III derivation, preserved as review history; read with the accepted synthesis | CURRENT_RESEARCH |
+| `research/phase_bridge_III/PHASE_BRIDGE_III_CODEX_FINAL_REVIEW.md` | `C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\research\phase_bridge_III\PHASE_BRIDGE_III_CODEX_FINAL_REVIEW.md` | `a69958d9d8f2dea2e973eaa73cb04e217427a5e85765dd4fc2525a7822d6b463` | Final independent review, corrections, and scoped claim dispositions | CURRENT_RESEARCH |
+| `research/phase_bridge_III/PHASE_BRIDGE_III_ACCEPTED_RESULTS.md` | `C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\research\phase_bridge_III\PHASE_BRIDGE_III_ACCEPTED_RESULTS.md` | `7923bd1c27bb7f0ab6a51da8d95661764e30612fca10cfb82c7af4d22ea1cf11` | Accepted Phase III research synthesis; operative scoped conclusions for this freeze | CURRENT_RESEARCH |
+| `research/phase_bridge_III/verify_phase_bridge_III.py` | `C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\research\phase_bridge_III\verify_phase_bridge_III.py` | `b2b07bcd003387630b36e21a4ef92f994338bd8b93e934e6699455efd732ec7a` | Independent verification script; retained unchanged and not run during freeze | CURRENT_RESEARCH |
+| `research/phase_bridge_III/phase_bridge_III_results.txt` | `C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\research\phase_bridge_III\phase_bridge_III_results.txt` | `d579f1a2afe3a58b1d095e5db4a8249eaf6845350385cd6bf1d15c2c1e8ea5cc` | Recorded independent verification results, human-readable | CURRENT_RESEARCH |
+| `research/phase_bridge_III/phase_bridge_III_results.json` | `C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\research\phase_bridge_III\phase_bridge_III_results.json` | `1d36558b7c633005a8ffea35794c49b57a44fcd4198b217ae0c83700489a94aa` | Recorded independent verification results, machine-readable | CURRENT_RESEARCH |
+
 ## New packaging records
 
 README.md, CURRENT_STATE.md, this manifest, archive_manifest.json,
@@ -103,8 +126,8 @@ Scientific links and original execution paths inside copied files
 are intentionally unchanged. CURRENT_STATE.md provides the portable
 navigation and explains the bridge script's original-path dependency.
 
-COPIED_SCIENTIFIC_ARTIFACTS = 49
-REPOSITORY_NATIVE_RESEARCH_ARTIFACTS = 4
-TOTAL_SCIENTIFIC_ARTIFACTS = 53
+COPIED_SCIENTIFIC_ARTIFACTS = 50
+REPOSITORY_NATIVE_RESEARCH_ARTIFACTS = 10
+TOTAL_SCIENTIFIC_ARTIFACTS = 60
 FILES_TRANSFORMED = 0
 AUTHORITATIVE_SOURCE_MODIFIED = NO
