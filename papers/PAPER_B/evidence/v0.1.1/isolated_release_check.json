@@ -1,0 +1,210 @@
+{
+  "attribution": "Codex isolated publication-content verification, 2026-09-23",
+  "status": "PASS",
+  "baseline_commit": "a0875c493b23b7d1aaa718ea2b40aa17af9adcd2",
+  "committed_files": 70,
+  "assembly": "git archive baseline plus exactly the current paper and supporting allowlists",
+  "paper_paths_at_assembly": 125,
+  "support_paths": 10,
+  "destination": "C:\\Users\\Notandi\\.codex\\tmp\\paper-b-release-v011-20260923-verified",
+  "no_full_archive_copy": true,
+  "no_environment_install_or_upgrade": true,
+  "tools_external_and_explicit": {
+    "PAPER_B_PANDOC": "C:\\TORMENT\\TRIOCTAGON_new\\reconstruction\\publication\\paper_C\\build\\tools\\pandoc\\pandoc-3.11\\pandoc.exe",
+    "PAPER_B_TECTONIC": "C:\\TORMENT\\TRIOCTAGON_new\\reconstruction\\publication\\paper_C\\build\\tools\\tectonic\\tectonic.exe",
+    "PAPER_B_TEX_CACHE": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_B\\.build\\tectonic-cache",
+    "PAPER_B_PYTHON_PATH": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_B\\.build\\plotdeps"
+  },
+  "python_executable": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_physics\\.venv\\Scripts\\python.exe",
+  "commands": [
+    {
+      "command": "saved_package",
+      "mode": "runtime",
+      "exit_code": 0
+    },
+    {
+      "command": "paper_algebra",
+      "mode": "paper",
+      "exit_code": 0
+    },
+    {
+      "command": "figures",
+      "mode": "paper",
+      "exit_code": 0
+    },
+    {
+      "command": "pdf_build",
+      "mode": "paper",
+      "exit_code": 0
+    },
+    {
+      "command": "public_verification",
+      "mode": "paper",
+      "exit_code": 0
+    },
+    {
+      "command": "runtime_smoke",
+      "mode": "runtime",
+      "exit_code": 0
+    },
+    {
+      "command": "cited_tests",
+      "mode": "runtime",
+      "exit_code": 0
+    }
+  ],
+  "paper_pdf_identical_to_local_build": true,
+  "pdf_sha256": "4a470019ca311d245c3d24e1a870d2ddaf4a25f3809ae2ee04d030d40a919d82",
+  "all_ten_figure_files_identical": true,
+  "execution_inputs": [
+    {
+      "repository_path": "kernel_physics/README.md",
+      "sha256": "5ec00f5fc36cdc1ef1fae03ca870ee0d5dd8fb033af57e3159cb0c830dc5201e"
+    },
+    {
+      "repository_path": "kernel_physics/__init__.py",
+      "sha256": "98eea72fbd95145cc0be31844910715be938b0ec5b93f7aba33fb8d88781abb6"
+    },
+    {
+      "repository_path": "kernel_physics/_response_numeric.py",
+      "sha256": "cc33f797e76f7dbeff6fbd58ab52003fde2acbadf35ae299d827b4b55ba29655"
+    },
+    {
+      "repository_path": "kernel_physics/boundary_response.py",
+      "sha256": "febcd7d4dd8c51104dd0b75c7d2fbf14779895099897525aaf892e1833f8116c"
+    },
+    {
+      "repository_path": "kernel_physics/dynamics.py",
+      "sha256": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4"
+    },
+    {
+      "repository_path": "kernel_physics/face_state.py",
+      "sha256": "be9d1e25a6f368e644ecfa9b1af70ba9382599e8b4d43d529d1783004d86ded7"
+    },
+    {
+      "repository_path": "kernel_physics/geometry.py",
+      "sha256": "18398bd15b12c2dc1711c3ea2769f50215f2bcad5335ced9ee23e4e6baf1ddbf"
+    },
+    {
+      "repository_path": "kernel_physics/operating_region.py",
+      "sha256": "4428dc5d1b9a8328da818550c51e1aef489d42ddd8338c19c3185fed9300f160"
+    },
+    {
+      "repository_path": "kernel_physics/readouts.py",
+      "sha256": "3889051f08c09197224a30263195f8f0d474e5f7b93671fb56e6c240c58e91c9"
+    },
+    {
+      "repository_path": "kernel_physics/srg.py",
+      "sha256": "90a563d8ef0a18ef769c76d4884e94badbaa38771d4dd192610a4cc74d709d34"
+    },
+    {
+      "repository_path": "kernel_physics/tests/__init__.py",
+      "sha256": "7ef417a31213f7edeed92675a3be59833eb338c830064101d66ee290b9173225"
+    },
+    {
+      "repository_path": "kernel_physics/tests/test_dynamics.py",
+      "sha256": "9acbc542dd91438dc7896d784dc6837e17223568a91a9b2d4178daeb2bd55caa"
+    },
+    {
+      "repository_path": "kernel_physics/tests/test_face_state.py",
+      "sha256": "0625221cf107f2c4ac778e17c9ff3262af64978089bb2ad571ee32bf07740bcb"
+    },
+    {
+      "repository_path": "kernel_physics/tests/test_readouts.py",
+      "sha256": "df8683819e6733ddf6b47d52cbc42b332a72e7af8ec9148195e3e935201763e0"
+    },
+    {
+      "repository_path": "papers/PAPER_B/PAPER_B_TRIADIC_CHIRALITY_AND_ORIENTATION_GEOMETRY_PUBLICATION_v0.1.1.md",
+      "sha256": "19972277060588a3d3c3550a9cecc1274550bba14bed6e5e962b853054d13a07"
+    },
+    {
+      "repository_path": "papers/PAPER_B/accepted_coordinates.py",
+      "sha256": "adc0bc3ee4a8e27326cf3f446764539fe4f1f8492967a115f6cf8d469fd2f088"
+    },
+    {
+      "repository_path": "papers/PAPER_B/build_publication.py",
+      "sha256": "7ffb9e21d3ea7d26673c90ec0f66b9b537b4defacb57223e7f6acb186b8f1c8b"
+    },
+    {
+      "repository_path": "papers/PAPER_B/check_manuscript_algebra.py",
+      "sha256": "a717a3ddb38bdf48f64daac73e8055086cd6d34eb04ed5e68feb8ea80eabe667"
+    },
+    {
+      "repository_path": "papers/PAPER_B/check_package.py",
+      "sha256": "ddac72de85ffe44bee512000103da487483e926c84fadf627d0a1e2d22139901"
+    },
+    {
+      "repository_path": "papers/PAPER_B/closeout.py",
+      "sha256": "9beb6aab1bf9ea13ab03381fb5d1d9b5773a3e6e669167517eb3483f9e2792dc"
+    },
+    {
+      "repository_path": "papers/PAPER_B/generate_figures.py",
+      "sha256": "5dc532b1b5837f96bfe705219e123de07e00036020d52d4290b9991698e434c2"
+    },
+    {
+      "repository_path": "papers/PAPER_B/paper_B_final.tex",
+      "sha256": "d207e982a51c437e82d2d385651b86cf54c2725cf3fe17b11005bc78e9b61d66"
+    },
+    {
+      "repository_path": "papers/PAPER_B/publication_config.json",
+      "sha256": "da2a6144a211279702b6b00ac28f67f3a9b2d87eaee2de4489283b00a68dd012"
+    },
+    {
+      "repository_path": "papers/PAPER_B/publication_runtime.py",
+      "sha256": "cb78dc37e490b999ebad0376f58ec821e53100a93ed9aa1d37b3eb61f36482dc"
+    },
+    {
+      "repository_path": "papers/PAPER_B/publication_style.tex",
+      "sha256": "fffdec5a7dde5d9d1d9e58682a282492ce470f0f819a950db0b96e7a5793d21d"
+    },
+    {
+      "repository_path": "papers/PAPER_B/reviewed_v0.1/accepted_coordinates.py",
+      "sha256": "a3f046f56d43b69cadaf9a65cb731d03da30502fb55b0ed6b5ec344cdb76c1bc"
+    },
+    {
+      "repository_path": "papers/PAPER_B/reviewed_v0.1/build_publication.py",
+      "sha256": "93190d4b7aec6cb079201de38cc1f96fc71e12a53995fd5d5706cc068f62cfd4"
+    },
+    {
+      "repository_path": "papers/PAPER_B/reviewed_v0.1/check_manuscript_algebra.py",
+      "sha256": "dc345980abc323842ed192f7d73c4daa9c020b4f7ee87fb9bf2696fc01d59b3d"
+    },
+    {
+      "repository_path": "papers/PAPER_B/reviewed_v0.1/check_package.py",
+      "sha256": "7676d149c06dc6e7aabb2c3460410c5665dcf3c994647970588cd918895036e7"
+    },
+    {
+      "repository_path": "papers/PAPER_B/reviewed_v0.1/closeout.py",
+      "sha256": "10098c165c2c60d09f2a75b5b42f387a009955c98c82f76f39041e1aaa75210a"
+    },
+    {
+      "repository_path": "papers/PAPER_B/reviewed_v0.1/generate_figures.py",
+      "sha256": "7966676e00b53d6d130f6b4434f0aa0d3b43f729e6e6f88728eabeadcfa84cfb"
+    },
+    {
+      "repository_path": "papers/PAPER_B/reviewed_v0.1/paper_B_final.tex",
+      "sha256": "13fd117e8643c02660fe39c271af54878fd51312e118b4ef8b49dd1e90663297"
+    },
+    {
+      "repository_path": "papers/PAPER_B/reviewed_v0.1/publication_style.tex",
+      "sha256": "fffdec5a7dde5d9d1d9e58682a282492ce470f0f819a950db0b96e7a5793d21d"
+    },
+    {
+      "repository_path": "papers/PAPER_B/reviewed_v0.1/verify_publication.py",
+      "sha256": "cd0a0e8778dc8a14a3c2ec7b75b75c6667b1bdaa52df73163e9442ec93c5974f"
+    },
+    {
+      "repository_path": "papers/PAPER_B/runtime_smoke.py",
+      "sha256": "78fd253d104d0f9d2e8736664f7b291d8e8cde953128df0a299a170f0df1a845"
+    },
+    {
+      "repository_path": "papers/PAPER_B/verify_isolated_release.py",
+      "sha256": "71750c11146fbf54a942813243242538b2824ecb149d5bf11f46b801aac76d46"
+    },
+    {
+      "repository_path": "papers/PAPER_B/verify_publication.py",
+      "sha256": "105042c75422db10fa9a3ddbe195175081035f1a774effc44945e8fc03db60e8"
+    }
+  ],
+  "limits": "Baseline-plus-proposed-files test with existing declared tools; not a remote clone or clean-machine dependency installation. Final non-executable receipts may be appended after this run and synchronized with a final read-only package check."
+}

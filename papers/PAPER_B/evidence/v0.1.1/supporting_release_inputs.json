@@ -1,0 +1,62 @@
+[
+  {
+    "repository_path": "kernel_physics/README.md",
+    "sha256": "5ec00f5fc36cdc1ef1fae03ca870ee0d5dd8fb033af57e3159cb0c830dc5201e",
+    "bytes": 19329,
+    "justification": "test_face_state.py executes the one existing Python example and inspects face_runs; committed README lacks it. Current reviewed bytes retained."
+  },
+  {
+    "repository_path": "kernel_physics/_response_numeric.py",
+    "sha256": "cc33f797e76f7dbeff6fbd58ab52003fde2acbadf35ae299d827b4b55ba29655",
+    "bytes": 3941,
+    "justification": "All five optional modules import checked numeric primitives or precision types."
+  },
+  {
+    "repository_path": "kernel_physics/boundary_response.py",
+    "sha256": "febcd7d4dd8c51104dd0b75c7d2fbf14779895099897525aaf892e1833f8116c",
+    "bytes": 3847,
+    "justification": "srg.py imports RESPONSE_ID, _theta, lens_area_gain; cited tests import its precision error."
+  },
+  {
+    "repository_path": "kernel_physics/face_state.py",
+    "sha256": "be9d1e25a6f368e644ecfa9b1af70ba9382599e8b4d43d529d1783004d86ded7",
+    "bytes": 8721,
+    "justification": "Appendix A API and runtime_smoke.py directly import it; absent from baseline."
+  },
+  {
+    "repository_path": "kernel_physics/operating_region.py",
+    "sha256": "4428dc5d1b9a8328da818550c51e1aef489d42ddd8338c19c3185fed9300f160",
+    "bytes": 3837,
+    "justification": "face_state.py imports it unconditionally, including the plain-step entry point."
+  },
+  {
+    "repository_path": "kernel_physics/readouts.py",
+    "sha256": "3889051f08c09197224a30263195f8f0d474e5f7b93671fb56e6c240c58e91c9",
+    "bytes": 744,
+    "justification": "face_state.py imports it; Appendix A cites z_chiral and its tests."
+  },
+  {
+    "repository_path": "kernel_physics/srg.py",
+    "sha256": "90a563d8ef0a18ef769c76d4884e94badbaa38771d4dd192610a4cc74d709d34",
+    "bytes": 7282,
+    "justification": "operating_region.py imports handoff_area_response; test_readouts.py imports fourier_basis."
+  },
+  {
+    "repository_path": "kernel_physics/tests/test_face_state.py",
+    "sha256": "0625221cf107f2c4ac778e17c9ff3262af64978089bb2ad571ee32bf07740bcb",
+    "bytes": 21925,
+    "justification": "Existing tests explicitly cited by Appendix A; contains no new test changes."
+  },
+  {
+    "repository_path": "kernel_physics/tests/test_readouts.py",
+    "sha256": "df8683819e6733ddf6b47d52cbc42b332a72e7af8ec9148195e3e935201763e0",
+    "bytes": 1702,
+    "justification": "Existing tests explicitly cited by Appendix A."
+  },
+  {
+    "repository_path": "research/folded_face_state/FOLDED_FACE_STATE_ATTACHMENT_v0.1.md",
+    "sha256": "ab5d572ca11bb8d8ecb2236f8521cc25e7b90b7569942303568bfa93d01b52e7",
+    "bytes": 45010,
+    "justification": "Exact repository copy of the cited [FA] report, including controlling section10; original bytes retained."
+  }
+]
