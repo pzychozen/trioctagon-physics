@@ -1,0 +1,86 @@
+{
+  "attribution": "New Codex fixed source-body replays for figures, not original captured runs",
+  "runs": {
+    "baseline": {
+      "seed": 42,
+      "steps": 300,
+      "dt": 0.05,
+      "eps": 0.05,
+      "g": 0.2,
+      "lambda_phase": 0.001,
+      "k": [
+        1.0,
+        1.104941840306724,
+        2.52053634379122
+      ]
+    },
+    "ema": {
+      "seed": 42,
+      "steps": 300,
+      "dt": 0.05,
+      "eps": 0.05,
+      "g": 0.2,
+      "lambda_phase": 0.001,
+      "k": [
+        1.0,
+        1.104941840306724,
+        2.52053634379122
+      ]
+    },
+    "subcritical": {
+      "seed": 2158500047,
+      "steps": 2000,
+      "dt": 0.02776,
+      "eps": 0.0005,
+      "g": 0.664,
+      "lambda_phase": 0.0,
+      "k": [
+        1.0,
+        1.2208964704604097,
+        6.35310346037241
+      ],
+      "Z_equal": true,
+      "v_equal": true,
+      "J_equal": true,
+      "finite_event_count": 26,
+      "first_nonfinite_Z": null,
+      "first_nonfinite_v": null,
+      "first_nonfinite_J": null
+    },
+    "critical": {
+      "seed": 2158500047,
+      "steps": 2000,
+      "dt": 0.02776,
+      "eps": 0.0005,
+      "g": 0.667,
+      "lambda_phase": 0.0,
+      "k": [
+        1.0,
+        1.2208964704604097,
+        6.35310346037241
+      ],
+      "Z_equal": true,
+      "v_equal": true,
+      "J_equal": true,
+      "finite_event_count": 1277,
+      "first_nonfinite_Z": 1279,
+      "first_nonfinite_v": 1278,
+      "first_nonfinite_J": 1279
+    }
+  },
+  "warnings": [
+    "datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).",
+    "invalid value encountered in divide",
+    "invalid value encountered in dot",
+    "invalid value encountered in multiply",
+    "invalid value encountered in scalar multiply",
+    "invalid value encountered in subtract",
+    "overflow encountered in dot",
+    "overflow encountered in multiply",
+    "overflow encountered in scalar multiply",
+    "overflow encountered in square"
+  ],
+  "data_sha256": "bb20f913342788b8e7fa91a5e9829df1ae5c0823176e4c4b58c66a9c977fca54",
+  "numpy": "2.5.3",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+}
