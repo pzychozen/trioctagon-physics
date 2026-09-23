@@ -1,0 +1,197 @@
+{
+  "attribution": "New Codex exact supporting predicates for the author clarification; not historical output or independent external review.",
+  "assumptions": [
+    "s>0,g>0",
+    "Tangentially aligned selected edges at C3-related midpoint radius p",
+    "Connectors are added reference segments",
+    "Planar-frame and vertical-face completions are explicitly separate realizations"
+  ],
+  "sympy_version": "1.14.0",
+  "passed": 31,
+  "total": 31,
+  "checks": [
+    {
+      "name": "explicit_six_vertices",
+      "pass": true,
+      "detail": "General positive s,g; p=(s+2g)/(2sqrt(3))."
+    },
+    {
+      "name": "edge_and_connector_vectors",
+      "pass": true,
+      "detail": "Three selected edges and three deliberately added connectors."
+    },
+    {
+      "name": "placement_law",
+      "pass": true,
+      "detail": "g=sqrt(3)p-s/2."
+    },
+    {
+      "name": "six_exact_lengths",
+      "pass": true,
+      "detail": "Alternating s,g,s,g,s,g."
+    },
+    {
+      "name": "six_interior_angles",
+      "pass": true,
+      "detail": "Interior cosine=-1/2; lengths positive."
+    },
+    {
+      "name": "six_positive_turns",
+      "pass": true,
+      "detail": "Exterior turns +60 degrees."
+    },
+    {
+      "name": "exact_closure",
+      "pass": true,
+      "detail": "Closed by the same cyclic endpoints."
+    },
+    {
+      "name": "C3_covariance",
+      "pass": true,
+      "detail": "Rotation preserves edge/connector roles."
+    },
+    {
+      "name": "reflection_symmetry",
+      "pass": true,
+      "detail": "Uncoloured planar polygon has D3 symmetry."
+    },
+    {
+      "name": "general_circumcircle",
+      "pass": true,
+      "detail": "All six points lie on one circle."
+    },
+    {
+      "name": "general_area",
+      "pass": true,
+      "detail": "Signed area positive for s,g>0."
+    },
+    {
+      "name": "supporting_line_distances",
+      "pass": true,
+      "detail": "Selected-edge distance p; connector distance q."
+    },
+    {
+      "name": "regularity_iff_equal_lengths",
+      "pass": true,
+      "detail": "Necessary from side equality; sufficient with the proved 60-degree turns and s,g>0."
+    },
+    {
+      "name": "regular_hexagon_metrics",
+      "pass": true,
+      "detail": "Circumradius s, inradius sqrt(3)s/2, area 3sqrt(3)s^2/2."
+    },
+    {
+      "name": "regular_hexagon_D6",
+      "pass": true,
+      "detail": "Uncoloured hexagon only; R60 exchanges E and G roles."
+    },
+    {
+      "name": "three_equilateral_gap_cells",
+      "pass": true,
+      "detail": "Reference corner triangles, not claims of material void components."
+    },
+    {
+      "name": "support_triangle_and_partition",
+      "pass": true,
+      "detail": "Support triangle side s+2g; corner interiors disjoint because s>0."
+    },
+    {
+      "name": "regular_octagon_side_lengths",
+      "pass": true,
+      "detail": "Apothem a=(1+sqrt(2))s/2; no octagon distortion."
+    },
+    {
+      "name": "complete_planar_octagon_reference_realization",
+      "pass": true,
+      "detail": "Centres L u_i, L=p+a; selected inward sides."
+    },
+    {
+      "name": "complete_frame_C3",
+      "pass": true,
+      "detail": "Exact coordinate differences, not syntactic equality of radical expressions; covariant orientations are an explicit added assumption, not P02 equation (2)."
+    },
+    {
+      "name": "planar_centre_placement",
+      "pass": true,
+      "detail": "Regular derived hexagon at L=(1+sqrt(2)+sqrt(3))s/2."
+    },
+    {
+      "name": "Paper_C_rigid_coordinate_match",
+      "pass": true,
+      "detail": "Transcribed Paper-C maps agree for all local u,z, not just vertices."
+    },
+    {
+      "name": "Paper_C_ratio",
+      "pass": true,
+      "detail": "p0=a/sqrt(3), g0=s/sqrt(2)."
+    },
+    {
+      "name": "outward_translation_parameter",
+      "pass": true,
+      "detail": "Same face size/orientation, increased selected-edge midpoint radius."
+    },
+    {
+      "name": "fixed_face_centre_shrink",
+      "pass": true,
+      "detail": "Vertical Paper-C faces shrink uniformly about their own fixed centres; not a global rescale."
+    },
+    {
+      "name": "global_rescale_does_not_tune_ratio",
+      "pass": true,
+      "detail": "All lengths scaled together leave g/s invariant."
+    },
+    {
+      "name": "adjacent_plane_intersection",
+      "pass": true,
+      "detail": "Pairwise plane intersections require local u=+/-sqrt(3)p."
+    },
+    {
+      "name": "regular_scaffold_breaks_Paper_C_welding",
+      "pass": true,
+      "detail": "sqrt(3)pstar>a; infinite-plane intersection is outside finite octagons."
+    },
+    {
+      "name": "exact_panel_separation_distance",
+      "pass": true,
+      "detail": "delta=sqrt(3)p-a>=0, X=a-u>=0, Y=a+v>=0; minimum delta attained at u=a,v=-a and equal z."
+    },
+    {
+      "name": "original_Paper_C_mesh_counts",
+      "pass": true,
+      "detail": "{'vertices': 18, 'edges': 21, 'faces': 3, 'shared_seams': 3, 'boundary_cycle_lengths': [9, 9]}"
+    },
+    {
+      "name": "separated_hypothetical_face_counts",
+      "pass": true,
+      "detail": "{'vertices': 24, 'edges': 24, 'faces': 3, 'shared_seams': 0, 'boundary_cycle_lengths': [8, 8, 8]}"
+    }
+  ],
+  "Paper_C_original_counts": {
+    "vertices": 18,
+    "edges": 21,
+    "faces": 3,
+    "shared_seams": 3,
+    "boundary_cycle_lengths": [
+      9,
+      9
+    ]
+  },
+  "hypothetical_separated_counts": {
+    "vertices": 24,
+    "edges": 24,
+    "faces": 3,
+    "shared_seams": 0,
+    "boundary_cycle_lengths": [
+      8,
+      8,
+      8
+    ]
+  },
+  "dimensionless_parameters": {
+    "p0_over_s": "sqrt(3)/6 + sqrt(6)/6",
+    "pstar_over_s": "sqrt(3)/2",
+    "pstar_over_p0": "-3 + 3*sqrt(2)",
+    "delta_p_over_s": "sqrt(3)*(2 - sqrt(2))/6",
+    "fixed_vertical_face_centre_shrink": "1/3 + sqrt(2)/3"
+  }
+}

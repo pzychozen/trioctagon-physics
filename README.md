@@ -1,3 +1,17 @@
+# Publication checkpoint - 23 September 2026
+
+Latest local publication editions: [Paper B v0.1.2](papers/PAPER_B/publication/v0.1.2/README.md), [Paper C v1.0.1](papers/PAPER_C/publication/v1.0.1/README.md), and [accepted Paper D v0.1.1](papers/PAPER_D/v0.1.1/README.md). [Paper A](papers/PAPER_A/publication/PAPER_A_CYCLE_COVERING_DYNAMICS_v1.0.pdf) is unchanged.
+
+GPT accepted D's stated scientific scope and approved exactly five B/C scope/citation additions. B/C's preexisting mathematical content, coordinates, proofs, equations and figures are retained. C's publication label v1.0.1 is distinct from its preserved scientific manuscript v0.3.1. [Exact changes, checks, preservation and the combined proposed publication allowlist](papers/publication_updates/20260923_BC_scope/README.md) identify this local checkpoint. D's approved PDF was not rebuilt. No staging, commit, push, release, tag or DOI was performed.
+
+Predecessors remain reachable: [B v0.1.1](papers/PAPER_B/publication/v0.1.1/PAPER_B_TRIADIC_CHIRALITY_AND_ORIENTATION_GEOMETRY_PUBLICATION_v0.1.1.pdf), [C v1.0](papers/PAPER_C/publication/PAPER_C_EXACT_TRIOCTAGON_GEOMETRY_v1.0.pdf), [D v0.1](papers/PAPER_D/README.md). The original archive manifests are frozen baseline receipts, not manifests of these later publication additions; use the combined checkpoint manifest for the proposed changes.
+
+The publication clarification does not implement a reference-scaffold placement, restore historical Z/torus behavior or define a physical gap response. The current boundary/SRG preparation and face-state option remain as recorded in their existing implementation records. The older snapshot below retains its dated scope and is not a current claim that subsequent implementation/publication work never occurred.
+
+---
+
+## Earlier repository snapshot (preserved)
+
 # Tri-Octagon physics
 
 Mathematical-physics reconstruction of the Tri-Octagon, by Hilmir Frímann Halldórsson.

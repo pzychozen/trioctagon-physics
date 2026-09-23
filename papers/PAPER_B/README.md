@@ -1,3 +1,15 @@
+# Current Paper B publication revision v0.1.2
+
+23 September 2026. The [new edition](publication/v0.1.2/README.md) applies only GPT-approved B-S1/B-S2 plus the Paper D v0.1.1 reference and necessary publication metadata. Its 13-page PDF, source and bounded build instructions are in that directory. The scientific content, five figure asset groups and all prior editions remain unchanged. GPT's approval of the additions is distinguished from Codex's execution/build verification.
+
+The [combined D/B/C publication checkpoint](../publication_updates/20260923_BC_scope/README.md) is the governing proposed publication list for this handoff. This directory's allowlist/checksums have been expanded to include the new B edition; their preceding bytes are saved in that checkpoint's evidence directory. Supporting implementation identities are unchanged. The original `publication_config.json` and `build.ps1` below still select v0.1.1; use the new edition's own build command for v0.1.2. No scientific or figure-generation program was rerun for this clarification.
+
+The following v0.1.1 delivery and pre-publication statements are preserved history. That edition is in the committed baseline; this new v0.1.2 edition is a local proposed publication revision. No staging, commit or push in this task.
+
+---
+
+## Earlier v0.1.1 receipt (preserved)
+
 # Paper B publication revision v0.1.1
 
 The active deliverables are the [manuscript](PAPER_B_TRIADIC_CHIRALITY_AND_ORIENTATION_GEOMETRY_PUBLICATION_v0.1.1.md), [publication PDF](publication/v0.1.1/PAPER_B_TRIADIC_CHIRALITY_AND_ORIENTATION_GEOMETRY_PUBLICATION_v0.1.1.pdf), [symbol/theorem sheet](PAPER_B_SYMBOLS_AND_THEOREMS_v0.1.1.md), [references](PAPER_B_REFERENCES_v0.1.1.md) and [reference ledger](PAPER_B_REFERENCE_LEDGER_v0.1.1.md).

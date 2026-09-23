@@ -1,0 +1,906 @@
+{
+  "attribution": "New Codex isolated B/C replay; not part of GPT review",
+  "status": "PASS",
+  "baseline_commit": "08c2a79739d540ffe1cab4743284052e2aa7214b",
+  "isolated_root": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\publication_updates\\20260923_BC_scope\\.build\\isolated_20260923T180401564526Z",
+  "baseline_dependency_paths": [
+    {
+      "path": "papers/PAPER_B/PAPER_B_TRIADIC_CHIRALITY_AND_ORIENTATION_GEOMETRY_PUBLICATION_v0.1.1.md",
+      "sha256": "19972277060588a3d3c3550a9cecc1274550bba14bed6e5e962b853054d13a07",
+      "source": "git show 08c2a79739d540ffe1cab4743284052e2aa7214b:papers/PAPER_B/PAPER_B_TRIADIC_CHIRALITY_AND_ORIENTATION_GEOMETRY_PUBLICATION_v0.1.1.md"
+    },
+    {
+      "path": "papers/PAPER_B/figures/figure_1_folded_frames.pdf",
+      "sha256": "6f3ce9cdd15a20719fb9ccdf0152719b1ba676a0fd8383cda3d16e6bdddd9b87",
+      "source": "git show 08c2a79739d540ffe1cab4743284052e2aa7214b:papers/PAPER_B/figures/figure_1_folded_frames.pdf"
+    },
+    {
+      "path": "papers/PAPER_B/figures/figure_2_complex_plane.pdf",
+      "sha256": "4c51a9c76a93f0817a220b6bddd810029dc8c76a3c5f32a5192cdaf112625ca1",
+      "source": "git show 08c2a79739d540ffe1cab4743284052e2aa7214b:papers/PAPER_B/figures/figure_2_complex_plane.pdf"
+    },
+    {
+      "path": "papers/PAPER_B/figures/figure_3_transport.pdf",
+      "sha256": "7a941bb82dac971f849e0355ce53793bb2e985fa603f4d190ff8ec2a725ff144",
+      "source": "git show 08c2a79739d540ffe1cab4743284052e2aa7214b:papers/PAPER_B/figures/figure_3_transport.pdf"
+    },
+    {
+      "path": "papers/PAPER_B/figures/figure_4_signed_area.pdf",
+      "sha256": "ec31617177fc94b94bc82e39b6a037d624a64ba50032760cfc4372b0427f31f9",
+      "source": "git show 08c2a79739d540ffe1cab4743284052e2aa7214b:papers/PAPER_B/figures/figure_4_signed_area.pdf"
+    },
+    {
+      "path": "papers/PAPER_B/figures/figure_5_symmetry.pdf",
+      "sha256": "0ba25de2132da896a16b4c099486ae99b5838d588925d8f85eb30a72f26f5fce",
+      "source": "git show 08c2a79739d540ffe1cab4743284052e2aa7214b:papers/PAPER_B/figures/figure_5_symmetry.pdf"
+    },
+    {
+      "path": "papers/PAPER_C/PAPER_C_REFERENCES_v0.2.md",
+      "sha256": "af595b0bbd90fc844c36440781005cf6efdecdaaa4944c3bcb99a00e863e10cf",
+      "source": "git show 08c2a79739d540ffe1cab4743284052e2aa7214b:papers/PAPER_C/PAPER_C_REFERENCES_v0.2.md"
+    },
+    {
+      "path": "papers/PAPER_C/publication/paper_C_publication.md",
+      "sha256": "e81693982a6d805084e3c4166e22a5b2821720dfb43319e479185f42701179c2",
+      "source": "git show 08c2a79739d540ffe1cab4743284052e2aa7214b:papers/PAPER_C/publication/paper_C_publication.md"
+    }
+  ],
+  "proposed_input_paths_at_build_start": [
+    {
+      "path": "papers/PAPER_D/.gitignore",
+      "sha256": "699b9c7997c2eb84a13b4db29d8abc3e343abc14ac616477f438e5a2a887cf3d"
+    },
+    {
+      "path": "papers/PAPER_D/PAPER_D_REFERENCE_SCAFFOLD_DRAFT_v0.1.md",
+      "sha256": "bbd05ad4cf3ffac8190b03212ad87ddbfeb3a65826509c5571e0c0f2259e5f65"
+    },
+    {
+      "path": "papers/PAPER_D/PRESERVATION_RECEIPT.md",
+      "sha256": "7746b59ab50830de288bd0327f69f178da412d2488f98c6127520b7557a51e4f"
+    },
+    {
+      "path": "papers/PAPER_D/PROPOSED_GIT_ALLOWLIST.txt",
+      "sha256": "f4f8bd4b2d983eface6a019a3bae7f947b2695266f5f0a554d2174bb0f40ad63"
+    },
+    {
+      "path": "papers/PAPER_D/README.md",
+      "sha256": "4aa358fbe1ecb5e0174221443b768668cdcb3bf9adbab51e6fb552c5ec90d1b6"
+    },
+    {
+      "path": "papers/PAPER_D/REFERENCE_LEDGER.md",
+      "sha256": "b4899cc5671d9fb4e7842ceef4dd789cf20b7308133e4411d08b67c2431ba8d3"
+    },
+    {
+      "path": "papers/PAPER_D/REPRODUCIBILITY_MANIFEST.json",
+      "sha256": "4c7ec4818e4f8ddf03d80c4066b5ab7ea0eb01bf6bcffce9c402c1e2cc0f8ff9"
+    },
+    {
+      "path": "papers/PAPER_D/SHA256SUMS.txt",
+      "sha256": "a932014fe12115bdd60bd3ab31b95079ace9fcdfaacc844156a2b8a26d48b53f"
+    },
+    {
+      "path": "papers/PAPER_D/SYMBOLS_AND_THEOREMS.md",
+      "sha256": "cab977f39ed59ea9b523c1d2d37cc2f3d5401f1cb44ac67e6f635fe0f57d2f1a"
+    },
+    {
+      "path": "papers/PAPER_D/UNRESOLVED_ITEMS.md",
+      "sha256": "d4f0563c36d3936fb0bed418e44ee90009b96b630a904ae8f7ef507f18a7c931"
+    },
+    {
+      "path": "papers/PAPER_D/bibliography.bib",
+      "sha256": "8b5aaf41b424f397d63535b52967a77844f9ebc548dcb6771524aba5e7f27c02"
+    },
+    {
+      "path": "papers/PAPER_D/build.ps1",
+      "sha256": "7904e97c2828f31467ab66a54f080e5a87b7f14a4d04a277f973adaa6241bff0"
+    },
+    {
+      "path": "papers/PAPER_D/build_publication.py",
+      "sha256": "8169eb38c8e02c70154343bcbbd476dc912fc5116e2565f49b2e809d6ac2171a"
+    },
+    {
+      "path": "papers/PAPER_D/evidence/accepted_scaffold/author_request.txt",
+      "sha256": "a8da6ca6ad3ebd1a54343d39d31fbef45955439c7ccf1ea7392e8951a7dad3b6"
+    },
+    {
+      "path": "papers/PAPER_D/evidence/accepted_scaffold/scaffold_exact_results.json",
+      "sha256": "44a37e309f820ece6aa8df9d9dea84977a2370b7dc5893c61dbf47561dbd5b1b"
+    },
+    {
+      "path": "papers/PAPER_D/evidence/accepted_scaffold/scaffold_exact_stdout.txt",
+      "sha256": "73d58b057c963b6b3895adbb0de728da3a60008202396dcf9a77f4d6caa0a06b"
+    },
+    {
+      "path": "papers/PAPER_D/evidence/accepted_scaffold/verify_scaffold.py",
+      "sha256": "a95bdff6688a592cc52b66fc15f450458278bc6328f628591c59ca92ec753e88"
+    },
+    {
+      "path": "papers/PAPER_D/evidence/author_recollection.txt",
+      "sha256": "8ffcac14a1b3f19a0dd5fd18f1aecc4c260e98af7026921662a8c5cdabf7f801"
+    },
+    {
+      "path": "papers/PAPER_D/evidence/isolated_build.json",
+      "sha256": "14a7ac1dac48b71a4abb7bae9b44a6d94c07345ae798732df948c1ef14321954"
+    },
+    {
+      "path": "papers/PAPER_D/evidence/manuscript_checks.json",
+      "sha256": "0fd7a2a77e753a42826df52e40fcda2da707ef6da2c51d5107d9288036697eb2"
+    },
+    {
+      "path": "papers/PAPER_D/evidence/manuscript_checks_stdout.txt",
+      "sha256": "7838a02b56194bc9fb28c033c0361fd9373973f48ce1f63f4ffa388cced8b6ff"
+    },
+    {
+      "path": "papers/PAPER_D/evidence/pdf_qa.json",
+      "sha256": "0d6a7c39018e2e6f5362d85ee6ddbbbb972ba743cb13faf35b355d4202e6a111"
+    },
+    {
+      "path": "papers/PAPER_D/evidence/preservation_receipt.json",
+      "sha256": "273378abf03b0396a2c7baf476c746b1c72ce560342255370490d809b25efd31"
+    },
+    {
+      "path": "papers/PAPER_D/evidence/source_provenance.json",
+      "sha256": "00fecf0d506e8bb573335c233672bb6832dee35b36d6a1c820bf5ed4f3a0baf6"
+    },
+    {
+      "path": "papers/PAPER_D/evidence/structural_fidelity.json",
+      "sha256": "7c0163c934445cd26f6e8a62b3457d0dcc1af128b27157f9b16eeb8de8a262c8"
+    },
+    {
+      "path": "papers/PAPER_D/figures/01_octagon_metrics.pdf",
+      "sha256": "c8f31ea3e654cf55d3724b011e6e07398328e2acbd8b0b83e81f3c3109330b1d"
+    },
+    {
+      "path": "papers/PAPER_D/figures/01_octagon_metrics.png",
+      "sha256": "e8a5cc4df462208d4cdc8a8b596d2161c934ae1040e53b49f8ae579161e9c06b"
+    },
+    {
+      "path": "papers/PAPER_D/figures/01_octagon_metrics.svg",
+      "sha256": "ed00f23e1d10bd98229dbd47c48ab7e02d2b55697f86399e3469a90ff9368aec"
+    },
+    {
+      "path": "papers/PAPER_D/figures/02_three_frames.pdf",
+      "sha256": "70c09a0b7bf2e1451893c45b901afb2590b8f7d1658aa0a97329985633eeed44"
+    },
+    {
+      "path": "papers/PAPER_D/figures/02_three_frames.png",
+      "sha256": "082c1c45931e46ef6d2cd4ccd7397702d2a16cfe694b23af6642d10ff1b91141"
+    },
+    {
+      "path": "papers/PAPER_D/figures/02_three_frames.svg",
+      "sha256": "6a3b6c9f069c95bdee9031b2926f343ac0592dfc828c9372760b9f3d1ba076f2"
+    },
+    {
+      "path": "papers/PAPER_D/figures/03_alternating.pdf",
+      "sha256": "23a95b1dd0cdb0c60bac786c434337efe48f523a8b5a6f8ba393ecb31df30482"
+    },
+    {
+      "path": "papers/PAPER_D/figures/03_alternating.png",
+      "sha256": "75cba322d4f45e858438cebc80c7b21f07d1857aef1541b2278f159ecb54d07f"
+    },
+    {
+      "path": "papers/PAPER_D/figures/03_alternating.svg",
+      "sha256": "69d8008cf0e0b1672320c24ae11228c94ce073d79cd820b981c0afc69dd60116"
+    },
+    {
+      "path": "papers/PAPER_D/figures/04_regular_roles.pdf",
+      "sha256": "04ad997fd5a51152bcb48a271195293ec45a98b0e38f16d5c1127e6f9b9c6705"
+    },
+    {
+      "path": "papers/PAPER_D/figures/04_regular_roles.png",
+      "sha256": "6010e653ae9209e8c4c6046801841ad3365f6490246dcbf3340c30e401d73285"
+    },
+    {
+      "path": "papers/PAPER_D/figures/04_regular_roles.svg",
+      "sha256": "fcb020421a09f9ec682c8c35ce32fab2893399907f36ebac7e262ed050c59ee3"
+    },
+    {
+      "path": "papers/PAPER_D/figures/05_support_triangle.pdf",
+      "sha256": "1971c7159c39fccc46fe0e4bf06eb63f54ce65a79e874c86e257ac0bc5878f73"
+    },
+    {
+      "path": "papers/PAPER_D/figures/05_support_triangle.png",
+      "sha256": "1849ce95f50776108d8de99d5d5e166c5e1787b794bae902537a3d870e48fcb8"
+    },
+    {
+      "path": "papers/PAPER_D/figures/05_support_triangle.svg",
+      "sha256": "17bfbf091e5631dfd45aa43f32fdf27d702962ac909fd44f8cb73a7b2965fe38"
+    },
+    {
+      "path": "papers/PAPER_D/figures/06_regular_truncation.pdf",
+      "sha256": "9b16035366f8a04c9dbd8b4ce6bfb52e2e2fb1560ad01fd54dcb1cebcb0f3117"
+    },
+    {
+      "path": "papers/PAPER_D/figures/06_regular_truncation.png",
+      "sha256": "aa83bc8dcce018700900e642ce78e705b271e4bcf09583a83a9f470f9c8f77da"
+    },
+    {
+      "path": "papers/PAPER_D/figures/06_regular_truncation.svg",
+      "sha256": "da955ad98fd3f634fd19fb82baef31b767758c015e7aa8286a9ee0c7a503e96e"
+    },
+    {
+      "path": "papers/PAPER_D/figures/07_complete_frames.pdf",
+      "sha256": "26fc13a22733a6476cda8ec7b45717da7931e79055727897e3b16d4d8fac5279"
+    },
+    {
+      "path": "papers/PAPER_D/figures/07_complete_frames.png",
+      "sha256": "e847e2505110914dd8c1a14822df68e6e36135679da698e2403b4a9f6e1e719b"
+    },
+    {
+      "path": "papers/PAPER_D/figures/07_complete_frames.svg",
+      "sha256": "9d1e94cf01da2b4296e3042cd98a135f3eb0458067f56596696eead1c1420588"
+    },
+    {
+      "path": "papers/PAPER_D/figures/08_paper_c_measurement.pdf",
+      "sha256": "4c709d7a960b34e1a8b4ae7b5c64692741d2dce394d716843f680f5c27667f3c"
+    },
+    {
+      "path": "papers/PAPER_D/figures/08_paper_c_measurement.png",
+      "sha256": "c08210f99ef9b9464c4572ca170add0999702b9355b3162cd028bc2c70b39359"
+    },
+    {
+      "path": "papers/PAPER_D/figures/08_paper_c_measurement.svg",
+      "sha256": "55bb33d9feaff86f64824c843eb4dbb2cbf35d7fb638d38bd80e056ebddc6d87"
+    },
+    {
+      "path": "papers/PAPER_D/figures/09_translation_and_shrink.pdf",
+      "sha256": "1ec931154cd5d4f5bb59547e58f878b9e83c20ecdfef2ba96f8543cee567bca2"
+    },
+    {
+      "path": "papers/PAPER_D/figures/09_translation_and_shrink.png",
+      "sha256": "ba3ad95f5c5ac30079c5f346c99662110cd1507c664553166d0c65116ea63369"
+    },
+    {
+      "path": "papers/PAPER_D/figures/09_translation_and_shrink.svg",
+      "sha256": "f509a71f1afab13c943e06e20fe202829d5db98e9bdf8589703b634cfd2c4905"
+    },
+    {
+      "path": "papers/PAPER_D/figures/figure_manifest.json",
+      "sha256": "417d0f0471fb4a10679cd1d20018428b6cb92dcec61d5075e615b5938ca6c224"
+    },
+    {
+      "path": "papers/PAPER_D/generate_figures.py",
+      "sha256": "4ed0660019a76b9e91ffca927c0e4efee84a22c88c2221d60886cfbd32f3084c"
+    },
+    {
+      "path": "papers/PAPER_D/geometry_coordinates.py",
+      "sha256": "45d2ec653420bb7dcfe0091eabdbc331dd9f32c3b3a4b0ba15d11bff13b739af"
+    },
+    {
+      "path": "papers/PAPER_D/paper_D.tex",
+      "sha256": "2ef4691c024c221af565d7c456ee97319a97edb76278312ef9ba562840162654"
+    },
+    {
+      "path": "papers/PAPER_D/publication/PAPER_D_REFERENCE_SCAFFOLD_v0.1.pdf",
+      "sha256": "cccac63811252d0e116ca471be9d835f9bb569b79acd4bbf7fe55a0c6daa1617"
+    },
+    {
+      "path": "papers/PAPER_D/publication/build_console.log",
+      "sha256": "ee3520a08b428f0bb0a78150ca8c54866f674ab51518ffeeaaa361785b196ba0"
+    },
+    {
+      "path": "papers/PAPER_D/publication/build_record.json",
+      "sha256": "07fa2213d30931c790f32e9a36bef9d421f149e81fa69f0b9199c5531daca733"
+    },
+    {
+      "path": "papers/PAPER_D/publication/paper_D.log",
+      "sha256": "09d69e2cf1e8fd0664a8769f4c9120176e52b8da5e7a2903ec5e823175b53108"
+    },
+    {
+      "path": "papers/PAPER_D/publication_style.tex",
+      "sha256": "1c0d729add1ae233839bf42472a6bd8e5518461a2776b353af6263e7cc2f66e8"
+    },
+    {
+      "path": "papers/PAPER_D/requirements.txt",
+      "sha256": "726191ae9b97b3ee9739e380a86a1af8ec10f1e190ac9512f20d90d1d4cfd23c"
+    },
+    {
+      "path": "papers/PAPER_D/runtime.py",
+      "sha256": "5469233adf57cde94e3dcd4ea5afabc1bf449e5284a8251602c032146a05f22d"
+    },
+    {
+      "path": "papers/PAPER_D/verify_manuscript.py",
+      "sha256": "6328f336c3f51ecc95934876c4706aa0ae3ce85edcca63fb61e67dbe73582eee"
+    },
+    {
+      "path": "papers/PAPER_D/verify_package.py",
+      "sha256": "698c91ca02ae7e81ae488974618995525bcc0a3467b09e4d9ca6738dff85717b"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/.gitignore",
+      "sha256": "0a58d0607f6a4bc18ae135e2d18ced14eaef4ea5ef42dc2a81f72169d682c583"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/ABC_PROPOSED_CORRECTIONS_v0.1.1.md",
+      "sha256": "2092c59f3e75a03d436b268710f0b195ff83504dbb6944e7308cacec2233124d"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/COMBINED_PUBLICATION_ALLOWLIST.txt",
+      "sha256": "2d19d2794573766f493856065f48651733e2f8e2ca600183c03cb5c7655ecaaa"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/PAPER_D_REFERENCE_SCAFFOLD_v0.1.1.md",
+      "sha256": "7bc87de09400ba1a37d5dc9ab7be38c9a978be31bb35ece56102d29ee2e5d25b"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/PRESERVATION_RECEIPT.json",
+      "sha256": "917f54935b25faf6e9e001f391884bc704d8ed6a2b2945789e27923c6de818a0"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/PROPOSED_GIT_ALLOWLIST.txt",
+      "sha256": "362d925e044a36810a23066b870e485aba744f22f5aca260e3396b811cb96d6d"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/README.md",
+      "sha256": "7b1ab11aaaae10167793c65bf53ec0091832f9f9647a2b004dc84812252a803f"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/REFERENCE_LEDGER.md",
+      "sha256": "cc38d8cf0fd5107c4893ab4dac84404832b411c9a8eb703abb1f9a876ee97904"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/REPRODUCIBILITY.md",
+      "sha256": "dc094842cc048fabf258fe1b98a3d4fad02d1a400338bf30fc03ac7b519d6fdc"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/REVISION_DISPOSITION.md",
+      "sha256": "08768ac75e209646ae9080140dd2d014d5908c911f51ad3d0aaaee1441e4e086"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/SHA256SUMS.txt",
+      "sha256": "b1172d8d3f3ebdf60c7ea89e271d881ffe678eb14e08a4ae2908d538db192f4b"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/SYMBOLS_AND_THEOREMS.md",
+      "sha256": "93911abe1eab5a396c0b62099a3358231ee7529970630ad41284e212c6f1ed10"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/UNRESOLVED_ITEMS.md",
+      "sha256": "f404392567353b80d39fdb51bccc6dc3d308a17a80f2ba4c4b66ef67a2d7b4f4"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/bibliography.bib",
+      "sha256": "8b5aaf41b424f397d63535b52967a77844f9ebc548dcb6771524aba5e7f27c02"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/build.ps1",
+      "sha256": "30aefef1598486e05bbbf8aa09cb20142f7813562cdaa22326b45dc20e544da8"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/build_publication.py",
+      "sha256": "71ecfaafea936c797a7c7c8a0acc57e45f36d9c6da798b224decaaee0a5fd3a8"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/check_definition_revision.py",
+      "sha256": "fb4b5000b662bed89d140caf7fd90f7403679b7a3f575565eba9491afabc0265"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/evidence/abc_inspected_artifacts.json",
+      "sha256": "10d7b6dc01990aaddcef9fb965e486a3cd03850454ed26e95e858ff555c57366"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/evidence/author_adopted_reply_as_saved.txt",
+      "sha256": "8ffcac14a1b3f19a0dd5fd18f1aecc4c260e98af7026921662a8c5cdabf7f801"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/evidence/definition_revision_checks.json",
+      "sha256": "14f9fdb1d20b707d8231522be5b23036ce778baa4cbfbad4b2d55e39acfe8f63"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/evidence/definition_revision_stdout.txt",
+      "sha256": "14f9fdb1d20b707d8231522be5b23036ce778baa4cbfbad4b2d55e39acfe8f63"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/evidence/gpt_review_v0.1/GPT_PAPER_D_ALGEBRA_CHECKS_v0.1.py",
+      "sha256": "0d022607ff52e9be21304eda1dece4e7624ea76180b296cd0259442d0fc59398"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/evidence/gpt_review_v0.1/GPT_PAPER_D_ALGEBRA_RESULTS_v0.1.json",
+      "sha256": "1d48674b6a4f24df490e63459f4f219479d9dcb239a18ef863f6b5748b00460e"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/evidence/gpt_review_v0.1/GPT_PAPER_D_SCIENTIFIC_REVIEW_v0.1.md",
+      "sha256": "86e168012be5d322890d8f5d1b7cf5a36873f9a8cec85f034abf7ad81aed71a7"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/evidence/manuscript_checks.json",
+      "sha256": "0fd7a2a77e753a42826df52e40fcda2da707ef6da2c51d5107d9288036697eb2"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/evidence/manuscript_checks_stdout.txt",
+      "sha256": "7838a02b56194bc9fb28c033c0361fd9373973f48ce1f63f4ffa388cced8b6ff"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/evidence/qa_final.json",
+      "sha256": "23a5fab0b81799b8824be187a58e05cb1de37cba11e7152646b1b5f055bbba8e"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/evidence/review_intake.json",
+      "sha256": "300aebd8b574f40d0726ad96af810aa20f3f61864e27b7e50d14efe918bf062b"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/evidence/source_provenance.json",
+      "sha256": "3f8c5e768f33b097e6701e69cba8c80def29350c1a68c25163ce9e194dd7bb31"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/evidence/source_provenance_v0.1_preserved.json",
+      "sha256": "00fecf0d506e8bb573335c233672bb6832dee35b36d6a1c820bf5ed4f3a0baf6"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/evidence/structural_fidelity.json",
+      "sha256": "14213cd171483c87ec1c950e81d436c4a2bab1f64b6580f14295ab380d3ea198"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/01_octagon_metrics.pdf",
+      "sha256": "c8f31ea3e654cf55d3724b011e6e07398328e2acbd8b0b83e81f3c3109330b1d"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/01_octagon_metrics.png",
+      "sha256": "e8a5cc4df462208d4cdc8a8b596d2161c934ae1040e53b49f8ae579161e9c06b"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/01_octagon_metrics.svg",
+      "sha256": "ed00f23e1d10bd98229dbd47c48ab7e02d2b55697f86399e3469a90ff9368aec"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/02_three_frames.pdf",
+      "sha256": "70c09a0b7bf2e1451893c45b901afb2590b8f7d1658aa0a97329985633eeed44"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/02_three_frames.png",
+      "sha256": "082c1c45931e46ef6d2cd4ccd7397702d2a16cfe694b23af6642d10ff1b91141"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/02_three_frames.svg",
+      "sha256": "6a3b6c9f069c95bdee9031b2926f343ac0592dfc828c9372760b9f3d1ba076f2"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/03_alternating.pdf",
+      "sha256": "23a95b1dd0cdb0c60bac786c434337efe48f523a8b5a6f8ba393ecb31df30482"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/03_alternating.png",
+      "sha256": "75cba322d4f45e858438cebc80c7b21f07d1857aef1541b2278f159ecb54d07f"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/03_alternating.svg",
+      "sha256": "69d8008cf0e0b1672320c24ae11228c94ce073d79cd820b981c0afc69dd60116"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/04_regular_roles.pdf",
+      "sha256": "04ad997fd5a51152bcb48a271195293ec45a98b0e38f16d5c1127e6f9b9c6705"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/04_regular_roles.png",
+      "sha256": "6010e653ae9209e8c4c6046801841ad3365f6490246dcbf3340c30e401d73285"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/04_regular_roles.svg",
+      "sha256": "fcb020421a09f9ec682c8c35ce32fab2893399907f36ebac7e262ed050c59ee3"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/05_support_triangle.pdf",
+      "sha256": "1971c7159c39fccc46fe0e4bf06eb63f54ce65a79e874c86e257ac0bc5878f73"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/05_support_triangle.png",
+      "sha256": "1849ce95f50776108d8de99d5d5e166c5e1787b794bae902537a3d870e48fcb8"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/05_support_triangle.svg",
+      "sha256": "17bfbf091e5631dfd45aa43f32fdf27d702962ac909fd44f8cb73a7b2965fe38"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/06_regular_truncation.pdf",
+      "sha256": "9b16035366f8a04c9dbd8b4ce6bfb52e2e2fb1560ad01fd54dcb1cebcb0f3117"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/06_regular_truncation.png",
+      "sha256": "aa83bc8dcce018700900e642ce78e705b271e4bcf09583a83a9f470f9c8f77da"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/06_regular_truncation.svg",
+      "sha256": "da955ad98fd3f634fd19fb82baef31b767758c015e7aa8286a9ee0c7a503e96e"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/07_complete_frames.pdf",
+      "sha256": "26fc13a22733a6476cda8ec7b45717da7931e79055727897e3b16d4d8fac5279"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/07_complete_frames.png",
+      "sha256": "e847e2505110914dd8c1a14822df68e6e36135679da698e2403b4a9f6e1e719b"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/07_complete_frames.svg",
+      "sha256": "9d1e94cf01da2b4296e3042cd98a135f3eb0458067f56596696eead1c1420588"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/08_paper_c_measurement.pdf",
+      "sha256": "4c709d7a960b34e1a8b4ae7b5c64692741d2dce394d716843f680f5c27667f3c"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/08_paper_c_measurement.png",
+      "sha256": "c08210f99ef9b9464c4572ca170add0999702b9355b3162cd028bc2c70b39359"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/08_paper_c_measurement.svg",
+      "sha256": "55bb33d9feaff86f64824c843eb4dbb2cbf35d7fb638d38bd80e056ebddc6d87"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/09_translation_and_shrink.pdf",
+      "sha256": "1ec931154cd5d4f5bb59547e58f878b9e83c20ecdfef2ba96f8543cee567bca2"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/09_translation_and_shrink.png",
+      "sha256": "ba3ad95f5c5ac30079c5f346c99662110cd1507c664553166d0c65116ea63369"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/09_translation_and_shrink.svg",
+      "sha256": "f509a71f1afab13c943e06e20fe202829d5db98e9bdf8589703b634cfd2c4905"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/figures/figure_manifest.json",
+      "sha256": "417d0f0471fb4a10679cd1d20018428b6cb92dcec61d5075e615b5938ca6c224"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/generate_figures.py",
+      "sha256": "4ed0660019a76b9e91ffca927c0e4efee84a22c88c2221d60886cfbd32f3084c"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/geometry_coordinates.py",
+      "sha256": "45d2ec653420bb7dcfe0091eabdbc331dd9f32c3b3a4b0ba15d11bff13b739af"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/paper_D_v0.1.1.tex",
+      "sha256": "95dc99419becb28e7c4b729847fcac85fe7d7881d8bb84f207a178f1378f2f9c"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/publication/PAPER_D_REFERENCE_SCAFFOLD_v0.1.1.pdf",
+      "sha256": "7c4c52f8018765b21a7849d03ce7974824351e5af27c99356c5acb0b5dcaaaaf"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/publication/build_console.log",
+      "sha256": "dcb0a9ff92a79eb4826362e1543e46139dcc9c6b5f693d127dcd5cbc43e7b4e5"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/publication/build_record.json",
+      "sha256": "2723f0215971d68f7da4573e8a973d9e533220acdd0428691999d9659449264f"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/publication/paper_D_v0.1.1.log",
+      "sha256": "5229d1c906384584b9ad78a3055377b1d5c5cba4cdfe7b2c705ae065f6c4fc3f"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/publication_style.tex",
+      "sha256": "1c0d729add1ae233839bf42472a6bd8e5518461a2776b353af6263e7cc2f66e8"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/requirements.txt",
+      "sha256": "726191ae9b97b3ee9739e380a86a1af8ec10f1e190ac9512f20d90d1d4cfd23c"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/runtime.py",
+      "sha256": "5469233adf57cde94e3dcd4ea5afabc1bf449e5284a8251602c032146a05f22d"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/verify_manuscript.py",
+      "sha256": "6328f336c3f51ecc95934876c4706aa0ae3ce85edcca63fb61e67dbe73582eee"
+    },
+    {
+      "path": "papers/PAPER_D/v0.1.1/verify_package.py",
+      "sha256": "7a1c8379aca4889b32c9e17ca51035ac1164c3509092a087f675db0f237bb460"
+    },
+    {
+      "path": "papers/PAPER_B/publication/v0.1.2/build_console.log",
+      "sha256": "fb9c69bfc28b7e251200693ab4eab61d832f4e1f07d2a41b55ea0cade155d07e"
+    },
+    {
+      "path": "papers/PAPER_B/publication/v0.1.2/build_publication.py",
+      "sha256": "7ffb9e21d3ea7d26673c90ec0f66b9b537b4defacb57223e7f6acb186b8f1c8b"
+    },
+    {
+      "path": "papers/PAPER_B/publication/v0.1.2/build_record.json",
+      "sha256": "f189d68cd9c0c5f9b50052d3d1ff8f070637122bf34066d7796f811852ad8ee3"
+    },
+    {
+      "path": "papers/PAPER_B/publication/v0.1.2/evidence/structural_fidelity.json",
+      "sha256": "cab4170ec45bc85bdb245b390ab95c68849f7eb924346b4fa34e9f0e678359d6"
+    },
+    {
+      "path": "papers/PAPER_B/publication/v0.1.2/paper_B_final.log",
+      "sha256": "5b4f04c17599927c8bcfd7ac536e6b65044986bd358d81cbf4febb9c555ab056"
+    },
+    {
+      "path": "papers/PAPER_B/publication/v0.1.2/paper_B_final.tex",
+      "sha256": "4c68cdec9d5258a91113c48e8a7f389336981975ef7d98cf95a6a9fe240270c6"
+    },
+    {
+      "path": "papers/PAPER_B/publication/v0.1.2/PAPER_B_TRIADIC_CHIRALITY_AND_ORIENTATION_GEOMETRY_PUBLICATION_v0.1.2.md",
+      "sha256": "fb4575120470e8d7143ebc1f475ee4635caf9f39f21f88308960308fb259e150"
+    },
+    {
+      "path": "papers/PAPER_B/publication/v0.1.2/PAPER_B_TRIADIC_CHIRALITY_AND_ORIENTATION_GEOMETRY_PUBLICATION_v0.1.2.pdf",
+      "sha256": "5555eb4f07b0974addced80339bf0f87bb7a5ab87d268926f321a3c586da35ad"
+    },
+    {
+      "path": "papers/PAPER_B/publication/v0.1.2/publication_config.json",
+      "sha256": "9d1654a89fadfd77562d847a16af6126ac207769cd9ab50c9d74e2591bc3c312"
+    },
+    {
+      "path": "papers/PAPER_B/publication/v0.1.2/publication_runtime.py",
+      "sha256": "cb78dc37e490b999ebad0376f58ec821e53100a93ed9aa1d37b3eb61f36482dc"
+    },
+    {
+      "path": "papers/PAPER_B/publication/v0.1.2/publication_style.tex",
+      "sha256": "fffdec5a7dde5d9d1d9e58682a282492ce470f0f819a950db0b96e7a5793d21d"
+    },
+    {
+      "path": "papers/PAPER_B/publication/v0.1.2/README.md",
+      "sha256": "6f09133dfd514e598513b505943230ab21bb73d492f985a5707cb76feb2c42cc"
+    },
+    {
+      "path": "papers/PAPER_B/publication/v0.1.2/REFERENCES_v0.1.2.md",
+      "sha256": "9f8ab8e05b1fc1465f3a16a6b75980057069abc0e5af226cfe26b0af6340b8da"
+    },
+    {
+      "path": "papers/PAPER_C/publication/v1.0.1/.gitignore",
+      "sha256": "535c0e5194d34b2adf5744dd7a6e332a3cc5342d6a3fa723b81c2fe44130fca2"
+    },
+    {
+      "path": "papers/PAPER_C/publication/v1.0.1/build_console.log",
+      "sha256": "13fd16808c6737eb247abf03f7116d0a7e0ef2d01fa550ad8f0c3de47df6ec6d"
+    },
+    {
+      "path": "papers/PAPER_C/publication/v1.0.1/build_publication.py",
+      "sha256": "a3e712dc8810739de182ca2b177ada22d5eaddfca8e9a1776abec3c0e9de6b50"
+    },
+    {
+      "path": "papers/PAPER_C/publication/v1.0.1/build_record.json",
+      "sha256": "2cf97273e20b82dc2d13be21b0a494530f633240b80c7df38253331ff2d4b8a6"
+    },
+    {
+      "path": "papers/PAPER_C/publication/v1.0.1/evidence/structural_fidelity.json",
+      "sha256": "c668e7e76d0da213e1eecc5b747e5ee33a37e340e8141883ee57e38ee283e9be"
+    },
+    {
+      "path": "papers/PAPER_C/publication/v1.0.1/PAPER_C_EXACT_TRIOCTAGON_GEOMETRY_PUBLICATION_v1.0.1.md",
+      "sha256": "5a0cbdae4aaf689cfe1f5b29305960e90c88e26d0db28834802ef70fc16549fb"
+    },
+    {
+      "path": "papers/PAPER_C/publication/v1.0.1/PAPER_C_EXACT_TRIOCTAGON_GEOMETRY_v1.0.1.pdf",
+      "sha256": "5869fb7b98784fab00e8b63f225f84c03277bbd4bac3534c0773df9efed156d1"
+    },
+    {
+      "path": "papers/PAPER_C/publication/v1.0.1/paper_C_final.log",
+      "sha256": "a058f7d71b5cde76f074277113020599a70fda107901c0d591f831e9ecf1bc98"
+    },
+    {
+      "path": "papers/PAPER_C/publication/v1.0.1/paper_C_final.tex",
+      "sha256": "6b6e78986bf96661137405eb521884e0fcfe79eae54f29b95433e0db4148e7f8"
+    },
+    {
+      "path": "papers/PAPER_C/publication/v1.0.1/publication_metadata.json",
+      "sha256": "7a48fb8d5907b229acab527c90fb21f5ad41f6f97576bbe1dddd3503d102b3d5"
+    },
+    {
+      "path": "papers/PAPER_C/publication/v1.0.1/publication_style.tex",
+      "sha256": "c4355c917ab8a62ab42a6da3a9763ead53cb2517170197fda14ab0fc094e654d"
+    },
+    {
+      "path": "papers/PAPER_C/publication/v1.0.1/README.md",
+      "sha256": "ea15fab5e77f8c59fcb2ecb4c533bdb709f8b5173bbccaf9af296c91568090de"
+    },
+    {
+      "path": "papers/PAPER_C/publication/v1.0.1/REFERENCES_v1.0.1.md",
+      "sha256": "9f9a463d0b2d44903e71a6743af247c276078b8779964965b1cfdff032dc526c"
+    },
+    {
+      "path": "README.md",
+      "sha256": "6bb5e5d3ee88ddb10cb7ce22158e836f93a863cbfb6c7dfb3b8a151af8add86e"
+    },
+    {
+      "path": "CURRENT_STATE.md",
+      "sha256": "050f3410d5556f7a13aadf0de257ab5de894f5b8222fc8f3db5576b65d49a151"
+    },
+    {
+      "path": "papers/PAPER_B/README.md",
+      "sha256": "3d658ac9820b51645757fb1e63501d335991bbdc201e17cdec6f7181334b0c69"
+    },
+    {
+      "path": "papers/PAPER_B/PROPOSED_GIT_ALLOWLIST.txt",
+      "sha256": "2f81deffe98beee5d1f71a2b10460ffaa57c3d338db33ac0fdf51a7cb3fe4cb1"
+    },
+    {
+      "path": "papers/PAPER_B/SHA256SUMS.txt",
+      "sha256": "8b3362f66ecc76c1c67df7e52e9aee1992a10d75032f8a4850305ce711d6467f"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/.gitignore",
+      "sha256": "535c0e5194d34b2adf5744dd7a6e332a3cc5342d6a3fa723b81c2fe44130fca2"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/CHANGE_RECORD.md",
+      "sha256": "8afc05f410e8366ddf26fd97e140182acbbd57407dfe61edd29d6c0d8947c4f7"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/COMBINED_PUBLICATION_ALLOWLIST.txt",
+      "sha256": "ad4868f93c0ed69befdcbc0eabc2f9cf43364619c0ecc10691c950389cf32578"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/B_v0.1.1_ALLOWLIST_before_revision.txt",
+      "sha256": "23a23db83b097a50a9d4e7a64a0a74315b827cf02dde186e1957345e17ecebcd"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/B_v0.1.1_README_before_navigation.md",
+      "sha256": "4c6b22fdf303457cf268b1fa235049f66ff2db635a5a9471987f73a7dbe0118e"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/B_v0.1.1_SHA256SUMS_before_revision.txt",
+      "sha256": "fa3c022dd5c220028bc294a01bd10f56fa0e1b83429a122cfc0e2eb560bd03d3"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/bounded_verification.json",
+      "sha256": "e4ded23b45f0df55f345fca90bbc8bedba5590b275d282a6be48fc7e2aaca098"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/D_v0.1.1_README_before_acceptance.md",
+      "sha256": "79b699ffcdc0fde868f45978958c0b9c522e8220d044d7bd05f507b063ecd56a"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/D_v0.1.1_REVISION_DISPOSITION_before_acceptance.md",
+      "sha256": "6223ad0e3bfb57b52d5a8c81718c9bf43d2f8c717829fc3e17f72a1800ecd2e1"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/D_v0.1.1_SHA256SUMS_before_acceptance.txt",
+      "sha256": "dc6ecc930d522cc524f11ba0b0037f894038d69e0d7d81e968ad9659da371af7"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/final_isolated_package_check.json",
+      "sha256": "cd1d4d03b011d2edd9eb4e5568a60be301067b4b39a0d00c4690798e1db195a4"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/final_package_check.json",
+      "sha256": "cd1d4d03b011d2edd9eb4e5568a60be301067b4b39a0d00c4690798e1db195a4"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/five_approved_additions.json",
+      "sha256": "cbdb8ee8dc5e14cf597e34e2abf0d7d7a9f7cb46c5abd8269343def60d460cd3"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/GPT_PAPER_D_v0.1.1_ACCEPTANCE_AND_BC_REVISION_ORDER.md",
+      "sha256": "2607fb4cd3d799b27272ecc8e3d8be8504b360c0d688843b2a9d5758fb1a659b"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/isolated_B_stdout.txt",
+      "sha256": "cd1d4d03b011d2edd9eb4e5568a60be301067b4b39a0d00c4690798e1db195a4"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/isolated_bounded_stdout.txt",
+      "sha256": "cd1d4d03b011d2edd9eb4e5568a60be301067b4b39a0d00c4690798e1db195a4"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/isolated_C_stdout.txt",
+      "sha256": "cd1d4d03b011d2edd9eb4e5568a60be301067b4b39a0d00c4690798e1db195a4"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/isolated_reproduction.json",
+      "sha256": "cd1d4d03b011d2edd9eb4e5568a60be301067b4b39a0d00c4690798e1db195a4"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/predecessor_equation_layout.json",
+      "sha256": "af087f91425c8ec00901fe014f49ed915887f1bb8307f6561fb14831e9f2a32e"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/preservation_and_git.json",
+      "sha256": "cd1d4d03b011d2edd9eb4e5568a60be301067b4b39a0d00c4690798e1db195a4"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/evidence/visual_QA.json",
+      "sha256": "d7b4ef251af8954f23eb90808b0898db7204ddb34cd99983294a6b855bbad033"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/PUBLICATION_CLASSES.json",
+      "sha256": "7628acd67ca2bea3e30e77d39b893bbf3e728feb4cfb55229831e3c8877e0215"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/PUBLICATION_RECEIPT.md",
+      "sha256": "cd1d4d03b011d2edd9eb4e5568a60be301067b4b39a0d00c4690798e1db195a4"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/README.md",
+      "sha256": "7580ef89305f3ac0c022c519514cfc4015adb97fbf9fe46649957990befe453a"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/reproduce_isolated.py",
+      "sha256": "d4261169fa84b8634d0a6e128d120403a4e50ea1820b7e288ada607000679901"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/REPRODUCIBILITY.md",
+      "sha256": "35cf8690dad4d494967f0b26cd0b69e7d7755a3602437138f3866391c90de560"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/SHA256SUMS.txt",
+      "sha256": "e3f468f048a7203797d726a3b747b198dc20df274ebc4fbb0ddd094a9102a78b"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/verify_package.py",
+      "sha256": "fc6655186008bdce01d7c12e180a36f38e67c26d21e9cf53bb0461a8f4becce1"
+    },
+    {
+      "path": "papers/publication_updates/20260923_BC_scope/verify_revisions.py",
+      "sha256": "6bc8c112d2f169742072e25f3a903ce0e7e25857485a5a904f4b326022ba6dfa"
+    }
+  ],
+  "proposed_input_count_at_build_start": 196,
+  "external_prerequisites": {
+    "PAPER_B_PANDOC": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\reconstruction\\publication\\paper_C\\build\\tools\\pandoc\\pandoc-3.11\\pandoc.exe",
+      "sha256": "e0057eaf640d08ba028b70721d4f7b63a685c30430de9db89aea84de2d4a1912"
+    },
+    "PAPER_B_TECTONIC": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\reconstruction\\publication\\paper_C\\build\\tools\\tectonic\\tectonic.exe",
+      "sha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d"
+    },
+    "PAPER_B_TEX_CACHE": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_B\\.build\\tectonic-cache",
+      "sha256": null
+    },
+    "PAPER_C_PANDOC": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\reconstruction\\publication\\paper_C\\build\\tools\\pandoc\\pandoc-3.11\\pandoc.exe",
+      "sha256": "e0057eaf640d08ba028b70721d4f7b63a685c30430de9db89aea84de2d4a1912"
+    },
+    "PAPER_C_TECTONIC": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\reconstruction\\publication\\paper_C\\build\\tools\\tectonic\\tectonic.exe",
+      "sha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d"
+    },
+    "PAPER_C_TEX_CACHE": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\reconstruction\\publication\\paper_C\\build\\tectonic-cache",
+      "sha256": null
+    }
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\Notandi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "system_fonts": "C:/Windows/Fonts; external, unchanged",
+  "only_explicit_baseline_and_proposal_files_copied": true,
+  "wider_source_workspace_fallback": false,
+  "only_cached_TeX_resources": true,
+  "results": {
+    "B": {
+      "PASS": true,
+      "command": [
+        "C:\\Users\\Notandi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\publication_updates\\20260923_BC_scope\\.build\\isolated_20260923T180401564526Z\\papers\\PAPER_B\\publication\\v0.1.2\\build_publication.py"
+      ],
+      "cwd": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\publication_updates\\20260923_BC_scope\\.build\\isolated_20260923T180401564526Z\\papers\\PAPER_B\\publication\\v0.1.2",
+      "pdf_sha256": "5555eb4f07b0974addced80339bf0f87bb7a5ab87d268926f321a3c586da35ad",
+      "pages": 13,
+      "PDF_byte_identical": true,
+      "TeX_byte_identical": true,
+      "no_science_or_figure_program_run": true
+    },
+    "C": {
+      "PASS": true,
+      "command": [
+        "C:\\Users\\Notandi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\publication_updates\\20260923_BC_scope\\.build\\isolated_20260923T180401564526Z\\papers\\PAPER_C\\publication\\v1.0.1\\build_publication.py"
+      ],
+      "cwd": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\publication_updates\\20260923_BC_scope\\.build\\isolated_20260923T180401564526Z\\papers\\PAPER_C\\publication\\v1.0.1",
+      "pdf_sha256": "5869fb7b98784fab00e8b63f225f84c03277bbd4bac3534c0773df9efed156d1",
+      "pages": 16,
+      "PDF_byte_identical": true,
+      "TeX_byte_identical": true,
+      "no_science_or_figure_program_run": true
+    }
+  },
+  "bounded_verifier_results_identical": true,
+  "cross_paper_references_resolve_in_isolated_copy": true,
+  "D_approved_sha256": "7c4c52f8018765b21a7849d03ce7974824351e5af27c99356c5acb0b5dcaaaaf",
+  "D_build_executed": false,
+  "receipt_timing": "Input identities describe the build-start snapshot. Later final administrative receipts/manifests are synchronized and read-only checked separately; no build input changes are permitted."
+}
