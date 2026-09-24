@@ -1,5 +1,18 @@
 # kernel_physics v0.1 baseline + opt-in response, face view, scaffold and Z observer
 
+## Current convergence status - 24 September 2026
+
+**K1/R1, K2 and K3 are accepted and published within their contracted scopes.**
+The implementation baseline is `d2b1cbeca807ae33117f02f697e5eff0b4b1ca96`.
+See [K1-K3 parity closeout](K1_K2_K3_PARITY_CLOSEOUT.md) for the authoritative
+scope map, evidence, source location and remaining obligations.
+
+That checkpoint passed 207 local / 177 published-package test methods. The
+30 local-only predecessor methods remain a separate publication obligation.
+Six-gap registration and the broader reconstruction remain open.
+Preparation-time K3 candidate/pending language later in this README and in
+frozen receipts is superseded by the checkpoint's scoped acceptance, not erased.
+
 **Paper C exact local geometry + Paper A exact abstract dynamics.**
 
 **NO PHYSICAL COUPLING BETWEEN THEM IS CLAIMED YET.**
