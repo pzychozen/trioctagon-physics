@@ -443,7 +443,7 @@ seam condition or justified mode selection. The broader reconstruction is unfini
 
 ## Optional Paper-E historical Z observers (K2)
 
-K2 is a candidate for GPT implementation review. Its
+K2 is accepted and published at 022fa5147bbf4184bd9e41b6330bf5dfc90759d9. Its preserved preparation-time records remain unchanged; that scoped acceptance supersedes their pending-review text. Its
 [validation report](K2_HISTORICAL_Z_VALIDATION.md) and
 [full JSON companion](K2_HISTORICAL_Z_VALIDATION.json) retain the actual local,
 package-export and source-body checks, including development failures. The fresh
@@ -556,4 +556,131 @@ independently of Omega, and persistent nonzero cubic input need not decay.
 
 Observer outputs do not feed Omega or Paper-C/Paper-D geometry. The clock is
 not mean channel phase or a physical D24 group assignment. Six-gap spatial
-registration remains open; K3 diagnostics are not implemented.
+registration remains open; the separate K3 diagnostic candidate is described below.
+
+## Optional Paper-E mathematical diagnostics (K3)
+
+K1/R1 and K2 are accepted and published; K3 is a candidate pending GPT
+implementation review. See [K3 validation](K3_MATHEMATICAL_DIAGNOSTICS_VALIDATION.md)
+and its [full execution evidence](K3_MATHEMATICAL_DIAGNOSTICS_VALIDATION.json).
+The measured entry baseline is 171 local methods and 141 published methods;
+the four unchanged local-only files contain 30 methods and remain a separate
+publication obligation. K3 adds 36 methods, counting tests rather than theorems.
+
+Import `z_diagnostics` explicitly. It is passive and is not imported by the base
+package or any existing module. Its actual public functions are:
+
+| Function | Supplied inputs and result |
+|---|---|
+| `quadratic_form(vector)` | Finite real (3,) vector; signed Q(v), not a norm or certificate. |
+| `readout_accounting(readout, *, alpha, beta)` | Stored K2 ZReadout; immutable ReadoutAccounting with full weighted norm/Q terms, vector/scalar residuals, supplied-z macro relation and variant/initialization. |
+| `chiral_area_accounting(omega)` | Finite complex (3,) state; ChiralAreaAccounting, delegating raw C once, Gram terms, norm, bound and slack. |
+| `historical_alignment(macro, chiral, total_vector)` | Three finite real (3,) vectors; HistoricalAlignment with three conventional dots and vector/pair resolution flags. |
+| `intensity_budget(omega, config)` | Finite complex (3,) state and existing DynamicsConfig; IntensityBudget including D, diagnostic_pre_sync_prediction, full remainder and residual. |
+| `potential(omega, config)` | Same inputs; scalar potential with negative gradient equal to D in six real coordinates. |
+| `direct_history_coordinates(history, key="Z_total")` | Real (n,3) stored vectors; Coordinates. Z_vec fallback only if default Z_total is absent. Empty (0,3) is valid. |
+| `cylinder_point(kappa, q, z, *, N=12)` | Nonnegative kappa, integer q/N with N>0, real z; read-only (3,) point. |
+| `cylinder_history_coordinates(history, *, N=12)` | Equal 1D kappa/phi_index/z arrays; Coordinates; empty is valid. |
+| `history_torus_coordinates(history, *, R=2., r_max=1., N=12)` | Nonempty scalar history, R>r_max>0; HistoryTorus with coordinates, r/chi and actual whole-history normalization metadata. |
+
+All record arrays are detached and read-only against ordinary writes, not a
+security boundary. Real inputs reject bool/string/complex/nonfinite values;
+states reject bool/string/nonfinite values and wrong shapes. DynamicsConfig is
+validated by its stored fields; coercions performed earlier cannot be undone.
+These checked binary64 operations reject nonzero subnormal intermediates,
+nonfinite results and lost nonzero products/divisions. Exact zeros remain valid.
+Quadratic, quartic and weighted diagnostics have different representable ranges;
+a successful K2 observation does not guarantee successful K3 accounting.
+
+The alignment convention alone maps norms below 1e-12 to unresolved directions;
+equality at the threshold resolves. It uses stable hypot, with explicit
+precision failures, rather than the old naive norm. A conventional zero with
+an unresolved input is not orthogonality. No cosine clamp or other threshold
+zeroing is applied. Supplied inconsistent readouts retain their residuals.
+The full Q prediction retains alpha^2 Q(M), even for numerical macro vectors.
+
+The intensity budget includes the full squared increment, not only first-order
+terms. For nonnegative g the first-order coupling term is nonpositive, but
+neither intensity nor potential must decrease under the unit-size finite map.
+The exact balanced overshoot raises intensity 12 to 48 and potential 6 to 168.
+The scalar potential is distinct from intensity, pre-sync state, scalar z and
+total T; none is assigned physical-energy units. Phase synchronization preserves
+intensities exactly mathematically, up to numerical rounding, and may change
+the graph part of the potential.
+
+The cylinder preserves z at zero kappa; the torus then loses height information.
+The torus uses the maximum absolute z over the ENTIRE supplied history plus
+literal 1e-9. Appending a larger excursion moves an earlier unchanged state.
+Returned z_max/H_z/regularizer/R/r_max/N/normalization identify the actual map.
+N=12 is historical compatibility; custom N is an explicit parameterization,
+not a claim that the old geometry_3d routines honored a changed sector count.
+The adapter adopts R>r_max>0. Rounded saturation may reach r_max and H_z may
+equal z_max: successful evaluation does not certify the strict inverse domain.
+No runtime inverse or direct-total reconstruction from scalar displays is added.
+
+This executable example uses existing step3 for the actual state and observes
+it afterward. Its diagnostic prediction is only accounting data.
+
+```python
+import json
+from dataclasses import asdict
+import numpy as np
+from kernel_physics.dynamics import DynamicsConfig, step3
+from kernel_physics.z_manifold import (
+    Clock, StagedConfig, advance_clock, observe_staged, state_norm,
+)
+from kernel_physics.z_diagnostics import (
+    intensity_budget, potential, readout_accounting, chiral_area_accounting,
+    historical_alignment, direct_history_coordinates,
+    cylinder_history_coordinates, history_torus_coordinates,
+)
+
+k3_initial = np.array([.2+.3j, -.4+.1j, .1-.2j])
+k3_config = DynamicsConfig(eps=.05, g=.2, phase_strength=.01, k=(1, 1.2, 1.4))
+k3_clock_before = Clock()
+k3_observer = StagedConfig()
+k3_budget = intensity_budget(k3_initial, k3_config)
+k3_omega = step3(k3_initial, k3_config)
+k3_clock = advance_clock(k3_clock_before, .1)
+k3_readout = observe_staged(k3_omega, k3_clock, k3_observer)
+k3_history = {
+    "kappa": np.array([state_norm(k3_omega)]),
+    "phi_index": np.array([k3_clock.q]),
+    "z": np.array([k3_readout.z]),
+    "Z_total": np.array([k3_readout.Z_total]),
+}
+k3_example_output = {
+    "inputs": {"omega": k3_initial, "dynamics": asdict(k3_config),
+               "clock": asdict(k3_clock_before), "observer": asdict(k3_observer)},
+    "operations": ["inspect unforced pre-sync budget", "existing step3 once",
+                   "explicit clock advance by .1", "K2 staged observation",
+                   "passive K3 accounting and three independent displays"],
+    "omega_after_existing_step3": k3_omega,
+    "clock_after": asdict(k3_clock),
+    "budget": asdict(k3_budget),
+    "potential_before": potential(k3_initial, k3_config),
+    "potential_after": potential(k3_omega, k3_config),
+    "readout": asdict(k3_readout),
+    "accounting": asdict(readout_accounting(k3_readout, alpha=1, beta=.5)),
+    "area": asdict(chiral_area_accounting(k3_omega)),
+    "alignment": asdict(historical_alignment(
+        k3_readout.Z_macro, k3_readout.Z_chiral, k3_readout.Z_total)),
+    "direct": asdict(direct_history_coordinates(k3_history)),
+    "cylinder": asdict(cylinder_history_coordinates(k3_history)),
+    "torus": asdict(history_torus_coordinates(k3_history)),
+}
+def k3_json_value(value):
+    if isinstance(value, np.ndarray):
+        return value.tolist()
+    if isinstance(value, complex):
+        return [value.real, value.imag]
+    raise TypeError(type(value).__name__)
+
+print(json.dumps(k3_example_output, default=k3_json_value, indent=2))
+```
+
+K3 does not step Omega, advance clock/EMA, add forcing, restore historical
+signed-zero phase evolution, or attach vectors to geometry. Conditional inverse
+and information-loss arguments are proof/tests only. Three-channel tube curves,
+spikes, percentile scaling, turning consumers, six-gap anchors, UI and physical
+gap-energy laws remain deferred. The broader reconstruction is not complete.
