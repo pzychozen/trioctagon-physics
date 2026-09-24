@@ -1,4 +1,4 @@
-# kernel_physics v0.1 baseline + opt-in lens_area_norm_v1
+# kernel_physics v0.1 baseline + opt-in response, face view and reference scaffold
 
 **Paper C exact local geometry + Paper A exact abstract dynamics.**
 
@@ -7,6 +7,21 @@
 This is a separate, minimal Python package. Geometry and dynamics do not import
 each other. There is no framework, server, plugin system, memory architecture or
 historical-kernel dependency.
+
+## Authoritative location
+
+~~~text
+CHECKOUT: C:\TORMENT\TRIOCTAGON_new\trioctagon-physics
+SOURCE:   C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\kernel_physics
+PYTHON:   C:\TORMENT\TRIOCTAGON_new\kernel_physics\.venv\Scripts\python.exe
+~~~
+
+The sibling directory supplies only the existing interpreter for these commands;
+it is not the source edit target. Run from the checkout so imports resolve to the
+source above. The [K1 validation record](K1_REFERENCE_SCAFFOLD_VALIDATION.md)
+records actual executable, versions, resolved imports and test IDs. Its task ID
+`MK-K1_REFERENCE_SCAFFOLD_v0.1` distinguishes this packet from the original
+Paper-A/C implementation also called K1.
 
 ## Frozen definitions
 
@@ -28,6 +43,9 @@ Neither paper was modified. No historical PDF or kernel source was opened.
   three unit segments for abs(height)<=s/2: a curve, not a filled cap.
   rotate_c3, reflect_vertical and reflect_horizontal are the exact D3h
   generators about the centroid axis and the planes x=0, z=0.
+- **reference_scaffold.py**: separately selected pure exact geometry from
+  Paper D v0.1.1 §§4–14, including closed half-planes, complete reference
+  octagons and the published vertical family. No default geometry changes.
 - **dynamics.py**: immutable DynamicsConfig(eps, g, phase_strength, k),
   step3 and step_ring. phase_strength is Paper A's lambda;
   k is a real amplitude-coefficient triple. All parameters are explicit.
@@ -92,9 +110,84 @@ selected nonlinear lifts at M=3,6,12,24. There is no atlas, scan or parameter tu
 The unchanged VALIDATION.md, validation.json and test_run.txt record the original
 41-test baseline. The predecessor boundary/SRG closeout records 75 passing tests
 in [its implementation report](../../research/GPT_proof/CODEX_BOUNDARY_RESPONSE_IMPLEMENTATION_v0.1.md).
-The complete modern suite now passes **95 tests (75 predecessor + 20 face-view)**.
-The added face-view tests and final execution receipts are recorded in the same reviewed
+The earlier local suite passed **95 tests (75 predecessor + 20 face-view)**.
+The face-view tests and that execution receipt are recorded in the same reviewed
 [attachment note](../../research/GPT_proof/FOLDED_FACE_STATE_ATTACHMENT_v0.1.md).
+On 24 September 2026, K1 rediscovered and passed those same **95 local baseline
+tests**, before adding scaffold tests. Four existing untracked test files contain
+30 of them; they match the preceding publication baseline and remain unchanged.
+Only 65 predecessor tests are tracked at the base commit. Thus 95 is a measured
+local count, not a claim about fresh-clone coverage. The submitted K1 local suite
+passed **122/122 tests (95 preserved + 27 original scaffold tests)**. Those tests
+did not detect the symbolic-domain defect subsequently reported by GPT. The R1
+correction and new substitution-first regression results are recorded separately
+in the R1 section of the validation records; the earlier runs remain preserved.
+The corrected R1 local suite passes **134/134 tests: 95 predecessor + 27 original
+K1 + 12 new R1 methods**, including all four pre-existing untracked test files. Exact
+IDs, stdout and preservation results are in the [K1 record](K1_REFERENCE_SCAFFOLD_VALIDATION.md)
+and its [machine-readable companion](K1_REFERENCE_SCAFFOLD_VALIDATION.json).
+
+## Explicit Paper-D reference scaffold
+
+Import this module explicitly; `geometry.folded_module()` and the existing
+`FaceState` still use the unchanged Paper-C welded realization.
+
+```python
+import sympy as sp
+from kernel_physics.reference_scaffold import (
+    ReferenceScaffold, paper_c_member, shrink_paper_c_at_fixed_centres,
+)
+
+s, g_gap = sp.symbols("s g_gap", positive=True)
+scaffold = ReferenceScaffold(s, g_gap)  # p=(s+2*g_gap)/(2*sqrt(3))
+regular = ReferenceScaffold.regular(sp.Rational(1, 3))
+assert regular.filled_hexagon.contains((0, 0)) is True
+original = paper_c_member(sp.sqrt(2)-1)  # width one; g_gap/s=1/sqrt(2)
+shrunk = shrink_paper_c_at_fixed_centres(original.s)
+assert shrunk.side_lengths == (sp.Rational(1, 3),)*6
+```
+
+`ReferenceScaffold.from_radius(s,p)` checks the equivalent strict positive-gap
+domain. Lengths accept exact Python integers/Fractions and exact finite real
+SymPy expressions, including positive symbolic `s,g_gap`. Floats, strings,
+booleans, nonfinite/complex lengths and nonpositive or undecidable domains are
+rejected; no floats are silently rationalized. `.is_regular` returns `None` when
+the equality is undecidable; `.regularity_residual` retains `g_gap-s`.
+Half-plane membership similarly returns `True`, `False` or `None`.
+
+R1 keeps symbolic denominators untransformed by `radsimp(symbolic=False)` in the
+new coordinate helper, while retaining exact numerical radical simplification.
+For example, the admitted length `1/(1+sqrt(x))`, `x>0`, remains valid at `x=1`:
+returned coordinates are specialized first and agree with construction at side
+`1/2`. This is a correction to representation, not a restriction excluding that
+input or a change to Paper-D geometry. The targeted regressions are not a universal
+certificate for arbitrary SymPy expressions. Genuinely undecidable membership
+still returns `None`, and invalid/nonfinite inputs remain rejected.
+
+`Octagon.vertices`, `.outline` (eight closed-cycle segments) and `.filled`
+(closed convex hull) distinguish points, boundary and filled mathematical set.
+`ReferenceScaffold.vertices` is exactly `(A0,B0,A1,B1,A2,B2)`, with E/G roles
+retained. `.filled_hexagon` uses the six closed inequalities of equation (16a):
+connectors remain boundary; support apices and outer corner legs are excluded.
+`.support_triangle`, `.corner_cells`, `.planar_frames` and `.vertical_frames`
+are immutable convex-hull prescriptions, not welded meshes or material claims.
+
+Midpoint/vertical-centre radius `p`, planar-centre radius `L=p+a`, and `g_gap`
+remain distinct. The CCW planar octagon traverses its inward side B-to-A; the
+selected edge runs A-to-B. `paper_c_rigid_map` maps the starting vertical frames
+0,1,2 to existing Paper-C panels P3,P1,P2 at width one, with a three-vertex cyclic
+offset in the local outline. Six top measurement points are not the nine-edge
+nonplanar rim. Unmarked regular-hexagon D6 reduces to D3 for E/G classes and C3
+when traversal is also preserved; fixed individual labels are a stricter marking.
+The full three-frame arrangement does not acquire the hexagon's 60-degree symmetry.
+
+`translate_paper_c_to_regular(s)` preserves size and top height while moving each
+vertical centre outward. `shrink_paper_c_at_fixed_centres(s)` starts only from the
+Paper-C family and scales local coordinates by `(1+sqrt(2))/3` at fixed vertical
+centres, lowering the top plane. This factor is not an arbitrary-p or fixed-planar-
+centre rule. The new module imports only SymPy and standard-library modules.
+It adds this bounded Paper-D geometry, not all of Papers D/E, a new recurrence,
+historical Z, a clock or six-gap registration. GPT implementation review is pending.
 
 ## Explicit research initialization option
 
