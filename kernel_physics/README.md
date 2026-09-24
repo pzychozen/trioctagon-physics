@@ -1,4 +1,4 @@
-# kernel_physics v0.1 baseline + opt-in response, face view and reference scaffold
+# kernel_physics v0.1 baseline + opt-in response, face view, scaffold and Z observer
 
 **Paper C exact local geometry + Paper A exact abstract dynamics.**
 
@@ -31,7 +31,9 @@ Paper-A/C implementation also called K1.
   §§1–3 and §6.
 
 The source paths and original SHA-256 hashes are in baseline_manifest.json.
-Neither paper was modified. No historical PDF or kernel source was opened.
+Neither paper was modified. The original baseline opened no historical PDF or
+kernel source. K2 reads only the seven pinned Paper-E/current-package inputs
+listed in its separate validation record.
 
 ## Modules
 
@@ -60,6 +62,9 @@ Neither paper was modified. No historical PDF or kernel source was opened.
   around the existing `DynamicsConfig`/`step3`, without a second recurrence.
 - **readouts.py**: raw `z_chiral` only. `_response_numeric.py` supplies private
   strict-input and precision checks for these opt-in modules.
+- **z_manifold.py**: explicitly selected Paper-E staged-envelope and committed-EMA
+  observers, immutable clocks and explicit memory updates. No recurrence or
+  geometry import; raw chirality delegates to `readouts.z_chiral`.
 - **face_state.py**: opt-in tangent-vector view at the existing face centres,
   with raw Omega canonical, named frames/transport and delegated signed areas.
   This adapter imports geometry/dynamics; neither base module imports the view.
@@ -186,8 +191,11 @@ vertical centre outward. `shrink_paper_c_at_fixed_centres(s)` starts only from t
 Paper-C family and scales local coordinates by `(1+sqrt(2))/3` at fixed vertical
 centres, lowering the top plane. This factor is not an arbitrary-p or fixed-planar-
 centre rule. The new module imports only SymPy and standard-library modules.
-It adds this bounded Paper-D geometry, not all of Papers D/E, a new recurrence,
-historical Z, a clock or six-gap registration. GPT implementation review is pending.
+It supplies only this bounded Paper-D geometry. K1/R1 received scoped GPT acceptance
+and was published in commit `2b336f247aa2c24cd7596a1fc733a7b948fdb840` on
+24 September 2026. Pending-review text in its preserved validation artifacts is
+a preparation-time snapshot superseded by that commit's scoped acceptance record.
+The separately selected K2 observer below does not change scaffold geometry.
 
 ## Explicit research initialization option
 
@@ -424,10 +432,128 @@ The geometric coordinate z is not a historical kernel readout.
 
 The named initialization option, raw Z_chiral and this geometric view extend the
 baseline. The view adds coordinates and interpretation, with no second law.
-No J_eff/EMA/macro-Z interpretation, central-energy law, six-gap mapping, RSB,
-portal/field recursion, meta-shell, recursive thermodynamics, magnetic coupling,
-gravity, wormholes, physical color/quark interpretation or production TORMENT
-behavior is implemented. These remain explicit outstanding interfaces/features.
+K2 separately implements the source cubic scalar, explicit EMA memory and macro-Z
+observer below, with no physical energy interpretation or feedback. No central-energy
+law, six-gap mapping, RSB, portal/field recursion, meta-shell, recursive thermodynamics,
+magnetic coupling, gravity, wormholes, physical color/quark interpretation or
+production TORMENT behavior is implemented. Those interfaces remain outstanding.
 The SRG orientation cycle is not Paper-A evolution. This adopted finite-dimensional
 face view supplies no physical field, units, phase generator, surface interpolation,
 seam condition or justified mode selection. The broader reconstruction is unfinished.
+
+## Optional Paper-E historical Z observers (K2)
+
+K2 is a candidate for GPT implementation review. Its
+[validation report](K2_HISTORICAL_Z_VALIDATION.md) and
+[full JSON companion](K2_HISTORICAL_Z_VALIDATION.json) retain the actual local,
+package-export and source-body checks, including development failures. The fresh
+starting suite passed 134/134 methods; published K1 has 104 methods. The four
+local-only predecessor files still contribute 30 local methods and are not part
+of a package export. K2 adds 37 self-contained methods; these counts count test
+methods, not theorems. K1's four non-README artifacts remain unchanged.
+
+Import `z_manifold` explicitly. `StagedConfig` selects Paper E equation (2):
+literal lambda_vp=0.618, gamma=0.577, theta_lock=0.244, alpha=1, beta=0.5.
+`EMAConfig` selects equation (39), with the same harmonic/blend defaults but no
+gamma field. Signed finite coefficients are allowed. The two laws are never
+chosen by an implicit variant default.
+
+- `Clock(q=0, N=12, t=0.0, q_step=1)`, `clock_angle(clock)` and
+  `advance_clock(clock, dt)` keep the integer sector and time explicit.
+  Angles reduce q modulo N in integer arithmetic before binary64 evaluation.
+  No helper hardcodes 12 instead of using N. The historical dt=0.1 is only a
+  clock increment; it never enters the existing nonlinear/coupling recurrence.
+- `state_norm(omega)` uses six-real-component hypot; `saturated_norm(omega)`
+  applies kappa/(1+kappa) only to the scalar formula, never to Omega.
+- `staged_scalar(omega, clock, config)` and
+  `observe_staged(omega, clock, config)` apply the exponential envelope only to
+  the scalar/macro. Raw C has no imposed decay envelope; it need not decay.
+- `cubic_j(omega)` computes Im(O1*conj(O2)*O3);
+  `normalized_cubic(omega)` gives J/(1+abs(J)). This cubic is distinct from
+  quadratic channel area and is not generally common-phase invariant.
+- `EMAState(m=0.0)` adopts finite |m|<=1. `advance_ema(omega, memory)` performs
+  exactly one update using literal tau_meta=0.01 and retention 1.0-tau_meta.
+  `ema_scalar(omega, clock, config, memory)` and
+  `observe_ema(omega, clock, config, memory)` use CURRENT memory without updating
+  it. Readout repetition advances nothing. Zero Omega does not erase memory.
+- `macro_vector(z, clock)` and `blend_vectors(macro, chiral, *, alpha, beta)`
+  construct M and T. A `ZReadout` contains z, Z_macro, Z_chiral, Z_total,
+  variant and initialization. `Z_vec` aliases Z_total. Fresh detached arrays
+  resist ordinary in-place edits; read-only flags are not a security boundary.
+- `historical_constructor_zero(omega, clock, config)` returns a
+  `ConstructorZeroRecord` with validated Omega/clock/config, zero memory and
+  the marked zero readout. It intentionally evaluates no norm, cubic or C.
+  A modern recomputed observation of that same Omega computes its actual C.
+
+The following optional example records exactly three pre-step rows. The final
+post-step state lies outside that history, as in the source. It does not restore
+a historical runner, phase helper, noise, forcing, cycle or identity machinery.
+
+```python
+from dataclasses import asdict
+import numpy as np
+from kernel_physics.dynamics import DynamicsConfig, step3
+from kernel_physics.z_manifold import (
+    Clock, StagedConfig, EMAConfig, historical_constructor_zero,
+    advance_clock, advance_ema, observe_staged, observe_ema,
+)
+
+omega = np.array([.2+.3j, -.4+.1j, .1-.2j])
+dynamics = DynamicsConfig(eps=.05, g=.2, phase_strength=0, k=(1, 1.2, 1.4))
+clock = Clock(q=0, N=12, t=0, q_step=1)
+staged = StagedConfig(lambda_vp=.618, gamma=.577, theta_lock=.244, alpha=1, beta=.5)
+ema = EMAConfig(lambda_vp=.618, theta_lock=.244, alpha=1, beta=.5)
+dt, requested_rows = .1, 3
+initial_k = historical_constructor_zero(omega, clock, staged)
+initial_h = historical_constructor_zero(omega, clock, ema)
+memory, out_k, out_h = initial_h.memory, initial_k.readout, initial_h.readout
+metadata = {
+    "initial_omega": [[v.real, v.imag] for v in omega],
+    "dynamics": asdict(dynamics), "initial_clock": asdict(clock),
+    "staged_config": asdict(staged), "ema_config": asdict(ema),
+    "initial_memory": memory.m, "tau_meta": .01, "dt": dt,
+    "requested_rows": requested_rows, "sampling": "historical_pre_step",
+    "initialization": "historical_constructor_zero",
+}
+def observation(value):
+    return {"z": value.z, "Z_macro": value.Z_macro.tolist(),
+            "Z_chiral": value.Z_chiral.tolist(), "Z_total": value.Z_total.tolist(),
+            "variant": value.variant, "initialization": value.initialization}
+history = []
+for _ in range(requested_rows):
+    history.append({"omega": [[v.real, v.imag] for v in omega],
+                    "clock": asdict(clock), "memory": memory.m,
+                    "staged": observation(out_k), "ema": observation(out_h)})
+    omega = step3(omega, dynamics)
+    clock = advance_clock(clock, dt)
+    out_k = observe_staged(omega, clock, staged)
+    memory = advance_ema(omega, memory)
+    out_h = observe_ema(omega, clock, ema, memory)
+# history has rows 0,1,2; omega/clock/memory/out_k/out_h now describe step 3.
+```
+
+The existing earlier tilde-fenced pipeline remains byte-for-byte unchanged.
+This example reuses the current recurrence. The historical np.angle signed-zero
+extension is not installed: modern arg0 is unchanged. Source-body parity is
+same-state parity; no complete phase-enabled historical trajectory is certified.
+
+K2 accepts finite binary64/complex128 values of the declared shapes, excluding
+strings and booleans. Clock fields q, N and q_step must be integers, with N>0.
+Time and coefficients are finite reals; an explicit nonzero dt entirely lost
+to rounding raises ResponsePrecisionError. Checked nonzero subnormal results
+and intermediate products are conservatively rejected. Cubic multiplication is
+left-associated; sums use the existing compensated helper. Exponential overflow,
+underflow-to-zero and subnormal envelopes raise explicitly, even at zero amplitude.
+Full readouts always compute C, including at beta=0, so a successful scalar does
+not guarantee a successful decomposition.
+
+Finite exact rho and |j| are less than one; binary64 saturation can round to the
+endpoints, which are accepted. No clipping, tolerance-based zeroing, high-precision
+runtime fallback or universal numerical certificate is supplied. The fixed
+source-body comparisons use rtol=2e-14, atol=2e-15; bitwise equality across
+platforms is not promised. The bounded memory proof does not bound total Z
+independently of Omega, and persistent nonzero cubic input need not decay.
+
+Observer outputs do not feed Omega or Paper-C/Paper-D geometry. The clock is
+not mean channel phase or a physical D24 group assignment. Six-gap spatial
+registration remains open; K3 diagnostics are not implemented.
