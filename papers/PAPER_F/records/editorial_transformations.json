@@ -1,0 +1,92 @@
+[
+  {
+    "old": "version: \"Paper F v0.2 — unpublished publication candidate for GPT/Hilmir review\"",
+    "new": "version: \"Paper F v0.2 — publication build\"",
+    "reason": "Metadata only; omit internal review status from scholarly text"
+  },
+  {
+    "old": "This draft reconstructs the local chain [CT, AX, CG, NF]. It independently checks the exact coefficient calculations and corrects one orbit-count statement: the twelve **oriented** roots of \\(\\sin6\\phi=0\\) have three \\(D_3\\) orbits, not two. Two types are obtained under \\(D_6\\), or on projective axes under \\(D_3\\). Earlier files remain unchanged. No novelty or priority claim is made for standard representation theory, polynomial identities or analytic linearization.",
+    "new": "The twelve **oriented** roots of \\(\\sin6\\phi=0\\) have three \\(D_3\\) orbits. Two types are obtained under \\(D_6\\), or on projective axes under \\(D_3\\). Section 6 proves these counts directly. The supplementary reconstruction record documents the calculation's development and attribution. No novelty or priority claim is made for standard representation theory, polynomial identities or analytic linearization.",
+    "reason": "Move internal development chain to supplementary record; retain mathematical distinctions"
+  },
+  {
+    "old": "Version v0.2 incorporates the delivered adversarial review [CR] without rewriting v0.1. The local Poincare normal form is linear under the stated nonresonance hypotheses; the finite coefficient system below is a Taylor-jet calculation. The revised title makes that distinction explicit. No new trajectories or historical-provenance investigation are undertaken.",
+    "new": "The local Poincare normal form is linear under the stated nonresonance hypotheses; the finite coefficient system below is a Taylor-jet calculation.",
+    "reason": "Remove review/build history; preserve distinction between normal form and Taylor jet"
+  },
+  {
+    "old": "Thus the \\(D_6\\) orbits have sizes six and six, and the projective \\(D_3\\) orbits have sizes three and three. In [CR, §3.6], Claude retracts its own earlier description in [CG] of the \\(D_6\\) orbits as “regular”: each has a stabilizer of order two. That terminology correction is separate from the oriented \\(D_3\\) count corrected here.",
+    "new": "Thus the \\(D_6\\) orbits have sizes six and six, and the projective \\(D_3\\) orbits have sizes three and three. Each \\(D_6\\) orbit has a stabilizer of order two and is therefore not a regular orbit. The supplementary reconstruction record preserves the earlier terminology and its attributed correction.",
+    "reason": "Retain stabilizer assertion; move reviewer-specific correction history to supplement"
+  },
+  {
+    "old": "The positive sign printed in [CG, §5] is a prose typo; its downstream formulas agree with this calculation [NF]. ",
+    "new": "",
+    "reason": "Internal typo history is retained in CG/NF/CR and the supplementary record, not the proof narrative"
+  },
+  {
+    "old": "The isolated phase-vector calculation in [CG] begins",
+    "new": "The isolated phase-vector calculation (Appendix B; prior attribution in the supplementary record) begins",
+    "reason": "Replace unnecessary internal proof dependence with self-contained derivation"
+  },
+  {
+    "old": "`NONZERO_LAMBDA = CONTROLLED_TO_FIRST_ORDER`. ",
+    "new": "",
+    "reason": "Replace internal status flag by its existing following mathematical explanation"
+  },
+  {
+    "old": "No step uses the historical observer literal \\(\\theta_{\\rm lock}=0.244\\). Its origin remains unresolved and is not investigated here:\n`PAPER_F_DEPENDS_ON_THETA_LOCK = NO`.\nThere is no established identification \\(\\phi=\\theta-\\theta_{\\rm lock}\\).",
+    "new": "No external observer-lock, shell-coordinate, or energy parameter enters the present derivation.",
+    "reason": "Explicit publication boundary; unrelated literal and coordinate disclaimer retained only in original provenance"
+  },
+  {
+    "old": "These results are mathematical properties of the specified recurrence. Their scientific positioning and any physical dictionary require separate review. This v0.2 publication candidate is mathematically ready for a publication build, subject to GPT/Hilmir review. No publication PDF has been built.",
+    "new": "These results are mathematical properties of the specified recurrence. A physical dictionary is not established by the present analysis.",
+    "reason": "Remove publication-readiness/review assertions; retain limitation"
+  },
+  {
+    "old": "The new verifier multiplies",
+    "new": "The accompanying exact verifier multiplies",
+    "reason": "Remove development-state adjective"
+  },
+  {
+    "old": "`paper_f_exact_checks_v0_2.py` performs exact SymPy algebra and reads the preserved two-seed CSV. It does not import `kernel_physics`, execute model-evolution APIs, rerun old scripts or write research inputs. Its stdout is retained in `PAPER_F_v0.2_VALIDATION.json`, together with source identities, all residuals, development execution records and preservation checks.",
+    "new": "The accompanying exact verifier performs symbolic algebra and reads the preserved two-seed data. It statically inspects the accepted recurrence and chirality source bodies, without importing the kernel or executing model evolution. Its full output, input identities and original validation record are supplied separately [S:Checks]. The reproducibility manifest describes the isolated execution and publication build.",
+    "reason": "Standalone reproducibility description; implementation paths belong in supplement"
+  },
+  {
+    "old": "The versioned code, original census, successor theorem/provenance ledger, literature review and successor open-question ledger accompany this manuscript. The checkpoint reports the actual final check counts and raw file identities. No accepted paper, kernel module, test, prior research file or historical source is changed. No staging, commit, push or publication is performed.",
+    "new": "The supplementary reconstruction record contains the versioned exact verifier, source census, theorem/provenance ledger, literature review and open-question ledger. It also preserves the prior mathematical reviews with attribution. The package manifest identifies every supplied artifact by SHA-256. These research records are separate from the established literature cited below.",
+    "reason": "Remove Git/build status from scientific prose"
+  },
+  {
+    "old": "This appendix proves the parameter assertion used in Theorem 8. It replaces v0.1's unsupported reference to a common majorant construction.",
+    "new": "This appendix proves the parameter assertion used in Theorem 8.",
+    "reason": "Remove editorial history only; entire Appendix D proof remains verbatim"
+  },
+  {
+    "old": "[Census, Questions]",
+    "new": "[S:Census, S:Questions]",
+    "reason": "Explicit supplementary citation class"
+  },
+  {
+    "old": "experiment [AX]",
+    "new": "experiment [S:AX]",
+    "reason": "Explicit supplementary saved-experiment citation class"
+  },
+  {
+    "old": "paper [Checks]",
+    "new": "paper [S:Checks]",
+    "reason": "Explicit supplementary exact-verification citation class"
+  },
+  {
+    "old": "## References and local provenance\n\n**[PA]** Hilmir Frímann Halldórsson, *Cycle-Covering Dynamics of a Three-State Nonlinear Kernel*, accepted Paper A publication source, `papers/PAPER_A/publication/paper_A_publication.md`, §§1,6.1. The local source census pins its bytes at the accepted repository baseline.\n\n**[PB]** Hilmir Frímann Halldórsson, *Triadic Chirality and Orientation Geometry*, publication revision v0.1.2, 23 September 2026, §§5–8. Exact local edition and hash are in the census.\n\n**[Ab]** Marco Abate, *Discrete holomorphic local dynamical systems*, [author-hosted PDF](https://pagine.dm.unipi.it/abate/articoli/artric/files/DiscHolLocDynSys.pdf), Definition 5.9, Proposition 5.10 and Theorem 5.15, printed pp.35–36. The Poincare attribution is through this checked source; no claim is made to have inspected the 1893 original.\n\n**[St]** Richard P. Stanley, *Invariants of finite groups and their applications to combinatorics*, Bulletin of the American Mathematical Society (N.S.) **1**(3), 475–511 (1979), §4, Theorem 4.1 and Proposition 4.7 with the permutation-group example, pp.486,488–489. [Author-hosted article](https://math.mit.edu/~rstan/pubs/pubfiles/38.pdf).\n\n**[Fi]** Michael Field, *Dynamics and Symmetry*, undated online author manuscript, checked 423-page PDF, §1.2 example (6), printed p.3; Definition 2.10.1 and Proposition 2.10.4, printed pp.42–43 (PDF pages 52–53). [Checked manuscript](https://chaosbook.org/library/FieldEquiv.pdf). These locators refer to this online version, not assumed pagination in the 2007 printed book.\n\n**[Ge]** Erik Gengel, Erik Teichmann, Michael Rosenblum and Arkady Pikovsky, *High-Order Phase Reduction for Coupled Oscillators*, arXiv:2007.14077v1 (28 July 2020), §2.2, equation (3), p.4. [Checked preprint](https://arxiv.org/pdf/2007.14077). The author spelling follows the PDF title page.\n\n**[Sk]** Per Sebastian Skardal, Edward Ott and Juan G. Restrepo, *Cluster synchrony in systems of coupled phase oscillators with higher-order coupling*, Physical Review E **84**, 036208 (2011), §IV, equation (36), p.036208-7. [Author-institution copy](https://www.colorado.edu/amath/sites/default/files/attached-files/physreve_84_036208.pdf).\n\n**[CR]** Claude, *Adversarial mathematical review — Paper F v0.1*, 25 September 2026. Supplied review preserved byte-for-byte in `reviews/CLAUDE_PAPER_F_ADVERSARIAL_REVIEW_v0.1.md`. Its reported independent numerical runs remain attributed review evidence; this revision does not claim to have rerun them.\n\n**[CT]** Codex, *Chiral transverse mode and registration-family exposure*, 25 September 2026, §§2–3, local unpublished research. Only the intrinsic channel results are used here.\n\n**[AX]** Codex, *Transverse axis falsification report*, 25 September 2026, §§2–7, including GPT-attributed seed decomposition and preserved two-seed outputs. Local unpublished research.\n\n**[CG]** Claude, *Independent review: generic transverse harmonics of chirality near the synchronized manifold*, 25 September 2026. Existing review, including its finite-range/all-n distinction; preserved with the attributed corrections described in this paper.\n\n**[NF]** Codex, *Transverse normal-form proof closeout*, 25 September 2026. Local unpublished arbitrary-step proof and first-order composed-phase calculation; source identity and verification record preserved.\n\n**[Census]** `PAPER_F_SOURCE_CENSUS.md`. **[Ledger]** `PAPER_F_THEOREM_AND_PROVENANCE_LEDGER_v0.2.md`. **[Questions]** `PAPER_F_OPEN_QUESTIONS_v0.2.md`. **[Checks]** `paper_f_exact_checks_v0_2.py` and `PAPER_F_v0.2_VALIDATION.json`. These companions identify exact local paths, chronology, classification and unresolved selection rationale; the proofs above do not require chat history.\n",
+    "new": "## References\n\n**[PA]** Hilmir Frímann Halldórsson. *Cycle-Covering Dynamics of a Three-State Nonlinear Kernel*. Paper A, repository publication (2026), §§1 and 6.1. [Publication source](https://github.com/pzychozen/trioctagon-physics/blob/d0aa8d1cb19421ff441eacda0f83ec89fc3160b3/papers/PAPER_A/publication/paper_A_publication.md).\n\n**[PB]** Hilmir Frímann Halldórsson. *Triadic Chirality and Orientation Geometry*. Paper B, v0.1.2 (23 September 2026), §§5–8. [Publication source](https://github.com/pzychozen/trioctagon-physics/blob/d0aa8d1cb19421ff441eacda0f83ec89fc3160b3/papers/PAPER_B/publication/v0.1.2/PAPER_B_TRIADIC_CHIRALITY_AND_ORIENTATION_GEOMETRY_PUBLICATION_v0.1.2.md).\n\n**[Ab]** Marco Abate. “Discrete holomorphic local dynamical systems.” In *Holomorphic Dynamical Systems*, Lecture Notes in Mathematics **1998**, pp.1–55. Springer (2010). [doi:10.1007/978-3-642-13171-4_1](https://doi.org/10.1007/978-3-642-13171-4_1). Checked [author version](https://pagine.dm.unipi.it/abate/articoli/artric/files/DiscHolLocDynSys.pdf): Definition 5.9, Proposition 5.10 and Theorem 5.15, printed pp.35–36. The Poincare attribution is through this source, not an inspection of the 1893 original.\n\n**[St]** Richard P. Stanley. “Invariants of finite groups and their applications to combinatorics.” *Bulletin of the American Mathematical Society* (N.S.) **1**(3), 475–511 (1979). [doi:10.1090/S0273-0979-1979-14597-X](https://doi.org/10.1090/S0273-0979-1979-14597-X). Checked [author-hosted article](https://math.mit.edu/~rstan/pubs/pubfiles/38.pdf), §4: Theorem 4.1, p.486; Proposition 4.7 and permutation-group example, pp.488–489.\n\n**[Fi]** Michael Field. *Dynamics and Symmetry*. Undated online author manuscript, checked 423-page version. [Manuscript](https://chaosbook.org/library/FieldEquiv.pdf), §1.2 example (6), printed p.3; Definition 2.10.1 and Proposition 2.10.4, printed pp.42–43 (PDF pp.52–53). These locators refer to this online version, not the pagination of the 2007 printed book.\n\n**[Ge]** Erik Gengel, Erik Teichmann, Michael Rosenblum and Arkady Pikovsky. *High-Order Phase Reduction for Coupled Oscillators*. arXiv:2007.14077v1 (28 July 2020). [doi:10.48550/arXiv.2007.14077](https://doi.org/10.48550/arXiv.2007.14077). Checked [preprint](https://arxiv.org/pdf/2007.14077v1), §2.2, equation (3), p.4. First-author spelling follows the PDF title page; the arXiv HTML metadata renders “Genge.”\n\n**[Sk]** Per Sebastian Skardal, Edward Ott and Juan G. Restrepo. “Cluster synchrony in systems of coupled phase oscillators with higher-order coupling.” *Physical Review E* **84**, 036208 (16 September 2011). [doi:10.1103/PhysRevE.84.036208](https://doi.org/10.1103/PhysRevE.84.036208). Checked [author-institution copy](https://www.colorado.edu/amath/sites/default/files/attached-files/physreve_84_036208.pdf), §IV, equation (36), p.036208-7.\n\n## Supplementary reconstruction record\n\n**[S]** *Paper F: reconstruction and reproducibility supplement*, accompanying this paper. This is internal research provenance, not established literature. It preserves the attributed CT, AX, CG, NF and CR records, including superseded wording and its corrections. The proof arguments in this paper are self-contained apart from the stated classical theorem application.\n\n**[S:AX]** The preserved Codex two-seed report and saved outputs, including the GPT-attributed historical-seed decomposition. **[S:Census]** The original bounded source census. **[S:Questions]** The v0.2 open-question ledger. **[S:Checks]** The exact verifier, accepted v0.2 validation and separate publication-build execution record. Artifact identities and the full attribution history are provided in the supplement inventory.\n",
+    "reason": "Complete checked scholarly bibliography separated from internal provenance inventory"
+  },
+  {
+    "old": "",
+    "new": "\n\\begin{figure}\n\\centering\n\\includegraphics[width=\\linewidth]{figures/figure_1_transverse_symmetry.pdf}\n\\caption{Intrinsic transverse symmetry. Left: the twelve roots \\(\\phi=k\\pi/6\\) on \\(q(\\phi)=u\\cos\\phi+v\\sin\\phi\\), colored and shaped by the three \\(D_3\\) oriented orbits (sizes \\(6,3,3\\)). Right: antipodal identification gives the two projective classes, each with three axes; labels are \\(k\\bmod6\\). Conjugation sends \\(k\\) to \\(k+6\\), joins the two oriented \\(v\\)-type orbits and extends the seed-circle action to \\(D_6\\). The \\(D_6\\) orbits have sizes \\(6,6\\), with stabilizers of order two. Coordinates are coefficients in the intrinsic \\((u,v)\\) basis, not physical-space coordinates.}\n\\end{figure}\n",
+    "reason": "Single equation-generated intrinsic Figure 1 after Proposition 3 proof; no new scientific result"
+  }
+]

@@ -1,0 +1,33 @@
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{needspace}
+\usepackage{xurl}
+\usepackage{etoolbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5.5pt plus 1pt minus 1pt}
+\setlength{\emergencystretch}{2em}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\raggedbottom
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\titleformat{\section}{\normalfont\Large\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{16pt plus 3pt minus 2pt}{7pt}
+\pretocmd{\section}{\Needspace{6\baselineskip}}{}{}
+\pretocmd{\subsection}{\Needspace{5\baselineskip}}{}{}
+\makeatletter
+\renewenvironment{figure}[1][]{\par\noindent\begin{minipage}{\linewidth}\def\@captype{figure}}{\end{minipage}\par\medskip}
+\def\@maketitle{\newpage\null\begin{center}{\LARGE\bfseries\@title\par}\vskip .9em{\large\@author\par}\vskip .5em{\small\@date\par}\end{center}\vskip .4em}
+\makeatother
+\newsavebox{\papereqbox}
+\newcommand{\paperdisplay}[2][]{\par\begingroup
+\sbox{\papereqbox}{$\displaystyle #2$}
+\typeout{PAPER-EQUATION-WIDTH: \the\wd\papereqbox; available \the\linewidth; tag #1}
+\begin{equation*}\ifdim\wd\papereqbox>.93\linewidth
+\resizebox{.93\linewidth}{!}{\usebox{\papereqbox}}\else\usebox{\papereqbox}\fi
+\ifstrempty{#1}{}{\tag{#1}}\end{equation*}\endgroup\par}
