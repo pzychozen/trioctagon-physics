@@ -1,0 +1,67 @@
+{
+  "attribution": "NEW_CODEX_EXECUTION_NOT_ORIGINAL_HISTORICAL_STDOUT",
+  "started_utc": "2026-09-25T19:31:12.229686+00:00",
+  "finished_checks_utc": "2026-09-25T19:31:26.093329+00:00",
+  "runtime": {
+    "python": "3.12.14",
+    "executable": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_physics\\.venv\\Scripts\\python.exe",
+    "numpy": "2.5.3",
+    "sympy": "1.14.0",
+    "matplotlib": "3.11.2",
+    "PYTHONPATH": "C:\\TORMENT\\TRIOCTAGON_new\\publication_workspaces\\paper_F_20260925\\runtime_deps"
+  },
+  "runs": [
+    {
+      "command": [
+        "C:\\TORMENT\\TRIOCTAGON_new\\kernel_physics\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\research\\twisted_hex_crystal_registration_v0.1\\verify_crystal_geometry.py"
+      ],
+      "cwd": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\research\\twisted_hex_crystal_registration_v0.1",
+      "exit_code": 0,
+      "stdout": "{\n  \"historical_checks\": {\n    \"source_hash_matches\": true,\n    \"independent_literal_primitives_bitwise_equal\": true,\n    \"18_vertices_60_edges_30_faces\": true,\n    \"30_boundary_edges\": true,\n    \"no_nonmanifold_edges\": true,\n    \"has_nonmanifold_vertices\": true,\n    \"six_primitive_and_six_primitive_cap_crossing_pairs\": true,\n    \"symbolic_crossing_length_squared_a_squared\": true,\n    \"radical_values_round_to_literals\": true,\n    \"three_exact_nearest_apex_ties\": true,\n    \"full_face_symmetry_is_C1_at_declared_tolerance\": true,\n    \"intersection_probe_separated\": true,\n    \"intersection_probe_proper_crossing\": true,\n    \"intersection_probe_shared_edge\": true,\n    \"intersection_probe_coplanar_overlap\": true,\n    \"intersection_probe_shared_vertex_only\": true,\n    \"edge_length_class_counts_match_Claude_note\": true\n  },\n  \"pass\": true\n}\n",
+      "stderr": "",
+      "script_sha256": "5d46bb3f0c7d894826e0d64749d88646750903d5bb8b3c2caa6d89115f3da45d"
+    },
+    {
+      "command": [
+        "C:\\TORMENT\\TRIOCTAGON_new\\kernel_physics\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\research\\twisted_hex_crystal_registration_v0.1\\verify_host_registration.py"
+      ],
+      "cwd": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\research\\twisted_hex_crystal_registration_v0.1",
+      "exit_code": 0,
+      "stdout": "{\n  \"passed\": 70,\n  \"total\": 70,\n  \"failed\": []\n}\n",
+      "stderr": "",
+      "script_sha256": "c6d5ce45793b3de3a14065ca7635ba3cd086a1f1332a6d5560ce48f5191ee94c"
+    },
+    {
+      "command": [
+        "C:\\TORMENT\\TRIOCTAGON_new\\kernel_physics\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\research\\twisted_hex_crystal_registration_v0.1\\render_figures.py"
+      ],
+      "cwd": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\research\\twisted_hex_crystal_registration_v0.1",
+      "exit_code": 0,
+      "stdout": "Rendered six research figures from stored verified coordinates.\n",
+      "stderr": "",
+      "script_sha256": "58297a6a1d6e09d4b4e7b2b98db10e12cc2a7996c0f8283248dbbaad5d92dc27"
+    }
+  ],
+  "all_pass": true,
+  "verification_output_hashes": {
+    "HISTORICAL_CRYSTAL.json": "de552842a1c718c2accaec82836459d146733a60a69365c7bf77541f5ef412c2",
+    "HOST_GEOMETRY.json": "e35ea15b8a321b11754910660a98db3f54c66da279b8eb6bbf52093f6712f010",
+    "CANONICAL_CRYSTAL_CANDIDATE.json": "316a6826810f019e0f91773b8d2a12c7de79a885ed284829f12167e40232e4f6",
+    "REGISTRATION_VALIDATION.json": "d47f1e1f703db318bafcf840b8e24f404173f443e50940d5947aaf673dbd0579"
+  },
+  "scope": "No evolution, optimization, sweep, historical script tail, publication build, or source regeneration.",
+  "figure_layout_revision": "Reduced 3D tick density after visual inspection; geometry outputs unchanged.",
+  "finished_render_utc": "2026-09-25T19:32:32.401994+00:00"
+}

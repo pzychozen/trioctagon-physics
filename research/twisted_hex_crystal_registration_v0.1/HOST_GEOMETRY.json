@@ -1,0 +1,437 @@
+{
+  "label": "ACCEPTED_PAPER_C_WIDTH_ONE_HOST",
+  "sources": [
+    {
+      "path": "papers/PAPER_C/publication/v1.0.1/PAPER_C_EXACT_TRIOCTAGON_GEOMETRY_PUBLICATION_v1.0.1.md",
+      "sha256": "5a0cbdae4aaf689cfe1f5b29305960e90c88e26d0db28834802ef70fc16549fb",
+      "locators": "Sections 2-4, 6-9 and Appendix B"
+    },
+    {
+      "path": "kernel_physics/geometry.py",
+      "sha256": "18398bd15b12c2dc1711c3ea2769f50215f2bcad5335ced9ee23e4e6baf1ddbf",
+      "locators": "LOCAL_OCTAGON, panel_point, folded_module, CENTROID, rotate_c3"
+    }
+  ],
+  "center": [
+    "0",
+    "sqrt(3)/6",
+    "0"
+  ],
+  "principal_axis": [
+    "0",
+    "0",
+    "1"
+  ],
+  "width": "1",
+  "edge_length": "-1 + sqrt(2)",
+  "chamfer_cutback": "1 - sqrt(2)/2",
+  "central_band_half_height": "-1/2 + sqrt(2)/2",
+  "support_triangle_inradius": "sqrt(3)/6",
+  "panels": [
+    {
+      "panel": 1,
+      "center": [
+        "-1/4",
+        "sqrt(3)/4",
+        "0"
+      ],
+      "vertices": [
+        [
+          "0",
+          "sqrt(3)/2",
+          "1/2 - sqrt(2)/2"
+        ],
+        [
+          "-1/2 + sqrt(2)/4",
+          "sqrt(6)/4",
+          "-1/2"
+        ],
+        [
+          "-sqrt(2)/4",
+          "sqrt(3)*(2 - sqrt(2))/4",
+          "-1/2"
+        ],
+        [
+          "-1/2",
+          "0",
+          "1/2 - sqrt(2)/2"
+        ],
+        [
+          "-1/2",
+          "0",
+          "-1/2 + sqrt(2)/2"
+        ],
+        [
+          "-sqrt(2)/4",
+          "sqrt(3)*(2 - sqrt(2))/4",
+          "1/2"
+        ],
+        [
+          "-1/2 + sqrt(2)/4",
+          "sqrt(6)/4",
+          "1/2"
+        ],
+        [
+          "0",
+          "sqrt(3)/2",
+          "-1/2 + sqrt(2)/2"
+        ]
+      ]
+    },
+    {
+      "panel": 2,
+      "center": [
+        "0",
+        "0",
+        "0"
+      ],
+      "vertices": [
+        [
+          "-1/2",
+          "0",
+          "1/2 - sqrt(2)/2"
+        ],
+        [
+          "1/2 - sqrt(2)/2",
+          "0",
+          "-1/2"
+        ],
+        [
+          "-1/2 + sqrt(2)/2",
+          "0",
+          "-1/2"
+        ],
+        [
+          "1/2",
+          "0",
+          "1/2 - sqrt(2)/2"
+        ],
+        [
+          "1/2",
+          "0",
+          "-1/2 + sqrt(2)/2"
+        ],
+        [
+          "-1/2 + sqrt(2)/2",
+          "0",
+          "1/2"
+        ],
+        [
+          "1/2 - sqrt(2)/2",
+          "0",
+          "1/2"
+        ],
+        [
+          "-1/2",
+          "0",
+          "-1/2 + sqrt(2)/2"
+        ]
+      ]
+    },
+    {
+      "panel": 3,
+      "center": [
+        "1/4",
+        "sqrt(3)/4",
+        "0"
+      ],
+      "vertices": [
+        [
+          "1/2",
+          "0",
+          "1/2 - sqrt(2)/2"
+        ],
+        [
+          "sqrt(2)/4",
+          "sqrt(3)*(2 - sqrt(2))/4",
+          "-1/2"
+        ],
+        [
+          "1/2 - sqrt(2)/4",
+          "sqrt(6)/4",
+          "-1/2"
+        ],
+        [
+          "0",
+          "sqrt(3)/2",
+          "1/2 - sqrt(2)/2"
+        ],
+        [
+          "0",
+          "sqrt(3)/2",
+          "-1/2 + sqrt(2)/2"
+        ],
+        [
+          "1/2 - sqrt(2)/4",
+          "sqrt(6)/4",
+          "1/2"
+        ],
+        [
+          "sqrt(2)/4",
+          "sqrt(3)*(2 - sqrt(2))/4",
+          "1/2"
+        ],
+        [
+          "1/2",
+          "0",
+          "-1/2 + sqrt(2)/2"
+        ]
+      ]
+    }
+  ],
+  "plane_equations": [
+    {
+      "panel": 2,
+      "outward_normal": [
+        "0",
+        "-1",
+        "0"
+      ],
+      "equation_centered": "n dot (X-O) = sqrt(3)/6"
+    },
+    {
+      "panel": 3,
+      "outward_normal": [
+        "sqrt(3)/2",
+        "1/2",
+        "0"
+      ],
+      "equation_centered": "n dot (X-O) = sqrt(3)/6"
+    },
+    {
+      "panel": 1,
+      "outward_normal": [
+        "-sqrt(3)/2",
+        "1/2",
+        "0"
+      ],
+      "equation_centered": "n dot (X-O) = sqrt(3)/6"
+    }
+  ],
+  "welded_vertices": [
+    [
+      "0",
+      "sqrt(3)/2",
+      "1/2 - sqrt(2)/2"
+    ],
+    [
+      "-1/2 + sqrt(2)/4",
+      "sqrt(6)/4",
+      "-1/2"
+    ],
+    [
+      "-sqrt(2)/4",
+      "-sqrt(6)/4 + sqrt(3)/2",
+      "-1/2"
+    ],
+    [
+      "-1/2",
+      "0",
+      "1/2 - sqrt(2)/2"
+    ],
+    [
+      "-1/2",
+      "0",
+      "-1/2 + sqrt(2)/2"
+    ],
+    [
+      "-sqrt(2)/4",
+      "-sqrt(6)/4 + sqrt(3)/2",
+      "1/2"
+    ],
+    [
+      "-1/2 + sqrt(2)/4",
+      "sqrt(6)/4",
+      "1/2"
+    ],
+    [
+      "0",
+      "sqrt(3)/2",
+      "-1/2 + sqrt(2)/2"
+    ],
+    [
+      "1/2 - sqrt(2)/2",
+      "0",
+      "-1/2"
+    ],
+    [
+      "-1/2 + sqrt(2)/2",
+      "0",
+      "-1/2"
+    ],
+    [
+      "1/2",
+      "0",
+      "1/2 - sqrt(2)/2"
+    ],
+    [
+      "1/2",
+      "0",
+      "-1/2 + sqrt(2)/2"
+    ],
+    [
+      "-1/2 + sqrt(2)/2",
+      "0",
+      "1/2"
+    ],
+    [
+      "1/2 - sqrt(2)/2",
+      "0",
+      "1/2"
+    ],
+    [
+      "sqrt(2)/4",
+      "-sqrt(6)/4 + sqrt(3)/2",
+      "-1/2"
+    ],
+    [
+      "1/2 - sqrt(2)/4",
+      "sqrt(6)/4",
+      "-1/2"
+    ],
+    [
+      "1/2 - sqrt(2)/4",
+      "sqrt(6)/4",
+      "1/2"
+    ],
+    [
+      "sqrt(2)/4",
+      "-sqrt(6)/4 + sqrt(3)/2",
+      "1/2"
+    ]
+  ],
+  "welded_faces": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    [
+      3,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      4
+    ],
+    [
+      10,
+      14,
+      15,
+      0,
+      7,
+      16,
+      17,
+      11
+    ]
+  ],
+  "target_choice": "USER_CONFIRMED_HIGHEST_HORIZONTAL_EDGE_MIDPOINT",
+  "target_panel_order_C3": [
+    2,
+    3,
+    1
+  ],
+  "upper_local_edge": [
+    5,
+    6
+  ],
+  "lower_local_edge": [
+    1,
+    2
+  ],
+  "upper_targets": [
+    [
+      "0",
+      "0",
+      "1/2"
+    ],
+    [
+      "1/4",
+      "sqrt(3)/4",
+      "1/2"
+    ],
+    [
+      "-1/4",
+      "sqrt(3)/4",
+      "1/2"
+    ]
+  ],
+  "lower_targets": [
+    [
+      "0",
+      "0",
+      "-1/2"
+    ],
+    [
+      "1/4",
+      "sqrt(3)/4",
+      "-1/2"
+    ],
+    [
+      "-1/4",
+      "sqrt(3)/4",
+      "-1/2"
+    ]
+  ],
+  "upper_targets_numeric": [
+    [
+      0.0,
+      0.0,
+      0.5
+    ],
+    [
+      0.25,
+      0.4330127018922193,
+      0.5
+    ],
+    [
+      -0.25,
+      0.4330127018922193,
+      0.5
+    ]
+  ],
+  "lower_targets_numeric": [
+    [
+      0.0,
+      0.0,
+      -0.5
+    ],
+    [
+      0.25,
+      0.4330127018922193,
+      -0.5
+    ],
+    [
+      -0.25,
+      0.4330127018922193,
+      -0.5
+    ]
+  ],
+  "upper_lower_angular_stagger": "0",
+  "target_side_length": "1/2",
+  "target_circumradius": "sqrt(3)/6",
+  "notch_metrics": {
+    "legs": "-1 + sqrt(2)",
+    "base": "1 - sqrt(2)/2",
+    "tip_angle": "acos(3/4)",
+    "vertical_rise": "1 - sqrt(2)/2",
+    "radial_rise": "sqrt(3)*(2 - sqrt(2))/4"
+  },
+  "host_status": "OPEN_THREE_PANEL_SHELL_NOT_A_CLOSED_SOLID",
+  "alternative_upper_chamfer_midpoints": {
+    "local_u": [
+      "+sqrt(2)/4",
+      "-sqrt(2)/4"
+    ],
+    "height": "sqrt(2)/4",
+    "circumradius": "sqrt(5/24)",
+    "used": false
+  }
+}

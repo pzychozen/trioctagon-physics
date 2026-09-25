@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twisted hex crystal — visual selection</title>
+<style>
+:root{color-scheme:light;--ink:#183240;--muted:#516673;--blue:#1768ab;--orange:#c45d22;--teal:#197e80;--host:#6d8295;--line:#d5dfe4}
+*{box-sizing:border-box}
+body{margin:0;background:#f7f9fa;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px;line-height:1.5}
+main{max-width:1240px;margin:0 auto;padding:28px 26px 32px}
+.eyebrow{font-size:12px;letter-spacing:.14em;color:var(--muted);font-weight:650}
+h1{font-size:29px;font-weight:600;line-height:1.2;margin:7px 0 8px}
+p{margin:0 0 12px}.subtle{color:var(--muted)}
+.controls{margin-top:20px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.readouts{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:baseline;font-variant-numeric:tabular-nums}
+.readouts output{font-weight:600}.readouts label{min-width:215px}
+input[type=range]{display:block;width:100%;margin:14px 0 7px;accent-color:#245368;height:25px}
+.slider-ends{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+.presets{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}
+button{font:inherit;font-size:14px;line-height:1.2;border:1px solid #b8c7cf;border-radius:5px;padding:9px 13px;background:white;color:var(--ink);cursor:pointer;min-height:39px}
+button:hover{background:#edf2f5}
+button[aria-pressed=true]{background:#245368;color:white;border-color:#245368}
+button:focus-visible,input:focus-visible{outline:3px solid #448bd1;outline-offset:3px}
+.toolbar{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;margin-top:17px}
+.group{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+.group-label{color:var(--muted);font-size:13px;margin-right:4px}
+.toggle{display:inline-flex;gap:6px;align-items:center;min-height:34px}
+input[type=checkbox]{accent-color:#245368;width:16px;height:16px}
+.status{min-height:28px;font-size:14px;margin-top:12px;color:var(--muted)}
+.views{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:18px}
+.views.single{grid-template-columns:minmax(0,1fr);max-width:720px;margin-left:auto;margin-right:auto}
+.view{min-width:0}
+.view h2{font-size:14px;font-weight:600;letter-spacing:.04em;text-align:center;margin:0 0 4px}
+.view svg{display:block;width:100%;aspect-ratio:1.06;background:white;border:1px solid var(--line)}
+[hidden]{display:none!important}
+.legend{display:flex;flex-wrap:wrap;gap:9px 21px;justify-content:center;font-size:13px;margin:17px 0}
+.legend span{display:inline-flex;gap:7px;align-items:center}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--blue)}
+.diamond{display:inline-block;width:9px;height:9px;background:var(--orange);transform:rotate(45deg)}
+.square{display:inline-block;width:12px;height:12px;border:1.5px solid #44545f;background:white}
+.dash{display:inline-block;width:24px;height:0;border-top:2px dashed var(--orange)}
+.note{font-size:13px;color:var(--muted);max-width:1050px;margin:12px auto 0}
+a{color:#1768ab}
+@media(max-width:760px){main{padding:18px 14px 25px}.views{grid-template-columns:1fr;gap:19px}.toolbar{gap:12px}h1{font-size:25px}.readouts{gap:7px 22px}.controls{padding-top:13px}.status{min-height:0}.legend{justify-content:flex-start}}
+@media(pointer:coarse){button{min-height:44px}.toggle{min-height:44px}}
+</style>
+</head>
+<body>
+<main>
+<div class="eyebrow">RESEARCH / VISUAL SELECTION</div>
+<h1>Twisted hex crystal</h1>
+<p class="subtle">Compare the verified family. No value or handedness is designated as the intended design.</p>
+<section class="controls" aria-label="Crystal comparison controls">
+<div class="readouts" aria-live="polite">
+<label for="t-slider">t = <output id="t-value">0.000000000</output></label>
+<span>α = <output id="alpha-value">1.000000000</output></span>
+<span>δ = <output id="delta-value">0.000000°</output></span>
+</div>
+<input id="t-slider" type="range" min="0" max="1" step="any" value="0" aria-label="t, lower edge offset in host width-one units">
+<div class="slider-ends"><span>0 · reference only</span><span id="max-label">s/2</span></div>
+<div id="presets" class="presets" role="group" aria-label="Nine mandatory sample values"></div>
+<div class="toolbar">
+<div class="group" role="group" aria-label="Handedness">
+<span class="group-label">Hand</span>
+<button type="button" data-hand="both" aria-pressed="true">Both</button>
+<button type="button" data-hand="plus" aria-pressed="false">TWIST_PLUS</button>
+<button type="button" data-hand="minus" aria-pressed="false">TWIST_MINUS</button>
+</div>
+<div class="group" role="group" aria-label="Camera">
+<span class="group-label">View</span>
+<button type="button" data-camera="perspective" aria-pressed="true">Perspective</button>
+<button type="button" data-camera="top" aria-pressed="false">Top</button>
+<button type="button" data-camera="side" aria-pressed="false">Side</button>
+</div>
+<div class="group" role="group" aria-label="Visible geometry">
+<label class="toggle"><input id="host-toggle" type="checkbox" checked>Host</label>
+<label class="toggle"><input id="surface-toggle" type="checkbox" checked>Crystal surface</label>
+<label class="toggle"><input id="wire-toggle" type="checkbox" checked>Wireframe</label>
+</div>
+</div>
+<div id="status" class="status" aria-live="polite"></div>
+</section>
+<section id="views" class="views" aria-label="Crystal views">
+<div class="view" id="plus-pane"><h2>TWIST_PLUS</h2><svg id="plus-svg" role="img" aria-label="Plus-hand crystal in the accepted Paper C host"></svg></div>
+<div class="view" id="minus-pane"><h2>TWIST_MINUS</h2><svg id="minus-svg" role="img" aria-label="Minus-hand crystal in the accepted Paper C host"></svg></div>
+</section>
+<div class="legend" aria-label="Geometric markers">
+<span><i class="dot" aria-hidden="true"></i>Upper contact</span>
+<span><i class="diamond" aria-hidden="true"></i>Predicted lower contact</span>
+<span><i class="square" aria-hidden="true"></i>Host edge center</span>
+<span><i class="dash" aria-hidden="true"></i>Center residual t</span>
+</div>
+<p class="note">The camera and host scale stay fixed as t changes. Top and side are exact orthographic projections. Contact markers and wire lines remain visible through the translucent surfaces; dashed residuals are measurements, not added struts.</p>
+<p class="note"><strong>Zero reference:</strong> t=0 has α=1 and no relative footprint offset (δ=0). The inherited one-step band connections remain in the unchanged mesh. The earlier t=s/4 render is only one illustration, with no special standing.</p>
+<p class="note">Upper contacts stay exact. Lower tips remain on the lower edges, at distance t from their centers. This viewer compares the existing proposed ring/face construction and does not choose a design or alter the model. <a href="CRYSTAL_SELECTION_ATLAS.md">Atlas record</a></p>
+</main>
+<script id="crystal-model" type="application/json">__MODEL_JSON__</script>
+<script>
+"use strict";
+const model=JSON.parse(document.getElementById("crystal-model").textContent);
+const state={t:0,hand:"both",camera:"perspective",host:true,surface:true,wire:true};
+const NS="http://www.w3.org/2000/svg";
+const color={blue:"#1768ab",orange:"#c45d22",teal:"#197e80",host:"#6d8295"};
+const $=id=>document.getElementById(id);
+const dot=(a,b)=>a.reduce((sum,x,i)=>sum+x*b[i],0);
+const sub=(a,b)=>a.map((x,i)=>x-b[i]);
+function alpha(t){return __ALPHA_JS__;}
+function delta(t){return __DELTA_JS__;}
+function vertices(t,hand){
+  return model.vertex_affine_base.map((p,i)=>{
+    const v=p.map((x,k)=>x+t*model.vertex_affine_slope[i][k]);
+    if(hand==="minus")v[0]=2*model.center[0]-v[0];
+    return v;
+  });
+}
+function project(p,view){
+  const q=sub(p,model.center);
+  if(view==="top")return [q[0],q[1],q[2]];
+  if(view==="side")return [q[0],q[2],-q[1]];
+  const az=model.camera.azimuth_degrees*Math.PI/180,el=model.camera.elevation_degrees*Math.PI/180;
+  const right=[-Math.sin(az),Math.cos(az),0];
+  const up=[-Math.sin(el)*Math.cos(az),-Math.sin(el)*Math.sin(az),Math.cos(el)];
+  const toward=[Math.cos(el)*Math.cos(az),Math.cos(el)*Math.sin(az),Math.sin(el)];
+  const depth=dot(q,toward),perspective=1-depth/model.camera.perspective_distance;
+  return [dot(q,right)/perspective,dot(q,up)/perspective,depth];
+}
+function node(tag,attrs={},text){
+  const e=document.createElementNS(NS,tag);
+  Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,String(v)));
+  if(text!==undefined)e.textContent=text;
+  return e;
+}
+const edges=[...new Set(model.faces.flatMap(f=>f.map((a,i)=>[a,f[(i+1)%3]].sort((a,b)=>a-b).join(","))))].map(s=>s.split(",").map(Number));
+function draw(svg,hand){
+  const width=Math.max(280,svg.clientWidth),height=width/1.06;
+  svg.setAttribute("viewBox",`0 0 ${width} ${height}`);
+  const half=model.camera.projected_bounds[1],scale=(Math.min(width,height)-44)/(2*half);
+  const screen=p=>[width/2+p[0]*scale,height/2-p[1]*scale];
+  const pts=vertices(state.t,hand),pv=pts.map(p=>project(p,state.camera)),xy=pv.map(screen);
+  const layers=[];
+  const frag=document.createDocumentFragment();
+  frag.append(node("title",{},`${hand==="plus"?"TWIST_PLUS":"TWIST_MINUS"}; ${state.camera}; t=${state.t.toFixed(9)}`));
+  if(state.host)model.host_panels.forEach(p=>{
+    const pr=p.map(q=>project(q,state.camera));
+    layers.push({depth:pr.reduce((a,b)=>a+b[2],0)/pr.length,xy:pr.map(screen),color:color.host,opacity:.10,kind:"host-surface"});
+  });
+  if(state.surface)model.faces.forEach((f,i)=>{
+    layers.push({depth:f.reduce((sum,k)=>sum+pv[k][2],0)/3,xy:f.map(k=>xy[k]),color:i<12?color.teal:color.blue,opacity:.22,kind:"crystal-surface"});
+  });
+  layers.sort((a,b)=>a.depth-b.depth).forEach(p=>{
+    frag.append(node("polygon",{points:p.xy.map(q=>q.join(",")).join(" "),fill:p.color,"fill-opacity":p.opacity,stroke:"none","data-layer":p.kind}));
+  });
+  function line(a,b,stroke,width=1,extra={}){
+    frag.append(node("line",{x1:a[0],y1:a[1],x2:b[0],y2:b[1],stroke,"stroke-width":width,...extra}));
+  }
+  if(state.host)model.host_panels.forEach(p=>{
+    const pr=p.map(q=>screen(project(q,state.camera)));
+    pr.forEach((q,i)=>line(q,pr[(i+1)%pr.length],color.host,.85,{"stroke-opacity":.65,"data-layer":"host-wire"}));
+  });
+  if(state.wire){
+    edges.forEach(([a,b])=>line(xy[a],xy[b],color.teal,.9,{"stroke-opacity":.85,"data-layer":"crystal-wire"}));
+    [0,6].forEach(start=>{
+      for(let i=0;i<6;i++)line(xy[start+i],xy[start+(i+1)%6],"#164955",1.35,{"data-layer":"crystal-wire"});
+    });
+  }
+  const U=model.upper_targets.map(p=>screen(project(p,state.camera)));
+  const L=model.lower_targets.map(p=>screen(project(p,state.camera)));
+  const permutation=hand==="plus"?[0,1,2]:[0,2,1];
+  permutation.forEach((k,i)=>line(L[k],xy[15+i],color.orange,1.7,{"stroke-dasharray":"4 3","data-layer":"residual"}));
+  function square(p,label){
+    const e=node("rect",{x:p[0]-7,y:p[1]-7,width:14,height:14,fill:"white",stroke:"#44545f","stroke-width":1.2,"data-layer":"edge-center"});
+    e.append(node("title",{},label));frag.append(e);
+  }
+  U.forEach((p,i)=>square(p,`Upper host edge center U${i}`));
+  L.forEach((p,i)=>square(p,`Lower host edge center L${i}`));
+  xy.slice(12,15).forEach((p,i)=>{
+    const e=node("circle",{cx:p[0],cy:p[1],r:5,fill:color.blue,stroke:"white","stroke-width":.7,"data-layer":"upper-contact"});
+    e.append(node("title",{},`Upper contact at U${permutation[i]}; exact`));frag.append(e);
+  });
+  xy.slice(15,18).forEach((p,i)=>{
+    const r=4;
+    const e=node("polygon",{points:[[p[0],p[1]-r],[p[0]+r,p[1]],[p[0],p[1]+r],[p[0]-r,p[1]]].map(q=>q.join(",")).join(" "),fill:color.orange,stroke:"white","stroke-width":.7,"data-layer":"lower-contact"});
+    e.append(node("title",{},`Lower contact on edge ${permutation[i]}; center residual ${state.t.toFixed(9)}`));frag.append(e);
+  });
+  const origin=screen(project(model.center,state.camera));
+  line([origin[0]-3,origin[1]],[origin[0]+3,origin[1]],"#71818b",1);
+  line([origin[0],origin[1]-3],[origin[0],origin[1]+3],"#71818b",1);
+  const label=state.camera==="top"?"Top: x / y":state.camera==="side"?"Side: x / z":"Perspective";
+  frag.append(node("text",{x:15,y:23,fill:"#516673","font-size":12},label));
+  if(state.camera!=="perspective"){
+    line([width-20-.2*scale,height-28],[width-20,height-28],"#516673",1);
+    frag.append(node("text",{x:width-20,y:height-10,fill:"#516673","font-size":11,"text-anchor":"end"},"0.2 width units"));
+  }
+  svg.replaceChildren(frag);
+}
+function update(){
+  $("t-slider").value=String(state.t);
+  $("t-slider").setAttribute("aria-valuetext",`${state.t.toFixed(9)} host width-one units`);
+  $("t-value").textContent=state.t.toFixed(9);
+  $("alpha-value").textContent=alpha(state.t).toFixed(9);
+  const d=delta(state.t)*180/Math.PI;
+  const sign=state.t===0?"":state.hand==="both"?"±":state.hand==="minus"?"−":"+";
+  $("delta-value").textContent=sign+d.toFixed(6)+"°";
+  document.querySelectorAll("[data-hand]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.hand===state.hand));
+  document.querySelectorAll("[data-camera]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.camera===state.camera));
+  let sample=null;
+  document.querySelectorAll("[data-sample]").forEach(b=>{
+    const s=model.samples[Number(b.dataset.sample)],matched=Math.abs(s.t-state.t)<1e-14;
+    b.setAttribute("aria-pressed",matched);
+    if(matched)sample=s;
+  });
+  $("status").textContent=state.t===0
+    ?"Reference only · zero footprint offset; inherited band connections remain."
+    :`${sample?"Displayed sample "+sample.id+" · t = "+sample.label:"Continuous family"} · lower-center residual = ${state.t.toFixed(9)} · no design choice recorded.`;
+  $("plus-pane").hidden=state.hand==="minus";
+  $("minus-pane").hidden=state.hand==="plus";
+  $("views").classList.toggle("single",state.hand!=="both");
+  if(state.hand!=="minus")draw($("plus-svg"),"plus");
+  if(state.hand!=="plus")draw($("minus-svg"),"minus");
+}
+$("t-slider").max=String(model.max_t);
+$("max-label").textContent=`s/2 = ${model.max_t.toFixed(9)}`;
+model.samples.forEach((s,i)=>{
+  const b=document.createElement("button");b.type="button";b.dataset.sample=String(i);
+  b.textContent=s.label+(i===0?" · reference":"");b.setAttribute("aria-pressed",i===0);
+  b.addEventListener("click",()=>{state.t=s.t;update();});
+  $("presets").append(b);
+});
+$("t-slider").addEventListener("input",e=>{
+  const t=Number(e.target.value);
+  if(Number.isFinite(t)){state.t=Math.max(0,Math.min(model.max_t,t));update();}
+});
+document.querySelectorAll("[data-hand]").forEach(b=>b.addEventListener("click",()=>{state.hand=b.dataset.hand;update();}));
+document.querySelectorAll("[data-camera]").forEach(b=>b.addEventListener("click",()=>{state.camera=b.dataset.camera;update();}));
+[["host-toggle","host"],["surface-toggle","surface"],["wire-toggle","wire"]].forEach(([id,key])=>{
+  $(id).addEventListener("change",e=>{state[key]=e.target.checked;update();});
+});
+const observer=new ResizeObserver(()=>update());
+observer.observe($("views"));
+window.crystalAtlas={model,state,vertices,project,alpha,delta,render:update};
+update();
+</script>
+</body>
+</html>

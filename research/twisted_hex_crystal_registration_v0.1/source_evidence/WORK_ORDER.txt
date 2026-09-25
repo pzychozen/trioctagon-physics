@@ -1,0 +1,392 @@
+CODEX WORK ORDER — RECONSTRUCT AND FIT HILMIR'S 3↑/3↓ TWISTED HEX CRYSTAL
+
+REPOSITORY
+
+C:\TORMENT\TRIOCTAGON_new\trioctagon-physics
+
+CURRENT ACCEPTED MAIN
+
+Use the actual current GitHub/main HEAD.
+
+Do not modify accepted Paper C, Paper D, Paper F, kernel files, or existing
+research evidence.
+
+This is a new bounded geometry investigation.
+
+SOURCE MATERIAL
+
+1. Historical source implementation:
+   tri_oct.py
+
+2. Claude reconstruction note:
+   twisted_hex_crystal_research_note.md
+
+3. Accepted current Tri-Octagon host geometry:
+   use the authoritative Paper C / current canonical geometry from the repo.
+
+IMPORTANT BOUNDARY
+
+rtm_exploration(4).jsx is a separate side project.
+
+Its embedded Tri-Octagon renderer is NOT authority for this investigation.
+
+Only the custom crystal idea may be compared historically.
+
+AUTHOR'S CURRENT CLARIFICATION
+
+Hilmir has now clarified the intended geometry:
+
+- The crystal belongs in the exact center of the current 3D Tri-Octagon.
+- The vertical height is exactly 1 in the canonical crystal frame.
+- The top footprint is smaller than the lower/reference footprint.
+- In top view, the upper geometry moves slightly inward and slightly sideways.
+- This is analogous to the way octagon-side geometry was shrunk/offset to make
+  the surrounding hexagonal pattern fit.
+- The three upper pointed vertices should align with the centres of the chosen
+  upper side/edge of the three octagons.
+- The lower geometry should follow from the same construction rather than being
+  independently fitted.
+
+Do NOT interpret this as a uniform scale of the historical crystal.
+
+Do NOT assume the old source height cos(pi/8)=0.923879... is canonical.
+
+For canonical reconstruction:
+
+CANONICAL_HALF_HEIGHT = 1
+
+The old 0.923879... value remains historical source-code evidence only.
+
+MISSION
+
+Determine the simplest exact 3D crystal geometry satisfying Hilmir's current
+intent and test whether it fits naturally inside the accepted current
+Tri-Octagon geometry.
+
+Do not force a result.
+
+PART 1 — PRESERVE THE HISTORICAL OBJECT
+
+Reconstruct the historical object exactly as coded in tri_oct.py.
+
+Call it:
+
+HISTORICAL_AS_CODED
+
+Do not alter it.
+
+Record:
+
+- vertices
+- primitive triangles
+- top/bottom rings
+- apex triples
+- cap faces
+- twisted side faces
+- historical dimensions
+- known implementation mismatches from Claude's reconstruction note
+
+This object is evidence of development history, not automatically the final
+canonical crystal.
+
+PART 2 — EXTRACT THE ACCEPTED HOST
+
+From the accepted Paper C / canonical current geometry, independently extract:
+
+- exact host center O
+- principal host axis
+- the three octagon centres / planes
+- the exact three upper target side-centres U0,U1,U2 that correspond to
+  Hilmir's intended upper apex contacts
+- corresponding lower side-centres L0,L1,L2 if they exist
+- nearby octagon edges and face planes relevant to clearance/contact
+- all exact lengths/angles needed for registration
+
+Do not use hand-picked screen coordinates.
+
+Do not alter Paper C.
+
+Produce a machine-readable HOST_GEOMETRY.json or equivalent research artifact.
+
+PART 3 — RECONSTRUCT HILMIR'S CANONICAL INTENT
+
+Define a second object:
+
+CANONICAL_INTENT_CANDIDATE
+
+Start from the qualitative 3↑/3↓ structure:
+
+- three upper pointed vertices
+- three lower pointed vertices
+- 120° repetition
+- two hexagonal/ring-like intermediate structures
+- twisted connection between upper/lower structure
+- central placement
+
+But impose:
+
+UPPER_APEX_HEIGHT = +1
+LOWER_APEX_HEIGHT = -1
+
+in the crystal's canonical dimensionless frame.
+
+Do NOT simply uniformly rescale HISTORICAL_AS_CODED.
+
+Instead introduce the minimum number of geometric parameters needed to model
+Hilmir's clarification that the top footprint is:
+
+- slightly inward
+- slightly sideways
+
+relative to the lower/reference footprint.
+
+Prefer a very small parameter family, for example:
+
+R = radial scale / contraction
+DELTA = angular or tangential offset
+H = 1 fixed
+
+or an equivalent exact geometric formulation.
+
+Do not add arbitrary free parameters just to make a fit possible.
+
+PART 4 — INTERPRET "INWARD AND SIDEWAYS"
+
+Test mathematically whether Hilmir's description corresponds most naturally
+to a transformation such as:
+
+(r, phi, z)
+   ->
+(alpha*r, phi + delta, z)
+
+for the upper structure relative to the lower/reference structure,
+
+with:
+
+0 < alpha < 1
+delta small
+z = +1 / -1 fixed
+
+Do not assume this form if Paper C suggests a cleaner construction.
+
+Investigate whether alpha and delta are already implied by:
+
+- octagon geometry
+- 22.5° half-angle geometry
+- the threefold host arrangement
+- exact side-centre positions
+- existing Paper C shrink/registration geometry
+
+If exact constants such as sin(pi/8), cos(pi/8), sqrt(2), sqrt(3), or simple
+angle fractions emerge, derive them from the geometry.
+
+Do not choose them because they appeared in the old code.
+
+PART 5 — UPPER THREE-POINT REGISTRATION
+
+The canonical crystal must be centered at O.
+
+Let its three upper apexes be A0,A1,A2.
+
+Solve:
+
+A_k -> U_k
+
+under the canonical parameter family.
+
+Because H=1 is fixed, the host itself should determine the required overall
+physical scale and/or radial contraction.
+
+Test whether the target triangle is:
+
+- equilateral
+- C3-related around the host axis
+- perpendicular to the correct axis
+- centered correctly
+
+Report exact residuals.
+
+Do NOT distort the accepted host.
+
+PART 6 — LOWER PREDICTION
+
+Once the upper registration is fixed:
+
+DO NOT independently fit the lower apexes.
+
+Predict the lower apexes from the crystal construction.
+
+Compare against L0,L1,L2 if the accepted host supplies corresponding lower
+side-centres.
+
+Report:
+
+LOWER_ALIGNMENT = EXACT / RESIDUAL / NO_CANONICAL_TARGET
+
+If the lower host is staggered relative to the upper host, quantify the
+angular and positional mismatch exactly.
+
+PART 7 — TWIST / HANDEDNESS
+
+Carry both handed versions during the analysis:
+
+TWIST_PLUS
+TWIST_MINUS
+
+Do not yet choose one as physical or canonical.
+
+Determine whether either handedness fits the accepted host more naturally.
+
+If the host is mirror-symmetric and both fit equally, report degeneracy rather
+than choosing one.
+
+Use geometric/combinatorial handedness only.
+
+PART 8 — SIDE AND CAP GEOMETRY
+
+Do not freeze the historical rendering mistakes as geometry.
+
+Specifically revisit:
+
+- vertical mirrored struts accidentally retained in the old side triangulation
+- +2 diagonals
+- skew quads
+- nearest-apex cap ties
+- accidental floating-point asymmetry
+
+Construct the cleanest symmetric face complex consistent with:
+
+- Hilmir's stated intent
+- the 3↑/3↓ crystal form
+- the fitted vertex geometry
+
+Keep face topology separate from vertex/contact geometry.
+
+First solve the vertex scaffold.
+
+Then solve faces.
+
+PART 9 — TOPOLOGY
+
+For each candidate canonical face construction, report:
+
+V, E, F
+boundary edges
+self-intersections
+non-manifold edges
+orientability
+closed/open status
+symmetry group
+handedness
+
+Try to improve on the historical object's accidental C1/non-manifold
+rendering without changing the intended visible form.
+
+Do not force it to become a conventional polyhedron.
+
+PART 10 — FIT CASES
+
+Classify the result:
+
+CASE A — EXACT_HOST_SELECTED_GEOMETRY
+The accepted host uniquely or naturally fixes alpha/delta and the 3↑/3↓
+crystal fits exactly.
+
+CASE B — FAMILY_OF_EXACT_FITS
+The host admits the crystal but leaves one or more geometric freedoms.
+
+CASE C — APPROXIMATE_FIT
+A low-parameter canonical form fits closely but not exactly.
+
+CASE D — NO_FIT_WITH_CURRENT_INTENT
+Height=1 plus the intended inward/sideways geometry cannot fit the accepted
+host without additional deformation.
+
+If C or D, stop before inventing more parameters.
+
+PART 11 — IMPORTANT HISTORICAL DISTINCTION
+
+Keep three layers explicit:
+
+HISTORICAL_AUTHOR_INTENT
+HISTORICAL_AS_CODED
+CURRENT_CANONICAL_INTENT
+
+Do not rewrite history to make them agree.
+
+Current canonical intent supersedes old ambiguous implementation details only
+for the new reconstructed object.
+
+PART 12 — OUTPUTS
+
+Create a new research folder only.
+
+Recommended:
+
+research/twisted_hex_crystal_registration_v0.1/
+
+Deliver:
+
+CRYSTAL_HOST_REGISTRATION_REPORT.md
+HOST_GEOMETRY.json
+HISTORICAL_CRYSTAL.json
+CANONICAL_CRYSTAL_CANDIDATE.json
+verify_crystal_geometry.py
+verify_host_registration.py
+
+and useful figures:
+
+01_host_targets.png
+02_historical_vs_canonical.png
+03_upper_registration.png
+04_lower_prediction.png
+05_twist_plus_minus.png
+06_full_host_embedding.png
+
+If 3D export is convenient, add OBJ/PLY/GLB only as research artifacts.
+
+PART 13 — DO NOT MODIFY / PUBLISH
+
+No changes to accepted papers.
+No changes to kernel code.
+No staging.
+No commit.
+No push.
+
+Stop for GPT/Hilmir review.
+
+FINAL STATUS
+
+Report:
+
+HOST_SOURCE = <exact Paper C/canonical source>
+
+HISTORICAL_OBJECT_RECONSTRUCTED = YES/NO
+CANONICAL_HEIGHT_FIXED_TO_1 = YES/NO
+
+HOST_UPPER_TARGETS_EXTRACTED = YES/NO
+HOST_LOWER_TARGETS_EXTRACTED = YES/NO
+
+TOP_FOOTPRINT_CONTRACTION_ALPHA =
+TOP_FOOTPRINT_OFFSET_DELTA =
+
+ALPHA_DERIVED_FROM_HOST = YES/NO
+DELTA_DERIVED_FROM_HOST = YES/NO
+
+UPPER_REGISTRATION = EXACT / RESIDUAL / FAIL
+LOWER_ALIGNMENT = EXACT / RESIDUAL / NO_TARGET
+
+TWIST_PLUS_FIT =
+TWIST_MINUS_FIT =
+
+CANONICAL_TOPOLOGY =
+CANONICAL_SYMMETRY =
+
+FIT_CLASS = A / B / C / D
+
+PHYSICAL_INTERPRETATION = NOT_ESTABLISHED
+
+HEAD_CHANGED = NO
+STAGED = NO
+COMMITTED = NO
+PUSHED = NO

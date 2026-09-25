@@ -1,0 +1,139 @@
+{
+  "zero": {
+    "vertex_symmetry": "D3h (order 12)",
+    "face_symmetry": "D3 (order 6), each handed face limit separately",
+    "operations": [
+      {
+        "k": 0,
+        "vertical_mirror": false,
+        "horizontal_flip": false,
+        "determinant": 1,
+        "faces_preserved": true
+      },
+      {
+        "k": 0,
+        "vertical_mirror": false,
+        "horizontal_flip": true,
+        "determinant": -1,
+        "faces_preserved": false
+      },
+      {
+        "k": 0,
+        "vertical_mirror": true,
+        "horizontal_flip": false,
+        "determinant": -1,
+        "faces_preserved": false
+      },
+      {
+        "k": 0,
+        "vertical_mirror": true,
+        "horizontal_flip": true,
+        "determinant": 1,
+        "faces_preserved": true
+      },
+      {
+        "k": 1,
+        "vertical_mirror": false,
+        "horizontal_flip": false,
+        "determinant": 1,
+        "faces_preserved": true
+      },
+      {
+        "k": 1,
+        "vertical_mirror": false,
+        "horizontal_flip": true,
+        "determinant": -1,
+        "faces_preserved": false
+      },
+      {
+        "k": 1,
+        "vertical_mirror": true,
+        "horizontal_flip": false,
+        "determinant": -1,
+        "faces_preserved": false
+      },
+      {
+        "k": 1,
+        "vertical_mirror": true,
+        "horizontal_flip": true,
+        "determinant": 1,
+        "faces_preserved": true
+      },
+      {
+        "k": 2,
+        "vertical_mirror": false,
+        "horizontal_flip": false,
+        "determinant": 1,
+        "faces_preserved": true
+      },
+      {
+        "k": 2,
+        "vertical_mirror": false,
+        "horizontal_flip": true,
+        "determinant": -1,
+        "faces_preserved": false
+      },
+      {
+        "k": 2,
+        "vertical_mirror": true,
+        "horizontal_flip": false,
+        "determinant": -1,
+        "faces_preserved": false
+      },
+      {
+        "k": 2,
+        "vertical_mirror": true,
+        "horizontal_flip": true,
+        "determinant": 1,
+        "faces_preserved": true
+      }
+    ],
+    "coplanar_triangle_pairs": [],
+    "degenerate_triangles": 0,
+    "embedded": "YES. The positive-section determinant proof remains strict at delta=0 for 0<lambda<1; caps retain their disjoint slabs/sectors.",
+    "numerical_crosscheck": {
+      "all_face_pairs_tested": 276,
+      "tolerance": 1e-10,
+      "unexpected_intersections": [],
+      "unexpected_pair_count": 0
+    },
+    "mirror_support_separation_witness": [
+      "sqrt(3)*(2 - sqrt(2))/9",
+      "1/36 - sqrt(2)/72",
+      "1/9 - sqrt(2)/9"
+    ],
+    "witness_on_Fminus_faces": [],
+    "vertex_chirality_reversal": true,
+    "surface_chirality_reversal_for_prescribed_mirrored_family": false,
+    "zero_vertex_handedness": "ACHIRAL",
+    "zero_face_handedness": "STILL_CHIRAL; two distinct mirror limits",
+    "fixed_Fplus_extension": "Vertices and triangles depend continuously on signed t. A local embedded deformation through zero exists by stability of this nondegenerate finite embedded PL surface; the negative side uses Fplus, NOT the prescribed Fminus mirrored branch.",
+    "global_fixed_Fplus_negative_interval": "NOT_CLAIMED_OR_NEEDED; no separate extension selected",
+    "signed_prescribed_surface_family_continuous_at_zero": false,
+    "surface_limit_reason": "The interior point (2*T0+5*T1+11*B2)/18 of Fplus face 0 belongs to no Fminus triangle at zero. Changing to the mirrored connectivity jumps the surface despite common vertex positions."
+  },
+  "stacking": {
+    "scope": "One bounded repeat test at the geometric full-height pitch: physical dz=1, canonical dz=2. No arbitrary offsets or pitch search.",
+    "direct_translation": {
+      "nonzero_vertex_coincidences": 0,
+      "ring_coincidences": 0,
+      "matching_boundary_loops": 0,
+      "face_intersections": 0,
+      "zero_state_contacts": "3 apex points only",
+      "period": "Translation by 1 for the disjoint copy set"
+    },
+    "translation_plus_C3": "Identical copy set to direct translation because each member already has C3 symmetry.",
+    "translation_opposite_hand": {
+      "nonzero_vertex_coincidences": 0,
+      "ring_coincidences": 0,
+      "matching_boundary_loops": 0,
+      "face_intersections": 0,
+      "zero_state_contacts": "3 apex points only",
+      "alternating_copy_period": 2
+    },
+    "proof": "Adjacent slabs [-1/2,1/2] and [1/2,3/2] only meet at z=1/2. Only upper/lower apex tips reach that plane; their radii r0 and sqrt(r0^2+u^2) differ for u>0. For u=0 three isolated tips coincide, while boundary loops also contain ring vertices at different heights.",
+    "simple_joined_axial_repeat_found": false,
+    "status": "NO_SIMPLE_AXIAL_REPEAT_SELECTED",
+    "screw_scope": "Translation+C3 is a tautological screw symmetry of a disconnected periodic copy set, not a new joining rule."
+  }
+}

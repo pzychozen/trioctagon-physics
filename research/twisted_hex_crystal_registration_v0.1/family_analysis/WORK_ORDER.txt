@@ -1,0 +1,553 @@
+CODEX WORK ORDER — TWISTED HEX CRYSTAL FAMILY ANALYSIS, FREEZE, AND GITHUB CLOSEOUT
+
+REPOSITORY
+
+C:\TORMENT\TRIOCTAGON_new\trioctagon-physics
+
+CURRENT EXPECTED MAIN
+
+1dca474e09b180664a17f85a0bb2f92967dd18f1
+
+Verify actual HEAD/origin/main before doing anything.
+If it differs, STOP and report.
+
+CONTEXT
+
+This is the FINAL planned new-geometrical-form investigation for the current
+kernel reconstruction phase.
+
+The Twisted Hex Crystal began as Hilmir's historical intuitive geometry and
+has now been reconstructed against the accepted Paper C Tri-Octagon host.
+
+Existing research folder:
+
+research/twisted_hex_crystal_registration_v0.1/
+
+Existing verified results include:
+
+- historical source reconstruction
+- accepted Paper C host extraction
+- exact three-upper-contact registration
+- exact lower-edge-contact one-parameter family
+- TWIST_PLUS / TWIST_MINUS mirror variants
+- proposed clean embedded C3 open surface
+- visual-selection atlas
+- standalone offline HTML viewer
+
+Hilmir likes the resulting family and explicitly wants it preserved with the
+model/kernel design even if it currently has no runtime role and no physical
+interpretation.
+
+DO NOT require a special scientific result in order to preserve it.
+
+The existing viewer, atlas, research packet and provenance are valuable
+artifacts in their own right.
+
+CURRENT FAMILY
+
+Let:
+
+s = sqrt(2) - 1
+
+0 <= |t| <= s/2
+
+For nonzero magnitude:
+
+alpha(t) = r0 / sqrt(r0^2 + t^2)
+
+delta(t) = atan(t/r0)
+
+with sign distinguishing handedness.
+
+The current verified construction has:
+
+- three fixed upper contacts
+- three lower contacts sliding along corresponding lower host edges
+- canonical apex half-height 1
+- physical host scale 1/2
+- C3 symmetry for nonzero t
+- mirror-related handed pair
+- no established physical interpretation
+
+The host does not select a unique t.
+
+Do not manufacture a preferred value.
+
+MISSION
+
+Perform one final mathematical investigation of the family itself.
+
+Primary question:
+
+DOES THE VERIFIED FAMILY CONTAIN ANY MATHEMATICALLY DISTINGUISHED MEMBER,
+OR IS IT GENUINELY A CONTINUOUS FAMILY WITHOUT A NATURAL INTERNAL SELECTION?
+
+Whatever the answer, preserve the entire family.
+
+============================================================
+PART A — SIGNED FAMILY
+============================================================
+
+Promote t to a signed geometric parameter:
+
+-s/2 <= t <= s/2.
+
+Use one convention where:
+
+t > 0 = TWIST_PLUS
+t < 0 = TWIST_MINUS
+t = 0 = common vertex-scaffold boundary/reference.
+
+Prove exact parity/reflection relations between +t and -t.
+
+Separate carefully:
+
+VERTEX_SCAFFOLD_CONTINUITY
+FACE_CONNECTIVITY
+HANDEDNESS_CLASSIFICATION
+
+Do not assume that the t=0 face complex has the same symmetry classification
+as t != 0.
+
+============================================================
+PART B — CONTINUOUS CROSS-SECTION GEOMETRY
+============================================================
+
+Investigate the planar transformation that generates the lower footprint.
+
+The existing construction can be written using the quarter-turn matrix J.
+
+Determine and prove the exact decomposition of the horizontal map into:
+
+- rotation
+- isotropic radial scaling
+
+for arbitrary signed t.
+
+Then derive the corresponding interpolation through the height of the crystal.
+
+Let lambda parameterize vertical position between upper and lower ring levels.
+
+Determine whether the intermediate map can be written exactly as:
+
+M(lambda,t) = I - lambda*q*J
+
+or an equivalent expression, and derive its exact polar decomposition.
+
+If valid, derive:
+
+radius(lambda,t)
+angle(lambda,t)
+
+and state precisely what cross-sections are preserved.
+
+This should be treated as GEOMETRIC DEFORMATION, not dynamics or time evolution.
+
+============================================================
+PART C — THREE-TANGENT SKELETON
+============================================================
+
+Study the six apex/contact points independently of the face mesh.
+
+Use:
+
+O
+U0,U1,U2
+B0(t),B1(t),B2(t)
+
+Define the minimal C3 skeleton.
+
+Characterize:
+
+- exact lengths
+- right-angle relations
+- triangle areas
+- signed orientation/chirality measure
+- determinant / oriented-volume quantities where meaningful
+- invariants under t -> -t
+- quantities odd under t -> -t
+- limiting behavior at t=0 and |t|=s/2
+
+Do not give it a permanent formal name unless useful.
+"three-tangent skeleton" may be used as a working label.
+
+============================================================
+PART D — METRIC FUNCTIONS OF t
+============================================================
+
+For the CURRENT VERIFIED CLEAN SURFACE, derive where practical exact
+expressions as functions of t for:
+
+- every distinct edge-length class
+- face areas
+- total triangulated surface area
+- ring radii
+- relevant diagonals
+- selected dihedral angles
+- distances between apex and ring vertices
+- covariance eigenvalues
+- any natural aspect ratios
+
+Classify expressions as:
+
+EXACT_CLOSED_FORM
+EXACT_IMPLICIT
+NUMERIC_ONLY
+
+Prefer symbolic derivation over parameter sweeps.
+
+============================================================
+PART E — SEARCH FOR DISTINGUISHED MEMBERS
+============================================================
+
+Search the admitted interval for exact or rigorously isolated values where
+something structurally special occurs.
+
+Examples:
+
+1. two or more independent edge-length classes become equal
+2. two face-area classes become equal
+3. selected dihedral angles become equal
+4. a side quadrilateral becomes planar
+5. additional Euclidean symmetry appears
+6. covariance degeneracy appears
+7. total surface area has an interior stationary point
+8. another simple geometric functional has a stationary point
+9. a ring/apex ratio reduces to a simple exact relation
+10. a special t coincides with a host-derived octagonal length/angle
+11. the surface becomes equi-edge/equi-area in any meaningful subset
+
+Important:
+
+Do NOT search blindly for numerology.
+
+A candidate counts only if:
+
+- the condition has a clear geometric definition;
+- the equation is derived;
+- the root is exact or rigorously isolated;
+- it lies inside the allowed interval;
+- and the condition is not tautologically built into the parameterization.
+
+If no convincing distinguished value exists, explicitly conclude:
+
+NO_INTRINSIC_t_SELECTION_FOUND
+
+That is a valid and useful result.
+
+============================================================
+PART F — ZERO STATE
+============================================================
+
+Analyze t = 0 separately.
+
+The atlas already warns:
+
+- footprint offset vanishes;
+- alpha = 1;
+- delta = 0;
+- inherited cross-ring face connectivity remains.
+
+Determine exactly:
+
+1. vertex-set symmetry at t=0
+2. face-complex symmetry at t=0
+3. whether the mesh is embedded
+4. whether any triangles become coplanar/degenerate
+5. whether handedness becomes undefined
+6. whether +t -> 0 -> -t gives a continuous geometric deformation of vertices
+7. whether the CURRENT fixed face connectivity also gives a continuous
+   embedded-surface deformation through zero
+
+If not, distinguish:
+
+VERTEX_CHIRALITY_REVERSAL = YES/NO
+SURFACE_CHIRALITY_REVERSAL = YES/NO
+
+Do not repair the zero mesh merely to make the answer nicer.
+
+============================================================
+PART G — STACKING / REPEAT TEST
+============================================================
+
+Perform one bounded exploratory test only.
+
+Take copies of the canonical family along its principal axis.
+
+Test simple repetitions:
+
+- direct translation
+- translation + C3 rotation
+- translation + opposite-handed copy
+
+Ask only geometric questions:
+
+- vertex coincidence
+- ring coincidence
+- boundary-loop matching
+- face intersection
+- periodic screw symmetry
+- whether copies can join without deformation
+
+Do NOT invent a lattice by adding arbitrary offsets.
+
+If nothing clean occurs, close with:
+
+NO_SIMPLE_AXIAL_REPEAT_SELECTED
+
+No further form search is authorized from this result.
+
+============================================================
+PART H — KNOWN-GEOMETRY COMPARISON
+============================================================
+
+Only if useful, compare the family against nearby standard constructions:
+
+- triangular prism
+- twisted triangular prism
+- antiprism-like families
+- chiral prismatoids
+- ruled/polyhedral annuli
+
+Use exact invariants to distinguish them.
+
+Do not rename the object as a known form unless equivalence is proved.
+
+============================================================
+PART I — PHYSICAL / MODEL BOUNDARY
+============================================================
+
+Do NOT infer:
+
+- particles
+- atomic structure
+- nuclear structure
+- confinement
+- electromagnetism
+- weak interaction
+- spacetime
+- energy
+- force
+- quantum spin
+- vortices
+- fluid flow
+
+"Motion" here means a geometric one-parameter deformation.
+
+PHYSICAL_INTERPRETATION = NOT_ESTABLISHED
+
+The object currently has NO kernel runtime responsibility.
+
+It is a preserved geometric research/design object.
+
+============================================================
+PART J — PRESERVATION REQUIREMENT
+============================================================
+
+Regardless of whether Parts A-I find anything special:
+
+KEEP the existing research object.
+
+Specifically preserve byte-for-byte where possible:
+
+- historical reconstruction
+- host geometry extraction
+- canonical family
+- verifiers
+- execution evidence
+- visual atlas
+- all static renders
+- TWIST_PLUS / TWIST_MINUS sheets
+- candidate_values.json
+- crystal_selection_viewer.html
+- viewer QA/evidence
+- provenance notes
+
+Do not delete or replace the historical object because the new candidate is cleaner.
+
+Maintain the distinction:
+
+HISTORICAL_AUTHOR_INTENT
+HISTORICAL_AS_CODED
+CURRENT_CANONICAL_FAMILY
+VISUAL_RESEARCH_TOOL
+
+============================================================
+PART K — NEW FINAL ANALYSIS ARTIFACTS
+============================================================
+
+Create a subfolder such as:
+
+research/twisted_hex_crystal_registration_v0.1/family_analysis/
+
+Suggested outputs:
+
+TWISTED_HEX_FAMILY_ANALYSIS.md
+SIGNED_FAMILY_IDENTITIES.md
+SPECIAL_MEMBER_SEARCH.md
+ZERO_STATE_ANALYSIS.md
+STACKING_EXPLORATION.md
+
+family_exact_checks.py
+family_validation.json
+
+Optional figures only if informative:
+
+signed_family_geometry.png
+cross_section_evolution.png
+metric_functions.png
+zero_state_symmetry.png
+stacking_examples.png
+
+Do not generate decorative bulk.
+
+============================================================
+PART L — VERIFICATION
+============================================================
+
+Independently verify:
+
+- signed-family identities
+- +/- reflection relation
+- cross-section formulas
+- zero-state claims
+- metric formulas used in conclusions
+- every claimed special t
+- absence claims only within explicitly defined search classes
+- no mutation of accepted host or predecessor research artifacts
+
+A predicate count is evidence bookkeeping, not theorem count.
+
+============================================================
+PART M — CLOSEOUT DISPOSITION
+============================================================
+
+After the analysis, prepare a concise final status:
+
+TWISTED_HEX_RESEARCH_OBJECT = PRESERVE
+
+SIGNED_FAMILY_DERIVED = YES/NO
+CROSS_SECTION_LAW_DERIVED = YES/NO
+ZERO_STATE_CLASSIFIED = YES/NO
+
+DISTINGUISHED_t_FOUND = YES/NO
+DISTINGUISHED_t =
+DISTINGUISHED_REASON =
+
+NO_INTRINSIC_t_SELECTION_FOUND = YES/NO
+
+SIMPLE_AXIAL_REPEAT_FOUND = YES/NO
+
+FAMILY_PHYSICAL_INTERPRETATION = NOT_ESTABLISHED
+RUNTIME_KERNEL_ROLE = NONE
+
+GEOMETRICAL_FORM_SEARCH =
+CLOSED_AFTER_THIS_ORDER
+
+============================================================
+PART N — GITHUB PUBLICATION AUTHORIZATION
+============================================================
+
+Hilmir explicitly authorizes preserving this completed crystal research lane
+on GitHub even if no distinguished member or physical use is found.
+
+However publication must remain bounded and auditable.
+
+After all analysis and verification pass:
+
+1. Census every NEW/untracked file beneath:
+
+research/twisted_hex_crystal_registration_v0.1/
+
+2. Create an exact publication allowlist for this research lane.
+
+3. Do NOT stage any unrelated untracked file elsewhere in the repository.
+
+4. Verify all pre-existing tracked files remain unchanged.
+
+5. Verify all pre-existing unrelated untracked files remain unchanged.
+
+6. Stage ONLY the exact allowlisted crystal research files.
+
+7. Verify:
+
+STAGED_SET_EQUALS_ALLOWLIST = YES
+
+8. Run git diff --cached --check.
+
+If whitespace findings occur:
+STOP and report them.
+Do not silently normalize or create another exception.
+
+9. If clean, commit.
+
+Preferred commit message:
+
+add twisted hex crystal geometry research family
+
+10. Push main to origin.
+
+11. Verify independently:
+
+HEAD == origin/main == actual GitHub main
+
+No release.
+No tag.
+No DOI.
+No Zenodo action.
+
+============================================================
+FINAL REPORT
+============================================================
+
+Return:
+
+STARTING_HEAD =
+FINAL_HEAD =
+ORIGIN_MAIN =
+ACTUAL_GITHUB_MAIN =
+
+TWISTED_HEX_RESEARCH_OBJECT = PRESERVED
+
+SIGNED_PARAMETER_DOMAIN =
+SIGNED_FAMILY_DERIVED = YES/NO
+CROSS_SECTION_LAW_DERIVED = YES/NO
+
+ZERO_VERTEX_SYMMETRY =
+ZERO_FACE_SYMMETRY =
+VERTEX_CHIRALITY_REVERSAL =
+SURFACE_CHIRALITY_REVERSAL =
+
+DISTINGUISHED_t_FOUND = YES/NO
+DISTINGUISHED_t =
+DISTINGUISHED_REASON =
+NO_INTRINSIC_t_SELECTION_FOUND = YES/NO
+
+SIMPLE_AXIAL_REPEAT_FOUND = YES/NO
+STACKING_RESULT =
+
+FAMILY_PHYSICAL_INTERPRETATION = NOT_ESTABLISHED
+RUNTIME_KERNEL_ROLE = NONE
+
+GEOMETRICAL_FORM_SEARCH = CLOSED
+
+ALLOWLIST_PATH_COUNT =
+STAGED_PATH_COUNT =
+STAGED_SET_EQUALS_ALLOWLIST = YES/NO
+
+GIT_DIFF_CHECK = PASS/FAIL
+
+PROTECTED_PREDECESSORS_CHANGED = 0
+UNRELATED_FILES_PUBLISHED = 0
+PREEXISTING_UNTRACKED_FILES_CHANGED = 0
+
+COMMIT =
+PARENT_EQUALS_STARTING_HEAD = YES/NO
+
+HEAD_EQUALS_ORIGIN_MAIN = YES/NO
+HEAD_EQUALS_ACTUAL_GITHUB_MAIN = YES/NO
+TRACKED_WORKTREE_CLEAN = YES/NO
+
+TWISTED_HEX_RESEARCH_PUBLISHED = YES/NO
+
+Stop after publication verification.

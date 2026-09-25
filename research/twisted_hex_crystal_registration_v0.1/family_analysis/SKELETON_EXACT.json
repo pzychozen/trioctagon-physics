@@ -1,0 +1,32 @@
+{
+  "minimal_graph": "Six contact/apex vertices; upper and lower C3 triangles plus 3 corresponding spokes (9 edges). O is a reference point.",
+  "upper_edge": "1/2",
+  "lower_edge": "sqrt(1/4+3*t^2)",
+  "corresponding_spoke": "sqrt(1+t^2)",
+  "other_cross_diagonals": [
+    "sqrt(5/4+t^2-t/2)",
+    "sqrt(5/4+t^2+t/2)"
+  ],
+  "O_upper": "1/sqrt(3)",
+  "O_lower": "sqrt(1/3+t^2)",
+  "upper_triangle_area": "sqrt(3)/16",
+  "lower_triangle_area": "sqrt(3)/16+3*sqrt(3)*t^2/4",
+  "tangent_triangle_area": "r0*abs(t)/2",
+  "vertical_right_triangle_area": "abs(t)/2",
+  "signed_planar_measure": "kappa=-r0*t",
+  "oriented_auxiliary_tetrahedron_volume": "-r0*t/12",
+  "volume_scope": "Tetrahedron (O, upper centroid, U0, B0) only. The open annulus has no enclosed-volume interpretation.",
+  "even": [
+    "same-level side lengths",
+    "corresponding spokes",
+    "triangle areas",
+    "covariance eigenvalues"
+  ],
+  "odd": [
+    "kappa",
+    "auxiliary oriented volume",
+    "difference of the two cross-diagonal squared lengths"
+  ],
+  "zero": "Upper/lower triangles congruent and aligned; all corresponding spokes vertical.",
+  "endpoint": "Lower contact reaches a finite host-edge endpoint; no face degeneration."
+}
