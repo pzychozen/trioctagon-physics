@@ -235,30 +235,128 @@ def _selection(values, allowed):
     return result
 
 
-def _implementation():
-    def git(*args):
-        try:
-            return subprocess.check_output(["git", "-C", str(_ROOT), *args],
-                                           text=True, stderr=subprocess.PIPE).strip()
-        except (OSError, subprocess.CalledProcessError) as exc:
-            raise ValueError("record production requires an identifiable Git source checkout") from exc
+def _provenance_git(*args):
+    try:
+        return subprocess.check_output(["git", "-C", str(_ROOT), *args],
+                                       text=True, stderr=subprocess.PIPE).strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        raise ValueError("record production requires an identifiable Git source checkout") from exc
 
-    if Path(git("rev-parse", "--show-toplevel")).resolve() != _ROOT:
-        raise ValueError("package must belong to its recorded repository root")
-    commit = git("rev-parse", "HEAD")
-    tracked = set(git("ls-files").splitlines())
-    return {"repository": git("remote", "get-url", "origin"), "commit": commit,
+
+def _source_checkout():
+    """An unrelated enclosing repository never owns this package's provenance."""
+    try:
+        top = _provenance_git("rev-parse", "--show-toplevel")
+    except ValueError:
+        if (_ROOT / ".git").exists():
+            raise  # Broken exact source checkout must not fall back.
+        return False
+    return Path(top).resolve() == _ROOT.resolve()
+
+
+def _distribution_manifest():
+    """Validate on every capture; cached assertions cannot detect later tampering.
+
+    build_input_sha256 is canonical UTF-8 JSON (sorted keys, compact separators,
+    no NaN/Infinity) excluding that field. It is consistency, not authorship.
+    This software-only codec is separate from the unchanged record codecs.
+    """
+    data = _parse((_ROOT / "kernel_physics/_distribution_provenance.json").read_text(encoding="utf-8"))
+    _keys(data, ("manifest_type", "manifest_version", "source", "software", "modules",
+                 "papers", "build", "build_input_sha256"))
+    if data["manifest_type"] != "TRIOCTAGON_DISTRIBUTION_PROVENANCE" or data["manifest_version"] != "1":
+        raise ValueError("unsupported distribution provenance manifest")
+    source = data["source"]
+    _keys(source, ("repository", "commit", "tracked_dirty"))
+    _string(source["repository"])
+    if not isinstance(source["commit"], str) or re.fullmatch(r"[0-9a-f]{40}|[0-9a-f]{64}", source["commit"]) is None:
+        raise ValueError("manifest requires a full source commit ID")
+    if source["tracked_dirty"] is not False:
+        raise ValueError("distribution source must be attested clean")
+    expected = {"package_version": __version__, "api_version": _VERSION,
+                "run_record_schema_version": _VERSION, "geometry_record_schema_version": _VERSION,
+                "ledger_version": "0.1"}
+    _keys(data["software"], expected)
+    if data["software"] != expected:
+        raise ValueError("manifest software identity mismatch")
+    modules = _array(data["modules"], len(_MODULES), lambda v: v)
+    for entry, path in zip(modules, _MODULES):
+        _keys(entry, ("path", "sha256"))
+        _sha(entry["sha256"])
+        if entry["path"] != path:
+            raise ValueError("manifest module set/order mismatch")
+        if hashlib.sha256((_ROOT / path).read_bytes()).hexdigest() != entry["sha256"]:
+            raise ValueError(f"installed module bytes differ from source: {path}")
+    papers = _array(data["papers"], len(_PAPERS), lambda v: v)
+    for entry, key in zip(papers, sorted(_PAPERS)):
+        _keys(entry, ("source_id", "edition", "path", "sha256"))
+        if (entry["source_id"], entry["edition"], entry["path"]) != ("P" + key, *_PAPERS[key]):
+            raise ValueError("manifest paper identity/set/order mismatch")
+        _sha(entry["sha256"])
+    build = data["build"]
+    _keys(build, ("backend", "setuptools", "wheel", "files"))
+    if (build["backend"], build["setuptools"], build["wheel"]) != ("_build_backend", "81.0.0", "0.47.0"):
+        raise ValueError("unsupported manifest build identity")
+    # These software build-input hashes remain metadata in an installation.
+    # Only the 14 frozen implementation paths are record identity members.
+    inputs = tuple(sorted((*_MODULES, *("kernel_physics/" + n + ".py" for n in
+        ("covering", "face_state", "boundary_response", "srg", "operating_region")),
+        "pyproject.toml", "_build_backend.py", "LICENSE", "LICENSE_SCOPE.md", "kernel_physics/README.md")))
+    entries = _array(build["files"], len(inputs), lambda v: v)
+    for entry, path in zip(entries, inputs):
+        _keys(entry, ("path", "sha256"))
+        _sha(entry["sha256"])
+        if entry["path"] != path:
+            raise ValueError("manifest build-input set/order mismatch")
+    hashes = {entry["path"]: entry["sha256"] for entry in entries}
+    if any(hashes[e["path"]] != e["sha256"] for e in modules):
+        raise ValueError("conflicting manifest module hashes")
+    _sha(data["build_input_sha256"])
+    payload = {k: v for k, v in data.items() if k != "build_input_sha256"}
+    if hashlib.sha256(_canonical(payload).encode("utf-8")).hexdigest() != data["build_input_sha256"]:
+        raise ValueError("distribution manifest digest mismatch")
+    return data
+
+
+def _live_source():
+    """Exact source mode never substitutes a stale packaged manifest."""
+    commit = _provenance_git("rev-parse", "HEAD")
+    if re.fullmatch(r"[0-9a-f]{40}|[0-9a-f]{64}", commit) is None:
+        raise ValueError("source requires a full commit ID")
+    repository = _string(_provenance_git("remote", "get-url", "origin"))
+    tracked = set(_provenance_git("ls-files").splitlines())
+    required = {*_MODULES, *(v[1] for v in _PAPERS.values())}
+    if not required <= tracked or _provenance_git("status", "--porcelain", "--untracked-files=no"):
+        raise ValueError("live source provenance requires clean, complete tracked evidence")
+    if any(not (_ROOT / path).is_file() for path in required):
+        raise ValueError("live source provenance evidence is missing")
+    return repository, commit
+
+
+def _implementation():
+    if not _source_checkout():
+        data = _distribution_manifest()
+        return {**data["source"], "package_version": data["software"]["package_version"],
+                "api_version": data["software"]["api_version"], "modules": data["modules"]}
+    repository, commit = _live_source()
+    return {"repository": repository, "commit": commit,
             "package_version": __version__, "api_version": _VERSION,
             "modules": [{"path": path, "sha256": hashlib.sha256((_ROOT / path).read_bytes()).hexdigest()}
                         for path in _MODULES],
-            "tracked_dirty": bool(git("status", "--porcelain", "--untracked-files=no"))
-            or not set(_MODULES) <= tracked}
+            "tracked_dirty": False}
 
 
 def _papers(ids):
+    ids = sorted(set(ids))
+    if any(key not in _PAPERS for key in ids):
+        raise ValueError("unknown paper identity")
+    if not _source_checkout():
+        papers = {entry["source_id"]: entry for entry in _distribution_manifest()["papers"]}
+        return [papers["P" + key] for key in ids]
+    _live_source()
     return [{"source_id": "P" + key, "edition": _PAPERS[key][0], "path": _PAPERS[key][1],
              "sha256": hashlib.sha256((_ROOT / _PAPERS[key][1]).read_bytes()).hexdigest()}
-            for key in sorted(set(ids))]
+            for key in ids]
 
 
 def _producer_environment():

@@ -1,5 +1,89 @@
 # kernel_physics v0.1 baseline + opt-in response, face view, scaffold and Z observer
 
+## Software distribution — K3 engineering
+
+The distribution/project metadata name is **trioctagon-physics**; the source
+and Python import package remain **kernel_physics**, with supported facade
+**kernel_physics.api**. Do not rename or move the import package to match the
+repository name. Conceptual future registry usage is:
+
+```text
+pip install trioctagon-physics
+```
+
+No public registry release is certified or authorized yet, and name
+availability must be checked immediately before any future upload. K3b builds
+are engineering artifacts; K3c owns isolated installed-package certification
+and CI. For an engineering wheel supplied locally, use its explicit path with
+pip in a separate environment containing the approved dependencies.
+
+```python
+from kernel_physics.api import Parameters, State, step
+parameters = Parameters(eps=0.05, g=0.2, phase_strength=0.001, k=(1, 1, 1))
+state = State(omega=(0.2+0.3j, -0.4+0.1j, 0.1-0.2j), update_index=0)
+next_state = step(state, parameters, topology="triad")
+```
+
+Package **0.1.0** is the K3 engineering software distribution version. Public
+API **1.0.0**, RunRecord/GeometryRecord schemas **1.0.0**, ledger **0.1** and
+paper editions are separate identities. No version bump is implied by K3b.
+The initial certification lane is **Windows / CPython >=3.11,<3.12 /
+NumPy 2.4.4 / SymPy 1.14.0 / mpmath 1.3.0**. Python 3.12, Linux, macOS and
+broad dependency compatibility are not supported claims.
+
+Provenance has two strict modes:
+
+- An exact source Git checkout uses live origin/commit and raw source/paper
+  bytes. Dirty, incomplete or broken source evidence fails closed; it cannot
+  be bypassed by leaving a manifest in the checkout.
+- An installed distribution or provenance-bearing sdist uses the immutable
+  `_distribution_provenance.json`. Every capture hashes the current 14
+  authoritative .py files and requires equality with the attested source
+  bytes. Missing/malformed manifests or changed files fail closed. A containing
+  unrelated Git repository does not own the package's provenance. Paper paths
+  are source locators; paper text is not included or opened in this mode.
+
+The build-input digest is SHA-256 of canonical UTF-8 manifest JSON, with sorted
+keys, compact separators and no nonfinite values, excluding the digest field.
+It establishes internal consistency, not cryptographic authorship. The
+attested source commit remains distinct from package version and the final
+archive SHA-256. Installed `tracked_dirty=false` attests clean build source;
+current module integrity is checked independently. Resume still requires the
+same commit and module hashes. Older records remain decodable, but a changed
+implementation requires an explicit checkpoint run rather than weaker resume.
+
+After K3c certification, supported installed operation must require no Git,
+paper/research tree, network, LLM, embedding model or GPU. The package retains
+all 19 top-level software modules. `boundary_response`, `srg`, and
+`operating_region` remain unsupported v1 internals; `face_state` remains legacy
+opt-in. None is loaded by the facade or selectable by Runner. Physical shipping
+does not confer supported public API status.
+
+Apache-2.0 applies only to the approved software distribution scope. See the
+root LICENSE (standard unmodified text) and LICENSE_SCOPE.md, also included in
+distribution license metadata. Papers, research, figures, manuscripts, datasets,
+Twisted Hex and parity fixtures/evidence retain their separate existing status.
+The artifact allowlist is both a software and licensing boundary.
+
+The in-tree PEP 517 wrapper delegates to Setuptools 81.0.0 and wheel 0.47.0.
+Build only from clean tracked source or a validated provenance-bearing sdist,
+with already available approved tooling. Supply an output directory outside
+the checkout. Metadata preparation, wheel and sdist hooks stage externally;
+no build directory, egg-info or generated manifest belongs in source. Runtime
+dependencies do not include build tools. Editable installs are outside scope.
+
+The repository verifier can be run as:
+
+```text
+python -B tools/verify_distribution.py --source CLEAN_SOURCE --wheel WHEEL --sdist SDIST --report EXTERNAL_REPORT.json
+```
+
+It validates exact archive contents, licensing/metadata, manifest and all 19
+source/archive hashes. Its optional installed smoke uses an explicitly supplied
+Python via `--installed-python`; K3c must supply an isolated environment and
+certify that result. No dependency installation or network access is performed
+by the verifier.
+
 ## Supported public API v1 — K1, 26 September 2026
 
 Use `kernel_physics.api` under the frozen
@@ -27,10 +111,9 @@ observer snapshots and passive diagnostics. `get_geometry("C01", options={
 "regular", "s": 1})` returns a separate exact `GeometryRecord`
 (`GEOMETRY_RECORD` 1.0.0), always with `coupling="none"`. Both provide
 `to_json`/`from_json` and an immutable encoded `data` view. Loading never runs
-equations. Record production requires this identifiable Git checkout and
-its origin URL so source revision, module hashes and paper hashes can be
-recorded; loading is portable. Resume requires the same commit and module
-hashes. Binary64 and exact symbolic trees retain their respective codecs;
+equations. Record production uses strict live source provenance or verified packaged
+provenance as described above; loading remains portable. Resume requires the
+same commit and module hashes. Binary64 and exact symbolic trees retain their respective codecs;
 cross-platform numerical replay is qualified by K0.
 
 **O01 is resolved as Option B:** `boundary_response`, `srg`, and
