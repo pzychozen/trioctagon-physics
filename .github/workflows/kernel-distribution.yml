@@ -1,0 +1,485 @@
+# SPDX-License-Identifier: Apache-2.0
+# Distribution-verification tooling within the software-only scope described by LICENSE_SCOPE.md.
+name: Kernel distribution certification
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows-python311:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUTF8: "1"
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.11'
+          architecture: x64
+      - name: Certify final source and both isolated installations
+        shell: python
+        run: |
+          import hashlib
+          import importlib.util
+          import json
+          import os
+          from pathlib import Path
+          import platform
+          import re
+          import shutil
+          import subprocess
+          import sys
+          import tarfile
+          import zipfile
+          from email import policy
+          from email.parser import BytesParser
+
+          RUNTIME_PROGRAM = r'''
+          import argparse
+          import hashlib
+          import importlib.metadata as metadata
+          import json
+          import os
+          from pathlib import Path
+          import platform
+          import shutil
+          import sys
+
+          parser = argparse.ArgumentParser()
+          parser.add_argument('--expected', type=Path, required=True)
+          parser.add_argument('--report', type=Path, required=True)
+          parser.add_argument('--records', type=Path, required=True)
+          parser.add_argument('--mode', choices=('normal', 'missing', 'tampered', 'commit'), default='normal')
+          args = parser.parse_args()
+          expected = json.loads(args.expected.read_text(encoding='utf-8'))
+          assert sys.flags.isolated == 1 and sys.flags.ignore_environment == 1
+          assert sys.prefix != sys.base_prefix
+          assert os.environ.get('PYTHONPATH') is None
+          assert shutil.which('git') is None
+          assert not list(Path.cwd().iterdir()), 'runtime cwd must be empty'
+          prefix = Path(sys.prefix).resolve()
+          assert 'include-system-site-packages = false' in (prefix/'pyvenv.cfg').read_text().lower()
+          for entry in sys.path:
+              assert not any(Path(entry).resolve().is_relative_to(Path(p)) for p in expected['forbidden_roots'])
+
+          network, paper_opens, git_attempts, gpu_loads = [], [], [], []
+          def audit(event, values):
+              if event in ('socket.connect', 'socket.getaddrinfo', 'urllib.Request'):
+                  network.append(event)
+                  raise RuntimeError('network prohibited during installed runtime: ' + event)
+              if event == 'open' and isinstance(values[0], (str, bytes)):
+                  parts = os.fsdecode(values[0]).replace('\\', '/').lower().split('/')
+                  if 'papers' in parts or 'research' in parts:
+                      paper_opens.append(os.fsdecode(values[0]))
+                      raise RuntimeError('paper/research access prohibited')
+              if event == 'subprocess.Popen':
+                  git_attempts.append(str(values[0]))
+                  # Missing Git is an ordinary OS error handled by source-mode detection.
+                  # This audit proves no external command actually needs to execute.
+                  raise FileNotFoundError('external commands unavailable in installed runtime')
+              if event == 'ctypes.dlopen' and any(x in str(values[0]).lower() for x in ('cuda', 'cudnn', 'nvidia')):
+                  gpu_loads.append(str(values[0]))
+                  raise RuntimeError('GPU activation prohibited')
+          sys.addaudithook(audit)
+
+          from kernel_physics import api as a
+
+          site = Path(a.__file__).resolve().parents[1]
+          package = site/'kernel_physics'
+          assert site.is_relative_to(prefix)
+          assert not any((p/n).exists() for p in (site, package) for n in ('.git', 'papers', 'research'))
+          assert not list(site.glob('*.egg-link'))
+          dist = metadata.distribution('trioctagon-physics')
+          fields = {k: str(dist.metadata[k]) for k in ('Name', 'Version', 'Author', 'License-Expression', 'Requires-Python')}
+          assert fields['Name'] == 'trioctagon-physics'
+          assert fields['Version'] == '0.1.0'
+          assert fields['Author'] == 'Hilmir Fr\u00edmann Halld\u00f3rsson'
+          assert fields['License-Expression'] == 'Apache-2.0'
+          assert set(fields['Requires-Python'].split(',')) == {'>=3.11', '<3.12'}
+          assert set(dist.metadata.get_all('License-File')) == {'LICENSE', 'LICENSE_SCOPE.md'}
+          assert sorted(s.replace(' ', '') for s in dist.requires) == sorted(('numpy==2.4.4', 'sympy==1.14.0', 'mpmath==1.3.0'))
+          assert {n: metadata.version(n) for n in expected['runtime_versions']} == expected['runtime_versions']
+          assert set(p.name for p in package.glob('*.py')) == {Path(p).name for p in expected['python_hashes']}
+          installed = {p: hashlib.sha256((site/p).read_bytes()).hexdigest() for p in expected['python_hashes']}
+          if args.mode != 'tampered':
+              assert installed == expected['python_hashes']
+
+          p = a.Parameters(eps=.05, g=.2, phase_strength=.001, k=(1, 1, 1))
+          s = a.State(omega=(.2+.3j, -.4+.1j, .1-.2j), update_index=0)
+          v = a.Provenance(kind='user_supplied', source_id='K3c software installation smoke',
+              source_revision=None, locator='explicit software smoke', literal_values={}, notes='No physical inference')
+          observers = tuple(a.historical_observer(n) for n in ('paper_e_staged_v1', 'paper_e_ema_v1'))
+          def run(n):
+              return a.run(s, p, topology='triad', updates=n, parameter_provenance=v,
+                  initialization_provenance=v, observers=observers, readouts=('z_chiral',),
+                  diagnostics=('chiral_area_accounting', 'intensity_budget', 'potential',
+                               'readout_accounting', 'historical_alignment'))
+          def geometry(name):
+              return a.get_geometry(name, options={'section_heights': []} if name == 'C01'
+                                    else {'construction': 'regular', 's': 1})
+          def identity(record, source=expected['manifest']['source']):
+              data = json.loads(record.to_json())
+              for k, value in source.items():
+                  assert data['implementation'][k] == value
+              assert data['implementation']['modules'] == expected['manifest']['modules']
+              for ref in data['paper_references']:
+                  assert ref in expected['manifest']['papers']
+
+          checks, rejected = [], {}
+          if args.mode == 'normal':
+              manifest = json.loads((package/'_distribution_provenance.json').read_text(encoding='utf-8'))
+              assert manifest == expected['manifest']
+              assert a.step(s, p, topology='triad').update_index == 1
+              ring = a.State(omega=s.omega*2, update_index=0)
+              assert a.step(ring, p, topology='ring').update_index == 1
+              a.z_chiral(s.omega)
+              staged, ema = observers
+              staged_readout = a.observe_staged(s.omega, staged.clock, staged.config)
+              a.observe_ema(s.omega, ema.clock, ema.config, ema.memory)
+              assert a.advance_clock(staged.clock, staged.dt).q == staged.clock.q + staged.clock.q_step
+              a.advance_ema(s.omega, ema.memory)
+              a.chiral_area_accounting(s.omega)
+              a.intensity_budget(s.omega, p)
+              a.potential(s.omega, p)
+              a.readout_accounting(staged_readout, alpha=staged.config.alpha, beta=staged.config.beta)
+              runs = {str(n): run(n) for n in (0, 1, 3)}
+              for n, record in runs.items():
+                  assert len(record.data['samples']) == int(n)+1
+                  assert a.RunRecord.from_json(record.to_json()).to_json() == record.to_json()
+                  identity(record)
+              continued = a.resume(runs['1'], updates=2)
+              assert continued.data['samples'] == runs['3'].data['samples']
+              identity(continued)
+              geometries = {n: geometry(n) for n in ('C01', 'D03')}
+              for record in geometries.values():
+                  assert a.GeometryRecord.from_json(record.to_json()).to_json() == record.to_json()
+                  identity(record)
+              saved = {'run': runs['1'].to_json(), **{n: r.to_json() for n, r in geometries.items()}}
+              args.records.write_text(json.dumps(saved, ensure_ascii=False), encoding='utf-8')
+              checks = ['triad_step', 'ring_step', 'z_chiral', 'staged_observer', 'ema_observer',
+                  'clock_advance', 'ema_advance', 'passive_diagnostics', 'zero_one_three_updates',
+                  'run_roundtrip', 'compatible_resume', 'C01', 'D03', 'geometry_roundtrip',
+                  'manifest_source_and_papers', 'all_19_installed_hashes']
+          else:
+              saved = json.loads(args.records.read_text(encoding='utf-8'))
+              prior = a.RunRecord.from_json(saved['run'])
+              assert prior.to_json() == saved['run']
+              for n in ('C01', 'D03'):
+                  assert a.GeometryRecord.from_json(saved[n]).to_json() == saved[n]
+              checks.append('portable_decode_with_invalid_or_missing_current_provenance')
+              operations = {'resume': lambda: a.resume(prior, updates=1)}
+              if args.mode != 'commit':
+                  operations.update(run=lambda: run(0), C01=lambda: geometry('C01'), D03=lambda: geometry('D03'))
+              else:
+                  current = json.loads((package/'_distribution_provenance.json').read_text(encoding='utf-8'))
+                  assert current['source']['commit'] != expected['manifest']['source']['commit']
+                  identity(run(0), current['source'])  # Proves the changed manifest is otherwise valid.
+              for name, operation in operations.items():
+                  try:
+                      operation()
+                  except (ValueError, OSError) as exc:
+                      message = str(exc)
+                      if args.mode == 'missing':
+                          assert isinstance(exc, FileNotFoundError) and '_distribution_provenance.json' in message
+                      elif args.mode == 'tampered':
+                          assert 'installed module bytes differ from source' in message
+                      else:
+                          assert 'matching source revision and module hashes' in message
+                      rejected[name] = {'type': type(exc).__name__, 'message': message}
+                  else:
+                      raise AssertionError('operation accepted invalid identity: ' + name)
+
+          origins = {n: str(Path(m.__file__).resolve()) for n, m in sys.modules.items()
+                     if (n == 'kernel_physics' or n.startswith('kernel_physics.')) and getattr(m, '__file__', None)}
+          assert all(Path(p).is_relative_to(package) for p in origins.values())
+          assert not any('kernel_physics.'+n in sys.modules for n in ('face_state', 'boundary_response', 'srg', 'operating_region'))
+          assert not any(n == p or n.startswith(p+'.') for n in sys.modules for p in ('research', 'papers'))
+          model_modules = ('torch', 'tensorflow', 'transformers', 'sentence_transformers', 'openai',
+                           'llama_cpp', 'cupy', 'pycuda', 'numba.cuda', 'nvidia')
+          assert not any(n == p or n.startswith(p+'.') for n in sys.modules for p in model_modules)
+          assert not network and not paper_opens and not gpu_loads
+          report = {'status': 'PASS', 'mode': args.mode, 'python': platform.python_version(),
+              'prefix': str(prefix), 'base_prefix': sys.base_prefix, 'isolated': sys.flags.isolated,
+              'cwd': str(Path.cwd()), 'sys_path': sys.path, 'metadata': fields, 'origins': origins,
+              'installed_hashes': installed, 'checks': checks, 'rejections': rejected,
+              'network_attempts': len(network), 'paper_open_attempts': len(paper_opens),
+              'external_command_attempts_blocked': git_attempts, 'git_available': False,
+              'model_required': False, 'gpu_required': False, 'source': expected['manifest']['source']}
+          args.report.write_text(json.dumps(report, indent=2, ensure_ascii=False)+'\n', encoding='utf-8')
+          print(json.dumps({'status': 'PASS', 'mode': args.mode, 'report': str(args.report)}))
+          '''
+
+          assert sys.platform == 'win32' and sys.version_info[:2] == (3, 11)
+          sys.dont_write_bytecode = True
+          source = Path(os.environ['GITHUB_WORKSPACE']).resolve()
+          base = Path(os.environ['RUNNER_TEMP']).resolve()/'kernel-k3c'
+          assert not base.is_relative_to(source)
+          base.mkdir()  # A previous attempt must not silently supply certification state.
+          evidence = base/'evidence'
+          evidence.mkdir()
+          wheelhouse = base/'wheelhouse'
+          wheelhouse.mkdir()
+          env = dict(os.environ)
+          for key in ('PYTHONPATH', 'PYTHONHOME', 'SETUPTOOLS_USE_DISTUTILS'):
+              env.pop(key, None)
+          env.update(PYTHONDONTWRITEBYTECODE='1', PYTHONUTF8='1', PIP_DISABLE_PIP_VERSION_CHECK='1')
+          runtime_versions = {'numpy': '2.4.4', 'sympy': '1.14.0', 'mpmath': '1.3.0'}
+          build_versions = {'setuptools': '81.0.0', 'wheel': '0.47.0'}
+          pins = {**build_versions, **runtime_versions}
+          commands = []
+
+          def save(name, data):
+              (evidence/name).write_text(json.dumps(data, indent=2, ensure_ascii=False)+'\n', encoding='utf-8')
+
+          def run(label, command, cwd=source, process_env=None):
+              command = [str(v) for v in command]
+              print('::group::'+label, flush=True)
+              done = subprocess.run(command, cwd=cwd, env=env if process_env is None else process_env,
+                                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT, encoding='utf-8', errors='replace')
+              (evidence/(label+'.log')).write_text(done.stdout, encoding='utf-8')
+              commands.append({'label': label, 'command': command, 'cwd': str(cwd), 'exit_code': done.returncode})
+              save('commands.json', commands)
+              print(done.stdout, end='', flush=True)
+              print('::endgroup::', flush=True)
+              if done.returncode:
+                  raise RuntimeError(label+' failed; see retained log (exit '+str(done.returncode)+')')
+              return done.stdout
+
+          def git(*args):
+              return subprocess.check_output(['git', '-C', str(source), *args], env=env)
+
+          def digest(raw):
+              return hashlib.sha256(raw).hexdigest()
+
+          def load(name, path):
+              spec = importlib.util.spec_from_file_location(name, path)
+              module = importlib.util.module_from_spec(spec)
+              spec.loader.exec_module(module)
+              return module
+
+          def environment(name, versions):
+              location = base/name
+              run(name+'-create', [sys.executable, '-I', '-B', '-m', 'venv', location])
+              python = location/'Scripts/python.exe'
+              assert 'include-system-site-packages = false' in (location/'pyvenv.cfg').read_text().lower()
+              install(name+'-dependencies', python, versions)
+              return python
+
+          def install(label, python, versions):
+              run(label, [python, '-I', '-B', '-m', 'pip', '--isolated', 'install', '--no-index',
+                  '--find-links', wheelhouse, '--no-deps', *[n+'=='+v for n, v in versions.items()]])
+
+          head = git('rev-parse', 'HEAD').decode().strip()
+          assert head == os.environ['GITHUB_SHA']
+          assert not git('status', '--porcelain')
+          tracked = git('ls-files', '-z').decode('utf-8').split('\0')[:-1]
+          starting_hashes = {p: digest((source/p).read_bytes()) for p in tracked}
+          save('source.json', {'commit': head, 'github_sha': os.environ['GITHUB_SHA'],
+              'origin': git('remote', 'get-url', 'origin').decode().strip(),
+              'python': platform.python_version(), 'platform': platform.platform(),
+              'source': str(source), 'tracked_hashes': starting_hashes})
+
+          # Only these five exact distributions can be acquired; all later installs are offline.
+          run('dependency-download', [sys.executable, '-I', '-B', '-m', 'pip', '--isolated',
+              '--disable-pip-version-check', 'download', '--index-url', 'https://pypi.org/simple',
+              '--only-binary=:all:', '--no-deps', '--dest', wheelhouse, *[n+'=='+v for n, v in pins.items()]])
+          dependencies = []
+          for artifact in sorted(wheelhouse.iterdir()):
+              assert artifact.suffix == '.whl'
+              with zipfile.ZipFile(artifact) as z:
+                  names = [n for n in z.namelist() if n.endswith('.dist-info/METADATA')]
+                  assert len(names) == 1
+                  metadata = BytesParser(policy=policy.default).parsebytes(z.read(names[0]))
+              name, version = str(metadata['Name']).lower(), str(metadata['Version'])
+              assert pins[name] == version
+              dependencies.append({'name': name, 'version': version, 'filename': artifact.name,
+                  'sha256': digest(artifact.read_bytes()), 'bytes': artifact.stat().st_size,
+                  'source_index': 'https://pypi.org/simple', 'path': str(artifact)})
+          assert {d['name'] for d in dependencies} == set(pins) and len(dependencies) == 5
+          save('dependency-artifacts.json', dependencies)
+          print(json.dumps(dependencies, indent=2), flush=True)
+
+          build_python = environment('build-env', build_versions)
+          run('clean-setuptools-import', [build_python, '-I', '-B', '-c',
+              "import setuptools,importlib.metadata as m;print(setuptools.__version__);print(m.version('wheel'))"])
+          save('build-environment.json', {'python': str(build_python), 'versions': build_versions,
+              'SETUPTOOLS_USE_DISTUTILS': None, 'clean_import': 'PASS'})
+
+          builder = r'''
+          import importlib.util,json,pathlib,sys
+          network=[]
+          def audit(event,args):
+              if event in ('socket.connect','socket.getaddrinfo','urllib.Request'):
+                  network.append(event)
+                  raise RuntimeError('offline build attempted network: '+event)
+          sys.addaudithook(audit)
+          root, output, mode = pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2]), sys.argv[3]
+          spec=importlib.util.spec_from_file_location('_build_backend',root/'_build_backend.py')
+          b=importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(b)
+          output.mkdir()
+          if mode=='direct':
+              assert b.get_requires_for_build_wheel()==[]
+              assert b.get_requires_for_build_sdist()==[]
+              metadata=output/'prepared-metadata'
+              metadata.mkdir()
+              prepared=b.prepare_metadata_for_build_wheel(str(metadata))
+              wheel=b.build_wheel(str(output/'wheel'),metadata_directory=str(metadata/prepared))
+              sdist=b.build_sdist(str(output/'sdist'))
+              print(json.dumps({'wheel':wheel,'sdist':sdist,'network_attempts':len(network)}))
+          else:
+              assert not any((root/n).exists() for n in ('.git','papers','research'))
+              print(json.dumps({'wheel':b.build_wheel(str(output)),'network_attempts':len(network)}))
+          assert not network
+          '''
+          direct_dir = base/'direct'
+          run('direct-build', [build_python, '-I', '-B', '-c', builder, source, direct_dir, 'direct'])
+          wheel = next((direct_dir/'wheel').glob('*.whl'))
+          sdist = next((direct_dir/'sdist').glob('*.tar.gz'))
+          verifier = source/'tools/verify_distribution.py'
+          run('direct-archive-verify', [build_python, '-I', '-B', verifier, '--source', source,
+              '--wheel', wheel, '--sdist', sdist, '--report', evidence/'direct-archive.json'])
+          direct = json.loads((evidence/'direct-archive.json').read_text(encoding='utf-8'))
+          assert direct['source_identity']['commit'] == head
+
+          extraction = base/'extracted'
+          extraction.mkdir()
+          with tarfile.open(sdist) as archive:
+              archive.extractall(extraction, filter='data')
+          extracted = next(extraction.iterdir())
+          assert not any((extracted/n).exists() for n in ('.git', 'papers', 'research'))
+          assert subprocess.run(['git', '-C', str(extracted), 'rev-parse', '--show-toplevel'],
+              env=env, capture_output=True).returncode != 0
+          assert json.loads((extracted/'kernel_physics/_distribution_provenance.json').read_text(encoding='utf-8')) == direct['manifest']
+          rebuilt_dir = base/'rebuilt'
+          run('sdist-offline-rebuild', [build_python, '-I', '-B', '-c', builder, extracted, rebuilt_dir, 'rebuild'], cwd=extracted)
+          rebuilt = next(rebuilt_dir.glob('*.whl'))
+          run('combined-archive-verify', [build_python, '-I', '-B', verifier, '--source', source,
+              '--wheel', wheel, '--wheel', rebuilt, '--sdist', sdist, '--report', evidence/'archives.json'])
+          archives = json.loads((evidence/'archives.json').read_text(encoding='utf-8'))
+          assert archives['source_identity']['commit'] == head
+          backend = load('certification_backend', source/'_build_backend.py')
+          inputs, manifest = backend.capture(source)
+          contents = [backend.archive_contents(p, inputs, manifest) for p in (wheel, rebuilt)]
+          info = backend.metadata_names('0.1.0')[0]
+          for name in (*backend.PYTHON_FILES, backend.MANIFEST, info+'/METADATA', info+'/WHEEL',
+                       info+'/licenses/LICENSE', info+'/licenses/LICENSE_SCOPE.md', info+'/top_level.txt'):
+              assert contents[0][name] == contents[1][name], name
+          python_hashes = {p: digest(inputs[p]) for p in backend.PYTHON_FILES}
+          assert len(python_hashes) == 19 and len(backend.MODULES) == 14
+          for p, sha in python_hashes.items():
+              assert digest(git('show', head+':'+p)) == sha
+          save('expected.json', {'manifest': manifest, 'python_hashes': python_hashes,
+              'runtime_versions': runtime_versions, 'forbidden_roots': [str(source), str(extraction)]})
+          for artifact in archives['artifacts']:
+              artifact['source_commit'] = head
+              artifact['manifest_build_input_sha256'] = manifest['build_input_sha256']
+          save('archives.json', archives)
+
+          # Source tests run only after minimal build-tool-only builds have passed.
+          install('source-test-dependencies', build_python, runtime_versions)
+          suite = run('tracked-tests', [build_python, '-B', '-m', 'unittest', 'discover',
+              '-s', 'kernel_physics/tests', '-t', '.', '-p', 'test_*.py', '-v'])
+          match = re.search(r'Ran (\d+) tests in ([\d.]+)s\s+OK\s*$', suite)
+          assert match and int(match[1]) >= 338
+          save('tracked-tests.json', {'tests': int(match[1]), 'seconds': float(match[2]), 'result': 'PASS'})
+
+          runtime_script = base/'runtime_check.py'
+          runtime_script.write_text(RUNTIME_PROGRAM, encoding='utf-8')
+          runtime_env = dict(env)
+          empty_path = base/'no-executables'
+          empty_path.mkdir()
+          runtime_env['PATH'] = str(empty_path)
+          def smoke(label, python, records, mode='normal', cwd=None):
+              if cwd is None:
+                  cwd = base/(label+'-cwd')
+                  cwd.mkdir()
+              run(label, [python, '-I', '-B', runtime_script, '--expected', evidence/'expected.json',
+                  '--report', evidence/(label+'.json'), '--records', records, '--mode', mode],
+                  cwd=cwd, process_env=runtime_env)
+              return json.loads((evidence/(label+'.json')).read_text(encoding='utf-8'))
+
+          installed_reports = {}
+          for label, artifact in (('direct', wheel), ('rebuilt', rebuilt)):
+              python = environment(label+'-runtime-env', {**runtime_versions, 'setuptools': '81.0.0'})
+              run(label+'-install', [python, '-I', '-B', '-m', 'pip', '--isolated', 'install',
+                                   '--no-index', '--no-deps', artifact])
+              run(label+'-installed-verifier', [build_python, '-I', '-B', verifier, '--source', source,
+                  '--wheel', artifact, '--sdist', sdist, '--installed-python', python,
+                  '--report', evidence/(label+'-installed-verifier.json')])
+              installed_reports[label] = smoke(label+'-runtime', python, evidence/(label+'-records.json'))
+
+          identity_table = []
+          for p, sha in python_hashes.items():
+              row = {'path': p, 'record_identity': p in backend.MODULES, 'source_git_blob_sha256': digest(git('show', head+':'+p)),
+                  'source_sha256': sha, 'direct_wheel_sha256': digest(contents[0][p]),
+                  'direct_installed_sha256': installed_reports['direct']['installed_hashes'][p],
+                  'rebuilt_wheel_sha256': digest(contents[1][p]),
+                  'rebuilt_installed_sha256': installed_reports['rebuilt']['installed_hashes'][p]}
+              assert len({v for k, v in row.items() if k.endswith('sha256')}) == 1
+              identity_table.append(row)
+          save('installed-identity.json', identity_table)
+          assert json.loads((evidence/'direct-records.json').read_text(encoding='utf-8')) == json.loads(
+              (evidence/'rebuilt-records.json').read_text(encoding='utf-8'))
+
+          # A separately installed disposable environment is reinstalled between destructive cases.
+          # Certified direct/rebuilt installations remain untouched.
+          mutation_python = environment('mutation-runtime-env', {**runtime_versions, 'setuptools': '81.0.0'})
+          mutation_site = mutation_python.parents[1]/'Lib/site-packages'
+          for mode in ('missing', 'tampered', 'commit'):
+              run('mutation-'+mode+'-reinstall', [mutation_python, '-I', '-B', '-m', 'pip', '--isolated', 'install',
+                  '--force-reinstall', '--no-index', '--no-deps', wheel])
+              manifest_path = mutation_site/backend.MANIFEST
+              if mode == 'missing':
+                  manifest_path.unlink()
+              elif mode == 'tampered':
+                  path = mutation_site/'kernel_physics/readouts.py'
+                  path.write_bytes(path.read_bytes()+b'\n# K3c disposable installed byte tamper\n')
+              else:
+                  changed = json.loads(manifest_path.read_text(encoding='utf-8'))
+                  changed['source']['commit'] = '0'*40 if head != '0'*40 else '1'*40
+                  changed['build_input_sha256'] = backend.input_digest(changed)
+                  manifest_path.write_bytes(backend.canonical(changed))
+              smoke('mutation-'+mode, mutation_python, evidence/'direct-records.json', mode=mode)
+
+          unrelated = base/'unrelated-git'
+          run('unrelated-git-init', ['git', 'init', '-q', unrelated], cwd=base)
+          unrelated_cwd = unrelated/'empty'
+          unrelated_cwd.mkdir()
+          smoke('unrelated-git-runtime', base/'direct-runtime-env/Scripts/python.exe',
+                evidence/'unrelated-records.json', cwd=unrelated_cwd)
+
+          assert git('rev-parse', 'HEAD').decode().strip() == head
+          assert not git('status', '--porcelain')
+          assert {p: digest((source/p).read_bytes()) for p in tracked} == starting_hashes
+          assert not (source/backend.MANIFEST).exists()
+          run('final-diff-check', ['git', 'diff', '--check'])
+          for label, artifact in (('direct-wheel', wheel), ('sdist', sdist), ('rebuilt-wheel', rebuilt)):
+              target = evidence/label
+              target.mkdir()
+              shutil.copyfile(artifact, target/artifact.name)
+          save('certification.json', {'status': 'PASS', 'source_commit': head, 'github_sha': os.environ['GITHUB_SHA'],
+              'python': platform.python_version(), 'platform': platform.platform(), 'dependency_artifacts': dependencies,
+              'tracked_tests': int(match[1]), 'direct_install': 'PASS', 'rebuilt_install': 'PASS',
+              'missing_manifest': 'PASS', 'installed_tamper': 'PASS', 'changed_commit_resume_rejection': 'PASS',
+              'unrelated_git': 'PASS', 'network_attempts': 0, 'paper_open_attempts': 0,
+              'model_required': False, 'gpu_required': False, 'setuptools_workaround': False,
+              'source_clean': True, 'all_tracked_bytes_unchanged': True, 'evidence': str(evidence)})
+          print('K3C_LOCAL_CERTIFICATION=PASS; SOURCE_COMMIT='+head, flush=True)
+      - name: Retain certification evidence
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: kernel-distribution-${{ github.sha }}
+          path: ${{ runner.temp }}/kernel-k3c/evidence/
+          if-no-files-found: error
+          retention-days: 30
