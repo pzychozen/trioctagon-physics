@@ -1,0 +1,2189 @@
+{
+  "schema": "kernel.k2.final_closeout.v1",
+  "created_utc": "2026-09-26T19:17:10.769831+00:00",
+  "status": {
+    "STARTING_HEAD": "69046009a307fa8498bd7366c8214493eca7b833",
+    "K2_FINAL_STATUS": "PASS",
+    "P1": "PASS",
+    "P2": "PASS",
+    "P3": "PASS",
+    "P4": "PASS",
+    "P5": "PASS",
+    "P6": "PASS",
+    "P7": "PASS",
+    "P8": "PASS",
+    "P9": "PASS",
+    "P10": "PASS",
+    "P11": "PASS",
+    "P12": "PASS",
+    "P1_P12_PARITY_COMPLETE": "YES",
+    "ACCEPTED_KERNEL_PARITY": "COMPLETE",
+    "PUBLIC_FACADE_PARITY": "COMPLETE",
+    "O01_STATUS": "CLOSED_OPTION_B_QUARANTINE_V1",
+    "O02_STATUS": "OPEN_NONBLOCKING_HISTORICAL_RATIONALE",
+    "O03_STATUS": "CLOSED",
+    "ORACLE_BOUNDARIES": "PASS",
+    "FALSIFIER_REGISTER": "PASS",
+    "CLAIM_BOUNDARY_REGISTER": "PASS",
+    "RECEIPT_RECONCILIATION": "PASS",
+    "TRACKED_TESTS": 298,
+    "TRACKED_TEST_RESULT": "PASS",
+    "OPTIONAL_LOCAL_TESTS": 30,
+    "OPTIONAL_LOCAL_RESULT": "PASS",
+    "POST_HOC_TOLERANCE_WIDENING": "NO",
+    "NEW_MATHEMATICS_ADDED_BY_K2": "NO",
+    "PRODUCTION_MATHEMATICS_CHANGED_BY_K2": "NO",
+    "GEOMETRY_DYNAMICS_COUPLING": "NO",
+    "OBSERVER_FEEDBACK": "NO",
+    "RESEARCH_PROMOTION": "NO",
+    "PACKAGE_DISTRIBUTION_ENGINEERING_COMPLETE": "NO",
+    "PACKAGE_DISTRIBUTION_ENGINEERING": "NOT_YET_K3_COMPLETE",
+    "UI_STARTED": "NO",
+    "FILES_CREATED": 2,
+    "FILES_MODIFIED": 0,
+    "K3_READY_FOR_AUTHORIZATION": "YES",
+    "PRODUCTION_SOURCE_CHANGED": 0,
+    "EXISTING_TEST_CHANGED": 0,
+    "K0_CHANGED": 0,
+    "K1_CHANGED": 0,
+    "K2A_CHANGED": 0,
+    "K2B_CHANGED": 0,
+    "K2C_CHANGED": 0,
+    "PAPERS_CHANGED": 0,
+    "RESEARCH_CHANGED": 0,
+    "FIXTURES_CHANGED": 0,
+    "OPTION_B_MODULE_CHANGED": 0
+  },
+  "certification": "The accepted kernel mathematics and the frozen public facade have passed the complete P1–P12 parity program within the explicitly stated domains, tolerances, historical qualifications, and claim boundaries.",
+  "final_head": {
+    "kind": "commit_introducing_this_receipt",
+    "resolve_with": "git log --diff-filter=A --format=%H -- kernel_physics/K2_PARITY_FINAL_CLOSEOUT.json"
+  },
+  "origin_main": {
+    "kind": "verified_at_publication",
+    "note": "Literal final HEAD and independently verified remote main are returned in the publication closeout; self-embedding a commit hash is circular."
+  },
+  "environment": {
+    "conda": "torment",
+    "python": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+    "executable": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "numpy": "2.4.4",
+    "sympy": "1.14.0",
+    "mpmath": "1.3.0"
+  },
+  "authority": [
+    {
+      "path": "kernel_physics/K0_KERNEL_AUTHORITY_PUBLIC_CONTRACT_FREEZE_v0.1.md",
+      "sha256": "9f21446519b857710dc60265c07c8677736bacf85481095476b747644f00f5c1"
+    },
+    {
+      "path": "kernel_physics/K0_KERNEL_DEFINITION_LEDGER_v0.1.md",
+      "sha256": "2301c40fe3117a72b98998caaf7818a2d8bcf6b7c0a10f05daef0c8c82b1c0d4"
+    },
+    {
+      "path": "kernel_physics/K2A_EXACT_INDEPENDENT_PARITY_VALIDATION.md",
+      "sha256": "717f1539cd423704a9f92d1e42efae2500c062ab14d45a965b4f33d38e0c88ce"
+    },
+    {
+      "path": "kernel_physics/K2A_EXACT_INDEPENDENT_PARITY_VALIDATION.json",
+      "sha256": "aee359f9a804c5eeeebf2acc339eb03ae481ddface6bd5c78b024c8b10758ee3"
+    },
+    {
+      "path": "kernel_physics/K2B_FIXTURE_WITNESS_PARITY_VALIDATION.md",
+      "sha256": "4b13bdaaed06a0b596fb25fd92f7de517cfc9241eae4f0f104d38192e67b8ed7"
+    },
+    {
+      "path": "kernel_physics/K2B_FIXTURE_WITNESS_PARITY_VALIDATION.json",
+      "sha256": "77ed1dcb4245816eac2f791dd0bc1f02bf177c6193badc870654dff07c671fd6"
+    },
+    {
+      "path": "kernel_physics/K2C_PAPER_F_ANALYTIC_PARITY_VALIDATION.md",
+      "sha256": "c5b0cfc526e68404cdfe05d118dd0c4a6a7ee253122a36563064e4bf0ee94d3b"
+    },
+    {
+      "path": "kernel_physics/K2C_PAPER_F_ANALYTIC_PARITY_VALIDATION.json",
+      "sha256": "164c8a472f5cd548aa181dbc855c0d6ed4796beaa64438057a4a18a13a1bb0cb"
+    },
+    {
+      "path": "kernel_physics/README.md",
+      "sha256": "13bf905d5351be720f134091dbdb7070ba5986c46016d65c6d5ebf06174a637a"
+    },
+    {
+      "path": "kernel_physics/tests/test_public_contract.py",
+      "sha256": "48ede752030a81b97363011d40b0f12e186b22ed7d97b85bebcd48c9f67850f7"
+    },
+    {
+      "path": "kernel_physics/tests/test_runner_records.py",
+      "sha256": "2b95ca7f03b0942739e3f511b729f9e730c0a8a22c65809f7ddb9508f64b3e0e"
+    },
+    {
+      "path": "kernel_physics/tests/test_geometry_records.py",
+      "sha256": "cc92e556f1d19ab9310ae91c37ed32c45f7dedc2b0c79b0ad27ce6110f9f3bfc"
+    },
+    {
+      "path": "kernel_physics/tests/test_import_boundaries.py",
+      "sha256": "6259d84ce5a13b2e667d25e8fb8c783e6f73dea2a74a4d8979f1678d0cabd43e"
+    }
+  ],
+  "phase_chain": [
+    {
+      "phase": "K2a",
+      "source_head": "9cf34b207b772639a4a79c2bcb3332d292b4f947",
+      "published_head": "24b62db7ff1960ac485789ff235d01a63f94e65a",
+      "receipt": "kernel_physics/K2A_EXACT_INDEPENDENT_PARITY_VALIDATION.json",
+      "receipt_sha256": "aee359f9a804c5eeeebf2acc339eb03ae481ddface6bd5c78b024c8b10758ee3"
+    },
+    {
+      "phase": "K2b",
+      "source_head": "24b62db7ff1960ac485789ff235d01a63f94e65a",
+      "published_head": "22b3009d51e4e47efda48acf52d234d00907fe2c",
+      "receipt": "kernel_physics/K2B_FIXTURE_WITNESS_PARITY_VALIDATION.json",
+      "receipt_sha256": "77ed1dcb4245816eac2f791dd0bc1f02bf177c6193badc870654dff07c671fd6"
+    },
+    {
+      "phase": "K2c",
+      "source_head": "22b3009d51e4e47efda48acf52d234d00907fe2c",
+      "published_head": "69046009a307fa8498bd7366c8214493eca7b833",
+      "receipt": "kernel_physics/K2C_PAPER_F_ANALYTIC_PARITY_VALIDATION.json",
+      "receipt_sha256": "164c8a472f5cd548aa181dbc855c0d6ed4796beaa64438057a4a18a13a1bb0cb"
+    }
+  ],
+  "receipt_reconciliation": {
+    "result": "PASS",
+    "checks": [
+      {
+        "check": "Authorized starting HEAD",
+        "result": "PASS",
+        "detail": "69046009a307fa8498bd7366c8214493eca7b833"
+      },
+      {
+        "check": "Starting tracked preservation",
+        "result": "PASS",
+        "detail": "704 files unchanged"
+      },
+      {
+        "check": "Four local-only test hashes",
+        "result": "PASS",
+        "detail": {
+          "kernel_physics/tests/test_boundary_pipeline.py": "e820c5ea52c3d53f580cac1427d97935a45a8c35ea10da120b00447c437f64c9",
+          "kernel_physics/tests/test_boundary_response.py": "6d95629e69ebc0d80c9d16f39286b4c26ce1f4a47c05346cb49b467365cfefe7",
+          "kernel_physics/tests/test_operating_region.py": "c873358fcf618bc62a8b0277660cc19fa057273f14c169a521e09d5683d33c35",
+          "kernel_physics/tests/test_srg.py": "a74119c3211e7f790a99a0f3eba2574bffaa45482e8a7a3b9ff5a597f28fed59"
+        }
+      },
+      {
+        "check": "K2a published/source HEADs",
+        "result": "PASS",
+        "detail": {
+          "source_head": "9cf34b207b772639a4a79c2bcb3332d292b4f947",
+          "published_head": "24b62db7ff1960ac485789ff235d01a63f94e65a"
+        }
+      },
+      {
+        "check": "K2b published/source HEADs",
+        "result": "PASS",
+        "detail": {
+          "source_head": "24b62db7ff1960ac485789ff235d01a63f94e65a",
+          "published_head": "22b3009d51e4e47efda48acf52d234d00907fe2c"
+        }
+      },
+      {
+        "check": "K2c published/source HEADs",
+        "result": "PASS",
+        "detail": {
+          "source_head": "22b3009d51e4e47efda48acf52d234d00907fe2c",
+          "published_head": "69046009a307fa8498bd7366c8214493eca7b833"
+        }
+      },
+      {
+        "check": "Phase ancestry",
+        "result": "PASS",
+        "detail": "K1 -> K2a -> K2b -> K2c; detached validation snapshots are separately labelled, not publication HEADs"
+      },
+      {
+        "check": "K2a gate results",
+        "result": "PASS",
+        "detail": "P1–P4, P9–P11 and import boundary PASS"
+      },
+      {
+        "check": "K2b gate results",
+        "result": "PASS",
+        "detail": "P5/P6 PASS"
+      },
+      {
+        "check": "K2c gate results",
+        "result": "PASS",
+        "detail": "P7/P8 PASS"
+      },
+      {
+        "check": "K2a pinned identities",
+        "result": "PASS",
+        "detail": {
+          "matched": 8,
+          "identity_map": {
+            "kernel_physics/tests/parity_oracles/__init__.py": "338de739971a6c0ecaa353fccff641e1784bbb08021bca78a77d4c1a07133a28",
+            "kernel_physics/tests/parity_oracles/geometry_oracle.py": "bcd004a2b98a650c419212103353a550206288f18b8795f4fdba18ea29c736bd",
+            "kernel_physics/tests/parity_oracles/paper_a_oracle.py": "c174d3d7f5f86527bdd0e1840057d4c78fe24ff75a653934440cc7ed279eb4c1",
+            "kernel_physics/tests/parity_oracles/paper_e_oracle.py": "6b70279fa402c2ddb49aa0de89f68def34abdd3d5b47886897f700b39d4aa2f0",
+            "kernel_physics/tests/test_parity_oracle_boundaries.py": "ac598fcad30bc766e9c227f6e459c4477484f3816b68eda51b655f394acd172b",
+            "kernel_physics/tests/test_parity_p01_p04.py": "65f0cf0ba95b52bd7e1857c7418cfc0becb66ab1ba301599182f7249e8b67f0d",
+            "kernel_physics/tests/test_parity_p09_p10.py": "081dfa0c3a69b69a170bcc6b2a3dcf61728c8d3b7155d2dd6942b1751eb7b648",
+            "kernel_physics/tests/test_parity_p11.py": "d0e506fa498678d0d012a2f80e30a7f69df5c1bde78568152bdca9c4a877c0f5"
+          }
+        }
+      },
+      {
+        "check": "K2b pinned identities",
+        "result": "PASS",
+        "detail": {
+          "matched": 5,
+          "identity_map": {
+            "kernel_physics/tests/fixtures/golden_388/TRAJECTORIES.csv": "eeed672b1cb20321dfc85a2f4753c93d4fe1b9345a5cede4f5e12532537a4a38",
+            "kernel_physics/tests/fixtures/golden_388/GOLDEN_388_RECEIPT.md": "799dd9cb60466aace245d887c5154d41fd836c6d59757a2e9b8c7d4bdefd23c4",
+            "kernel_physics/tests/test_parity_p05_p06.py": "1767f7c931e0a858de66e7b2afeb38e604914d55ceb7dc6e7c0f417c4f2d87b6",
+            "kernel_physics/tests/test_parity_oracle_boundaries_k2b.py": "075e9d44a8cec6cfd7776c2ca08d335dd5e11013dcfbf6ec44cc06dfde108b1c",
+            "kernel_physics/tests/parity_oracles/transverse_axis_oracle.py": "6545088d7e4c8a50f4c2dfcfffeb1dfae476633d77a3508e0ce40e6be4ac61e7"
+          }
+        }
+      },
+      {
+        "check": "K2c pinned identities",
+        "result": "PASS",
+        "detail": {
+          "matched": 7,
+          "identity_map": {
+            "papers/PAPER_F/PAPER_F_PUBLICATION_v0.2.md": "8c9419b20a0899857e68f4b191e7321cfc99f5286f149504f5d82a3e75db4fd5",
+            "papers/PAPER_F/support/repository/research/paper_F_transverse_normal_form/PAPER_F_DRAFT_v0.2.md": "bcb08b70804051861094142f80d6b057542f22848850cdc3458816ed97ae54a3",
+            "papers/PAPER_F/support/repository/research/paper_F_transverse_normal_form/paper_f_exact_checks_v0_2.py": "e661af6536e9ec37c09c8126574e775f262e03c8ed49ca0e02b0d13cb010ff4d",
+            "papers/PAPER_F/support/repository/research/GATE_TORUS_INVESTIGATION_v0.1/CLAUDE_GENERIC_TRANSVERSE_HARMONICS_REVIEW.md": "a7114abb47bf61829cc901876a04be88e3438bbe55d529d6118483b152de619d",
+            "kernel_physics/tests/parity_oracles/paper_f_oracle.py": "b702de1145741da814bf88b1e3b99a76701d9170eedabfdb60edd42a89b4e9f7",
+            "kernel_physics/tests/test_parity_p07_p08.py": "7e958943f73cb4358f0094c1972303c9a91ed44bb99527b73557783ea896fec4",
+            "kernel_physics/tests/test_parity_oracle_boundaries_k2c.py": "2180702923028ece9fee10d31ca39d7d2d84ddfe336060f6fd2b2928f15b2484"
+          }
+        }
+      },
+      {
+        "check": "K2 added no production mathematics",
+        "result": "PASS",
+        "detail": "The three K2 publication commits only add test/oracle/fixture/receipt paths; all K1 production remains unchanged"
+      },
+      {
+        "check": "Historical test census",
+        "result": "PASS",
+        "detail": [
+          177,
+          249,
+          279,
+          288,
+          298
+        ]
+      },
+      {
+        "check": "Receipt test census",
+        "result": "PASS",
+        "detail": "177 + 72 + 30 + 9 + 10 = 298; local-only 30 separate"
+      },
+      {
+        "check": "K2a Markdown/JSON identity",
+        "result": "PASS",
+        "detail": "Reported source HEAD and test census agree"
+      },
+      {
+        "check": "K2b Markdown/JSON identity",
+        "result": "PASS",
+        "detail": "Reported source HEAD and test census agree"
+      },
+      {
+        "check": "K2c Markdown/JSON identity",
+        "result": "PASS",
+        "detail": "Reported source HEAD and test census agree"
+      },
+      {
+        "check": "P12 test ownership",
+        "result": "PASS",
+        "detail": {
+          "kernel_physics/tests/test_public_contract.py": 17,
+          "kernel_physics/tests/test_runner_records.py": 30,
+          "kernel_physics/tests/test_geometry_records.py": 17,
+          "kernel_physics/tests/test_import_boundaries.py": 8
+        }
+      },
+      {
+        "check": "K1 explicit Option B disposition",
+        "result": "PASS",
+        "detail": "README Supported public API v1 section; K0 pending decision remains a dated authority snapshot"
+      },
+      {
+        "check": "Version roles",
+        "result": "PASS",
+        "detail": {
+          "public_api": "1.0.0",
+          "run_record": "1.0.0",
+          "geometry_record": "1.0.0",
+          "exact_codec": "1",
+          "ledger": "0.1",
+          "package": "0.1.0",
+          "note": "Receipt format identifiers are evidence-document versions, not public record schemas."
+        }
+      },
+      {
+        "check": "P5 fixture identity",
+        "result": "PASS",
+        "detail": {
+          "path": "kernel_physics/tests/fixtures/golden_388/TRAJECTORIES.csv",
+          "sha256": "eeed672b1cb20321dfc85a2f4753c93d4fe1b9345a5cede4f5e12532537a4a38",
+          "rows": 388,
+          "columns": 50,
+          "bytes": 282427
+        }
+      },
+      {
+        "check": "P6 fixture identity",
+        "result": "PASS",
+        "detail": {
+          "path": "papers/PAPER_F/support/repository/research/GATE_TORUS_INVESTIGATION_v0.1/TRANSVERSE_AXIS_FALSIFICATION.csv",
+          "sha256": "fb2b2a71fd99c536dc7e490c6a2e201b2a0b22ee533820870dff5ee516c468dc",
+          "rows": 18,
+          "columns": 32,
+          "bytes": 10345
+        }
+      },
+      {
+        "check": "O03 minimal packet",
+        "result": "PASS",
+        "detail": [
+          "kernel_physics/tests/fixtures/golden_388/GOLDEN_388_RECEIPT.md",
+          "kernel_physics/tests/fixtures/golden_388/TRAJECTORIES.csv"
+        ]
+      },
+      {
+        "check": "P5 evidence boundaries",
+        "result": "PASS",
+        "detail": "Historical/schedule witness; independent C; no equation-oracle promotion"
+      },
+      {
+        "check": "P5 column classes",
+        "result": "PASS",
+        "detail": "41 parity/protocol columns; two historical conventions and seven research columns remain distinct and excluded"
+      },
+      {
+        "check": "P7 stored exact coefficients",
+        "result": "PASS",
+        "detail": "Stored exact values cross-checked; no new derivation"
+      },
+      {
+        "check": "P8 stored exact coefficients",
+        "result": "PASS",
+        "detail": "Full composition, isolated phase and limiting derivative remain distinct"
+      },
+      {
+        "check": "P7 sign census",
+        "result": "PASS",
+        "detail": "20 resolved PASS, 12 unresolved; h=.02 reverses at update 4"
+      },
+      {
+        "check": "P8 envelope chronology",
+        "result": "PASS",
+        "detail": "Envelope fixed before runtime; maximum and smaller-delta fractions retained"
+      },
+      {
+        "check": "P1 bound definition",
+        "result": "PASS",
+        "detail": "u=2^-52. Phase off: 32u times sum(|w|,|eps*k*w|,|eps*w*|w|^2|,|g*sum(w)|,|3g*w|). Phase on: frozen 64u*|V_j|*(1+|p_j|+|lambda|*(|sin(3Delta1)|+|sin(3Delta2)|)); exact-zero branch explicitly checked."
+      },
+      {
+        "check": "P2 bound definition",
+        "result": "PASS",
+        "detail": "32u times the independently expanded pre-sync term sum, including equal-k phase-on fixtures; no absolute floor."
+      },
+      {
+        "check": "P3 bound definition",
+        "result": "PASS",
+        "detail": "128u times independent defining-term scales. Two-runtime-path covariance comparisons sum the scales of both inputs; raw chirality uses the two defining product magnitudes. Phase-on checks additionally use the stricter P1-style multiplicative phase scale."
+      },
+      {
+        "check": "P4 bound definition",
+        "result": "PASS",
+        "detail": "128u times expanded pre-sync addends, including coupling, checked also on captured pre-sync vectors. Phase-on outputs additionally use the P1-style multiplicative phase scale. Two-path P-lift comparisons sum both independent scales; M=3 is self-path only."
+      },
+      {
+        "check": "P9 bound definition",
+        "result": "PASS",
+        "detail": "Exact/hand identities and literal bitwise comparisons; retained historical scalar max(2e-14*|reference|,2e-15); macro cone/norm residual <=8u*z^2. No other absolute floor."
+      },
+      {
+        "check": "P10 bound definition",
+        "result": "PASS",
+        "detail": "256u times the independently reconstructed sum of absolute defining terms; exact-zero branches have bound zero. No residual clipping or universal epsilon."
+      },
+      {
+        "check": "P5/P6 frozen bounds",
+        "result": "PASS",
+        "detail": {
+          "P5": {
+            "ordinary": "1e-12 + 1e-12*abs(saved reference)",
+            "independent_C": "64*2^-52*(abs(x_j*y_k)+abs(x_k*y_j)) at each saved/replayed Omega",
+            "cross_trajectory_C": "same candidate-Omega 64u scale plus abs(C_high_precision(candidate)-C_high_precision(saved)); no late unresolved sign constraint",
+            "accounting": "Each saved/replayed accepted diagnostic is checked against its independent defining expression at its supplied inputs, within 256u*sum(abs(defining terms)); no historical allowance or absolute floor.",
+            "flags": "exact historical flags, not mathematical-zero inference"
+          },
+          "P6": {
+            "state_chirality": "1e-13 + 1e-12*abs(reference)",
+            "angles": "1e-12 rad",
+            "symmetries": "exact floating equality and explicit positive-zero bit convention"
+          }
+        }
+      },
+      {
+        "check": "P7 frozen bound",
+        "result": "PASS",
+        "detail": {
+          "h": [
+            "1/50",
+            "1/100"
+          ],
+          "phi": [
+            "pi/12",
+            "-pi/12"
+          ],
+          "phase_strength": 0,
+          "updates": 8,
+          "seed": "e+i*h*q(phi); binary64 seed obtained by rounding each exact high-precision component once",
+          "state_bound": "1e-13 per complex component (predeclared)",
+          "chirality_bound": "1e-13 per component",
+          "angle_bound": "256*2^-52 radians",
+          "sign_resolution": "abs(oracle angle)>4*angle_bound"
+        }
+      },
+      {
+        "check": "Oracle independence __init__.py",
+        "result": "PASS",
+        "detail": []
+      },
+      {
+        "check": "Oracle absolute import geometry_oracle.py",
+        "result": "PASS",
+        "detail": "collections"
+      },
+      {
+        "check": "Oracle independence geometry_oracle.py",
+        "result": "PASS",
+        "detail": [
+          "collections",
+          "sympy"
+        ]
+      },
+      {
+        "check": "Oracle independence paper_a_oracle.py",
+        "result": "PASS",
+        "detail": [
+          "mpmath",
+          "sympy"
+        ]
+      },
+      {
+        "check": "Oracle independence paper_e_oracle.py",
+        "result": "PASS",
+        "detail": [
+          "mpmath",
+          "sympy"
+        ]
+      },
+      {
+        "check": "Oracle independence paper_f_oracle.py",
+        "result": "PASS",
+        "detail": [
+          "mpmath",
+          "sympy"
+        ]
+      },
+      {
+        "check": "Oracle independence transverse_axis_oracle.py",
+        "result": "PASS",
+        "detail": [
+          "mpmath",
+          "sympy"
+        ]
+      },
+      {
+        "check": "Oracle family census",
+        "result": "PASS",
+        "detail": "Five mathematical oracle modules plus import-free initializer; no oracle-to-oracle imports"
+      },
+      {
+        "check": "Falsifier owner Ordinary np.angle at signed zero",
+        "result": "PASS",
+        "detail": [
+          [
+            "P1Tests",
+            53
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Omit a zero neighbor",
+        "result": "PASS",
+        "detail": [
+          [
+            "P1Tests",
+            53
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Sequential phase update",
+        "result": "PASS",
+        "detail": [
+          [
+            "P1Tests",
+            83
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Unequal-k synchrony",
+        "result": "PASS",
+        "detail": [
+          [
+            "P2Tests",
+            111
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Fixed unequal-k permutation",
+        "result": "PASS",
+        "detail": [
+          [
+            "P3Tests",
+            143
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Unrestricted phase-on U(1) through zero",
+        "result": "PASS",
+        "detail": [
+          [
+            "P3Tests",
+            158
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Invariant image implies intertwining",
+        "result": "PASS",
+        "detail": [
+          [
+            "P4Tests",
+            195
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Nonlinear Q substitution",
+        "result": "PASS",
+        "detail": [
+          [
+            "P4Tests",
+            242
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Invalid ring sizes",
+        "result": "PASS",
+        "detail": [
+          [
+            "P4Tests",
+            242
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Universal preferred axis / lost subspace constraints",
+        "result": "PASS",
+        "detail": [
+          [
+            "P6Tests",
+            348
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner 243/160 as full-composition coefficient",
+        "result": "PASS",
+        "detail": [
+          [
+            "RuntimeParityTests",
+            257
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner 1-.99 substituted for literal .01",
+        "result": "PASS",
+        "detail": [
+          [
+            "P9Tests",
+            75
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Constructor zero equals recomputed observation",
+        "result": "PASS",
+        "detail": [
+          [
+            "P9Tests",
+            97
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Observer or diagnostic feedback",
+        "result": "PASS",
+        "detail": [
+          [
+            "P9Tests",
+            97
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Residual clamping",
+        "result": "PASS",
+        "detail": [
+          [
+            "P10Tests",
+            175
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Guaranteed potential descent",
+        "result": "PASS",
+        "detail": [
+          [
+            "P10Tests",
+            192
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Repair inconsistent supplied records",
+        "result": "PASS",
+        "detail": [
+          [
+            "P10Tests",
+            160
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Unresolved means exact zero; displays retain full state/history independence",
+        "result": "PASS",
+        "detail": [
+          [
+            "P10Tests",
+            203
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Filled central triangle",
+        "result": "PASS",
+        "detail": [
+          [
+            "P11Tests",
+            43
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Open-cut replaces closed region",
+        "result": "PASS",
+        "detail": [
+          [
+            "P11Tests",
+            117
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Unlabelled D6 extends to roles/full frames",
+        "result": "PASS",
+        "detail": [
+          [
+            "P11Tests",
+            140
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Translation equals shrink/common rigid translation",
+        "result": "PASS",
+        "detail": [
+          [
+            "P11Tests",
+            174
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Quarantined optional modules activate implicitly",
+        "result": "PASS",
+        "detail": [
+          [
+            "ImportBoundaryTests",
+            111
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Runner selects optional modules or geometry",
+        "result": "PASS",
+        "detail": [
+          [
+            "ImportBoundaryTests",
+            136
+          ]
+        ]
+      },
+      {
+        "check": "Falsifier owner Passive reader advances state/clock/EMA",
+        "result": "PASS",
+        "detail": [
+          [
+            "ImportBoundaryTests",
+            143
+          ]
+        ]
+      },
+      {
+        "check": "Fresh tracked-suite.log",
+        "result": "PASS",
+        "detail": [
+          "298",
+          "193.352"
+        ]
+      },
+      {
+        "check": "Fresh local-suite.log",
+        "result": "PASS",
+        "detail": [
+          "30",
+          "0.715"
+        ]
+      },
+      {
+        "check": "Fresh isolated checkout clean",
+        "result": "PASS",
+        "detail": "69046009a307fa8498bd7366c8214493eca7b833"
+      },
+      {
+        "check": "Final original-file preservation",
+        "result": "PASS",
+        "detail": 704
+      }
+    ],
+    "historical_status_notes": [
+      "K0 planned/unimplemented and pending O01/O03 entries are dated snapshots. K1 explicitly selects Option B; K2b explicitly closes O03.",
+      "Earlier README K1/R1–K3 labels describe a different predecessor task series, as K0 explicitly states. They do not claim current K3 packaging completion.",
+      "Detached validation snapshots and execution-environment metadata are distinct from published phase HEADs.",
+      "No material disagreement found; no predecessor receipt edited, mathematical reinterpretation, tolerance change or new derivation."
+    ]
+  },
+  "claim_matrix": [
+    {
+      "gate": "P1",
+      "accepted_claim": "Paper-A one-step triad recurrence",
+      "runtime_target": "dynamics.step3 / phase_sync / arg0",
+      "evidence_types": [
+        "EXACT_SYMBOLIC",
+        "HIGH_PRECISION_REFERENCE",
+        "BINARY64_TERM_SCALE",
+        "EXACT_DISCRETE",
+        "NEGATIVE_FALSIFIER"
+      ],
+      "result": "PASS",
+      "pass_supports": "Amplitude/coupling before simultaneous synchronization; Arg0(0)=0, signed-zero branches and bounded binary64 agreement.",
+      "pass_does_not_support": "Global dynamics, long-time stability, physical interpretation or arbitrary nonfinite behavior.",
+      "receipt_test_owner": "K2a; test_parity_p01_p04.py (P1Tests)"
+    },
+    {
+      "gate": "P2",
+      "accepted_claim": "Equal-k synchronized scalar reduction",
+      "runtime_target": "dynamics.step3 / L3",
+      "evidence_types": [
+        "EXACT_SYMBOLIC",
+        "HIGH_PRECISION_REFERENCE",
+        "BINARY64_TERM_SCALE",
+        "EXACT_DISCRETE",
+        "NEGATIVE_FALSIFIER"
+      ],
+      "result": "PASS",
+      "pass_supports": "Exact L3 e=0; common-zero and positive/negative multiplier cases at equal k.",
+      "pass_does_not_support": "Attraction, stability or unequal-k synchrony.",
+      "receipt_test_owner": "K2a; test_parity_p01_p04.py (P2Tests)"
+    },
+    {
+      "gate": "P3",
+      "accepted_claim": "Qualified triad symmetry",
+      "runtime_target": "dynamics.step3; readouts.z_chiral",
+      "evidence_types": [
+        "EXACT_SYMBOLIC",
+        "HIGH_PRECISION_REFERENCE",
+        "BINARY64_TERM_SCALE",
+        "NEGATIVE_FALSIFIER"
+      ],
+      "result": "PASS",
+      "pass_supports": "S3 jointly permutes state and k; real-parameter conjugation; U(1) globally at lambda=0, on the nonzero pre-sync stratum at lambda!=0; chirality transformation signs.",
+      "pass_does_not_support": "Fixed unequal-k S3, phase-on U(1) through zeros, general ring S3 or spatial meaning for chirality.",
+      "receipt_test_owner": "K2a; test_parity_p01_p04.py (P3Tests)"
+    },
+    {
+      "gate": "P4",
+      "accepted_claim": "Cycle covering and nonlinear P lift",
+      "runtime_target": "covering cycle_laplacian / pullback_matrix / isometric_pullback; dynamics.step_ring",
+      "evidence_types": [
+        "EXACT_SYMBOLIC",
+        "EXACT_DISCRETE",
+        "HIGH_PRECISION_REFERENCE",
+        "BINARY64_TERM_SCALE",
+        "NEGATIVE_FALSIFIER"
+      ],
+      "result": "PASS",
+      "pass_supports": "Cycle multiplicities, residue pullback, Q isometry on its valid divisor domain, exact intertwining conditions, one-step nonlinear P lift and periodic ring wrap.",
+      "pass_does_not_support": "Nonlinear Q substitution, sector attraction or long-time ring/triad closeness; M=3 self-path is only a sanity check.",
+      "receipt_test_owner": "K2a; test_parity_p01_p04.py (P4Tests)"
+    },
+    {
+      "gate": "P5",
+      "accepted_claim": "388-row historical regression and schedule witness",
+      "runtime_target": "api.run and public step/clock/EMA/readout operations",
+      "evidence_types": [
+        "EXACT_DISCRETE",
+        "HISTORICAL_FIXTURE_TOLERANCE",
+        "HIGH_PRECISION_REFERENCE",
+        "BINARY64_TERM_SCALE",
+        "SOFTWARE_CONTRACT"
+      ],
+      "result": "PASS",
+      "pass_supports": "Preserved/reproduced record, row-zero semantics, new-Omega/clock/EMA sequencing, bitwise Runner/control agreement, independent C from saved/replayed Omega and accepted accounting comparisons.",
+      "pass_does_not_support": "Independent recurrence correctness or observer equations, spatial registration, research display/gate meaning or physical interpretation.",
+      "receipt_test_owner": "K2b; test_parity_p05_p06.py (P5Tests); golden_388 two-file packet"
+    },
+    {
+      "gate": "P6",
+      "accepted_claim": "Transverse-axis falsification on two special subspaces",
+      "runtime_target": "dynamics.step3; readouts.z_chiral",
+      "evidence_types": [
+        "EXACT_SYMBOLIC",
+        "EXACT_DISCRETE",
+        "HIGH_PRECISION_REFERENCE",
+        "HISTORICAL_FIXTURE_TOLERANCE",
+        "NEGATIVE_FALSIFIER"
+      ],
+      "result": "PASS",
+      "pass_supports": "Two invariant subspaces and special-seed C formulas, exact orthogonality where defined, eight-update fixture agreement, one-step angle and bounded floating preservation.",
+      "pass_does_not_support": "Universal preferred axis, attractor, physical selector or generic-seed behavior.",
+      "receipt_test_owner": "K2b; test_parity_p05_p06.py (P6Tests); transverse_axis_oracle.py"
+    },
+    {
+      "gate": "P7",
+      "accepted_claim": "Paper-F finite-step analytic parity",
+      "runtime_target": "dynamics.step3; readouts.z_chiral; source-oriented signed angle",
+      "evidence_types": [
+        "EXACT_SYMBOLIC",
+        "HIGH_PRECISION_REFERENCE",
+        "ASYMPTOTIC_QUALIFICATION",
+        "ORACLE_VERSUS_PAPER_ONLY"
+      ],
+      "result": "PASS",
+      "pass_supports": "Exact one-step harmonics/projections, finite-n coefficients through 8, independent full-map state/C/angle agreement, resolved signs and h=.02 reversal at update 4; fixed-n O(h^6) compatibility.",
+      "pass_does_not_support": "Infinity from eight steps, global basin, uniform-in-n remainder, six-axis physics or truncated-jet equality with finite-amplitude dynamics.",
+      "receipt_test_owner": "K2c; test_parity_p07_p08.py; paper_f_oracle.py"
+    },
+    {
+      "gate": "P8",
+      "accepted_claim": "First-lambda full-composition one-step sensitivity",
+      "runtime_target": "dynamics.step3 amplitude-then-phase composition; chirality-angle observable",
+      "evidence_types": [
+        "EXACT_SYMBOLIC",
+        "HIGH_PRECISION_REFERENCE",
+        "BINARY64_TERM_SCALE",
+        "ASYMPTOTIC_QUALIFICATION",
+        "ORACLE_VERSUS_PAPER_ONLY",
+        "NEGATIVE_FALSIFIER"
+      ],
+      "result": "PASS",
+      "pass_supports": "Exact 99/2500 leading coefficient and finite-amplitude centered differences within independently precomputed envelopes; actual-observable rejection of isolated-phase 243/160.",
+      "pass_does_not_support": "Higher lambda orders, large lambda, arbitrary amplitude or float64 measurement of the limiting derivative.",
+      "receipt_test_owner": "K2c; test_parity_p07_p08.py; paper_f_oracle.py"
+    },
+    {
+      "gate": "P9",
+      "accepted_claim": "Accepted Paper-E observers",
+      "runtime_target": "z_manifold clock / staged / EMA / constructor-zero operations",
+      "evidence_types": [
+        "EXACT_SYMBOLIC",
+        "EXACT_DISCRETE",
+        "HIGH_PRECISION_REFERENCE",
+        "BINARY64_TERM_SCALE",
+        "HISTORICAL_FIXTURE_TOLERANCE",
+        "SOFTWARE_CONTRACT",
+        "NEGATIVE_FALSIFIER"
+      ],
+      "result": "PASS",
+      "pass_supports": "Observer identities, clock behavior, staged/EMA operation order, literal .01, constructor-zero distinction and passivity with respect to Omega.",
+      "pass_does_not_support": "Physical measurement interpretation, historical literals as laws or strict subunit saturation in every binary64 result.",
+      "receipt_test_owner": "K2a; test_parity_p09_p10.py (P9Tests); paper_e_oracle.py"
+    },
+    {
+      "gate": "P10",
+      "accepted_claim": "Passive accounting and diagnostics",
+      "runtime_target": "z_diagnostics",
+      "evidence_types": [
+        "EXACT_SYMBOLIC",
+        "EXACT_DISCRETE",
+        "HIGH_PRECISION_REFERENCE",
+        "BINARY64_TERM_SCALE",
+        "SOFTWARE_CONTRACT",
+        "NEGATIVE_FALSIFIER"
+      ],
+      "result": "PASS",
+      "pass_supports": "Accounting identities, signed/unclamped residuals, potential/gradient formula, known overshoot, display/history qualifications and passive-only behavior.",
+      "pass_does_not_support": "Guaranteed Lyapunov descent, trajectory correctness, physical energy, control/feedback or history-independent displays.",
+      "receipt_test_owner": "K2a; test_parity_p09_p10.py (P10Tests); paper_e_oracle.py"
+    },
+    {
+      "gate": "P11",
+      "accepted_claim": "Exact Paper-C geometry and Paper-D scaffold",
+      "runtime_target": "geometry; reference_scaffold",
+      "evidence_types": [
+        "EXACT_SYMBOLIC",
+        "EXACT_DISCRETE",
+        "NEGATIVE_FALSIFIER"
+      ],
+      "result": "PASS",
+      "pass_supports": "Exact coordinates/topology/incidence, central section curve, accepted D3h actions, exact closed scaffold regions, role/frame/index distinctions and translation versus shrink.",
+      "pass_does_not_support": "Omega placement on shell, a chirality shell field, geometry/dynamics coupling or new physical meaning.",
+      "receipt_test_owner": "K2a; test_parity_p11.py; geometry_oracle.py"
+    },
+    {
+      "gate": "P12",
+      "accepted_claim": "Frozen public software contract",
+      "runtime_target": "api / _contract_types / _runner / _records / _geometry_records / _presets",
+      "evidence_types": [
+        "SOFTWARE_CONTRACT",
+        "EXACT_DISCRETE",
+        "NEGATIVE_FALSIFIER"
+      ],
+      "result": "PASS",
+      "pass_supports": "Explicit constructors, thin facade and single delegated recurrence; sequencing, detached immutable snapshots, observer passivity; Run/Geometry Records 1.0.0, inert round-trips, deterministic hashes, restart/resume, import boundaries, no research/quarantine activation, hidden defaults or geometry coupling.",
+      "pass_does_not_support": "New mathematics, support for quarantined modules, completed packaging/install/CI distribution engineering or UI.",
+      "receipt_test_owner": "K1 public-contract implementation and four P12 test files (72 tests), freshly rerun in final suite"
+    }
+  ],
+  "evidence_type_matrix": [
+    {
+      "type": "EXACT_SYMBOLIC",
+      "meaning": "Polynomial/rational/geometry identities in exact arithmetic on the stated domains.",
+      "gates": "P1–P4, P6–P11",
+      "limit": "No binary64 bitwise or global-dynamics conclusion."
+    },
+    {
+      "type": "EXACT_DISCRETE",
+      "meaning": "Indices, topology, flags, branch/zero cases, literal bits and operation counts.",
+      "gates": "P1–P6, P9–P12",
+      "limit": "Discrete agreement does not prove continuous equations."
+    },
+    {
+      "type": "HIGH_PRECISION_REFERENCE",
+      "meaning": "Independent 80-digit reconstructions; P7/P8 also cross-checked at 100 digits.",
+      "gates": "P1–P10 numerical portions",
+      "limit": "Bounded numerical evidence, not a global theorem."
+    },
+    {
+      "type": "BINARY64_TERM_SCALE",
+      "meaning": "Frozen bounds from independently reconstructed defining-term magnitudes.",
+      "gates": "P1–P5, P9–P10; P8 propagated error model",
+      "limit": "No arbitrary absolute floor, clamping or universal machine-safety claim."
+    },
+    {
+      "type": "HISTORICAL_FIXTURE_TOLERANCE",
+      "meaning": "Explicit tolerance comparisons to preserved records.",
+      "gates": "P5/P6; retained P9 historical scalar fixtures",
+      "limit": "Regression evidence is not an independent recurrence/observer oracle."
+    },
+    {
+      "type": "ASYMPTOTIC_QUALIFICATION",
+      "meaning": "Separate exact coefficients from finite-amplitude values; retain nonzero higher-order remainder.",
+      "gates": "P7/P8",
+      "limit": "No jet equality, fixed ratio 16/64, uniform-in-n remainder or large-lambda claim."
+    },
+    {
+      "type": "SOFTWARE_CONTRACT",
+      "meaning": "Delegation, immutability, scheduling, schema/codec, restart and import-boundary tests.",
+      "gates": "P12; schedule/passivity parts of P5/P9/P10",
+      "limit": "No new mathematics or completed distribution engineering."
+    },
+    {
+      "type": "ORACLE_VERSUS_PAPER_ONLY",
+      "meaning": "Exact limiting coefficient and limiting lambda derivative under accepted hypotheses.",
+      "gates": "P7/P8",
+      "limit": "Neither limiting quantity is certified by a float64 trajectory."
+    },
+    {
+      "type": "NEGATIVE_FALSIFIER",
+      "meaning": "Wrong-formula counterexamples, domain rejections, exact constraints and forbidden-side-effect guards.",
+      "gates": "Register below",
+      "limit": "Not an exhaustive mutation-testing proof."
+    }
+  ],
+  "oracle_architecture": {
+    "modules": [
+      {
+        "path": "kernel_physics/tests/parity_oracles/__init__.py",
+        "imports": [],
+        "sha256": "338de739971a6c0ecaa353fccff641e1784bbb08021bca78a77d4c1a07133a28",
+        "project_local_dependencies": []
+      },
+      {
+        "path": "kernel_physics/tests/parity_oracles/geometry_oracle.py",
+        "imports": [
+          "collections",
+          "sympy"
+        ],
+        "sha256": "bcd004a2b98a650c419212103353a550206288f18b8795f4fdba18ea29c736bd",
+        "project_local_dependencies": []
+      },
+      {
+        "path": "kernel_physics/tests/parity_oracles/paper_a_oracle.py",
+        "imports": [
+          "mpmath",
+          "sympy"
+        ],
+        "sha256": "c174d3d7f5f86527bdd0e1840057d4c78fe24ff75a653934440cc7ed279eb4c1",
+        "project_local_dependencies": []
+      },
+      {
+        "path": "kernel_physics/tests/parity_oracles/paper_e_oracle.py",
+        "imports": [
+          "mpmath",
+          "sympy"
+        ],
+        "sha256": "6b70279fa402c2ddb49aa0de89f68def34abdd3d5b47886897f700b39d4aa2f0",
+        "project_local_dependencies": []
+      },
+      {
+        "path": "kernel_physics/tests/parity_oracles/paper_f_oracle.py",
+        "imports": [
+          "mpmath",
+          "sympy"
+        ],
+        "sha256": "b702de1145741da814bf88b1e3b99a76701d9170eedabfdb60edd42a89b4e9f7",
+        "project_local_dependencies": []
+      },
+      {
+        "path": "kernel_physics/tests/parity_oracles/transverse_axis_oracle.py",
+        "imports": [
+          "mpmath",
+          "sympy"
+        ],
+        "sha256": "6545088d7e4c8a50f4c2dfcfffeb1dfae476633d77a3508e0ce40e6be4ac61e7",
+        "project_local_dependencies": []
+      }
+    ],
+    "ORACLES_IMPORT_PRODUCTION_KERNEL": "NO",
+    "ORACLES_IMPORT_RESEARCH": "NO",
+    "ORACLES_IMPORT_PAPER_F_VERIFIER": "NO",
+    "oracle_to_oracle_dependencies": [],
+    "test_level_reuse": {
+      "kernel_physics/tests/test_parity_p05_p06.py": "kernel_physics.tests.parity_oracles.paper_e_oracle (unchanged K2a accounting oracle)"
+    },
+    "provenance_files_are_executable_oracles": false,
+    "boundary_owners": [
+      "test_parity_oracle_boundaries.py",
+      "test_parity_oracle_boundaries_k2b.py",
+      "test_parity_oracle_boundaries_k2c.py",
+      "test_import_boundaries.py"
+    ]
+  },
+  "falsifier_register": [
+    {
+      "gate": "P1",
+      "wrong_implementation_or_claim": "Ordinary np.angle at signed zero",
+      "witness": "Accepted Arg0 changes neighbor synchronization; ordinary-angle mutant is separated.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p01_p04.py::P1Tests.test_signed_zero_through_full_step",
+      "line": 53
+    },
+    {
+      "gate": "P1",
+      "wrong_implementation_or_claim": "Omit a zero neighbor",
+      "witness": "Zero entries still supply their accepted Arg0 phase to neighbors.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p01_p04.py::P1Tests.test_signed_zero_through_full_step",
+      "line": 53
+    },
+    {
+      "gate": "P1",
+      "wrong_implementation_or_claim": "Sequential phase update",
+      "witness": "In-place phase update disagrees with the simultaneous oracle.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p01_p04.py::P1Tests.test_sequential_falsifier",
+      "line": 83
+    },
+    {
+      "gate": "P2",
+      "wrong_implementation_or_claim": "Unequal-k synchrony",
+      "witness": "Equal starting channels leave span(e) for unequal k.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p01_p04.py::P2Tests.test_unequal_k_falsifier",
+      "line": 111
+    },
+    {
+      "gate": "P3",
+      "wrong_implementation_or_claim": "Fixed unequal-k permutation",
+      "witness": "Permuting only state fails; k must be permuted jointly.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p01_p04.py::P3Tests.test_all_six_permutations_and_fixed_k_negative",
+      "line": 143
+    },
+    {
+      "gate": "P3",
+      "wrong_implementation_or_claim": "Unrestricted phase-on U(1) through zero",
+      "witness": "Pre-sync-zero counterexample violates the overbroad symmetry claim.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p01_p04.py::P3Tests.test_conjugation_u1_and_zero_counterexample",
+      "line": 158
+    },
+    {
+      "gate": "P4",
+      "wrong_implementation_or_claim": "Invariant image implies intertwining",
+      "witness": "Exceptional (M,d)=(3,2) does not intertwine.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p01_p04.py::P4Tests.test_exact_matrices_and_domain",
+      "line": 195
+    },
+    {
+      "gate": "P4",
+      "wrong_implementation_or_claim": "Nonlinear Q substitution",
+      "witness": "Normalized Q fails the nonlinear lifting identity obeyed by P.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p01_p04.py::P4Tests.test_q_substitution_and_ring_rejections",
+      "line": 242
+    },
+    {
+      "gate": "P4",
+      "wrong_implementation_or_claim": "Invalid ring sizes",
+      "witness": "Sizes 4 and 5 raise ValueError.",
+      "result": "PASS",
+      "evidence_kind": "domain rejection",
+      "test": "kernel_physics/tests/test_parity_p01_p04.py::P4Tests.test_q_substitution_and_ring_rejections",
+      "line": 242
+    },
+    {
+      "gate": "P6",
+      "wrong_implementation_or_claim": "Universal preferred axis / lost subspace constraints",
+      "witness": "Nonzero orthogonal A/B chirality axes persist; exact Cx=Cy and Cx=-Cy,Cz=+0 constraints; zero direction rejected.",
+      "result": "PASS",
+      "evidence_kind": "exact constraints and counterexample",
+      "test": "kernel_physics/tests/test_parity_p05_p06.py::P6Tests.test_20_eight_updates_symmetry_angles_and_signed_zero",
+      "line": 348
+    },
+    {
+      "gate": "P8",
+      "wrong_implementation_or_claim": "243/160 as full-composition coefficient",
+      "witness": "Runtime FD is inside full-composition envelope and outside isolated-phase envelope for both signs/all deltas.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p07_p08.py::RuntimeParityTests.test_p8_full_composition_centered_differences_and_wrong_coefficient",
+      "line": 257
+    },
+    {
+      "gate": "P9",
+      "wrong_implementation_or_claim": "1-.99 substituted for literal .01",
+      "witness": "The innovation differs bitwise.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p09_p10.py::P9Tests.test_cubic_literal_01_and_current_memory",
+      "line": 75
+    },
+    {
+      "gate": "P9",
+      "wrong_implementation_or_claim": "Constructor zero equals recomputed observation",
+      "witness": "Nonzero recomputation differs from marked stored zero.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p09_p10.py::P9Tests.test_constructor_zero_and_bitwise_passivity",
+      "line": 97
+    },
+    {
+      "gate": "P9/P10",
+      "wrong_implementation_or_claim": "Observer or diagnostic feedback",
+      "witness": "Full Omega bytes match with and without all observers/diagnostics; forbidden advancement spies also belong to P12.",
+      "result": "PASS",
+      "evidence_kind": "passivity guard",
+      "test": "kernel_physics/tests/test_parity_p09_p10.py::P9Tests.test_constructor_zero_and_bitwise_passivity",
+      "line": 97
+    },
+    {
+      "gate": "P10",
+      "wrong_implementation_or_claim": "Residual clamping",
+      "witness": "Rounded nonzero Gram residual is retained.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p09_p10.py::P10Tests.test_gram_numeric_unclamped_and_gradient_budget",
+      "line": 175
+    },
+    {
+      "gate": "P10",
+      "wrong_implementation_or_claim": "Guaranteed potential descent",
+      "witness": "Accepted finite step raises potential 6 to 168.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p09_p10.py::P10Tests.test_finite_step_overshoot",
+      "line": 192
+    },
+    {
+      "gate": "P10",
+      "wrong_implementation_or_claim": "Repair inconsistent supplied records",
+      "witness": "Inconsistent supplied readouts retain nonzero residuals.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p09_p10.py::P10Tests.test_supplied_readout_accounting_including_inconsistency",
+      "line": 160
+    },
+    {
+      "gate": "P10",
+      "wrong_implementation_or_claim": "Unresolved means exact zero; displays retain full state/history independence",
+      "witness": "Threshold flags, earlier-point movement on extended history and chirality information loss remain explicit.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p09_p10.py::P10Tests.test_alignment_threshold_and_displays",
+      "line": 203
+    },
+    {
+      "gate": "P11",
+      "wrong_implementation_or_claim": "Filled central triangle",
+      "witness": "Central section is three segments; centroid is not in their material curves.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p11.py::P11Tests.test_c_section_curve_and_closed_domain",
+      "line": 43
+    },
+    {
+      "gate": "P11",
+      "wrong_implementation_or_claim": "Open-cut replaces closed region",
+      "witness": "Closed halfplane/corner semantics differ from open-corner subtraction.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p11.py::P11Tests.test_d_closed_halfplanes_support_and_corner_cells",
+      "line": 117
+    },
+    {
+      "gate": "P11",
+      "wrong_implementation_or_claim": "Unlabelled D6 extends to roles/full frames",
+      "witness": "E/G roles and complete frames do not acquire the unlabelled polygon symmetry.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p11.py::P11Tests.test_d_full_frames_regular_member_and_roles",
+      "line": 140
+    },
+    {
+      "gate": "P11",
+      "wrong_implementation_or_claim": "Translation equals shrink/common rigid translation",
+      "witness": "Individual centre translations differ from fixed-centre shrink and a common rigid translation.",
+      "result": "PASS",
+      "evidence_kind": "counterexample",
+      "test": "kernel_physics/tests/test_parity_p11.py::P11Tests.test_d_paper_c_comparison_translation_and_shrink",
+      "line": 174
+    },
+    {
+      "gate": "P12",
+      "wrong_implementation_or_claim": "Quarantined optional modules activate implicitly",
+      "witness": "Fresh-process public import/execution leaves boundary_response, srg, operating_region and face_state unloaded.",
+      "result": "PASS",
+      "evidence_kind": "import guard",
+      "test": "kernel_physics/tests/test_import_boundaries.py::ImportBoundaryTests.test_clean_api_import_and_execution_do_not_load_option_b",
+      "line": 111
+    },
+    {
+      "gate": "P12",
+      "wrong_implementation_or_claim": "Runner selects optional modules or geometry",
+      "witness": "Unsupported selections raise; quarantined names are not public exports.",
+      "result": "PASS",
+      "evidence_kind": "selection rejection",
+      "test": "kernel_physics/tests/test_import_boundaries.py::ImportBoundaryTests.test_runner_cannot_select_optional_modules_or_geometry",
+      "line": 136
+    },
+    {
+      "gate": "P12",
+      "wrong_implementation_or_claim": "Passive reader advances state/clock/EMA",
+      "witness": "Patched forbidden advancement functions cannot be called by passive operations.",
+      "result": "PASS",
+      "evidence_kind": "forbidden-side-effect guard",
+      "test": "kernel_physics/tests/test_import_boundaries.py::ImportBoundaryTests.test_observers_and_all_passive_readers_never_advance",
+      "line": 143
+    }
+  ],
+  "P5": {
+    "P5_EQUATION_ORACLE": "NO",
+    "P5_HISTORICAL_REGRESSION_WITNESS": "YES",
+    "P5_SCHEDULE_WITNESS": "YES",
+    "P5_INDEPENDENT_CHIRALITY_ORACLE": "YES",
+    "P5_COMPARISON_MODE": "CROSS_ENVIRONMENT",
+    "P5_RECORDED_ENVIRONMENT_BITWISE": "NOT_APPLICABLE",
+    "P5_MAX_CROSS_ENVIRONMENT_ERROR": "0.0",
+    "P5_RUNNER_CONTROL_BITWISE": "PASS",
+    "column_classification": [
+      {
+        "column": "phase_strength",
+        "classification": "RUN_KEY"
+      },
+      {
+        "column": "variant",
+        "classification": "RUN_KEY"
+      },
+      {
+        "column": "row",
+        "classification": "RUN_KEY"
+      },
+      {
+        "column": "q",
+        "classification": "OBSERVER_STATE"
+      },
+      {
+        "column": "t",
+        "classification": "OBSERVER_STATE"
+      },
+      {
+        "column": "theta",
+        "classification": "OBSERVER_STATE"
+      },
+      {
+        "column": "initialization",
+        "classification": "OBSERVER_STATE"
+      },
+      {
+        "column": "z",
+        "classification": "OBSERVER_RESULT"
+      },
+      {
+        "column": "I",
+        "classification": "RAW_READOUT"
+      },
+      {
+        "column": "harmonic_amplitude",
+        "classification": "EXCLUDED_RESEARCH"
+      },
+      {
+        "column": "ema_memory",
+        "classification": "OBSERVER_STATE"
+      },
+      {
+        "column": "gate_assignment",
+        "classification": "EXCLUDED_RESEARCH"
+      },
+      {
+        "column": "map_lambda",
+        "classification": "EXCLUDED_RESEARCH"
+      },
+      {
+        "column": "map_delta0",
+        "classification": "EXCLUDED_RESEARCH"
+      },
+      {
+        "column": "M_x",
+        "classification": "OBSERVER_RESULT"
+      },
+      {
+        "column": "M_y",
+        "classification": "OBSERVER_RESULT"
+      },
+      {
+        "column": "M_z",
+        "classification": "OBSERVER_RESULT"
+      },
+      {
+        "column": "C_x",
+        "classification": "OBSERVER_RESULT"
+      },
+      {
+        "column": "C_y",
+        "classification": "OBSERVER_RESULT"
+      },
+      {
+        "column": "C_z",
+        "classification": "OBSERVER_RESULT"
+      },
+      {
+        "column": "T_x",
+        "classification": "OBSERVER_RESULT"
+      },
+      {
+        "column": "T_y",
+        "classification": "OBSERVER_RESULT"
+      },
+      {
+        "column": "T_z",
+        "classification": "OBSERVER_RESULT"
+      },
+      {
+        "column": "display_M_x",
+        "classification": "EXCLUDED_RESEARCH"
+      },
+      {
+        "column": "display_M_y",
+        "classification": "EXCLUDED_RESEARCH"
+      },
+      {
+        "column": "display_M_z",
+        "classification": "EXCLUDED_RESEARCH"
+      },
+      {
+        "column": "Omega0_real",
+        "classification": "KERNEL_STATE"
+      },
+      {
+        "column": "Omega0_imag",
+        "classification": "KERNEL_STATE"
+      },
+      {
+        "column": "Omega1_real",
+        "classification": "KERNEL_STATE"
+      },
+      {
+        "column": "Omega1_imag",
+        "classification": "KERNEL_STATE"
+      },
+      {
+        "column": "Omega2_real",
+        "classification": "KERNEL_STATE"
+      },
+      {
+        "column": "Omega2_imag",
+        "classification": "KERNEL_STATE"
+      },
+      {
+        "column": "norm_residual",
+        "classification": "DIAGNOSTIC"
+      },
+      {
+        "column": "q_residual",
+        "classification": "DIAGNOSTIC"
+      },
+      {
+        "column": "macro_relation_residual",
+        "classification": "DIAGNOSTIC"
+      },
+      {
+        "column": "q_macro",
+        "classification": "DIAGNOSTIC"
+      },
+      {
+        "column": "q_total",
+        "classification": "DIAGNOSTIC"
+      },
+      {
+        "column": "d_TM",
+        "classification": "DIAGNOSTIC"
+      },
+      {
+        "column": "d_CM",
+        "classification": "DIAGNOSTIC"
+      },
+      {
+        "column": "d_TC",
+        "classification": "DIAGNOSTIC"
+      },
+      {
+        "column": "macro_resolved",
+        "classification": "DIAGNOSTIC"
+      },
+      {
+        "column": "chiral_resolved",
+        "classification": "DIAGNOSTIC"
+      },
+      {
+        "column": "total_resolved",
+        "classification": "DIAGNOSTIC"
+      },
+      {
+        "column": "TM_resolved",
+        "classification": "DIAGNOSTIC"
+      },
+      {
+        "column": "CM_resolved",
+        "classification": "DIAGNOSTIC"
+      },
+      {
+        "column": "TC_resolved",
+        "classification": "DIAGNOSTIC"
+      },
+      {
+        "column": "threshold",
+        "classification": "HISTORICAL_CONVENTION"
+      },
+      {
+        "column": "gram_residual",
+        "classification": "DIAGNOSTIC"
+      },
+      {
+        "column": "slack_residual",
+        "classification": "DIAGNOSTIC"
+      },
+      {
+        "column": "polynomial_residual_allowance",
+        "classification": "HISTORICAL_CONVENTION"
+      }
+    ],
+    "columns_used": [
+      "phase_strength",
+      "variant",
+      "row",
+      "q",
+      "t",
+      "theta",
+      "initialization",
+      "z",
+      "I",
+      "ema_memory",
+      "M_x",
+      "M_y",
+      "M_z",
+      "C_x",
+      "C_y",
+      "C_z",
+      "T_x",
+      "T_y",
+      "T_z",
+      "Omega0_real",
+      "Omega0_imag",
+      "Omega1_real",
+      "Omega1_imag",
+      "Omega2_real",
+      "Omega2_imag",
+      "norm_residual",
+      "q_residual",
+      "macro_relation_residual",
+      "q_macro",
+      "q_total",
+      "d_TM",
+      "d_CM",
+      "d_TC",
+      "macro_resolved",
+      "chiral_resolved",
+      "total_resolved",
+      "TM_resolved",
+      "CM_resolved",
+      "TC_resolved",
+      "gram_residual",
+      "slack_residual"
+    ],
+    "columns_excluded": {
+      "HISTORICAL_CONVENTION": [
+        "threshold",
+        "polynomial_residual_allowance"
+      ],
+      "EXCLUDED_RESEARCH": [
+        "display_M_x",
+        "display_M_y",
+        "display_M_z",
+        "map_lambda",
+        "map_delta0",
+        "gate_assignment",
+        "harmonic_amplitude"
+      ]
+    },
+    "qualification": "Zero maximum applies to ordinary saved-versus-Runner comparisons; independent-C roundoff is reported separately."
+  },
+  "fixtures": {
+    "P5": {
+      "path": "kernel_physics/tests/fixtures/golden_388/TRAJECTORIES.csv",
+      "sha256": "eeed672b1cb20321dfc85a2f4753c93d4fe1b9345a5cede4f5e12532537a4a38",
+      "bytes": 282427,
+      "rows": 388,
+      "columns": 50,
+      "header": [
+        "phase_strength",
+        "variant",
+        "row",
+        "q",
+        "t",
+        "theta",
+        "initialization",
+        "z",
+        "I",
+        "harmonic_amplitude",
+        "ema_memory",
+        "gate_assignment",
+        "map_lambda",
+        "map_delta0",
+        "M_x",
+        "M_y",
+        "M_z",
+        "C_x",
+        "C_y",
+        "C_z",
+        "T_x",
+        "T_y",
+        "T_z",
+        "display_M_x",
+        "display_M_y",
+        "display_M_z",
+        "Omega0_real",
+        "Omega0_imag",
+        "Omega1_real",
+        "Omega1_imag",
+        "Omega2_real",
+        "Omega2_imag",
+        "norm_residual",
+        "q_residual",
+        "macro_relation_residual",
+        "q_macro",
+        "q_total",
+        "d_TM",
+        "d_CM",
+        "d_TC",
+        "macro_resolved",
+        "chiral_resolved",
+        "total_resolved",
+        "TM_resolved",
+        "CM_resolved",
+        "TC_resolved",
+        "threshold",
+        "gram_residual",
+        "slack_residual",
+        "polynomial_residual_allowance"
+      ]
+    },
+    "P6": {
+      "path": "papers/PAPER_F/support/repository/research/GATE_TORUS_INVESTIGATION_v0.1/TRANSVERSE_AXIS_FALSIFICATION.csv",
+      "sha256": "fb2b2a71fd99c536dc7e490c6a2e201b2a0b22ee533820870dff5ee516c468dc",
+      "bytes": 10345,
+      "rows": 18,
+      "columns": 32,
+      "header": [
+        "seed",
+        "row",
+        "state_sha256",
+        "relative_sync_distance",
+        "C_norm",
+        "direction_valid",
+        "invalid_reason",
+        "normalized_plane_residual",
+        "angle_to_plane_rad",
+        "projective_angle_own_initial_rad",
+        "projective_angle_other_initial_rad",
+        "linear_C_norm",
+        "C_norm_over_linear_prediction",
+        "cross_arithmetic_floor_proxy",
+        "norm_over_cross_arithmetic_floor",
+        "norm_over_1e_minus12_reference_only",
+        "symmetry_residual",
+        "mutual_projective_angle_rad",
+        "Omega0_real",
+        "Omega0_imag",
+        "Omega1_real",
+        "Omega1_imag",
+        "Omega2_real",
+        "Omega2_imag",
+        "mean_real",
+        "mean_imag",
+        "C_x",
+        "unit_C_x",
+        "C_y",
+        "unit_C_y",
+        "C_z",
+        "unit_C_z"
+      ]
+    }
+  },
+  "P7": {
+    "kappa_1_through_8": [
+      "-1/5760",
+      "-347/7200000",
+      "-59629/9000000000",
+      "71745997/11250000000000",
+      "145603166279/14062500000000000",
+      "203126174530303/17578125000000000000",
+      "32730981759886837/2746582031250000000000",
+      "660579363515112919919/54931640625000000000000000"
+    ],
+    "kappa_infinity": "13375/1107936648",
+    "KAPPA_INFINITY": "ORACLE_VERSUS_PAPER_ONLY",
+    "KAPPA_INFINITY_RUNTIME_TESTED": "NO",
+    "bounded_protocol": {
+      "h": [
+        "1/50",
+        "1/100"
+      ],
+      "phi": [
+        "pi/12",
+        "-pi/12"
+      ],
+      "phase_strength": 0,
+      "updates": 8,
+      "seed": "e+i*h*q(phi); binary64 seed obtained by rounding each exact high-precision component once",
+      "state_bound": "1e-13 per complex component (predeclared)",
+      "chirality_bound": "1e-13 per component",
+      "angle_bound": "256*2^-52 radians",
+      "sign_resolution": "abs(oracle angle)>4*angle_bound"
+    },
+    "sign_cases": {
+      "resolved_pass": 20,
+      "unresolved": 12,
+      "h_02_reversal_update": 4
+    },
+    "remainder_qualification": {
+      "accepted_statement": "For each fixed finite n, psi_n=kappa_n*h^4*sin(6phi)+O(h^6)",
+      "policy": "Oracle-side qualification only; no ratio or empirical pass threshold.",
+      "interpretation": "All normalized values stay near their corresponding fixed-n values at both amplitudes; no material contradiction observed. Exact jet coefficients and full-map angles remain distinct. Neither ratio 16 nor ratio 64 is asserted.",
+      "P8": "Finite-amplitude derivative divided by h^4*sin(6phi) approaches 99/2500; nonzero higher-order remainder is retained."
+    }
+  },
+  "P8": {
+    "one_step_full_composition_coefficient": "99/2500",
+    "parameter_general_coefficient": "eps*a^2/4 + 47*a^4/32",
+    "isolated_phase_coefficient": "243/160",
+    "isolated_phase_is_full_composition": false,
+    "limiting_derivative": "34494041501/849664304944",
+    "LIMITING_DERIVATIVE": "ORACLE_VERSUS_PAPER_ONLY",
+    "LIMITING_DERIVATIVE_RUNTIME_TESTED": "NO",
+    "MAX_P8_FD_ENVELOPE_FRACTION": "0.8129333720104450265080969613752843440938",
+    "TOLERANCE_WIDENED": "NO",
+    "ENVELOPE_FIXED_BEFORE_RUNTIME_INSPECTION": "YES",
+    "delta_margins": [
+      {
+        "sign": 1,
+        "delta": ".01",
+        "absolute_discrepancy": "0.00000000005325767496455832438388155608639948196228",
+        "truncation_allowance": "0.00000000005326480418948158649223458810316816939534",
+        "roundoff_allowance": "0.00000000001200798188091804805071488093054605876054",
+        "angle_evaluation_allowance": "2.401782120828414444270427987340493015616e-13",
+        "total_envelope": "0.00000000006551296428248247598737651183244827745744",
+        "envelope_fraction": "0.8129333720104450265080969613752843440938"
+      },
+      {
+        "sign": 1,
+        "delta": ".001",
+        "absolute_discrepancy": "5.455654434334391951986517861769838116024e-13",
+        "truncation_allowance": "5.285770170244372573128578612205524551125e-13",
+        "roundoff_allowance": "0.000000000111832616263933111537457394868585357585",
+        "angle_evaluation_allowance": "0.000000000002401782089217280439066940758252890008236",
+        "total_envelope": "0.0000000001147629753701748292338371934880588000483",
+        "envelope_fraction": "0.004753845407664669578427376662523121780891"
+      },
+      {
+        "sign": 1,
+        "delta": ".0001",
+        "absolute_discrepancy": "2.419575175210787039188866361068499058171e-15",
+        "truncation_allowance": "5.285366364008197445669600012896077709291e-15",
+        "roundoff_allowance": "0.000000001110637056533249572510633020564166036992",
+        "angle_evaluation_allowance": "0.00000000002401782088901349324959965530150870716691",
+        "total_envelope": "0.000000001134660162788627073957678345465687640237",
+        "envelope_fraction": "0.000002132422776934597889032282247837409044385"
+      },
+      {
+        "sign": -1,
+        "delta": ".01",
+        "absolute_discrepancy": "0.00000000005325767496455832438388155608639948196228",
+        "truncation_allowance": "0.00000000005326480418948158649223458810316816939534",
+        "roundoff_allowance": "0.00000000001200798188091804805071488093054605876054",
+        "angle_evaluation_allowance": "2.401782120828414444270427987340493015616e-13",
+        "total_envelope": "0.00000000006551296428248247598737651183244827745744",
+        "envelope_fraction": "0.8129333720104450265080969613752843440938"
+      },
+      {
+        "sign": -1,
+        "delta": ".001",
+        "absolute_discrepancy": "5.455654434334391951986517861769838116024e-13",
+        "truncation_allowance": "5.285770170244372573128578612205524551125e-13",
+        "roundoff_allowance": "0.000000000111832616263933111537457394868585357585",
+        "angle_evaluation_allowance": "0.000000000002401782089217280439066940758252890008236",
+        "total_envelope": "0.0000000001147629753701748292338371934880588000483",
+        "envelope_fraction": "0.004753845407664669578427376662523121780891"
+      },
+      {
+        "sign": -1,
+        "delta": ".0001",
+        "absolute_discrepancy": "2.419575175210787039188866361068499058171e-15",
+        "truncation_allowance": "5.285366364008197445669600012896077709291e-15",
+        "roundoff_allowance": "0.000000001110637056533249572510633020564166036992",
+        "angle_evaluation_allowance": "0.00000000002401782088901349324959965530150870716691",
+        "total_envelope": "0.000000001134660162788627073957678345465687640237",
+        "envelope_fraction": "0.000002132422776934597889032282247837409044385"
+      }
+    ],
+    "envelope_derivation": {
+      "truncation": "abs(high_precision_centered_difference - analytically_differentiated_full_map)",
+      "binary64_roundoff": "Independent input quantization + gamma_32 amplitude component bounds propagated through phase/C + gamma_4 centered subtraction/division.",
+      "angle_uncertainty": "Separate gamma_8 dot-product and once-rounded basis allowance, then atan2 angular sensitivity and two-u elementary-function allowance.",
+      "model": "u=2^-52; gamma_n=n*u/(1-n*u). Atan2 input perturbations use (abs(x)*dy+abs(y)*dx)/(abs(z)-norm(error))^2; projected angle perturbations use asin(norm(error)/norm(reference)).",
+      "assumptions": "Ordinary binary64 arithmetic and elementary-function errors covered by the declared two-u/gamma allowances; this is not a proof of every vendor libm.",
+      "falsifier": "Wrong leading coefficient envelope includes its own independently computed isolated phase finite-h correction plus the entire full-map FD envelope. Both oracle and runtime lie outside; minimum oracle separation exceeds 100 complete envelopes."
+    }
+  },
+  "numerical_margins": [
+    {
+      "gate": "K2a",
+      "quantity": "component[1]",
+      "fixture": "macro 8u residual fixture 0",
+      "runtime": "-0.000000000000000000057740785351711684392796637634185787086632198598485390567971141384528976914225495",
+      "oracle": "(0.0 + 0.0j)",
+      "absolute_error": "5.7740785351711684392796637634185787e-20",
+      "scale": "0.00049929732370223688159220204946908123",
+      "allowed_bound": "8.869302158527092700385488823206281e-19",
+      "normalized_bound_fraction": "0.065101835882543189081932253394215873",
+      "factor_u": 8,
+      "tolerance_class": "BINARY64_TERM_SCALE"
+    },
+    {
+      "gate": "P5 independent C",
+      "quantity": "saved row=95 C_z",
+      "actual": "5.551115123125783e-17",
+      "reference": "2.9375367127675184642128330215873053e-17",
+      "absolute_error": "2.6135784103582642379053253188667962e-17",
+      "allowed_bound": "4.0102381615389727642125952206817968e-15",
+      "scale": "0.28219542328084157319950853184084738",
+      "fraction": "0.0065172648233821477871297594023901448",
+      "kind": "HIGH_PRECISION_REFERENCE"
+    },
+    {
+      "gate": "P6 angle",
+      "quantity": "A row=0 projective_angle_other_initial_rad",
+      "actual": "1.5707963267948966192313216916397514420985846996875529104874722961539082031431045",
+      "reference": "(1.5707963267948965579989817342720926 + 0.0j)",
+      "absolute_error": "6.1232339957367658861303296613750053e-17",
+      "allowed_bound": "1.0e-12",
+      "scale": null,
+      "fraction": "0.000061232339957367658861303296613750053",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    },
+    {
+      "gate": "P7 angle",
+      "absolute_error": "3.964411138584479236381405355893590419858e-16",
+      "allowed_bound": "5.684341886080801486968994140625e-14",
+      "fraction": "0.006974265830653322057092787972539273916132"
+    },
+    {
+      "gate": "P8 FD",
+      "sign": 1,
+      "delta": ".01",
+      "absolute_discrepancy": "0.00000000005325767496455832438388155608639948196228",
+      "total_envelope": "0.00000000006551296428248247598737651183244827745744",
+      "envelope_fraction": "0.8129333720104450265080969613752843440938"
+    }
+  ],
+  "tolerance_definitions": {
+    "K2a": {
+      "P1": "u=2^-52. Phase off: 32u times sum(|w|,|eps*k*w|,|eps*w*|w|^2|,|g*sum(w)|,|3g*w|). Phase on: frozen 64u*|V_j|*(1+|p_j|+|lambda|*(|sin(3Delta1)|+|sin(3Delta2)|)); exact-zero branch explicitly checked.",
+      "P2": "32u times the independently expanded pre-sync term sum, including equal-k phase-on fixtures; no absolute floor.",
+      "P3": "128u times independent defining-term scales. Two-runtime-path covariance comparisons sum the scales of both inputs; raw chirality uses the two defining product magnitudes. Phase-on checks additionally use the stricter P1-style multiplicative phase scale.",
+      "P4": "128u times expanded pre-sync addends, including coupling, checked also on captured pre-sync vectors. Phase-on outputs additionally use the P1-style multiplicative phase scale. Two-path P-lift comparisons sum both independent scales; M=3 is self-path only.",
+      "P9": "Exact/hand identities and literal bitwise comparisons; retained historical scalar max(2e-14*|reference|,2e-15); macro cone/norm residual <=8u*z^2. No other absolute floor.",
+      "P10": "256u times the independently reconstructed sum of absolute defining terms; exact-zero branches have bound zero. No residual clipping or universal epsilon.",
+      "P11": "Exact SymPy symbolic/discrete comparison only, no floating approximation or rationalization.",
+      "ORACLE_IMPORT_BOUNDARY": "Exact AST allowlist and explicit escape exclusions."
+    },
+    "P5": {
+      "ordinary": "1e-12 + 1e-12*abs(saved reference)",
+      "independent_C": "64*2^-52*(abs(x_j*y_k)+abs(x_k*y_j)) at each saved/replayed Omega",
+      "cross_trajectory_C": "same candidate-Omega 64u scale plus abs(C_high_precision(candidate)-C_high_precision(saved)); no late unresolved sign constraint",
+      "accounting": "Each saved/replayed accepted diagnostic is checked against its independent defining expression at its supplied inputs, within 256u*sum(abs(defining terms)); no historical allowance or absolute floor.",
+      "flags": "exact historical flags, not mathematical-zero inference"
+    },
+    "P6": {
+      "state_chirality": "1e-13 + 1e-12*abs(reference)",
+      "angles": "1e-12 rad",
+      "symmetries": "exact floating equality and explicit positive-zero bit convention"
+    },
+    "P7": {
+      "h": [
+        "1/50",
+        "1/100"
+      ],
+      "phi": [
+        "pi/12",
+        "-pi/12"
+      ],
+      "phase_strength": 0,
+      "updates": 8,
+      "seed": "e+i*h*q(phi); binary64 seed obtained by rounding each exact high-precision component once",
+      "state_bound": "1e-13 per complex component (predeclared)",
+      "chirality_bound": "1e-13 per component",
+      "angle_bound": "256*2^-52 radians",
+      "sign_resolution": "abs(oracle angle)>4*angle_bound"
+    },
+    "P8": {
+      "truncation": "abs(high_precision_centered_difference - analytically_differentiated_full_map)",
+      "binary64_roundoff": "Independent input quantization + gamma_32 amplitude component bounds propagated through phase/C + gamma_4 centered subtraction/division.",
+      "angle_uncertainty": "Separate gamma_8 dot-product and once-rounded basis allowance, then atan2 angular sensitivity and two-u elementary-function allowance.",
+      "model": "u=2^-52; gamma_n=n*u/(1-n*u). Atan2 input perturbations use (abs(x)*dy+abs(y)*dx)/(abs(z)-norm(error))^2; projected angle perturbations use asin(norm(error)/norm(reference)).",
+      "assumptions": "Ordinary binary64 arithmetic and elementary-function errors covered by the declared two-u/gamma allowances; this is not a proof of every vendor libm.",
+      "falsifier": "Wrong leading coefficient envelope includes its own independently computed isolated phase finite-h correction plus the entire full-map FD envelope. Both oracle and runtime lie outside; minimum oracle separation exceeds 100 complete envelopes."
+    },
+    "POST_HOC_TOLERANCE_WIDENING": "NO"
+  },
+  "phase_evidence_counts": {
+    "K2a": {
+      "HIGH_PRECISION_REFERENCE": 867,
+      "EXACT_SYMBOLIC": 3033,
+      "EXACT_DISCRETE": 119,
+      "BINARY64_TERM_SCALE": 325,
+      "HISTORICAL_FIXTURE_TOLERANCE": 2
+    },
+    "K2b": {
+      "EXACT_DISCRETE": 22413,
+      "HISTORICAL_FIXTURE_TOLERANCE": 7862,
+      "HIGH_PRECISION_REFERENCE": 2328,
+      "BINARY64_TERM_SCALE": 6596,
+      "EXACT_SYMBOLIC": 11
+    },
+    "K2c": {
+      "EXACT_SYMBOLIC_CHECKS": 85,
+      "ORACLE_PAPER_ONLY_CHECKS": 2,
+      "NEGATIVE_FALSIFIER_CHECKS": 13,
+      "HIGH_PRECISION_FULL_MAP_CHECKS": 204,
+      "ASYMPTOTIC_QUALIFICATION_CHECKS": 36,
+      "BINARY64_RUNTIME_COMPARISONS": 250
+    },
+    "note": "Phase-specific comparison predicates remain separate; they are neither theorem counts nor method counts."
+  },
+  "open_items": [
+    {
+      "id": "O01",
+      "status": "CLOSED",
+      "disposition": "OPTION_B_QUARANTINE_V1",
+      "detail": "boundary_response, srg and operating_region remain preserved OPTIONAL implementations, unsupported by the initial v1 facade. Their 30 local-only tests remain preserved/passing. This is not mathematical rejection."
+    },
+    {
+      "id": "O02",
+      "status": "OPEN_NONBLOCKING",
+      "disposition": "HISTORICAL_RATIONALE_UNRESOLVED",
+      "detail": "Literal values and provenance of eps=.05, g=.2, the historical seed and theta_lock=.244 are known; original selection motives remain unresolved. Later Paper-F consequences do not close this item. It does not block kernel engineering."
+    },
+    {
+      "id": "O03",
+      "status": "CLOSED",
+      "disposition": "MINIMAL_GOLDEN_PACKET_TRACKED",
+      "detail": "Only TRAJECTORIES.csv and GOLDEN_388_RECEIPT.md were published. No larger research directory was promoted.",
+      "packet": [
+        {
+          "path": "kernel_physics/tests/fixtures/golden_388/GOLDEN_388_RECEIPT.md",
+          "sha256": "799dd9cb60466aace245d887c5154d41fd836c6d59757a2e9b8c7d4bdefd23c4"
+        },
+        {
+          "path": "kernel_physics/tests/fixtures/golden_388/TRAJECTORIES.csv",
+          "sha256": "eeed672b1cb20321dfc85a2f4753c93d4fe1b9345a5cede4f5e12532537a4a38"
+        }
+      ]
+    }
+  ],
+  "research_only_exclusions": [
+    "spatial M/C/T registration",
+    "gate/aperture mappings",
+    "finite-patch interpretations",
+    "spring/restoring laws",
+    "EM / Riemann-Silberstein comparisons",
+    "physical-field narratives",
+    "six-axis physical selector",
+    "Paper-F normal form as runtime",
+    "Twisted Hex Crystal",
+    "warp research",
+    "Z feedback",
+    "mechanical clocks",
+    "historical alignment as dynamics"
+  ],
+  "geometry_dynamics_separation": [
+    "Omega state != shell coordinate",
+    "chirality != shell field",
+    "observer != geometry",
+    "KERNEL_RUN_RECORD separate from GEOMETRY_RECORD",
+    "No accepted spatial dictionary exists; K2 creates none."
+  ],
+  "test_census": {
+    "historical_repository_census": [
+      {
+        "phase": "pre_K1",
+        "head": "3d9e2c24f2cd9207242e16559558c6adabb21c04",
+        "total": 177,
+        "modules": {
+          "kernel_physics/tests/test_covering.py": 10,
+          "kernel_physics/tests/test_dynamics.py": 15,
+          "kernel_physics/tests/test_face_state.py": 20,
+          "kernel_physics/tests/test_geometry.py": 16,
+          "kernel_physics/tests/test_readouts.py": 4,
+          "kernel_physics/tests/test_reference_scaffold.py": 39,
+          "kernel_physics/tests/test_z_diagnostics.py": 36,
+          "kernel_physics/tests/test_z_manifold.py": 37
+        }
+      },
+      {
+        "phase": "K1",
+        "head": "9cf34b207b772639a4a79c2bcb3332d292b4f947",
+        "total": 249,
+        "modules": {
+          "kernel_physics/tests/test_covering.py": 10,
+          "kernel_physics/tests/test_dynamics.py": 15,
+          "kernel_physics/tests/test_face_state.py": 20,
+          "kernel_physics/tests/test_geometry.py": 16,
+          "kernel_physics/tests/test_geometry_records.py": 17,
+          "kernel_physics/tests/test_import_boundaries.py": 8,
+          "kernel_physics/tests/test_public_contract.py": 17,
+          "kernel_physics/tests/test_readouts.py": 4,
+          "kernel_physics/tests/test_reference_scaffold.py": 39,
+          "kernel_physics/tests/test_runner_records.py": 30,
+          "kernel_physics/tests/test_z_diagnostics.py": 36,
+          "kernel_physics/tests/test_z_manifold.py": 37
+        }
+      },
+      {
+        "phase": "K2a",
+        "head": "24b62db7ff1960ac485789ff235d01a63f94e65a",
+        "total": 279,
+        "modules": {
+          "kernel_physics/tests/test_covering.py": 10,
+          "kernel_physics/tests/test_dynamics.py": 15,
+          "kernel_physics/tests/test_face_state.py": 20,
+          "kernel_physics/tests/test_geometry.py": 16,
+          "kernel_physics/tests/test_geometry_records.py": 17,
+          "kernel_physics/tests/test_import_boundaries.py": 8,
+          "kernel_physics/tests/test_parity_oracle_boundaries.py": 1,
+          "kernel_physics/tests/test_parity_p01_p04.py": 12,
+          "kernel_physics/tests/test_parity_p09_p10.py": 9,
+          "kernel_physics/tests/test_parity_p11.py": 8,
+          "kernel_physics/tests/test_public_contract.py": 17,
+          "kernel_physics/tests/test_readouts.py": 4,
+          "kernel_physics/tests/test_reference_scaffold.py": 39,
+          "kernel_physics/tests/test_runner_records.py": 30,
+          "kernel_physics/tests/test_z_diagnostics.py": 36,
+          "kernel_physics/tests/test_z_manifold.py": 37
+        }
+      },
+      {
+        "phase": "K2b",
+        "head": "22b3009d51e4e47efda48acf52d234d00907fe2c",
+        "total": 288,
+        "modules": {
+          "kernel_physics/tests/test_covering.py": 10,
+          "kernel_physics/tests/test_dynamics.py": 15,
+          "kernel_physics/tests/test_face_state.py": 20,
+          "kernel_physics/tests/test_geometry.py": 16,
+          "kernel_physics/tests/test_geometry_records.py": 17,
+          "kernel_physics/tests/test_import_boundaries.py": 8,
+          "kernel_physics/tests/test_parity_oracle_boundaries.py": 1,
+          "kernel_physics/tests/test_parity_oracle_boundaries_k2b.py": 1,
+          "kernel_physics/tests/test_parity_p01_p04.py": 12,
+          "kernel_physics/tests/test_parity_p05_p06.py": 8,
+          "kernel_physics/tests/test_parity_p09_p10.py": 9,
+          "kernel_physics/tests/test_parity_p11.py": 8,
+          "kernel_physics/tests/test_public_contract.py": 17,
+          "kernel_physics/tests/test_readouts.py": 4,
+          "kernel_physics/tests/test_reference_scaffold.py": 39,
+          "kernel_physics/tests/test_runner_records.py": 30,
+          "kernel_physics/tests/test_z_diagnostics.py": 36,
+          "kernel_physics/tests/test_z_manifold.py": 37
+        }
+      },
+      {
+        "phase": "K2c",
+        "head": "69046009a307fa8498bd7366c8214493eca7b833",
+        "total": 298,
+        "modules": {
+          "kernel_physics/tests/test_covering.py": 10,
+          "kernel_physics/tests/test_dynamics.py": 15,
+          "kernel_physics/tests/test_face_state.py": 20,
+          "kernel_physics/tests/test_geometry.py": 16,
+          "kernel_physics/tests/test_geometry_records.py": 17,
+          "kernel_physics/tests/test_import_boundaries.py": 8,
+          "kernel_physics/tests/test_parity_oracle_boundaries.py": 1,
+          "kernel_physics/tests/test_parity_oracle_boundaries_k2b.py": 1,
+          "kernel_physics/tests/test_parity_oracle_boundaries_k2c.py": 2,
+          "kernel_physics/tests/test_parity_p01_p04.py": 12,
+          "kernel_physics/tests/test_parity_p05_p06.py": 8,
+          "kernel_physics/tests/test_parity_p07_p08.py": 8,
+          "kernel_physics/tests/test_parity_p09_p10.py": 9,
+          "kernel_physics/tests/test_parity_p11.py": 8,
+          "kernel_physics/tests/test_public_contract.py": 17,
+          "kernel_physics/tests/test_readouts.py": 4,
+          "kernel_physics/tests/test_reference_scaffold.py": 39,
+          "kernel_physics/tests/test_runner_records.py": 30,
+          "kernel_physics/tests/test_z_diagnostics.py": 36,
+          "kernel_physics/tests/test_z_manifold.py": 37
+        }
+      }
+    ],
+    "composition": {
+      "pre_K1_tracked": 177,
+      "K1_P12_additions": 72,
+      "K2a_additions": 30,
+      "K2b_additions": 9,
+      "K2c_additions": 10,
+      "total_tracked": 298,
+      "local_only": 30
+    },
+    "method": "AST census at each published Git tree and actual unittest discovery in the fresh isolated current checkout"
+  },
+  "fresh_validation": {
+    "commands": {
+      "activation": "conda activate torment",
+      "tracked": "python -B -m unittest discover -s kernel_physics/tests -t . -p \"test_*.py\" -v",
+      "optional_local": "python -B -m unittest kernel_physics.tests.test_boundary_response kernel_physics.tests.test_srg kernel_physics.tests.test_operating_region kernel_physics.tests.test_boundary_pipeline -v"
+    },
+    "tracked": {
+      "result": "PASS",
+      "tests": 298,
+      "seconds": "193.352",
+      "log_sha256": "1853ba36ed7edcac998eb8b7857d5e42dc7f6aa79564ff7257a76ac9fa1cc3ce"
+    },
+    "optional_local": {
+      "result": "PASS",
+      "tests": 30,
+      "seconds": "0.715",
+      "log_sha256": "ac6b505ee4e99313233db39304ece03c26de5c084a2dca488ef3706ca85a4d16"
+    },
+    "tracked_head": "69046009a307fa8498bd7366c8214493eca7b833",
+    "tracked_checkout": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\kernel-k2-final-yvnxy_kc\\tracked-checkout",
+    "clean_before_and_after": true,
+    "local_run_after_tracked": true,
+    "local_results_change_O01_support_status": false,
+    "new_scientific_calculations": false
+  },
+  "preservation": {
+    "starting_tracked_hashes_verified": 704,
+    "starting_local_test_hashes_verified": 4,
+    "existing_modified_paths": [],
+    "created_paths": [
+      "kernel_physics/K2_PARITY_FINAL_CLOSEOUT.md",
+      "kernel_physics/K2_PARITY_FINAL_CLOSEOUT.json"
+    ],
+    "unrelated_untracked_files_preserved": true
+  },
+  "K3_handoff": {
+    "ready_for_authorization": true,
+    "authorized_to_begin": false,
+    "implemented": false,
+    "next_conceptual_scope": [
+      "packaging",
+      "clean-clone/install validation",
+      "CI",
+      "supported package contract stabilization",
+      "geometry export distribution validation"
+    ],
+    "starting_head": "Commit introducing this closeout; literal hash reported after normal publication."
+  }
+}
