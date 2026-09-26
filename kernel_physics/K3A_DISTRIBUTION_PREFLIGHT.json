@@ -1,0 +1,3160 @@
+{
+  "receipt_type": "K3A_DISTRIBUTION_PREFLIGHT",
+  "receipt_version": "0.2",
+  "date": "2026-09-26",
+  "authority": {
+    "work_order_attachment": "C:\\Users\\Notandi\\.codex\\attachments\\92e63e3c-b210-4b2e-ae3b-5df3b45405f2\\Pasted text.txt",
+    "repository": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+    "starting_head": "d76321a54f6f3a8ee1f0175ac6a4db6d0c017117",
+    "current_K0_K1_K2": "PASS / PASS / FINAL PASS; K3a contract PASS, distribution implementation/certification still incomplete",
+    "revision_work_order_attachment": "C:\\Users\\Notandi\\.codex\\attachments\\1d119282-116a-404a-94ea-dab00e6911df\\Pasted text.txt",
+    "revision_work_order_sha256": "a2c5ebf8187ca1089b3116912e007a026f3c4414c288fe12d743f16aedbfc1da",
+    "decision_source": "Explicit human authority supplied in K3a-R1; no agent-selected license or metadata."
+  },
+  "status": {
+    "STARTING_HEAD": "d76321a54f6f3a8ee1f0175ac6a4db6d0c017117",
+    "FINAL_HEAD": "CONTAINING_K3A_R1_COMMIT",
+    "ORIGIN_MAIN": "POST_PUSH_MATCH_TO_CONTAINING_COMMIT_TO_BE_REPORTED_IN_CLOSEOUT",
+    "K3A_STATUS": "PASS",
+    "CURRENT_PACKAGE_METADATA": "ABSENT_BUILD_METADATA; KERNEL_REQUIREMENTS_AND_INHERITED_VERSION_PRESENT",
+    "CURRENT_WHEEL_BUILD": "NOT_IMPLEMENTED",
+    "CURRENT_SDIST_BUILD": "NOT_IMPLEMENTED",
+    "CURRENT_INSTALLED_PACKAGE_SMOKE": "NOT_YET_IMPLEMENTABLE",
+    "PUBLIC_API_IMPORT_CLEAN_CHECKOUT": "PASS",
+    "PUBLIC_API_IMPORT_INSTALLED": "NOT_YET_IMPLEMENTABLE",
+    "RUNTIME_DEPENDENCIES": [
+      "numpy",
+      "sympy",
+      "mpmath"
+    ],
+    "TEST_ONLY_DEPENDENCIES": "No additional third-party packages; unittest and other standard-library test tools; repository fixtures",
+    "NETWORK_REQUIRED": "NO",
+    "MODEL_REQUIRED": "NO",
+    "RUN_RECORD_WITHOUT_GIT": "FAILS",
+    "RUN_RECORD_WITHOUT_PAPERS": "FAILS",
+    "GEOMETRY_RECORD_WITHOUT_GIT": "FAILS",
+    "GEOMETRY_RECORD_WITHOUT_PAPERS": "FAILS",
+    "PACKAGED_PROVENANCE_MANIFEST_NEEDED": "YES",
+    "RUN_RECORD_SCHEMA_CHANGE_NEEDED": "NO",
+    "GEOMETRY_RECORD_SCHEMA_CHANGE_NEEDED": "NO",
+    "O01_QUARANTINE_INSTALL_BOUNDARY": "PASS",
+    "LICENSE_PRESENT": "NO",
+    "HUMAN_DECISIONS_REQUIRED": "NO for K3a freeze; a separate K3b work order and later registry/release decisions remain outside this phase",
+    "CLEAN_INSTALL_CONTRACT": "FROZEN",
+    "CI_CONTRACT": "FROZEN",
+    "K3B_SCOPE_DEFINED": "YES",
+    "PRODUCTION_SOURCE_CHANGED": 0,
+    "EXISTING_TEST_CHANGED": 0,
+    "PACKAGE_METADATA_CHANGED": 0,
+    "K0_CHANGED": 0,
+    "K1_CHANGED": 0,
+    "K2_CHANGED": 0,
+    "PAPERS_CHANGED": 0,
+    "RESEARCH_CHANGED": 0,
+    "FIXTURE_CHANGED": 0,
+    "CI_CHANGED": 0,
+    "FILES_CREATED": 2,
+    "FILES_MODIFIED": 0,
+    "K3B_READY_FOR_AUTHORIZATION": "YES",
+    "ATTEMPT_1": "HOLD_SG8",
+    "R1": "HUMAN_DECISION_SUPPLIED",
+    "FINAL_K3A": "PASS",
+    "SG8": "RESOLVED_BY_HUMAN_AUTHORITY",
+    "SG8_RESOLUTION": "HUMAN_AUTHORITY_SUPPLIED",
+    "SOFTWARE_LICENSE": "Apache-2.0",
+    "SOFTWARE_LICENSE_SCOPE": "SOFTWARE_ONLY",
+    "LICENSE_AUTHORIZED": "YES",
+    "LICENSE_SELECTED": "Apache-2.0",
+    "LICENSE_SCOPE": "SOFTWARE_ONLY",
+    "LICENSE_CREATION": "K3B",
+    "LICENSE_FILE_CREATION": "DEFERRED_TO_K3B",
+    "LICENSE_CREATION_DEFERRED_TO_K3B": "YES",
+    "DISTRIBUTION_NAME": "trioctagon-physics",
+    "IMPORT_PACKAGE": "kernel_physics",
+    "SOURCE_PACKAGE_DIRECTORY": "kernel_physics/",
+    "GITHUB_REPOSITORY": "pzychozen/trioctagon-physics",
+    "AUTHOR": "Hilmir Frímann Halldórsson",
+    "PROJECT_URL": "https://github.com/pzychozen/trioctagon-physics",
+    "DESCRIPTION_SOURCE": "kernel_physics/README.md",
+    "PACKAGE_VERSION_POLICY": "KEEP_0.1.0_FOR_K3_ENGINEERING",
+    "INITIAL_SUPPORT_LANE": "Windows / CPython >=3.11,<3.12 / NumPy 2.4.4 / SymPy 1.14.0 / mpmath 1.3.0",
+    "PACKAGED_PROVENANCE_MANIFEST": "APPROVED",
+    "K3B_IMPLEMENTATION_STARTED": "NO"
+  },
+  "status_qualifications": {
+    "K3A_STATUS": "PASS is authority/contract freeze, not successful package build or installed certification. Original observed build/install limitations remain.",
+    "O01_QUARANTINE_INSTALL_BOUNDARY": "PASS for static closure and package-files-only negative controls; actual installed artifact certification remains NOT_YET_IMPLEMENTABLE.",
+    "schema_change_needed": "NO under the now-approved clean-source, byte-preserving manifest contract; both schemas and the 14-path list remain frozen. Actual wheel byte identity is a K3b/K3c acceptance condition.",
+    "K3B_SCOPE_DEFINED": "Accepted conceptual boundary with LICENSE_SCOPE.md added. Ready for a separate bounded K3b authorization; no implementation in K3a-R1.",
+    "DISTRIBUTION_CONTRACT_OPEN": "NO: SG8 resolved and distribution/CI contracts frozen; implementation and certification remain future work.",
+    "final_commit_identity": "A receipt cannot embed its own containing commit hash without circularity. CONTAINING_K3A_R1_COMMIT identifies the commit that adds these two receipts; exact final HEAD and remote main are reported after normal commit/push in the task closeout.",
+    "FILES_CREATED_FILES_MODIFIED": "Two new files relative to authoritative starting HEAD. R1 edits those uncommitted receipts; zero pre-existing tracked files are modified."
+  },
+  "stop_gates": {
+    "triggered": [],
+    "SG8": "RESOLVED_BY_HUMAN_AUTHORITY",
+    "historical_triggered": [
+      "SG8"
+    ],
+    "resolution": "K3a-R1 authorizes software-only Apache-2.0 and freezes naming, author/project/description metadata, engineering version, support lane, provenance/content/clean-install/CI contracts and K3b scope.",
+    "other_gates": "SG1/SG2 clear; SG3/SG4 negative in inspected graph/probes; no evidence of SG5/SG6/SG9; SG7 untested (no build exists); SG10 avoided (no installs or environment mutation).",
+    "scope": "No current K3a freeze blocker; missing license files are an explicitly deferred K3b implementation requirement, not unresolved licensing authority. Future transforming builds must HOLD; no build run here."
+  },
+  "packaging_census": {
+    "scope": "All 706 tracked paths, including hidden paths; supplementary rg --files --hidden nonignored working-tree census. Existing ignored environments/caches are not package authority.",
+    "PACKAGE_METADATA_PRESENT": "NO installable-project metadata",
+    "BUILD_BACKEND": null,
+    "PACKAGE_NAME": null,
+    "import_package": "kernel_physics",
+    "PACKAGE_VERSION_SOURCE": "kernel_physics/__init__.py:3; __version__ = 0.1.0",
+    "RUNTIME_DEPENDENCIES_DECLARED": {
+      "path": "kernel_physics/requirements.txt",
+      "numpy": "2.3.5",
+      "sympy": "1.14.0",
+      "mpmath": "1.3.0",
+      "kind": "plain requirements pins, not install metadata"
+    },
+    "TEST_DEPENDENCIES_DECLARED": "No separate test requirements or extras",
+    "WHEEL_CONFIGURATION_PRESENT": false,
+    "SDIST_CONFIGURATION_PRESENT": false,
+    "CI_PRESENT": false,
+    "absent": [
+      "pyproject.toml",
+      "setup.py",
+      "setup.cfg",
+      "MANIFEST.in",
+      "environment*.yml/yaml",
+      "conda*.yml/yaml",
+      "tox.ini",
+      "noxfile.py",
+      "pytest.ini",
+      ".github/workflows/*",
+      "LICENSE/LICENCE/COPYING/NOTICE"
+    ],
+    "tracked_metadata_files": {
+      "kernel_physics/requirements.txt": "numpy==2.3.5\nsympy==1.14.0\nmpmath==1.3.0\n",
+      "papers/PAPER_B/requirements.txt": "# Python 3.12 used. Install into an isolated environment, not the kernel environment.\nsympy==1.14.0\nnumpy==2.5.3\nmatplotlib==3.10.7\ncontourpy==1.4.0\ncycler==0.12.1\nfonttools==4.65.0\nkiwisolver==1.5.1\npackaging==26.3\npillow==12.3.0\npyparsing==3.3.3\npython-dateutil==2.9.0.post0\nsix==1.17.0\nmpmath==1.3.0\npypdf==6.10.0\n",
+      "papers/PAPER_B/reviewed_v0.1/requirements.txt": "# Python 3.12 used. Install into an isolated environment, not the kernel environment.\nsympy==1.14.0\nnumpy==2.5.3\nmatplotlib==3.10.7\ncontourpy==1.4.0\ncycler==0.12.1\nfonttools==4.65.0\nkiwisolver==1.5.1\npackaging==26.3\npillow==12.3.0\npyparsing==3.3.3\npython-dateutil==2.9.0.post0\nsix==1.17.0\nmpmath==1.3.0\npypdf==6.10.0\n",
+      "papers/PAPER_D/requirements.txt": "sympy==1.14.0\nnumpy==2.5.3\nmatplotlib==3.10.7\nPillow==12.3.0\npypdf==6.10.0\n",
+      "papers/PAPER_D/v0.1.1/requirements.txt": "sympy==1.14.0\nnumpy==2.5.3\nmatplotlib==3.10.7\nPillow==12.3.0\npypdf==6.10.0\n"
+    },
+    "tracked_readmes": [
+      "README.md",
+      "kernel_physics/README.md",
+      "papers/PAPER_B/README.md",
+      "papers/PAPER_B/publication/v0.1.2/README.md",
+      "papers/PAPER_B/reviewed_v0.1/README.md",
+      "papers/PAPER_C/publication/v1.0.1/README.md",
+      "papers/PAPER_D/README.md",
+      "papers/PAPER_D/v0.1.1/README.md",
+      "papers/PAPER_E/README.md",
+      "papers/PAPER_E/v0.1.1/README.md",
+      "papers/PAPER_F/README.md",
+      "papers/publication_updates/20260923_BC_scope/README.md"
+    ],
+    "untracked_research_requirements": {
+      "research_notes/reference_scaffold/requirements.txt": "reportlab==4.4.9\nPillow>=10\n",
+      "research_files/verification/quantum_modes_phase1/requirements.lock.txt": "contourpy==1.4.0\ncycler==0.12.1\nfonttools==4.65.0\nkiwisolver==1.5.1\nmatplotlib==3.11.2\nmpmath==1.3.0\nnumpy==2.3.5\npackaging==26.3\npillow==12.3.0\npyparsing==3.3.2\npython-dateutil==2.9.0.post0\nscipy==1.18.1\nsix==1.17.0\nsympy==1.14.0\nthreadpoolctl==3.7.0\n"
+    },
+    "archival_tool": "tools/package_archive.py is a one-shot source-archive transfer recipe, not a wheel/sdist backend; inspected, not run.",
+    "installed_build_tools": {
+      "pip": {
+        "version": "26.1.2",
+        "requires_python": ">=3.10"
+      },
+      "setuptools": {
+        "version": "81.0.0",
+        "requires_python": ">=3.9"
+      },
+      "wheel": {
+        "version": "0.47.0",
+        "requires_python": ">=3.9"
+      },
+      "build": {
+        "present": false
+      }
+    },
+    "build_attempts": 0,
+    "install_attempts": 0,
+    "authoritative_environment_mutations": 0
+  },
+  "runtime_dependency_closure": {
+    "method": "AST of every top-level runtime Python file, recursively from api plus package initializer, including function-local imports; dynamic fresh-process probes and blocked-dependency imports corroborate. Third-party dependency closure uses locally installed Requires-Dist metadata; optional extras are not kernel requirements.",
+    "public_modules": [
+      "__init__",
+      "_contract_types",
+      "_geometry_records",
+      "_presets",
+      "_records",
+      "_response_numeric",
+      "_runner",
+      "api",
+      "dynamics",
+      "geometry",
+      "readouts",
+      "reference_scaffold",
+      "z_diagnostics",
+      "z_manifold"
+    ],
+    "count": 14,
+    "all_runtime_module_import_statements": {
+      "__init__": {
+        "path": "kernel_physics/__init__.py",
+        "sha256": "98eea72fbd95145cc0be31844910715be938b0ec5b93f7aba33fb8d88781abb6",
+        "imports": []
+      },
+      "_contract_types": {
+        "path": "kernel_physics/_contract_types.py",
+        "sha256": "4e7dbdfaad9bc231d932d88bae5a8a9e565b4b80754a678f9a25f9faa1190903",
+        "imports": [
+          {
+            "line": 2,
+            "statement": "from collections.abc import Mapping",
+            "targets": [
+              "collections.abc"
+            ],
+            "classifications": {
+              "collections.abc": "STDLIB"
+            }
+          },
+          {
+            "line": 3,
+            "statement": "from dataclasses import dataclass, fields",
+            "targets": [
+              "dataclasses"
+            ],
+            "classifications": {
+              "dataclasses": "STDLIB"
+            }
+          },
+          {
+            "line": 4,
+            "statement": "import numbers",
+            "targets": [
+              "numbers"
+            ],
+            "classifications": {
+              "numbers": "STDLIB"
+            }
+          },
+          {
+            "line": 5,
+            "statement": "from types import MappingProxyType",
+            "targets": [
+              "types"
+            ],
+            "classifications": {
+              "types": "STDLIB"
+            }
+          },
+          {
+            "line": 7,
+            "statement": "import numpy as np",
+            "targets": [
+              "numpy"
+            ],
+            "classifications": {
+              "numpy": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 9,
+            "statement": "from . import dynamics as _dynamics, z_manifold as _z",
+            "targets": [
+              "kernel_physics.dynamics",
+              "kernel_physics.z_manifold"
+            ],
+            "classifications": {
+              "kernel_physics.dynamics": "REQUIRED_RUNTIME_DEPENDENCY",
+              "kernel_physics.z_manifold": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 10,
+            "statement": "from ._response_numeric import complex_vector, real_scalar",
+            "targets": [
+              "kernel_physics._response_numeric"
+            ],
+            "classifications": {
+              "kernel_physics._response_numeric": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          }
+        ]
+      },
+      "_geometry_records": {
+        "path": "kernel_physics/_geometry_records.py",
+        "sha256": "7313d6bcea2e03615a0ac5ceec177d7abd9bc695e1a2ac6d9b8aa629838c1f60",
+        "imports": [
+          {
+            "line": 2,
+            "statement": "from collections.abc import Mapping",
+            "targets": [
+              "collections.abc"
+            ],
+            "classifications": {
+              "collections.abc": "STDLIB"
+            }
+          },
+          {
+            "line": 3,
+            "statement": "from functools import lru_cache",
+            "targets": [
+              "functools"
+            ],
+            "classifications": {
+              "functools": "STDLIB"
+            }
+          },
+          {
+            "line": 4,
+            "statement": "from fractions import Fraction",
+            "targets": [
+              "fractions"
+            ],
+            "classifications": {
+              "fractions": "STDLIB"
+            }
+          },
+          {
+            "line": 5,
+            "statement": "import math",
+            "targets": [
+              "math"
+            ],
+            "classifications": {
+              "math": "STDLIB"
+            }
+          },
+          {
+            "line": 6,
+            "statement": "import numbers",
+            "targets": [
+              "numbers"
+            ],
+            "classifications": {
+              "numbers": "STDLIB"
+            }
+          },
+          {
+            "line": 8,
+            "statement": "import sympy as sp",
+            "targets": [
+              "sympy"
+            ],
+            "classifications": {
+              "sympy": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 10,
+            "statement": "from . import geometry as _c, reference_scaffold as _d",
+            "targets": [
+              "kernel_physics.geometry",
+              "kernel_physics.reference_scaffold"
+            ],
+            "classifications": {
+              "kernel_physics.geometry": "REQUIRED_RUNTIME_DEPENDENCY",
+              "kernel_physics.reference_scaffold": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 11,
+            "statement": "from ._contract_types import Provenance, _provenance_data",
+            "targets": [
+              "kernel_physics._contract_types"
+            ],
+            "classifications": {
+              "kernel_physics._contract_types": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 12,
+            "statement": "from ._records import (_Record, _keys, _choice, _array, _int, _bool, _f64, _canonical,\n                       _parse, _encode, _signed, _metadata, _implementation, _producer_environment,\n                       _papers, _provenance)",
+            "targets": [
+              "kernel_physics._records"
+            ],
+            "classifications": {
+              "kernel_physics._records": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          }
+        ]
+      },
+      "_presets": {
+        "path": "kernel_physics/_presets.py",
+        "sha256": "cd8ff8c412391aa51a19d842dee4445537aac19d573412bac33b54f7da0d2e84",
+        "imports": [
+          {
+            "line": 2,
+            "statement": "from ._contract_types import Clock, EMAConfig, EMAState, ObserverRequest, Provenance, Seed, StagedConfig, _text",
+            "targets": [
+              "kernel_physics._contract_types"
+            ],
+            "classifications": {
+              "kernel_physics._contract_types": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          }
+        ]
+      },
+      "_records": {
+        "path": "kernel_physics/_records.py",
+        "sha256": "b8f1fd7b4f562cc83b5754ee43daf73edc89301a7e70d19bd852b9a61e1b8db9",
+        "imports": [
+          {
+            "line": 2,
+            "statement": "from collections.abc import Mapping",
+            "targets": [
+              "collections.abc"
+            ],
+            "classifications": {
+              "collections.abc": "STDLIB"
+            }
+          },
+          {
+            "line": 3,
+            "statement": "from dataclasses import fields, is_dataclass",
+            "targets": [
+              "dataclasses"
+            ],
+            "classifications": {
+              "dataclasses": "STDLIB"
+            }
+          },
+          {
+            "line": 4,
+            "statement": "import hashlib",
+            "targets": [
+              "hashlib"
+            ],
+            "classifications": {
+              "hashlib": "STDLIB"
+            }
+          },
+          {
+            "line": 5,
+            "statement": "import json",
+            "targets": [
+              "json"
+            ],
+            "classifications": {
+              "json": "STDLIB"
+            }
+          },
+          {
+            "line": 6,
+            "statement": "import math",
+            "targets": [
+              "math"
+            ],
+            "classifications": {
+              "math": "STDLIB"
+            }
+          },
+          {
+            "line": 7,
+            "statement": "from pathlib import Path",
+            "targets": [
+              "pathlib"
+            ],
+            "classifications": {
+              "pathlib": "STDLIB"
+            }
+          },
+          {
+            "line": 8,
+            "statement": "import platform",
+            "targets": [
+              "platform"
+            ],
+            "classifications": {
+              "platform": "STDLIB"
+            }
+          },
+          {
+            "line": 9,
+            "statement": "import re",
+            "targets": [
+              "re"
+            ],
+            "classifications": {
+              "re": "STDLIB"
+            }
+          },
+          {
+            "line": 10,
+            "statement": "import subprocess",
+            "targets": [
+              "subprocess"
+            ],
+            "classifications": {
+              "subprocess": "STDLIB"
+            }
+          },
+          {
+            "line": 11,
+            "statement": "import sys",
+            "targets": [
+              "sys"
+            ],
+            "classifications": {
+              "sys": "STDLIB"
+            }
+          },
+          {
+            "line": 12,
+            "statement": "from types import MappingProxyType",
+            "targets": [
+              "types"
+            ],
+            "classifications": {
+              "types": "STDLIB"
+            }
+          },
+          {
+            "line": 14,
+            "statement": "import mpmath",
+            "targets": [
+              "mpmath"
+            ],
+            "classifications": {
+              "mpmath": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 15,
+            "statement": "import numpy as np",
+            "targets": [
+              "numpy"
+            ],
+            "classifications": {
+              "numpy": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 16,
+            "statement": "import sympy",
+            "targets": [
+              "sympy"
+            ],
+            "classifications": {
+              "sympy": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 18,
+            "statement": "from . import __version__, z_diagnostics as _diagnostics",
+            "targets": [
+              "kernel_physics.__init__",
+              "kernel_physics.z_diagnostics"
+            ],
+            "classifications": {
+              "kernel_physics.__init__": "REQUIRED_RUNTIME_DEPENDENCY",
+              "kernel_physics.z_diagnostics": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 19,
+            "statement": "from ._contract_types import (Parameters, Provenance, Clock, EMAState, StagedConfig,\n                              EMAConfig, _provenance_data)",
+            "targets": [
+              "kernel_physics._contract_types"
+            ],
+            "classifications": {
+              "kernel_physics._contract_types": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 414,
+            "statement": "from ._presets import historical_seed",
+            "targets": [
+              "kernel_physics._presets"
+            ],
+            "classifications": {
+              "kernel_physics._presets": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          }
+        ]
+      },
+      "_response_numeric": {
+        "path": "kernel_physics/_response_numeric.py",
+        "sha256": "cc33f797e76f7dbeff6fbd58ab52003fde2acbadf35ae299d827b4b55ba29655",
+        "imports": [
+          {
+            "line": 7,
+            "statement": "import math",
+            "targets": [
+              "math"
+            ],
+            "classifications": {
+              "math": "STDLIB"
+            }
+          },
+          {
+            "line": 8,
+            "statement": "import numbers",
+            "targets": [
+              "numbers"
+            ],
+            "classifications": {
+              "numbers": "STDLIB"
+            }
+          },
+          {
+            "line": 9,
+            "statement": "import sys",
+            "targets": [
+              "sys"
+            ],
+            "classifications": {
+              "sys": "STDLIB"
+            }
+          },
+          {
+            "line": 11,
+            "statement": "import numpy as np",
+            "targets": [
+              "numpy"
+            ],
+            "classifications": {
+              "numpy": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          }
+        ]
+      },
+      "_runner": {
+        "path": "kernel_physics/_runner.py",
+        "sha256": "3a9f3ce718b1600f445bf963b968b9dbb3c41b03e6f2acf15239e2ae1512bcf6",
+        "imports": [
+          {
+            "line": 2,
+            "statement": "from dataclasses import replace",
+            "targets": [
+              "dataclasses"
+            ],
+            "classifications": {
+              "dataclasses": "STDLIB"
+            }
+          },
+          {
+            "line": 4,
+            "statement": "from . import dynamics as _dynamics, readouts as _readouts, z_manifold as _z, z_diagnostics as _d",
+            "targets": [
+              "kernel_physics.dynamics",
+              "kernel_physics.readouts",
+              "kernel_physics.z_manifold",
+              "kernel_physics.z_diagnostics"
+            ],
+            "classifications": {
+              "kernel_physics.dynamics": "REQUIRED_RUNTIME_DEPENDENCY",
+              "kernel_physics.readouts": "REQUIRED_RUNTIME_DEPENDENCY",
+              "kernel_physics.z_manifold": "REQUIRED_RUNTIME_DEPENDENCY",
+              "kernel_physics.z_diagnostics": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 5,
+            "statement": "from ._contract_types import (State, Parameters, Clock, EMAState, ObserverRequest, Provenance,\n                              _integer, _require, _topology, _values, _provenance_data)",
+            "targets": [
+              "kernel_physics._contract_types"
+            ],
+            "classifications": {
+              "kernel_physics._contract_types": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 7,
+            "statement": "from ._presets import historical_seed",
+            "targets": [
+              "kernel_physics._presets"
+            ],
+            "classifications": {
+              "kernel_physics._presets": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 8,
+            "statement": "from ._records import (RunRecord, _READOUTS, _DIAGNOSTICS, _OBSERVER_DIAGNOSTICS, _encode,\n                       _signed, _implementation, _environment, _papers, _definition_ids,\n                       _parse, _parameters, _config, _provenance, _complex, _f64, _int)",
+            "targets": [
+              "kernel_physics._records"
+            ],
+            "classifications": {
+              "kernel_physics._records": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          }
+        ]
+      },
+      "api": {
+        "path": "kernel_physics/api.py",
+        "sha256": "6b3f2b4f2f6846147c74a3ee0dd2605830a590d68b368a73895a8f191f27a1c3",
+        "imports": [
+          {
+            "line": 2,
+            "statement": "from ._contract_types import (Parameters, State, Seed, Provenance, Clock, StagedConfig,\n                              EMAConfig, EMAState, ObserverRequest, ZReadout,\n                              _require, _triad, _values, _integer)",
+            "targets": [
+              "kernel_physics._contract_types"
+            ],
+            "classifications": {
+              "kernel_physics._contract_types": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 5,
+            "statement": "from ._response_numeric import ResponsePrecisionError, real_scalar as _real",
+            "targets": [
+              "kernel_physics._response_numeric"
+            ],
+            "classifications": {
+              "kernel_physics._response_numeric": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 6,
+            "statement": "from ._presets import historical_seed, historical_observer",
+            "targets": [
+              "kernel_physics._presets"
+            ],
+            "classifications": {
+              "kernel_physics._presets": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 7,
+            "statement": "from ._records import RunRecord",
+            "targets": [
+              "kernel_physics._records"
+            ],
+            "classifications": {
+              "kernel_physics._records": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 8,
+            "statement": "from ._geometry_records import GeometryRecord, get_geometry",
+            "targets": [
+              "kernel_physics._geometry_records"
+            ],
+            "classifications": {
+              "kernel_physics._geometry_records": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 9,
+            "statement": "from ._runner import run, resume, _step",
+            "targets": [
+              "kernel_physics._runner"
+            ],
+            "classifications": {
+              "kernel_physics._runner": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 10,
+            "statement": "from . import readouts as _readouts, z_manifold as _z, z_diagnostics as _d",
+            "targets": [
+              "kernel_physics.readouts",
+              "kernel_physics.z_manifold",
+              "kernel_physics.z_diagnostics"
+            ],
+            "classifications": {
+              "kernel_physics.readouts": "REQUIRED_RUNTIME_DEPENDENCY",
+              "kernel_physics.z_manifold": "REQUIRED_RUNTIME_DEPENDENCY",
+              "kernel_physics.z_diagnostics": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          }
+        ]
+      },
+      "boundary_response": {
+        "path": "kernel_physics/boundary_response.py",
+        "sha256": "febcd7d4dd8c51104dd0b75c7d2fbf14779895099897525aaf892e1833f8116c",
+        "imports": [
+          {
+            "line": 8,
+            "statement": "import math",
+            "targets": [
+              "math"
+            ],
+            "classifications": {
+              "math": "STDLIB"
+            }
+          },
+          {
+            "line": 10,
+            "statement": "import numpy as np",
+            "targets": [
+              "numpy"
+            ],
+            "classifications": {
+              "numpy": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 12,
+            "statement": "from ._response_numeric import (ResponsePrecisionError, checked_real, complex_vector,\n                               product, real_scalar, scale_complex)",
+            "targets": [
+              "kernel_physics._response_numeric"
+            ],
+            "classifications": {
+              "kernel_physics._response_numeric": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          }
+        ]
+      },
+      "covering": {
+        "path": "kernel_physics/covering.py",
+        "sha256": "5e6af1b665ece26cbc44bc63a85e08ff9bdf897c7efb2a03ef96f3a6cec550cf",
+        "imports": [
+          {
+            "line": 3,
+            "statement": "from operator import index",
+            "targets": [
+              "operator"
+            ],
+            "classifications": {
+              "operator": "STDLIB"
+            }
+          },
+          {
+            "line": 5,
+            "statement": "import sympy as sp",
+            "targets": [
+              "sympy"
+            ],
+            "classifications": {
+              "sympy": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          }
+        ]
+      },
+      "dynamics": {
+        "path": "kernel_physics/dynamics.py",
+        "sha256": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4",
+        "imports": [
+          {
+            "line": 7,
+            "statement": "from dataclasses import dataclass",
+            "targets": [
+              "dataclasses"
+            ],
+            "classifications": {
+              "dataclasses": "STDLIB"
+            }
+          },
+          {
+            "line": 8,
+            "statement": "from math import isfinite",
+            "targets": [
+              "math"
+            ],
+            "classifications": {
+              "math": "STDLIB"
+            }
+          },
+          {
+            "line": 10,
+            "statement": "import numpy as np",
+            "targets": [
+              "numpy"
+            ],
+            "classifications": {
+              "numpy": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          }
+        ]
+      },
+      "face_state": {
+        "path": "kernel_physics/face_state.py",
+        "sha256": "be9d1e25a6f368e644ecfa9b1af70ba9382599e8b4d43d529d1783004d86ded7",
+        "imports": [
+          {
+            "line": 8,
+            "statement": "from dataclasses import dataclass, field",
+            "targets": [
+              "dataclasses"
+            ],
+            "classifications": {
+              "dataclasses": "STDLIB"
+            }
+          },
+          {
+            "line": 9,
+            "statement": "import hashlib",
+            "targets": [
+              "hashlib"
+            ],
+            "classifications": {
+              "hashlib": "STDLIB"
+            }
+          },
+          {
+            "line": 10,
+            "statement": "import math",
+            "targets": [
+              "math"
+            ],
+            "classifications": {
+              "math": "STDLIB"
+            }
+          },
+          {
+            "line": 11,
+            "statement": "import numbers",
+            "targets": [
+              "numbers"
+            ],
+            "classifications": {
+              "numbers": "STDLIB"
+            }
+          },
+          {
+            "line": 12,
+            "statement": "from pathlib import Path",
+            "targets": [
+              "pathlib"
+            ],
+            "classifications": {
+              "pathlib": "STDLIB"
+            }
+          },
+          {
+            "line": 13,
+            "statement": "import sys",
+            "targets": [
+              "sys"
+            ],
+            "classifications": {
+              "sys": "STDLIB"
+            }
+          },
+          {
+            "line": 15,
+            "statement": "import numpy as np",
+            "targets": [
+              "numpy"
+            ],
+            "classifications": {
+              "numpy": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 16,
+            "statement": "import sympy as sp",
+            "targets": [
+              "sympy"
+            ],
+            "classifications": {
+              "sympy": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 18,
+            "statement": "from . import dynamics, geometry, operating_region, readouts",
+            "targets": [
+              "kernel_physics.dynamics",
+              "kernel_physics.geometry",
+              "kernel_physics.operating_region",
+              "kernel_physics.readouts"
+            ],
+            "classifications": {
+              "kernel_physics.dynamics": "REQUIRED_RUNTIME_DEPENDENCY",
+              "kernel_physics.geometry": "REQUIRED_RUNTIME_DEPENDENCY",
+              "kernel_physics.operating_region": "QUARANTINED",
+              "kernel_physics.readouts": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 19,
+            "statement": "from ._response_numeric import (checked_real, complex_vector, product,\n                               real_scalar, total)",
+            "targets": [
+              "kernel_physics._response_numeric"
+            ],
+            "classifications": {
+              "kernel_physics._response_numeric": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "path": "kernel_physics/geometry.py",
+        "sha256": "18398bd15b12c2dc1711c3ea2769f50215f2bcad5335ced9ee23e4e6baf1ddbf",
+        "imports": [
+          {
+            "line": 7,
+            "statement": "from collections import Counter",
+            "targets": [
+              "collections"
+            ],
+            "classifications": {
+              "collections": "STDLIB"
+            }
+          },
+          {
+            "line": 8,
+            "statement": "from dataclasses import dataclass",
+            "targets": [
+              "dataclasses"
+            ],
+            "classifications": {
+              "dataclasses": "STDLIB"
+            }
+          },
+          {
+            "line": 10,
+            "statement": "import sympy as sp",
+            "targets": [
+              "sympy"
+            ],
+            "classifications": {
+              "sympy": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          }
+        ]
+      },
+      "operating_region": {
+        "path": "kernel_physics/operating_region.py",
+        "sha256": "4428dc5d1b9a8328da818550c51e1aef489d42ddd8338c19c3185fed9300f160",
+        "imports": [
+          {
+            "line": 6,
+            "statement": "import math",
+            "targets": [
+              "math"
+            ],
+            "classifications": {
+              "math": "STDLIB"
+            }
+          },
+          {
+            "line": 8,
+            "statement": "import numpy as np",
+            "targets": [
+              "numpy"
+            ],
+            "classifications": {
+              "numpy": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 10,
+            "statement": "from ._response_numeric import (ResponsePrecisionError, checked_array, complex_vector,\n                               real_scalar)",
+            "targets": [
+              "kernel_physics._response_numeric"
+            ],
+            "classifications": {
+              "kernel_physics._response_numeric": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 12,
+            "statement": "from .dynamics import DynamicsConfig, step3",
+            "targets": [
+              "kernel_physics.dynamics"
+            ],
+            "classifications": {
+              "kernel_physics.dynamics": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 13,
+            "statement": "from .srg import handoff_area_response",
+            "targets": [
+              "kernel_physics.srg"
+            ],
+            "classifications": {
+              "kernel_physics.srg": "QUARANTINED"
+            }
+          }
+        ]
+      },
+      "readouts": {
+        "path": "kernel_physics/readouts.py",
+        "sha256": "3889051f08c09197224a30263195f8f0d474e5f7b93671fb56e6c240c58e91c9",
+        "imports": [
+          {
+            "line": 2,
+            "statement": "import numpy as np",
+            "targets": [
+              "numpy"
+            ],
+            "classifications": {
+              "numpy": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 4,
+            "statement": "from ._response_numeric import complex_vector, product, total",
+            "targets": [
+              "kernel_physics._response_numeric"
+            ],
+            "classifications": {
+              "kernel_physics._response_numeric": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          }
+        ]
+      },
+      "reference_scaffold": {
+        "path": "kernel_physics/reference_scaffold.py",
+        "sha256": "39723db1d5e808fa8aeb3585eb47ac4b1cbc01310e07e9171b6d6e04111c4aaf",
+        "imports": [
+          {
+            "line": 10,
+            "statement": "from dataclasses import dataclass",
+            "targets": [
+              "dataclasses"
+            ],
+            "classifications": {
+              "dataclasses": "STDLIB"
+            }
+          },
+          {
+            "line": 11,
+            "statement": "from fractions import Fraction",
+            "targets": [
+              "fractions"
+            ],
+            "classifications": {
+              "fractions": "STDLIB"
+            }
+          },
+          {
+            "line": 13,
+            "statement": "import sympy as sp",
+            "targets": [
+              "sympy"
+            ],
+            "classifications": {
+              "sympy": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          }
+        ]
+      },
+      "srg": {
+        "path": "kernel_physics/srg.py",
+        "sha256": "90a563d8ef0a18ef769c76d4884e94badbaa38771d4dd192610a4cc74d709d34",
+        "imports": [
+          {
+            "line": 7,
+            "statement": "from dataclasses import dataclass",
+            "targets": [
+              "dataclasses"
+            ],
+            "classifications": {
+              "dataclasses": "STDLIB"
+            }
+          },
+          {
+            "line": 8,
+            "statement": "import math",
+            "targets": [
+              "math"
+            ],
+            "classifications": {
+              "math": "STDLIB"
+            }
+          },
+          {
+            "line": 9,
+            "statement": "import numbers",
+            "targets": [
+              "numbers"
+            ],
+            "classifications": {
+              "numbers": "STDLIB"
+            }
+          },
+          {
+            "line": 11,
+            "statement": "import numpy as np",
+            "targets": [
+              "numpy"
+            ],
+            "classifications": {
+              "numpy": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 13,
+            "statement": "from ._response_numeric import (ResponsePrecisionError, bra_dot, checked_real,\n                               complex_product, complex_vector, product, scale_complex)",
+            "targets": [
+              "kernel_physics._response_numeric"
+            ],
+            "classifications": {
+              "kernel_physics._response_numeric": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 15,
+            "statement": "from .boundary_response import RESPONSE_ID, _theta, lens_area_gain",
+            "targets": [
+              "kernel_physics.boundary_response"
+            ],
+            "classifications": {
+              "kernel_physics.boundary_response": "QUARANTINED"
+            }
+          }
+        ]
+      },
+      "z_diagnostics": {
+        "path": "kernel_physics/z_diagnostics.py",
+        "sha256": "db6c5d87fcecd492ac76fbc3cbcd6b71520d2ab4c9bbe4b1686c138aa0549d09",
+        "imports": [
+          {
+            "line": 8,
+            "statement": "from dataclasses import dataclass",
+            "targets": [
+              "dataclasses"
+            ],
+            "classifications": {
+              "dataclasses": "STDLIB"
+            }
+          },
+          {
+            "line": 9,
+            "statement": "import math",
+            "targets": [
+              "math"
+            ],
+            "classifications": {
+              "math": "STDLIB"
+            }
+          },
+          {
+            "line": 11,
+            "statement": "import numpy as np",
+            "targets": [
+              "numpy"
+            ],
+            "classifications": {
+              "numpy": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 13,
+            "statement": "from . import readouts",
+            "targets": [
+              "kernel_physics.readouts"
+            ],
+            "classifications": {
+              "kernel_physics.readouts": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 14,
+            "statement": "from ._response_numeric import (\n    checked_real, complex_vector, product, real_scalar, scale_complex, total,\n)",
+            "targets": [
+              "kernel_physics._response_numeric"
+            ],
+            "classifications": {
+              "kernel_physics._response_numeric": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 17,
+            "statement": "from .dynamics import DynamicsConfig, L3",
+            "targets": [
+              "kernel_physics.dynamics"
+            ],
+            "classifications": {
+              "kernel_physics.dynamics": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 18,
+            "statement": "from .z_manifold import Clock, ZReadout, blend_vectors, clock_angle",
+            "targets": [
+              "kernel_physics.z_manifold"
+            ],
+            "classifications": {
+              "kernel_physics.z_manifold": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          }
+        ]
+      },
+      "z_manifold": {
+        "path": "kernel_physics/z_manifold.py",
+        "sha256": "97ebdbb37103e736d2ae86c272541c458a5b585e1889e6d14ff056b316494f4f",
+        "imports": [
+          {
+            "line": 8,
+            "statement": "from dataclasses import dataclass, field",
+            "targets": [
+              "dataclasses"
+            ],
+            "classifications": {
+              "dataclasses": "STDLIB"
+            }
+          },
+          {
+            "line": 9,
+            "statement": "import math",
+            "targets": [
+              "math"
+            ],
+            "classifications": {
+              "math": "STDLIB"
+            }
+          },
+          {
+            "line": 10,
+            "statement": "import numbers",
+            "targets": [
+              "numbers"
+            ],
+            "classifications": {
+              "numbers": "STDLIB"
+            }
+          },
+          {
+            "line": 12,
+            "statement": "import numpy as np",
+            "targets": [
+              "numpy"
+            ],
+            "classifications": {
+              "numpy": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 14,
+            "statement": "from . import readouts",
+            "targets": [
+              "kernel_physics.readouts"
+            ],
+            "classifications": {
+              "kernel_physics.readouts": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          },
+          {
+            "line": 15,
+            "statement": "from ._response_numeric import (\n    ResponsePrecisionError, checked_real, complex_product, complex_vector,\n    product, real_scalar, total,\n)",
+            "targets": [
+              "kernel_physics._response_numeric"
+            ],
+            "classifications": {
+              "kernel_physics._response_numeric": "REQUIRED_RUNTIME_DEPENDENCY"
+            }
+          }
+        ]
+      }
+    },
+    "stdlib": [
+      "collections",
+      "collections.abc",
+      "dataclasses",
+      "fractions",
+      "functools",
+      "hashlib",
+      "json",
+      "math",
+      "numbers",
+      "pathlib",
+      "platform",
+      "re",
+      "subprocess",
+      "sys",
+      "types"
+    ],
+    "required_third_party": [
+      "mpmath",
+      "numpy",
+      "sympy"
+    ],
+    "optional_third_party_required_by_facade": [],
+    "dependency_metadata": {
+      "mpmath": {
+        "version": "1.3.0",
+        "requires_python": null,
+        "requires_dist": [
+          "pytest (>=4.6) ; extra == 'develop'",
+          "pycodestyle ; extra == 'develop'",
+          "pytest-cov ; extra == 'develop'",
+          "codecov ; extra == 'develop'",
+          "wheel ; extra == 'develop'",
+          "sphinx ; extra == 'docs'",
+          "gmpy2 (>=2.1.0a4) ; (platform_python_implementation != \"PyPy\") and extra == 'gmpy'",
+          "pytest (>=4.6) ; extra == 'tests'"
+        ]
+      },
+      "numpy": {
+        "version": "2.4.4",
+        "requires_python": ">=3.11",
+        "requires_dist": []
+      },
+      "sympy": {
+        "version": "1.14.0",
+        "requires_python": ">=3.9",
+        "requires_dist": [
+          "mpmath<1.4,>=1.1.0",
+          "pytest>=7.1.0; extra == \"dev\"",
+          "hypothesis>=6.70.0; extra == \"dev\""
+        ]
+      }
+    },
+    "per_operation": [
+      {
+        "operation": "import kernel_physics.api",
+        "direct_work": "Eagerly imports all three libraries through the 14-module closure.",
+        "available_dependencies": [
+          "numpy",
+          "sympy",
+          "mpmath"
+        ]
+      },
+      {
+        "operation": "Parameters / State",
+        "direct_work": "NumPy type checks and detached validated vectors; no Git or paper access.",
+        "available_dependencies": [
+          "numpy",
+          "sympy",
+          "mpmath"
+        ]
+      },
+      {
+        "operation": "step / raw z_chiral",
+        "direct_work": "NumPy numerical owners and shared checks; no symbolic recurrence or mpmath evaluation.",
+        "available_dependencies": [
+          "numpy",
+          "sympy",
+          "mpmath"
+        ]
+      },
+      {
+        "operation": "observers / diagnostics",
+        "direct_work": "NumPy accepted observer/readout/diagnostic owners.",
+        "available_dependencies": [
+          "numpy",
+          "sympy",
+          "mpmath"
+        ]
+      },
+      {
+        "operation": "RunRecord production",
+        "direct_work": "NumPy codec and numerical values; records versions of NumPy, SymPy and mpmath; requires Git and selected paper bytes today.",
+        "available_dependencies": [
+          "numpy",
+          "sympy",
+          "mpmath"
+        ]
+      },
+      {
+        "operation": "GeometryRecord production",
+        "direct_work": "SymPy exact constructors/codec; shared NumPy-aware codec; all three producer versions; Git and paper bytes today.",
+        "available_dependencies": [
+          "numpy",
+          "sympy",
+          "mpmath"
+        ]
+      },
+      {
+        "operation": "RunRecord decoding",
+        "direct_work": "Structural and binary64 validation, immutable value checks, no equations advanced or provenance files read.",
+        "available_dependencies": [
+          "numpy",
+          "sympy",
+          "mpmath"
+        ]
+      },
+      {
+        "operation": "GeometryRecord decoding",
+        "direct_work": "SymPy exact-tree and rendering validation; no geometry constructor run and no Git/paper reads.",
+        "available_dependencies": [
+          "numpy",
+          "sympy",
+          "mpmath"
+        ]
+      }
+    ],
+    "blocked_dependency_probes": [
+      {
+        "blocked": "numpy",
+        "api_import": "FAILS",
+        "exception": "ModuleNotFoundError",
+        "message": "K3a blocked dependency: numpy"
+      },
+      {
+        "blocked": "sympy",
+        "api_import": "FAILS",
+        "exception": "ModuleNotFoundError",
+        "message": "K3a blocked dependency: sympy"
+      },
+      {
+        "blocked": "mpmath",
+        "api_import": "FAILS",
+        "exception": "ModuleNotFoundError",
+        "message": "K3a blocked dependency: mpmath"
+      }
+    ],
+    "test_imports": [
+      "ast",
+      "builtins",
+      "cmath",
+      "collections",
+      "contextlib",
+      "copy",
+      "csv",
+      "dataclasses",
+      "fractions",
+      "hashlib",
+      "inspect",
+      "io",
+      "itertools",
+      "json",
+      "kernel_physics",
+      "math",
+      "mpmath",
+      "numpy",
+      "os",
+      "pathlib",
+      "platform",
+      "re",
+      "subprocess",
+      "sympy",
+      "sys",
+      "unittest"
+    ],
+    "test_only_third_party": [],
+    "research_only": "Paper B/D plotting/PDF requirements and the two untracked research requirement files; not imported by facade or tracked kernel tests.",
+    "quarantined": [
+      "boundary_response",
+      "srg",
+      "operating_region"
+    ],
+    "legacy_opt_in": [
+      "face_state"
+    ],
+    "other_internal": [
+      "covering"
+    ]
+  },
+  "provenance": {
+    "field_sources": [
+      {
+        "field": "implementation.repository",
+        "source": "GIT_METADATA",
+        "code": "_records.py:250",
+        "detail": "git remote get-url origin; local configuration only, no remote contact"
+      },
+      {
+        "field": "implementation.commit",
+        "source": "GIT_METADATA",
+        "code": "_records.py:248",
+        "detail": "git rev-parse HEAD; exact repository-root check first"
+      },
+      {
+        "field": "implementation.tracked_dirty",
+        "source": "GIT_METADATA",
+        "code": "_records.py:249-255",
+        "detail": "git status --porcelain --untracked-files=no OR any of the 14 required modules absent from git ls-files"
+      },
+      {
+        "field": "implementation.modules[].sha256",
+        "source": "REPOSITORY_FILE",
+        "future_source": "INSTALLED_MODULE_BYTES",
+        "code": "_records.py:252-253",
+        "detail": "SHA-256 of raw .py bytes at _ROOT / frozen relative path; not Git blob SHA-1, pyc bytes or normalized text"
+      },
+      {
+        "field": "implementation.modules[].path",
+        "source": "HARDCODED/FROZEN DEFINITION",
+        "code": "_records.py:29-33",
+        "detail": "Sorted exact 14-path _MODULES list, also enforced by decoder"
+      },
+      {
+        "field": "paper_references[].source_id/edition/path",
+        "source": "HARDCODED/FROZEN DEFINITION",
+        "code": "_records.py:34-41,258-261",
+        "detail": "_PAPERS has six accepted locators; ID selection follows Runner definitions or C/D request"
+      },
+      {
+        "field": "paper_references[].sha256",
+        "source": "REPOSITORY_FILE",
+        "code": "_records.py:260",
+        "detail": "Raw paper source bytes read at production time; not needed for decoding"
+      },
+      {
+        "field": "implementation.package_version",
+        "source": "HARDCODED/FROZEN DEFINITION",
+        "code": "__init__.py:3; _records.py:251",
+        "detail": "__version__, not distribution metadata; inherited 0.1.0"
+      },
+      {
+        "field": "API/schema/ledger versions",
+        "source": "HARDCODED/FROZEN DEFINITION",
+        "code": "_records.py:22,286-296; _runner.py:134-135; _geometry_records.py:206-207",
+        "detail": "1.0.0 / 1.0.0 / 0.1"
+      },
+      {
+        "field": "execution_metadata",
+        "source": "RUNTIME_ENVIRONMENT",
+        "code": "_records.py:264-278",
+        "detail": "Python and all three library versions, platform, architecture and byte order"
+      },
+      {
+        "field": "preset provenance",
+        "source": "HARDCODED/FROZEN DEFINITION",
+        "code": "_presets.py:4-5",
+        "detail": "Frozen K0 revision and repo-relative locator strings; no file opened"
+      },
+      {
+        "field": "construction_provenance.source_revision",
+        "source": "GIT_METADATA",
+        "code": "_geometry_records.py:202-205",
+        "detail": "Uses implementation.commit; locator/literal definition metadata is frozen code"
+      }
+    ],
+    "source_identity": {
+      "source_commit": "d76321a54f6f3a8ee1f0175ac6a4db6d0c017117",
+      "modules": {
+        "kernel_physics/__init__.py": {
+          "source_blob_sha256": "98eea72fbd95145cc0be31844910715be938b0ec5b93f7aba33fb8d88781abb6",
+          "source_worktree_sha256": "98eea72fbd95145cc0be31844910715be938b0ec5b93f7aba33fb8d88781abb6"
+        },
+        "kernel_physics/_contract_types.py": {
+          "source_blob_sha256": "4e7dbdfaad9bc231d932d88bae5a8a9e565b4b80754a678f9a25f9faa1190903",
+          "source_worktree_sha256": "4e7dbdfaad9bc231d932d88bae5a8a9e565b4b80754a678f9a25f9faa1190903"
+        },
+        "kernel_physics/_geometry_records.py": {
+          "source_blob_sha256": "7313d6bcea2e03615a0ac5ceec177d7abd9bc695e1a2ac6d9b8aa629838c1f60",
+          "source_worktree_sha256": "7313d6bcea2e03615a0ac5ceec177d7abd9bc695e1a2ac6d9b8aa629838c1f60"
+        },
+        "kernel_physics/_presets.py": {
+          "source_blob_sha256": "cd8ff8c412391aa51a19d842dee4445537aac19d573412bac33b54f7da0d2e84",
+          "source_worktree_sha256": "cd8ff8c412391aa51a19d842dee4445537aac19d573412bac33b54f7da0d2e84"
+        },
+        "kernel_physics/_records.py": {
+          "source_blob_sha256": "b8f1fd7b4f562cc83b5754ee43daf73edc89301a7e70d19bd852b9a61e1b8db9",
+          "source_worktree_sha256": "b8f1fd7b4f562cc83b5754ee43daf73edc89301a7e70d19bd852b9a61e1b8db9"
+        },
+        "kernel_physics/_response_numeric.py": {
+          "source_blob_sha256": "cc33f797e76f7dbeff6fbd58ab52003fde2acbadf35ae299d827b4b55ba29655",
+          "source_worktree_sha256": "cc33f797e76f7dbeff6fbd58ab52003fde2acbadf35ae299d827b4b55ba29655"
+        },
+        "kernel_physics/_runner.py": {
+          "source_blob_sha256": "3a9f3ce718b1600f445bf963b968b9dbb3c41b03e6f2acf15239e2ae1512bcf6",
+          "source_worktree_sha256": "3a9f3ce718b1600f445bf963b968b9dbb3c41b03e6f2acf15239e2ae1512bcf6"
+        },
+        "kernel_physics/api.py": {
+          "source_blob_sha256": "6b3f2b4f2f6846147c74a3ee0dd2605830a590d68b368a73895a8f191f27a1c3",
+          "source_worktree_sha256": "6b3f2b4f2f6846147c74a3ee0dd2605830a590d68b368a73895a8f191f27a1c3"
+        },
+        "kernel_physics/dynamics.py": {
+          "source_blob_sha256": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4",
+          "source_worktree_sha256": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4"
+        },
+        "kernel_physics/geometry.py": {
+          "source_blob_sha256": "18398bd15b12c2dc1711c3ea2769f50215f2bcad5335ced9ee23e4e6baf1ddbf",
+          "source_worktree_sha256": "18398bd15b12c2dc1711c3ea2769f50215f2bcad5335ced9ee23e4e6baf1ddbf"
+        },
+        "kernel_physics/readouts.py": {
+          "source_blob_sha256": "3889051f08c09197224a30263195f8f0d474e5f7b93671fb56e6c240c58e91c9",
+          "source_worktree_sha256": "3889051f08c09197224a30263195f8f0d474e5f7b93671fb56e6c240c58e91c9"
+        },
+        "kernel_physics/reference_scaffold.py": {
+          "source_blob_sha256": "39723db1d5e808fa8aeb3585eb47ac4b1cbc01310e07e9171b6d6e04111c4aaf",
+          "source_worktree_sha256": "39723db1d5e808fa8aeb3585eb47ac4b1cbc01310e07e9171b6d6e04111c4aaf"
+        },
+        "kernel_physics/z_diagnostics.py": {
+          "source_blob_sha256": "db6c5d87fcecd492ac76fbc3cbcd6b71520d2ab4c9bbe4b1686c138aa0549d09",
+          "source_worktree_sha256": "db6c5d87fcecd492ac76fbc3cbcd6b71520d2ab4c9bbe4b1686c138aa0549d09"
+        },
+        "kernel_physics/z_manifold.py": {
+          "source_blob_sha256": "97ebdbb37103e736d2ae86c272541c458a5b585e1889e6d14ff056b316494f4f",
+          "source_worktree_sha256": "97ebdbb37103e736d2ae86c272541c458a5b585e1889e6d14ff056b316494f4f"
+        }
+      },
+      "papers": {
+        "A": {
+          "edition": "publication",
+          "path": "papers/PAPER_A/publication/paper_A_publication.md",
+          "sha256": "5fc388072d344c10d201b8eff255226b861014ff980e64c06811ae973bf7cd55",
+          "bytes": 65834
+        },
+        "B": {
+          "edition": "0.1.2",
+          "path": "papers/PAPER_B/publication/v0.1.2/PAPER_B_TRIADIC_CHIRALITY_AND_ORIENTATION_GEOMETRY_PUBLICATION_v0.1.2.md",
+          "sha256": "fb4575120470e8d7143ebc1f475ee4635caf9f39f21f88308960308fb259e150",
+          "bytes": 37465
+        },
+        "C": {
+          "edition": "1.0.1",
+          "path": "papers/PAPER_C/publication/v1.0.1/PAPER_C_EXACT_TRIOCTAGON_GEOMETRY_PUBLICATION_v1.0.1.md",
+          "sha256": "5a0cbdae4aaf689cfe1f5b29305960e90c88e26d0db28834802ef70fc16549fb",
+          "bytes": 52527
+        },
+        "D": {
+          "edition": "0.1.1",
+          "path": "papers/PAPER_D/v0.1.1/PAPER_D_REFERENCE_SCAFFOLD_v0.1.1.md",
+          "sha256": "7bc87de09400ba1a37d5dc9ab7be38c9a978be31bb35ece56102d29ee2e5d25b",
+          "bytes": 69638
+        },
+        "E": {
+          "edition": "0.1.1",
+          "path": "papers/PAPER_E/v0.1.1/PAPER_E_Z_MANIFOLD_v0.1.1.md",
+          "sha256": "a79bc29d991c3af8bba546f0bc5e1ff7a6bbe5501d8adf2ef6d19c66b362978d",
+          "bytes": 80398
+        },
+        "F": {
+          "edition": "0.2",
+          "path": "papers/PAPER_F/PAPER_F_PUBLICATION_v0.2.md",
+          "sha256": "8c9419b20a0899857e68f4b191e7321cfc99f5286f149504f5d82a3e75db4fd5",
+          "bytes": 60618
+        }
+      }
+    },
+    "experiments": {
+      "clean": {
+        "label": "clean",
+        "cwd": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\kernel-k3a-oi85dcis\\tracked-checkout",
+        "kind": "CLEAN_TRACKED_GIT_CHECKOUT",
+        "operations": {
+          "api_import": {
+            "status": "WORKS",
+            "seconds": 0.3728
+          },
+          "Parameters": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "State": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "step": {
+            "status": "WORKS",
+            "seconds": 0.0003
+          },
+          "z_chiral": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "observe_staged": {
+            "status": "WORKS",
+            "seconds": 0.0001
+          },
+          "observe_ema": {
+            "status": "WORKS",
+            "seconds": 0.0001
+          },
+          "advance_clock": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "advance_ema": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "diagnostics": {
+            "status": "WORKS",
+            "seconds": 0.0002
+          },
+          "RunRecord_zero_update": {
+            "status": "WORKS",
+            "seconds": 0.1586,
+            "digest": "7d647d32d3c701f2fb20bc1f9e2c0834a1f1f59895bd89057fe9de9f2cfb2f66",
+            "paper_references": [
+              {
+                "edition": "publication",
+                "path": "papers/PAPER_A/publication/paper_A_publication.md",
+                "sha256": "5fc388072d344c10d201b8eff255226b861014ff980e64c06811ae973bf7cd55",
+                "source_id": "PA"
+              },
+              {
+                "edition": "0.1.2",
+                "path": "papers/PAPER_B/publication/v0.1.2/PAPER_B_TRIADIC_CHIRALITY_AND_ORIENTATION_GEOMETRY_PUBLICATION_v0.1.2.md",
+                "sha256": "fb4575120470e8d7143ebc1f475ee4635caf9f39f21f88308960308fb259e150",
+                "source_id": "PB"
+              },
+              {
+                "edition": "0.1.1",
+                "path": "papers/PAPER_E/v0.1.1/PAPER_E_Z_MANIFOLD_v0.1.1.md",
+                "sha256": "a79bc29d991c3af8bba546f0bc5e1ff7a6bbe5501d8adf2ef6d19c66b362978d",
+                "source_id": "PE"
+              }
+            ],
+            "implementation_commit": "d76321a54f6f3a8ee1f0175ac6a4db6d0c017117",
+            "implementation_tracked_dirty": false,
+            "implementation_modules_match_source_identity": true
+          },
+          "RunRecord_one_update": {
+            "status": "WORKS",
+            "seconds": 0.13,
+            "digest": "bcbb2c0073bd5c98aa856abb8d6260bfd2a0b87b97ab8fb056f555dce9415697",
+            "paper_references": [
+              {
+                "edition": "publication",
+                "path": "papers/PAPER_A/publication/paper_A_publication.md",
+                "sha256": "5fc388072d344c10d201b8eff255226b861014ff980e64c06811ae973bf7cd55",
+                "source_id": "PA"
+              },
+              {
+                "edition": "0.1.2",
+                "path": "papers/PAPER_B/publication/v0.1.2/PAPER_B_TRIADIC_CHIRALITY_AND_ORIENTATION_GEOMETRY_PUBLICATION_v0.1.2.md",
+                "sha256": "fb4575120470e8d7143ebc1f475ee4635caf9f39f21f88308960308fb259e150",
+                "source_id": "PB"
+              },
+              {
+                "edition": "0.1.1",
+                "path": "papers/PAPER_E/v0.1.1/PAPER_E_Z_MANIFOLD_v0.1.1.md",
+                "sha256": "a79bc29d991c3af8bba546f0bc5e1ff7a6bbe5501d8adf2ef6d19c66b362978d",
+                "source_id": "PE"
+              }
+            ],
+            "implementation_commit": "d76321a54f6f3a8ee1f0175ac6a4db6d0c017117",
+            "implementation_tracked_dirty": false,
+            "implementation_modules_match_source_identity": true
+          },
+          "RunRecord_observers": {
+            "status": "WORKS",
+            "seconds": 0.1323,
+            "digest": "aad8a21a387b3e1410a1b495b4eb312ba4592b38d018d9054ee89ec180a95645",
+            "paper_references": [
+              {
+                "edition": "publication",
+                "path": "papers/PAPER_A/publication/paper_A_publication.md",
+                "sha256": "5fc388072d344c10d201b8eff255226b861014ff980e64c06811ae973bf7cd55",
+                "source_id": "PA"
+              },
+              {
+                "edition": "0.1.2",
+                "path": "papers/PAPER_B/publication/v0.1.2/PAPER_B_TRIADIC_CHIRALITY_AND_ORIENTATION_GEOMETRY_PUBLICATION_v0.1.2.md",
+                "sha256": "fb4575120470e8d7143ebc1f475ee4635caf9f39f21f88308960308fb259e150",
+                "source_id": "PB"
+              },
+              {
+                "edition": "0.1.1",
+                "path": "papers/PAPER_E/v0.1.1/PAPER_E_Z_MANIFOLD_v0.1.1.md",
+                "sha256": "a79bc29d991c3af8bba546f0bc5e1ff7a6bbe5501d8adf2ef6d19c66b362978d",
+                "source_id": "PE"
+              }
+            ],
+            "implementation_commit": "d76321a54f6f3a8ee1f0175ac6a4db6d0c017117",
+            "implementation_tracked_dirty": false,
+            "implementation_modules_match_source_identity": true
+          },
+          "GeometryRecord_C01": {
+            "status": "WORKS",
+            "seconds": 0.7798,
+            "digest": "4876eda9fd80be2ccdd0f3cbdf8a687d6a9a92be02a56d51e0008d48f68179fb",
+            "paper_references": [
+              {
+                "edition": "1.0.1",
+                "path": "papers/PAPER_C/publication/v1.0.1/PAPER_C_EXACT_TRIOCTAGON_GEOMETRY_PUBLICATION_v1.0.1.md",
+                "sha256": "5a0cbdae4aaf689cfe1f5b29305960e90c88e26d0db28834802ef70fc16549fb",
+                "source_id": "PC"
+              }
+            ],
+            "implementation_commit": "d76321a54f6f3a8ee1f0175ac6a4db6d0c017117",
+            "implementation_tracked_dirty": false,
+            "implementation_modules_match_source_identity": true
+          },
+          "GeometryRecord_D03": {
+            "status": "WORKS",
+            "seconds": 1.8711,
+            "digest": "ef7c9fb8aff2c4b836ecb8664c98e2b76ef2a60de9135746da020f38ab22a553",
+            "paper_references": [
+              {
+                "edition": "0.1.1",
+                "path": "papers/PAPER_D/v0.1.1/PAPER_D_REFERENCE_SCAFFOLD_v0.1.1.md",
+                "sha256": "7bc87de09400ba1a37d5dc9ab7be38c9a978be31bb35ece56102d29ee2e5d25b",
+                "source_id": "PD"
+              }
+            ],
+            "implementation_commit": "d76321a54f6f3a8ee1f0175ac6a4db6d0c017117",
+            "implementation_tracked_dirty": false,
+            "implementation_modules_match_source_identity": true
+          },
+          "RunRecord_one_update_decode": {
+            "status": "WORKS",
+            "seconds": 0.0006
+          },
+          "resume": {
+            "status": "WORKS",
+            "seconds": 0.13
+          },
+          "GeometryRecord_C01_decode": {
+            "status": "WORKS",
+            "seconds": 0.0015
+          },
+          "GeometryRecord_D03_decode": {
+            "status": "WORKS",
+            "seconds": 0.0056
+          },
+          "implementation_capture": {
+            "status": "WORKS",
+            "seconds": 0.1262
+          },
+          "paper_capture_all": {
+            "status": "WORKS",
+            "seconds": 0.0008
+          }
+        },
+        "api_origin": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\kernel-k3a-oi85dcis\\tracked-checkout\\kernel_physics\\api.py",
+        "pythonpath_env": null,
+        "git_present": true,
+        "papers_present": true,
+        "research_present": true,
+        "runtime_module_hashes": {
+          "kernel_physics/__init__.py": "98eea72fbd95145cc0be31844910715be938b0ec5b93f7aba33fb8d88781abb6",
+          "kernel_physics/_contract_types.py": "4e7dbdfaad9bc231d932d88bae5a8a9e565b4b80754a678f9a25f9faa1190903",
+          "kernel_physics/_geometry_records.py": "7313d6bcea2e03615a0ac5ceec177d7abd9bc695e1a2ac6d9b8aa629838c1f60",
+          "kernel_physics/_presets.py": "cd8ff8c412391aa51a19d842dee4445537aac19d573412bac33b54f7da0d2e84",
+          "kernel_physics/_records.py": "b8f1fd7b4f562cc83b5754ee43daf73edc89301a7e70d19bd852b9a61e1b8db9",
+          "kernel_physics/_response_numeric.py": "cc33f797e76f7dbeff6fbd58ab52003fde2acbadf35ae299d827b4b55ba29655",
+          "kernel_physics/_runner.py": "3a9f3ce718b1600f445bf963b968b9dbb3c41b03e6f2acf15239e2ae1512bcf6",
+          "kernel_physics/api.py": "6b3f2b4f2f6846147c74a3ee0dd2605830a590d68b368a73895a8f191f27a1c3",
+          "kernel_physics/dynamics.py": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4",
+          "kernel_physics/geometry.py": "18398bd15b12c2dc1711c3ea2769f50215f2bcad5335ced9ee23e4e6baf1ddbf",
+          "kernel_physics/readouts.py": "3889051f08c09197224a30263195f8f0d474e5f7b93671fb56e6c240c58e91c9",
+          "kernel_physics/reference_scaffold.py": "39723db1d5e808fa8aeb3585eb47ac4b1cbc01310e07e9171b6d6e04111c4aaf",
+          "kernel_physics/z_diagnostics.py": "db6c5d87fcecd492ac76fbc3cbcd6b71520d2ab4c9bbe4b1686c138aa0549d09",
+          "kernel_physics/z_manifold.py": "97ebdbb37103e736d2ae86c272541c458a5b585e1889e6d14ff056b316494f4f"
+        },
+        "loaded_kernel_modules": [
+          "kernel_physics",
+          "kernel_physics._contract_types",
+          "kernel_physics._geometry_records",
+          "kernel_physics._presets",
+          "kernel_physics._records",
+          "kernel_physics._response_numeric",
+          "kernel_physics._runner",
+          "kernel_physics.api",
+          "kernel_physics.dynamics",
+          "kernel_physics.geometry",
+          "kernel_physics.readouts",
+          "kernel_physics.reference_scaffold",
+          "kernel_physics.z_diagnostics",
+          "kernel_physics.z_manifold"
+        ],
+        "forbidden_loaded": [],
+        "network_attempts": []
+      },
+      "package_only": {
+        "label": "package_only",
+        "cwd": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\kernel-k3a-oi85dcis\\package_only",
+        "kind": "PACKAGE_FILES_ONLY_SIMULATION_NOT_INSTALLATION",
+        "operations": {
+          "api_import": {
+            "status": "WORKS",
+            "seconds": 0.6213
+          },
+          "Parameters": {
+            "status": "WORKS",
+            "seconds": 0.0001
+          },
+          "State": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "step": {
+            "status": "WORKS",
+            "seconds": 0.0002
+          },
+          "z_chiral": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "observe_staged": {
+            "status": "WORKS",
+            "seconds": 0.0001
+          },
+          "observe_ema": {
+            "status": "WORKS",
+            "seconds": 0.0001
+          },
+          "advance_clock": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "advance_ema": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "diagnostics": {
+            "status": "WORKS",
+            "seconds": 0.0002
+          },
+          "RunRecord_zero_update": {
+            "status": "FAILS",
+            "exception": "ValueError",
+            "message": "record production requires an identifiable Git source checkout",
+            "seconds": 0.0309
+          },
+          "RunRecord_one_update": {
+            "status": "FAILS",
+            "exception": "ValueError",
+            "message": "record production requires an identifiable Git source checkout",
+            "seconds": 0.0256
+          },
+          "RunRecord_observers": {
+            "status": "FAILS",
+            "exception": "ValueError",
+            "message": "record production requires an identifiable Git source checkout",
+            "seconds": 0.03
+          },
+          "GeometryRecord_C01": {
+            "status": "FAILS",
+            "exception": "ValueError",
+            "message": "record production requires an identifiable Git source checkout",
+            "seconds": 0.6824
+          },
+          "GeometryRecord_D03": {
+            "status": "FAILS",
+            "exception": "ValueError",
+            "message": "record production requires an identifiable Git source checkout",
+            "seconds": 1.7445
+          },
+          "RunRecord_one_update_decode": {
+            "status": "WORKS",
+            "seconds": 0.0009
+          },
+          "resume": {
+            "status": "FAILS",
+            "exception": "ValueError",
+            "message": "record production requires an identifiable Git source checkout",
+            "seconds": 0.0228
+          },
+          "GeometryRecord_C01_decode": {
+            "status": "WORKS",
+            "seconds": 0.0031
+          },
+          "GeometryRecord_D03_decode": {
+            "status": "WORKS",
+            "seconds": 0.027
+          },
+          "implementation_capture": {
+            "status": "FAILS",
+            "exception": "ValueError",
+            "message": "record production requires an identifiable Git source checkout",
+            "seconds": 0.0239
+          },
+          "paper_capture_all": {
+            "status": "FAILS",
+            "exception": "FileNotFoundError",
+            "message": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Notandi\\\\AppData\\\\Local\\\\Temp\\\\kernel-k3a-oi85dcis\\\\package_only\\\\papers\\\\PAPER_A\\\\publication\\\\paper_A_publication.md'",
+            "seconds": 0.0001
+          }
+        },
+        "api_origin": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\kernel-k3a-oi85dcis\\package_only\\kernel_physics\\api.py",
+        "pythonpath_env": null,
+        "git_present": false,
+        "papers_present": false,
+        "research_present": false,
+        "runtime_module_hashes": {
+          "kernel_physics/__init__.py": "98eea72fbd95145cc0be31844910715be938b0ec5b93f7aba33fb8d88781abb6",
+          "kernel_physics/_contract_types.py": "4e7dbdfaad9bc231d932d88bae5a8a9e565b4b80754a678f9a25f9faa1190903",
+          "kernel_physics/_geometry_records.py": "7313d6bcea2e03615a0ac5ceec177d7abd9bc695e1a2ac6d9b8aa629838c1f60",
+          "kernel_physics/_presets.py": "cd8ff8c412391aa51a19d842dee4445537aac19d573412bac33b54f7da0d2e84",
+          "kernel_physics/_records.py": "b8f1fd7b4f562cc83b5754ee43daf73edc89301a7e70d19bd852b9a61e1b8db9",
+          "kernel_physics/_response_numeric.py": "cc33f797e76f7dbeff6fbd58ab52003fde2acbadf35ae299d827b4b55ba29655",
+          "kernel_physics/_runner.py": "3a9f3ce718b1600f445bf963b968b9dbb3c41b03e6f2acf15239e2ae1512bcf6",
+          "kernel_physics/api.py": "6b3f2b4f2f6846147c74a3ee0dd2605830a590d68b368a73895a8f191f27a1c3",
+          "kernel_physics/dynamics.py": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4",
+          "kernel_physics/geometry.py": "18398bd15b12c2dc1711c3ea2769f50215f2bcad5335ced9ee23e4e6baf1ddbf",
+          "kernel_physics/readouts.py": "3889051f08c09197224a30263195f8f0d474e5f7b93671fb56e6c240c58e91c9",
+          "kernel_physics/reference_scaffold.py": "39723db1d5e808fa8aeb3585eb47ac4b1cbc01310e07e9171b6d6e04111c4aaf",
+          "kernel_physics/z_diagnostics.py": "db6c5d87fcecd492ac76fbc3cbcd6b71520d2ab4c9bbe4b1686c138aa0549d09",
+          "kernel_physics/z_manifold.py": "97ebdbb37103e736d2ae86c272541c458a5b585e1889e6d14ff056b316494f4f"
+        },
+        "loaded_kernel_modules": [
+          "kernel_physics",
+          "kernel_physics._contract_types",
+          "kernel_physics._geometry_records",
+          "kernel_physics._presets",
+          "kernel_physics._records",
+          "kernel_physics._response_numeric",
+          "kernel_physics._runner",
+          "kernel_physics.api",
+          "kernel_physics.dynamics",
+          "kernel_physics.geometry",
+          "kernel_physics.readouts",
+          "kernel_physics.reference_scaffold",
+          "kernel_physics.z_diagnostics",
+          "kernel_physics.z_manifold"
+        ],
+        "forbidden_loaded": [],
+        "network_attempts": []
+      },
+      "no_git_with_papers": {
+        "label": "no_git_with_papers",
+        "cwd": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\kernel-k3a-oi85dcis\\no_git_with_papers",
+        "kind": "NEGATIVE_CONTROL_NO_GIT_WITH_SIX_PAPER_FILES",
+        "operations": {
+          "api_import": {
+            "status": "WORKS",
+            "seconds": 0.6221
+          },
+          "Parameters": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "State": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "step": {
+            "status": "WORKS",
+            "seconds": 0.0002
+          },
+          "z_chiral": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "observe_staged": {
+            "status": "WORKS",
+            "seconds": 0.0001
+          },
+          "observe_ema": {
+            "status": "WORKS",
+            "seconds": 0.0001
+          },
+          "advance_clock": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "advance_ema": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "diagnostics": {
+            "status": "WORKS",
+            "seconds": 0.0002
+          },
+          "RunRecord_zero_update": {
+            "status": "FAILS",
+            "exception": "ValueError",
+            "message": "record production requires an identifiable Git source checkout",
+            "seconds": 0.0299
+          },
+          "RunRecord_one_update": {
+            "status": "FAILS",
+            "exception": "ValueError",
+            "message": "record production requires an identifiable Git source checkout",
+            "seconds": 0.0253
+          },
+          "RunRecord_observers": {
+            "status": "FAILS",
+            "exception": "ValueError",
+            "message": "record production requires an identifiable Git source checkout",
+            "seconds": 0.0303
+          },
+          "GeometryRecord_C01": {
+            "status": "FAILS",
+            "exception": "ValueError",
+            "message": "record production requires an identifiable Git source checkout",
+            "seconds": 0.6738
+          },
+          "GeometryRecord_D03": {
+            "status": "FAILS",
+            "exception": "ValueError",
+            "message": "record production requires an identifiable Git source checkout",
+            "seconds": 1.7217
+          },
+          "RunRecord_one_update_decode": {
+            "status": "WORKS",
+            "seconds": 0.0011
+          },
+          "resume": {
+            "status": "FAILS",
+            "exception": "ValueError",
+            "message": "record production requires an identifiable Git source checkout",
+            "seconds": 0.0229
+          },
+          "GeometryRecord_C01_decode": {
+            "status": "WORKS",
+            "seconds": 0.0026
+          },
+          "GeometryRecord_D03_decode": {
+            "status": "WORKS",
+            "seconds": 0.0276
+          },
+          "implementation_capture": {
+            "status": "FAILS",
+            "exception": "ValueError",
+            "message": "record production requires an identifiable Git source checkout",
+            "seconds": 0.0242
+          },
+          "paper_capture_all": {
+            "status": "WORKS",
+            "seconds": 0.0007
+          }
+        },
+        "api_origin": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\kernel-k3a-oi85dcis\\no_git_with_papers\\kernel_physics\\api.py",
+        "pythonpath_env": null,
+        "git_present": false,
+        "papers_present": true,
+        "research_present": false,
+        "runtime_module_hashes": {
+          "kernel_physics/__init__.py": "98eea72fbd95145cc0be31844910715be938b0ec5b93f7aba33fb8d88781abb6",
+          "kernel_physics/_contract_types.py": "4e7dbdfaad9bc231d932d88bae5a8a9e565b4b80754a678f9a25f9faa1190903",
+          "kernel_physics/_geometry_records.py": "7313d6bcea2e03615a0ac5ceec177d7abd9bc695e1a2ac6d9b8aa629838c1f60",
+          "kernel_physics/_presets.py": "cd8ff8c412391aa51a19d842dee4445537aac19d573412bac33b54f7da0d2e84",
+          "kernel_physics/_records.py": "b8f1fd7b4f562cc83b5754ee43daf73edc89301a7e70d19bd852b9a61e1b8db9",
+          "kernel_physics/_response_numeric.py": "cc33f797e76f7dbeff6fbd58ab52003fde2acbadf35ae299d827b4b55ba29655",
+          "kernel_physics/_runner.py": "3a9f3ce718b1600f445bf963b968b9dbb3c41b03e6f2acf15239e2ae1512bcf6",
+          "kernel_physics/api.py": "6b3f2b4f2f6846147c74a3ee0dd2605830a590d68b368a73895a8f191f27a1c3",
+          "kernel_physics/dynamics.py": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4",
+          "kernel_physics/geometry.py": "18398bd15b12c2dc1711c3ea2769f50215f2bcad5335ced9ee23e4e6baf1ddbf",
+          "kernel_physics/readouts.py": "3889051f08c09197224a30263195f8f0d474e5f7b93671fb56e6c240c58e91c9",
+          "kernel_physics/reference_scaffold.py": "39723db1d5e808fa8aeb3585eb47ac4b1cbc01310e07e9171b6d6e04111c4aaf",
+          "kernel_physics/z_diagnostics.py": "db6c5d87fcecd492ac76fbc3cbcd6b71520d2ab4c9bbe4b1686c138aa0549d09",
+          "kernel_physics/z_manifold.py": "97ebdbb37103e736d2ae86c272541c458a5b585e1889e6d14ff056b316494f4f"
+        },
+        "loaded_kernel_modules": [
+          "kernel_physics",
+          "kernel_physics._contract_types",
+          "kernel_physics._geometry_records",
+          "kernel_physics._presets",
+          "kernel_physics._records",
+          "kernel_physics._response_numeric",
+          "kernel_physics._runner",
+          "kernel_physics.api",
+          "kernel_physics.dynamics",
+          "kernel_physics.geometry",
+          "kernel_physics.readouts",
+          "kernel_physics.reference_scaffold",
+          "kernel_physics.z_diagnostics",
+          "kernel_physics.z_manifold"
+        ],
+        "forbidden_loaded": [],
+        "network_attempts": []
+      },
+      "git_without_papers": {
+        "label": "git_without_papers",
+        "cwd": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\kernel-k3a-oi85dcis\\git_without_papers",
+        "kind": "NEGATIVE_CONTROL_GIT_WITH_PAPERS_REMOVED_IN_TEMPORARY_CHECKOUT",
+        "operations": {
+          "api_import": {
+            "status": "WORKS",
+            "seconds": 0.5298
+          },
+          "Parameters": {
+            "status": "WORKS",
+            "seconds": 0.0001
+          },
+          "State": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "step": {
+            "status": "WORKS",
+            "seconds": 0.0003
+          },
+          "z_chiral": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "observe_staged": {
+            "status": "WORKS",
+            "seconds": 0.0001
+          },
+          "observe_ema": {
+            "status": "WORKS",
+            "seconds": 0.0001
+          },
+          "advance_clock": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "advance_ema": {
+            "status": "WORKS",
+            "seconds": 0.0
+          },
+          "diagnostics": {
+            "status": "WORKS",
+            "seconds": 0.0002
+          },
+          "RunRecord_zero_update": {
+            "status": "FAILS",
+            "exception": "FileNotFoundError",
+            "message": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Notandi\\\\AppData\\\\Local\\\\Temp\\\\kernel-k3a-oi85dcis\\\\git_without_papers\\\\papers\\\\PAPER_A\\\\publication\\\\paper_A_publication.md'",
+            "seconds": 0.2138
+          },
+          "RunRecord_one_update": {
+            "status": "FAILS",
+            "exception": "FileNotFoundError",
+            "message": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Notandi\\\\AppData\\\\Local\\\\Temp\\\\kernel-k3a-oi85dcis\\\\git_without_papers\\\\papers\\\\PAPER_A\\\\publication\\\\paper_A_publication.md'",
+            "seconds": 0.1307
+          },
+          "RunRecord_observers": {
+            "status": "FAILS",
+            "exception": "FileNotFoundError",
+            "message": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Notandi\\\\AppData\\\\Local\\\\Temp\\\\kernel-k3a-oi85dcis\\\\git_without_papers\\\\papers\\\\PAPER_A\\\\publication\\\\paper_A_publication.md'",
+            "seconds": 0.1256
+          },
+          "GeometryRecord_C01": {
+            "status": "FAILS",
+            "exception": "FileNotFoundError",
+            "message": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Notandi\\\\AppData\\\\Local\\\\Temp\\\\kernel-k3a-oi85dcis\\\\git_without_papers\\\\papers\\\\PAPER_C\\\\publication\\\\v1.0.1\\\\PAPER_C_EXACT_TRIOCTAGON_GEOMETRY_PUBLICATION_v1.0.1.md'",
+            "seconds": 0.7869
+          },
+          "GeometryRecord_D03": {
+            "status": "FAILS",
+            "exception": "FileNotFoundError",
+            "message": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Notandi\\\\AppData\\\\Local\\\\Temp\\\\kernel-k3a-oi85dcis\\\\git_without_papers\\\\papers\\\\PAPER_D\\\\v0.1.1\\\\PAPER_D_REFERENCE_SCAFFOLD_v0.1.1.md'",
+            "seconds": 1.8415
+          },
+          "RunRecord_one_update_decode": {
+            "status": "WORKS",
+            "seconds": 0.0008
+          },
+          "resume": {
+            "status": "WORKS",
+            "seconds": 0.1515
+          },
+          "GeometryRecord_C01_decode": {
+            "status": "WORKS",
+            "seconds": 0.0025
+          },
+          "GeometryRecord_D03_decode": {
+            "status": "WORKS",
+            "seconds": 0.0233
+          },
+          "implementation_capture": {
+            "status": "WORKS",
+            "seconds": 0.1283
+          },
+          "paper_capture_all": {
+            "status": "FAILS",
+            "exception": "FileNotFoundError",
+            "message": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Notandi\\\\AppData\\\\Local\\\\Temp\\\\kernel-k3a-oi85dcis\\\\git_without_papers\\\\papers\\\\PAPER_A\\\\publication\\\\paper_A_publication.md'",
+            "seconds": 0.0002
+          }
+        },
+        "api_origin": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\kernel-k3a-oi85dcis\\git_without_papers\\kernel_physics\\api.py",
+        "pythonpath_env": null,
+        "git_present": true,
+        "papers_present": false,
+        "research_present": true,
+        "runtime_module_hashes": {
+          "kernel_physics/__init__.py": "98eea72fbd95145cc0be31844910715be938b0ec5b93f7aba33fb8d88781abb6",
+          "kernel_physics/_contract_types.py": "4e7dbdfaad9bc231d932d88bae5a8a9e565b4b80754a678f9a25f9faa1190903",
+          "kernel_physics/_geometry_records.py": "7313d6bcea2e03615a0ac5ceec177d7abd9bc695e1a2ac6d9b8aa629838c1f60",
+          "kernel_physics/_presets.py": "cd8ff8c412391aa51a19d842dee4445537aac19d573412bac33b54f7da0d2e84",
+          "kernel_physics/_records.py": "b8f1fd7b4f562cc83b5754ee43daf73edc89301a7e70d19bd852b9a61e1b8db9",
+          "kernel_physics/_response_numeric.py": "cc33f797e76f7dbeff6fbd58ab52003fde2acbadf35ae299d827b4b55ba29655",
+          "kernel_physics/_runner.py": "3a9f3ce718b1600f445bf963b968b9dbb3c41b03e6f2acf15239e2ae1512bcf6",
+          "kernel_physics/api.py": "6b3f2b4f2f6846147c74a3ee0dd2605830a590d68b368a73895a8f191f27a1c3",
+          "kernel_physics/dynamics.py": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4",
+          "kernel_physics/geometry.py": "18398bd15b12c2dc1711c3ea2769f50215f2bcad5335ced9ee23e4e6baf1ddbf",
+          "kernel_physics/readouts.py": "3889051f08c09197224a30263195f8f0d474e5f7b93671fb56e6c240c58e91c9",
+          "kernel_physics/reference_scaffold.py": "39723db1d5e808fa8aeb3585eb47ac4b1cbc01310e07e9171b6d6e04111c4aaf",
+          "kernel_physics/z_diagnostics.py": "db6c5d87fcecd492ac76fbc3cbcd6b71520d2ab4c9bbe4b1686c138aa0549d09",
+          "kernel_physics/z_manifold.py": "97ebdbb37103e736d2ae86c272541c458a5b585e1889e6d14ff056b316494f4f"
+        },
+        "loaded_kernel_modules": [
+          "kernel_physics",
+          "kernel_physics._contract_types",
+          "kernel_physics._geometry_records",
+          "kernel_physics._presets",
+          "kernel_physics._records",
+          "kernel_physics._response_numeric",
+          "kernel_physics._runner",
+          "kernel_physics.api",
+          "kernel_physics.dynamics",
+          "kernel_physics.geometry",
+          "kernel_physics.readouts",
+          "kernel_physics.reference_scaffold",
+          "kernel_physics.z_diagnostics",
+          "kernel_physics.z_manifold"
+        ],
+        "forbidden_loaded": [],
+        "network_attempts": []
+      }
+    },
+    "identity_namespaces": [
+      {
+        "name": "SOURCE_COMMIT_ID",
+        "existing_schema": "implementation.commit; geometry construction_provenance.source_revision",
+        "meaning": "Actual committed source that produced the distribution; required full Git ID, never artifact ID"
+      },
+      {
+        "name": "PACKAGE_VERSION",
+        "existing_schema": "implementation.package_version",
+        "meaning": "Software distribution release label from __version__; not API/schema/paper version and not a unique artifact digest"
+      },
+      {
+        "name": "DISTRIBUTION_ARTIFACT_IDENTITY",
+        "existing_schema": "NONE",
+        "meaning": "Final wheel/sdist filename plus raw SHA-256 in external build/release receipt; useful, new, not required by 1.0.0. A record alone cannot identify a unique wheel archive"
+      },
+      {
+        "name": "INSTALLED_MODULE_HASHES",
+        "existing_schema": "implementation.modules[].sha256",
+        "meaning": "Hash actual current .py bytes at production/resume. Approved contract requires equality with source hashes"
+      },
+      {
+        "name": "SOURCE_MODULE_HASHES",
+        "existing_schema": "No separate second array",
+        "meaning": "Embedded manifest contains source hashes. With enforced equality, existing single module array honestly identifies both source and installed .py bytes"
+      }
+    ],
+    "alternatives": {
+      "ship_git_papers_research": "REJECTED: violates scope and no repository-free distribution.",
+      "fetch_provenance_remotely": "REJECTED: normal runtime must work offline.",
+      "omit_or_guess_provenance": "REJECTED: weakens frozen contract.",
+      "hardcode_commit_and_hashes_in_Python": "REJECTED: self-reference/version-maintenance risk, runtime .py identity complications. A generated non-Python data manifest avoids hashing itself as a scientific implementation module.",
+      "static_build_captured_JSON_instead_of_live_reads": "Approved installed/sdist provenance mechanism; retain strict live source mode."
+    },
+    "wheel_transformations_tested": false,
+    "build_byte_preservation": "ACCEPTANCE_CONDITION, NOT_OBSERVED_BUILD_BEHAVIOR",
+    "resume": "Existing _runner.py:156-177 compares commit and modules only, keeps prefix/parent digest and records environment segment. No paper re-read in resume. Approved contract must retain this rule; decode older valid records remains portable, resume into changed K3b source must reject. No _runner.py edit allowed by this freeze.",
+    "schema_assessment": "Existing implementation keys and source paper locators/hashes are sufficient if build captures clean source and installed .py hashes equal that source. Artifact identity has no 1.0.0 field and remains external. No schema mutation or extra module entry authorized.",
+    "approved_manifest_contract": [
+      "Build from an exact clean committed source checkout with its recorded origin and six accepted paper sources; validate every required path, hash and frozen paper edition. Reject missing inputs and tracked dirty source for a certifiable release artifact.",
+      "Generate one versioned canonical JSON provenance manifest in external build staging. Never rewrite authoritative .py, paper, fixture or research bytes, and never generate new science. It contains source repository URL, full source commit, source tracked_dirty=false, package version, API/schema/ledger versions, exact sorted 14 module paths/raw source SHA-256 values, and all six paper IDs/editions/repository-relative locators/raw SHA-256 values.",
+      "The manifest may also carry a deterministic build-input identity (canonical manifest payload hash, excluding that identity field), backend/version facts and source receipt locators. Label it build-input identity, not wheel SHA-256. A wheel cannot contain its own full-file hash without circularity; record final wheel/sdist SHA-256 externally after building.",
+      "For a genuine source checkout, preserve live Git and raw source/paper provenance including dirty-state reporting. Do not silently fall back when an actual source checkout is incomplete, modified or has invalid provenance. An unrelated containing Git repository is not the kernel source checkout.",
+      "For an installed artifact or sdist without its original Git/paper tree, read and strictly validate the packaged manifest. Read actual installed .py bytes using paths anchored to the package, never cwd; compare all 14 raw hashes with manifest source hashes. Fail closed on missing manifest, malformed fields, missing/mutated modules or source/installed byte mismatch.",
+      "Populate the existing implementation object from source identity plus verified current module hashes; populate paper_references from the build-captured paper metadata. tracked_dirty describes the attested source checkout state at build time, not a guessed cleanliness state for nonexistent installed Git metadata. No missing-Git-to-false shortcut. Clean source, byte identity and recorded source context make false an honest source-provenance fact.",
+      "Use the same existing six implementation keys and paper-reference keys; do not add artifact identity, origin kind, manifest hash, source/installed duplicate hash arrays or extra module paths to 1.0.0 records. Additional distribution metadata stays in the manifest/distribution receipt.",
+      "Ship the same immutable manifest in the minimal sdist; rebuild a wheel from that sdist without Git/papers after revalidating source-file hashes and frozen metadata. Never replace the original source revision with a synthetic extraction commit or regenerate paper hashes from absent paper files.",
+      "Require source-blob = checked-out .py = wheel member .py = installed .py bytes for the existing 14 authoritative paths; capture all 19 shipped Python files in artifact-content verification as well. Bytecode/cache files and wheel RECORD are distinct. A .pyc-only or source-transforming build is outside this approved contract.",
+      "This is the approved frozen design, not a built or certified manifest implementation. Its checks establish consistency, not cryptographic authorship; no signing infrastructure or remote fetching is implied."
+    ],
+    "contract_status": "APPROVED; implementation deferred to K3b; certification target K3c"
+  },
+  "package_content_classification": [
+    {
+      "content": "14 public-closure kernel_physics/*.py files",
+      "class": "MUST_SHIP_RUNTIME",
+      "wheel": "YES",
+      "sdist": "YES",
+      "reason": "Complete supported facade closure and exact 14-module schema identity"
+    },
+    {
+      "content": "covering.py",
+      "class": "MUST_SHIP_RUNTIME (retained internal software; support status unchanged)",
+      "wheel": "YES, INTERNAL",
+      "sdist": "YES, INTERNAL",
+      "reason": "Accepted internal mathematical owner outside facade import graph; retain existing opt-in behavior"
+    },
+    {
+      "content": "face_state.py",
+      "class": "MUST_SHIP_RUNTIME (retained internal software; support status unchanged)",
+      "wheel": "YES, INTERNAL",
+      "sdist": "YES, INTERNAL",
+      "reason": "Legacy opt-in; no eager re-export. Explicit import reaches quarantine, which is permitted only for opt-in internal callers"
+    },
+    {
+      "content": "boundary_response.py, srg.py, operating_region.py",
+      "class": "MUST_SHIP_RUNTIME (retained internal software; support status unchanged)",
+      "wheel": "YES, INTERNAL",
+      "sdist": "YES, INTERNAL",
+      "reason": "Whole-package build physically includes these; unsupported v1, not auto-imported and not Runner-selectable. Do not delete"
+    },
+    {
+      "content": "kernel_physics/_distribution_provenance.json (future generated artifact)",
+      "class": "MUST_SHIP_RUNTIME",
+      "wheel": "YES",
+      "sdist": "YES",
+      "reason": "Minimal immutable source/paper provenance, approved design; generated only in K3b external build staging"
+    },
+    {
+      "content": "dist-info METADATA/WHEEL/RECORD and approved license metadata",
+      "class": "MUST_SHIP_PACKAGE_METADATA",
+      "wheel": "YES",
+      "sdist": "CORRESPONDING PKG-INFO/LICENSE",
+      "reason": "Normal distribution identity/dependencies/license; currently absent"
+    },
+    {
+      "content": "pyproject.toml and _build_backend.py (approved future build sources)",
+      "class": "SOURCE_DISTRIBUTION_ONLY",
+      "wheel": "NO raw build sources",
+      "sdist": "YES",
+      "reason": "Build/rebuild mechanism, not runtime"
+    },
+    {
+      "content": "kernel_physics/tests/* including parity_oracles",
+      "class": "TEST_DISTRIBUTION_ONLY",
+      "wheel": "NO",
+      "sdist": "NO in minimal approved sdist",
+      "reason": "Repository/CI runs full tracked suite; tests use repository fixtures and provenance. No standalone test distribution created in K3a"
+    },
+    {
+      "content": "kernel_physics/tests/fixtures/golden_388/*",
+      "class": "TEST_DISTRIBUTION_ONLY",
+      "wheel": "NO",
+      "sdist": "NO",
+      "reason": "Repository/CI-only parity evidence, not runtime data; preserve bytes and receipt"
+    },
+    {
+      "content": "Paper-F support, especially TRANSVERSE_AXIS_FALSIFICATION.csv",
+      "class": "TEST_DISTRIBUTION_ONLY for exact P6 fixture; DO_NOT_SHIP remainder",
+      "wheel": "NO",
+      "sdist": "NO",
+      "reason": "P6 reads this source-relative CSV; retain full-source CI checkout for parity, not full papers tree in artifacts"
+    },
+    {
+      "content": "K0 normative contract/ledger and K1/K2/current/historical receipts",
+      "class": "SHOULD_SHIP_DOCUMENTATION (release evidence, separately from runtime)",
+      "wheel": "NO",
+      "sdist": "NO in minimal approved contract",
+      "reason": "Keep at recorded source commit; receipt identities and locators can be embedded, complete receipt bytes need not ship"
+    },
+    {
+      "content": "papers/*, including six accepted source texts",
+      "class": "DO_NOT_SHIP",
+      "wheel": "NO",
+      "sdist": "NO",
+      "reason": "Embed paper IDs, editions, locators and raw hashes; do not bundle paper bytes"
+    },
+    {
+      "content": "research/* including research/twisted_hex_crystal_registration_v0.1/*",
+      "class": "DO_NOT_SHIP",
+      "wheel": "NO",
+      "sdist": "NO",
+      "reason": "Outside supported runtime; no research execution or import"
+    },
+    {
+      "content": "supporting_research/*, Claude outputs/*, research_files/*, research_notes/*",
+      "class": "DO_NOT_SHIP",
+      "wheel": "NO",
+      "sdist": "NO",
+      "reason": "Historical/untracked research and publication work products"
+    },
+    {
+      "content": "four local-only tests (30 methods)",
+      "class": "DO_NOT_SHIP",
+      "wheel": "NO",
+      "sdist": "NO",
+      "reason": "Untracked predecessor tests remain a separate publication obligation; not promoted by K3"
+    },
+    {
+      "content": "kernel_physics/README.md",
+      "class": "SHOULD_SHIP_DOCUMENTATION",
+      "wheel": "AS METADATA DESCRIPTION",
+      "sdist": "YES",
+      "reason": "Best description source after software-only installation/provenance guidance update"
+    },
+    {
+      "content": "root README.md and archival manifests/tools",
+      "class": "DO_NOT_SHIP in minimal runtime/sdist",
+      "wheel": "NO",
+      "sdist": "NO",
+      "reason": "Repository/publication/archive navigation rather than install documentation; retain in repository"
+    },
+    {
+      "content": "LICENSE and LICENSE_SCOPE.md (both absent; K3b creation)",
+      "class": "MUST_SHIP_PACKAGE_METADATA",
+      "wheel": "APPROVED LICENSE TEXT AND SCOPE NOTICE",
+      "sdist": "APPROVED LICENSE TEXT AND SCOPE NOTICE",
+      "reason": "Human-authorized Apache-2.0 for software only; standard unmodified license plus explicit exclusions prevents blanket repository licensing."
+    },
+    {
+      "content": ".git, build products, venvs, caches, scientific publication working files",
+      "class": "DO_NOT_SHIP",
+      "wheel": "NO",
+      "sdist": "NO",
+      "reason": "No repository archaeology or environment bundled into runtime"
+    }
+  ],
+  "clean_checkout_validation": {
+    "head": "d76321a54f6f3a8ee1f0175ac6a4db6d0c017117",
+    "tracked_files": 706,
+    "clean_before_and_after": true,
+    "all_tracked_bytes_match_authoritative_baseline": true,
+    "python": "3.11.15",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "executable": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+    "command": "python -B -m unittest discover -s kernel_physics/tests -t . -p \"test_*.py\" -v",
+    "test_count": 298,
+    "seconds": 200.097,
+    "result": "PASS",
+    "log_sha256": "f61c3f86a0db674a42b3ab4d500a9cfd8171df1f4fa71191d33c8cb3406723e8",
+    "log_tail": "_high_precision_scalar_oracle (kernel_physics.tests.test_z_manifold.StagedTests.test_fixed_high_precision_scalar_oracle) ... ok\ntest_fresh_readonly_values_and_repeat_observation (kernel_physics.tests.test_z_manifold.StagedTests.test_fresh_readonly_values_and_repeat_observation) ... ok\ntest_hand_state_and_direct_chirality_delegation (kernel_physics.tests.test_z_manifold.StagedTests.test_hand_state_and_direct_chirality_delegation) ... ok\ntest_literal_defaults (kernel_physics.tests.test_z_manifold.StagedTests.test_literal_defaults) ... ok\ntest_signed_coefficients_gamma_zero_and_envelope (kernel_physics.tests.test_z_manifold.StagedTests.test_signed_coefficients_gamma_zero_and_envelope) ... ok\n\n----------------------------------------------------------------------\nRan 298 tests in 200.097s\n\nOK\n",
+    "api_import": "PASS",
+    "record_production": "PASS",
+    "geometry_record_production": "PASS",
+    "is_installed_certification": false
+  },
+  "network_model_audit": {
+    "normal_runtime_network_required": false,
+    "llm_required": false,
+    "embedding_model_required": false,
+    "gpu_required": false,
+    "static_network_model_scan_hits": [],
+    "runtime_subprocess": "Only local git read commands in _implementation; no fetch/pull/clone.",
+    "dynamic_network_guard": "Fresh probe processes reject socket.connect/socket.getaddrinfo/urllib.Request events; zero attempted events in four scenarios. Static import/call inspection supplies the broader path evidence.",
+    "research_or_fixture_runners_executed": false,
+    "internet_dependency_downloads": 0,
+    "remote_observation": "git ls-remote origin refs/heads/main used only by task to verify publication state, not kernel runtime."
+  },
+  "version_audit": {
+    "package": "0.1.0",
+    "package_version_introduced_in": "2b68b7f (archive-current-trioctagon-physics-baseline)",
+    "api": "1.0.0",
+    "run_record_schema": "1.0.0",
+    "geometry_record_schema": "1.0.0",
+    "ledger": "0.1",
+    "papers": {
+      "A": "publication",
+      "B": "0.1.2",
+      "C": "1.0.1",
+      "D": "0.1.1",
+      "E": "0.1.1",
+      "F": "0.2"
+    },
+    "recommendation": "APPROVED: keep __version__ = 0.1.0 unchanged for K3 engineering/build certification. Package version is the software distribution release namespace, distinct from API/schema/ledger/paper versions. No __init__.py edit or public registry release/version bump is authorized; any later release decision follows K3 certification.",
+    "python_support": "APPROVED first certification lane: Windows / CPython >=3.11,<3.12. Original observed environment remains CPython 3.11.15; no new cross-version test was run in R1 and no Python 3.12/Linux/macOS support is claimed.",
+    "dependency_pin_mismatch": "Current requirements.txt still pins NumPy 2.3.5; approved K3b metadata/requirements target is NumPy 2.4.4, SymPy 1.14.0, mpmath 1.3.0. No dependency declaration or environment changed in this freeze.",
+    "dependency_minimum_evidence": "Installed NumPy 2.4.4 Requires-Python >=3.11; SymPy 1.14.0 >=3.9 and mpmath>=1.1.0,<1.4; mpmath has no Requires-Python in installed metadata. No lower stack tested."
+  },
+  "geometry_distribution": "geometry.py/reference_scaffold.py compute from code and SymPy; they import/read no papers or Git. _geometry_records.py:178-210 computes exact construction before provenance capture; production failures happen at _implementation or _papers. Exact-codec expression ordering/validation depends on producer SymPy; retain 1.14.0 reference. No SymPy source checkout is read or needed, only installed SymPy runtime. Fix shared provenance acquisition, not either constructor or the geometry codec.",
+  "license_publication_state": {
+    "LICENSE_PRESENT": false,
+    "LICENSE_REFERENCED_BY_PACKAGE": "NO; package metadata absent",
+    "PACKAGE_DESCRIPTION_SOURCE": "Approved kernel_physics/README.md; distribution metadata not yet implemented.",
+    "PROJECT_URL": "https://github.com/pzychozen/trioctagon-physics",
+    "AUTHORS_METADATA": "Approved name: Hilmir Frímann Halldórsson. No email/organization/affiliation or extra copyright year/range invented; distribution metadata not yet implemented.",
+    "evidence": [
+      {
+        "path": "papers/PAPER_A/publication/paper_A_build_report.md",
+        "line": 253,
+        "finding": "License remains UNDECIDED."
+      },
+      {
+        "path": "papers/PAPER_C/publication/paper_C_build_report.md",
+        "line": 347,
+        "finding": "License remains UNDECIDED."
+      }
+    ],
+    "human_decisions": "K3a decisions supplied and frozen by R1. Separate K3b implementation authorization and later registry-name/release decisions remain outside this freeze.",
+    "LICENSE_AUTHORIZED": true,
+    "LICENSE_SELECTED": "Apache-2.0",
+    "LICENSE_SCOPE": "SOFTWARE_ONLY",
+    "LICENSE_FILE_CREATION": "DEFERRED_TO_K3B",
+    "LICENSE_SCOPE_NOTICE_PRESENT": false,
+    "scope_contract": {
+      "selected": "Apache-2.0",
+      "scope": "SOFTWARE_ONLY",
+      "authorized": true,
+      "license_present": false,
+      "covered": [
+        "kernel_physics runtime/software intended for distribution",
+        "package/build tooling",
+        "distribution verification tooling",
+        "software installation/use documentation",
+        "software distribution metadata"
+      ],
+      "not_automatically_covered": [
+        "papers/",
+        "research/",
+        "research datasets",
+        "figures",
+        "publication manuscripts",
+        "Twisted Hex Crystal research",
+        "parity fixtures/evidence datasets (including golden_388 and Paper-F support datasets)",
+        "historical research artifacts",
+        "other scientific/publication materials"
+      ],
+      "excluded_material_status": "Existing licensing/publication status retained; only a separate specific file/directory notice or later explicit authorization governs those materials.",
+      "implementation_phase": "K3b only",
+      "required_files": {
+        "LICENSE": "Standard unmodified Apache License 2.0 text.",
+        "LICENSE_SCOPE.md": "Explicit covered software/build/verification/install-documentation/metadata scope and explicit scientific/publication/dataset exclusions; do not present the root license as a blanket repository license."
+      },
+      "package_metadata_rule": "Point pyproject.toml software license metadata to Apache-2.0 with the explicit scope notice available in the distribution; do not claim all repository artifacts have this license.",
+      "no_invented_metadata": [
+        "email",
+        "organization",
+        "affiliation",
+        "copyright year/range beyond what approved license metadata requires"
+      ]
+    },
+    "historical_evidence_interpretation": "Paper A/C reports remain unchanged and their license statements still describe paper/publication material. R1 separately approves only the software distribution scope."
+  },
+  "k3b_not_allowed": "No mathematical owner, api.py, _contract_types.py, _runner.py, _geometry_records.py, _presets.py, __init__.py, existing test, frozen receipt, paper, fixture, research, root README or CI changes under this accepted boundary. Any later need requires explicit scope revision, not automatic widening.",
+  "phasing": "K3a-R1 freezes authority in exactly the two receipts. Next: separately authorized K3b package/provenance implementation; then K3c clean build/install/sdist rebuild and CI certification. No registry publication, version bump, UI work or scientific phase authorized.",
+  "next_head": {
+    "value": "CONTAINING_K3A_R1_COMMIT",
+    "meaning": "After validation, add exactly these two receipts, commit on existing main and push normally. The resulting commit is the next starting authority for a separately issued K3b order; exact SHA is returned in task closeout."
+  },
+  "preservation": {
+    "tracked_files_checked": 706,
+    "all_preexisting_tracked_raw_hashes_unchanged": true,
+    "local_only_test_sha256_unchanged": {
+      "kernel_physics/tests/test_boundary_pipeline.py": "e820c5ea52c3d53f580cac1427d97935a45a8c35ea10da120b00447c437f64c9",
+      "kernel_physics/tests/test_boundary_response.py": "6d95629e69ebc0d80c9d16f39286b4c26ce1f4a47c05346cb49b467365cfefe7",
+      "kernel_physics/tests/test_operating_region.py": "c873358fcf618bc62a8b0277660cc19fa057273f14c169a521e09d5683d33c35",
+      "kernel_physics/tests/test_srg.py": "a74119c3211e7f790a99a0f3eba2574bffaa45482e8a7a3b9ff5a597f28fed59"
+    },
+    "initial_untracked_paths_count": 2179,
+    "initial_untracked_paths_manifest_sha256": "c456823d4b98d910ca550ef5c01dad2e8e6d98e2767e0fe62c90f342a8c67a4f",
+    "tracked_baseline_manifest_sha256": "76a0058f555b3f466c11744d9a811597e189419c786e1e7226e04e89b98cfb6f",
+    "allowed_new_files": [
+      "kernel_physics/K3A_DISTRIBUTION_PREFLIGHT.md",
+      "kernel_physics/K3A_DISTRIBUTION_PREFLIGHT.json"
+    ],
+    "reason": "SG8 resolved; publication of the exact two-file PASS packet authorized by K3a-R1 section 17.",
+    "git_diff_check": "PASS",
+    "authoritative_tracked_status": "No pre-existing tracked file changed; only the two new receipt additions permitted.",
+    "temporary_experiment_root": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\kernel-k3a-oi85dcis",
+    "clean_checkout": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\kernel-k3a-oi85dcis\\tracked-checkout",
+    "publication_plan": "Commit/push after validation; outcome and containing commit SHA reported in task closeout, not preclaimed in a self-referential receipt.",
+    "R1_tracked_raw_hashes_verified": 706,
+    "R1_verification": "HEAD and origin/main equal authority before edits; all tracked baseline hashes unchanged. Receipt consistency and git diff --check must pass before commit.",
+    "R1_broad_archaeology_rerun": false,
+    "R1_tests_rerun": false,
+    "R1_build_install_attempts": 0,
+    "R1_receipt_before_sha256": {
+      "md": "75ae53e8f390dd5fbb737e97baa5d12efd6c78cd16149089532f50439dcdd014",
+      "json": "5ef264bc1561c47810098a6bc5e6e7ac5e7aaf1728785b70967c8e9d98df6ab7"
+    }
+  },
+  "reproducibility": {
+    "probe_source": "from pathlib import Path\nimport hashlib, json, os, sys, time\n\nOUT = Path(r'C:\\Users\\Notandi\\AppData\\Local\\Temp\\kernel-k3a-oi85dcis')\nlabel = sys.argv[1]\nnetwork_attempts = []\ndef guard(event, args):\n    if event in ('socket.connect', 'socket.getaddrinfo', 'urllib.Request'):\n        network_attempts.append(event)\n        raise RuntimeError('Network forbidden during K3a preflight')\nsys.addaudithook(guard)\nresults = {'label':label,'cwd':str(Path.cwd()),'kind':'CLEAN_GIT_CHECKOUT' if label=='clean' else 'FILES_ONLY_SIMULATION_NOT_INSTALLATION','operations':{}}\ndef attempt(name, f):\n    start=time.perf_counter()\n    try:\n        value=f()\n        results['operations'][name]={'status':'WORKS','seconds':round(time.perf_counter()-start,4)}\n        return value\n    except Exception as exc:\n        results['operations'][name]={'status':'FAILS','exception':type(exc).__name__,'message':str(exc),'seconds':round(time.perf_counter()-start,4)}\n        return None\ndef import_api():\n    import kernel_physics.api\n    return kernel_physics.api\na=attempt('api_import',import_api)\nassert Path(a.__file__).resolve().parent.parent == Path.cwd().resolve(), a.__file__\nresults['api_origin']=str(Path(a.__file__).resolve())\nresults['pythonpath_env']=os.environ.get('PYTHONPATH')\nresults['git_present']=(Path.cwd()/'.git').exists()\nresults['papers_present']=(Path.cwd()/'papers').exists()\nresults['research_present']=(Path.cwd()/'research').exists()\np=attempt('Parameters',lambda:a.Parameters(eps=.05,g=.2,phase_strength=.001,k=(1,1,1)))\ns=attempt('State',lambda:a.State(omega=(.2+.3j,-.4+.1j,.1-.2j),update_index=0))\nattempt('step',lambda:a.step(s,p,topology='triad'))\nattempt('z_chiral',lambda:a.z_chiral(s.omega))\nstaged=a.historical_observer('paper_e_staged_v1')\nema=a.historical_observer('paper_e_ema_v1')\nattempt('observe_staged',lambda:a.observe_staged(s.omega,staged.clock,staged.config))\nattempt('observe_ema',lambda:a.observe_ema(s.omega,ema.clock,ema.config,ema.memory))\nattempt('advance_clock',lambda:a.advance_clock(staged.clock,staged.dt))\nattempt('advance_ema',lambda:a.advance_ema(s.omega,ema.memory))\nattempt('diagnostics',lambda:(a.chiral_area_accounting(s.omega),a.intensity_budget(s.omega,p),a.potential(s.omega,p)))\nprov=a.Provenance(kind='user_supplied',source_id='K3a disposable preflight',source_revision=None,locator='external temporary probe',literal_values={},notes='Explicit smoke inputs; not scientific evidence.')\ndef run(n,observed=False):\n    return a.run(s,p,topology='triad',updates=n,parameter_provenance=prov,initialization_provenance=prov,observers=(staged,ema) if observed else (),readouts=('z_chiral',),diagnostics=('chiral_area_accounting','readout_accounting') if observed else ())\nrecords={}\nfor name,f in [('RunRecord_zero_update',lambda:run(0)),('RunRecord_one_update',lambda:run(1)),('RunRecord_observers',lambda:run(1,True)),('GeometryRecord_C01',lambda:a.get_geometry('C01',options={'section_heights':[]})),('GeometryRecord_D03',lambda:a.get_geometry('D03',options={'construction':'regular','s':1}))]:\n    record=attempt(name,f)\n    if record is not None:\n        records[name]=record\n        results['operations'][name]['digest']=record.deterministic_sha256\n        results['operations'][name]['implementation']=json.loads(record.to_json())['implementation']\n        results['operations'][name]['paper_references']=json.loads(record.to_json())['paper_references']\n        if label=='clean':\n            (OUT/(name+'.json')).write_text(record.to_json(),encoding='utf-8')\nfor name,cls in [('RunRecord_one_update',a.RunRecord),('GeometryRecord_C01',a.GeometryRecord),('GeometryRecord_D03',a.GeometryRecord)]:\n    def roundtrip(name=name,cls=cls):\n        text=(OUT/(name+'.json')).read_text(encoding='utf-8')\n        result=cls.from_json(text)\n        assert result.to_json()==text\n        return result\n    decoded=attempt(name+'_decode',roundtrip)\n    if name=='RunRecord_one_update' and decoded:\n        attempt('resume',lambda:a.resume(decoded,updates=1))\nfrom kernel_physics import _records\nattempt('implementation_capture',_records._implementation)\nattempt('paper_capture_all',lambda:_records._papers('ABCDEF'))\nresults['runtime_module_hashes']={p:hashlib.sha256((Path.cwd()/p).read_bytes()).hexdigest() for p in _records._MODULES}\nresults['loaded_kernel_modules']=sorted(k for k in sys.modules if k=='kernel_physics' or k.startswith('kernel_physics.'))\nresults['forbidden_loaded']=sorted(k for k in sys.modules if k in ('kernel_physics.face_state','kernel_physics.operating_region','kernel_physics.srg','kernel_physics.boundary_response') or k.startswith(('research.','papers.')))\nresults['network_attempts']=network_attempts\n(OUT/(label+'.json')).write_text(json.dumps(results,indent=2),encoding='utf-8')\nprint(json.dumps({'label':label,'origin':results['api_origin'],'operations':{k: {f:v for f,v in r.items() if f in ('status','exception','message')} for k,r in results['operations'].items()},'forbidden_loaded':results['forbidden_loaded'],'network_attempts':network_attempts},indent=2))\n",
+    "static_audit_source": "from pathlib import Path\nimport ast, hashlib, importlib.metadata as md, json, platform, re, subprocess, sys\n\nROOT = Path(r'C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics')\nOUT = Path(__file__).parent\ntracked = subprocess.check_output(['git', '-C', str(ROOT), 'ls-files', '-z']).decode().split('\\0')[:-1]\nruntime = {p.stem: p for p in (ROOT / 'kernel_physics').glob('*.py')}\nnodes = {}\nfor name, path in sorted(runtime.items()):\n    source = path.read_text(encoding='utf-8-sig')\n    imports = []\n    for node in ast.walk(ast.parse(source)):\n        if isinstance(node, (ast.Import, ast.ImportFrom)):\n            targets = []\n            if isinstance(node, ast.Import):\n                targets = [v.name for v in node.names]\n            elif node.level:\n                targets = [f'kernel_physics.{node.module}'] if node.module else [\n                    f'kernel_physics.{v.name}' if v.name in runtime else 'kernel_physics.__init__' for v in node.names]\n            else:\n                targets = [node.module]\n            imports.append({'line': node.lineno, 'statement': ast.get_source_segment(source, node), 'targets': targets})\n    nodes[name] = {'path': path.relative_to(ROOT).as_posix(), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(), 'imports': imports}\nclosure = {'api', '__init__'}\nwhile True:\n    expanded = closure | {t.split('.')[-1] for n in closure for row in nodes[n]['imports'] for t in row['targets'] if t.startswith('kernel_physics.')}\n    if expanded == closure:\n        break\n    closure = expanded\nquarantine = {'boundary_response','srg','operating_region'}\nfor name, data in nodes.items():\n    for row in data['imports']:\n        row['classifications'] = {}\n        for target in row['targets']:\n            base = target.split('.')[0]\n            if base in sys.stdlib_module_names:\n                label = 'STDLIB'\n            elif base == 'kernel_physics':\n                leaf = target.split('.')[-1]\n                label = 'QUARANTINED' if leaf in quarantine else 'REQUIRED_RUNTIME_DEPENDENCY' if leaf in closure else 'OPTIONAL_RUNTIME_DEPENDENCY'\n            else:\n                label = 'REQUIRED_RUNTIME_DEPENDENCY'\n            row['classifications'][target] = label\nthird_party = sorted({t.split('.')[0] for n in closure for r in nodes[n]['imports'] for t in r['targets'] if t.split('.')[0] not in sys.stdlib_module_names and not t.startswith('kernel_physics.')})\ntest_imports = set()\nfor path in tracked:\n    if path.startswith('kernel_physics/tests/') and path.endswith('.py'):\n        for node in ast.walk(ast.parse((ROOT/path).read_text(encoding='utf-8-sig'))):\n            if isinstance(node, ast.Import):\n                test_imports.update(a.name.split('.')[0] for a in node.names)\n            elif isinstance(node, ast.ImportFrom) and node.level == 0:\n                test_imports.add(node.module.split('.')[0])\ndependency_metadata = {}\nfor name in [*third_party, 'pip', 'setuptools', 'wheel', 'build']:\n    try:\n        dist = md.distribution(name)\n        dependency_metadata[name] = {'version':dist.version, 'requires_python':dist.metadata.get('Requires-Python'), 'requires_dist':dist.requires or []}\n    except md.PackageNotFoundError:\n        dependency_metadata[name] = {'present':False}\nspecial = {'pyproject.toml','setup.py','setup.cfg','MANIFEST.in','tox.ini','noxfile.py','pytest.ini'}\ndef metadata_path(p):\n    name = Path(p).name\n    return name in special or bool(re.fullmatch(r'(requirements.*\\.txt|environment.*\\.ya?ml|conda.*\\.ya?ml)',name)) or '/.github/workflows/' in '/' + p\ncensus = {p:(ROOT/p).read_text(encoding='utf-8-sig') for p in tracked if metadata_path(p)}\nreadmes = [p for p in tracked if Path(p).name.lower().startswith('readme')]\nlicenses = [p for p in tracked if re.search(r'license|licence|copying|notice',Path(p).name,re.I)]\npattern = re.compile(r'\\b(requests|urllib|httpx|socket|huggingface|transformers|torch|tensorflow|cuda|openai|urlopen|pip\\s+install|git\\s+(fetch|pull|clone))\\b',re.I)\nnetwork_hits = [{'path':nodes[n]['path'],'line':i,'text':line} for n in closure for i,line in enumerate((ROOT/nodes[n]['path']).read_text().splitlines(),1) if pattern.search(line)]\nresult = {'tracked_count':len(tracked),'metadata_files':census,'readmes':readmes,'license_named_files':licenses,'runtime_modules':nodes,'public_closure':sorted(closure),'public_closure_count':len(closure),'required_third_party':third_party,'stdlib_imports':sorted({t for n in closure for r in nodes[n]['imports'] for t in r['targets'] if t.split('.')[0] in sys.stdlib_module_names}),'test_imports':sorted(test_imports),'test_only_third_party':sorted(test_imports-set(third_party)-sys.stdlib_module_names-{'kernel_physics'}),'dependency_metadata':dependency_metadata,'network_model_scan_hits':network_hits,'python':platform.python_version(),'platform':platform.platform(),'executable':sys.executable}\n(OUT/'static_audit.json').write_text(json.dumps(result,indent=2),encoding='utf-8')\nprint(json.dumps({k:v for k,v in result.items() if k not in ('runtime_modules','metadata_files','readmes','dependency_metadata')},indent=2))\nprint(json.dumps({'dependency_metadata':dependency_metadata},indent=2))\n",
+    "probe_invocation": "Activate torment; from each temporary scenario directory run python -B -c \"exec(compile(open(PROBE_PATH, encoding='utf-8').read(), 'K3a probe', 'exec'))\" LABEL. The harness stays outside scenario folders. No PYTHONPATH is set. Package-only folder contains only the 19 raw .py package files. These are source-file simulations, never installation certification.",
+    "scenario_setup": "Create fresh detached worktree at authorized HEAD; run full tracked suite there. Copy only tracked top-level kernel_physics/*.py bytes into two external empty folders, adding six accepted paper sources to one negative control. Create a second detached worktree and move only its papers directory to another verified path in the same external temp root. Original clean worktree stays clean. Use clean-produced records outside all scenario roots as decode inputs.",
+    "experimental_artifact_sha256": {
+      "audit_static.py": "9881eee95b8ad0a15dfbc17bc1bb27e7e144aeec8a321218c986cfc22217b50a",
+      "probe.py": "edc16eb3675904b40e8d61f0f2e603657ed9ca65ef92d007d90cc4baa85f7219",
+      "static_audit.json": "1fc6caaed36920d6f2a74b60158a7560519654c62b82278aa7c6e936873d78c0",
+      "dependency_block_probes.json": "038f1f1e02b5ae05b4f2e8c3ccbf351d5c73f676ce76dc2f289c02405cc0aec3",
+      "source_identity.json": "cf1d2e2008cd8369ded302d5b386ac15b3c9cf09c4a7cc17758b346024361078",
+      "clean.json": "41022d916cd74a8e2991c9040e5e0dfa0c54396a51885a416db72f5d89274b67",
+      "package_only.json": "f6a89b096f0f90ec777c869c89724b2a9f627c5ad13568c4e15fc813d1e1df6a",
+      "no_git_with_papers.json": "048fa172f345eefe9bb4d6abaa8cd350cab49f98b5cdd4d3e2c47861d893e6ca",
+      "git_without_papers.json": "b024842b9a4597f975c89ccb2e64e2e7e98eaa3a27d708e297240e0b50cf71c5",
+      "tracked-suite.log": "f61c3f86a0db674a42b3ab4d500a9cfd8171df1f4fa71191d33c8cb3406723e8"
+    }
+  },
+  "history": {
+    "ATTEMPT_1": {
+      "status": {
+        "STARTING_HEAD": "d76321a54f6f3a8ee1f0175ac6a4db6d0c017117",
+        "FINAL_HEAD": "d76321a54f6f3a8ee1f0175ac6a4db6d0c017117",
+        "ORIGIN_MAIN": "d76321a54f6f3a8ee1f0175ac6a4db6d0c017117",
+        "K3A_STATUS": "HOLD",
+        "CURRENT_PACKAGE_METADATA": "ABSENT_BUILD_METADATA; KERNEL_REQUIREMENTS_AND_INHERITED_VERSION_PRESENT",
+        "CURRENT_WHEEL_BUILD": "NOT_IMPLEMENTED",
+        "CURRENT_SDIST_BUILD": "NOT_IMPLEMENTED",
+        "CURRENT_INSTALLED_PACKAGE_SMOKE": "NOT_YET_IMPLEMENTABLE",
+        "PUBLIC_API_IMPORT_CLEAN_CHECKOUT": "PASS",
+        "PUBLIC_API_IMPORT_INSTALLED": "NOT_YET_IMPLEMENTABLE",
+        "RUNTIME_DEPENDENCIES": [
+          "numpy",
+          "sympy",
+          "mpmath"
+        ],
+        "TEST_ONLY_DEPENDENCIES": "No additional third-party packages; unittest and other standard-library test tools; repository fixtures",
+        "NETWORK_REQUIRED": "NO",
+        "MODEL_REQUIRED": "NO",
+        "RUN_RECORD_WITHOUT_GIT": "FAILS",
+        "RUN_RECORD_WITHOUT_PAPERS": "FAILS",
+        "GEOMETRY_RECORD_WITHOUT_GIT": "FAILS",
+        "GEOMETRY_RECORD_WITHOUT_PAPERS": "FAILS",
+        "PACKAGED_PROVENANCE_MANIFEST_NEEDED": "YES",
+        "RUN_RECORD_SCHEMA_CHANGE_NEEDED": "NO",
+        "GEOMETRY_RECORD_SCHEMA_CHANGE_NEEDED": "NO",
+        "O01_QUARANTINE_INSTALL_BOUNDARY": "PASS",
+        "LICENSE_PRESENT": "NO",
+        "HUMAN_DECISIONS_REQUIRED": "YES: SG8 license/publication terms; approve proposed distribution metadata and contract",
+        "CLEAN_INSTALL_CONTRACT": "HOLD",
+        "CI_CONTRACT": "HOLD",
+        "K3B_SCOPE_DEFINED": "YES",
+        "PRODUCTION_SOURCE_CHANGED": 0,
+        "EXISTING_TEST_CHANGED": 0,
+        "PACKAGE_METADATA_CHANGED": 0,
+        "K0_CHANGED": 0,
+        "K1_CHANGED": 0,
+        "K2_CHANGED": 0,
+        "PAPERS_CHANGED": 0,
+        "RESEARCH_CHANGED": 0,
+        "FIXTURE_CHANGED": 0,
+        "CI_CHANGED": 0,
+        "FILES_CREATED": 2,
+        "FILES_MODIFIED": 0,
+        "K3B_READY_FOR_AUTHORIZATION": "NO"
+      },
+      "status_qualifications": {
+        "O01_QUARANTINE_INSTALL_BOUNDARY": "PASS for static closure and package-files-only negative controls; actual installed artifact certification remains NOT_YET_IMPLEMENTABLE.",
+        "schema_change_needed": "NO under the proposed clean-source, byte-preserving provenance contract; design conclusion only, not a tested wheel implementation.",
+        "K3B_SCOPE_DEFINED": "YES as a conditional proposed allowlist; not frozen or authorized due SG8.",
+        "DISTRIBUTION_CONTRACT_OPEN": "YES until SG8 and contract approval are resolved; no intrinsic mathematical or schema blocker identified."
+      },
+      "stop_gates": {
+        "triggered": [
+          "SG8"
+        ],
+        "reason": "No software license or package publication terms are authorized; factual repository evidence leaves license undecided.",
+        "other_gates": "SG1/SG2 clear; SG3/SG4 negative in inspected graph/probes; no evidence of SG5/SG6/SG9; SG7 untested (no build exists); SG10 avoided (no installs or environment mutation).",
+        "hold_behavior": "Documentation/evidence only; no runtime/metadata/schema edits, no new tooling, no build/install, no commit/push."
+      },
+      "license_publication_state": {
+        "LICENSE_PRESENT": false,
+        "LICENSE_REFERENCED_BY_PACKAGE": "NO; package metadata absent",
+        "PACKAGE_DESCRIPTION_SOURCE": "No packaged description. Recommended kernel_physics/README.md after authorized software guidance update; root README is publication/archive oriented.",
+        "PROJECT_URL": "No distribution metadata field. Existing Git origin: https://github.com/pzychozen/trioctagon-physics.git",
+        "AUTHORS_METADATA": "No distribution author field. Root README: Hilmir Frímann Halldórsson; do not infer email, affiliation or legal terms.",
+        "evidence": [
+          {
+            "path": "papers/PAPER_A/publication/paper_A_build_report.md",
+            "line": 253,
+            "finding": "License remains UNDECIDED."
+          },
+          {
+            "path": "papers/PAPER_C/publication/paper_C_build_report.md",
+            "line": 347,
+            "finding": "License remains UNDECIDED."
+          }
+        ],
+        "human_decisions": [
+          "Supply/approve software distribution license/publication terms and their scope; no license is selected here.",
+          "Approve proposed distribution name trioctagon-physics, import name kernel_physics, documented author/project URL, description source and first release-version policy; no registry name availability has been checked.",
+          "Approve the candidate clean-source provenance/build/content contract and narrow dependency/Python declaration, then issue a bounded K3b implementation order."
+        ]
+      },
+      "version_audit": {
+        "package": "0.1.0",
+        "package_version_introduced_in": "2b68b7f (archive-current-trioctagon-physics-baseline)",
+        "api": "1.0.0",
+        "run_record_schema": "1.0.0",
+        "geometry_record_schema": "1.0.0",
+        "ledger": "0.1",
+        "papers": {
+          "A": "publication",
+          "B": "0.1.2",
+          "C": "1.0.1",
+          "D": "0.1.1",
+          "E": "0.1.1",
+          "F": "0.2"
+        },
+        "recommendation": "Package version names software/distribution releases and is currently inherited, not a claim of K2 parity or distribution readiness. Retain __version__ as single source; do not set it to API/schema version. Smallest K3b scope leaves 0.1.0 unchanged for engineering builds; human must approve public release version, and any requested bump expands allowlist explicitly.",
+        "python_support": "Only current CPython 3.11.15 / Windows stack validated here; proposed initial 3.11 lane, no implied 3.12 support.",
+        "dependency_pin_mismatch": "requirements.txt NumPy 2.3.5 versus tested torment 2.4.4. Proposal aligns first certified metadata/requirements to tested 2.4.4, with SymPy 1.14.0 and mpmath 1.3.0.",
+        "dependency_minimum_evidence": "Installed NumPy 2.4.4 Requires-Python >=3.11; SymPy 1.14.0 >=3.9 and mpmath>=1.1.0,<1.4; mpmath has no Requires-Python in installed metadata. No lower stack tested."
+      },
+      "clean_install_contract_candidate": [
+        "Import kernel_physics.api from an actual isolated installation with all origins under that environment.",
+        "Construct explicit State and Parameters, delegate the accepted recurrence, compute raw z_chiral, and use supported passive observers/diagnostics without altering scientific meaning.",
+        "Produce bounded trajectories and complete RunRecord records; preserve binary64 serialization, round-trip inertly, and resume only with matching source revision plus module hashes.",
+        "Request C01 and explicitly selected D03 with exact SymPy inputs; preserve exact-tree producer ordering, metadata and coupling=none; round-trip GeometryRecord inertly.",
+        "All operations work without source Git, papers, research, UI, network, LLM/embedding/GPU subsystem or quarantined option activation.",
+        "No claim of universal cross-platform bitwise replay; retain existing environment qualification and strict precision behavior."
+      ],
+      "ci_contract_candidate": [
+        "Start with one evidence-backed Windows / CPython 3.11 lane; exact validated reference is Python 3.11.15, NumPy 2.4.4, SymPy 1.14.0, mpmath 1.3.0. A provisional Requires-Python >=3.11,<3.12 limits the first support claim; certify other patches/platforms/versions before expanding it. Historical Python 3.12 fixture production alone is not package support.",
+        "Use a clean tracked checkout at the intended committed source HEAD. Run the full tracked unittest suite and existing facade/oracle boundary gates with repository fixtures present; local-only tests remain separate. Check the original 298 plus explicitly authorized new software distribution tests.",
+        "Use explicitly approved, available build/runtime dependency artifacts; no uncontrolled resolution in certification. Build wheel and sdist into external staging. Validate exact file allowlists, no science/research/paper/.git/test leakage, version/dependency/license metadata and immutable manifest.",
+        "Compare source Git-blob bytes, source worktree bytes, archive member bytes and installed .py bytes; verify all 14 authoritative identities and unchanged scientific owners. Any build transformation breaks the current candidate contract and is a HOLD, not a reason to loosen resume.",
+        "Install the wheel in a disposable isolated environment with approved dependency wheels. Run python -I from an unrelated empty directory with the source checkout absent from import paths. Assert api.__file__ and every public-closure module resolve inside the installed environment; no PYTHONPATH or system-site-packages shortcut.",
+        "Without .git, papers, research, network or models: explicit Parameters/State, triad/ring steps in supported scopes, raw z_chiral, both passive observers and diagnostics, zero/one/bounded-update runs, RunRecord exact JSON round-trip, compatible resume and incompatible source/hash rejection, C01 and explicit D03, GeometryRecord exact JSON round-trips. Assert no face_state/quarantine/research imports and no Runner selection routes.",
+        "Exercise missing/corrupt manifests and tampered installed module rejection; decoding existing valid records remains portable and inert. Verify producer versions and source tracked_dirty meaning. Preserve original module-list and schema field validation.",
+        "Extract the sdist outside Git, rebuild a wheel offline from its embedded manifest, install and repeat the isolated smoke. Require matching source identity and .py bytes; do not promise identical complete wheel ZIP bytes before build testing.",
+        "Check source git diff --check, git diff/status and raw preservation hashes; report artifacts and dependency versions. No CI files are created in K3a. K3c should implement and certify this candidate once K3b is approved and complete."
+      ],
+      "k3b_proposed_allowlist": [
+        {
+          "path": "pyproject.toml",
+          "action": "NEW",
+          "why_required": "No package metadata/backend/dependencies/content selection exists. Declare exact kernel_physics package, backend, package version source, approved project/license metadata and runtime dependencies. Exclude tests/subpackages and unrelated tree.",
+          "why_software_only": "Distribution configuration only.",
+          "why_math_unchanged": "No equations, constants, model defaults or scientific file generation.",
+          "test": "Build metadata/content census and isolated wheel/sdist install."
+        },
+        {
+          "path": "_build_backend.py",
+          "action": "NEW",
+          "why_required": "One bounded PEP 517 wrapper around available setuptools.build_meta can stage an allowlisted copy, capture immutable provenance, verify source bytes and build both wheel/sdist without changing authoritative source. No second build-helper file is proposed.",
+          "why_software_only": "Build-time file/identity management only.",
+          "why_math_unchanged": "Copies raw scientific bytes; rejects changes instead of transforming them.",
+          "test": "Clean source build, staged-manifest validation, byte comparisons, no-Git sdist rebuild and source cleanliness."
+        },
+        {
+          "path": "LICENSE",
+          "action": "NEW ONLY AFTER HUMAN SUPPLIES/APPROVES TERMS",
+          "why_required": "Licensing/publication authority is missing; SG8.",
+          "why_software_only": "Legal/publication metadata, not runtime.",
+          "why_math_unchanged": "No scientific meaning changes.",
+          "test": "Approved text and metadata included in intended artifacts; no inferred legal grant."
+        },
+        {
+          "path": "kernel_physics/_records.py",
+          "action": "MODIFY SOFTWARE PROVENANCE FUNCTIONS ONLY",
+          "why_required": "_implementation and _papers currently require live Git and paper files. Add strict same-schema manifest fallback/installed-byte verification in this existing module; avoid a new runtime .py module that would require changing the frozen 14-path identity set.",
+          "why_software_only": "Provenance acquisition and validation, not numerical or symbolic computation. Keep public signatures, decoder fields, _MODULES and schemas unchanged.",
+          "why_math_unchanged": "Mathematical owners and delegations untouched. No weakening of resume compatibility.",
+          "test": "New provenance tests, existing P12, record/geometry tests, full parity, missing-Git/papers installed smoke, tampered module rejection, same-source resume and mismatched-source refusal."
+        },
+        {
+          "path": "kernel_physics/requirements.txt",
+          "action": "MODIFY DEPENDENCY PINS ONLY",
+          "why_required": "Current NumPy 2.3.5 pin differs from validated torment 2.4.4. Proposed first certification pins are NumPy 2.4.4 / SymPy 1.14.0 / mpmath 1.3.0, consistent with package metadata; owner approval still required.",
+          "why_software_only": "Dependency declaration.",
+          "why_math_unchanged": "No equation/source change; numerical behavior remains subject to full parity.",
+          "test": "Metadata/requirements agreement and approved-environment parity; broad version ranges are not inferred."
+        },
+        {
+          "path": "kernel_physics/README.md",
+          "action": "MODIFY INSTALL/PROVENANCE GUIDANCE ONLY",
+          "why_required": "Current text requires a source Git checkout and contains historical interpreter/phase references. Add accurate supported installation, package-version distinction, provenance mode and quarantine guidance. Preserve historical receipts.",
+          "why_software_only": "Usage and distribution documentation.",
+          "why_math_unchanged": "No reinterpretation of accepted scope.",
+          "test": "Documented wheel smoke and links/metadata review."
+        },
+        {
+          "path": "kernel_physics/tests/test_distribution_provenance.py",
+          "action": "NEW",
+          "why_required": "Validate software fallback, strict manifest acceptance, identity/dirty-source semantics, cwd independence and schema preservation.",
+          "why_software_only": "Software regression gates only.",
+          "why_math_unchanged": "No independent oracle or existing scientific test is edited.",
+          "test": "Run with existing tracked suite; assert malformed/missing/tampered inputs fail closed."
+        },
+        {
+          "path": "tools/verify_distribution.py",
+          "action": "NEW",
+          "why_required": "One external artifact-verification harness for build content, source/wheel/installed hashes and isolated installed API smoke; can be invoked by future CI.",
+          "why_software_only": "Packaging verification only; never a runtime dependency.",
+          "why_math_unchanged": "Calls existing facade and compares outputs/identity; no scientific regeneration.",
+          "test": "Runs outside checkout against built wheel and no-Git sdist rebuild, checks installed module origins and exclusions."
+        },
+        {
+          "path": "kernel_physics/_distribution_provenance.json",
+          "action": "GENERATED ARTIFACT ONLY; wheel/sdist staging, not authoritative checkout",
+          "why_required": "Minimum immutable provenance data unavailable in an installation.",
+          "why_software_only": "Source/paper identifiers and raw hashes only.",
+          "why_math_unchanged": "No scientific data regeneration, copied paper source or equation.",
+          "test": "Strict manifest verification, source identity equality, artifact inclusion, installed record smoke."
+        }
+      ],
+      "phasing": "After human resolution and accepted K3a freeze: K3b package/provenance implementation; K3c clean wheel/sdist rebuild/install and CI certification. No extra scientific phase, UI work or registry publication proposed.",
+      "next_head": {
+        "value": "d76321a54f6f3a8ee1f0175ac6a4db6d0c017117",
+        "meaning": "No new commit on HOLD; resolve SG8 and accept/freeze K3a first. Actual future freeze/implementation commit hashes cannot be invented."
+      },
+      "preservation": {
+        "tracked_files_checked": 706,
+        "all_preexisting_tracked_raw_hashes_unchanged": true,
+        "local_only_test_sha256_unchanged": {
+          "kernel_physics/tests/test_boundary_pipeline.py": "e820c5ea52c3d53f580cac1427d97935a45a8c35ea10da120b00447c437f64c9",
+          "kernel_physics/tests/test_boundary_response.py": "6d95629e69ebc0d80c9d16f39286b4c26ce1f4a47c05346cb49b467365cfefe7",
+          "kernel_physics/tests/test_operating_region.py": "c873358fcf618bc62a8b0277660cc19fa057273f14c169a521e09d5683d33c35",
+          "kernel_physics/tests/test_srg.py": "a74119c3211e7f790a99a0f3eba2574bffaa45482e8a7a3b9ff5a597f28fed59"
+        },
+        "initial_untracked_paths_count": 2179,
+        "initial_untracked_paths_manifest_sha256": "c456823d4b98d910ca550ef5c01dad2e8e6d98e2767e0fe62c90f342a8c67a4f",
+        "tracked_baseline_manifest_sha256": "76a0058f555b3f466c11744d9a811597e189419c786e1e7226e04e89b98cfb6f",
+        "allowed_new_files": [
+          "kernel_physics/K3A_DISTRIBUTION_PREFLIGHT.md",
+          "kernel_physics/K3A_DISTRIBUTION_PREFLIGHT.json"
+        ],
+        "commit_performed": false,
+        "push_performed": false,
+        "reason": "SG8 HOLD; publication authorized only for PASS without a stop gate.",
+        "git_diff_check": "PASS",
+        "authoritative_tracked_status": "CLEAN",
+        "temporary_experiment_root": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\kernel-k3a-oi85dcis",
+        "clean_checkout": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\kernel-k3a-oi85dcis\\tracked-checkout"
+      }
+    },
+    "transition": {
+      "ATTEMPT_1": "HOLD_SG8",
+      "R1": "HUMAN_DECISION_SUPPLIED",
+      "FINAL_K3A": "PASS"
+    },
+    "attempt_1_receipt_sha256": {
+      "md": "75ae53e8f390dd5fbb737e97baa5d12efd6c78cd16149089532f50439dcdd014",
+      "json": "5ef264bc1561c47810098a6bc5e6e7ac5e7aaf1728785b70967c8e9d98df6ab7"
+    },
+    "interpretation": "Historical statuses/decisions in ATTEMPT_1 are preserved evidence, not current unresolved gates. Original scientific and preflight evidence remains unchanged in the main evidence sections."
+  },
+  "revision": "K3a-R1",
+  "frozen_authority_contract": {
+    "license": {
+      "selected": "Apache-2.0",
+      "scope": "SOFTWARE_ONLY",
+      "authorized": true,
+      "license_present": false,
+      "covered": [
+        "kernel_physics runtime/software intended for distribution",
+        "package/build tooling",
+        "distribution verification tooling",
+        "software installation/use documentation",
+        "software distribution metadata"
+      ],
+      "not_automatically_covered": [
+        "papers/",
+        "research/",
+        "research datasets",
+        "figures",
+        "publication manuscripts",
+        "Twisted Hex Crystal research",
+        "parity fixtures/evidence datasets (including golden_388 and Paper-F support datasets)",
+        "historical research artifacts",
+        "other scientific/publication materials"
+      ],
+      "excluded_material_status": "Existing licensing/publication status retained; only a separate specific file/directory notice or later explicit authorization governs those materials.",
+      "implementation_phase": "K3b only",
+      "required_files": {
+        "LICENSE": "Standard unmodified Apache License 2.0 text.",
+        "LICENSE_SCOPE.md": "Explicit covered software/build/verification/install-documentation/metadata scope and explicit scientific/publication/dataset exclusions; do not present the root license as a blanket repository license."
+      },
+      "package_metadata_rule": "Point pyproject.toml software license metadata to Apache-2.0 with the explicit scope notice available in the distribution; do not claim all repository artifacts have this license.",
+      "no_invented_metadata": [
+        "email",
+        "organization",
+        "affiliation",
+        "copyright year/range beyond what approved license metadata requires"
+      ]
+    },
+    "metadata": {
+      "DISTRIBUTION_NAME": "trioctagon-physics",
+      "IMPORT_PACKAGE": "kernel_physics",
+      "SOURCE_PACKAGE_DIRECTORY": "kernel_physics/",
+      "GITHUB_REPOSITORY": "pzychozen/trioctagon-physics",
+      "REPOSITORY_PROJECT_NAME": "trioctagon-physics",
+      "AUTHOR": "Hilmir Frímann Halldórsson",
+      "PROJECT_URL": "https://github.com/pzychozen/trioctagon-physics",
+      "DESCRIPTION_SOURCE": "kernel_physics/README.md",
+      "PACKAGE_VERSION_POLICY": "KEEP_0.1.0_FOR_K3_ENGINEERING",
+      "ENGINEERING_PACKAGE_VERSION": "0.1.0",
+      "INITIAL_SUPPORT_LANE": {
+        "OS": "Windows",
+        "CPython": ">=3.11,<3.12",
+        "numpy": "2.4.4",
+        "sympy": "1.14.0",
+        "mpmath": "1.3.0"
+      },
+      "not_claimed": [
+        "Python 3.12 package support",
+        "Linux package support",
+        "macOS package support",
+        "broad dependency-version compatibility"
+      ],
+      "naming_rule": "Distribution metadata/pip name is trioctagon-physics; supported imports remain from kernel_physics.api. Do not rename to trioctagon_physics or kernel-physics, or move sources to make names identical.",
+      "public_registry_publication_authorized": false,
+      "public_release_version_bump_authorized": false,
+      "registry_name_availability": "NOT_CERTIFIED; check immediately before any future upload"
+    },
+    "implementation_authorized_in_this_phase": false,
+    "K3B_IMPLEMENTATION_STARTED": false
+  },
+  "clean_install_contract": {
+    "status": "FROZEN",
+    "requirements": [
+      "Import kernel_physics.api from an actual isolated installation with all origins under that environment.",
+      "Construct explicit State and Parameters, delegate the accepted recurrence, compute raw z_chiral, and use supported passive observers/diagnostics without altering scientific meaning.",
+      "Produce bounded trajectories and complete RunRecord records; preserve binary64 serialization, round-trip inertly, and resume only with matching source revision plus module hashes.",
+      "Request C01 and explicitly selected D03 with exact SymPy inputs; preserve exact-tree producer ordering, metadata and coupling=none; round-trip GeometryRecord inertly.",
+      "All operations work without source Git, papers, research, UI, network, LLM/embedding/GPU subsystem or quarantined option activation.",
+      "No claim of universal cross-platform bitwise replay; retain existing environment qualification and strict precision behavior."
+    ],
+    "authority": "K3a-R1 section 10",
+    "implementation_status": "NOT_STARTED"
+  },
+  "ci_contract": {
+    "status": "FROZEN",
+    "target_phase": "K3c",
+    "requirements": [
+      "Approved first certification lane: Windows / CPython >=3.11,<3.12 / NumPy 2.4.4 / SymPy 1.14.0 / mpmath 1.3.0. Exact observed reference remains Python 3.11.15. Historical Python 3.12 fixture production is not package support. No Linux/macOS or broad dependency compatibility is claimed.",
+      "Use a clean tracked checkout at the intended committed source HEAD. Run the full tracked unittest suite and existing facade/oracle boundary gates with repository fixtures present; local-only tests remain separate. Check the original 298 plus explicitly authorized new software distribution tests.",
+      "Use explicitly approved, available build/runtime dependency artifacts; no uncontrolled resolution in certification. Build wheel and sdist into external staging. Validate exact file allowlists, no science/research/paper/.git/test leakage, version/dependency/license metadata and immutable manifest.",
+      "Compare source Git-blob bytes, source worktree bytes, archive member bytes and installed .py bytes; verify all 14 authoritative identities and unchanged scientific owners. Any build transformation breaks the approved byte-identity contract and is a HOLD, not a reason to loosen resume.",
+      "Install the wheel in a disposable isolated environment with approved dependency wheels. Run python -I from an unrelated empty directory with the source checkout absent from import paths. Assert api.__file__ and every public-closure module resolve inside the installed environment; no PYTHONPATH or system-site-packages shortcut.",
+      "Without .git, papers, research, network or models: explicit Parameters/State, triad/ring steps in supported scopes, raw z_chiral, both passive observers and diagnostics, zero/one/bounded-update runs, RunRecord exact JSON round-trip, compatible resume and incompatible source/hash rejection, C01 and explicit D03, GeometryRecord exact JSON round-trips. Assert no face_state/quarantine/research imports and no Runner selection routes.",
+      "Exercise missing/corrupt manifests and tampered installed module rejection; decoding existing valid records remains portable and inert. Verify producer versions and source tracked_dirty meaning. Preserve original module-list and schema field validation.",
+      "Extract the sdist outside Git, rebuild a wheel offline from its embedded manifest, install and repeat the isolated smoke. Require matching source identity and .py bytes; do not promise identical complete wheel ZIP bytes before build testing.",
+      "Check source git diff --check, git diff/status and raw preservation hashes; report artifacts and dependency versions. No CI files are created in K3a. K3c must implement and certify this frozen target after separately authorized K3b implementation."
+    ],
+    "ci_files_created": 0,
+    "authority": "K3a-R1 section 11"
+  },
+  "k3b_approved_scope": {
+    "status": "DEFINED; READY_FOR_SEPARATE_AUTHORIZATION",
+    "authority": "K3a-R1 section 12",
+    "implementation_started": false,
+    "paths": [
+      {
+        "path": "pyproject.toml",
+        "action": "NEW",
+        "why_required": "No package metadata/backend/dependencies/content selection exists. Declare exact kernel_physics package, backend, package version source, approved project/license metadata and runtime dependencies. Exclude tests/subpackages and unrelated tree.",
+        "why_software_only": "Distribution configuration only.",
+        "why_math_unchanged": "No equations, constants, model defaults or scientific file generation.",
+        "test": "Build metadata/content census and isolated wheel/sdist install."
+      },
+      {
+        "path": "_build_backend.py",
+        "action": "NEW",
+        "why_required": "One bounded PEP 517 wrapper around available setuptools.build_meta can stage an allowlisted copy, capture immutable provenance, verify source bytes and build both wheel/sdist without changing authoritative source. No second build-helper file is proposed.",
+        "why_software_only": "Build-time file/identity management only.",
+        "why_math_unchanged": "Copies raw scientific bytes; rejects changes instead of transforming them.",
+        "test": "Clean source build, staged-manifest validation, byte comparisons, no-Git sdist rebuild and source cleanliness."
+      },
+      {
+        "path": "LICENSE",
+        "action": "NEW IN K3B; TERMS NOW APPROVED",
+        "why_required": "Create the standard unmodified Apache License 2.0 text for the approved software-distribution scope, accompanied by LICENSE_SCOPE.md.",
+        "why_software_only": "Legal/publication metadata, not runtime.",
+        "why_math_unchanged": "No scientific meaning changes.",
+        "test": "Compare standard unmodified license text and verify the scope notice plus correct software license metadata in artifacts; no blanket scientific-material grant."
+      },
+      {
+        "path": "LICENSE_SCOPE.md",
+        "action": "NEW IN K3B",
+        "why_required": "Explicitly bound Apache-2.0 to approved runtime/software, package/build/verification tooling, software installation/use documentation and distribution metadata. Exclude papers, research, figures, datasets/parity evidence, manuscripts, Twisted Hex and historical scientific/publication artifacts unless separately licensed.",
+        "why_software_only": "Scope notice for software distribution licensing; no automatic license grant to scientific/publication material.",
+        "why_math_unchanged": "No scientific source, claim, dataset, fixture or paper modification.",
+        "test": "Review exact included/excluded scope against R1 and verify license/scope notice inclusion with truthful pyproject software license metadata."
+      },
+      {
+        "path": "kernel_physics/_records.py",
+        "action": "MODIFY SOFTWARE PROVENANCE FUNCTIONS ONLY",
+        "why_required": "_implementation and _papers currently require live Git and paper files. Add strict same-schema manifest fallback/installed-byte verification in this existing module; avoid a new runtime .py module that would require changing the frozen 14-path identity set.",
+        "why_software_only": "Provenance acquisition and validation, not numerical or symbolic computation. Keep public signatures, decoder fields, _MODULES and schemas unchanged.",
+        "why_math_unchanged": "Mathematical owners and delegations untouched. No weakening of resume compatibility.",
+        "test": "New provenance tests, existing P12, record/geometry tests, full parity, missing-Git/papers installed smoke, tampered module rejection, same-source resume and mismatched-source refusal."
+      },
+      {
+        "path": "kernel_physics/requirements.txt",
+        "action": "MODIFY DEPENDENCY PINS ONLY",
+        "why_required": "Current NumPy 2.3.5 pin differs from approved first certification target 2.4.4. Align metadata and requirements to NumPy 2.4.4 / SymPy 1.14.0 / mpmath 1.3.0 in K3b only.",
+        "why_software_only": "Dependency declaration.",
+        "why_math_unchanged": "No equation/source change; numerical behavior remains subject to full parity.",
+        "test": "Metadata/requirements agreement and approved-environment parity; broad version ranges are not inferred."
+      },
+      {
+        "path": "kernel_physics/README.md",
+        "action": "MODIFY INSTALL/PROVENANCE GUIDANCE ONLY",
+        "why_required": "Add supported install/provenance guidance, the trioctagon-physics distribution versus kernel_physics import/source distinction, the approved engineering version/support lane, explicit software-only license scope and unchanged quarantine boundary.",
+        "why_software_only": "Usage and distribution documentation.",
+        "why_math_unchanged": "No reinterpretation of accepted scope.",
+        "test": "Documented wheel smoke and links/metadata review."
+      },
+      {
+        "path": "kernel_physics/tests/test_distribution_provenance.py",
+        "action": "NEW",
+        "why_required": "Validate software fallback, strict manifest acceptance, identity/dirty-source semantics, cwd independence and schema preservation.",
+        "why_software_only": "Software regression gates only.",
+        "why_math_unchanged": "No independent oracle or existing scientific test is edited.",
+        "test": "Run with existing tracked suite; assert malformed/missing/tampered inputs fail closed."
+      },
+      {
+        "path": "tools/verify_distribution.py",
+        "action": "NEW",
+        "why_required": "One external artifact-verification harness for build content, source/wheel/installed hashes and isolated installed API smoke; can be invoked by future CI.",
+        "why_software_only": "Packaging verification only; never a runtime dependency.",
+        "why_math_unchanged": "Calls existing facade and compares outputs/identity; no scientific regeneration.",
+        "test": "Runs outside checkout against built wheel and no-Git sdist rebuild, checks installed module origins and exclusions."
+      },
+      {
+        "path": "kernel_physics/_distribution_provenance.json",
+        "action": "GENERATED EXTERNALLY / IN PACKAGE STAGING ONLY; MUST NOT BECOME AUTHORITATIVE TRACKED SOURCE",
+        "why_required": "Minimum immutable provenance data unavailable in an installation.",
+        "why_software_only": "Source/paper identifiers and raw hashes only.",
+        "why_math_unchanged": "No scientific data regeneration, copied paper source or equation.",
+        "test": "Strict manifest verification, source identity equality, artifact inclusion, installed record smoke."
+      }
+    ]
+  },
+  "publication": {
+    "authorized": true,
+    "branch": "main",
+    "remote": "origin",
+    "mode": "normal push; no force/reset/branch creation/cleanup",
+    "commit_message": "freeze software distribution contract after K3a",
+    "exact_paths": [
+      "kernel_physics/K3A_DISTRIBUTION_PREFLIGHT.md",
+      "kernel_physics/K3A_DISTRIBUTION_PREFLIGHT.json"
+    ],
+    "starting_origin_main": "d76321a54f6f3a8ee1f0175ac6a4db6d0c017117",
+    "outcome_reporting": "Exact final commit HEAD and observed origin/main are verified after publication and returned in the task closeout. Receipt identifies its containing commit symbolically to avoid self-reference."
+  }
+}
