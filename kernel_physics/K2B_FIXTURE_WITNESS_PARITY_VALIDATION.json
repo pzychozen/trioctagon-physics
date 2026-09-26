@@ -1,0 +1,836 @@
+{
+  "receipt": "K2b O03/P5/P6 validation v1",
+  "date": "2026-09-26",
+  "K2B_STATUS": "PASS",
+  "starting_head": "24b62db7ff1960ac485789ff235d01a63f94e65a",
+  "final_head": {
+    "kind": "creation_commit_of_this_receipt",
+    "resolve_command": "git log --diff-filter=A --format=%H -- kernel_physics/K2B_FIXTURE_WITNESS_PARITY_VALIDATION.json",
+    "note": "Self-reference avoids a circular embedded commit hash; the literal published HEAD is reported in the task closeout."
+  },
+  "O03_STATUS": "CLOSED",
+  "P5": "PASS",
+  "P6": "PASS",
+  "ORACLE_IMPORT_BOUNDARY_K2B": "PASS",
+  "fixture_identities": {
+    "P5": {
+      "sha256": "eeed672b1cb20321dfc85a2f4753c93d4fe1b9345a5cede4f5e12532537a4a38",
+      "bytes": 282427,
+      "rows": 388,
+      "columns": 50,
+      "header": [
+        "phase_strength",
+        "variant",
+        "row",
+        "q",
+        "t",
+        "theta",
+        "initialization",
+        "z",
+        "I",
+        "harmonic_amplitude",
+        "ema_memory",
+        "gate_assignment",
+        "map_lambda",
+        "map_delta0",
+        "M_x",
+        "M_y",
+        "M_z",
+        "C_x",
+        "C_y",
+        "C_z",
+        "T_x",
+        "T_y",
+        "T_z",
+        "display_M_x",
+        "display_M_y",
+        "display_M_z",
+        "Omega0_real",
+        "Omega0_imag",
+        "Omega1_real",
+        "Omega1_imag",
+        "Omega2_real",
+        "Omega2_imag",
+        "norm_residual",
+        "q_residual",
+        "macro_relation_residual",
+        "q_macro",
+        "q_total",
+        "d_TM",
+        "d_CM",
+        "d_TC",
+        "macro_resolved",
+        "chiral_resolved",
+        "total_resolved",
+        "TM_resolved",
+        "CM_resolved",
+        "TC_resolved",
+        "threshold",
+        "gram_residual",
+        "slack_residual",
+        "polynomial_residual_allowance"
+      ]
+    },
+    "P6": {
+      "sha256": "fb2b2a71fd99c536dc7e490c6a2e201b2a0b22ee533820870dff5ee516c468dc",
+      "bytes": 10345,
+      "rows": 18,
+      "columns": 32,
+      "header": [
+        "seed",
+        "row",
+        "state_sha256",
+        "relative_sync_distance",
+        "C_norm",
+        "direction_valid",
+        "invalid_reason",
+        "normalized_plane_residual",
+        "angle_to_plane_rad",
+        "projective_angle_own_initial_rad",
+        "projective_angle_other_initial_rad",
+        "linear_C_norm",
+        "C_norm_over_linear_prediction",
+        "cross_arithmetic_floor_proxy",
+        "norm_over_cross_arithmetic_floor",
+        "norm_over_1e_minus12_reference_only",
+        "symmetry_residual",
+        "mutual_projective_angle_rad",
+        "Omega0_real",
+        "Omega0_imag",
+        "Omega1_real",
+        "Omega1_imag",
+        "Omega2_real",
+        "Omega2_imag",
+        "mean_real",
+        "mean_imag",
+        "C_x",
+        "unit_C_x",
+        "C_y",
+        "unit_C_y",
+        "C_z",
+        "unit_C_z"
+      ]
+    }
+  },
+  "source_provenance": {
+    "sha256": {
+      "TRAJECTORIES.csv": "eeed672b1cb20321dfc85a2f4753c93d4fe1b9345a5cede4f5e12532537a4a38",
+      "investigate.py": "bf8c5b95296a4401e21fc1702af4b81113d264197855f48188a24e47597304a1",
+      "REPORT.md": "29ba7dc8d233c00c091c4ce809772d09c5537e53f854ff122147c3eedbe51709",
+      "RESULTS.json": "e73fbb0e569f8d2af705fec30c89bea537956de6737be4aeeba4cf79adfb7ebc"
+    },
+    "repository_baseline": "d0aa8d1cb19421ff441eacda0f83ec89fc3160b3",
+    "implementation_baseline": "d2b1cbeca807ae33117f02f697e5eff0b4b1ca96",
+    "baseline_tree": "e9e7501fdb8c2942862943fc6cc529c12a5b4fa2",
+    "history_hashes": {
+      "0.0": "a1f900cdd3c088071cb01dd62c3650d6c7ccf5c3d6dd5f411b28e7cce1ee6c30",
+      "0.001": "cce42cfb32384be58c7ddc9ca50e1e2a75e0009ac7da970daa79d1835d8bb8b0"
+    },
+    "generation_completed_utc": "2026-09-24T19:36:31.626120+00:00",
+    "preserved_cross_platform_evidence": {
+      "source": "Claude outputs/CLAUDE_K2A_PARITY_GATE_ADVERSARIAL_REVIEW_v0.1.md, O03 packet section",
+      "attribution": "GPT Linux rerun, as recorded by accepted Claude review",
+      "max_raw_deviation_upper_bound": 1.03e-14,
+      "executed_in_K2b": false
+    }
+  },
+  "recorded_environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.3.5",
+    "sympy": "1.14.0",
+    "mpmath": "1.3.0"
+  },
+  "execution_environment": {
+    "python": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "numpy": "2.4.4",
+    "sympy": "1.14.0",
+    "mpmath": "1.3.0"
+  },
+  "conda_environment": "torment",
+  "mpmath_reference_digits": 80,
+  "P5_COMPARISON_MODE": "CROSS_ENVIRONMENT",
+  "P5_RECORDED_ENVIRONMENT_BITWISE": "NOT_APPLICABLE",
+  "mode_reason": "Python 3.11.15/NumPy 2.4.4 differ from recorded Python 3.12.14/NumPy 2.3.5; platform metadata also differ. Mode was selected before discrepancies. Zero observed ordinary differences do not change this mode.",
+  "P5_HISTORICAL_REGRESSION_WITNESS": true,
+  "P5_SCHEDULE_WITNESS": true,
+  "P5_EQUATION_ORACLE": false,
+  "P5_INDEPENDENT_CHIRALITY_ORACLE": true,
+  "P5_RUNNER_CONTROL_BITWISE": "PASS",
+  "P5_MAX_CROSS_ENVIRONMENT_ERROR": "0.0",
+  "column_classification": [
+    {
+      "column": "phase_strength",
+      "classification": "RUN_KEY"
+    },
+    {
+      "column": "variant",
+      "classification": "RUN_KEY"
+    },
+    {
+      "column": "row",
+      "classification": "RUN_KEY"
+    },
+    {
+      "column": "q",
+      "classification": "OBSERVER_STATE"
+    },
+    {
+      "column": "t",
+      "classification": "OBSERVER_STATE"
+    },
+    {
+      "column": "theta",
+      "classification": "OBSERVER_STATE"
+    },
+    {
+      "column": "initialization",
+      "classification": "OBSERVER_STATE"
+    },
+    {
+      "column": "z",
+      "classification": "OBSERVER_RESULT"
+    },
+    {
+      "column": "I",
+      "classification": "RAW_READOUT"
+    },
+    {
+      "column": "harmonic_amplitude",
+      "classification": "EXCLUDED_RESEARCH"
+    },
+    {
+      "column": "ema_memory",
+      "classification": "OBSERVER_STATE"
+    },
+    {
+      "column": "gate_assignment",
+      "classification": "EXCLUDED_RESEARCH"
+    },
+    {
+      "column": "map_lambda",
+      "classification": "EXCLUDED_RESEARCH"
+    },
+    {
+      "column": "map_delta0",
+      "classification": "EXCLUDED_RESEARCH"
+    },
+    {
+      "column": "M_x",
+      "classification": "OBSERVER_RESULT"
+    },
+    {
+      "column": "M_y",
+      "classification": "OBSERVER_RESULT"
+    },
+    {
+      "column": "M_z",
+      "classification": "OBSERVER_RESULT"
+    },
+    {
+      "column": "C_x",
+      "classification": "OBSERVER_RESULT"
+    },
+    {
+      "column": "C_y",
+      "classification": "OBSERVER_RESULT"
+    },
+    {
+      "column": "C_z",
+      "classification": "OBSERVER_RESULT"
+    },
+    {
+      "column": "T_x",
+      "classification": "OBSERVER_RESULT"
+    },
+    {
+      "column": "T_y",
+      "classification": "OBSERVER_RESULT"
+    },
+    {
+      "column": "T_z",
+      "classification": "OBSERVER_RESULT"
+    },
+    {
+      "column": "display_M_x",
+      "classification": "EXCLUDED_RESEARCH"
+    },
+    {
+      "column": "display_M_y",
+      "classification": "EXCLUDED_RESEARCH"
+    },
+    {
+      "column": "display_M_z",
+      "classification": "EXCLUDED_RESEARCH"
+    },
+    {
+      "column": "Omega0_real",
+      "classification": "KERNEL_STATE"
+    },
+    {
+      "column": "Omega0_imag",
+      "classification": "KERNEL_STATE"
+    },
+    {
+      "column": "Omega1_real",
+      "classification": "KERNEL_STATE"
+    },
+    {
+      "column": "Omega1_imag",
+      "classification": "KERNEL_STATE"
+    },
+    {
+      "column": "Omega2_real",
+      "classification": "KERNEL_STATE"
+    },
+    {
+      "column": "Omega2_imag",
+      "classification": "KERNEL_STATE"
+    },
+    {
+      "column": "norm_residual",
+      "classification": "DIAGNOSTIC"
+    },
+    {
+      "column": "q_residual",
+      "classification": "DIAGNOSTIC"
+    },
+    {
+      "column": "macro_relation_residual",
+      "classification": "DIAGNOSTIC"
+    },
+    {
+      "column": "q_macro",
+      "classification": "DIAGNOSTIC"
+    },
+    {
+      "column": "q_total",
+      "classification": "DIAGNOSTIC"
+    },
+    {
+      "column": "d_TM",
+      "classification": "DIAGNOSTIC"
+    },
+    {
+      "column": "d_CM",
+      "classification": "DIAGNOSTIC"
+    },
+    {
+      "column": "d_TC",
+      "classification": "DIAGNOSTIC"
+    },
+    {
+      "column": "macro_resolved",
+      "classification": "DIAGNOSTIC"
+    },
+    {
+      "column": "chiral_resolved",
+      "classification": "DIAGNOSTIC"
+    },
+    {
+      "column": "total_resolved",
+      "classification": "DIAGNOSTIC"
+    },
+    {
+      "column": "TM_resolved",
+      "classification": "DIAGNOSTIC"
+    },
+    {
+      "column": "CM_resolved",
+      "classification": "DIAGNOSTIC"
+    },
+    {
+      "column": "TC_resolved",
+      "classification": "DIAGNOSTIC"
+    },
+    {
+      "column": "threshold",
+      "classification": "HISTORICAL_CONVENTION"
+    },
+    {
+      "column": "gram_residual",
+      "classification": "DIAGNOSTIC"
+    },
+    {
+      "column": "slack_residual",
+      "classification": "DIAGNOSTIC"
+    },
+    {
+      "column": "polynomial_residual_allowance",
+      "classification": "HISTORICAL_CONVENTION"
+    }
+  ],
+  "P5_columns_used": [
+    "phase_strength",
+    "variant",
+    "row",
+    "q",
+    "t",
+    "theta",
+    "initialization",
+    "z",
+    "I",
+    "ema_memory",
+    "M_x",
+    "M_y",
+    "M_z",
+    "C_x",
+    "C_y",
+    "C_z",
+    "T_x",
+    "T_y",
+    "T_z",
+    "Omega0_real",
+    "Omega0_imag",
+    "Omega1_real",
+    "Omega1_imag",
+    "Omega2_real",
+    "Omega2_imag",
+    "norm_residual",
+    "q_residual",
+    "macro_relation_residual",
+    "q_macro",
+    "q_total",
+    "d_TM",
+    "d_CM",
+    "d_TC",
+    "macro_resolved",
+    "chiral_resolved",
+    "total_resolved",
+    "TM_resolved",
+    "CM_resolved",
+    "TC_resolved",
+    "gram_residual",
+    "slack_residual"
+  ],
+  "P5_columns_excluded": {
+    "HISTORICAL_CONVENTION": [
+      "threshold",
+      "polynomial_residual_allowance"
+    ],
+    "EXCLUDED_RESEARCH": [
+      "display_M_x",
+      "display_M_y",
+      "display_M_z",
+      "map_lambda",
+      "map_delta0",
+      "gate_assignment",
+      "harmonic_amplitude"
+    ]
+  },
+  "P5_exact_historical_fields": [
+    "phase_strength/run grouping",
+    "variant",
+    "row",
+    "q",
+    "initialization",
+    "macro_resolved",
+    "chiral_resolved",
+    "total_resolved",
+    "TM_resolved",
+    "CM_resolved",
+    "TC_resolved",
+    "row-zero seed and no initial innovation"
+  ],
+  "P5_historical_numeric_columns_certified_bitwise": [],
+  "P5_current_runner_control_bitwise_scope": {
+    "rows": "all 97 rows for each of two phase strengths",
+    "fields": [
+      "complex128 Omega bytes",
+      "q",
+      "binary64 t",
+      "observer update count",
+      "EMA m",
+      "observer z",
+      "M",
+      "C",
+      "T",
+      "all readout-accounting fields",
+      "all historical-alignment fields",
+      "all chiral-area-accounting fields"
+    ],
+    "equation_oracle": false
+  },
+  "P5_tolerances": {
+    "ordinary": "1e-12 + 1e-12*abs(saved reference)",
+    "independent_C": "64*2^-52*(abs(x_j*y_k)+abs(x_k*y_j)) at each saved/replayed Omega",
+    "cross_trajectory_C": "same candidate-Omega 64u scale plus abs(C_high_precision(candidate)-C_high_precision(saved)); no late unresolved sign constraint",
+    "accounting": "Each saved/replayed accepted diagnostic is checked against its independent defining expression at its supplied inputs, within 256u*sum(abs(defining terms)); no historical allowance or absolute floor.",
+    "flags": "exact historical flags, not mathematical-zero inference"
+  },
+  "P6_EXACT_SUBSPACE_CHECK": "PASS",
+  "P6_EXACT_FLOAT_SYMMETRY_CHECK": "PASS",
+  "P6_ANGLE_CHECK": "PASS",
+  "P6_ORTHOGONALITY_CHECK": "PASS",
+  "P6_formulas": {
+    "A_subspace": "Omega=(x+iy,x-iy,z), C=y*(z,z,-2x)",
+    "B_subspace": "Omega=(b+ic,b+ic,d+if), C=(b*f-d*c)*(1,-1,0)",
+    "orthogonality": "C_A dot C_B = 0 for arbitrary allowed real subspace amplitudes",
+    "A_one_step": "x=1-h^2/40; Y=h*(2/5-h^2/40)/sqrt(2); Omega1=(x+iY,x-iY,1); C1=Y*(1,1,-2+h^2/20)",
+    "A_angle": "atan(sqrt(2)*h^2/(20*(6-h^2/10))) on the positive local branch, tested at h=1/1000",
+    "signed_convention": "A initial oriented C=(1,1,-2)/sqrt(6), B=(-1,1,0)/sqrt(2); projective atan2(cross_norm,abs(dot)); signed elevation atan2(C dot e_hat,norm(C_perp))",
+    "seed_protocol": "e+i*.001*(1,-1,0)/sqrt(2) and e+i*.001*(1,1,-2)/sqrt(6), eps=.05,g=.2,k=1,lambda=0, eight updates each",
+    "validity": "C norm positive and >1000*(32*2^-53*norm(component cross-product term scales)); historical AX diagnostic, not old 1e-12 threshold"
+  },
+  "P6_tolerances": {
+    "state_chirality": "1e-13 + 1e-12*abs(reference)",
+    "angles": "1e-12 rad",
+    "symmetries": "exact floating equality and explicit positive-zero bit convention"
+  },
+  "claim_boundaries": {
+    "P5_supports": "Historical regression, Runner row-zero/clock/new-Omega EMA order, stored relationships and independent saved-Omega chirality.",
+    "P5_does_not_support": "Paper A/E equations, physical interpretations, registration, assignment or display mappings.",
+    "P6_supports": "Two special invariant subspaces over the bounded eight updates, oriented chirality, exact one-step formula and orthogonal nonzero lines.",
+    "P6_does_not_support": "Universal axis, attractor, physical selector, generic-seed behavior or a global theorem from floating zeros."
+  },
+  "comparison_counts": {
+    "EXACT_DISCRETE": 22413,
+    "HISTORICAL_FIXTURE_TOLERANCE": 7862,
+    "HIGH_PRECISION_REFERENCE": 2328,
+    "BINARY64_TERM_SCALE": 6596,
+    "EXACT_SYMBOLIC": 11
+  },
+  "worst_normalized_comparisons": {
+    "P5_ordinary": {
+      "quantity": "lambda=0.0 staged row=0 Omega0_real",
+      "actual": "0.2",
+      "reference": "(0.2000000000000000111022302462515654 + 0.0j)",
+      "absolute_error": "0.0",
+      "allowed_bound": "1.2000000000000000111022302462515654e-12",
+      "scale": null,
+      "fraction": "0.0",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    },
+    "P5_saved_C": {
+      "quantity": "saved row=95 C_z",
+      "actual": "5.551115123125783e-17",
+      "reference": "2.9375367127675184642128330215873053e-17",
+      "absolute_error": "2.6135784103582642379053253188667962e-17",
+      "allowed_bound": "4.0102381615389727642125952206817968e-15",
+      "scale": "0.28219542328084157319950853184084738",
+      "fraction": "0.0065172648233821477871297594023901448",
+      "kind": "HIGH_PRECISION_REFERENCE"
+    },
+    "P5_replayed_C": {
+      "quantity": "replayed row=95 C_z",
+      "actual": "5.551115123125783e-17",
+      "reference": "2.9375367127675184642128330215873053e-17",
+      "absolute_error": "2.6135784103582642379053253188667962e-17",
+      "allowed_bound": "4.0102381615389727642125952206817968e-15",
+      "scale": "0.28219542328084157319950853184084738",
+      "fraction": "0.0065172648233821477871297594023901448",
+      "kind": "HIGH_PRECISION_REFERENCE"
+    },
+    "P5_cross_trajectory_C": {
+      "quantity": "cross trajectory row=0 C_x",
+      "actual": "0.07",
+      "reference": "(0.070000000000000006661338147750939243 + 0.0j)",
+      "absolute_error": "0.0",
+      "allowed_bound": "1.2789769243681804765629866214227539e-15",
+      "scale": "0.090000000000000009992007221626409141",
+      "fraction": "0.0",
+      "kind": "BINARY64_TERM_SCALE"
+    },
+    "P5_accounting": {
+      "quantity": "replayed row=349 gram_residual",
+      "actual": "6.661338147750939e-16",
+      "reference": "0.0",
+      "absolute_error": "6.6613381477509392425417900085449219e-16",
+      "allowed_bound": "1.3827396512311506302934279591659309e-13",
+      "scale": "2.4325413195449295231222005630360357",
+      "fraction": "0.0048174926797100814267405639213121841",
+      "kind": "BINARY64_TERM_SCALE"
+    },
+    "P6_state": {
+      "quantity": "A row=0 Omega0",
+      "actual": "(1+0.0007071067811865475j)",
+      "reference": "(1.0 + 0.00070710678118654751288935100816956947j)",
+      "absolute_error": "0.0",
+      "allowed_bound": "1.1000002499999687500078043577056174e-12",
+      "scale": null,
+      "fraction": "0.0",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    },
+    "P6_C": {
+      "quantity": "A row=0 C_norm",
+      "actual": "0.0017320508075688772653301614469246802528554795322284316674899463624883624964304791",
+      "reference": "0.0017320508075688771740946458876919678",
+      "absolute_error": "9.1235515559232712452363058739648781e-20",
+      "allowed_bound": "1.0173205080756887717409464588769197e-13",
+      "scale": null,
+      "fraction": "0.00000089682174727617678970620660162372801",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    },
+    "P6_unit_C": {
+      "quantity": "A row=3 unit_C_y",
+      "actual": "0.40824829157701998510806408535160638154198721757789781674227414747646281178634953",
+      "reference": "0.40824829157702002824237297318177298",
+      "absolute_error": "4.3134308887830166595571736537304915e-17",
+      "allowed_bound": "5.0824829157702002824237297318177298e-13",
+      "scale": null,
+      "fraction": "0.00008486857625038093503532694660265084",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    },
+    "P6_plane": {
+      "quantity": "A row=1 signed plane residual",
+      "actual": "0.0000000117851132070742453733891782712886427380542467138323827129288816366408027412879",
+      "reference": "0.000000011785113207074244474976427033818122",
+      "absolute_error": "8.9841275123747052116779093137967297e-25",
+      "allowed_bound": "1.0000001178511320707424447497642703e-13",
+      "scale": null,
+      "fraction": "8.9841264535852319899537915474808797e-12",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    },
+    "P6_angles": {
+      "quantity": "A row=0 projective_angle_other_initial_rad",
+      "actual": "1.5707963267948966192313216916397514420985846996875529104874722961539082031431045",
+      "reference": "(1.5707963267948965579989817342720926 + 0.0j)",
+      "absolute_error": "6.1232339957367658861303296613750053e-17",
+      "allowed_bound": "1.0e-12",
+      "scale": null,
+      "fraction": "0.000061232339957367658861303296613750053",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    },
+    "P6_orthogonality": {
+      "quantity": "row=0 mutual angle",
+      "actual": "1.5707963267948966192313216916397514420985846996875529104874722961539082031431045",
+      "reference": "1.5707963267948966192313216916397514",
+      "absolute_error": "0.0",
+      "allowed_bound": "1.0e-12",
+      "scale": null,
+      "fraction": "0.0",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    },
+    "P6_one_step_angle": {
+      "quantity": "A projective own-axis row=1",
+      "actual": "0.00000001178511320707424564619273340256553255595707036312471939956408721369306333878033",
+      "reference": "0.000000011785113216194345130979389115621489",
+      "absolute_error": "9.1200994847866557130559565362134973e-18",
+      "allowed_bound": "1.0e-12",
+      "scale": null,
+      "fraction": "0.0000091200994847866557130559565362134973",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    },
+    "P6_one_step": {
+      "quantity": "A exact state 1",
+      "actual": "(0.999999975-0.00028284269479694947j)",
+      "reference": "(0.999999975 - 0.00028284269479694948009664963482083056j)",
+      "absolute_error": "4.0914474084299324723872892072105049e-17",
+      "allowed_bound": "1.1000000149999952000002282499850563e-12",
+      "scale": null,
+      "fraction": "0.000037194975933068058421570913384109892",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    }
+  },
+  "max_absolute_comparisons": {
+    "P5_ordinary": {
+      "quantity": "lambda=0.0 staged row=0 Omega0_real",
+      "actual": "0.2",
+      "reference": "(0.2000000000000000111022302462515654 + 0.0j)",
+      "absolute_error": "0.0",
+      "allowed_bound": "1.2000000000000000111022302462515654e-12",
+      "scale": null,
+      "fraction": "0.0",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    },
+    "P5_saved_C": {
+      "quantity": "saved row=176 C_y",
+      "actual": "-5.551115123125783e-17",
+      "reference": "-9.7793132097339254841544054802814792e-17",
+      "absolute_error": "4.2281980866081427820362471398273777e-17",
+      "allowed_bound": "1.1025797580543069137888215602453353e-14",
+      "scale": "0.77587152929994191448796037965961768",
+      "fraction": "0.0038348228830806137349107656190463176",
+      "kind": "HIGH_PRECISION_REFERENCE"
+    },
+    "P5_replayed_C": {
+      "quantity": "replayed row=176 C_y",
+      "actual": "-5.551115123125783e-17",
+      "reference": "-9.7793132097339254841544054802814792e-17",
+      "absolute_error": "4.2281980866081427820362471398273777e-17",
+      "allowed_bound": "1.1025797580543069137888215602453353e-14",
+      "scale": "0.77587152929994191448796037965961768",
+      "fraction": "0.0038348228830806137349107656190463176",
+      "kind": "HIGH_PRECISION_REFERENCE"
+    },
+    "P5_cross_trajectory_C": {
+      "quantity": "cross trajectory row=0 C_x",
+      "actual": "0.07",
+      "reference": "(0.070000000000000006661338147750939243 + 0.0j)",
+      "absolute_error": "0.0",
+      "allowed_bound": "1.2789769243681804765629866214227539e-15",
+      "scale": "0.090000000000000009992007221626409141",
+      "fraction": "0.0",
+      "kind": "BINARY64_TERM_SCALE"
+    },
+    "P5_accounting": {
+      "quantity": "saved row=188 slack_residual",
+      "actual": "8.881784197001252e-16",
+      "reference": "0.0",
+      "absolute_error": "8.8817841970012523233890533447265625e-16",
+      "allowed_bound": "2.4877820782197809174544431258598816e-13",
+      "scale": "4.3765525158006263565318999226204993",
+      "fraction": "0.0035701616611680562633415912979076599",
+      "kind": "BINARY64_TERM_SCALE"
+    },
+    "P6_state": {
+      "quantity": "A row=0 Omega0",
+      "actual": "(1+0.0007071067811865475j)",
+      "reference": "(1.0 + 0.00070710678118654751288935100816956947j)",
+      "absolute_error": "0.0",
+      "allowed_bound": "1.1000002499999687500078043577056174e-12",
+      "scale": null,
+      "fraction": "0.0",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    },
+    "P6_C": {
+      "quantity": "A row=0 C_norm",
+      "actual": "0.0017320508075688772653301614469246802528554795322284316674899463624883624964304791",
+      "reference": "0.0017320508075688771740946458876919678",
+      "absolute_error": "9.1235515559232712452363058739648781e-20",
+      "allowed_bound": "1.0173205080756887717409464588769197e-13",
+      "scale": null,
+      "fraction": "0.00000089682174727617678970620660162372801",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    },
+    "P6_unit_C": {
+      "quantity": "A row=3 unit_C_z",
+      "actual": "-0.81649657981456906171417202264651904658866897609707678220671264865976746457763926",
+      "reference": "-0.8164965798145691344700480840401724",
+      "absolute_error": "7.2755876061393653351501693572731048e-17",
+      "allowed_bound": "9.164965798145691344700480840401724e-13",
+      "scale": null,
+      "fraction": "0.000079384776401581379768540577143414532",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    },
+    "P6_plane": {
+      "quantity": "A row=1 signed plane residual",
+      "actual": "0.0000000117851132070742453733891782712886427380542467138323827129288816366408027412879",
+      "reference": "0.000000011785113207074244474976427033818122",
+      "absolute_error": "8.9841275123747052116779093137967297e-25",
+      "allowed_bound": "1.0000001178511320707424447497642703e-13",
+      "scale": null,
+      "fraction": "8.9841264535852319899537915474808797e-12",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    },
+    "P6_angles": {
+      "quantity": "A row=0 projective_angle_other_initial_rad",
+      "actual": "1.5707963267948966192313216916397514420985846996875529104874722961539082031431045",
+      "reference": "(1.5707963267948965579989817342720926 + 0.0j)",
+      "absolute_error": "6.1232339957367658861303296613750053e-17",
+      "allowed_bound": "1.0e-12",
+      "scale": null,
+      "fraction": "0.000061232339957367658861303296613750053",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    },
+    "P6_orthogonality": {
+      "quantity": "row=0 mutual angle",
+      "actual": "1.5707963267948966192313216916397514420985846996875529104874722961539082031431045",
+      "reference": "1.5707963267948966192313216916397514",
+      "absolute_error": "0.0",
+      "allowed_bound": "1.0e-12",
+      "scale": null,
+      "fraction": "0.0",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    },
+    "P6_one_step_angle": {
+      "quantity": "A projective own-axis row=1",
+      "actual": "0.00000001178511320707424564619273340256553255595707036312471939956408721369306333878033",
+      "reference": "0.000000011785113216194345130979389115621489",
+      "absolute_error": "9.1200994847866557130559565362134973e-18",
+      "allowed_bound": "1.0e-12",
+      "scale": null,
+      "fraction": "0.0000091200994847866557130559565362134973",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    },
+    "P6_one_step": {
+      "quantity": "A exact state 0",
+      "actual": "(0.999999975+0.00028284269479694947j)",
+      "reference": "(0.999999975 + 0.00028284269479694948009664963482083056j)",
+      "absolute_error": "4.0914474084299324723872892072105049e-17",
+      "allowed_bound": "1.1000000149999952000002282499850563e-12",
+      "scale": null,
+      "fraction": "0.000037194975933068058421570913384109892",
+      "kind": "HISTORICAL_FIXTURE_TOLERANCE"
+    }
+  },
+  "P6_falsifiers": {
+    "A_equal_Cx_Cy": "PASS",
+    "B_opposite_Cx_Cy": "PASS",
+    "B_Cz_positive_zero": "PASS",
+    "signed_zero_no_direction": "PASS",
+    "universal_axis_counterexample": "PASS"
+  },
+  "commands": {
+    "k2b": "python -B -m unittest kernel_physics.tests.test_parity_oracle_boundaries_k2b kernel_physics.tests.test_parity_p05_p06 -v -f",
+    "collector": "python -B C:\\Users\\Notandi\\AppData\\Local\\Temp\\kernel-k2b-bm6y0ki2\\run_k2b.py",
+    "tracked": "python -B -m unittest discover -s kernel_physics/tests -t . -p \"test_*.py\" -v",
+    "local_only": "python -B -m unittest kernel_physics.tests.test_boundary_response kernel_physics.tests.test_srg kernel_physics.tests.test_operating_region kernel_physics.tests.test_boundary_pipeline -v"
+  },
+  "test_results": {
+    "K2b": {
+      "result": "PASS",
+      "count": 9,
+      "seconds": 13.063
+    },
+    "tracked": {
+      "result": "PASS",
+      "count": 288,
+      "seconds": 397.482
+    },
+    "optional_local": {
+      "result": "PASS",
+      "count": 30,
+      "seconds": 1.18
+    }
+  },
+  "isolated_checkout": {
+    "path": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\kernel-k2b-bm6y0ki2\\tracked-checkout",
+    "head": "2f4f6d13bd801f1b6efdc55295acf36bab20526b",
+    "clean_before_and_after": true,
+    "note": "Starting tracked tree plus five new test/oracle/fixture files. Those five files match final source bytes; the two validation receipts were added after validation."
+  },
+  "preservation": {
+    "starting_tracked_files_hash_checked": 692,
+    "production_source_changed": 0,
+    "existing_test_changed": 0,
+    "K0_changed": 0,
+    "K1_changed": 0,
+    "K2a_changed": 0,
+    "papers_changed": 0,
+    "research_changed": 0,
+    "option_B_module_changed": 0,
+    "P6_source_preserved": true,
+    "local_golden_source_preserved": true,
+    "three_local_provenance_sources_preserved": true,
+    "four_local_tests_preserved": true
+  },
+  "oracle_dependencies": {
+    "new_transverse_axis_oracle": [
+      "mpmath",
+      "sympy"
+    ],
+    "reused_read_only_P10_oracle": "paper_e_oracle.py (mpmath,sympy); test module imports it, no cross-import from the new oracle"
+  },
+  "files_created": [
+    "kernel_physics/K2B_FIXTURE_WITNESS_PARITY_VALIDATION.json",
+    "kernel_physics/K2B_FIXTURE_WITNESS_PARITY_VALIDATION.md",
+    "kernel_physics/tests/fixtures/golden_388/GOLDEN_388_RECEIPT.md",
+    "kernel_physics/tests/fixtures/golden_388/TRAJECTORIES.csv",
+    "kernel_physics/tests/parity_oracles/transverse_axis_oracle.py",
+    "kernel_physics/tests/test_parity_oracle_boundaries_k2b.py",
+    "kernel_physics/tests/test_parity_p05_p06.py"
+  ],
+  "files_modified": [],
+  "validated_file_sha256": {
+    "kernel_physics/tests/fixtures/golden_388/TRAJECTORIES.csv": "eeed672b1cb20321dfc85a2f4753c93d4fe1b9345a5cede4f5e12532537a4a38",
+    "kernel_physics/tests/fixtures/golden_388/GOLDEN_388_RECEIPT.md": "799dd9cb60466aace245d887c5154d41fd836c6d59757a2e9b8c7d4bdefd23c4",
+    "kernel_physics/tests/test_parity_p05_p06.py": "1767f7c931e0a858de66e7b2afeb38e604914d55ceb7dc6e7c0f417c4f2d87b6",
+    "kernel_physics/tests/test_parity_oracle_boundaries_k2b.py": "075e9d44a8cec6cfd7776c2ca08d335dd5e11013dcfbf6ec44cc06dfde108b1c",
+    "kernel_physics/tests/parity_oracles/transverse_axis_oracle.py": "6545088d7e4c8a50f4c2dfcfffeb1dfae476633d77a3508e0ce40e6be4ac61e7"
+  },
+  "P7_started": false,
+  "P8_started": false,
+  "K2C_READY_FOR_AUTHORIZATION": true
+}
