@@ -1,5 +1,46 @@
 # kernel_physics v0.1 baseline + opt-in response, face view, scaffold and Z observer
 
+## Supported public API v1 — K1, 26 September 2026
+
+Use `kernel_physics.api` under the frozen
+[K0 authority and contract](K0_KERNEL_AUTHORITY_PUBLIC_CONTRACT_FREEZE_v0.1.md)
+and [definition ledger](K0_KERNEL_DEFINITION_LEDGER_v0.1.md).
+The facade delegates the accepted mathematics. Parameters, state and observer
+configuration are explicit, detached immutable values; `phase_strength` is
+Paper A's lambda. For example, from this checkout with `conda activate torment`:
+
+```python
+from kernel_physics.api import Parameters, State, step
+
+parameters = Parameters(eps=0.05, g=0.2, phase_strength=0.001, k=(1, 1, 1))
+state = State(omega=(0.2+0.3j, -0.4+0.1j, 0.1-0.2j), update_index=0)
+next_state = step(state, parameters, topology="triad")
+```
+
+These example values are explicit choices, not public defaults. Named presets
+are `gate_torus_seed_v1`, `paper_e_staged_v1` and `paper_e_ema_v1`; their original
+selection rationale remains O02 `OPEN_NONBLOCKING`.
+
+`run`/`resume` return `RunRecord` (`KERNEL_RUN_RECORD` 1.0.0), with independent
+observer snapshots and passive diagnostics. `get_geometry("C01", options={
+"section_heights": []})` or `get_geometry("D03", options={"construction":
+"regular", "s": 1})` returns a separate exact `GeometryRecord`
+(`GEOMETRY_RECORD` 1.0.0), always with `coupling="none"`. Both provide
+`to_json`/`from_json` and an immutable encoded `data` view. Loading never runs
+equations. Record production requires this identifiable Git checkout and
+its origin URL so source revision, module hashes and paper hashes can be
+recorded; loading is portable. Resume requires the same commit and module
+hashes. Binary64 and exact symbolic trees retain their respective codecs;
+cross-platform numerical replay is qualified by K0.
+
+**O01 is resolved as Option B:** `boundary_response`, `srg`, and
+`operating_region` are preserved but unsupported by the initial v1 facade.
+The API and Runner neither expose nor load them. `FaceState` remains outside
+the facade; `_response_numeric` remains shared numerical support. Existing
+internal opt-in callers and predecessor tests are preserved. The earlier
+K0-time OPEN entry remains historical. O03 golden-fixture publication and
+the independent P1–P11 program remain deferred to K2.
+
 ## Current convergence status - 24 September 2026
 
 **K1/R1, K2 and K3 are accepted and published within their contracted scopes.**
