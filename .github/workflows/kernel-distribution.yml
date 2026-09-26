@@ -296,7 +296,12 @@ jobs:
           for artifact in sorted(wheelhouse.iterdir()):
               assert artifact.suffix == '.whl'
               with zipfile.ZipFile(artifact) as z:
-                  names = [n for n in z.namelist() if n.endswith('.dist-info/METADATA')]
+                  names = []
+                  for member in z.namelist():
+                      parts = member.split('/')
+                      if (len(parts) == 2 and parts[0].endswith('.dist-info')
+                              and parts[1] == 'METADATA'):
+                          names.append(member)
                   assert len(names) == 1
                   metadata = BytesParser(policy=policy.default).parsebytes(z.read(names[0]))
               name, version = str(metadata['Name']).lower(), str(metadata['Version'])
