@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools==81.0.0", "wheel==0.47.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trioctagon-scientific-ui"
+version = "0.1.0"
+description = "Offline scientific companion for an explicitly locked certified kernel"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+license = "Apache-2.0"
+license-files = ["LICENSE", "LICENSE_SCOPE.md", "THIRD_PARTY_NOTICES.md"]
+authors = [{name = "Hilmir Frímann Halldórsson"}]
+dependencies = ["PySide6-Essentials==6.11.2", "matplotlib==3.11.2"]
+
+[project.scripts]
+trioctagon-scientific-ui = "trioctagon_ui.__main__:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["trioctagon_ui"]
+include-package-data = false
+
+[tool.setuptools.package-data]
+trioctagon_ui = ["help.json"]
+
+[tool.setuptools.data-files]
+"share/trioctagon-scientific-ui" = ["kernel-artifact.lock.json", "requirements-win-py311.lock"]
+
+[tool.trioctagon-ui]
+registry-name-availability-certified = false
+public-release-authorized = false
+
+[[tool.trioctagon-ui.build-wheels]]
+name = "setuptools"
+version = "81.0.0"
+filename = "setuptools-81.0.0-py3-none-any.whl"
+sha256 = "fdd925d5c5d9f62e4b74b30d6dd7828ce236fd6ed998a08d81de62ce5a6310d6"
+
+[[tool.trioctagon-ui.build-wheels]]
+name = "wheel"
+version = "0.47.0"
+filename = "wheel-0.47.0-py3-none-any.whl"
+sha256 = "212281cab4dff978f6cedd499cd893e1f620791ca6ff7107cf270781e587eced"

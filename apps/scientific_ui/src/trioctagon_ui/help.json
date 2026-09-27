@@ -1,0 +1,110 @@
+{
+  "help_version": 1,
+  "source_commit": "7b3a0fcec2c9bde6c9e1ea482fe1f1ea6b16793e",
+  "items": [
+    {
+      "id": "inputs",
+      "class": "plain_definition",
+      "text": "Enter all scientific values explicitly. Sliders have display-only ranges; text entry retains off-tick and out-of-range values.",
+      "source": "K4A INPUT VALIDATION / SLIDER MATRIX"
+    },
+    {
+      "id": "state",
+      "class": "plain_definition",
+      "text": "Omega uses three ordered real/imaginary pairs. No normalization is applied. update_index is separate from observer clocks.",
+      "source": "State; K0 A05/S01"
+    },
+    {
+      "id": "parameters",
+      "class": "plain_definition",
+      "text": "eps, coupling g, phase_strength and the explicit k triple are the kernel parameters. k is not a spatial wave vector.",
+      "source": "Parameters; K0 A01"
+    },
+    {
+      "id": "historical",
+      "class": "historical_provenance",
+      "text": "A historical preset or reference fill is an explicit action. Its source is shown; edits produce a user-supplied draft.",
+      "source": "K0 L01-L04; public historical_seed/historical_observer"
+    },
+    {
+      "id": "rationale",
+      "class": "open_rationale",
+      "text": "Recorded provenance known. Original design rationale unresolved where O02 applies.",
+      "source": "K2 O02 OPEN_NONBLOCKING"
+    },
+    {
+      "id": "observers",
+      "class": "accepted_claim",
+      "text": "PASSIVE OBSERVATION / DIAGNOSTIC. Selected observers and diagnostics do not feed back into Omega.",
+      "source": "K0 E01-E10; api.run"
+    },
+    {
+      "id": "records",
+      "class": "known_qualification",
+      "text": "Structure/digest valid does not establish scientific replay or authenticate producer claims. Producer environment differs from the current viewer.",
+      "source": "RunRecord/GeometryRecord public loaders"
+    },
+    {
+      "id": "resume",
+      "class": "known_qualification",
+      "text": "Resume preserves parameters and requires matching source/module identity. A changed configuration is a new run from a checkpoint, with named observers explicitly reinitialized.",
+      "source": "api.resume; K4A execution contract"
+    },
+    {
+      "id": "geometry",
+      "class": "accepted_claim",
+      "text": "Independent geometry — no dynamic attachment. Numeric wireframes display returned exact nodes and incidence. Exact expressions remain inspectable.",
+      "source": "GeometryRecord; C01/D03"
+    },
+    {
+      "id": "research",
+      "class": "research_only_reference",
+      "text": "Research concepts and quarantined modules are excluded from executable controls. No Omega-to-shell mapping is established.",
+      "source": "K4A exclusions"
+    },
+    {
+      "id": "license",
+      "class": "known_qualification",
+      "text": "Application software: Apache-2.0. Qt/PySide6/Shiboken use the LGPLv3 route and remain separately installed and replaceable. Third-party components retain their own notices.",
+      "source": "Installed distribution THIRD_PARTY_NOTICES.md"
+    }
+  ],
+  "presets": {
+    "gate_torus_seed_v1": {
+      "public_operation": "api.historical_seed(\"gate_torus_seed_v1\")",
+      "omega": [
+        [
+          "0.2",
+          "0.3"
+        ],
+        [
+          "-0.4",
+          "0.1"
+        ],
+        [
+          "0.1",
+          "-0.2"
+        ]
+      ],
+      "provenance": {
+        "kind": "historical_preset",
+        "source_id": "gate_torus_seed_v1",
+        "source_revision": "3d9e2c24f2cd9207242e16559558c6adabb21c04",
+        "locator": "kernel_physics/K0_KERNEL_AUTHORITY_PUBLIC_CONTRACT_FREEZE_v0.1.md#2-supported-v1-surface-for-k1",
+        "notes": "Saved gate/torus seed; original selection rationale is OPEN_NONBLOCKING (O02)."
+      }
+    },
+    "L01": {
+      "parameters": {
+        "eps": "0.05",
+        "g": "0.2",
+        "k": [
+          "1",
+          "1",
+          "1"
+        ]
+      },
+      "source": "K0 ledger L01; phase_strength chosen explicitly as 0 or 0.001"
+    }
+  }
+}

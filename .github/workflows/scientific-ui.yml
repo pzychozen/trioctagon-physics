@@ -1,0 +1,60 @@
+name: Scientific UI certification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/scientific_ui/**'
+      - '.github/workflows/scientific-ui.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  installed-windows-ui:
+    runs-on: windows-latest
+    timeout-minutes: 35
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.11'
+          architecture: x64
+      - name: Acquire exact certified kernel and hashed wheels
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: pwsh
+        run: >-
+          python -B apps/scientific_ui/tests/test_install_launch.py --acquire
+          --source "$env:GITHUB_WORKSPACE" --workspace "$env:RUNNER_TEMP/scientific-ui"
+      - name: Offline build, installed tests, Qt and worker verification
+        shell: pwsh
+        run: >-
+          python -B apps/scientific_ui/tests/test_install_launch.py --certify
+          --source "$env:GITHUB_WORKSPACE" --workspace "$env:RUNNER_TEMP/scientific-ui"
+      - name: Require clean checkout
+        shell: pwsh
+        run: |
+          git diff --check
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          if (git status --porcelain) { throw 'Certification changed the checkout' }
+      - name: Retain companion application evidence
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: scientific-ui-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/scientific-ui/c-*/evidence/
+            ${{ runner.temp }}/scientific-ui/c-*/dist/*.whl
+            ${{ runner.temp }}/scientific-ui/*-inventory-certification.json
+            ${{ runner.temp }}/scientific-ui/acquisition.json
+            ${{ runner.temp }}/scientific-ui/latest-certification.json
+          if-no-files-found: error
+          retention-days: 30
