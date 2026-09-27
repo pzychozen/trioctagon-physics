@@ -2,10 +2,11 @@
 import math
 from fractions import Fraction
 from collections.abc import Mapping
-from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg, NavigationToolbar2QT
+from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg
+from trioctagon_ui.plots import ViewToolbar
 from matplotlib.figure import Figure
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QListWidget, QListWidgetItem, QPushButton, QLabel
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QListWidget, QListWidgetItem, QPushButton, QLabel, QCheckBox
 
 
 def exact_float(node, depth=0):
@@ -68,7 +69,10 @@ class GeometryView(QWidget):
         self.canvas = FigureCanvasQTAgg(self.figure)
         self.canvas.setAccessibleName("CPU geometry wireframe; exact object table alternative below")
         right = QVBoxLayout(); row.addLayout(right)
-        right.addWidget(NavigationToolbar2QT(self.canvas, self)); right.addWidget(self.canvas)
+        right.addWidget(ViewToolbar(self.canvas, self)); right.addWidget(self.canvas)
+        self.show_axes = QCheckBox("Show geometry axes"); self.show_axes.setChecked(True)
+        self.show_axes.setAccessibleName("Geometry axes visibility; presentation only")
+        right.addWidget(self.show_axes); self.show_axes.toggled.connect(lambda _: self.redraw())
         self.reset = QPushButton("Reset camera"); self.reset.setAccessibleName("Reset geometry camera")
         right.addWidget(self.reset)
         self.reset.clicked.connect(lambda: self.redraw(reset=True))
@@ -102,6 +106,7 @@ class GeometryView(QWidget):
                     xyz = [tuple(p) if len(p) == 3 else (*p, 0.0) for p in line]
                     ax.plot(*zip(*xyz), linewidth=0.9)
             ax.set(title=frame, xlabel="x", ylabel="y", zlabel="z")
+            if not self.show_axes.isChecked(): ax.set_axis_off()
             if frame in cameras:
                 elev, azim, xlim, ylim, zlim = cameras[frame]
                 ax.view_init(elev=elev, azim=azim); ax.set(xlim=xlim, ylim=ylim, zlim=zlim)

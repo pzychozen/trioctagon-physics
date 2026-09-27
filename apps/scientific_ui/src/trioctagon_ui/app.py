@@ -6,16 +6,16 @@ from importlib import metadata
 import json
 from pathlib import Path
 
-from PySide6.QtCore import Qt, Signal
+from PySide6.QtCore import Qt, Signal, QTimer
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFileDialog, QFormLayout,
     QGroupBox, QHBoxLayout, QLabel, QLineEdit, QMainWindow, QMessageBox, QPlainTextEdit,
-    QPushButton, QScrollArea, QSlider, QSpinBox, QSplitter, QTabWidget, QTableWidget,
+    QPushButton, QScrollArea, QSlider, QSpinBox, QDoubleSpinBox, QListWidget, QListWidgetItem, QSplitter, QTabWidget, QTableWidget,
     QTableWidgetItem, QTreeWidget, QTreeWidgetItem, QVBoxLayout, QWidget)
 from trioctagon_ui import requests
 from trioctagon_ui.geometry_view import GeometryView
 from trioctagon_ui.jobs import JobManager
-from trioctagon_ui.plots import StoredPlots
-from trioctagon_ui.record_views import RecordView, atomic_text, f64, kernel_lock
+from trioctagon_ui.plots import StoredPlots, HistoryPlot
+from trioctagon_ui.record_views import RecordView, AnalysisView, atomic_text, f64, kernel_lock
 
 
 def button(text, name, callback):
@@ -30,11 +30,11 @@ def readonly_text(name):
     return item
 
 
-def fill_tree(tree, value):
+def fill_tree(tree, value, precision=None):
     tree.clear()
     def add(parent, name, data):
         if isinstance(data, Mapping) and set(data) == {"f64"}:
-            item = QTreeWidgetItem([str(name), repr(f64(data)), data["f64"]])
+            item = QTreeWidgetItem([str(name), repr(f64(data)) if precision is None else format(f64(data), f".{precision}g"), data["f64"]])
         elif isinstance(data, (Mapping, tuple, list)):
             item = QTreeWidgetItem([str(name), f"{len(data)} entries", ""])
             values = data.items() if isinstance(data, Mapping) else enumerate(data)
@@ -113,6 +113,8 @@ class MainWindow(QMainWindow):
         self.current_run = None
         self.current_geometry = None
         self.records = []
+        self.analysis_cache = []
+        self.analysis_current = None
         self.saved = {}
         self.loaded = set()
         self.resumed = set()
@@ -153,7 +155,8 @@ class MainWindow(QMainWindow):
         scroll = QScrollArea(); scroll.setWidgetResizable(True); scroll.setMinimumWidth(400)
         controls = QWidget(); form = QVBoxLayout(controls); scroll.setWidget(controls)
         splitter.addWidget(scroll)
-        form.addWidget(QLabel("Topology: triad (fixed in K4b; ring editing is K4c)"))
+        self.topology_banner = QLabel("Topology: triad; state size 3")
+        form.addWidget(self.topology_banner)
         self.origin_label = QLabel(); self.origin_label.setWordWrap(True); form.addWidget(self.origin_label)
         seed = button("Apply HISTORICAL PRESET: gate_torus_seed_v1", "Apply historical seed", self._seed)
         seed.setToolTip(self._help("historical")); form.addWidget(seed); self.seed_button = seed
@@ -175,14 +178,17 @@ class MainWindow(QMainWindow):
         form.addWidget(self.advanced_toggle)
         self.advanced = QWidget(); adv = QFormLayout(self.advanced); form.addWidget(self.advanced)
         self.advanced.setVisible(False); self.advanced_toggle.toggled.connect(self.advanced.setVisible)
-        self.omega_edits = []
-        for i in range(3):
-            pair = []
-            for part in ("re", "im"):
-                edit = QLineEdit(); edit.setAccessibleName(f"Omega{i} {part} authoritative input")
-                edit.setToolTip(self._help("state")); adv.addRow(f"Omega{i}.{part}", edit)
-                edit.textChanged.connect(lambda _: self._edited("omega")); pair.append(edit)
-            self.omega_edits.append(pair)
+        self.topology_combo = QComboBox(); self.topology_combo.addItems(["triad", "ring"])
+        self.topology_combo.setAccessibleName("Explicit topology: triad or ring")
+        adv.addRow("Topology", self.topology_combo)
+        self.q_spin = QSpinBox(); self.q_spin.setRange(1, 1000)
+        self.q_spin.setAccessibleName("UI triad row count q; state size is 3q; new rows remain blank")
+        self.q_spin.setToolTip(self._help("ring"))
+        adv.addRow("q / row structure", self.q_spin)
+        self.topology_combo.currentTextChanged.connect(lambda _: self._edited("topology"))
+        self.q_spin.valueChanged.connect(self._resize_rows)
+        self.omega_box = QWidget(); self.omega_form = QFormLayout(self.omega_box); adv.addRow(self.omega_box)
+        self.omega_edits = []; self._omega_widgets(3)
         self.index_edit = QLineEdit(); self.index_edit.setAccessibleName("Initial update_index")
         self.index_edit.textChanged.connect(lambda _: self._edited("update_index")); adv.addRow("update_index", self.index_edit)
         for i in range(3):
@@ -198,8 +204,8 @@ class MainWindow(QMainWindow):
             edit.textChanged.connect(lambda _: self._edited("provenance"))
         self.checkpoint_label = QLabel("New explicit run draft"); self.checkpoint_label.setWordWrap(True)
         form.addWidget(self.checkpoint_label)
-        self.checkpoint_reset = QCheckBox("Checkpoint: explicitly reinitialize selected named observers")
-        self.checkpoint_reset.setAccessibleName("Approve named observer reinitialization for checkpoint draft")
+        self.checkpoint_reset = QCheckBox("Checkpoint: explicitly initialize selected observer descriptors")
+        self.checkpoint_reset.setAccessibleName("Acknowledge explicit observer clocks and memory for checkpoint draft")
         self.checkpoint_reset.setVisible(False); self.checkpoint_reset.toggled.connect(self._validity)
         form.addWidget(self.checkpoint_reset)
         self.validation = QLabel(); self.validation.setWordWrap(True); form.addWidget(self.validation)
@@ -209,6 +215,8 @@ class MainWindow(QMainWindow):
         self.run_button = button("Run N updates", "Run complete explicit draft", lambda: self._run(None))
         for action in (self.zero_button, self.one_button, self.run_button):
             actions.addWidget(action)
+        self.step_preview_button = button("Step preview — detached, not a record", "Explicit public step scratchpad preview", self._step_preview)
+        form.addWidget(self.step_preview_button)
         form.addWidget(button("New blank draft", "Clear draft while preserving completed records", self._blank))
         self.preview = readonly_text("Explicit draft and resolved request preview")
         self.preview.setMaximumHeight(190); form.addWidget(self.preview)
@@ -221,6 +229,23 @@ class MainWindow(QMainWindow):
         self.sample.setRange(0, 0); self.sample.valueChanged.connect(self._sample_changed)
         sample_row.addWidget(self.sample)
         self.sample_label = QLabel("No record"); sample_row.addWidget(self.sample_label)
+        playback = QHBoxLayout(); views.addLayout(playback)
+        self.play_timer = QTimer(self); self.play_timer.timeout.connect(self._play_tick)
+        self.play_button = button("Play", "Play stored samples only", self._play)
+        self.pause_button = button("Pause", "Pause stored-sample playback", self.play_timer.stop)
+        self.back_button = button("Step back", "Previous stored sample", lambda: self.sample.setValue(max(0, self.sample.value() - 1)))
+        self.forward_button = button("Step forward", "Next stored sample", lambda: self.sample.setValue(min(self.sample.maximum(), self.sample.value() + 1)))
+        for item in (self.play_button, self.pause_button, self.back_button, self.forward_button): playback.addWidget(item)
+        self.playback_rate = QDoubleSpinBox(); self.playback_rate.setRange(.1, 60); self.playback_rate.setValue(5)
+        self.playback_rate.setAccessibleName("Playback frames per wall-clock second; unrelated to Clock.dt, updates or physical time")
+        self.playback_rate.valueChanged.connect(lambda _: self.play_timer.setInterval(round(1000 / self.playback_rate.value())))
+        playback.addWidget(self.playback_rate)
+        views.addWidget(QLabel("Playback: stored sample ordinals; frames / wall-clock second, unrelated to Clock.dt or physical time."))
+        self.precision = QSpinBox(); self.precision.setRange(1, 17); self.precision.setValue(8)
+        self.precision.setAccessibleName("Displayed significant digits only; stored hex and plot values unchanged")
+        precision_row = QHBoxLayout(); views.addLayout(precision_row)
+        precision_row.addWidget(QLabel("Display significant digits")); precision_row.addWidget(self.precision)
+        self.precision.valueChanged.connect(self._precision_changed)
         self.sample_table = QTableWidget(0, 3)
         self.sample_table.setHorizontalHeaderLabels(["Field", "Displayed value", "Exact stored spelling"])
         self.sample_table.setAccessibleName("Selected sample table; equivalent to all sample plots")
@@ -233,37 +258,121 @@ class MainWindow(QMainWindow):
         page = QWidget(); layout = QVBoxLayout(page)
         banner = QLabel("PASSIVE OBSERVATION / DIAGNOSTIC — nothing here feeds back into Omega")
         banner.setWordWrap(True); layout.addWidget(banner)
-        self.observer_combo = QComboBox(); self.observer_combo.setAccessibleName("Explicit named observer selection")
-        self.observer_combo.addItems(["None", *requests.OBSERVER_NAMES, "Both"])
-        self.observer_combo.setToolTip(self._help("observers"))
-        layout.addWidget(self.observer_combo)
-        layout.addWidget(QLabel("HISTORICAL PRESETS: named observers use their public clock/configuration/memory values; custom observers are K4c."))
-        layout.addWidget(QLabel("Recorded provenance known. Original design rationale unresolved where O02 applies."))
-        self.observer_combo.currentIndexChanged.connect(lambda _: self._edited("observers"))
+        self.observer_tabs = QTabWidget(); layout.addWidget(self.observer_tabs)
+        run_page = QWidget(); run_layout = QVBoxLayout(run_page)
+        actions = QHBoxLayout(); run_layout.addLayout(actions)
+        self.add_staged = button("Add staged observer", "Add blank custom staged observer", lambda: self._add_observer(requests.blank_observer("staged")))
+        self.add_ema = button("Add EMA observer", "Add blank custom EMA observer", lambda: self._add_observer(requests.blank_observer("ema")))
+        actions.addWidget(self.add_staged); actions.addWidget(self.add_ema)
+        for name in requests.OBSERVER_NAMES:
+            actions.addWidget(button("Add HISTORICAL " + name, "Add historical observer " + name, lambda _, n=name: self._add_observer({"mode": "preset", "name": n})))
+        pair = QSplitter(); run_layout.addWidget(pair, 2)
+        self.observer_list = QListWidget(); self.observer_list.setAccessibleName("Independent observer descriptors; select to inspect or edit")
+        pair.addWidget(self.observer_list)
+        scroll = QScrollArea(); scroll.setWidgetResizable(True); self.observer_editor = QWidget()
+        self.observer_form = QFormLayout(self.observer_editor); scroll.setWidget(self.observer_editor); pair.addWidget(scroll)
+        self.observer_fields = {}; self._observer_rendering = False
+        self.observer_list.currentRowChanged.connect(self._observer_selected)
+        row = QHBoxLayout(); run_layout.addLayout(row)
+        self.convert_observer = button("Convert preset to CUSTOM / USER-SUPPLIED", "Explicitly convert historical observer before editing", self._convert_observer)
+        self.remove_observer = button("Remove selected observer", "Remove selected observer descriptor", self._remove_observer)
+        row.addWidget(self.convert_observer); row.addWidget(self.remove_observer)
+        self.clear_passive = button("Clear incompatible passive selections", "Explicitly clear observers, readouts and diagnostics for ring", self._clear_passive)
+        run_layout.addWidget(self.clear_passive)
+        run_layout.addWidget(QLabel("Recorded provenance known. Original design rationale unresolved where O02 applies. Clock dt is not a dynamics timestep."))
         self.output_checks = {}
+        output_row = QHBoxLayout(); run_layout.addLayout(output_row)
         for name in ("z_chiral", *requests.DIAGNOSTICS):
             check = QCheckBox(name); check.setAccessibleName("Request " + name)
-            check.setToolTip(self._help("observers")); layout.addWidget(check)
+            check.setToolTip(self._help("observers")); output_row.addWidget(check)
             self.output_checks[name] = check
             check.toggled.connect(lambda _: self._edited("outputs"))
-        layout.addWidget(QLabel("readout_accounting and historical_alignment require an explicitly selected observer. No outputs are selected initially."))
+        run_layout.addWidget(QLabel("Accounting/alignment require observers. Ring requires no passive selections; switching topology never clears them automatically."))
         self.passive_tree = tree("Read-only returned observer and diagnostic fields at selected sample")
-        layout.addWidget(self.passive_tree, 1)
+        run_layout.addWidget(self.passive_tree, 1)
+        self.observer_tabs.addTab(run_page, "Run observers and recorded outputs")
+        scratch = QWidget(); form = QVBoxLayout(scratch)
+        self.analysis_kind = QComboBox(); self.analysis_kind.addItems(["Choose detached analysis", *[v for v in requests.ANALYSIS_TYPES if v not in requests.HISTORY_TYPES]])
+        self.analysis_kind.setAccessibleName("Standalone public analysis function")
+        form.addWidget(self.analysis_kind)
+        self.analysis_source = QComboBox(); self.analysis_source.addItems(["Explicit scratchpad values", "Explicitly selected stored triad sample"])
+        self.analysis_source.setAccessibleName("Explicit scratchpad source choice")
+        form.addWidget(self.analysis_source)
+        self.analysis_source_label = QLabel("Explicit scratchpad; no implicit selected sample"); self.analysis_source_label.setWordWrap(True)
+        form.addWidget(self.analysis_source_label)
+        self.analysis_inputs = QPlainTextEdit(); self.analysis_inputs.setAccessibleName("Explicit analysis inputs JSON; numbers entered as strings")
+        form.addWidget(self.analysis_inputs)
+        form.addWidget(QLabel("All blank strings require explicit entry. JSON is application input, never Python code. Observe calls return recomputed readouts; constructor-zero belongs to recorded run initialization."))
+        fill = QHBoxLayout(); form.addLayout(fill)
+        fill.addWidget(button("Copy visible dynamics inputs", "Copy visible draft state and parameters into scratchpad", self._copy_analysis_dynamics))
+        fill.addWidget(button("Copy selected observer fields", "Copy visible observer clock config memory into scratchpad", self._copy_analysis_observer))
+        self.analysis_button = button("Run detached analysis", "Submit explicit standalone public API analysis", self._request_analysis)
+        form.addWidget(self.analysis_button)
+        self.analysis_kind.currentIndexChanged.connect(self._analysis_template)
+        self.analysis_source.currentIndexChanged.connect(self._analysis_context)
+        self.observer_tabs.addTab(scratch, "Passive scratchpad")
+        history = QWidget(); hist = QVBoxLayout(history)
+        fields = QFormLayout(); hist.addLayout(fields)
+        self.history_kind = QComboBox(); self.history_kind.addItems(["Choose history display", *requests.HISTORY_TYPES])
+        self.history_kind.setAccessibleName("Explicit history coordinate helper")
+        fields.addRow("History operation", self.history_kind)
+        self.history_observer = QComboBox(); self.history_observer.setAccessibleName("Explicit stored observer history selection")
+        fields.addRow("Recorded observer", self.history_observer)
+        self.history_key = QComboBox(); self.history_key.addItems(["Choose vector key", "Z_macro", "Z_chiral", "Z_total"])
+        fields.addRow("Direct stored vector", self.history_key)
+        self.kappa_source = QComboBox(); self.kappa_source.addItems(["Choose recorded kappa source", *requests.KAPPA_SOURCES])
+        fields.addRow("DISPLAY_DERIVATION_ONLY sqrt source", self.kappa_source)
+        self.history_fields = {}
+        for name in ("N", "R", "r_max"):
+            edit = QLineEdit(); edit.setAccessibleName("Explicit history " + name); self.history_fields[name] = edit
+            fields.addRow(name, edit)
+        self.history_context = QLabel("Select a RunRecord, then an observer and explicit coordinate inputs.")
+        self.history_context.setWordWrap(True); hist.addWidget(self.history_context)
+        hist.addWidget(QLabel("Stored z = observer scalar; phi_index = stored q. Kappa uses the labelled recorded nonnegative diagnostic only. Torus normalization uses the entire supplied history once; playback never renormalizes."))
+        self.history_button = button("Request complete stored history display", "Explicit whole-history public coordinate request", self._request_history)
+        hist.addWidget(self.history_button)
+        self.history_plot = HistoryPlot(); hist.addWidget(self.history_plot, 2)
+        self.observer_tabs.addTab(history, "History coordinates")
+        self.analysis_table = QTableWidget(0, 3); self.analysis_table.setHorizontalHeaderLabels(["Detached result / input / lineage", "Display value", "Exact stored spelling"])
+        self.analysis_table.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers)
+        self.analysis_table.setAccessibleName("Detached analysis table including every returned history coordinate and normalization field")
+        layout.addWidget(self.analysis_table, 1)
         self.tabs.addTab(page, "B — Observers & Diagnostics")
 
     def _geometry(self):
         page = QWidget(); layout = QVBoxLayout(page)
         row = QHBoxLayout(); layout.addLayout(row)
         self.geometry_combo = QComboBox(); self.geometry_combo.setAccessibleName("Independent geometry definition")
-        self.geometry_combo.addItems(["Choose geometry", "C01 — sections []", "D03 — regular(s)"])
+        self.geometry_combo.addItems(["Choose geometry", "C01 — explicit sections", "D03 — explicit construction"])
         row.addWidget(self.geometry_combo)
-        self.s_edit = QLineEdit(); self.s_edit.setPlaceholderText("Exact positive s: integer or integer/integer")
-        self.s_edit.setAccessibleName("D03 regular exact positive s")
-        row.addWidget(self.s_edit)
+        self.construction_combo = QComboBox(); self.construction_combo.addItems(["Choose construction", *requests.D03_FIELDS])
+        self.construction_combo.setAccessibleName("D03 public construction selector"); row.addWidget(self.construction_combo)
+        self.geometry_fields = {}
+        params = QFormLayout(); layout.addLayout(params)
+        for name in ("s", "g_gap", "p"):
+            edit = QLineEdit(); edit.setAccessibleName("D03 exact " + name)
+            edit.setToolTip(self._help("exact"))
+            edit.setPlaceholderText("Exact expression; no floats"); params.addRow(name + (" — geometric reference length, distinct from dynamics g" if name == "g_gap" else ""), edit)
+            self.geometry_fields[name] = edit; edit.textChanged.connect(self._validity)
+        self.s_edit = self.geometry_fields["s"]
+        self.section_heights = QListWidget(); self.section_heights.setMaximumHeight(85)
+        self.section_heights.setAccessibleName("Ordered exact C01 section heights; duplicates preserved; double-click to edit")
+        layout.addWidget(self.section_heights)
+        self.section_heights.itemChanged.connect(self._validity)
+        sections = QHBoxLayout(); layout.addLayout(sections)
+        self.section_input = QLineEdit(); self.section_input.setAccessibleName("New exact C01 section-height text")
+        self.section_input.setToolTip(self._help("exact") + "\n" + self._help("sections"))
+        sections.addWidget(self.section_input)
+        self.add_section = button("Add section height", "Append explicit C01 height, preserving repeats", self._add_section)
+        self.remove_section = button("Remove selected height", "Remove explicitly selected C01 section height", self._remove_section)
+        sections.addWidget(self.add_section); sections.addWidget(self.remove_section)
+        self.fixed_geometry = QLabel("C01 w, s, beta are fixed accepted parameters, shown in the exact record. Arbitrary fold angle and inferred symmetry actions remain unavailable.")
+        self.fixed_geometry.setWordWrap(True); layout.addWidget(self.fixed_geometry)
+        self.geometry_validation = QLabel(); self.geometry_validation.setWordWrap(True); layout.addWidget(self.geometry_validation)
         self.geometry_button = button("Request geometry", "Compute independent public GeometryRecord", self._request_geometry)
         row.addWidget(self.geometry_button)
         self.geometry_combo.currentIndexChanged.connect(self._validity)
-        self.s_edit.textChanged.connect(self._validity)
+        self.construction_combo.currentIndexChanged.connect(self._validity)
         self.geometry_view = GeometryView(); layout.addWidget(self.geometry_view, 2)
         self.geometry_tree = tree("Exact geometry objects, parameters, incidence, roles and symmetry")
         layout.addWidget(self.geometry_tree, 1)
@@ -305,6 +414,12 @@ class MainWindow(QMainWindow):
         self.error_details.setMaximumHeight(170); layout.addWidget(self.error_details)
         layout.addWidget(button("Copy error details", "Copy original technical error details", lambda: QApplication.clipboard().setText(self.error_details.toPlainText())))
         layout.addWidget(QLabel(self._help("license")))
+        layout.addWidget(QLabel("Detached analysis cache — application data, separate from public record history"))
+        self.analysis_history = QComboBox(); self.analysis_history.setAccessibleName("Detached analysis cache history")
+        self.analysis_history.currentIndexChanged.connect(self._select_analysis)
+        layout.addWidget(self.analysis_history)
+        self.analysis_tree = tree("Detached analysis lineage and qualification; parent identity is separate from current implementation")
+        layout.addWidget(self.analysis_tree, 1)
         self.tabs.addTab(page, "D — Records & Reproducibility")
 
     def _gather(self):
@@ -316,8 +431,7 @@ class MainWindow(QMainWindow):
         draft["update_index"] = self.index_edit.text()
         draft["provenance"] = {k: edit.text() for k, edit in self.provenance.items()}
         draft["provenance"]["source_revision"] = draft["provenance"]["source_revision"] or None
-        selection = self.observer_combo.currentIndex()
-        draft["observers"] = [] if selection == 0 else list(requests.OBSERVER_NAMES) if selection == 3 else [requests.OBSERVER_NAMES[selection - 1]]
+        draft["topology"] = self.topology_combo.currentText()
         draft["readouts"] = ["z_chiral"] if self.output_checks["z_chiral"].isChecked() else []
         draft["diagnostics"] = [n for n in requests.DIAGNOSTICS if self.output_checks[n].isChecked()]
         return draft
@@ -327,16 +441,17 @@ class MainWindow(QMainWindow):
         try:
             for name in ("eps", "g", "phase_strength", "updates"):
                 self.numeric[name].setText(self.draft[name])
-            for i in range(3):
-                self.numeric[f"k{i}"].setText(self.draft["k"][i])
+            for i in range(3): self.numeric[f"k{i}"].setText(self.draft["k"][i])
+            if len(self.omega_edits) != len(self.draft["omega"]): self._omega_widgets(len(self.draft["omega"]))
+            self.topology_combo.setCurrentText(self.draft["topology"])
+            self.q_spin.blockSignals(True); self.q_spin.setValue(len(self.draft["omega"]) // 3); self.q_spin.blockSignals(False)
+            for i in range(len(self.draft["omega"])):
                 for j in range(2):
                     self.omega_edits[i][j].setText(self.draft["omega"][i][j])
             self.index_edit.setText(self.draft["update_index"])
             for k, edit in self.provenance.items():
                 edit.setText(self.draft["provenance"][k] or "")
-            observers = self.draft["observers"]
-            index = 0 if not observers else 3 if len(observers) == 2 else requests.OBSERVER_NAMES.index(observers[0]) + 1
-            self.observer_combo.setCurrentIndex(index)
+            self._refresh_observers()
             for name, check in self.output_checks.items():
                 check.setChecked(name in self.draft["readouts"] + self.draft["diagnostics"])
         finally:
@@ -347,7 +462,7 @@ class MainWindow(QMainWindow):
         if self._setting or not hasattr(self, "output_checks"):
             return
         self.draft = requests.mark_edited(self._gather(), field)
-        if field in ("omega", "update_index") and self.checkpoint:
+        if field in ("omega", "update_index", "topology") and self.checkpoint:
             self.checkpoint = None
             self.checkpoint_label.setText("Checkpoint state edited: new explicit draft; no continuation claim")
             self.checkpoint_reset.setVisible(False)
@@ -357,9 +472,12 @@ class MainWindow(QMainWindow):
         if self._setting or not hasattr(self, "resume_updates"):
             return
         draft = self._gather()
-        for name in ("readout_accounting", "historical_alignment"):
+        ring = draft["topology"] == "ring"
+        self.topology_banner.setText(f"Topology: {draft['topology']}; q={len(draft['omega']) // 3}; state_size={len(draft['omega'])}. q controls rows, not a kernel parameter.")
+        self.seed_button.setEnabled(len(draft["omega"]) == 3)
+        for name in self.output_checks:
             check = self.output_checks[name]
-            check.setEnabled(bool(draft["observers"]) or check.isChecked())
+            check.setEnabled(not ring and (name not in ("readout_accounting", "historical_alignment") or bool(draft["observers"]) or check.isChecked()))
         try:
             resolved = requests.resolve_draft(draft)
             valid = True
@@ -367,7 +485,7 @@ class MainWindow(QMainWindow):
         except (ValueError, TypeError) as exc:
             resolved = None; valid = False; message = str(exc)
         if self.checkpoint and not self.checkpoint_reset.isChecked():
-            valid = False; message = "Explicitly acknowledge named observer reinitialization for this new checkpoint run."
+            valid = False; message = "Explicitly acknowledge selected observer initialization for this new checkpoint run."
         self.validation.setText(message)
         for item in (self.run_button, self.zero_button, self.one_button):
             item.setEnabled(valid and not self.jobs.busy)
@@ -375,13 +493,15 @@ class MainWindow(QMainWindow):
         origin = draft["origin"]
         self.origin_label.setText(f"Seed: {'HISTORICAL PRESET '+origin['seed'] if origin['seed'] else 'USER VALUE'}; parameters: {'REFERENCE FILL L01' if origin['parameters'] else 'USER VALUE'}")
         self.preview.setPlainText(json.dumps({"draft": draft, "resolved_binary64_hex": resolved}, indent=2, ensure_ascii=False))
-        geometry_valid = self.geometry_combo.currentIndex() == 1
-        if self.geometry_combo.currentIndex() == 2:
-            try:
-                requests.rational(self.s_edit.text()); geometry_valid = True
-            except ValueError:
-                geometry_valid = False
-        self.s_edit.setEnabled(self.geometry_combo.currentIndex() == 2)
+        is_d03 = self.geometry_combo.currentIndex() == 2
+        self.construction_combo.setEnabled(is_d03)
+        active = requests.D03_FIELDS.get(self.construction_combo.currentText(), ()) if is_d03 else ()
+        for name, edit in self.geometry_fields.items(): edit.setEnabled(name in active)
+        for widget in (self.section_heights, self.section_input, self.add_section, self.remove_section): widget.setEnabled(self.geometry_combo.currentIndex() == 1)
+        try:
+            self._geometry_envelope(); geometry_valid = True; self.geometry_validation.setText("Explicit exact request ready; public geometry validation remains authoritative.")
+        except ValueError as exc:
+            geometry_valid = False; self.geometry_validation.setText(str(exc))
         self.geometry_button.setEnabled(geometry_valid and not self.jobs.busy)
         is_run = self.current is not None and self.current.kind == "KERNEL_RUN_RECORD"
         try:
@@ -389,10 +509,13 @@ class MainWindow(QMainWindow):
         except ValueError:
             resume_valid = False
         self.resume_button.setEnabled(is_run and resume_valid and not self.jobs.busy)
-        self.checkpoint_button.setEnabled(is_run and int(self.current.data["state_size"]) == 3 and not self.jobs.busy)
+        self.checkpoint_button.setEnabled(is_run and not self.jobs.busy)
         self.save_button.setEnabled(self.current is not None)
         self.load_button.setEnabled(not self.jobs.busy)
         self.cancel_button.setEnabled(self.jobs.busy)
+        self.step_preview_button.setEnabled(not self.jobs.busy)
+        self.analysis_button.setEnabled(self.analysis_kind.currentIndex() > 0 and not self.jobs.busy)
+        self.history_button.setEnabled(is_run and not self.jobs.busy)
 
     def _seed(self):
         self.draft = requests.apply_seed(self._gather()); self.checkpoint = None
@@ -440,14 +563,14 @@ class MainWindow(QMainWindow):
                     raise ValueError("Checkpoint observer reset must be explicitly acknowledged")
                 envelope["operation"] = "new_checkpoint_run"
                 envelope["payload"].update(self.checkpoint)
-                envelope["payload"]["observer_reset"] = "reinitialize_named"
+                envelope["payload"]["observer_reset"] = "reinitialize_selected"
             self._submit(envelope, int(envelope["payload"]["resolved"]["updates"]) + 1)
         except Exception as exc:
             self._failed({"exception_class": type(exc).__name__, "message": str(exc), "operation": "run draft"})
 
     def _request_geometry(self):
-        definition = "C01" if self.geometry_combo.currentIndex() == 1 else "D03"
-        self._submit(requests.request("geometry", {"definition_id": definition, "s": None if definition == "C01" else self.s_edit.text()}))
+        try: self._submit(self._geometry_envelope())
+        except ValueError as exc: self._local_error(exc, "geometry input")
 
     def _resume(self):
         try:
@@ -460,7 +583,11 @@ class MainWindow(QMainWindow):
         parent = self.current
         index = self.sample.value()
         sample = parent.samples[index]
+        if len(sample["omega"]) > 3000:
+            self._local_error(ValueError("Checkpoint exceeds the draft editor resource guard of 1000 triads; the stored record remains inspectable"), "checkpoint draft")
+            return
         self.draft = self._gather()
+        self.draft["topology"] = parent.data["topology"]
         self.draft["omega"] = [[repr(f64(pair[p])) for p in ("re", "im")] for pair in sample["omega"]]
         self.draft["update_index"] = sample["update_index"]
         self.draft["origin"]["seed"] = None
@@ -477,6 +604,13 @@ class MainWindow(QMainWindow):
 
     def _completed(self, response):
         result = response["result"]
+        if result["result_kind"] == "analysis":
+            view = AnalysisView(result); self.analysis_cache.append(view)
+            self.analysis_history.addItem(f"{result['analysis_type']} · parent {(result['parent_digest'] or 'none')[:12]}")
+            self.analysis_history.setCurrentIndex(len(self.analysis_cache) - 1)
+            self._select_analysis(len(self.analysis_cache) - 1)
+            self.statusBar().showMessage("Detached analysis cached; public record history unchanged")
+            self._validity(); return
         view = RecordView(result["canonical_json"])
         if result["produced_current"]:
             self.runtime_source = result["source_commit"]
@@ -497,6 +631,7 @@ class MainWindow(QMainWindow):
             self._select_record(self.records[index])
 
     def _select_record(self, view):
+        self.play_timer.stop()
         self.current = view
         self.raw_json.setPlainText(view.canonical_json)
         fill_tree(self.record_tree, {k: v for k, v in view.data.items() if k not in ("samples", "objects")})
@@ -509,28 +644,35 @@ class MainWindow(QMainWindow):
                 self.current_run = view
                 self.sample.blockSignals(True); self.sample.setRange(0, len(view.samples) - 1); self.sample.setValue(0); self.sample.blockSignals(False)
                 self.plots.set_record(view); self._sample_changed(0)
+                self.history_observer.clear(); self.history_observer.addItem("Choose recorded observer")
+                self.history_observer.addItems(list(view.samples[0]["observer_results"]))
+                self.history_context.setText(f"Selected record {view.digest}; {len(view.samples)} stored samples. Explicit history request uses the entire history.")
             else:
                 self.current_geometry = view
                 fill_tree(self.geometry_tree, {k: v for k, v in view.data.items() if k not in ("execution_metadata", "paper_references", "implementation")})
                 self.geometry_view.set_record(view)
+                if view.data["geometry_definition_id"] == "C01": self.fixed_geometry.setText("C01 fixed exact parameters (read-only): " + str(view.data["resolved_parameters"]))
         except Exception as exc:
             self._failed({"exception_class": type(exc).__name__, "message": str(exc), "operation": "presentation", "qualification": "Record remains accepted; exact inspector and save remain available"})
         self._validity()
+        self._analysis_context()
 
     def _sample_changed(self, index):
         view = self.current_run
         if view is None or not 0 <= index < len(view.samples):
             return
-        rows = view.sample_rows(index)
+        rows = view.sample_rows(index, self.precision.value())
         self.sample_table.setRowCount(len(rows))
         for i, values in enumerate(rows):
             for j, value in enumerate(values):
                 self.sample_table.setItem(i, j, QTableWidgetItem(value))
         self.sample_table.resizeColumnsToContents()
         sample = view.samples[index]
-        self.sample_label.setText(f"update_index={sample['update_index']}; raw chirality: {view.missing_series('chirality0')}" + ("; plots show first three channels" if int(view.data['state_size']) > 3 else ""))
-        fill_tree(self.passive_tree, {k: sample[k] for k in ("observer_states", "observer_results", "diagnostics", "raw_readouts")})
+        self.sample_label.setText(f"sample ordinal={index}; actual update_index={sample['update_index']}; raw chirality: {view.missing_series('chirality0')}")
+        fill_tree(self.passive_tree, {k: sample[k] for k in ("observer_states", "observer_results", "diagnostics", "raw_readouts")}, self.precision.value())
         self.plots.select_sample(index)
+        if self.analysis_current and self.analysis_current.result["parent_digest"] == view.digest: self.history_plot.select_sample(index)
+        self._analysis_context()
 
     def _identity(self):
         try:
@@ -593,7 +735,212 @@ class MainWindow(QMainWindow):
             except Exception as exc:
                 self._failed({"exception_class": type(exc).__name__, "message": str(exc), "operation": "load draft"})
 
+    def _local_error(self, exc, operation):
+        self._failed({"exception_class": type(exc).__name__, "message": str(exc), "operation": operation})
+
+    def _omega_widgets(self, count):
+        while self.omega_form.rowCount(): self.omega_form.removeRow(0)
+        self.omega_edits = []
+        for i in range(count):
+            pair = []
+            for part in ("re", "im"):
+                edit = QLineEdit(); edit.setAccessibleName(f"Omega{i} {part} authoritative input")
+                edit.textChanged.connect(lambda _: self._edited("omega"))
+                self.omega_form.addRow(f"Omega{i}.{part}", edit); pair.append(edit)
+            self.omega_edits.append(pair)
+
+    def _resize_rows(self, q):
+        if self._setting: return
+        draft = self._gather(); old_q = len(draft["omega"]) // 3
+        try:
+            resized = requests.resize_ring(draft, q)
+        except ValueError:
+            if QMessageBox.question(self, "Discard scientific input rows?", f"Reducing q from {old_q} to {q} discards nonblank Omega values. Confirm this explicit draft edit?") != QMessageBox.StandardButton.Yes:
+                self.q_spin.blockSignals(True); self.q_spin.setValue(old_q); self.q_spin.blockSignals(False); return
+            resized = requests.resize_ring(draft, q, discard_confirmed=True)
+        self.draft = resized; self.checkpoint = None; self.checkpoint_reset.setVisible(False)
+        self._render_draft()
+
+    def _add_observer(self, descriptor):
+        self.draft = self._gather(); self.draft["observers"].append(deepcopy(descriptor))
+        self._refresh_observers(len(self.draft["observers"]) - 1); self._validity()
+
+    def _refresh_observers(self, index=None):
+        if index is None: index = self.observer_list.currentRow()
+        self.observer_list.blockSignals(True); self.observer_list.clear()
+        for value in self.draft["observers"]:
+            self.observer_list.addItem("HISTORICAL PRESET " + value["name"] if value["mode"] == "preset" else "CUSTOM " + (value["observer_id"] or "(ID required)"))
+        index = min(max(0, index), len(self.draft["observers"]) - 1)
+        self.observer_list.setCurrentRow(index); self.observer_list.blockSignals(False)
+        self._observer_selected(index)
+
+    def _observer_selected(self, index):
+        self._observer_rendering = True
+        try:
+            while self.observer_form.rowCount(): self.observer_form.removeRow(0)
+            self.observer_fields = {}
+            if not 0 <= index < len(self.draft["observers"]):
+                self.convert_observer.setEnabled(False); return
+            original = self.draft["observers"][index]
+            preset = original["mode"] == "preset"
+            value = deepcopy(self.help["observer_presets"][original["name"]]) if preset else original
+            self.convert_observer.setEnabled(preset)
+            self.observer_form.addRow(QLabel(("HISTORICAL PRESET — read-only" if preset else "CUSTOM / USER-SUPPLIED") + "; variant=" + value["variant"]))
+            self.observer_form.addRow(QLabel("Origin: " + str(value["origin"] or "manual")))
+            paths = [("observer_id",), ("initialization",), ("dt",)]
+            paths += [("clock", k) for k in ("q", "N", "t", "q_step")]
+            paths += [("config", k) for k in requests.CONFIG_FIELDS[value["variant"]]]
+            if value["memory"] is not None: paths.append(("memory", "m"))
+            paths += [("provenance", k) for k in ("source_id", "source_revision", "locator", "notes")]
+            for path in paths:
+                text = value[path[0]] if len(path) == 1 else value[path[0]][path[1]]
+                name = ".".join(path)
+                if name == "initialization":
+                    edit = QComboBox(); edit.addItems(["Choose initialization", "recomputed", "historical_constructor_zero"])
+                    edit.setCurrentIndex(0 if not text else edit.findText(text)); edit.setEnabled(not preset)
+                    edit.currentTextChanged.connect(lambda v, p=path: self._observer_edit(p, "" if v == "Choose initialization" else v))
+                else:
+                    edit = QLineEdit(text or ""); edit.setReadOnly(preset)
+                    edit.textChanged.connect(lambda v, p=path: self._observer_edit(p, v))
+                edit.setAccessibleName("Observer " + name + (" historical read-only" if preset else " authoritative input"))
+                self.observer_fields[name] = edit; self.observer_form.addRow(name, edit)
+            self.observer_form.addRow(QLabel("constructor-zero requires update_index=0 and EMA m=0. EMA requires |m|<=1. Kernel validation remains final. No theta wrapping."))
+        finally: self._observer_rendering = False
+
+    def _observer_edit(self, path, value):
+        if self._observer_rendering: return
+        index = self.observer_list.currentRow()
+        if not 0 <= index < len(self.draft["observers"]): return
+        observer = self.draft["observers"][index]
+        if observer["mode"] != "custom": return
+        if path == ("provenance", "source_revision") and not value: value = None
+        if len(path) == 1: observer[path[0]] = value
+        else: observer[path[0]][path[1]] = value
+        self.observer_list.item(index).setText("CUSTOM " + (observer["observer_id"] or "(ID required)"))
+        self._validity()
+
+    def _convert_observer(self):
+        index = self.observer_list.currentRow()
+        if 0 <= index < len(self.draft["observers"]):
+            self.draft["observers"][index] = requests.preset_to_custom(self.draft["observers"][index])
+            self._refresh_observers(index); self._validity()
+
+    def _remove_observer(self):
+        index = self.observer_list.currentRow()
+        if 0 <= index < len(self.draft["observers"]):
+            self.draft["observers"].pop(index); self._refresh_observers(index); self._validity()
+
+    def _clear_passive(self):
+        self.draft = self._gather()
+        for field in ("observers", "readouts", "diagnostics"): self.draft[field] = []
+        self._render_draft()
+
+    def _geometry_envelope(self):
+        if self.geometry_combo.currentIndex() == 1:
+            return requests.geometry_request("C01", {"section_heights": [self.section_heights.item(i).text() for i in range(self.section_heights.count())]})
+        if self.geometry_combo.currentIndex() == 2:
+            construction = self.construction_combo.currentText()
+            return requests.geometry_request("D03", {"construction": construction, **{k: self.geometry_fields[k].text() for k in requests.D03_FIELDS.get(construction, ())}})
+        raise ValueError("Choose a geometry definition explicitly")
+
+    def _add_section(self):
+        item = QListWidgetItem(self.section_input.text()); item.setFlags(item.flags() | Qt.ItemFlag.ItemIsEditable)
+        self.section_heights.addItem(item); self._validity()
+
+    def _remove_section(self):
+        index = self.section_heights.currentRow()
+        if index >= 0: self.section_heights.takeItem(index)
+        self._validity()
+
+    def _play(self):
+        if self.current_run is None: return
+        self.play_timer.start(round(1000 / self.playback_rate.value()))
+
+    def _play_tick(self):
+        if self.sample.value() >= self.sample.maximum(): self.play_timer.stop()
+        else: self.sample.setValue(self.sample.value() + 1)
+
+    def _precision_changed(self, *_):
+        if self.current_run is not None: self._sample_changed(self.sample.value())
+        if self.analysis_current is not None: self._select_analysis(self.analysis_history.currentIndex())
+
+    def _analysis_template(self):
+        if self.analysis_kind.currentIndex() > 0:
+            self.analysis_inputs.setPlainText(json.dumps(requests.analysis_template(self.analysis_kind.currentText()), indent=2))
+        else: self.analysis_inputs.clear()
+        self._validity()
+
+    def _analysis_context(self, *_):
+        if not hasattr(self, "analysis_source"): return
+        if self.analysis_source.currentIndex() == 0:
+            self.analysis_source_label.setText("Explicit scratchpad; no selected sample is used")
+        elif self.current is not None and self.current.kind == "KERNEL_RUN_RECORD":
+            self.analysis_source_label.setText(f"EXPLICIT STORED SOURCE: parent {self.current.digest}; sample ordinal {self.sample.value()}. Stored Omega/index override the scratchpad state; other fields remain explicit.")
+        else: self.analysis_source_label.setText("Stored source selected, but no RunRecord is selected. Analysis will be refused.")
+
+    def _copy_analysis_dynamics(self):
+        try:
+            inputs = json.loads(self.analysis_inputs.toPlainText()); draft = self._gather()
+            if "omega" in inputs: inputs["omega"] = draft["omega"]
+            if "state" in inputs: inputs["state"] = {"omega": draft["omega"], "update_index": draft["update_index"]}
+            if "parameters" in inputs: inputs["parameters"] = {k: draft[k] for k in ("eps", "g", "phase_strength", "k")}
+            if "topology" in inputs: inputs["topology"] = draft["topology"]
+            self.analysis_inputs.setPlainText(json.dumps(inputs, indent=2))
+        except (ValueError, TypeError) as exc: self._local_error(exc, "scratchpad copy")
+
+    def _copy_analysis_observer(self):
+        try:
+            index = self.observer_list.currentRow()
+            if not 0 <= index < len(self.draft["observers"]): raise ValueError("Select an observer explicitly")
+            observer = self.draft["observers"][index]
+            if observer["mode"] == "preset": observer = requests.preset_to_custom(observer)
+            inputs = json.loads(self.analysis_inputs.toPlainText())
+            for field in ("clock", "config", "memory", "dt"):
+                if field in inputs: inputs[field] = deepcopy(observer[field])
+            self.analysis_inputs.setPlainText(json.dumps(inputs, indent=2))
+        except (ValueError, TypeError) as exc: self._local_error(exc, "scratchpad observer copy")
+
+    def _analysis_source_record(self):
+        if self.current is None or self.current.kind != "KERNEL_RUN_RECORD": raise ValueError("Explicitly select a RunRecord first")
+        return {"mode": "record", "record_json": self.current.canonical_json, "sample_index": str(self.sample.value())}
+
+    def _request_analysis(self):
+        try:
+            source = self._analysis_source_record() if self.analysis_source.currentIndex() == 1 else {"mode": "explicit"}
+            self._submit(requests.analysis_request(self.analysis_kind.currentText(), json.loads(self.analysis_inputs.toPlainText()), source=source))
+        except (ValueError, TypeError) as exc: self._local_error(exc, "passive_analysis")
+
+    def _step_preview(self):
+        draft = self._gather()
+        inputs = {"state": {"omega": draft["omega"], "update_index": draft["update_index"]}, "parameters": {k: draft[k] for k in ("eps", "g", "phase_strength", "k")}, "topology": draft["topology"]}
+        self._submit(requests.analysis_request("step_preview", inputs))
+
+    def _request_history(self):
+        try:
+            kind = self.history_kind.currentText()
+            if self.history_observer.currentIndex() <= 0: raise ValueError("Choose a recorded observer explicitly")
+            inputs = {"observer_id": self.history_observer.currentText()}
+            if kind == "direct_history_coordinates": inputs["key"] = self.history_key.currentText()
+            else:
+                inputs.update(kappa_source=self.kappa_source.currentText(), N=self.history_fields["N"].text())
+                if kind == "history_torus_coordinates": inputs.update(R=self.history_fields["R"].text(), r_max=self.history_fields["r_max"].text())
+            self._submit(requests.analysis_request(kind, inputs, source=self._analysis_source_record()))
+        except ValueError as exc: self._local_error(exc, "history display")
+
+    def _select_analysis(self, index):
+        if not 0 <= index < len(self.analysis_cache): return
+        view = self.analysis_cache[index]; self.analysis_current = view
+        fill_tree(self.analysis_tree, view.result, self.precision.value())
+        rows = view.rows(self.precision.value()); self.analysis_table.setRowCount(len(rows))
+        for i, row in enumerate(rows):
+            for j, value in enumerate(row): self.analysis_table.setItem(i, j, QTableWidgetItem(value))
+        self.analysis_table.resizeColumnsToContents()
+        self.history_plot.set_analysis(view)
+        if self.current is not None and view.result["parent_digest"] == self.current.digest:
+            self.history_plot.select_sample(self.sample.value())
+
     def closeEvent(self, event):
+        self.play_timer.stop()
         if self.jobs.busy:
             self.jobs.cancel()
             event.ignore()

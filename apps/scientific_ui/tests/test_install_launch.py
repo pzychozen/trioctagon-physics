@@ -250,6 +250,30 @@ class InstallTests(unittest.TestCase):
         self.assertEqual(report["imports"], {"gui": [], "models": []})
         self.evidence("installed-worker.json", report)
 
+    def test_installed_k4c_science_smokes(self):
+        from trioctagon_ui import requests as r
+        from test_requests import example, custom
+        from test_worker_contract import run_child, ring_example
+        draft = example("1"); draft["observers"] = [custom("staged", "s"), custom("ema", "e")]
+        cases = {"ring": r.run_request(ring_example()), "custom_observers": r.run_request(draft),
+            "passive": r.analysis_request("quadratic_form", {"vector": ["1", "2", "3"]}),
+            "C01_section": r.geometry_request("C01", {"section_heights": ["1/10"]}),
+            "D03_aligned": r.geometry_request("D03", {"construction": "aligned", "s": "1", "g_gap": "1"})}
+        reports = {}
+        for name, envelope in cases.items():
+            child, response = run_child(envelope)
+            self.assertEqual(child.returncode, 0, child.stderr)
+            self.assertEqual(response["ui_response_version"], 2)
+            self.assertEqual(response["imports"], {"gui": [], "models": []})
+            self.assertEqual(response["runtime_network_attempts"], [])
+            self.assertTrue(response["isolated"]); reports[name] = response
+        parent = reports["custom_observers"]["result"]["canonical_json"]
+        child, response = run_child(r.analysis_request("direct_history_coordinates", {"observer_id": "s", "key": "Z_total"}, source={"mode": "record", "record_json": parent, "sample_index": "0"}))
+        self.assertEqual(child.returncode, 0, child.stderr)
+        self.assertEqual(response["result"]["result_kind"], "analysis")
+        reports["history"] = response
+        self.evidence("installed-k4c-smokes.json", reports)
+
 
 if __name__ == "__main__":
     if "--acquire" in sys.argv or "--certify" in sys.argv:

@@ -1,5 +1,5 @@
 {
-  "help_version": 1,
+  "help_version": 2,
   "source_commit": "7b3a0fcec2c9bde6c9e1ea482fe1f1ea6b16793e",
   "items": [
     {
@@ -11,7 +11,7 @@
     {
       "id": "state",
       "class": "plain_definition",
-      "text": "Omega uses three ordered real/imaginary pairs. No normalization is applied. update_index is separate from observer clocks.",
+      "text": "Omega uses explicit ordered real/imaginary pairs: three for triad, 3q for ring. New ring rows are blank; no repetition or normalization. update_index is separate from observer clocks.",
       "source": "State; K0 A05/S01"
     },
     {
@@ -47,7 +47,7 @@
     {
       "id": "resume",
       "class": "known_qualification",
-      "text": "Resume preserves parameters and requires matching source/module identity. A changed configuration is a new run from a checkpoint, with named observers explicitly reinitialized.",
+      "text": "Resume preserves recorded parameters and observer configuration. A checkpoint is a new run with explicit selected observer clocks, configuration, memory and parent/sample provenance.",
       "source": "api.resume; K4A execution contract"
     },
     {
@@ -67,6 +67,72 @@
       "class": "known_qualification",
       "text": "Application software: Apache-2.0. Qt/PySide6/Shiboken use the LGPLv3 route and remain separately installed and replaceable. Third-party components retain their own notices.",
       "source": "Installed distribution THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "id": "ring",
+      "class": "plain_definition",
+      "text": "Ring q controls the number of explicit triads: state_size=3q. It is UI row structure, not a new kernel parameter. Ring run has no observers, readouts or diagnostics.",
+      "source": "State / api.run; K4c 13–20"
+    },
+    {
+      "id": "custom_clock",
+      "class": "plain_definition",
+      "text": "Custom q, N, t, q_step and dt are explicit observer inputs. Clock dt is not a dynamics timestep. EMA m is explicit bounded memory; retention and innovation are not controls.",
+      "source": "Clock / EMAState / ObserverRequest"
+    },
+    {
+      "id": "custom_provenance",
+      "class": "historical_provenance",
+      "text": "Converting a preset copies its displayed literals into a custom descriptor, retains an origin note and removes the historical claim. Literal user spellings are preserved.",
+      "source": "historical_observer / Provenance"
+    },
+    {
+      "id": "constructor_zero",
+      "class": "known_qualification",
+      "text": "Constructor-zero is an explicit run initialization, requiring update_index=0 and EMA m=0. Standalone observe calls recompute a readout and do not replay constructor-zero initialization.",
+      "source": "ObserverRequest / api.run / observe_staged / observe_ema"
+    },
+    {
+      "id": "analysis",
+      "class": "known_qualification",
+      "text": "Detached public-API analysis is application data, not a record or scientific replay certificate. Parent record identity is context, not independent current implementation identity.",
+      "source": "K4c response v2"
+    },
+    {
+      "id": "history",
+      "class": "known_qualification",
+      "text": "Observer-vector coordinates are not physical placement. Stored scalar z and q feed explicitly requested history adapters. Kappa sqrt is a display-only conversion of a named recorded nonnegative diagnostic. Missing sources remain missing.",
+      "source": "direct_history_coordinates / cylinder_history_coordinates"
+    },
+    {
+      "id": "torus",
+      "class": "known_qualification",
+      "text": "Torus coordinates normalize the entire supplied history once. R, r_max and N are explicit; the accepted domain is R > r_max > 0. Returned z_max, H_z and regularizer remain visible. Playback does not recompute prefixes.",
+      "source": "history_torus_coordinates"
+    },
+    {
+      "id": "exact",
+      "class": "plain_definition",
+      "text": "Exact input supports integers, pi, parentheses, + - * /, rational powers (^ or **), sin and cos. No floats, variables or general code. UI guards: 2048 characters, 256 tokens, depth 32, 64 digits per integer, reduced power numerator/denominator at most 64. Composed expression-tree depth is also bounded at 32, with a conservative representation-growth budget of 4096.",
+      "source": "Exact Codec adaptation; K4c 54–59"
+    },
+    {
+      "id": "sections",
+      "class": "accepted_claim",
+      "text": "C01 section heights preserve supplied order and repeats. Returned section segments are drawn directly; w, s and beta remain fixed and read-only.",
+      "source": "get_geometry C01"
+    },
+    {
+      "id": "constructions",
+      "class": "plain_definition",
+      "text": "D03 supports aligned(s,g_gap), from_radius(s,p), regular(s), paper_c_member(s), translate_paper_c_to_regular(s), shrink_paper_c_at_fixed_centres(s). Geometric g_gap differs from dynamics coupling g. Symmetry is descriptive; no inferred permutation action.",
+      "source": "get_geometry D03"
+    },
+    {
+      "id": "playback",
+      "class": "plain_definition",
+      "text": "Playback moves through stored sample ordinals and displays the actual update_index separately. Frames per wall-clock second are unrelated to Clock.dt, updates or physical time. Display precision and visibility never alter stored bits.",
+      "source": "K4c presentation contract"
     }
   ],
   "presets": {
@@ -105,6 +171,65 @@
         ]
       },
       "source": "K0 ledger L01; phase_strength chosen explicitly as 0 or 0.001"
+    }
+  },
+  "observer_presets": {
+    "paper_e_staged_v1": {
+      "mode": "custom",
+      "observer_id": "paper_e_staged_v1",
+      "variant": "staged",
+      "clock": {
+        "q": "0",
+        "N": "12",
+        "t": "0",
+        "q_step": "1"
+      },
+      "dt": ".1",
+      "initialization": "recomputed",
+      "config": {
+        "lambda_vp": ".618",
+        "gamma": ".577",
+        "theta_lock": ".244",
+        "alpha": "1",
+        "beta": ".5"
+      },
+      "memory": null,
+      "provenance": {
+        "source_id": "paper_e_staged_v1",
+        "source_revision": "3d9e2c24f2cd9207242e16559558c6adabb21c04",
+        "locator": "kernel_physics/K0_KERNEL_AUTHORITY_PUBLIC_CONTRACT_FREEZE_v0.1.md#2-supported-v1-surface-for-k1",
+        "notes": "Named K0 run preset, not constructor-zero replay. Original lock rationale remains OPEN (O02)."
+      },
+      "origin": "paper_e_staged_v1"
+    },
+    "paper_e_ema_v1": {
+      "mode": "custom",
+      "observer_id": "paper_e_ema_v1",
+      "variant": "ema",
+      "clock": {
+        "q": "0",
+        "N": "12",
+        "t": "0",
+        "q_step": "1"
+      },
+      "dt": ".1",
+      "initialization": "recomputed",
+      "config": {
+        "lambda_vp": ".618",
+        "theta_lock": ".244",
+        "alpha": "1",
+        "beta": ".5"
+      },
+      "memory": {
+        "m": "0"
+      },
+      "provenance": {
+        "source_id": "paper_e_ema_v1",
+        "source_revision": "3d9e2c24f2cd9207242e16559558c6adabb21c04",
+        "locator": "kernel_physics/K0_KERNEL_AUTHORITY_PUBLIC_CONTRACT_FREEZE_v0.1.md#2-supported-v1-surface-for-k1",
+        "notes": "Named K0 run preset, not constructor-zero replay. Original lock rationale remains OPEN (O02)."
+      },
+      "origin": "paper_e_ema_v1"
     }
   }
 }

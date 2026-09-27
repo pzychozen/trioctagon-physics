@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 from trioctagon_ui import requests as r, worker
-from trioctagon_ui.record_views import RecordView, atomic_text, f64
+from trioctagon_ui.record_views import RecordView, AnalysisView, atomic_text, f64
 from test_requests import example
 from test_worker_contract import record
 
@@ -14,7 +14,7 @@ class RecordTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.run_json = record(r.run_request(example("1")))
-        cls.geometry = record(r.request("geometry", {"definition_id": "C01", "s": None}))
+        cls.geometry = record(r.geometry_request("C01", {"section_heights": []}))
 
     def test_canonical_save_load_both_kinds(self):
         for text in (self.run_json, self.geometry):
@@ -85,6 +85,40 @@ class RecordTests(unittest.TestCase):
         result = worker.respond(r.request("load_record", {"record_json": json.dumps(data)}))
         self.assertEqual(result["status"], "failed")
         self.assertNotIn("result", result)
+
+
+class K4cRecordTests(unittest.TestCase):
+    def test_ring_cache_all_components_and_precision_keeps_bits(self):
+        from test_worker_contract import ring_example
+        view = RecordView(record(r.run_request(ring_example())))
+        before = view.canonical_json
+        self.assertIn("omega5.im", view.series)
+        short, long = view.sample_rows(1, 3), view.sample_rows(1, 17)
+        self.assertEqual([v[2] for v in short], [v[2] for v in long])
+        self.assertTrue(any(v[0].startswith("omega[5]") for v in short))
+        self.assertEqual(view.canonical_json, before)
+        self.assertEqual(view.missing_series("chirality0"), "not recorded")
+
+    def test_analysis_cache_is_detached_immutable_and_named(self):
+        result = worker.respond(r.analysis_request("quadratic_form", {"vector": ["1", "2", "3"]}))["result"]
+        view = AnalysisView(result); result["inputs"]["request"]["vector"][0] = "999"
+        self.assertEqual(view.result["inputs"]["request"]["vector"][0], "1")
+        with self.assertRaises(TypeError): view.result["parent_digest"] = "bad"
+        self.assertNotIn("canonical_json", view.result)
+        self.assertIsNone(view.coordinates)
+
+    def test_analysis_lineage_and_coordinate_cache_no_recompute(self):
+        from test_requests import custom
+        draft = example("1"); draft["observers"] = [custom("staged", "s")]
+        parent = record(r.run_request(draft)); digest = RecordView(parent).digest
+        envelope = r.analysis_request("direct_history_coordinates", {"observer_id": "s", "key": "Z_total"}, source={"mode": "record", "record_json": parent, "sample_index": "0"})
+        view = AnalysisView(worker.respond(envelope)["result"])
+        self.assertEqual(view.result["parent_digest"], digest)
+        self.assertIs(view.coordinates, view.coordinates)
+        with patch.object(worker, "execute", side_effect=AssertionError("recompute")):
+            self.assertEqual(len(view.coordinates[0]), 2)
+            self.assertTrue(view.rows(4)); self.assertTrue(view.rows(16))
+        self.assertEqual(RecordView(parent).digest, digest)
 
 
 if __name__ == "__main__": unittest.main()

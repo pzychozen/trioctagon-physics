@@ -20,17 +20,18 @@ def f64(value):
     return float.fromhex(value["f64"])
 
 
-def flatten(value, prefix=""):
+def flatten(value, prefix="", precision=None):
     """Rows preserve stored spelling and present decoded numbers alongside it."""
     if isinstance(value, (dict, MappingProxyType)):
         if set(value) == {"f64"}:
-            yield prefix, repr(f64(value)), value["f64"]
+            decoded = f64(value)
+            yield prefix, repr(decoded) if precision is None else format(decoded, f".{precision}g"), value["f64"]
         else:
             for key, item in value.items():
-                yield from flatten(item, f"{prefix}.{key}" if prefix else str(key))
+                yield from flatten(item, f"{prefix}.{key}" if prefix else str(key), precision)
     elif isinstance(value, (list, tuple)):
         for i, item in enumerate(value):
-            yield from flatten(item, f"{prefix}[{i}]")
+            yield from flatten(item, f"{prefix}[{i}]", precision)
     else:
         yield prefix, str(value), str(value)
 
@@ -65,14 +66,39 @@ class RecordView:
     def kind(self):
         return self.data["record_type"]
 
-    def sample_rows(self, index):
-        return tuple(flatten(self.samples[index]))
+    def sample_rows(self, index, precision=None):
+        return tuple(flatten(self.samples[index], precision=precision))
 
     def missing_series(self, name):
         return "recorded" if name in self.series else "not recorded"
 
     def save(self, path):
         atomic_text(path, self.canonical_json)
+
+
+@dataclass(frozen=True)
+class AnalysisView:
+    """Detached application cache, never placed in public record history."""
+    result: object
+    _coordinates: object = field(init=False, repr=False)
+
+    def __post_init__(self):
+        copied = json.loads(json.dumps(self.result, allow_nan=False))
+        if copied.get("result_kind") != "analysis": raise ValueError("AnalysisView requires detached analysis")
+        object.__setattr__(self, "result", freeze(copied))
+        data = self.result["data"]; coordinates = None
+        if isinstance(data, MappingProxyType) and all(k in data for k in ("x", "y", "z")):
+            coordinates = tuple(tuple(f64(v) for v in data[k]) for k in ("x", "y", "z"))
+        elif self.result["analysis_type"] == "cylinder_point":
+            coordinates = tuple((f64(v),) for v in data)
+        object.__setattr__(self, "_coordinates", coordinates)
+
+    def rows(self, precision=None):
+        return tuple(flatten(self.result, precision=precision))
+
+    @property
+    def coordinates(self):
+        return self._coordinates
 
 
 def atomic_text(path, text):

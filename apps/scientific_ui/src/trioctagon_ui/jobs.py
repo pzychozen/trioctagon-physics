@@ -11,7 +11,7 @@ from trioctagon_ui.requests import validate_envelope
 
 
 def validate_response(response, request):
-    if not isinstance(response, dict) or type(response.get("ui_response_version")) is not int or response["ui_response_version"] != 1:
+    if not isinstance(response, dict) or type(response.get("ui_response_version")) is not int or response["ui_response_version"] != 2:
         raise ValueError("Incomplete worker response envelope")
     if response.get("isolated") is not True or response.get("imports") != {"gui": [], "models": []} or response.get("runtime_network_attempts") != []:
         raise ValueError("Missing or failed worker isolation/GUI/model/network audit")
@@ -19,12 +19,24 @@ def validate_response(response, request):
         raise ValueError("Worker response belongs to a different request")
     if response.get("status") == "completed":
         result = response.get("result", {})
-        required = {"canonical_json", "record_type", "deterministic_sha256", "source_commit", "produced_current"}
-        if set(result) != required or not isinstance(result["canonical_json"], str) or type(result["produced_current"]) is not bool:
-            raise ValueError("Incomplete completed-record response")
-        data = json.loads(result["canonical_json"])
-        if data.get("record_type") != result["record_type"] or data.get("deterministic_sha256") != result["deterministic_sha256"] or data.get("implementation", {}).get("commit") != result["source_commit"]:
-            raise ValueError("Worker envelope and canonical record disagree")
+        if request["operation"] == "passive_analysis":
+            required = {"result_kind", "analysis_type", "parent_digest", "parent_source_commit", "sample_index", "inputs", "data", "qualification"}
+            if set(result) != required or result["result_kind"] != "analysis" or result["analysis_type"] != request["payload"]["analysis_type"] or not isinstance(result["inputs"], dict) or not isinstance(result["qualification"], str):
+                raise ValueError("Incomplete or mismatched detached-analysis response")
+            source = request["payload"]["source"]
+            parent = json.loads(source["record_json"]) if source["mode"] == "record" else None
+            if result["parent_digest"] != (parent["deterministic_sha256"] if parent else None) or result["parent_source_commit"] != (parent["implementation"]["commit"] if parent else None):
+                raise ValueError("Detached analysis parent identity mismatch")
+            from trioctagon_ui.requests import HISTORY_TYPES
+            ordinal = int(source["sample_index"]) if parent and result["analysis_type"] not in HISTORY_TYPES else None
+            if result["sample_index"] != ordinal: raise ValueError("Detached analysis sample lineage mismatch")
+        else:
+            required = {"result_kind", "canonical_json", "record_type", "deterministic_sha256", "source_commit", "produced_current"}
+            if set(result) != required or result["result_kind"] != "record" or not isinstance(result["canonical_json"], str) or type(result["produced_current"]) is not bool:
+                raise ValueError("Incomplete completed-record response")
+            data = json.loads(result["canonical_json"])
+            if data.get("record_type") != result["record_type"] or data.get("deterministic_sha256") != result["deterministic_sha256"] or data.get("implementation", {}).get("commit") != result["source_commit"]:
+                raise ValueError("Worker envelope and canonical record disagree")
     elif response.get("status") == "failed":
         if not all(isinstance(response.get("error", {}).get(k), str) for k in ("exception_class", "message")):
             raise ValueError("Incomplete worker failure details")

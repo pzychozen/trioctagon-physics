@@ -11,7 +11,7 @@ from unittest.mock import patch
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 os.environ.setdefault("QT_OPENGL", "software")
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QApplication, QLabel, QLineEdit, QPushButton
+from PySide6.QtWidgets import QApplication, QLabel, QLineEdit, QPushButton, QMessageBox
 from trioctagon_ui.app import MainWindow
 from trioctagon_ui import requests as r
 from trioctagon_ui.jobs import validate_response
@@ -92,11 +92,11 @@ class UITests(unittest.TestCase):
         w = self.window
         self.assertFalse(any(check.isChecked() for check in w.output_checks.values()))
         self.assertFalse(w.output_checks["readout_accounting"].isEnabled())
-        w.observer_combo.setCurrentIndex(3)
+        [w._add_observer({"mode": "preset", "name": n}) for n in r.OBSERVER_NAMES]
         self.assertTrue(w.output_checks["readout_accounting"].isEnabled())
-        self.assertEqual(w._gather()["observers"], list(r.OBSERVER_NAMES))
+        self.assertEqual([o["name"] for o in w._gather()["observers"]], list(r.OBSERVER_NAMES))
         w.output_checks["readout_accounting"].setChecked(True)
-        w.observer_combo.setCurrentIndex(0)
+        w.draft["observers"] = []; w._refresh_observers(); w._validity()
         self.assertTrue(w.output_checks["readout_accounting"].isChecked())
         self.assertFalse(w.run_button.isEnabled())
 
@@ -112,7 +112,7 @@ class UITests(unittest.TestCase):
             w.sample.setValue(1); QApplication.processEvents()
             self.assertGreater(w.sample_table.rowCount(), 0)
             self.assertEqual(w.raw_json.toPlainText(), original.canonical_json)
-        w._submit(r.request("geometry", {"definition_id": "D03", "s": "1/0"}))
+        w._submit(r.request("geometry", {"definition_id": "D03", "fields": {"construction": "regular", "s": "1.0"}, "exact_nodes": {}}))
         spin_until(lambda: not w.jobs.busy)
         self.assertEqual(w.jobs.state, "failed")
         self.assertIs(w.current, original)
@@ -192,7 +192,7 @@ class UITests(unittest.TestCase):
     def test_geometry_both_independent_and_exact_tree(self):
         w = self.window
         for definition, s in (("C01", None), ("D03", "2/3")):
-            child, response = run_child(r.request("geometry", {"definition_id": definition, "s": s}))
+            child, response = run_child(r.geometry_request(definition, {"section_heights": []} if definition == "C01" else {"construction": "regular", "s": s}))
             self.assertEqual(child.returncode, 0, child.stderr)
             view = RecordView(response["result"]["canonical_json"])
             before = view.canonical_json; w._completed(response); QApplication.processEvents()
@@ -205,6 +205,143 @@ class UITests(unittest.TestCase):
         labels = "\n".join(label.text() for label in w.findChildren(QLabel))
         self.assertIn("Independent geometry — no dynamic attachment", labels)
         self.assertIn("Channel/observer coordinates — not physical placement", labels)
+
+
+    def test_ring_switch_rows_confirmation_and_passive_clear(self):
+        w = self.window; self.filled(); original = w._gather()["omega"]
+        w._add_observer({"mode": "preset", "name": r.OBSERVER_NAMES[0]})
+        w.topology_combo.setCurrentText("ring")
+        self.assertFalse(w.run_button.isEnabled()); self.assertIn("Ring requires", w.validation.text())
+        self.assertEqual(len(w.draft["observers"]), 1)
+        self.assertFalse(w.output_checks["z_chiral"].isEnabled())
+        w.clear_passive.click(); self.assertTrue(w.run_button.isEnabled())
+        w.q_spin.setValue(2)
+        self.assertEqual(len(w.omega_edits), 6)
+        self.assertEqual(w._gather()["omega"][:3], original)
+        self.assertEqual(w._gather()["omega"][3:], [["", ""]] * 3)
+        self.assertFalse(w.seed_button.isEnabled()); self.assertFalse(w.run_button.isEnabled())
+        w.omega_edits[5][0].setText(".7")
+        with patch("trioctagon_ui.app.QMessageBox.question", return_value=QMessageBox.StandardButton.No): w.q_spin.setValue(1)
+        self.assertEqual(w.q_spin.value(), 2); self.assertEqual(w.omega_edits[5][0].text(), ".7")
+        with patch("trioctagon_ui.app.QMessageBox.question", return_value=QMessageBox.StandardButton.Yes): w.q_spin.setValue(1)
+        self.assertEqual(len(w.omega_edits), 3)
+        w.topology_combo.setCurrentText("triad"); self.assertTrue(w.run_button.isEnabled())
+
+    def test_custom_editor_blank_full_fields_and_preset_conversion(self):
+        w = self.window; w.add_ema.click()
+        self.assertEqual(w.observer_fields["clock.N"].text(), "")
+        self.assertEqual(w.observer_fields["memory.m"].text(), "")
+        self.assertIn("config.theta_lock", w.observer_fields)
+        self.assertNotIn("config.gamma", w.observer_fields)
+        w.observer_fields["observer_id"].setText("user-ema")
+        self.assertEqual(w.draft["observers"][0]["observer_id"], "user-ema")
+        w.remove_observer.click(); self.assertEqual(w.draft["observers"], [])
+        w._add_observer({"mode": "preset", "name": "paper_e_staged_v1"})
+        self.assertTrue(w.observer_fields["config.gamma"].isReadOnly())
+        self.assertNotIn("converted", w.observer_fields["provenance.notes"].text())
+        self.assertEqual(w.observer_fields["provenance.source_id"].text(), "paper_e_staged_v1")
+        w.convert_observer.click()
+        self.assertIn("converted", w.observer_fields["provenance.notes"].text())
+        self.assertFalse(w.observer_fields["config.gamma"].isReadOnly())
+        w.observer_fields["clock.q_step"].setText("-3")
+        self.assertEqual(w.draft["observers"][0]["clock"]["q_step"], "-3")
+        self.assertEqual(w.draft["observers"][0]["mode"], "custom")
+        self.assertIn("paper_e_staged", w.draft["observers"][0]["origin"])
+
+    def test_playback_rate_ordinal_actual_index_and_no_worker(self):
+        w = self.window; draft = example("2"); draft["update_index"] = "7"
+        child, response = run_child(r.run_request(draft)); self.assertEqual(child.returncode, 0, child.stderr)
+        w._completed(response); before = w.current.canonical_json
+        with patch.object(w.jobs, "start", side_effect=AssertionError("playback started science")):
+            w.playback_rate.setValue(60); w.play_button.click()
+            spin_until(lambda: w.sample.value() >= 1, timeout=5)
+            w.pause_button.click(); self.assertFalse(w.play_timer.isActive())
+            w.sample.setValue(1); w.back_button.click(); self.assertEqual(w.sample.value(), 0)
+            w.forward_button.click(); self.assertEqual(w.sample.value(), 1)
+            self.assertIn("update_index=8", w.sample_label.text())
+            self.assertIn("Clock.dt", w.playback_rate.accessibleName())
+        self.assertEqual(w.current.canonical_json, before)
+
+    def test_series_visibility_and_precision_preserve_record(self):
+        from test_worker_contract import ring_example
+        w = self.window; child, response = run_child(r.run_request(ring_example()))
+        self.assertEqual(child.returncode, 0, child.stderr); w._completed(response); before = w.current.canonical_json
+        self.assertEqual(w.plots.channels.count(), 6)
+        self.assertEqual(w.plots.channels.item(5).checkState(), Qt.CheckState.Unchecked)
+        with patch.object(w.jobs, "start", side_effect=AssertionError("presentation started science")):
+            w.plots.channels.item(0).setCheckState(Qt.CheckState.Unchecked)
+            w.plots.channels.item(5).setCheckState(Qt.CheckState.Checked)
+            w.precision.setValue(3); spellings = [w.sample_table.item(i, 2).text() for i in range(w.sample_table.rowCount())]
+            w.precision.setValue(17)
+            self.assertEqual(spellings, [w.sample_table.item(i, 2).text() for i in range(w.sample_table.rowCount())])
+        self.assertEqual(w.current.canonical_json, before)
+        self.assertIn("5", w.plots.visibility_label.text())
+
+    def test_detached_analysis_cache_never_becomes_record_history(self):
+        w = self.window; w._completed(self.response); parent = w.current
+        w.analysis_kind.setCurrentText("quadratic_form")
+        w.analysis_inputs.setPlainText(json.dumps({"vector": ["1", "2", "3"]}))
+        w.analysis_button.click(); spin_until(lambda: not w.jobs.busy)
+        self.assertEqual(w.jobs.state, "completed", w.error_details.toPlainText())
+        self.assertEqual(len(w.analysis_cache), 1); self.assertEqual(len(w.records), 1)
+        self.assertIs(w.current, parent); self.assertGreater(w.analysis_table.rowCount(), 0)
+        w._select_record(parent); self.assertEqual(len(w.analysis_cache), 1)
+        self.assertIsNone(w.analysis_current.result["parent_digest"])
+
+    def test_explicit_stored_source_history_plot_and_table(self):
+        from test_requests import custom
+        w = self.window; draft = example("2"); draft["observers"] = [custom("staged", "s")]
+        draft["diagnostics"] = ["intensity_budget"]
+        child, response = run_child(r.run_request(draft)); self.assertEqual(child.returncode, 0, child.stderr)
+        w._completed(response)
+        w.history_kind.setCurrentText("history_torus_coordinates"); w.history_observer.setCurrentText("s")
+        w.kappa_source.setCurrentText("intensity_budget.intensity_before")
+        for key, text in (("N", "12"), ("R", "2"), ("r_max", "1")): w.history_fields[key].setText(text)
+        w.history_button.click(); spin_until(lambda: not w.jobs.busy)
+        self.assertEqual(w.jobs.state, "completed", w.error_details.toPlainText())
+        result = w.analysis_current.result
+        self.assertEqual(result["data"]["normalization"], "entire_supplied_history")
+        self.assertIsNotNone(w.history_plot.marker)
+        with patch.object(w.jobs, "start", side_effect=AssertionError("history recomputed")):
+            w.sample.setValue(1); w.precision.setValue(5); w.analysis_history.setCurrentIndex(0)
+            self.assertEqual(tuple(v[0] for v in w.history_plot.marker.get_data_3d()), tuple(v[1] for v in w.analysis_current.coordinates))
+        self.assertEqual(len(w.analysis_cache), 1)
+        self.assertTrue(any(w.analysis_table.item(i, 0).text().startswith("data.x") for i in range(w.analysis_table.rowCount())))
+
+    def test_c01_section_order_repeats_and_d03_enablement(self):
+        w = self.window; w.geometry_combo.setCurrentIndex(1)
+        for text in ("0", "1/10", "0"):
+            w.section_input.setText(text); w.add_section.click()
+        self.assertEqual(w._geometry_envelope()["payload"]["fields"]["section_heights"], ["0", "1/10", "0"])
+        w.geometry_button.click(); spin_until(lambda: not w.jobs.busy)
+        self.assertEqual(w.jobs.state, "completed", w.error_details.toPlainText())
+        self.assertEqual(sum(o["kind"] == "section_curve" for o in w.current.data["objects"]), 3)
+        self.assertEqual(w.geometry_view.objects.count(), len(w.current.data["objects"]))
+        w.section_heights.setCurrentRow(1); w.remove_section.click()
+        self.assertEqual(w.section_heights.count(), 2)
+        w.geometry_combo.setCurrentIndex(2)
+        for name, fields in r.D03_FIELDS.items():
+            w.construction_combo.setCurrentText(name)
+            self.assertEqual({k for k, edit in w.geometry_fields.items() if edit.isEnabled()}, set(fields))
+            for key in fields: w.geometry_fields[key].setText("5" if key == "p" else "1")
+            self.assertTrue(w.geometry_button.isEnabled())
+        self.assertFalse(w.add_section.isEnabled())
+
+    def test_toolbar_has_no_export_or_save_shortcut(self):
+        from trioctagon_ui.plots import ViewToolbar
+        toolbars = self.window.findChildren(ViewToolbar)
+        self.assertGreaterEqual(len(toolbars), 5)
+        for toolbar in toolbars:
+            self.assertNotIn("Save", [v[0] for v in toolbar.toolitems])
+            self.assertIsNone(toolbar.save_figure())
+
+    def test_response_v2_analysis_cannot_masquerade_as_record(self):
+        request = r.analysis_request("quadratic_form", {"vector": ["1", "2", "3"]})
+        child, response = run_child(request); self.assertEqual(child.returncode, 0, child.stderr)
+        validate_response(response, request)
+        for changes in ({"result_kind": "record"}, {"canonical_json": "{}"}, {"parent_digest": "forged"}):
+            bad = deepcopy(response); bad["result"].update(changes)
+            with self.assertRaises(ValueError): validate_response(bad, request)
 
 
 if __name__ == "__main__": unittest.main()
