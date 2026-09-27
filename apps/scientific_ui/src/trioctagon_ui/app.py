@@ -14,7 +14,9 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFileDialog, 
 from trioctagon_ui import requests
 from trioctagon_ui.geometry_view import GeometryView
 from trioctagon_ui.jobs import JobManager
-from trioctagon_ui.plots import StoredPlots, HistoryPlot
+from trioctagon_ui.plots import StoredPlots, HistoryPlot, ComparisonPlot
+from trioctagon_ui import sweeps, exports
+from trioctagon_ui.comparison import ComparisonView, plain
 from trioctagon_ui.record_views import RecordView, AnalysisView, atomic_text, f64, kernel_lock
 
 
@@ -122,6 +124,8 @@ class MainWindow(QMainWindow):
         self.lock = kernel_lock()
         self.help = requests.help_data()
         self.jobs = JobManager(self)
+        self.sweep_controller = sweeps.SweepController(self.jobs, self)
+        self.sweep_plan = None; self.comparison = None
         central = QWidget(); self.setCentralWidget(central)
         layout = QVBoxLayout(central)
         self.identity = QLabel(); self.identity.setWordWrap(True)
@@ -135,13 +139,16 @@ class MainWindow(QMainWindow):
         self.job_label = QLabel("Job: idle; no scientific computation has been submitted")
         self.job_label.setAccessibleName("Worker state, elapsed time and requested sample count")
         bottom.addWidget(self.job_label, 1)
-        self.cancel_button = button("Cancel active job", "Cancel scientific worker", self.jobs.cancel)
+        self.cancel_button = button("Cancel active job", "Cancel scientific worker or active dataset", self._cancel_job)
         self.cancel_button.setEnabled(False); bottom.addWidget(self.cancel_button)
         self.jobs.state_changed.connect(self._job_state)
         self.jobs.elapsed_changed.connect(lambda elapsed: self.job_label.setText(f"Job: {self.jobs.state}; {elapsed:.1f} s; requested samples: {self.requested_samples}"))
         self.jobs.completed.connect(self._completed)
         self.jobs.failed.connect(self._failed)
         self.jobs.cancelled.connect(lambda: self.statusBar().showMessage("Cancelled; previous completed records preserved"))
+        self.sweep_controller.changed.connect(self._dataset_changed)
+        self.sweep_controller.record_ready.connect(self._dataset_record)
+        self.sweep_controller.persistence_failed.connect(self._failed)
         self.requested_samples = "not applicable"
         self._render_draft(); self._identity(); self._validity()
 
@@ -240,6 +247,10 @@ class MainWindow(QMainWindow):
         self.playback_rate.setAccessibleName("Playback frames per wall-clock second; unrelated to Clock.dt, updates or physical time")
         self.playback_rate.valueChanged.connect(lambda _: self.play_timer.setInterval(round(1000 / self.playback_rate.value())))
         playback.addWidget(self.playback_rate)
+        self.reduced_motion = QCheckBox("Reduced motion"); self.reduced_motion.setAccessibleName("Reduced motion; use manual stored-sample steps")
+        self.reduced_motion.setAccessibleDescription("Stops and prevents automatic playback. Rate edits cannot start animation; records remain unchanged.")
+        self.reduced_motion.toggled.connect(lambda checked: (self.play_timer.stop(), self.play_button.setEnabled(not checked)))
+        views.addWidget(self.reduced_motion)
         views.addWidget(QLabel("Playback: stored sample ordinals; frames / wall-clock second, unrelated to Clock.dt or physical time."))
         self.precision = QSpinBox(); self.precision.setRange(1, 17); self.precision.setValue(8)
         self.precision.setAccessibleName("Displayed significant digits only; stored hex and plot values unchanged")
@@ -379,6 +390,9 @@ class MainWindow(QMainWindow):
         self.tabs.addTab(page, "C — Geometry")
 
     def _records(self):
+        container = QWidget(); outer = QVBoxLayout(container)
+        self.repro_tabs = QTabWidget(); self.repro_tabs.setAccessibleName("Records, comparison, datasets and derived exports")
+        outer.addWidget(self.repro_tabs)
         page = QWidget(); layout = QVBoxLayout(page)
         self.kernel_identity = QLabel(); self.kernel_identity.setWordWrap(True)
         self.kernel_identity.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
@@ -420,7 +434,9 @@ class MainWindow(QMainWindow):
         layout.addWidget(self.analysis_history)
         self.analysis_tree = tree("Detached analysis lineage and qualification; parent identity is separate from current implementation")
         layout.addWidget(self.analysis_tree, 1)
-        self.tabs.addTab(page, "D — Records & Reproducibility")
+        self.repro_tabs.addTab(page, "Records")
+        self._comparison_panel(); self._dataset_panel(); self._export_panel()
+        self.tabs.addTab(container, "D — Records & Reproducibility")
 
     def _gather(self):
         draft = deepcopy(self.draft)
@@ -488,7 +504,7 @@ class MainWindow(QMainWindow):
             valid = False; message = "Explicitly acknowledge selected observer initialization for this new checkpoint run."
         self.validation.setText(message)
         for item in (self.run_button, self.zero_button, self.one_button):
-            item.setEnabled(valid and not self.jobs.busy)
+            item.setEnabled(valid and not (self.jobs.busy or self.sweep_controller.active))
         self.run_button.setText("Run checkpoint draft" if self.checkpoint else "Run N updates")
         origin = draft["origin"]
         self.origin_label.setText(f"Seed: {'HISTORICAL PRESET '+origin['seed'] if origin['seed'] else 'USER VALUE'}; parameters: {'REFERENCE FILL L01' if origin['parameters'] else 'USER VALUE'}")
@@ -502,20 +518,24 @@ class MainWindow(QMainWindow):
             self._geometry_envelope(); geometry_valid = True; self.geometry_validation.setText("Explicit exact request ready; public geometry validation remains authoritative.")
         except ValueError as exc:
             geometry_valid = False; self.geometry_validation.setText(str(exc))
-        self.geometry_button.setEnabled(geometry_valid and not self.jobs.busy)
+        self.geometry_button.setEnabled(geometry_valid and not (self.jobs.busy or self.sweep_controller.active))
         is_run = self.current is not None and self.current.kind == "KERNEL_RUN_RECORD"
         try:
             requests.integer(self.resume_updates.text(), "resume updates"); resume_valid = True
         except ValueError:
             resume_valid = False
-        self.resume_button.setEnabled(is_run and resume_valid and not self.jobs.busy)
-        self.checkpoint_button.setEnabled(is_run and not self.jobs.busy)
+        self.resume_button.setEnabled(is_run and resume_valid and not (self.jobs.busy or self.sweep_controller.active))
+        self.checkpoint_button.setEnabled(is_run and not (self.jobs.busy or self.sweep_controller.active))
         self.save_button.setEnabled(self.current is not None)
-        self.load_button.setEnabled(not self.jobs.busy)
-        self.cancel_button.setEnabled(self.jobs.busy)
-        self.step_preview_button.setEnabled(not self.jobs.busy)
-        self.analysis_button.setEnabled(self.analysis_kind.currentIndex() > 0 and not self.jobs.busy)
-        self.history_button.setEnabled(is_run and not self.jobs.busy)
+        self.load_button.setEnabled(not (self.jobs.busy or self.sweep_controller.active))
+        self.cancel_button.setEnabled(self.jobs.busy or self.sweep_controller.active)
+        self.step_preview_button.setEnabled(not (self.jobs.busy or self.sweep_controller.active))
+        self.analysis_button.setEnabled(self.analysis_kind.currentIndex() > 0 and not (self.jobs.busy or self.sweep_controller.active))
+        self.history_button.setEnabled(is_run and not (self.jobs.busy or self.sweep_controller.active))
+
+        for item in (self.sweep_build, self.sweep_load, self.sweep_start, self.sweep_continue, self.dataset_choose):
+            item.setEnabled(not (self.jobs.busy or self.sweep_controller.active))
+        self.sweep_cancel.setEnabled(self.sweep_controller.active)
 
     def _seed(self):
         self.draft = requests.apply_seed(self._gather()); self.checkpoint = None
@@ -543,6 +563,9 @@ class MainWindow(QMainWindow):
         self.checkpoint_label.setText("New explicit run draft"); self._render_draft()
 
     def _submit(self, envelope, count="not applicable"):
+        if self.sweep_controller.active:
+            self._local_error(ValueError("A dataset owns the scientific worker; finish or cancel it first"), "worker ownership")
+            return
         if isinstance(count, int) and count > 10000:
             if QMessageBox.question(self, "Large application job", f"This requests {count:,} total samples. Record size depends on selected outputs. This is a UI warning, not a scientific limit. Continue?") != QMessageBox.StandardButton.Yes:
                 return
@@ -602,7 +625,8 @@ class MainWindow(QMainWindow):
         self.cancel_button.setEnabled(self.jobs.busy)
         self._validity()
 
-    def _completed(self, response):
+    def _completed(self, response, dataset=False):
+        if not dataset and self.sweep_controller.handles(response.get("request_id")): return
         result = response["result"]
         if result["result_kind"] == "analysis":
             view = AnalysisView(result); self.analysis_cache.append(view)
@@ -619,6 +643,7 @@ class MainWindow(QMainWindow):
         if response["operation"] == "resume":
             self.resumed.add(view.digest)
         self.records.append(view)
+        self._comparison_choices()
         self.history.blockSignals(True)
         self.history.addItem(f"{view.kind} · {view.digest[:12]}")
         self.history.setCurrentIndex(len(self.records) - 1)
@@ -679,7 +704,7 @@ class MainWindow(QMainWindow):
             installed = metadata.version("trioctagon-physics")
         except metadata.PackageNotFoundError:
             installed = "missing"
-        self.kernel_identity.setText(f"Expected locked kernel: {self.lock['artifact_filename']}\nSHA-256: {self.lock['artifact_sha256']}\nExpected source: {self.lock['source_commit']}\nInstalled distribution version: {installed}\nCurrent source identity: {self.runtime_source}\nApplication: trioctagon-scientific-ui 0.1.0; separate software identity")
+        self.kernel_identity.setText(f"Preferred locked kernel archive: {self.lock['artifact_filename']}\nPreferred archive SHA-256: {self.lock['artifact_sha256']}\nCertified reconstruction also accepted under lock-v2 equivalence; this is not an installed-archive identity query.\nExpected source: {self.lock['source_commit']}\nInstalled distribution version: {installed}\nCurrent source identity: {self.runtime_source}\nApplication: trioctagon-scientific-ui 0.1.0; separate software identity")
         if self.current is None:
             self.identity.setText("Draft configuration · no completed record · geometry and dynamics remain independent")
         else:
@@ -688,6 +713,7 @@ class MainWindow(QMainWindow):
             self.identity.setText(f"{view.kind} · source {view.data['implementation']['commit'][:12]} · digest {view.digest[:16]} · {state}\nDraft edits prepare a new run; recorded inputs stay unchanged.")
 
     def _failed(self, error):
+        if self.sweep_controller.handles(error.get("request_id")): return
         self.error_details.setPlainText(json.dumps(error, indent=2, ensure_ascii=False))
         self.statusBar().showMessage(f"{error.get('exception_class', 'Error')}: {error.get('message', '')}; previous records preserved")
         if error.get("operation") == "resume":
@@ -853,7 +879,7 @@ class MainWindow(QMainWindow):
         self._validity()
 
     def _play(self):
-        if self.current_run is None: return
+        if self.current_run is None or self.reduced_motion.isChecked(): return
         self.play_timer.start(round(1000 / self.playback_rate.value()))
 
     def _play_tick(self):
@@ -863,6 +889,7 @@ class MainWindow(QMainWindow):
     def _precision_changed(self, *_):
         if self.current_run is not None: self._sample_changed(self.sample.value())
         if self.analysis_current is not None: self._select_analysis(self.analysis_history.currentIndex())
+        if self.comparison is not None: self._comparison_table()
 
     def _analysis_template(self):
         if self.analysis_kind.currentIndex() > 0:
@@ -939,8 +966,240 @@ class MainWindow(QMainWindow):
         if self.current is not None and view.result["parent_digest"] == self.current.digest:
             self.history_plot.select_sample(self.sample.value())
 
+    def _dataset_panel(self):
+        page = QWidget(); layout = QVBoxLayout(page)
+        layout.addWidget(QLabel("Finite parameter cases; fixed State/topology/updates/outputs. Enumeration only; no scientific ranking."))
+        self.sweep_dimensions = QPlainTextEdit("{}"); self.sweep_dimensions.setMaximumHeight(110)
+        self.sweep_dimensions.setAccessibleName("Explicit sweep dimensions JSON; eps, g, phase_strength, k0, k1, k2")
+        self.sweep_dimensions.setPlaceholderText('{"g":{"values":["0.1","0.2"]}} or {"eps":{"start":"0.01","stop":"0.05","count":"3"}}')
+        layout.addWidget(self.sweep_dimensions)
+        policy = QHBoxLayout(); layout.addLayout(policy)
+        self.sweep_guard = QSpinBox(); self.sweep_guard.setRange(1, 100000); self.sweep_guard.setValue(sweeps.DEFAULT_CASE_GUARD)
+        self.sweep_guard.setAccessibleName("UI RESOURCE GUARD case count; not a scientific domain")
+        policy.addWidget(QLabel("UI RESOURCE GUARD")); policy.addWidget(self.sweep_guard)
+        self.sweep_override = QCheckBox("Explicitly allow larger resource guard"); self.sweep_override.setAccessibleName("Acknowledge larger sweep UI resource guard")
+        self.sweep_stop_failure = QCheckBox("Stop after first failed case"); self.sweep_stop_failure.setAccessibleName("Sweep failure policy; unchecked continues later cases")
+        policy.addWidget(self.sweep_override); policy.addWidget(self.sweep_stop_failure)
+        self.sweep_build = button("Rebuild sweep plan from current draft", "Freeze explicit current draft and expand sweep values", self._build_sweep)
+        layout.addWidget(self.sweep_build)
+        self.sweep_preview = readonly_text("Frozen sweep base, fixed outputs, ordered decimal and binary64 values")
+        self.sweep_preview.setMaximumHeight(190); layout.addWidget(self.sweep_preview)
+        self.dataset_directory = QLineEdit(); self.dataset_directory.setAccessibleName("Chosen dataset directory; new datasets require an empty directory")
+        row = QHBoxLayout(); layout.addLayout(row); row.addWidget(self.dataset_directory)
+        self.dataset_choose = button("Choose dataset directory", "Choose empty dataset directory", self._choose_dataset)
+        row.addWidget(self.dataset_choose)
+        actions = QHBoxLayout(); layout.addLayout(actions)
+        self.sweep_start = button("Start frozen sweep", "Start finite sequential sweep", self._start_sweep)
+        self.sweep_load = button("Load dataset manifest", "Load dataset for explicit validation and continuation", self._load_dataset)
+        self.sweep_continue = button("Continue dataset", "Validate saved cases and continue dataset", self._continue_sweep)
+        self.sweep_cancel = button("Cancel sweep", "Cancel active case and preserve complete records", self.sweep_controller.cancel)
+        for item in (self.sweep_start, self.sweep_load, self.sweep_continue, self.sweep_cancel): actions.addWidget(item)
+        self.dataset_progress = QLabel("No frozen dataset plan"); self.dataset_progress.setWordWrap(True)
+        self.dataset_progress.setAccessibleName("Completed case count, total cases and active case; individual run indeterminate")
+        layout.addWidget(self.dataset_progress)
+        self.dataset_table = QTableWidget(0, 5)
+        self.dataset_table.setHorizontalHeaderLabels(["Case / request identity", "Explicit values / binary64", "Status", "Record digest / path", "Error / rerun reason"])
+        self.dataset_table.setAccessibleName("Every dataset case, including failed, cancelled and not-run cases")
+        layout.addWidget(self.dataset_table)
+        self.repro_tabs.addTab(page, "Datasets")
+
+    def _build_sweep(self):
+        try:
+            if self.sweep_controller.active: raise ValueError("Cancel or finish the active dataset before rebuilding its plan")
+            if self.checkpoint: raise ValueError("Use an explicit new-run draft for a sweep, not checkpoint transport")
+            self.sweep_plan = sweeps.make_plan(self._gather(), json.loads(self.sweep_dimensions.toPlainText()), self.lock,
+                stop_after_failure=self.sweep_stop_failure.isChecked(), case_guard=self.sweep_guard.value(), override_ack=self.sweep_override.isChecked())
+            self._show_dataset(self.sweep_plan)
+        except Exception as exc: self._local_error(exc, "sweep preview")
+
+    def _choose_dataset(self):
+        path = QFileDialog.getExistingDirectory(self, "Choose empty directory for a new dataset")
+        if path: self.dataset_directory.setText(path)
+
+    def _confirm_sweep(self, manifest):
+        return not manifest["confirmation_required"] or QMessageBox.question(self, "Application sweep safeguard",
+            f"{manifest['case_count']:,} cases; {manifest['total_requested_samples']:,} requested samples. Above 100 cases or 100,000 samples requires confirmation. These are application safeguards. Continue?") == QMessageBox.StandardButton.Yes
+
+    def _start_sweep(self):
+        try:
+            if self.sweep_plan is None: raise ValueError("Build an explicit frozen sweep plan first")
+            if not self.dataset_directory.text().strip(): raise ValueError("Choose an empty dataset directory")
+            if not self._confirm_sweep(self.sweep_plan): return
+            self.sweep_controller.create(self.sweep_plan, self.dataset_directory.text())
+            self.sweep_controller.start(confirmed=True)
+        except Exception as exc: self._local_error(exc, "start dataset")
+
+    def _load_dataset(self):
+        path, _ = QFileDialog.getOpenFileName(self, "Load application sweep manifest", "", "JSON (*.json)")
+        if not path: return
+        try:
+            self.sweep_controller.load(path); self.dataset_directory.setText(str(Path(path).parent))
+            self.sweep_plan = None
+        except Exception as exc: self._local_error(exc, "load dataset")
+
+    def _continue_sweep(self):
+        try:
+            manifest = self.sweep_controller.manifest
+            if manifest is None: raise ValueError("Load a dataset first")
+            if self._confirm_sweep(manifest): self.sweep_controller.start(confirmed=True)
+        except Exception as exc: self._local_error(exc, "continue dataset")
+
+    def _show_dataset(self, manifest):
+        completed = sum(case["status"] == "completed" for case in manifest["cases"])
+        current = self.sweep_controller.index
+        self.dataset_progress.setText(f"{completed} / {manifest['case_count']} cases completed; total requested samples={manifest['total_requested_samples']}; active case={current + 1 if current is not None else 'none'}. Individual run progress is indeterminate.")
+        self.sweep_preview.setPlainText(json.dumps({k: v for k, v in manifest.items() if k != "cases"}, indent=2, ensure_ascii=False))
+        self.dataset_table.setRowCount(len(manifest["cases"]))
+        for i, case in enumerate(manifest["cases"]):
+            values = [case["case_id"] + "\n" + case["request_sha256"], json.dumps({"text": case["substituted_values"], "f64": case["resolved_values"]}),
+                case["status"], str(case["record_digest"]) + "\n" + str(case["record_path"]), json.dumps(case["error"]) if case["error"] else case["requires_rerun_reason"] or ""]
+            for j, text in enumerate(values): self.dataset_table.setItem(i, j, QTableWidgetItem(text))
+
+    def _dataset_changed(self):
+        if self.sweep_controller.manifest: self._show_dataset(self.sweep_controller.manifest)
+        self._validity()
+
+    def _dataset_record(self, response):
+        if not any(v.digest == response["result"]["deterministic_sha256"] for v in self.records): self._completed(response, dataset=True)
+
+    def _cancel_job(self):
+        if self.sweep_controller.active: self.sweep_controller.cancel()
+        else: self.jobs.cancel()
+
+    def _comparison_panel(self):
+        page = QWidget(); layout = QVBoxLayout(page)
+        layout.addWidget(QLabel("Two immutable records; descriptive stored differences only. Exact update-index alignment, no interpolation or resampling. Separate geometry frames/cameras."))
+        self.compare_a = QComboBox(); self.compare_b = QComboBox()
+        self.compare_a.setAccessibleName("Comparison record A from completed, loaded or dataset records")
+        self.compare_b.setAccessibleName("Comparison record B from completed, loaded or dataset records")
+        row = QHBoxLayout(); layout.addLayout(row); row.addWidget(self.compare_a); row.addWidget(self.compare_b)
+        self.compare_channels = QLineEdit(); self.compare_channels.setPlaceholderText("Explicit shared channel indices, e.g. [0,1,2]; blank compares metadata/passive paths")
+        self.compare_channels.setAccessibleName("Explicit shared Omega channels as JSON indices; no ring-sector inference")
+        layout.addWidget(self.compare_channels)
+        self.compare_button = button("Compare selected records", "Compare exactly two immutable records", self._compare_records)
+        layout.addWidget(self.compare_button)
+        self.compare_tree = tree("Side-by-side record metadata, selections, incidence and provenance")
+        layout.addWidget(self.compare_tree, 1)
+        self.compare_table = QTableWidget(0, 5); self.compare_table.setHorizontalHeaderLabels(["Stored update_index", "Path", "A", "B", "B - A: display only"])
+        self.compare_table.setAccessibleName("Exact aligned stored values and display-only deltas; not recorded fields stay missing")
+        layout.addWidget(self.compare_table, 1)
+        self.compare_plot = ComparisonPlot(); layout.addWidget(self.compare_plot, 1)
+        geometry = QHBoxLayout(); layout.addLayout(geometry)
+        self.compare_geometry_a = GeometryView(); self.compare_geometry_b = GeometryView()
+        self.compare_geometry_a.setAccessibleName("Geometry A in independent frames and camera")
+        self.compare_geometry_b.setAccessibleName("Geometry B in independent frames and camera")
+        geometry.addWidget(self.compare_geometry_a); geometry.addWidget(self.compare_geometry_b)
+        self.compare_geometry_a.hide(); self.compare_geometry_b.hide()
+        self.repro_tabs.addTab(page, "Compare")
+
+    def _comparison_choices(self):
+        for combo in (self.compare_a, self.compare_b):
+            old = combo.currentIndex(); combo.blockSignals(True); combo.clear(); combo.addItem("Choose record explicitly")
+            combo.addItems([f"{i + 1}: {v.kind} {v.digest[:16]}" for i, v in enumerate(self.records)])
+            combo.setCurrentIndex(max(0, old)); combo.blockSignals(False)
+
+    def _compare_records(self):
+        try:
+            indices = [combo.currentIndex() - 1 for combo in (self.compare_a, self.compare_b)]
+            if any(i < 0 for i in indices): raise ValueError("Explicitly choose record A and record B")
+            channels = json.loads(self.compare_channels.text() or "[]")
+            if not isinstance(channels, list): raise ValueError("Shared channels require a JSON list")
+            self.comparison = ComparisonView(*(self.records[i] for i in indices), tuple(channels))
+            fill_tree(self.compare_tree, {k: v for k, v in self.comparison.result.items() if k != "rows"}, self.precision.value())
+            is_run = self.comparison.a.kind == "KERNEL_RUN_RECORD"
+            self.compare_plot.setVisible(is_run); self.compare_table.setVisible(is_run)
+            for widget, record in ((self.compare_geometry_a, self.comparison.a), (self.compare_geometry_b, self.comparison.b)):
+                widget.setVisible(not is_run)
+                if not is_run: widget.set_record(record)
+            if is_run: self.compare_plot.set_comparison(self.comparison)
+            self._comparison_table()
+        except Exception as exc: self._local_error(exc, "record comparison")
+
+    def _comparison_table(self):
+        rows = self.comparison.rows(self.precision.value()); self.compare_table.setRowCount(len(rows))
+        for i, row in enumerate(rows):
+            for j, text in enumerate(row): self.compare_table.setItem(i, j, QTableWidgetItem(text))
+
+    def _export_panel(self):
+        page = QWidget(); layout = QVBoxLayout(page)
+        label = QLabel(exports.QUALIFICATION); label.setWordWrap(True); layout.addWidget(label)
+        self.csv_groups = {}
+        row = QHBoxLayout(); layout.addLayout(row)
+        for name in exports.FIELD_GROUPS:
+            check = QCheckBox(name); check.setAccessibleName("CSV stored field group " + name); row.addWidget(check); self.csv_groups[name] = check
+        self.csv_selection = QComboBox(); self.csv_selection.addItems(["all", "range", "ordinals"])
+        self.csv_selection.setAccessibleName("CSV sample selection: all, inclusive range, or explicit ordinals")
+        self.csv_ordinals = QLineEdit(); self.csv_ordinals.setPlaceholderText('range: {"start":0,"stop":2}; ordinals: [0,2]')
+        self.csv_ordinals.setAccessibleName("Explicit CSV range or sample ordinal JSON; no automatic decimation")
+        layout.addWidget(self.csv_selection); layout.addWidget(self.csv_ordinals)
+        self.csv_button = button("Export selected RunRecord as CSV + sidecar", "Export stored sample CSV with exact hex companions and provenance", self._export_csv)
+        layout.addWidget(self.csv_button)
+        self.export_view = QComboBox(); self.export_view.addItems(["Stored time series", "Stored complex planes", "Stored raw chirality", "Stored geometry", "Detached history", "Comparison series", "Comparison geometry A", "Comparison geometry B"])
+        self.export_view.setAccessibleName("Already-created cached view to export with provenance")
+        layout.addWidget(self.export_view)
+        self.png_button = button("Export current view as PNG + sidecar", "Export cached PNG with provenance", lambda: self._export_image("png"))
+        self.svg_button = button("Export current view as SVG + sidecar", "Export cached SVG with provenance", lambda: self._export_image("svg"))
+        layout.addWidget(self.png_button); layout.addWidget(self.svg_button)
+        self.export_result = QLabel("No derived export written"); self.export_result.setWordWrap(True)
+        self.export_result.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse); self.export_result.setAccessibleName("Derived export artifact and provenance sidecar paths")
+        layout.addWidget(self.export_result); layout.addStretch()
+        self.repro_tabs.addTab(page, "Exports")
+
+    def _export_csv(self):
+        try:
+            if self.current is None or self.current.kind != "KERNEL_RUN_RECORD": raise ValueError("Select a RunRecord explicitly for CSV")
+            mode = self.csv_selection.currentText(); selection = {"mode": mode}
+            if mode == "range": selection.update(json.loads(self.csv_ordinals.text()))
+            elif mode == "ordinals": selection["ordinals"] = json.loads(self.csv_ordinals.text())
+            groups = [key for key, check in self.csv_groups.items() if check.isChecked()]
+            path, _ = QFileDialog.getSaveFileName(self, "Derived CSV and mandatory provenance sidecar", "samples.csv", "CSV (*.csv)")
+            if path: self._export_done(exports.export_csv(self.current, path, groups, selection, precision=self.precision.value(), kernel_identity=self.lock))
+        except Exception as exc: self._local_error(exc, "CSV export")
+
+    def _image_source(self):
+        name = self.export_view.currentText()
+        context = {"view_type": name, "parents": [], "display_precision": self.precision.value(), "visible_series": [], "selection": None}
+        if name in ("Stored time series", "Stored complex planes", "Stored raw chirality"):
+            if self.current_run is None: raise ValueError("Create or load a RunRecord first")
+            index = ("Stored time series", "Stored complex planes", "Stored raw chirality").index(name)
+            context.update(self.plots.export_state()); context["selection"] = {"sample_ordinal": self.sample.value(), "update_index": self.current_run.samples[self.sample.value()]["update_index"], "plotted_samples": "all stored samples"}
+            context["parents"] = [exports.parent_identity(self.current_run)]
+            if index == 2: context["visible_series"] = ["Cx", "Cy", "Cz"] if "chirality0" in self.current_run.series else []
+            figure = self.plots.figures[index]
+        elif name == "Stored geometry":
+            if self.current_geometry is None: raise ValueError("Create or load geometry first")
+            figure = self.geometry_view.figure; context.update(self.geometry_view.export_state()); context["parents"] = [exports.parent_identity(self.current_geometry)]
+        elif name == "Detached history":
+            if self.analysis_current is None or self.analysis_current.coordinates is None: raise ValueError("Explicitly create/select a coordinate analysis first")
+            figure = self.history_plot.figure; context["analysis_lineage"] = plain(self.analysis_current.result)
+            result = self.analysis_current.result
+            if result["parent_digest"]: context["parents"] = [{"digest": result["parent_digest"], "source_commit": result["parent_source_commit"], "record_type": "KERNEL_RUN_RECORD"}]
+            context["selection"] = {"supplied_history": "entire cached history", "highlighted_sample_ordinal": self.sample.value() if self.current_run and result["parent_digest"] == self.current_run.digest else None}
+        else:
+            if self.comparison is None: raise ValueError("Create a two-record comparison first")
+            context["parents"] = [exports.parent_identity(v) for v in (self.comparison.a, self.comparison.b)]
+            if name == "Comparison series":
+                if self.comparison.a.kind != "KERNEL_RUN_RECORD": raise ValueError("Select a run comparison")
+                figure = self.compare_plot.figure; context["visible_series"] = [self.compare_plot.selector.currentText()]; context["selection"] = {"exact_common_update_indices": plain(self.comparison.result["indices_common"])}
+            else:
+                if self.comparison.a.kind != "GEOMETRY_RECORD": raise ValueError("Select a geometry comparison")
+                widget = self.compare_geometry_a if name.endswith("A") else self.compare_geometry_b
+                figure = widget.figure; context.update(widget.export_state())
+        return figure, context
+
+    def _export_image(self, extension):
+        try:
+            figure, context = self._image_source()
+            path, _ = QFileDialog.getSaveFileName(self, "Derived presentation and mandatory provenance sidecar", "view." + extension, extension.upper() + " (*." + extension + ")")
+            if path: self._export_done(exports.export_image(figure, path, context))
+        except Exception as exc: self._local_error(exc, "image export")
+
+    def _export_done(self, result):
+        self.export_result.setText("Derived export complete:\n" + result["artifact"] + "\n" + result["sidecar"])
+
     def closeEvent(self, event):
         self.play_timer.stop()
+        if self.sweep_controller.active: self.sweep_controller.cancel()
         if self.jobs.busy:
             self.jobs.cancel()
             event.ignore()

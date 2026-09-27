@@ -21,10 +21,11 @@ public registry name.
 - Application: an ordinarily built companion wheel. Its contents include original
   application modules/help, license metadata, and installed lock data only.
 
-The kernel source is a TEMPORARY_CERTIFIED_DEVELOPMENT_ARTIFACT. Actions retention
-is not a permanent release channel. Acquisition fails closed if unavailable;
-there is no registry or rebuilt-wheel fallback. A later authorized release/K4d
-must provide a durable distribution source.
+The preferred kernel archive remains a TEMPORARY_CERTIFIED_DEVELOPMENT_ARTIFACT.
+Lock v2 also accepts certified reconstruction from the exact frozen K3 source
+commit with locked build tools and the narrow wheel-equivalence v1 contract below.
+This removes Actions expiry as a development single point of failure. It does not
+authorize durable public distribution, registry resolution or a public release.
 
 ## Acquisition and offline certification
 
@@ -250,8 +251,8 @@ Play/Pause/Back/Forward/scrub operate on sample ordinals using a Qt timer. Actua
 stored update_index is shown separately. Playback rate is frames per wall-clock
 second, unrelated to Clock.dt, update count or physical time. Display significant
 digits affect tables only; original hexadecimal spelling and plot values remain
-unchanged. All Matplotlib Save Figure actions and their toolbar keyboard entry
-are disabled; provenance-aware export belongs to K4d.
+unchanged. All raw Matplotlib Save Figure actions and their toolbar keyboard entry remain
+disabled. Workspace D now provides controlled exports with mandatory provenance sidecars.
 
 ## Exact geometry entry
 
@@ -276,12 +277,131 @@ from dynamics coupling g. Symmetry metadata stays descriptive; no inferred actio
 or arbitrary fold angle is exposed. Axes/object visibility and camera controls
 change presentation only.
 
-## K4d deferred scope
+## Finite datasets and continuation
 
-Parameter sweeps, substantive multi-record comparison, CSV and provenance-aware
-PNG/SVG exports, durable public artifact distribution, release packaging/installers,
-and further accessibility certification/polish remain K4d or later. G01 live
-streaming/cooperative cancellation, G02 identity/resume-preflight queries, G03
-symmetry permutation actions and G04 arbitrary fold-angle geometry remain API gaps.
-No new dependencies, kernel changes, research/Option B controls or physical
-geometry/dynamics coupling are introduced by K4c.
+Workspace D retains Records and adds Compare, Datasets and Exports within the four
+primary scientific workspaces. Dataset creation freezes a complete new-run draft.
+Explicitly rebuild the plan to incorporate later draft edits. Only eps, g,
+phase_strength, k0, k1 and k2 can vary; State, topology, updates and all passive
+selections remain fixed. Ring drafts must already satisfy the public constraints.
+
+Enter dimension JSON as {"g":{"values":["0.1","0.2"]}} or an explicit range
+{"eps":{"start":"0.01","stop":"0.05","count":"3"}}. Numeric inputs are text.
+Ranges require count>=2 and expand under Decimal precision 50 / ROUND_HALF_EVEN,
+using start+(stop-start)*i/(count-1); endpoint spellings are retained. The preview
+shows every spelling, binary64 hex and duplicate-resolved-value reference. Nothing
+is deduplicated. Dimension order is eps/g/phase_strength/k0/k1/k2, preserving each
+list's order within the Cartesian product.
+
+Case count and cases*(updates+1) sample count are exact orchestration counts.
+Above 100 cases or 100,000 samples, execution requires confirmation. The default
+10,000-case UI RESOURCE GUARD is not a scientific domain limit; explicitly raise
+the guard and acknowledge the override to permit up to 100,000 cases. Individual
+range expansion has a 100,000-value resource cap. No silent clamping occurs.
+
+TRIOCTAGON_UI_SWEEP_MANIFEST version 1 contains app version, spec_sha256, the frozen
+specification (base draft, dimension specs/expanded values, kernel lock, failure
+policy and resource guard), fixed configuration, counts and every case. Each case
+has stable case-ordinal-requesthash ID, request_sha256, substituted/resolved values,
+status, record path/digest/source, error and rerun reason. SHA-256 uses UTF-8 JSON
+with sorted keys and compact separators. Case request identity contains operation,
+draft and resolved payload, excluding the transient worker UUID. Changes to L01
+parameter literals clear inaccurate reference labels; unchanged seed provenance
+remains visible.
+
+Execution uses one existing JobManager and ordinary v2 run requests sequentially.
+One failure is recorded and later cases run, unless the visible frozen policy says
+to stop after the first failure. Progress is completed/total cases; individual
+kernel runs remain indeterminate. Cancel terminates the active worker, marks its
+case cancelled and remaining cases not_run, preserving completed records.
+
+New datasets require an empty chosen directory. sweep-manifest.json is atomically
+updated after terminal cases; records/ contains separate complete canonical public
+RunRecords. Continue validates the manifest/request identities and uses worker
+load_record before skipping any saved case. Stored parameters, State, outputs and
+observer config/clock/memory must match the request, as must digest and source.
+Missing/tampered/mismatched records are visibly marked for rerun. An orphan complete
+record is reconciled only after explicit continuation and public validation, never
+from its filename alone. No partial record or automatic scientific retry is saved.
+
+## Descriptive comparison
+
+Select exactly two records from completed/loaded/dataset history. Cross-kind
+comparison is refused. Run comparison shows metadata and selections side-by-side,
+indices only in A/common/only in B, and stored A/B/B-A values. Only exact common
+update_index values align. Enter shared Omega channel indices explicitly; differing
+state sizes remain visible and no ring-sector equivalence is inferred. Missing
+chirality/diagnostic/observer data remains not recorded. Deltas are
+DISPLAY_DERIVATION_ONLY, with no ranking, winner or physical interpretation.
+Geometry comparison presents definitions/options/resolved parameters, objects,
+frames, incidence, symmetry and construction provenance in separate camera panels.
+
+## Derived CSV and image exports
+
+Choose explicit stored CSV field groups and all samples, an inclusive ordinal
+range, or an ordered explicit ordinal list (repetitions retained). Each selected
+sample produces one row with ordinal/update_index. Stored f64 leaves have decimal
+and exact .f64_hex columns; complex components stay separate .re/.im paths. Missing
+leaves are marked not recorded. No hidden recomputation or decimation occurs.
+
+Every CSV has a .csv.provenance.json sidecar containing schema version 1, artifact
+filename/SHA256, parent digest/source/type, exact sample and field selection,
+column semantics, formatting policy, app version and kernel artifact identity.
+
+PNG/SVG export selects an already-created cached record/history/geometry/comparison
+figure. The .png.provenance.json or .svg.provenance.json sidecar contains artifact
+hash/type, parent digest(s)/source commit(s), view/selection/visible series,
+precision, camera elevation/azimuth/limits, geometry frames/object visibility and
+analysis lineage where relevant. Comparison exports reference both parents.
+SVG reports detectable rasterized layers and makes no exact-symbolic-geometry claim.
+
+Artifacts and sidecars are staged together. Success is reported only after both
+are published. Publication refuses existing destinations, including concurrent
+ones; failure removes staging and any newly published pair member. Filesystems
+must support same-directory hard-link publication. Existing scientific records are
+never overwritten. Dataset records/ is not a derived-export destination.
+
+## Lock v2 and certified development reconstruction
+
+Preferred acquisition verifies the exact original K3 direct archive SHA and locked
+K3 evidence. Only definite absence/expiry permits reconstruction fallback. An
+available downloaded artifact failing verification is fatal; no rebuild around
+corrupt evidence. Registry kernel resolution remains forbidden.
+
+Wheel equivalence v1 freezes 25 stable paths, their SHA256 and byte sizes. These
+include all 19 Python files, all 14 record-identity modules, the mandatory provenance
+manifest and distribution/license metadata. Exactly one member is optional:
+trioctagon_physics-0.1.0.dist-info/build_input.sha256. If present it must be exactly
+64 ASCII bytes equal to the mandatory manifest digest. The file witnesses the
+PEP 517 prepared-metadata handoff; the underlying provenance is never optional.
+
+RECORD is parsed as CSV. Exactly one row must cover each actual wheel member;
+SHA256 URL-safe hashes and sizes must match, with the standard empty self-row.
+The verification-only core projection removes only the optional witness row,
+retains the self-row, sorts triples by path, and hashes compact UTF-8 JSON. Core
+SHA256 is 6b4a00e32cb818dda250ab1496a04a55106e39e252a200fae546a81250bac01a.
+No other metadata variance or wheel post-processing is allowed.
+
+Acquisition always exercises forced reconstruction: external detached checkout at
+7b3a0fcec2c9bde6c9e1ea482fe1f1ea6b16793e, exact origin and clean source, approved
+Setuptools 81.0.0 / wheel 0.47.0 archive hashes, existing frozen backend/verifier,
+and full equivalence validation. Offline certification installs both the selected
+and reconstructed kernel and runs the isolated scientific worker with matching
+source identity. The full UI suite runs once; the second GUI-free smoke needs only
+the locked numeric closure. Acquisition alone may access exact wheels/GitHub/git.
+All builds/installations after acquisition use --no-index and the locked wheelhouse.
+
+## Accessibility and release boundary
+
+All K4d actions are keyboard-reachable and have accessible names. Reduced motion
+stops/prevents timer playback while manual Back/Forward/scrub remain available;
+changing rate cannot start animation. Labels, line styles and markers supplement
+colour, and plots retain text/table alternatives. Programmatic acceptance is not
+Windows assistive-technology certification; a manual release audit is still required.
+
+G01 live streaming/cooperative cancellation, G02 standalone identity/resume-preflight,
+G03 symmetry permutation actions and G04 arbitrary fold-angle geometry remain gaps.
+No scientific worker/API/kernel schema change, new dependency, research/Option B
+surface, observer feedback or geometry/dynamics coupling is introduced. Public
+release, PyPI upload, GitHub Release, installer/frozen executable/MSIX and public
+version bump require separate human authorization.

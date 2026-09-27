@@ -344,4 +344,60 @@ class UITests(unittest.TestCase):
             with self.assertRaises(ValueError): validate_response(bad, request)
 
 
+    def test_k4d_dataset_preview_run_continue_and_draft_isolation(self):
+        w = self.window; self.filled(); w.numeric["updates"].setText("1")
+        self.assertEqual([w.repro_tabs.tabText(i) for i in range(w.repro_tabs.count())], ["Records", "Compare", "Datasets", "Exports"])
+        w.sweep_dimensions.setPlainText('{"g":{"values":[".1",".2"]}}'); w.sweep_build.click()
+        self.assertEqual(w.sweep_plan["case_count"], 2); self.assertEqual(w.sweep_plan["total_requested_samples"], 4)
+        before = deepcopy(w.sweep_plan); w.numeric["eps"].setText(".04"); self.assertEqual(w.sweep_plan, before)
+        with tempfile.TemporaryDirectory() as directory:
+            w.dataset_directory.setText(directory); w.sweep_start.click()
+            spin_until(lambda: not w.sweep_controller.active)
+            self.assertEqual([c["status"] for c in w.sweep_controller.manifest["cases"]], ["completed", "completed"])
+            self.assertIn("2 / 2", w.dataset_progress.text()); self.assertEqual(len(w.records), 2)
+            with patch.object(w.jobs, "start", wraps=w.jobs.start) as start:
+                w.sweep_continue.click(); spin_until(lambda: not w.sweep_controller.active)
+            self.assertEqual([c.args[0]["operation"] for c in start.call_args_list], ["load_record", "load_record"])
+            self.assertEqual(len(w.records), 2)
+
+    def test_k4d_sweep_cancel_preserves_current_record_and_blocks_manual_jobs(self):
+        w = self.window; w._completed(self.response); parent = w.current; self.filled(); w.numeric["updates"].setText("100000")
+        w.sweep_dimensions.setPlainText('{"g":{"values":[".1",".2"]}}'); w.sweep_build.click()
+        with tempfile.TemporaryDirectory() as directory, patch("trioctagon_ui.app.QMessageBox.question", return_value=QMessageBox.StandardButton.Yes):
+            w.dataset_directory.setText(directory); w.sweep_start.click(); spin_until(lambda: w.jobs.busy)
+            self.assertFalse(w.run_button.isEnabled()); w.sweep_cancel.click(); spin_until(lambda: not w.sweep_controller.active and not w.jobs.busy)
+            self.assertEqual([c["status"] for c in w.sweep_controller.manifest["cases"]], ["cancelled", "not_run"])
+            self.assertIs(w.current, parent)
+
+    def test_k4d_comparison_and_export_actions_use_cached_records(self):
+        w = self.window; w._completed(self.response)
+        child, response = run_child(r.run_request(example("2"))); self.assertEqual(child.returncode, 0, child.stderr); w._completed(response)
+        w.compare_a.setCurrentIndex(1); w.compare_b.setCurrentIndex(2); w.compare_channels.setText("[0,1,2]")
+        with tempfile.TemporaryDirectory() as directory, patch.object(w.jobs, "start", side_effect=AssertionError("comparison/export invoked kernel")):
+            w.compare_button.click(); self.assertGreater(w.compare_table.rowCount(), 0)
+            self.assertFalse(set(w.comparison.result) & {"winner", "score"})
+            w.csv_groups["omega"].setChecked(True)
+            for action, name in ((w.csv_button, "stored.csv"), (w.png_button, "compare.png"), (w.svg_button, "compare.svg")):
+                w.export_view.setCurrentText("Comparison series")
+                with patch("trioctagon_ui.app.QFileDialog.getSaveFileName", return_value=(str(Path(directory)/name), "")): action.click()
+                self.assertTrue((Path(directory)/name).exists(), w.error_details.toPlainText())
+                side = json.loads((Path(directory)/(name+".provenance.json")).read_text())
+                if name != "stored.csv": self.assertEqual(len(side["parents"]), 2)
+
+    def test_k4d_keyboard_reduced_motion_and_noncolour_series(self):
+        w = self.window; w._completed(self.response); w.show(); w.tabs.setCurrentIndex(3)
+        actions = (w.sweep_build, w.sweep_start, w.sweep_continue, w.sweep_cancel, w.sweep_load,
+            w.compare_button, w.compare_a, w.compare_b, w.csv_button, w.png_button, w.svg_button)
+        for action in actions:
+            self.assertTrue(action.accessibleName()); self.assertNotEqual(action.focusPolicy(), Qt.FocusPolicy.NoFocus)
+        w.repro_tabs.setCurrentIndex(3); w.png_button.setFocus(); QApplication.processEvents()
+        self.assertIs(QApplication.focusWidget(), w.png_button)
+        before = w.current.canonical_json; w.reduced_motion.setChecked(True); w.playback_rate.setValue(60); w.play_button.click()
+        self.assertFalse(w.play_timer.isActive()); w.forward_button.click(); self.assertEqual(w.sample.value(), 1)
+        self.assertEqual(w.current.canonical_json, before)
+        lines = w.plots.figures[0].axes[0].lines[:3]
+        self.assertEqual(len({(line.get_linestyle(), line.get_marker()) for line in lines}), 3)
+        self.assertGreater(w.sample_table.rowCount(), 0)
+
+
 if __name__ == "__main__": unittest.main()

@@ -133,6 +133,42 @@
       "class": "plain_definition",
       "text": "Playback moves through stored sample ordinals and displays the actual update_index separately. Frames per wall-clock second are unrelated to Clock.dt, updates or physical time. Display precision and visibility never alter stored bits.",
       "source": "K4c presentation contract"
+    },
+    {
+      "id": "datasets",
+      "class": "known_qualification",
+      "text": "Finite sweeps enumerate explicit eps/g/phase_strength/k0/k1/k2 lists in that order. Decimal ranges use precision 50 and half-even rounding with both endpoints retained. Duplicate binary64 values remain separate cases. Fixed State, topology, updates and outputs never change. A manifest is application data, not a public record.",
+      "source": "K4d / K4d-R1 application contract"
+    },
+    {
+      "id": "continuation",
+      "class": "known_qualification",
+      "text": "Continue validates saved records through the public loader and checks request, digest and source identity before skipping a case. Missing, tampered or mismatched records require rerun. Cancellation preserves completed records; active work becomes cancelled and remaining work not_run.",
+      "source": "K4d / K4d-R1 application contract"
+    },
+    {
+      "id": "comparison",
+      "class": "known_qualification",
+      "text": "Compare two records of the same broad kind. Run samples align only by exact stored update_index; absent data stays not recorded. B minus A is DISPLAY_DERIVATION_ONLY. Geometry remains in separate panels, frames and cameras. No resampling or scientific ranking.",
+      "source": "K4d / K4d-R1 application contract"
+    },
+    {
+      "id": "exports",
+      "class": "known_qualification",
+      "text": "CSV, PNG and SVG are derived presentation artifacts with mandatory hash/provenance sidecars. CSV includes stored f64 hex companions and separate complex re/im. Images save an existing cached figure without scientific execution. SVG is not exact symbolic geometry. Existing files and dataset records directories are protected.",
+      "source": "K4d / K4d-R1 application contract"
+    },
+    {
+      "id": "accessibility",
+      "class": "known_qualification",
+      "text": "Reduced motion prevents automatic playback; manual stored-sample steps remain available. Important series use labels, line styles and markers in addition to colour. Every plot has a table/inspector alternative. Programmatic acceptance does not certify Windows assistive technology.",
+      "source": "K4d / K4d-R1 application contract"
+    },
+    {
+      "id": "reconstruction",
+      "class": "known_qualification",
+      "text": "The development kernel may be reconstructed from its frozen source using locked tools when the preferred artifact is unavailable. Twenty-five stable wheel members stay byte-identical. Only the named prepared-metadata witness and its truthful RECORD consequence may differ. Downloaded corruption fails closed; no public distribution is authorized.",
+      "source": "K4d / K4d-R1 application contract"
     }
   ],
   "presets": {

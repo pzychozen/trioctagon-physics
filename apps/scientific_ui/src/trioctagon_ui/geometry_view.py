@@ -3,7 +3,7 @@ import math
 from fractions import Fraction
 from collections.abc import Mapping
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg
-from trioctagon_ui.plots import ViewToolbar
+from trioctagon_ui.plots import ViewToolbar, series_style
 from matplotlib.figure import Figure
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QListWidget, QListWidgetItem, QPushButton, QLabel, QCheckBox
@@ -77,9 +77,10 @@ class GeometryView(QWidget):
         right.addWidget(self.reset)
         self.reset.clicked.connect(lambda: self.redraw(reset=True))
         self.objects.itemChanged.connect(lambda _: self.redraw())
-        self.lines = (); self.axes = {}
+        self.lines = (); self.axes = {}; self.record = None
 
     def set_record(self, record):
+        self.record = record
         self.lines = geometry_lines(record)
         self.objects.blockSignals(True); self.objects.clear()
         for oid, frame, lines in self.lines:
@@ -99,12 +100,12 @@ class GeometryView(QWidget):
         for j, frame in enumerate(frames):
             ax = self.figure.add_subplot(1, len(frames), j + 1, projection="3d")
             self.axes[frame] = ax
-            for oid, object_frame, lines in self.lines:
+            for object_index, (oid, object_frame, lines) in enumerate(self.lines):
                 if oid not in visible or object_frame != frame:
                     continue
-                for line in lines:
+                for line_index, line in enumerate(lines):
                     xyz = [tuple(p) if len(p) == 3 else (*p, 0.0) for p in line]
-                    ax.plot(*zip(*xyz), linewidth=0.9)
+                    ax.plot(*zip(*xyz), linewidth=0.9, label=oid if line_index == 0 else None, **series_style(object_index))
             ax.set(title=frame, xlabel="x", ylabel="y", zlabel="z")
             if not self.show_axes.isChecked(): ax.set_axis_off()
             if frame in cameras:
@@ -113,3 +114,9 @@ class GeometryView(QWidget):
             else:
                 ax.view_init(elev=25, azim=-55)
         self.canvas.draw_idle()
+
+    def export_state(self):
+        return {"geometry_frames": list(self.axes), "geometry_objects": [
+            {"object_id": self.objects.item(i).data(Qt.ItemDataRole.UserRole), "visible": self.objects.item(i).checkState() == Qt.CheckState.Checked}
+            for i in range(self.objects.count())], "axes_visible": self.show_axes.isChecked(),
+            "qualification": "Returned geometry; separate coordinate frames, no physical placement or exact symbolic SVG claim"}

@@ -13,6 +13,10 @@ class ViewToolbar(NavigationToolbar2QT):
         return None  # Also disable Matplotlib's keyboard export shortcut.
 
 
+def series_style(index):
+    return {"linestyle": ("-", "--", "-.", ":")[index % 4], "marker": ("o", "s", "^", "x", "+", "d")[index % 6], "markersize": 3}
+
+
 class StoredPlots(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -65,7 +69,7 @@ class StoredPlots(QWidget):
         axes = self.figures[0].subplots(2, 1, sharex=True)
         for i in selected:
             for j, part in enumerate(("re", "im")):
-                axes[j].plot(series["indices"], series[f"omega{i}.{part}"], label=f"Omega{i}.{part}")
+                axes[j].plot(series["indices"], series[f"omega{i}.{part}"], label=f"Omega{i}.{part}", **series_style(i))
         for j, part in enumerate(("Re", "Im")):
             axes[j].set_ylabel(part)
             if selected: axes[j].legend(loc="best", fontsize="small")
@@ -73,12 +77,12 @@ class StoredPlots(QWidget):
         axes[-1].set_xlabel("update_index")
         planes = self.figures[1].subplots(1, max(1, len(selected)), squeeze=False)[0]
         for i, ax in zip(selected, planes):
-            ax.plot(series[f"omega{i}.re"], series[f"omega{i}.im"])
+            ax.plot(series[f"omega{i}.re"], series[f"omega{i}.im"], **series_style(i))
             ax.set(xlabel="Re", ylabel="Im", title=f"Omega{i}")
         ax = self.figures[2].subplots()
         if "chirality0" in series:
             for i, label in enumerate(("Cx (BC)", "Cy (CA)", "Cz (AB)")):
-                ax.plot(series["indices"], series[f"chirality{i}"], label=label)
+                ax.plot(series["indices"], series[f"chirality{i}"], label=label, **series_style(i))
             ax.legend(); ax.set(xlabel="update_index", ylabel="raw chirality")
             self.markers.append(ax.axvline(series["indices"][0], color="black", linestyle="--", linewidth=0.7))
         else:
@@ -98,6 +102,38 @@ class StoredPlots(QWidget):
             marker.set_xdata([value, value])
         for canvas in self.canvases:
             canvas.draw_idle()
+
+
+    def export_state(self):
+        return {"sample_ordinal": self.sample_index, "visible_series": [f"Omega{i}" for i in range(self.channels.count()) if self.channels.item(i).checkState() == Qt.CheckState.Checked],
+            "plot_tab": self.tabs.tabText(self.tabs.currentIndex())}
+
+
+class ComparisonPlot(QWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        from PySide6.QtWidgets import QComboBox
+        layout = QVBoxLayout(self)
+        self.selector = QComboBox(); self.selector.setAccessibleName("Stored comparison scalar path; exact common update indices only")
+        layout.addWidget(self.selector)
+        self.figure = Figure(figsize=(6, 3), layout="constrained"); self.canvas = FigureCanvasQTAgg(self.figure)
+        self.canvas.setAccessibleName("Comparison A and B; distinct line styles and markers; full comparison table alongside")
+        layout.addWidget(ViewToolbar(self.canvas, self)); layout.addWidget(self.canvas)
+        self.values = {}; self.selector.currentTextChanged.connect(self.redraw)
+
+    def set_comparison(self, view):
+        self.values = view.series(); self.selector.blockSignals(True); self.selector.clear(); self.selector.addItems(list(self.values)); self.selector.blockSignals(False)
+        self.redraw()
+
+    def redraw(self, *_):
+        self.figure.clear(); ax = self.figure.subplots()
+        values = self.values.get(self.selector.currentText(), [])
+        if values:
+            for side, label in ((1, "A"), (2, "B")):
+                ax.plot([v[0] for v in values], [v[side] for v in values], label=label, **series_style(side - 1))
+            ax.legend(); ax.set(xlabel="exact common stored update_index", ylabel=self.selector.currentText())
+        else: ax.text(.5, .5, "No shared recorded numeric values selected", ha="center", transform=ax.transAxes)
+        self.canvas.draw_idle()
 
 
 class HistoryPlot(QWidget):
