@@ -22,6 +22,7 @@ import sys
 import tempfile
 import tomllib
 import unittest
+from unittest.mock import patch
 import zipfile
 
 
@@ -168,14 +169,105 @@ def verify_preferred(app, workspace, lock):
     return wheel
 
 
+LOCKED_GIT_REPOSITORY = "https://github.com/pzychozen/trioctagon-physics"
+LOCKED_GIT_COMMIT = "7b3a0fcec2c9bde6c9e1ea482fe1f1ea6b16793e"
+GIT_CREDENTIAL_REDACTION = "[REDACTED_GIT_CREDENTIAL]"
+
+
+def git_fetch_environment(lock, environment):
+    """Authenticate only the immutable repository; never alter caller/config state."""
+    env = dict(environment); token = env.pop("GH_TOKEN", None)
+    if not token: return env
+    if lock["source_repository"] != LOCKED_GIT_REPOSITORY or lock["source_commit"] != LOCKED_GIT_COMMIT:
+        raise ValueError("Token authentication requires the locked repository and commit")
+    if any(k.upper() in ("GIT_CONFIG_COUNT", "GIT_CONFIG_PARAMETERS") or
+           k.upper().startswith(("GIT_CONFIG_KEY_", "GIT_CONFIG_VALUE_")) for k in env):
+        raise ValueError("Token authentication refuses inherited process Git configuration")
+    for key in list(env):
+        if key.upper().startswith("GIT_TRACE") or key.upper() == "GIT_CURL_VERBOSE": env.pop(key)
+    credential = base64.b64encode(("x-access-token:" + token).encode("utf-8")).decode("ascii")
+    env.update(GIT_CONFIG_COUNT="1", GIT_CONFIG_KEY_0="http.https://github.com/.extraheader",
+               GIT_CONFIG_VALUE_0="AUTHORIZATION: basic " + credential, GIT_TERMINAL_PROMPT="0")
+    return env
+
+
+def redact_git_output(value, token):
+    if isinstance(value, bytes): value = value.decode("utf-8", errors="replace")
+    value = value or ""
+    if token:
+        encoded = base64.b64encode(("x-access-token:" + token).encode("utf-8")).decode("ascii")
+        for secret in ("AUTHORIZATION: basic " + encoded, encoded, token):
+            value = value.replace(secret, GIT_CREDENTIAL_REDACTION)
+    return value
+
+
+def authenticated_git_fetch(source, lock, directory, environment):
+    """Capture/redact before persistence; auth exists only in the fetch child env."""
+    token = environment.get("GH_TOKEN"); git_env = {}; output = ""
+    report = {"token_source": "GH_TOKEN" if token else "EXISTING_OPERATOR_GIT_AUTH",
+        "token_present": bool(token), "auth_method": "PROCESS_SCOPED_HTTP_EXTRAHEADER" if token else "EXISTING_OPERATOR_GIT_AUTH",
+        "auth_configuration_applied": False, "authenticated_fetch": "NOT_RUN", "git_exit_code": None,
+        "credential_persisted": None, "token_in_argv": False, "token_in_remote_url": False}
+    # Inspection must not receive the generated header or raw token.
+    inspection_env = {k: v for k, v in environment.items() if k != "GH_TOKEN" and
+                      not k.upper().startswith("GIT_TRACE") and k.upper() != "GIT_CURL_VERBOSE"}
+    def inspect():
+        for args, check in ((["remote", "get-url", "origin"], "origin"),
+                            (["config", "--local", "--name-only", "--list"], "config")):
+            result = subprocess.run(["git", "-C", str(source), *args], cwd=directory, env=inspection_env,
+                capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=30)
+            if result.returncode: raise RuntimeError("Cannot verify reconstruction Git " + check)
+            if check == "origin":
+                if result.stdout.strip() != lock["source_repository"]: raise ValueError("Reconstruction origin differs from locked repository")
+            elif any(re.fullmatch(r"(?:http(?:\..*)?\.extraheader|credential(?:\..*)?\.helper)", key.lower())
+                     for key in result.stdout.splitlines()):
+                report["credential_persisted"] = True
+                raise ValueError("Reconstruction local Git config contains a forbidden authentication key")
+        report.update(credential_persisted=False, origin_verified=True)
+    try:
+        git_env = git_fetch_environment(lock, environment)
+        inspect()
+        args = ["git", "-C", str(source), "fetch", "--depth", "1", "origin", lock["source_commit"]]
+        if token and any(token in arg or git_env["GIT_CONFIG_VALUE_0"].split()[-1] in arg for arg in args):
+            raise ValueError("Credential material cannot appear in Git arguments")
+        report["auth_configuration_applied"] = bool(token)
+        try:
+            result = subprocess.run(args, cwd=directory, env=git_env, capture_output=True,
+                text=True, encoding="utf-8", errors="replace", timeout=900)
+        except subprocess.TimeoutExpired as exc:
+            output = redact_git_output(exc.stdout, token) + redact_git_output(exc.stderr, token)
+            inspect()
+            raise RuntimeError("Reconstruction Git fetch timed out") from None
+        output = redact_git_output(result.stdout, token) + redact_git_output(result.stderr, token)
+        report["git_exit_code"] = result.returncode
+        inspect()
+        if result.returncode: raise RuntimeError("Reconstruction Git fetch failed (exit " + str(result.returncode) + ")")
+        report.update(authenticated_fetch="PASS", credential_material_in_fetch_log=False,
+                      trace_variables_sanitized=bool(token), source_repository=lock["source_repository"], source_commit=lock["source_commit"])
+        (directory / "fetch.log").write_text(output, encoding="utf-8")
+        write_json(directory / "fetch-auth.json", report)
+        return report
+    except Exception as exc:
+        # Suppress exception chaining: a timeout/process exception may retain raw output.
+        safe = redact_git_output(str(exc), token)
+        report.update(authenticated_fetch="FAIL", error_class=type(exc).__name__, error=safe)
+        (directory / "fetch.log").write_text(output + "\n" + safe, encoding="utf-8")
+        write_json(directory / "fetch-auth.json", report)
+        raise RuntimeError(safe + "; see fetch.log\n" + output[-6000:]) from None
+    finally:
+        git_env.clear()
+
+
 def reconstruct_kernel(app, workspace, lock):
     """Network-enabled acquisition only; exact detached source and offline build."""
     directory = Path(tempfile.mkdtemp(prefix="k-", dir=workspace)); source = directory / "s"
     env = dict(os.environ, PYTHONUTF8="1", PYTHONDONTWRITEBYTECODE="1"); env.pop("PYTHONPATH", None)
+    fetch_env = dict(env); env.pop("GH_TOKEN", None)
     def run(label, args): return command(args, directory, directory / (label + ".log"), env).strip()
     run("init", ["git", "init", source]); run("crlf", ["git", "-C", source, "config", "core.autocrlf", "false"])
     run("origin", ["git", "-C", source, "remote", "add", "origin", lock["source_repository"]])
-    run("fetch", ["git", "-C", source, "fetch", "--depth", "1", "origin", lock["source_commit"]])
+    try: fetch_auth = authenticated_git_fetch(source, lock, directory, fetch_env)
+    finally: fetch_env.clear()
     run("checkout", ["git", "-C", source, "checkout", "--detach", lock["source_commit"]])
     if run("head", ["git", "-C", source, "rev-parse", "HEAD"]) != lock["source_commit"]: raise ValueError("Reconstruction HEAD mismatch")
     if run("origin-read", ["git", "-C", source, "remote", "get-url", "origin"]) != lock["source_repository"]: raise ValueError("Reconstruction origin mismatch")
@@ -197,7 +289,8 @@ def reconstruct_kernel(app, workspace, lock):
     run("k3-verifier", [python, "-B", source / "tools/verify_distribution.py", "--source", source, "--wheel", wheel, "--report", directory / "k3-verifier.json"])
     if run("clean-after", ["git", "-C", source, "status", "--porcelain", "--untracked-files=no"]): raise ValueError("Reconstruction changed tracked source")
     report = {"classification": "CERTIFIED_RECONSTRUCTION", "relative_path": wheel.relative_to(workspace).as_posix(),
-        "equivalence": equivalence, "source_commit": lock["source_commit"], "build_tools": tools, "existing_k3_verifier": "PASS", "wheel_postprocessing": False}
+        "equivalence": equivalence, "source_commit": lock["source_commit"], "build_tools": tools, "existing_k3_verifier": "PASS", "wheel_postprocessing": False,
+        "fetch_auth": fetch_auth}
     write_json(workspace / "reconstructed-kernel.json", report)
     return wheel
 
@@ -465,6 +558,123 @@ class InstallTests(unittest.TestCase):
                 "parent_digests": [v.digest for v in records], "scientific_worker_operations": "existing run only"})
             if os.environ.get("TRIOCTAGON_UI_EVIDENCE"):
                 shutil.copytree(directory, Path(os.environ["TRIOCTAGON_UI_EVIDENCE"]) / "k4d-examples")
+
+
+class GitFetchAuthenticationTests(unittest.TestCase):
+    TOKEN = "example-token-not-secret"
+
+    def setUp(self):
+        self.lock = {"source_repository": LOCKED_GIT_REPOSITORY, "source_commit": LOCKED_GIT_COMMIT}
+        # Fixtures inherit only OS execution paths; never a real credential.
+        self.env = {k: os.environ[k] for k in ("PATH", "SystemRoot", "TEMP", "TMP") if k in os.environ}
+        self.env["GH_TOKEN"] = self.TOKEN
+        self.encoded = base64.b64encode(("x-access-token:" + self.TOKEN).encode()).decode()
+        self.header = "AUTHORIZATION: basic " + self.encoded
+
+    def repository(self, directory):
+        source = directory / "s"
+        for args in (["git", "init", str(source)], ["git", "-C", str(source), "remote", "add", "origin", LOCKED_GIT_REPOSITORY]):
+            subprocess.run(args, env={k:v for k,v in self.env.items() if k != "GH_TOKEN"}, capture_output=True, check=True)
+        return source
+
+    def assert_redacted(self, text):
+        for value in (self.TOKEN, self.encoded, self.header): self.assertNotIn(value, text)
+
+    def test_auth_environment_header_trace_sanitization_and_no_mutation(self):
+        for key in ("GIT_TRACE", "GIT_TRACE_PACKET", "GIT_TRACE_CURL", "GIT_TRACE_CURL_NO_DATA", "GIT_CURL_VERBOSE", "GIT_TRACE2_EVENT"):
+            self.env[key] = "sentinel-trace-path"
+        before = dict(self.env); env = git_fetch_environment(self.lock, self.env)
+        self.assertEqual(self.env, before); self.assertNotIn("GH_TOKEN", env)
+        self.assertEqual(env["GIT_CONFIG_COUNT"], "1")
+        self.assertEqual(env["GIT_CONFIG_KEY_0"], "http.https://github.com/.extraheader")
+        self.assertEqual(env["GIT_TERMINAL_PROMPT"], "0")
+        self.assertEqual(base64.b64decode(env["GIT_CONFIG_VALUE_0"].split()[-1]).decode(), "x-access-token:" + self.TOKEN)
+        self.assertFalse(any(k.startswith("GIT_TRACE") or k == "GIT_CURL_VERBOSE" for k in env))
+
+    def test_redacts_raw_encoded_and_full_header_in_text_and_bytes(self):
+        text = "\n".join((self.TOKEN, self.encoded, self.header, "Authorization: basic " + self.encoded))
+        for value in (text, text.encode()):
+            redacted = redact_git_output(value, self.TOKEN)
+            self.assert_redacted(redacted); self.assertIn(GIT_CREDENTIAL_REDACTION, redacted)
+
+    def test_wrong_repository_or_commit_refused_before_any_git_access(self):
+        with tempfile.TemporaryDirectory() as temp:
+            for field, value in (("source_repository", "https://github.com/example/other-repo"), ("source_commit", "0" * 40)):
+                with self.subTest(field=field), patch(__name__ + ".subprocess.run") as child:
+                    with self.assertRaisesRegex(RuntimeError, "locked repository and commit"):
+                        authenticated_git_fetch(Path(temp)/"s", {**self.lock, field:value}, Path(temp), self.env)
+                    child.assert_not_called()
+
+    def test_inherited_process_auth_config_refused_without_secret_diagnostics(self):
+        for key in ("GIT_CONFIG_COUNT", "GIT_CONFIG_KEY_0", "GIT_CONFIG_VALUE_0", "GIT_CONFIG_VALUE_9", "GIT_CONFIG_PARAMETERS"):
+            with self.subTest(key=key), tempfile.TemporaryDirectory() as temp, patch(__name__ + ".subprocess.run") as child:
+                with self.assertRaisesRegex(RuntimeError, "inherited process Git configuration") as failure:
+                    authenticated_git_fetch(Path(temp)/"s", self.lock, Path(temp), {**self.env,key:self.TOKEN})
+                child.assert_not_called(); self.assert_redacted(str(failure.exception))
+                self.assert_redacted((Path(temp)/"fetch-auth.json").read_text())
+
+    def test_fetch_argv_redacted_logs_and_real_git_config_not_persisted(self):
+        real_run = subprocess.run; calls = []
+        def child(args, **kwargs):
+            if "fetch" not in args: return real_run(args, **kwargs)
+            calls.append((list(args), dict(kwargs["env"])))
+            return subprocess.CompletedProcess(args, 0, self.TOKEN + "\n", self.header + "\n" + self.encoded)
+        with tempfile.TemporaryDirectory() as temp:
+            directory = Path(temp); source = self.repository(directory); before = (source/".git/config").read_bytes()
+            with patch(__name__ + ".subprocess.run", side_effect=child):
+                report = authenticated_git_fetch(source, self.lock, directory, self.env)
+            self.assertEqual(calls[0][0], ["git", "-C", str(source), "fetch", "--depth", "1", "origin", LOCKED_GIT_COMMIT])
+            self.assert_redacted(" ".join(calls[0][0])); self.assertEqual(calls[0][1]["GIT_CONFIG_VALUE_0"], self.header)
+            self.assertEqual((source/".git/config").read_bytes(), before)
+            self.assertIn(LOCKED_GIT_REPOSITORY.encode(), before); self.assert_redacted(before.decode())
+            self.assertEqual(report["authenticated_fetch"], "PASS"); self.assertFalse(report["credential_persisted"])
+            self.assert_redacted((directory/"fetch.log").read_text()); self.assert_redacted((directory/"fetch-auth.json").read_text())
+
+    def test_failed_fetch_and_timeout_redact_log_evidence_and_exception(self):
+        real_run = subprocess.run
+        for mode in ("exit", "timeout"):
+            with self.subTest(mode=mode), tempfile.TemporaryDirectory() as temp:
+                directory = Path(temp); source = self.repository(directory)
+                def child(args, **kwargs):
+                    if "fetch" not in args: return real_run(args, **kwargs)
+                    if mode == "timeout": raise subprocess.TimeoutExpired(args, 900, output=self.TOKEN.encode(), stderr=self.header.encode())
+                    return subprocess.CompletedProcess(args, 128, self.TOKEN, self.header)
+                with patch(__name__ + ".subprocess.run", side_effect=child), self.assertRaises(RuntimeError) as failure:
+                    authenticated_git_fetch(source, self.lock, directory, self.env)
+                self.assert_redacted(str(failure.exception)); self.assertTrue(failure.exception.__suppress_context__)
+                self.assert_redacted((directory/"fetch.log").read_text()); self.assert_redacted((directory/"fetch-auth.json").read_text())
+                report = json.loads((directory/"fetch-auth.json").read_text())
+                self.assertEqual(report["authenticated_fetch"], "FAIL"); self.assertFalse(report["credential_persisted"])
+                if mode == "exit": self.assertEqual(report["git_exit_code"], 128)
+
+    def test_wrong_origin_or_persisted_authentication_rejected_before_fetch(self):
+        real_run = subprocess.run
+        for mode in ("origin", "http-header", "credential-helper"):
+            with self.subTest(mode=mode), tempfile.TemporaryDirectory() as temp:
+                directory = Path(temp); source = self.repository(directory)
+                args = ["remote", "set-url", "origin", "https://github.com/example/other-repo"] if mode == "origin" else [
+                    "config", "--local", "http.https://github.com/.extraheader" if mode == "http-header" else "credential.helper", "synthetic-config"]
+                real_run(["git", "-C", str(source), *args], capture_output=True, check=True)
+                def child(args, **kwargs):
+                    self.assertNotIn("fetch", args, "Credential must not be sent")
+                    return real_run(args, **kwargs)
+                with patch(__name__ + ".subprocess.run", side_effect=child), self.assertRaisesRegex(RuntimeError, "origin differs|forbidden authentication"):
+                    authenticated_git_fetch(source, self.lock, directory, self.env)
+
+    def test_no_token_preserves_operator_process_configuration_and_fetch_behavior(self):
+        environment = {k:v for k,v in self.env.items() if k != "GH_TOKEN"}
+        environment.update(GIT_CONFIG_COUNT="1", GIT_CONFIG_KEY_0="credential.helper", GIT_CONFIG_VALUE_0="manager")
+        self.assertEqual(git_fetch_environment(self.lock, environment), environment)
+        real_run = subprocess.run; calls = []
+        def child(args, **kwargs):
+            if "fetch" not in args: return real_run(args, **kwargs)
+            calls.append(dict(kwargs["env"])); return subprocess.CompletedProcess(args, 0, "local fetch", "")
+        with tempfile.TemporaryDirectory() as temp:
+            directory = Path(temp); source = self.repository(directory)
+            with patch(__name__ + ".subprocess.run", side_effect=child):
+                report = authenticated_git_fetch(source, self.lock, directory, environment)
+            self.assertEqual(calls, [environment]); self.assertFalse(report["token_present"])
+            self.assertFalse(report["auth_configuration_applied"]); self.assertFalse(report["credential_persisted"])
 
 
 class KernelEquivalenceTests(unittest.TestCase):
