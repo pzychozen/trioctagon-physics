@@ -258,7 +258,7 @@ class DistributionProvenanceTests(unittest.TestCase):
     def test_fresh_package_only_process_boundary(self):
         code = """import json,pathlib,sys
 from kernel_physics import api as a, _records as r
-assert pathlib.Path(a.__file__).resolve().parents[1]==pathlib.Path.cwd()
+assert pathlib.Path(a.__file__).resolve().parents[1]==pathlib.Path.cwd().resolve()
 p=a.Parameters(eps=.05,g=.2,phase_strength=.001,k=(1,1,1))
 s=a.State(omega=(.2+.3j,-.4+.1j,.1-.2j),update_index=0)
 v=a.Provenance(kind='user_supplied',source_id='test',source_revision=None,locator='test',literal_values={},notes='')
@@ -268,7 +268,22 @@ assert a.RunRecord.from_json(record.to_json()).to_json()==record.to_json()
 assert not any('kernel_physics.'+n in sys.modules for n in ('face_state','srg','operating_region','boundary_response'))
 print(json.dumps({'commit':r._implementation()['commit'],'record':record.deterministic_sha256,'geometry':geometry.deterministic_sha256}))
 """
-        done = subprocess.run([sys.executable, "-B", "-c", code], cwd=self.root, text=True, capture_output=True, check=True)
+        done = subprocess.run(
+            [sys.executable, "-B", "-c", code],
+            cwd=self.root,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        self.assertEqual(
+            done.returncode,
+            0,
+            msg=(
+                "fresh package-only child failed\n"
+                f"stdout:\n{done.stdout}\n"
+                f"stderr:\n{done.stderr}"
+            ),
+        )
         self.assertEqual(json.loads(done.stdout)["commit"], self.manifest["source"]["commit"])
 
     def test_license_standard_text_and_scope(self):
