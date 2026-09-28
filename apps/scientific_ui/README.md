@@ -1,4 +1,4 @@
-# Trioctagon Scientific UI — local engineering version 0.1.0
+# Trioctagon Scientific UI — v0.1.0 research/developer preview candidate
 
 UI DISPLAYS SCIENCE. PYTHON KERNEL COMPUTES SCIENCE.
 
@@ -7,54 +7,96 @@ certified kernel through `kernel_physics.api`. It does not bundle or modify the
 kernel, Qt, Matplotlib, papers, research or scientific fixtures. The application
 source/version and kernel source/version are distinct identities.
 
-Registry-name availability is not certified. No public release, upload, installer
-or frozen executable is authorized. Do not install either project by an assumed
-public registry name.
+The [release identity and draft notes](../../RELEASE_v0.1.0.md) distinguish the
+repository/UI candidate from the older certified kernel used by this application.
+Registry-name availability is not certified. Do not install either project by an
+assumed public registry name. No tag, public release, upload, installer or frozen
+executable is created by release preparation.
+
+Only **Windows x86-64 / CPython >=3.11,<3.12** is certified. Other operating
+systems/Python versions are NOT CERTIFIED BY v0.1.0. No GPU, LLM or embedding
+model is required. Normal installed runtime is offline; initial source/dependency
+acquisition is separate. This mathematical research UI claims no experimentally
+validated physical theory; see the [scientific boundaries and license scopes](../../README.md).
 
 ## Exact installation inputs
 
-- Kernel: the **direct wheel** selected in `kernel-artifact.lock.json`, from K3c
-  Actions run 36291131581, source `7b3a0fcec2c9bde6c9e1ea482fe1f1ea6b16793e`.
+- Kernel: the preferred **direct wheel** in `kernel-artifact.lock.json`, from K3c
+  Actions run 36291131581, or strictly verified reconstruction of the same source
+  `7b3a0fcec2c9bde6c9e1ea482fe1f1ea6b16793e`.
 - Runtime: the complete 15-wheel closure in `requirements-win-py311.lock`, with
   every archive SHA-256 enforced. NumPy 2.4.4, SymPy 1.14.0 and mpmath 1.3.0 remain fixed.
 - Build: Setuptools 81.0.0 and wheel 0.47.0; archive hashes are in `pyproject.toml`.
 - Application: an ordinarily built companion wheel. Its contents include original
   application modules/help, license metadata, and installed lock data only.
 
-The preferred kernel archive remains a TEMPORARY_CERTIFIED_DEVELOPMENT_ARTIFACT.
-Lock v2 also accepts certified reconstruction from the exact frozen K3 source
-commit with locked build tools and the narrow wheel-equivalence v1 contract below.
-This removes Actions expiry as a development single point of failure. It does not
-authorize durable public distribution, registry resolution or a public release.
+The preferred kernel archive remains classified as a
+TEMPORARY_CERTIFIED_DEVELOPMENT_ARTIFACT in the unchanged lock. Lock v2 accepts
+certified reconstruction from the exact frozen K3 source with locked build tools
+and the narrow wheel-equivalence v1 contract below. Actions retention is not a
+required source of installation bytes. **Do not substitute the root kernel built
+at the repository/UI candidate commit:** its source identity differs from this lock.
 
-## Acquisition and offline certification
+## Public installation
 
-Run tooling using a clean Windows Python 3.11 interpreter. Keep the workspace
-outside the checkout. The included verification command acquires exact artifacts
-only when `--acquire` is given; all subsequent installs, builds and tests are offline.
-GitHub CLI authentication with read access is needed for artifact acquisition.
+Install Git and a clean Windows CPython 3.11 x64 interpreter with the `py` launcher.
+Use a fresh checkout (or start at the root of an existing clean checkout). Keep
+the acquisition/build/install workspace outside it. Run in PowerShell:
 
 ```powershell
-python -B apps/scientific_ui/tests/test_install_launch.py --acquire --source C:\path\trioctagon-physics --workspace C:\temp\trioctagon-ui-acquisition
-python -B apps/scientific_ui/tests/test_install_launch.py --certify --source C:\path\trioctagon-physics --workspace C:\temp\trioctagon-ui-acquisition
+git clone https://github.com/pzychozen/trioctagon-physics
+Set-Location trioctagon-physics
+$source = (Get-Location).Path
+$work = Join-Path $env:TEMP ('tri-ui-' + [guid]::NewGuid().ToString('N').Substring(0,8))
+py -3.11 -m venv "$work/bootstrap"
+$bootstrapPython = Join-Path $work 'bootstrap/Scripts/python.exe'
+& $bootstrapPython -I -B "$source/apps/scientific_ui/tests/test_install_launch.py" --acquire --source $source --workspace $work
+& $bootstrapPython -I -B "$source/apps/scientific_ui/tests/test_install_launch.py" --certify --source $source --workspace $work
+$certification = Get-Content "$work/latest-certification.json" -Raw | ConvertFrom-Json
+$uiPython = $certification.installed_runtime
+& $uiPython -I -B -m trioctagon_ui --smoke-test
+& $uiPython -I -B -m trioctagon_ui
 ```
 
-This creates disposable build/runtime environments, copies application sources and
-tests outside the checkout, builds the wheel, installs it with the selected kernel,
-runs all application tests, and writes JSON/log evidence to the external workspace.
-It neither builds the kernel nor writes build output into this repository.
+Check each command succeeds before continuing. After a release tag exists, check
+out that approved tag before acquisition/certification. Source and dependency
+acquisition may use the network. `--acquire` first tries the locked preferred
+Actions artifact when GitHub CLI/access is available. Missing `gh`, missing `gh`
+authentication, unavailable/expired artifacts or retrieval failure without received
+files permit exact-source reconstruction. Git is still required. For a public
+repository, that Git source fetch does not need a GitHub token. Received malformed
+identity, corrupt downloaded/cached evidence or a partial failed download remains
+fatal; inspect it rather than rebuilding around failed verification.
 
-For a manual offline installation into a fresh environment, with the acquired
-wheelhouse and built application wheel already available:
+Acquisition also performs a forced reconstruction from the exact locked source
+even when the preferred archive is selected, preserving certification coverage of
+both routes. It builds that kernel externally with locked tools and verifies its
+origin, commit, manifest, all stable members and RECORD. All builds/installs after
+dependency/source acquisition use the locked local wheelhouse with `--no-index`.
+`--certify` creates disposable build/runtime environments, copies application
+sources/tests outside the checkout, builds the UI wheel, installs the selected
+kernel, runs the application suite and writes external JSON/log evidence.
+No build output belongs in the repository.
+
+While the repository is private, Git source acquisition still requires authorized
+access. Local/offline fallback testing does **not** prove anonymous access to the
+private endpoint. A final anonymous public-endpoint acquisition/install smoke is
+required after visibility changes and before announcement.
+
+For a separate manual offline installation after the commands above, use the
+**actual verified selection** in `kernel-selection.json`. Its relative path may
+identify either the preferred wheel or a reconstructed wheel; do not assume the
+preferred directory exists. The certification above verifies that selection
+before these installation commands:
 
 ```powershell
-python -m venv C:\temp\trioctagon-ui
-$uiPython = 'C:\temp\trioctagon-ui\Scripts\python.exe'
-& $uiPython -I -B -m pip --isolated install --no-index --require-hashes --find-links C:\temp\trioctagon-ui-acquisition\wheelhouse -r apps/scientific_ui/requirements-win-py311.lock
-# Verify the kernel lock with the certification tool BEFORE installing this path.
-& $uiPython -I -B -m pip --isolated install --no-index --no-deps C:\temp\trioctagon-ui-acquisition\kernel-evidence\direct-wheel\trioctagon_physics-0.1.0-py3-none-any.whl
-# Use the exact app_wheel path from latest-certification.json:
-$appWheel = (Get-Content C:\temp\trioctagon-ui-acquisition\latest-certification.json -Raw | ConvertFrom-Json).app_wheel
+& $bootstrapPython -I -B -m venv "$work/manual"
+$uiPython = Join-Path $work 'manual/Scripts/python.exe'
+$selection = Get-Content "$work/kernel-selection.json" -Raw | ConvertFrom-Json
+$kernelWheel = Join-Path $work $selection.relative_path
+$appWheel = $certification.app_wheel
+& $uiPython -I -B -m pip --isolated install --no-index --require-hashes --find-links "$work/wheelhouse" -r "$source/apps/scientific_ui/requirements-win-py311.lock"
+& $uiPython -I -B -m pip --isolated install --no-index --no-deps $kernelWheel
 & $uiPython -I -B -m pip --isolated install --no-index --no-deps $appWheel
 & $uiPython -I -B -m trioctagon_ui --smoke-test
 & $uiPython -I -B -m trioctagon_ui
@@ -65,10 +107,10 @@ environment's Scripts directory. Run from any directory; no PYTHONPATH, editable
 install or source checkout is required. Installed lock data is located through
 distribution metadata, independently of the launch working directory.
 
-Stage A found a host-specific Conda DLL collision when a venv inherited the broad
-`torment` environment: its ICU library shadowed the Windows ICU expected by Qt.
+Stage A found a host-specific Conda DLL collision when a venv inherited a broad
+development environment: its ICU library shadowed the Windows ICU expected by Qt.
 A fresh minimal Python 3.11 environment passed without replacing any wheel or DLL.
-Keep GUI dependencies out of `torment`; use a clean interpreter/environment for
+Use a clean interpreter/environment for
 the application. Do not delete/rename system or Conda DLLs to force an import.
 Keep the disposable workspace path short on Windows hosts without long-path
 support: the published Qt wheel contains deeply nested supporting files.
@@ -86,6 +128,12 @@ A — Dynamics: inspect the explicit request, submit zero/one/N updates, inspect
 stored Omega/chirality plots, complex planes and the exact selected-sample table.
 The topology is explicit: triad or ring. Slider ranges are DISPLAY_RANGE_ONLY;
 typed off-tick/out-of-range values are retained without clamping or normalization.
+
+**Accepted v0.1 known issue:** numeric sliders may react to mouse-wheel events
+and replace a precisely typed parameter value with a slider tick value. Before
+Run, verify the visible/resolved request values. Completed records remain immutable
+and retain the values actually used. The risk of an unintended experiment is real;
+typed-value retention does not prevent a later wheel event from changing it.
 
 B — Observers & Diagnostics: add multiple independent named/custom observers, or leave the list empty. All
 readouts/diagnostics initially remain unselected. Accounting/alignment selections
@@ -361,11 +409,12 @@ ones; failure removes staging and any newly published pair member. Filesystems
 must support same-directory hard-link publication. Existing scientific records are
 never overwritten. Dataset records/ is not a derived-export destination.
 
-## Lock v2 and certified development reconstruction
+## Lock v2 and certified source reconstruction
 
 Preferred acquisition verifies the exact original K3 direct archive SHA and locked
-K3 evidence. Only definite absence/expiry permits reconstruction fallback. An
-available downloaded artifact failing verification is fatal; no rebuild around
+K3 evidence. Unavailable CLI/authentication/artifact retrieval permits exact-source
+reconstruction. Received metadata identity failures, partial failed downloads and
+downloaded/cached artifacts failing verification remain fatal; no rebuild around
 corrupt evidence. Registry kernel resolution remains forbidden.
 
 Wheel equivalence v1 freezes 25 stable paths, their SHA256 and byte sizes. These

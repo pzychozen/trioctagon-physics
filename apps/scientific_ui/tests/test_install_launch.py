@@ -134,23 +134,54 @@ def verify_wheel_equivalence(wheel, lock):
 
 
 def acquire_preferred(app, workspace, lock):
-    """Only definite absence/expiry enables fallback; downloaded corruption is fatal."""
+    """Unavailable acquisition falls back; received identity/corruption errors are fatal."""
     evidence = workspace / "kernel-evidence"
     if evidence.exists():
         return verify_preferred(app, workspace, lock)
+
+    def retrieve(args, log_name):
+        log = workspace / log_name
+        try:
+            result = subprocess.run(list(map(str, args)), cwd=workspace, capture_output=True,
+                text=True, encoding="utf-8", errors="replace", timeout=120)
+        except FileNotFoundError:
+            log.write_text("GitHub CLI unavailable; use exact-source reconstruction.\n", encoding="utf-8")
+            return None
+        except subprocess.TimeoutExpired:
+            log.write_text("Artifact retrieval timed out; use exact-source reconstruction if no evidence was downloaded.\n", encoding="utf-8")
+            return None
+        output = result.stdout + result.stderr
+        for name in ("GH_TOKEN", "GITHUB_TOKEN"):
+            output = redact_git_output(output, os.environ.get(name))
+        log.write_text(output, encoding="utf-8")
+        # Includes missing gh authentication, denied/expired artifact access and
+        # network failures. Reconstruction still verifies the immutable source.
+        return result if result.returncode == 0 else None
+
     repo = lock["temporary_retrieval"]["repository"]
-    result = subprocess.run(["gh", "api", f"repos/{repo}/actions/artifacts/{lock['k3c_evidence_identity']['artifact_id']}"],
-        cwd=workspace, capture_output=True, text=True, encoding="utf-8", timeout=120)
-    (workspace / "kernel-availability.log").write_text(result.stdout + result.stderr, encoding="utf-8")
-    if result.returncode:
-        if "HTTP 404" in result.stderr or "HTTP 410" in result.stderr: return None
-        raise RuntimeError("Preferred artifact availability could not be established; see kernel-availability.log")
+    result = retrieve(["gh", "api", f"repos/{repo}/actions/artifacts/{lock['k3c_evidence_identity']['artifact_id']}"],
+                      "kernel-availability.log")
+    if result is None: return None
     metadata = json.loads(result.stdout)
-    if metadata["expired"]: return None
     if metadata["id"] != lock["k3c_evidence_identity"]["artifact_id"] or metadata["name"] != lock["k3c_evidence_identity"]["artifact_name"]:
         raise ValueError("Preferred artifact metadata identity mismatch")
-    command(["gh", "run", "download", lock["k3c_run_id"], "--repo", repo, "--name", metadata["name"], "--dir", evidence], workspace, workspace / "kernel-acquire.log")
-    return verify_preferred(app, workspace, lock)
+    if metadata["expired"]: return None
+    # Retain partial/corrupt downloads for inspection; never publish them as the
+    # preferred packet or rebuild around evidence that fails verification.
+    stage = Path(tempfile.mkdtemp(prefix="preferred-", dir=workspace))
+    downloaded = stage / "kernel-evidence"
+    result = retrieve(["gh", "run", "download", lock["k3c_run_id"], "--repo", repo,
+                       "--name", metadata["name"], "--dir", str(downloaded)], "kernel-acquire.log")
+    if result is None:
+        if downloaded.exists() and any(p.is_file() for p in downloaded.rglob("*")):
+            raise RuntimeError("Partial preferred artifact download; reconstruction fallback forbidden")
+        return None
+    verify_preferred(app, stage, lock)  # All downloaded verification failures propagate.
+    if not all(p.resolve().is_relative_to(workspace.resolve()) for p in (downloaded, evidence)):
+        raise ValueError("Preferred evidence must remain in acquisition workspace")
+    downloaded.rename(evidence)
+    shutil.copyfile(stage / "preferred-equivalence.json", workspace / "preferred-equivalence.json")
+    return evidence / lock["temporary_retrieval"]["wheel_path"]
 
 
 def verify_preferred(app, workspace, lock):
@@ -558,6 +589,109 @@ class InstallTests(unittest.TestCase):
                 "parent_digests": [v.digest for v in records], "scientific_worker_operations": "existing run only"})
             if os.environ.get("TRIOCTAGON_UI_EVIDENCE"):
                 shutil.copytree(directory, Path(os.environ["TRIOCTAGON_UI_EVIDENCE"]) / "k4d-examples")
+
+
+class PreferredAcquisitionTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory(prefix="preferred-tests-")
+        self.addCleanup(self.temp.cleanup)
+        self.workspace = Path(self.temp.name)
+        self.lock = {"temporary_retrieval": {"repository": "pzychozen/trioctagon-physics",
+            "wheel_path": "direct-wheel/kernel.whl"}, "k3c_run_id": 123,
+            "k3c_evidence_identity": {"artifact_id": 456, "artifact_name": "locked-kernel"},
+            "artifact_sha256": "0" * 64}
+        self.metadata = {"id": 456, "name": "locked-kernel", "expired": False}
+
+    def result(self, code=0, stdout=None, stderr=""):
+        return subprocess.CompletedProcess([], code, json.dumps(self.metadata) if stdout is None else stdout, stderr)
+
+    def test_missing_cli_enables_source_fallback(self):
+        with patch("subprocess.run", side_effect=FileNotFoundError):
+            self.assertIsNone(acquire_preferred(None, self.workspace, self.lock))
+        self.assertIn("CLI unavailable", (self.workspace / "kernel-availability.log").read_text())
+
+    def test_auth_access_absence_and_network_errors_enable_source_fallback(self):
+        for code, message in ((4, "gh auth login"), (1, "HTTP 401"), (1, "HTTP 403"),
+                              (1, "HTTP 404"), (1, "HTTP 410"), (1, "connection failed")):
+            with self.subTest(message=message), patch("subprocess.run", return_value=self.result(code, "", message)):
+                self.assertIsNone(acquire_preferred(None, self.workspace, self.lock))
+
+    def test_metadata_timeout_enables_source_fallback(self):
+        with patch("subprocess.run", side_effect=subprocess.TimeoutExpired(["gh"], 120)):
+            self.assertIsNone(acquire_preferred(None, self.workspace, self.lock))
+
+    def test_expired_metadata_requires_matching_identity(self):
+        self.metadata["expired"] = True
+        with patch("subprocess.run", return_value=self.result()) as retrieve:
+            self.assertIsNone(acquire_preferred(None, self.workspace, self.lock))
+            self.assertEqual(retrieve.call_count, 1)
+        self.metadata["id"] = 999
+        with patch("subprocess.run", return_value=self.result()):
+            with self.assertRaisesRegex(ValueError, "metadata identity"):
+                acquire_preferred(None, self.workspace, self.lock)
+
+    def test_malformed_or_mismatched_metadata_remains_fatal(self):
+        for value in ("not json", json.dumps({**self.metadata, "name": "unrelated"})):
+            with self.subTest(value=value), patch("subprocess.run", return_value=self.result(stdout=value)):
+                with self.assertRaises(ValueError): acquire_preferred(None, self.workspace, self.lock)
+
+    def test_download_unavailable_without_received_files_enables_fallback(self):
+        with patch("subprocess.run", side_effect=[self.result(), self.result(1, "", "HTTP 410")]):
+            self.assertIsNone(acquire_preferred(None, self.workspace, self.lock))
+        self.assertFalse((self.workspace / "kernel-evidence").exists())
+
+    def download(self, args, **kwargs):
+        if args[1] == "api": return self.result()
+        path = Path(args[args.index("--dir") + 1]) / self.lock["temporary_retrieval"]["wheel_path"]
+        path.parent.mkdir(parents=True); path.write_bytes(b"unverified downloaded bytes")
+        return self.result(0, "")
+
+    def test_downloaded_corruption_is_fatal_and_retained(self):
+        with patch("subprocess.run", side_effect=self.download):
+            with self.assertRaisesRegex(ValueError, "SHA mismatch.*fallback forbidden"):
+                acquire_preferred(None, self.workspace, self.lock)
+        self.assertFalse((self.workspace / "kernel-evidence").exists())
+        self.assertEqual(len(list(self.workspace.glob("preferred-*/kernel-evidence/direct-wheel/kernel.whl"))), 1)
+
+    def test_partial_failed_download_is_fatal(self):
+        def partial(args, **kwargs):
+            result = self.download(args, **kwargs)
+            return result if args[1] == "api" else self.result(1, "", "download interrupted")
+        with patch("subprocess.run", side_effect=partial):
+            with self.assertRaisesRegex(RuntimeError, "Partial.*fallback forbidden"):
+                acquire_preferred(None, self.workspace, self.lock)
+
+    def test_existing_corrupt_evidence_never_triggers_retrieval(self):
+        wheel = self.workspace / "kernel-evidence" / self.lock["temporary_retrieval"]["wheel_path"]
+        wheel.parent.mkdir(parents=True); wheel.write_bytes(b"bad cached archive")
+        with patch("subprocess.run") as retrieve:
+            with self.assertRaisesRegex(ValueError, "SHA mismatch"):
+                acquire_preferred(None, self.workspace, self.lock)
+            retrieve.assert_not_called()
+
+    def test_verified_packet_is_selected_only_after_verification(self):
+        def verified(app, stage, lock):
+            self.assertFalse((self.workspace / "kernel-evidence").exists())
+            write_json(stage / "preferred-equivalence.json", {"verification": "fixture"})
+        with patch("subprocess.run", side_effect=self.download), patch.dict(globals(), verify_preferred=verified):
+            wheel = acquire_preferred(None, self.workspace, self.lock)
+        self.assertEqual(wheel, self.workspace / "kernel-evidence/direct-wheel/kernel.whl")
+        self.assertTrue(wheel.is_file()); self.assertTrue((self.workspace / "preferred-equivalence.json").is_file())
+
+    def test_acquisition_reports_and_validates_selected_reconstruction(self):
+        app = self.workspace / "source/apps/scientific_ui"; app.mkdir(parents=True)
+        write_json(app / "kernel-artifact.lock.json", self.lock)
+        selected = self.workspace / "reconstructed/kernel.whl"
+        write_json(self.workspace / "reconstructed-kernel.json", {"source_commit": LOCKED_GIT_COMMIT})
+        def check_selection(app, workspace):
+            self.assertEqual(json.loads((workspace / "kernel-selection.json").read_text()),
+                {"classification": "CERTIFIED_RECONSTRUCTION", "relative_path": "reconstructed/kernel.whl"})
+        with patch.dict(globals(), command=lambda *args: None, inventory=lambda *args: [],
+            build_requirements=lambda *args: (self.workspace / "tools.txt", []),
+            reconstruct_kernel=lambda *args: selected, verify_kernel=check_selection):
+            with patch("subprocess.run", side_effect=FileNotFoundError):
+                acquire(self.workspace / "source", self.workspace)
+        self.assertEqual(json.loads((self.workspace / "acquisition.json").read_text())["preferred_artifact"], "UNAVAILABLE")
 
 
 class GitFetchAuthenticationTests(unittest.TestCase):
