@@ -595,7 +595,8 @@ class PreferredAcquisitionTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix="preferred-tests-")
         self.addCleanup(self.temp.cleanup)
-        self.workspace = Path(self.temp.name)
+        # Match acquisition's resolved identity, including Windows 8.3 aliases.
+        self.workspace = Path(self.temp.name).resolve()
         self.lock = {"temporary_retrieval": {"repository": "pzychozen/trioctagon-physics",
             "wheel_path": "direct-wheel/kernel.whl"}, "k3c_run_id": 123,
             "k3c_evidence_identity": {"artifact_id": 456, "artifact_name": "locked-kernel"},
