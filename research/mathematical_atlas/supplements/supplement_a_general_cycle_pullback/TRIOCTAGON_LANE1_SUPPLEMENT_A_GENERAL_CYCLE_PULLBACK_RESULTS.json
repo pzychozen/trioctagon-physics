@@ -1,0 +1,2295 @@
+{
+  "schema": "trioctagon.supplement_a.exact_results.v0.1",
+  "generated_utc": "2026-09-29T14:58:09.885548+00:00",
+  "scope": [
+    "A07",
+    "A08",
+    "A09"
+  ],
+  "prior_rows_reassessed": false,
+  "universal_proof_owner": "companion source packet sections 1-13",
+  "finite_audits_are_universal_proofs": false,
+  "repo": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+  "head": "34c21830e7e7c4b5f4a5a940d084c37feaf1f82c",
+  "python": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+  "sympy": "1.14.0",
+  "checker_path": "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_LANE1_SUPPLEMENT_A_GENERAL_CYCLE_PULLBACK_CHECKS.py",
+  "checker_sha256": "d74bfca9f290b3bc92ee8ce6c4d91ed152f208385dc657dd5d0624d2eeaa0606",
+  "passed": true,
+  "closeout_ready": true,
+  "check_summary": {
+    "total": 31,
+    "passed": 31,
+    "groups": {
+      "EXACT_CYCLE_LAPLACIAN": {
+        "total": 6,
+        "passed": 6
+      },
+      "EXACT_PULLBACK_STRUCTURE": {
+        "total": 2,
+        "passed": 2
+      },
+      "EXACT_INTERTWINING": {
+        "total": 2,
+        "passed": 2
+      },
+      "EXACT_INVARIANCE": {
+        "total": 3,
+        "passed": 3
+      },
+      "EXACT_ISOMETRY_COMPRESSION": {
+        "total": 2,
+        "passed": 2
+      },
+      "FALSIFIERS": {
+        "total": 4,
+        "passed": 4
+      },
+      "FOURIER": {
+        "total": 3,
+        "passed": 3
+      },
+      "API_PARITY": {
+        "total": 4,
+        "passed": 4
+      },
+      "INTEGRITY": {
+        "total": 5,
+        "passed": 5
+      }
+    }
+  },
+  "owner_status": {
+    "A07": "FULL",
+    "A08": "FULL",
+    "A09": "FULL"
+  },
+  "checks": [
+    {
+      "group": "EXACT_CYCLE_LAPLACIAN",
+      "name": "matrix_M1",
+      "kind": "EXACT_EXAMPLE",
+      "passed": true,
+      "detail": {
+        "matrix": [
+          [
+            "0"
+          ]
+        ]
+      }
+    },
+    {
+      "group": "EXACT_CYCLE_LAPLACIAN",
+      "name": "matrix_M2",
+      "kind": "EXACT_EXAMPLE",
+      "passed": true,
+      "detail": {
+        "matrix": [
+          [
+            "-2",
+            "2"
+          ],
+          [
+            "2",
+            "-2"
+          ]
+        ]
+      }
+    },
+    {
+      "group": "EXACT_CYCLE_LAPLACIAN",
+      "name": "matrix_M3",
+      "kind": "EXACT_EXAMPLE",
+      "passed": true,
+      "detail": {
+        "matrix": [
+          [
+            "-2",
+            "1",
+            "1"
+          ],
+          [
+            "1",
+            "-2",
+            "1"
+          ],
+          [
+            "1",
+            "1",
+            "-2"
+          ]
+        ]
+      }
+    },
+    {
+      "group": "EXACT_CYCLE_LAPLACIAN",
+      "name": "matrix_M4",
+      "kind": "EXACT_EXAMPLE",
+      "passed": true,
+      "detail": {
+        "matrix": [
+          [
+            "-2",
+            "1",
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "-2",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "-2",
+            "1"
+          ],
+          [
+            "1",
+            "0",
+            "1",
+            "-2"
+          ]
+        ]
+      }
+    },
+    {
+      "group": "EXACT_CYCLE_LAPLACIAN",
+      "name": "degenerate_spectra",
+      "kind": "EXACT_EXAMPLE",
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "group": "EXACT_CYCLE_LAPLACIAN",
+      "name": "structure_dirichlet",
+      "kind": "FINITE_AUDIT",
+      "passed": true,
+      "detail": {
+        "domain": "1<=M<=12",
+        "failures": []
+      }
+    },
+    {
+      "group": "EXACT_PULLBACK_STRUCTURE",
+      "name": "rank_nullity_gram",
+      "kind": "FINITE_AUDIT",
+      "passed": true,
+      "detail": {
+        "domain": "1<=M,d<=12, appropriate branch hypotheses",
+        "pairs_considered": 144,
+        "failures": []
+      }
+    },
+    {
+      "group": "EXACT_PULLBACK_STRUCTURE",
+      "name": "shift_fixed",
+      "kind": "FINITE_AUDIT",
+      "passed": true,
+      "detail": {
+        "domain": "1<=M,d<=12, appropriate branch hypotheses",
+        "pairs_considered": 144,
+        "failures": []
+      }
+    },
+    {
+      "group": "EXACT_INTERTWINING",
+      "name": "intertwining_iff_divisor",
+      "kind": "FINITE_AUDIT",
+      "passed": true,
+      "detail": {
+        "domain": "1<=M,d<=12, appropriate branch hypotheses",
+        "pairs_considered": 144,
+        "failures": []
+      }
+    },
+    {
+      "group": "EXACT_INTERTWINING",
+      "name": "boundary_witness",
+      "kind": "FINITE_AUDIT",
+      "passed": true,
+      "detail": {
+        "domain": "1<=M,d<=12, appropriate branch hypotheses",
+        "pairs_considered": 144,
+        "failures": []
+      }
+    },
+    {
+      "group": "EXACT_INVARIANCE",
+      "name": "invariance_classification",
+      "kind": "FINITE_AUDIT",
+      "passed": true,
+      "detail": {
+        "domain": "1<=M,d<=12, appropriate branch hypotheses",
+        "pairs_considered": 144,
+        "failures": []
+      }
+    },
+    {
+      "group": "EXACT_INVARIANCE",
+      "name": "invariance_boundary_witness",
+      "kind": "FINITE_AUDIT",
+      "passed": true,
+      "detail": {
+        "domain": "1<=M,d<=12, appropriate branch hypotheses",
+        "pairs_considered": 144,
+        "failures": []
+      }
+    },
+    {
+      "group": "EXACT_ISOMETRY_COMPRESSION",
+      "name": "isometry_projection_compression",
+      "kind": "FINITE_AUDIT",
+      "passed": true,
+      "detail": {
+        "domain": "1<=M,d<=12, appropriate branch hypotheses",
+        "pairs_considered": 144,
+        "failures": []
+      }
+    },
+    {
+      "group": "EXACT_INVARIANCE",
+      "name": "exception_3_2_induced_operator",
+      "kind": "EXACT_EXAMPLE",
+      "passed": true,
+      "detail": {
+        "induced": [
+          [
+            "-1",
+            "1"
+          ],
+          [
+            "2",
+            "-2"
+          ]
+        ],
+        "base": [
+          [
+            "-2",
+            "2"
+          ],
+          [
+            "2",
+            "-2"
+          ]
+        ]
+      }
+    },
+    {
+      "group": "FALSIFIERS",
+      "name": "5_3_image_not_shift_fixed_and_not_invariant",
+      "kind": "EXACT_EXAMPLE",
+      "passed": true,
+      "detail": {
+        "lap_image": [
+          [
+            "0"
+          ],
+          [
+            "1"
+          ],
+          [
+            "-2"
+          ],
+          [
+            "1"
+          ],
+          [
+            "0"
+          ]
+        ]
+      }
+    },
+    {
+      "group": "FALSIFIERS",
+      "name": "2_4_whole_image_but_no_intertwining",
+      "kind": "EXACT_EXAMPLE",
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "group": "FALSIFIERS",
+      "name": "simple_edge_changes_6_2_intertwining",
+      "kind": "EXACT_EXAMPLE",
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "group": "FALSIFIERS",
+      "name": "nonuniform_global_normalization_fails",
+      "kind": "EXACT_EXAMPLE",
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "group": "EXACT_ISOMETRY_COMPRESSION",
+      "name": "12_3_consistency",
+      "kind": "EXACT_EXAMPLE",
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "group": "FOURIER",
+      "name": "root_of_unity_eigenvectors",
+      "kind": "FINITE_AUDIT",
+      "passed": true,
+      "detail": {
+        "domain": "M=1..12; formal z^M=1",
+        "failures": []
+      }
+    },
+    {
+      "group": "FOURIER",
+      "name": "divisor_mode_pullback",
+      "kind": "FINITE_AUDIT",
+      "passed": true,
+      "detail": {
+        "domain": "d|M, 1<=M,d<=12; formal z^d=1",
+        "failures": []
+      }
+    },
+    {
+      "group": "FOURIER",
+      "name": "degenerate_base_modes",
+      "kind": "EXACT_EXAMPLE",
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "group": "API_PARITY",
+      "name": "independent_exact_expectations",
+      "kind": "FINITE_AUDIT",
+      "passed": true,
+      "detail": {
+        "bound": 12,
+        "failures": [],
+        "expectation_construction": "completed before source import",
+        "pre_import_check_records": 22
+      }
+    },
+    {
+      "group": "API_PARITY",
+      "name": "integer_protocol_and_builtin_bool_handling",
+      "kind": "EXACT_EXAMPLE",
+      "passed": true,
+      "detail": {
+        "invalid_rejections": [],
+        "semantics": "operator.index; explicitly rejects isinstance(value,bool)"
+      }
+    },
+    {
+      "group": "API_PARITY",
+      "name": "exact_immutable_fresh_matrices",
+      "kind": "EXACT_EXAMPLE",
+      "passed": true,
+      "detail": {
+        "observations": [
+          {
+            "type": "ImmutableDenseMatrix",
+            "shape": [
+              2,
+              2
+            ],
+            "fresh_object": true,
+            "immutable": true,
+            "no_numpy_dtype": true,
+            "no_float": true,
+            "mutable_copy_isolated": true
+          },
+          {
+            "type": "ImmutableDenseMatrix",
+            "shape": [
+              5,
+              3
+            ],
+            "fresh_object": true,
+            "immutable": true,
+            "no_numpy_dtype": true,
+            "no_float": true,
+            "mutable_copy_isolated": true
+          },
+          {
+            "type": "ImmutableDenseMatrix",
+            "shape": [
+              6,
+              2
+            ],
+            "fresh_object": true,
+            "immutable": true,
+            "no_numpy_dtype": true,
+            "no_float": true,
+            "mutable_copy_isolated": true
+          }
+        ]
+      }
+    },
+    {
+      "group": "API_PARITY",
+      "name": "source_content_unchanged_during_import",
+      "kind": "EXACT_EXAMPLE",
+      "passed": true,
+      "detail": {
+        "sha256": "5e6af1b665ece26cbc44bc63a85e08ff9bdf897c7efb2a03ef96f3a6cec550cf"
+      }
+    },
+    {
+      "group": "INTEGRITY",
+      "name": "expected_head",
+      "kind": "READ_ONLY_RECEIPT",
+      "passed": true,
+      "detail": {
+        "expected": "34c21830e7e7c4b5f4a5a940d084c37feaf1f82c",
+        "actual": "34c21830e7e7c4b5f4a5a940d084c37feaf1f82c"
+      }
+    },
+    {
+      "group": "INTEGRITY",
+      "name": "external_paths_and_no_bytecode",
+      "kind": "READ_ONLY_RECEIPT",
+      "passed": true,
+      "detail": {
+        "scratch": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\final_check_runs\\supplement_a_fpencs4n",
+        "output": "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_LANE1_SUPPLEMENT_A_GENERAL_CYCLE_PULLBACK_RESULTS.json"
+      }
+    },
+    {
+      "group": "INTEGRITY",
+      "name": "integrity_receipt",
+      "kind": "READ_ONLY_RECEIPT",
+      "passed": true,
+      "detail": {
+        "path": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\integrity_receipt.json"
+      }
+    },
+    {
+      "group": "INTEGRITY",
+      "name": "test_receipt",
+      "kind": "READ_ONLY_RECEIPT",
+      "passed": true,
+      "detail": {
+        "path": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\test_receipt.json"
+      }
+    },
+    {
+      "group": "INTEGRITY",
+      "name": "packaging_receipt",
+      "kind": "READ_ONLY_RECEIPT",
+      "passed": true,
+      "detail": {
+        "path": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\packaging_final_receipt.json"
+      }
+    }
+  ],
+  "cycle_matrices": {
+    "1": [
+      [
+        "0"
+      ]
+    ],
+    "2": [
+      [
+        "-2",
+        "2"
+      ],
+      [
+        "2",
+        "-2"
+      ]
+    ],
+    "3": [
+      [
+        "-2",
+        "1",
+        "1"
+      ],
+      [
+        "1",
+        "-2",
+        "1"
+      ],
+      [
+        "1",
+        "1",
+        "-2"
+      ]
+    ],
+    "4": [
+      [
+        "-2",
+        "1",
+        "0",
+        "1"
+      ],
+      [
+        "1",
+        "-2",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "-2",
+        "1"
+      ],
+      [
+        "1",
+        "0",
+        "1",
+        "-2"
+      ]
+    ]
+  },
+  "witnesses": {
+    "12,3": {
+      "M": 12,
+      "d": 3,
+      "Delta_M": [
+        [
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "-2",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "-2"
+        ]
+      ],
+      "Delta_d": [
+        [
+          "-2",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "1",
+          "-2"
+        ]
+      ],
+      "P": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "gram": [
+        [
+          "4",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "4",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "4"
+        ]
+      ],
+      "counts": [
+        4,
+        4,
+        4
+      ],
+      "Delta_M_P": [
+        [
+          "-2",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "1",
+          "-2"
+        ],
+        [
+          "-2",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "1",
+          "-2"
+        ],
+        [
+          "-2",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "1",
+          "-2"
+        ],
+        [
+          "-2",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "1",
+          "-2"
+        ]
+      ],
+      "P_Delta_d": [
+        [
+          "-2",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "1",
+          "-2"
+        ],
+        [
+          "-2",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "1",
+          "-2"
+        ],
+        [
+          "-2",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "1",
+          "-2"
+        ],
+        [
+          "-2",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "1",
+          "-2"
+        ]
+      ],
+      "intertwining_residual": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "rank": 3,
+      "nullity": 0,
+      "invariant": true,
+      "intertwines": true,
+      "Q": [
+        [
+          "1/2",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/2",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1/2"
+        ],
+        [
+          "1/2",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/2",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1/2"
+        ],
+        [
+          "1/2",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/2",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1/2"
+        ],
+        [
+          "1/2",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/2",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1/2"
+        ]
+      ],
+      "compression": [
+        [
+          "-2",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "1",
+          "-2"
+        ]
+      ]
+    },
+    "6,2": {
+      "M": 6,
+      "d": 2,
+      "Delta_M": [
+        [
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "-2",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "1",
+          "-2"
+        ]
+      ],
+      "Delta_d": [
+        [
+          "-2",
+          "2"
+        ],
+        [
+          "2",
+          "-2"
+        ]
+      ],
+      "P": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "gram": [
+        [
+          "3",
+          "0"
+        ],
+        [
+          "0",
+          "3"
+        ]
+      ],
+      "counts": [
+        3,
+        3
+      ],
+      "Delta_M_P": [
+        [
+          "-2",
+          "2"
+        ],
+        [
+          "2",
+          "-2"
+        ],
+        [
+          "-2",
+          "2"
+        ],
+        [
+          "2",
+          "-2"
+        ],
+        [
+          "-2",
+          "2"
+        ],
+        [
+          "2",
+          "-2"
+        ]
+      ],
+      "P_Delta_d": [
+        [
+          "-2",
+          "2"
+        ],
+        [
+          "2",
+          "-2"
+        ],
+        [
+          "-2",
+          "2"
+        ],
+        [
+          "2",
+          "-2"
+        ],
+        [
+          "-2",
+          "2"
+        ],
+        [
+          "2",
+          "-2"
+        ]
+      ],
+      "intertwining_residual": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "rank": 2,
+      "nullity": 0,
+      "invariant": true,
+      "intertwines": true,
+      "Q": [
+        [
+          "sqrt(3)/3",
+          "0"
+        ],
+        [
+          "0",
+          "sqrt(3)/3"
+        ],
+        [
+          "sqrt(3)/3",
+          "0"
+        ],
+        [
+          "0",
+          "sqrt(3)/3"
+        ],
+        [
+          "sqrt(3)/3",
+          "0"
+        ],
+        [
+          "0",
+          "sqrt(3)/3"
+        ]
+      ],
+      "compression": [
+        [
+          "-2",
+          "2"
+        ],
+        [
+          "2",
+          "-2"
+        ]
+      ]
+    },
+    "5,3": {
+      "M": 5,
+      "d": 3,
+      "Delta_M": [
+        [
+          "-2",
+          "1",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "-2",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "0",
+          "0",
+          "1",
+          "-2"
+        ]
+      ],
+      "Delta_d": [
+        [
+          "-2",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "1",
+          "-2"
+        ]
+      ],
+      "P": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ]
+      ],
+      "gram": [
+        [
+          "2",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "2",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "counts": [
+        2,
+        2,
+        1
+      ],
+      "Delta_M_P": [
+        [
+          "-2",
+          "2",
+          "0"
+        ],
+        [
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "1",
+          "-2"
+        ],
+        [
+          "-2",
+          "1",
+          "1"
+        ],
+        [
+          "2",
+          "-2",
+          "0"
+        ]
+      ],
+      "P_Delta_d": [
+        [
+          "-2",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "1",
+          "-2"
+        ],
+        [
+          "-2",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1"
+        ]
+      ],
+      "intertwining_residual": [
+        [
+          "0",
+          "1",
+          "-1"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "-1"
+        ]
+      ],
+      "rank": 3,
+      "nullity": 0,
+      "invariant": false,
+      "intertwines": false,
+      "Q": null,
+      "compression": null
+    },
+    "3,2": {
+      "M": 3,
+      "d": 2,
+      "Delta_M": [
+        [
+          "-2",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "1",
+          "-2"
+        ]
+      ],
+      "Delta_d": [
+        [
+          "-2",
+          "2"
+        ],
+        [
+          "2",
+          "-2"
+        ]
+      ],
+      "P": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "0"
+        ]
+      ],
+      "gram": [
+        [
+          "2",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "counts": [
+        2,
+        1
+      ],
+      "Delta_M_P": [
+        [
+          "-1",
+          "1"
+        ],
+        [
+          "2",
+          "-2"
+        ],
+        [
+          "-1",
+          "1"
+        ]
+      ],
+      "P_Delta_d": [
+        [
+          "-2",
+          "2"
+        ],
+        [
+          "2",
+          "-2"
+        ],
+        [
+          "-2",
+          "2"
+        ]
+      ],
+      "intertwining_residual": [
+        [
+          "1",
+          "-1"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "-1"
+        ]
+      ],
+      "rank": 2,
+      "nullity": 0,
+      "invariant": true,
+      "intertwines": false,
+      "Q": null,
+      "compression": null
+    },
+    "2,4": {
+      "M": 2,
+      "d": 4,
+      "Delta_M": [
+        [
+          "-2",
+          "2"
+        ],
+        [
+          "2",
+          "-2"
+        ]
+      ],
+      "Delta_d": [
+        [
+          "-2",
+          "1",
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "0",
+          "1",
+          "-2"
+        ]
+      ],
+      "P": [
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      ],
+      "gram": [
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "counts": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "Delta_M_P": [
+        [
+          "-2",
+          "2",
+          "0",
+          "0"
+        ],
+        [
+          "2",
+          "-2",
+          "0",
+          "0"
+        ]
+      ],
+      "P_Delta_d": [
+        [
+          "-2",
+          "1",
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1",
+          "0"
+        ]
+      ],
+      "intertwining_residual": [
+        [
+          "0",
+          "1",
+          "0",
+          "-1"
+        ],
+        [
+          "1",
+          "0",
+          "-1",
+          "0"
+        ]
+      ],
+      "rank": 2,
+      "nullity": 2,
+      "invariant": true,
+      "intertwines": false,
+      "Q": null,
+      "compression": null
+    },
+    "1,2": {
+      "M": 1,
+      "d": 2,
+      "Delta_M": [
+        [
+          "0"
+        ]
+      ],
+      "Delta_d": [
+        [
+          "-2",
+          "2"
+        ],
+        [
+          "2",
+          "-2"
+        ]
+      ],
+      "P": [
+        [
+          "1",
+          "0"
+        ]
+      ],
+      "gram": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "counts": [
+        1,
+        0
+      ],
+      "Delta_M_P": [
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "P_Delta_d": [
+        [
+          "-2",
+          "2"
+        ]
+      ],
+      "intertwining_residual": [
+        [
+          "2",
+          "-2"
+        ]
+      ],
+      "rank": 1,
+      "nullity": 1,
+      "invariant": true,
+      "intertwines": false,
+      "Q": null,
+      "compression": null
+    },
+    "4,1": {
+      "M": 4,
+      "d": 1,
+      "Delta_M": [
+        [
+          "-2",
+          "1",
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "-2",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "-2",
+          "1"
+        ],
+        [
+          "1",
+          "0",
+          "1",
+          "-2"
+        ]
+      ],
+      "Delta_d": [
+        [
+          "0"
+        ]
+      ],
+      "P": [
+        [
+          "1"
+        ],
+        [
+          "1"
+        ],
+        [
+          "1"
+        ],
+        [
+          "1"
+        ]
+      ],
+      "gram": [
+        [
+          "4"
+        ]
+      ],
+      "counts": [
+        4
+      ],
+      "Delta_M_P": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "P_Delta_d": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "intertwining_residual": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "rank": 1,
+      "nullity": 0,
+      "invariant": true,
+      "intertwines": true,
+      "Q": [
+        [
+          "1/2"
+        ],
+        [
+          "1/2"
+        ],
+        [
+          "1/2"
+        ],
+        [
+          "1/2"
+        ]
+      ],
+      "compression": [
+        [
+          "0"
+        ]
+      ]
+    }
+  },
+  "source_sha256": {
+    "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\covering.py": "5e6af1b665ece26cbc44bc63a85e08ff9bdf897c7efb2a03ef96f3a6cec550cf",
+    "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\tests\\test_covering.py": "8bf14c738bb240322a456502afbc32749b8420c80f3d810b7cfea3b8af418fdb",
+    "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\K0_KERNEL_DEFINITION_LEDGER_v0.1.md": "2301c40fe3117a72b98998caaf7818a2d8bcf6b7c0a10f05daef0c8c82b1c0d4",
+    "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_A\\publication\\paper_A_publication.md": "5fc388072d344c10d201b8eff255226b861014ff980e64c06811ae973bf7cd55",
+    "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_A\\PAPER_A_CYCLE_COVERING_DYNAMICS_DRAFT_v0.5.1.md": "e39b543247c232b59da035cd6f6f190554c18c484bcf1b9482a1ad11c906dcf2",
+    "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_A\\PAPER_A_PROOF_AUDIT_v0.3.md": "61a3beb822fccd7e100215009e40ae9b9b6594df5fd92d6968fd48f25c7bac12",
+    "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\research_files\\verification\\paperA\\paperA_proof_audit_v0_2.py": "57d3977edf2c72ee497ebdb8b238fb065a788ac93772f74f3ae08ce9b54bce87",
+    "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\research\\mathematical_atlas\\entry_02_cycle_covering\\TRIOCTAGON_ATLAS_02_3_TO_12_COVERING_SOURCE_PACKET_v0.1.md": "5a401ec3e8442376055ae36d00b40b339e76ee6e346394d84529f3f0c10b4808",
+    "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_CURRENT_KERNEL_MATHEMATICAL_COMPLETENESS_REVIEW_v0.1.md": "2fc8af1a88666fdff804b140068971ce725f64ae2d38e974dcc253231ef71bef",
+    "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_CURRENT_KERNEL_ATLAS_CROSSWALK_v0.1.json": "e2bf8ff3595dcbee52da5bf170338480aad8d7f047fa59dd95dc03c4ecbbaed9",
+    "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_CURRENT_KERNEL_COMPLETENESS_CHECK.py": "45a8127d61ace68a5cf6ec2770c7528a10ccf56dac83908c3a461f9258ccc5a3",
+    "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_CURRENT_KERNEL_COMPLETENESS_RESULTS.json": "ae4f5cadf7b109d67eab1c63a6dac0a9f921f6ea9eeef4cbbfca6549ffb78463"
+  },
+  "receipts": {
+    "integrity": {
+      "path": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\integrity_receipt.json",
+      "sha256": "ab2ed3c17355a3f1d38234b96ba62a992f6b19b831863238986a44dd691e1682",
+      "data": {
+        "passed": true,
+        "method": "All regular file relative paths and SHA256 contents; .git components excluded; Git HEAD/tracked status separately",
+        "tree_summary": {
+          "current": {
+            "root": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+            "before_count": 7803,
+            "after_count": 7803,
+            "before_sha256": "eb913f8b685be59b18ed9cbf1656b06e3d7dcb617b6579e3ec60fc27753dc1df",
+            "after_sha256": "eb913f8b685be59b18ed9cbf1656b06e3d7dcb617b6579e3ec60fc27753dc1df",
+            "unchanged": true,
+            "added": [],
+            "removed": [],
+            "modified": []
+          },
+          "old": {
+            "root": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO",
+            "before_count": 401,
+            "after_count": 401,
+            "before_sha256": "cec5e60047e01772dde3b8053949dca69c7124378bdca9ce68a7aee96962d2bd",
+            "after_sha256": "cec5e60047e01772dde3b8053949dca69c7124378bdca9ce68a7aee96962d2bd",
+            "unchanged": true,
+            "added": [],
+            "removed": [],
+            "modified": []
+          },
+          "torment_kernel": {
+            "root": "C:\\TORMENT\\TORMENT_repo\\TORMENT-fabric_v2\\torment_fabric\\torment_service\\kernel",
+            "before_count": 64,
+            "after_count": 64,
+            "before_sha256": "8b11e5bb287212e51dfd8e80fe7a3e96f1c6757e34f3fcc02bdd5eece7f56b41",
+            "after_sha256": "8b11e5bb287212e51dfd8e80fe7a3e96f1c6757e34f3fcc02bdd5eece7f56b41",
+            "unchanged": true,
+            "added": [],
+            "removed": [],
+            "modified": []
+          },
+          "torment_checkout": {
+            "root": "C:\\TORMENT\\TORMENT_repo\\TORMENT-fabric_v2\\torment_fabric",
+            "before_count": 173908,
+            "after_count": 173908,
+            "before_sha256": "3a1a4b061dfbee500f065f053677013573b5f300c847e18c972accac5d512fc4",
+            "after_sha256": "3a1a4b061dfbee500f065f053677013573b5f300c847e18c972accac5d512fc4",
+            "unchanged": true,
+            "added": [],
+            "removed": [],
+            "modified": []
+          }
+        },
+        "external_summary": {
+          "prior_atlas": {
+            "count": 27,
+            "unchanged": true,
+            "before_sha256": "5e235603155426511b451301a5beb2747b8aa521a7a477573d7e7744d77cd760",
+            "after_sha256": "5e235603155426511b451301a5beb2747b8aa521a7a477573d7e7744d77cd760"
+          },
+          "completeness_review": {
+            "count": 4,
+            "unchanged": true,
+            "before_sha256": "1085f63e5e6114e6fd907eb8207e5d65551a82ef022fc0b9c049f3529b538951",
+            "after_sha256": "1085f63e5e6114e6fd907eb8207e5d65551a82ef022fc0b9c049f3529b538951"
+          }
+        },
+        "git_before": {
+          "current": {
+            "head": "34c21830e7e7c4b5f4a5a940d084c37feaf1f82c",
+            "tracked_status": ""
+          },
+          "torment_checkout": {
+            "head": "a06edcc5c9df5d3b56405085d9f2942b768dc203",
+            "tracked_status": ""
+          }
+        },
+        "git_after": {
+          "current": {
+            "head": "34c21830e7e7c4b5f4a5a940d084c37feaf1f82c",
+            "tracked_status": ""
+          },
+          "torment_checkout": {
+            "head": "a06edcc5c9df5d3b56405085d9f2942b768dc203",
+            "tracked_status": ""
+          }
+        },
+        "before_manifest": {
+          "path": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\before.json",
+          "sha256": "ce903be47921c99717ba395717f46aaaf44f5754b0bee0178ed92369c696f4f4"
+        },
+        "after_manifest": {
+          "path": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\integrity_receipt.after.json",
+          "sha256": "518e905f49b06b80dbac9966745853c3692504d233b39375c30ecb0a2af4fd9b"
+        },
+        "external_before_manifest": {
+          "path": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\external_before.json",
+          "sha256": "fe588482469b8d5a2294f92340e5fbcfd9b661cc469709c85fd52d7f735c5ba3"
+        },
+        "external_after": {
+          "prior_atlas": {
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_01_CLOSEOUT_v0.1.md": "c4604b5311893850bdd2392c068e6e366085ce2c7be7a04537d18d6eea007c95",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_02_3_TO_12_COVERING_SOURCE_PACKET_v0.1.md": "5a401ec3e8442376055ae36d00b40b339e76ee6e346394d84529f3f0c10b4808",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_02_EXACT_CHECKS.py": "6be53b07eff99ca8ff38754d97837d0184c9b3062cc1091e6ee914e3e347a706",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_02_EXACT_RESULTS.json": "06fa4dbf12b02283e5912e2bc6469ba26ae43baa22529410806d989ca405177a",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_03_EXACT_CHECKS.py": "76929a2a0c58ae81eab3319d316be5876f4fb0e3bf771ccdbbceb752a762f275",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_03_EXACT_RESULTS.json": "6694ecf54262d847b5a1958311c7634adacaff687270e40bc9239016875ec241",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_03_FOLDED_GEOMETRY_SOURCE_PACKET_v0.1.md": "c2ee0ffe222828c73d5aae5def61fe876cacb8e31d470338391a40176d3022ad",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_04_EXACT_CHECKS.py": "08b172d07568c742aa5c3f179b4a07ffea243174a0318c5d2c256b0c65713e91",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_04_EXACT_RESULTS.json": "5ae102aaf2093c3a149191b591b6b5bb9e5dbe1e905a7a4c11b54eccb7fa6a89",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_04_FACE_STATE_CHIRALITY_SOURCE_PACKET_v0.1.md": "f9138ae3e0f0369b8adde82ef35314c6024437bbdd2dab45dd5e9cbe1dd82e8d",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_05_EXACT_CHECKS.py": "ef9fb48d598164c40e491595664f36d2ddda5c7c716d263417a5f771d2108f70",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_05_EXACT_RESULTS.json": "5d31ef5bafadd9c1f3e123903cbd1c8cb621ce946e22916825ff436c6e90726e",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_05_REFERENCE_SCAFFOLD_SOURCE_PACKET_v0.1.md": "4f0fe834a7517e0e99c0db1cb9972ab027af2d3d4ffcbb7bbf0e227d652fa49b",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_06_EXACT_CHECKS.py": "e7fb9b624a4c2656e35743f21b2e30e2c8fcbecd82dc25954a17af6c5ba463eb",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_06_EXACT_RESULTS.json": "c5aaa75318a54c75cfa562328270b91eb3632d481067aca3e34056199b5aba8c",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_06_Z_OBSERVER_SOURCE_PACKET_v0.1.md": "2aca9d099ca21005f87980108a55eb09b2f7a32e26898a3065ed3abd5bf2a5bf",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_07_DIAGNOSTICS_AND_DISPLAY_SOURCE_PACKET_v0.1.md": "5ffea5412d7ce70490e1d32bbbe797168394e3df518074f2cf4979a1d71e60e2",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_07_EXACT_CHECKS.py": "2752624a079d0934dc848825ff6f428351e7e45db38a5acbf2ef9b7dd27c8089",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_07_EXACT_RESULTS.json": "71978f22e8b87f495005ac3d1f1221f818145c162654397eada690c98991b3ed",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_08_BOUNDARY_SRG_HANDOFF_SOURCE_PACKET_v0.1.md": "2452317ab711a5bd4a8724c475ed9b1a45b29aa6844b765e82d4503d2733179a",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_08_EXACT_CHECKS.py": "d8f73688926d65c83e1c7583f53b29152ba588d8945451aa3ebf21bf72b2696c",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_08_EXACT_RESULTS.json": "637be9be62ad80c56de4d2055f433b478c73d77af3b617154b59a23b7b4d28a5",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_09_BOUNDED_OPERATING_REGION_SOURCE_PACKET_v0.1.md": "d72093ff14cf78e59eb3f698f08c62674efa26140929c402c806379d1ad82fba",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_09_EXACT_CHECKS.py": "49e20943f82c583607b04157f0a183352667895fb7924e9c3032562a6d1f6bf5",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_09_EXACT_RESULTS.json": "f1d6255713e1dbb42f4221a78cbc0e9adc7788a513d8533229df0c2704375112",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_HARMONIC3_PROVENANCE_LEDGER_v0.1.md": "06861e8963f6f4e13470afae788b26e0807dde658b32d0cdf194fcde7118610e",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_RESEARCH_CORRECTION_QUEUE_v0.1.md": "6eeeb0c164f950877d5b451bb30847fa57283e74a13008e01c9b7f7971352513"
+          },
+          "completeness_review": {
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_CURRENT_KERNEL_MATHEMATICAL_COMPLETENESS_REVIEW_v0.1.md": "2fc8af1a88666fdff804b140068971ce725f64ae2d38e974dcc253231ef71bef",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_CURRENT_KERNEL_ATLAS_CROSSWALK_v0.1.json": "e2bf8ff3595dcbee52da5bf170338480aad8d7f047fa59dd95dc03c4ecbbaed9",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_CURRENT_KERNEL_COMPLETENESS_CHECK.py": "45a8127d61ace68a5cf6ec2770c7528a10ccf56dac83908c3a461f9258ccc5a3",
+            "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_CURRENT_KERNEL_COMPLETENESS_RESULTS.json": "ae4f5cadf7b109d67eab1c63a6dac0a9f921f6ea9eeef4cbbfca6549ffb78463"
+          }
+        },
+        "commits_by_this_task": 0,
+        "pushes_by_this_task": 0,
+        "publication": false
+      }
+    },
+    "test": {
+      "path": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\test_receipt.json",
+      "sha256": "367a65040d19c672a2c01127aee367c29d45c2de79483676abbee720e905fd66",
+      "data": {
+        "passed": true,
+        "command": [
+          "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "-m",
+          "pytest",
+          "-q",
+          "-p",
+          "no:cacheprovider",
+          "--basetemp",
+          "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\pytest_temp",
+          "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\tests\\test_covering.py"
+        ],
+        "cwd": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+        "exit_code": 0,
+        "stdout": "..........                       [100%]\r\n10 passed, 40 subtests passed in 2.45s\r\n",
+        "stderr": "",
+        "stdout_sha256": "9bc43adc468c0a9cac1e526e5fbf088606f1432d72108e84775af0b53fc8ad0c",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "test_scope": "Only kernel_physics/tests/test_covering.py; no Paper-A audit rerun",
+        "env_overrides": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+          "TEMP": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603",
+          "TMP": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603",
+          "TMPDIR": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603",
+          "PYTHONPYCACHEPREFIX": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\pycache"
+        }
+      }
+    },
+    "packaging": {
+      "path": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\packaging_final_receipt.json",
+      "sha256": "b8483c828d40ec5144c2ed5d5cdf306a8ee507273c2c799885852bcd08525687",
+      "data": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "missing_output",
+            "passed": true,
+            "command": [
+              "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+              "-B",
+              "-X",
+              "utf8",
+              "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\readonly_relocation_final\\checker.py",
+              "--repo",
+              "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+              "--scratch",
+              "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\relocated_scratch"
+            ],
+            "exit_code": 2,
+            "expected_exit_code": 2,
+            "stdout": "",
+            "stderr": "usage: checker.py [-h] [--repo REPO] --output OUTPUT --scratch SCRATCH\r\n                  [--integrity-receipt INTEGRITY_RECEIPT]\r\n                  [--test-receipt TEST_RECEIPT]\r\n                  [--packaging-receipt PACKAGING_RECEIPT]\r\n                  [--fingerprint-before FINGERPRINT_BEFORE]\r\n                  [--external-before EXTERNAL_BEFORE]\r\n                  [--git-before GIT_BEFORE]\r\nchecker.py: error: the following arguments are required: --output\r\n"
+          },
+          {
+            "name": "missing_scratch",
+            "passed": true,
+            "command": [
+              "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+              "-B",
+              "-X",
+              "utf8",
+              "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\readonly_relocation_final\\checker.py",
+              "--repo",
+              "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+              "--output",
+              "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\unused.json"
+            ],
+            "exit_code": 2,
+            "expected_exit_code": 2,
+            "stdout": "",
+            "stderr": "usage: checker.py [-h] [--repo REPO] --output OUTPUT --scratch SCRATCH\r\n                  [--integrity-receipt INTEGRITY_RECEIPT]\r\n                  [--test-receipt TEST_RECEIPT]\r\n                  [--packaging-receipt PACKAGING_RECEIPT]\r\n                  [--fingerprint-before FINGERPRINT_BEFORE]\r\n                  [--external-before EXTERNAL_BEFORE]\r\n                  [--git-before GIT_BEFORE]\r\nchecker.py: error: the following arguments are required: --scratch\r\n"
+          },
+          {
+            "name": "protected_output",
+            "passed": true,
+            "command": [
+              "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+              "-B",
+              "-X",
+              "utf8",
+              "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\readonly_relocation_final\\checker.py",
+              "--repo",
+              "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+              "--scratch",
+              "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\relocated_scratch",
+              "--output",
+              "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\forbidden_supplement_output.json"
+            ],
+            "exit_code": 2,
+            "expected_exit_code": 2,
+            "stdout": "",
+            "stderr": "usage: checker.py [-h] [--repo REPO] --output OUTPUT --scratch SCRATCH\r\n                  [--integrity-receipt INTEGRITY_RECEIPT]\r\n                  [--test-receipt TEST_RECEIPT]\r\n                  [--packaging-receipt PACKAGING_RECEIPT]\r\n                  [--fingerprint-before FINGERPRINT_BEFORE]\r\n                  [--external-before EXTERNAL_BEFORE]\r\n                  [--git-before GIT_BEFORE]\r\nchecker.py: error: output must be external to protected trees\r\n"
+          },
+          {
+            "name": "protected_scratch",
+            "passed": true,
+            "command": [
+              "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+              "-B",
+              "-X",
+              "utf8",
+              "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\readonly_relocation_final\\checker.py",
+              "--repo",
+              "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+              "--scratch",
+              "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\forbidden_scratch",
+              "--output",
+              "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\unused.json"
+            ],
+            "exit_code": 2,
+            "expected_exit_code": 2,
+            "stdout": "",
+            "stderr": "usage: checker.py [-h] [--repo REPO] --output OUTPUT --scratch SCRATCH\r\n                  [--integrity-receipt INTEGRITY_RECEIPT]\r\n                  [--test-receipt TEST_RECEIPT]\r\n                  [--packaging-receipt PACKAGING_RECEIPT]\r\n                  [--fingerprint-before FINGERPRINT_BEFORE]\r\n                  [--external-before EXTERNAL_BEFORE]\r\n                  [--git-before GIT_BEFORE]\r\nchecker.py: error: scratch must be external to protected trees\r\n"
+          },
+          {
+            "name": "requires_bytecode_disabled",
+            "passed": true,
+            "command": [
+              "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+              "-X",
+              "utf8",
+              "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\readonly_relocation_final\\checker.py",
+              "--repo",
+              "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+              "--scratch",
+              "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\relocated_scratch",
+              "--output",
+              "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\unused.json"
+            ],
+            "exit_code": 2,
+            "expected_exit_code": 2,
+            "stdout": "",
+            "stderr": "usage: checker.py [-h] [--repo REPO] --output OUTPUT --scratch SCRATCH\r\n                  [--integrity-receipt INTEGRITY_RECEIPT]\r\n                  [--test-receipt TEST_RECEIPT]\r\n                  [--packaging-receipt PACKAGING_RECEIPT]\r\n                  [--fingerprint-before FINGERPRINT_BEFORE]\r\n                  [--external-before EXTERNAL_BEFORE]\r\n                  [--git-before GIT_BEFORE]\r\nchecker.py: error: Run with -B (or PYTHONDONTWRITEBYTECODE=1).\r\n"
+          },
+          {
+            "name": "readonly_relocation_executes",
+            "passed": true,
+            "command": [
+              "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+              "-B",
+              "-X",
+              "utf8",
+              "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\readonly_relocation_final\\checker.py",
+              "--repo",
+              "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+              "--scratch",
+              "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\relocated_scratch",
+              "--output",
+              "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\relocation_final_results.json"
+            ],
+            "exit_code": 0,
+            "expected_exit_code": 0,
+            "stdout": "{\"output\": \"C:\\\\Users\\\\Notandi\\\\AppData\\\\Local\\\\Temp\\\\trioctagon_supplement_a_20260929_35892fb603\\\\relocation_final_results.json\", \"passed\": true, \"checks\": 28, \"closeout_ready\": false}\r\n",
+            "stderr": ""
+          },
+          {
+            "name": "existing_output_refused",
+            "passed": true,
+            "command": [
+              "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+              "-B",
+              "-X",
+              "utf8",
+              "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\readonly_relocation_final\\checker.py",
+              "--repo",
+              "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+              "--scratch",
+              "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\relocated_scratch",
+              "--output",
+              "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_supplement_a_20260929_35892fb603\\relocation_final_results.json"
+            ],
+            "exit_code": 2,
+            "expected_exit_code": 2,
+            "stdout": "",
+            "stderr": "usage: checker.py [-h] [--repo REPO] --output OUTPUT --scratch SCRATCH\r\n                  [--integrity-receipt INTEGRITY_RECEIPT]\r\n                  [--test-receipt TEST_RECEIPT]\r\n                  [--packaging-receipt PACKAGING_RECEIPT]\r\n                  [--fingerprint-before FINGERPRINT_BEFORE]\r\n                  [--external-before EXTERNAL_BEFORE]\r\n                  [--git-before GIT_BEFORE]\r\nchecker.py: error: output already exists; no overwrite\r\n"
+          },
+          {
+            "name": "existing_output_bytes_preserved",
+            "passed": true
+          },
+          {
+            "name": "relocation_directory_unchanged",
+            "passed": true,
+            "before": {
+              "checker.py": "d74bfca9f290b3bc92ee8ce6c4d91ed152f208385dc657dd5d0624d2eeaa0606"
+            },
+            "after": {
+              "checker.py": "d74bfca9f290b3bc92ee8ce6c4d91ed152f208385dc657dd5d0624d2eeaa0606"
+            }
+          }
+        ],
+        "relocation_file_readonly": true,
+        "original_checker_sha256": "d74bfca9f290b3bc92ee8ce6c4d91ed152f208385dc657dd5d0624d2eeaa0606",
+        "relocated_checker_sha256": "d74bfca9f290b3bc92ee8ce6c4d91ed152f208385dc657dd5d0624d2eeaa0606",
+        "relocation_result_sha256": "1831d14c3cba8470d0d8dd8aebc81c84d87d19c05805b5d74283e1a8edcaee41"
+      }
+    }
+  }
+}

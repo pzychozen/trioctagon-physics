@@ -1,0 +1,1608 @@
+{
+  "atlas": "06",
+  "version": "0.1",
+  "created_utc": "2026-09-29T10:50:06.388263+00:00",
+  "authoritative_root": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+  "required_head": "34c21830e7e7c4b5f4a5a940d084c37feaf1f82c",
+  "python": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+  "script_sha256": "e7fb9b624a4c2656e35743f21b2e30e2c8fcbecd82dc25954a17af6c5ba463eb",
+  "status": "PASS",
+  "total": 199,
+  "passed": 199,
+  "failed": 0,
+  "group_counts": {
+    "EXACT_ALGEBRA": {
+      "total": 35,
+      "passed": 35,
+      "failed": 0
+    },
+    "EXACT_BOUNDS": {
+      "total": 14,
+      "passed": 14,
+      "failed": 0
+    },
+    "EXACT_SYMMETRY": {
+      "total": 22,
+      "passed": 22,
+      "failed": 0
+    },
+    "RUNTIME/API": {
+      "total": 37,
+      "passed": 37,
+      "failed": 0
+    },
+    "PRECISION/FALSIFIER": {
+      "total": 40,
+      "passed": 40,
+      "failed": 0
+    },
+    "HISTORICAL_REPLAY": {
+      "total": 35,
+      "passed": 35,
+      "failed": 0
+    },
+    "INTEGRITY": {
+      "total": 16,
+      "passed": 16,
+      "failed": 0
+    }
+  },
+  "source_sha256": {
+    "kernel_physics/z_manifold.py": "97ebdbb37103e736d2ae86c272541c458a5b585e1889e6d14ff056b316494f4f",
+    "kernel_physics/_response_numeric.py": "cc33f797e76f7dbeff6fbd58ab52003fde2acbadf35ae299d827b4b55ba29655",
+    "kernel_physics/readouts.py": "3889051f08c09197224a30263195f8f0d474e5f7b93671fb56e6c240c58e91c9",
+    "kernel_physics/dynamics.py": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4",
+    "kernel_physics/tests/test_z_manifold.py": "c16b56503d93edf450fc1dee9fa0e5cdc5d91ad57c6ff94d261394b53cf955d6",
+    "papers/PAPER_E/v0.1.1/PAPER_E_Z_MANIFOLD_v0.1.1.md": "a79bc29d991c3af8bba546f0bc5e1ff7a6bbe5501d8adf2ef6d19c66b362978d",
+    "papers/PAPER_E/check_symbolic.py": "674e4cb7cad70825ca01a0a7bb390876f41996cd148849fa51e663b784ff87df",
+    "papers/PAPER_E/evidence/symbolic_results.json": "265e250d69fd6e17176d9eeaf2b43a03e72f72fcbe28fdf3c1e8f7a24d3ff0d2",
+    "papers/PAPER_E/evidence/source_provenance.json": "ce598eeead0a6dc1e99339cab39e2e92382af5fc20e20a951a71815103003749",
+    "papers/PAPER_E/v0.1.1/check_revision.py": "ca704891214c87bce57bb27516dc8e9e04eed1ae47f7cd9255650e72f8e5876a",
+    "papers/PAPER_E/evidence/accepted_reconstruction/verify_historical_z.py": "8e46c04d53f0868156ec36bcf82fba47571aa189bcf5835415907b624720ac7d",
+    "kernel_physics/tests/test_parity_p09_p10.py": "081dfa0c3a69b69a170bcc6b2a3dcf61728c8d3b7155d2dd6942b1751eb7b648",
+    "kernel_physics/tests/parity_oracles/paper_e_oracle.py": "6b70279fa402c2ddb49aa0de89f68def34abdd3d5b47886897f700b39d4aa2f0",
+    "kernel_physics/_runner.py": "3a9f3ce718b1600f445bf963b968b9dbb3c41b03e6f2acf15239e2ae1512bcf6",
+    "kernel_physics/tests/test_runner_records.py": "2b95ca7f03b0942739e3f511b729f9e730c0a8a22c65809f7ddb9508f64b3e0e",
+    "kernel_physics/z_diagnostics.py": "db6c5d87fcecd492ac76fbc3cbcd6b71520d2ab4c9bbe4b1686c138aa0549d09",
+    "research/mathematical_atlas/entry_04_face_state_chirality/TRIOCTAGON_ATLAS_04_FACE_STATE_CHIRALITY_SOURCE_PACKET_v0.1.md": "f9138ae3e0f0369b8adde82ef35314c6024437bbdd2dab45dd5e9cbe1dd82e8d",
+    "papers/PAPER_E/evidence/source_snapshots/staged/model_core.py": "ce635fd3de1813ef0cdced1d310c1486815672a0a2b93a9f85ebc706c6ee99c6",
+    "papers/PAPER_E/evidence/source_snapshots/committed_ema/model_core.py": "cd173dd818bd20983e23a72c2195b513eb3d72ae0446db8239c65657fd7d17b2"
+  },
+  "checks": {
+    "EXACT_ALGEBRA": [
+      {
+        "name": "rho_inverse",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "rho_asymptotic_gap",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_zero_0",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_stationary_0",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_extremum_value_0",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_zero_1",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_stationary_1",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_extremum_value_1",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_zero_2",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_stationary_2",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_extremum_value_2",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_zero_3",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_stationary_3",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_extremum_value_3",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_zero_4",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_stationary_4",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_extremum_value_4",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_zero_5",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_stationary_5",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "harmonic_extremum_value_5",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "twelve_sector_pattern",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "staged_t_zero",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "staged_gamma_zero",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "macro_cone",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "macro_norm_squared",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "independent_cubic_real_expansion",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "independent_cubic_imag_expansion",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "blend_joint_linearity",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "normalized_cubic_positive_inverse",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "normalized_cubic_negative_inverse",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "ema_increment_form",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "constant_innovation_closed_form_initial",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "constant_innovation_closed_form_recurrence",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "constant_innovation_fixed_point",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "ema_frozen_height_extrema",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0",
+            "0"
+          ]
+        }
+      }
+    ],
+    "EXACT_BOUNDS": [
+      {
+        "name": "rho_nonnegative_and_strict_complement",
+        "passed": true
+      },
+      {
+        "name": "one_minus_rho_positive_witness",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "rho_derivative_positive_witness",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "rho_zero_and_infinite_limit",
+        "passed": true
+      },
+      {
+        "name": "harmonic_squared_bound_witness",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "finite_real_exponential_positive",
+        "passed": true
+      },
+      {
+        "name": "envelope_limits_by_gamma_sign",
+        "passed": true
+      },
+      {
+        "name": "normalized_cubic_strict_positive_branch_gap",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "normalized_cubic_positive_branch",
+        "passed": true
+      },
+      {
+        "name": "ema_upper_bound_slack",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "ema_lower_bound_slack",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "forgetting_factor",
+        "passed": true
+      },
+      {
+        "name": "endpoint_distance_-1",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "endpoint_distance_1",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      }
+    ],
+    "EXACT_SYMMETRY": [
+      {
+        "name": "harmonic_third_turn",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "macro_scalar_reversal",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "macro_rotation_at_fixed_scalar",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "staged_frozen_third_turn",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "ema_frozen_third_turn",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "cubic_real_degree_three",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "cubic_conjugation",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "cubic_global_sign",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "chirality_real_degree_two",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "chirality_conjugation",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "chirality_common_phase",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "cubic_pair_common_phase",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "cubic_outer_channel_swap",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "chirality_permutation_123",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "chirality_permutation_132",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "chirality_permutation_213",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "chirality_permutation_231",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "chirality_permutation_312",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "chirality_permutation_321",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "cubic_not_permutation_invariant",
+        "passed": true
+      },
+      {
+        "name": "normalized_cubic_odd_branches",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "ema_joint_sign_covariance",
+        "passed": true,
+        "detail": {
+          "residuals": [
+            "0"
+          ]
+        }
+      }
+    ],
+    "RUNTIME/API": [
+      {
+        "name": "six_real_hand_norm",
+        "passed": true
+      },
+      {
+        "name": "hand_chirality",
+        "passed": true
+      },
+      {
+        "name": "hand_cubic",
+        "passed": true
+      },
+      {
+        "name": "all_operations_leave_omega_bytes",
+        "passed": true
+      },
+      {
+        "name": "clock_memory_objects_unchanged",
+        "passed": true
+      },
+      {
+        "name": "clock_not_an_omega_update",
+        "passed": true
+      },
+      {
+        "name": "step3_has_no_dt_clock_memory_parameter",
+        "passed": true
+      },
+      {
+        "name": "ema_has_no_gamma_field",
+        "passed": true
+      },
+      {
+        "name": "literal_defaults",
+        "passed": true
+      },
+      {
+        "name": "signed_finite_configs_accepted",
+        "passed": true
+      },
+      {
+        "name": "huge_raw_q_integer_reduction",
+        "passed": true
+      },
+      {
+        "name": "raw_q_retained_but_angle_periodic",
+        "passed": true
+      },
+      {
+        "name": "negative_step_and_zero_dt",
+        "passed": true
+      },
+      {
+        "name": "negative_dt_and_step_three",
+        "passed": true
+      },
+      {
+        "name": "clock_orbit_N1_step0",
+        "passed": true
+      },
+      {
+        "name": "clock_orbit_N12_step0",
+        "passed": true
+      },
+      {
+        "name": "clock_orbit_N12_step1",
+        "passed": true
+      },
+      {
+        "name": "clock_orbit_N12_step4",
+        "passed": true
+      },
+      {
+        "name": "clock_orbit_N12_step-8",
+        "passed": true
+      },
+      {
+        "name": "clock_orbit_N7_step100",
+        "passed": true
+      },
+      {
+        "name": "Z_vec_is_total_object",
+        "passed": true
+      },
+      {
+        "name": "readout_arrays_detached_readonly",
+        "passed": true
+      },
+      {
+        "name": "readout_field_frozen",
+        "passed": true,
+        "detail": "FrozenInstanceError: cannot assign to field 'z'"
+      },
+      {
+        "name": "readout_array_ordinary_write_fails",
+        "passed": true,
+        "detail": "ValueError: assignment destination is read-only"
+      },
+      {
+        "name": "readout_copies_each_input",
+        "passed": true
+      },
+      {
+        "name": "observers_call_no_advancement",
+        "passed": true
+      },
+      {
+        "name": "memory_update_calls_no_clock_or_dynamics",
+        "passed": true
+      },
+      {
+        "name": "constructor_zero_no_scientific_evaluation",
+        "passed": true
+      },
+      {
+        "name": "constructor_zero_marker_and_copy",
+        "passed": true
+      },
+      {
+        "name": "stable_hypot_avoids_naive_squaring",
+        "passed": true,
+        "detail": {
+          "actual": 4.9999999999999995e+200,
+          "exact_binary_input_norm": "4.9999999999999998486656110625518083e+200",
+          "absolute_error": "3.3992831540273094316e+184",
+          "bound_one_ulp": 6.798566308054619e+184
+        }
+      },
+      {
+        "name": "zero_evaluation_exact",
+        "passed": true
+      },
+      {
+        "name": "failures_leave_original_inputs",
+        "passed": true
+      },
+      {
+        "name": "mp80_independent_scalar_0",
+        "passed": true,
+        "detail": {
+          "fixture": 0,
+          "reference": "0.022344961931098431847496098547084036256872561",
+          "actual": 0.022344961931098403,
+          "absolute_error": "2.8618061830278123741e-17",
+          "allowed_bound": "2.0000000000000001554e-15",
+          "rule": "max(2e-14*abs(reference),2e-15); retained P9 fixture tolerance"
+        }
+      },
+      {
+        "name": "mp80_independent_scalar_1",
+        "passed": true,
+        "detail": {
+          "fixture": 1,
+          "reference": "0.45418669124707592148813989508874415992743058",
+          "actual": 0.4541866912470756,
+          "absolute_error": "3.0802359435467899944e-16",
+          "allowed_bound": "9.083733824941518419e-15",
+          "rule": "max(2e-14*abs(reference),2e-15); retained P9 fixture tolerance"
+        }
+      },
+      {
+        "name": "different_observer_dt_preserves_recurrence_bytes",
+        "passed": true
+      },
+      {
+        "name": "observer_direct_import_boundary",
+        "passed": true,
+        "detail": [
+          "from dataclasses import dataclass, field",
+          "import math",
+          "import numbers",
+          "import numpy as np",
+          "from . import readouts",
+          "from ._response_numeric import ResponsePrecisionError, checked_real, complex_product, complex_vector, product, real_scalar, total"
+        ]
+      },
+      {
+        "name": "fresh_process_observer_import_isolation",
+        "passed": true,
+        "detail": [
+          "kernel_physics",
+          "kernel_physics._response_numeric",
+          "kernel_physics.readouts",
+          "kernel_physics.z_manifold"
+        ]
+      }
+    ],
+    "PRECISION/FALSIFIER": [
+      {
+        "name": "manual_readout_does_not_assert_formula_consistency",
+        "passed": true
+      },
+      {
+        "name": "constructor_zero_differs_from_recomputed",
+        "passed": true
+      },
+      {
+        "name": "ema_observation_independent_of_t",
+        "passed": true
+      },
+      {
+        "name": "zero_omega_can_have_nonzero_ema_macro",
+        "passed": true
+      },
+      {
+        "name": "chiral_not_exponentially_enveloped",
+        "passed": true
+      },
+      {
+        "name": "common_phase_changes_J_but_not_C",
+        "passed": true
+      },
+      {
+        "name": "J_zero_does_not_imply_C_zero",
+        "passed": true
+      },
+      {
+        "name": "J_not_generally_conserved_by_step3",
+        "passed": true
+      },
+      {
+        "name": "literal_point01_not_one_minus_float_point99",
+        "passed": true,
+        "detail": {
+          "adopted_hex": "0x1.47ae147ae147bp-8",
+          "alternate_hex": "0x1.47ae147ae1480p-8"
+        }
+      },
+      {
+        "name": "rho_can_round_to_one",
+        "passed": true
+      },
+      {
+        "name": "jhat_can_round_to_both_endpoints",
+        "passed": true
+      },
+      {
+        "name": "rounded_memory_endpoint_can_persist",
+        "passed": true
+      },
+      {
+        "name": "angle_fraction_can_round_to_one",
+        "passed": true
+      },
+      {
+        "name": "ideal_trig_zero_can_be_nonzero_float",
+        "passed": true,
+        "detail": {
+          "binary64_value": 1.8920793046826608e-17,
+          "ideal_value": "0"
+        }
+      },
+      {
+        "name": "exp_overflow",
+        "passed": true,
+        "detail": "ResponsePrecisionError: exponential envelope overflow"
+      },
+      {
+        "name": "exp_underflow_zero",
+        "passed": true,
+        "detail": "ResponsePrecisionError: exponential envelope: nonzero result underflowed to zero"
+      },
+      {
+        "name": "exp_subnormal",
+        "passed": true,
+        "detail": "ResponsePrecisionError: exponential envelope: subnormal result needs higher precision"
+      },
+      {
+        "name": "zero_amplitude_does_not_bypass_exp",
+        "passed": true,
+        "detail": "ResponsePrecisionError: exponential envelope: nonzero result underflowed to zero"
+      },
+      {
+        "name": "clock_lost_dt",
+        "passed": true,
+        "detail": "ResponsePrecisionError: nonzero dt lost: clock time did not advance"
+      },
+      {
+        "name": "clock_t_overflow",
+        "passed": true,
+        "detail": "ResponsePrecisionError: clock time addition: sum overflow"
+      },
+      {
+        "name": "huge_N_fraction_underflow",
+        "passed": true,
+        "detail": "ResponsePrecisionError: clock sector fraction: nonzero result underflowed to zero"
+      },
+      {
+        "name": "subnormal_state_norm",
+        "passed": true,
+        "detail": "ResponsePrecisionError: state norm: subnormal result needs higher precision"
+      },
+      {
+        "name": "finite_components_norm_overflow",
+        "passed": true,
+        "detail": "ResponsePrecisionError: state norm: nonfinite numerical result"
+      },
+      {
+        "name": "cubic_intermediate_overflow",
+        "passed": true,
+        "detail": "ResponsePrecisionError: cubic pair: nonfinite numerical result"
+      },
+      {
+        "name": "cubic_product_underflow",
+        "passed": true,
+        "detail": "ResponsePrecisionError: cubic triple: nonzero result underflowed to zero"
+      },
+      {
+        "name": "cubic_left_pair_fails_before_zero_third",
+        "passed": true,
+        "detail": "ResponsePrecisionError: cubic pair: subnormal result needs higher precision"
+      },
+      {
+        "name": "beta_zero_still_evaluates_C",
+        "passed": true,
+        "detail": "ResponsePrecisionError: z_chiral product: nonfinite numerical result"
+      },
+      {
+        "name": "alpha_zero_still_evaluates_macro_law",
+        "passed": true,
+        "detail": "ResponsePrecisionError: exponential envelope overflow"
+      },
+      {
+        "name": "blend_intermediate_overflow_before_cancellation",
+        "passed": true,
+        "detail": "ResponsePrecisionError: macro blend: nonfinite numerical result"
+      },
+      {
+        "name": "blend_nonzero_subnormal",
+        "passed": true,
+        "detail": "ResponsePrecisionError: macro blend: nonzero result underflowed to zero"
+      },
+      {
+        "name": "clock_bool_rejected",
+        "passed": true,
+        "detail": "TypeError: q must be an integer, excluding booleans"
+      },
+      {
+        "name": "clock_noninteger_rejected",
+        "passed": true,
+        "detail": "TypeError: q must be an integer, excluding booleans"
+      },
+      {
+        "name": "clock_nonpositive_N",
+        "passed": true,
+        "detail": "ValueError: N must be positive"
+      },
+      {
+        "name": "nonfinite_config",
+        "passed": true,
+        "detail": "ValueError: gamma must be finite in binary64"
+      },
+      {
+        "name": "nonfinite_omega",
+        "passed": true,
+        "detail": "ValueError: omega must have finite components"
+      },
+      {
+        "name": "out_of_interval_memory",
+        "passed": true,
+        "detail": "ValueError: the bounded historical profile requires |m|<=1"
+      },
+      {
+        "name": "zero_weight_invalid_vector_still_rejected",
+        "passed": true,
+        "detail": "ValueError: chiral must be finite in binary64"
+      },
+      {
+        "name": "wrong_variant_config_rejected",
+        "passed": true,
+        "detail": "TypeError: config must be StagedConfig"
+      },
+      {
+        "name": "observe_ema_does_not_need_cubic_domain",
+        "passed": true
+      },
+      {
+        "name": "same_state_advance_ema_cubic_overflow",
+        "passed": true,
+        "detail": "ResponsePrecisionError: cubic triple: nonfinite numerical result"
+      }
+    ],
+    "HISTORICAL_REPLAY": [
+      {
+        "name": "staged_snapshot_sha256_and_provenance",
+        "passed": true,
+        "detail": {
+          "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_E\\evidence\\source_snapshots\\staged\\model_core.py",
+          "sha256": "ce635fd3de1813ef0cdced1d310c1486815672a0a2b93a9f85ebc706c6ee99c6"
+        }
+      },
+      {
+        "name": "staged_step_order_static",
+        "passed": true
+      },
+      {
+        "name": "staged_stored_readout_before_step_static",
+        "passed": true
+      },
+      {
+        "name": "staged_omega_committed_by_phase_lock_step",
+        "passed": true
+      },
+      {
+        "name": "staged_constructor_scalar_zero_literals",
+        "passed": true
+      },
+      {
+        "name": "staged_constructor_vector_zero_factories",
+        "passed": true
+      },
+      {
+        "name": "staged_dt_absent_from_omega_step",
+        "passed": true
+      },
+      {
+        "name": "staged_bounded_observer_row_1",
+        "passed": true,
+        "detail": {
+          "max_absolute_error": 0.0,
+          "max_bound_fraction": 0.0
+        }
+      },
+      {
+        "name": "staged_bounded_observer_row_2",
+        "passed": true,
+        "detail": {
+          "max_absolute_error": 0.0,
+          "max_bound_fraction": 0.0
+        }
+      },
+      {
+        "name": "staged_bounded_observer_row_3",
+        "passed": true,
+        "detail": {
+          "max_absolute_error": 0.0,
+          "max_bound_fraction": 0.0
+        }
+      },
+      {
+        "name": "staged_bounded_observer_row_4",
+        "passed": true,
+        "detail": {
+          "max_absolute_error": 0.0,
+          "max_bound_fraction": 0.0
+        }
+      },
+      {
+        "name": "staged_bounded_observer_row_5",
+        "passed": true,
+        "detail": {
+          "max_absolute_error": 0.0,
+          "max_bound_fraction": 0.0
+        }
+      },
+      {
+        "name": "staged_bounded_observer_row_6",
+        "passed": true,
+        "detail": {
+          "max_absolute_error": 0.0,
+          "max_bound_fraction": 0.0
+        }
+      },
+      {
+        "name": "ema_snapshot_sha256_and_provenance",
+        "passed": true,
+        "detail": {
+          "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_E\\evidence\\source_snapshots\\committed_ema\\model_core.py",
+          "sha256": "cd173dd818bd20983e23a72c2195b513eb3d72ae0446db8239c65657fd7d17b2"
+        }
+      },
+      {
+        "name": "ema_step_order_static",
+        "passed": true
+      },
+      {
+        "name": "ema_stored_readout_before_step_static",
+        "passed": true
+      },
+      {
+        "name": "ema_omega_committed_by_phase_lock_step",
+        "passed": true
+      },
+      {
+        "name": "ema_constructor_scalar_zero_literals",
+        "passed": true
+      },
+      {
+        "name": "ema_constructor_vector_zero_factories",
+        "passed": true
+      },
+      {
+        "name": "ema_dt_absent_from_omega_step",
+        "passed": true
+      },
+      {
+        "name": "ema_bounded_observer_row_1",
+        "passed": true,
+        "detail": {
+          "max_absolute_error": 0.0,
+          "max_bound_fraction": 0.0
+        }
+      },
+      {
+        "name": "ema_memory_row_1",
+        "passed": true
+      },
+      {
+        "name": "ema_bounded_observer_row_2",
+        "passed": true,
+        "detail": {
+          "max_absolute_error": 0.0,
+          "max_bound_fraction": 0.0
+        }
+      },
+      {
+        "name": "ema_memory_row_2",
+        "passed": true
+      },
+      {
+        "name": "ema_bounded_observer_row_3",
+        "passed": true,
+        "detail": {
+          "max_absolute_error": 0.0,
+          "max_bound_fraction": 0.0
+        }
+      },
+      {
+        "name": "ema_memory_row_3",
+        "passed": true
+      },
+      {
+        "name": "ema_bounded_observer_row_4",
+        "passed": true,
+        "detail": {
+          "max_absolute_error": 0.0,
+          "max_bound_fraction": 0.0
+        }
+      },
+      {
+        "name": "ema_memory_row_4",
+        "passed": true
+      },
+      {
+        "name": "ema_bounded_observer_row_5",
+        "passed": true,
+        "detail": {
+          "max_absolute_error": 0.0,
+          "max_bound_fraction": 0.0
+        }
+      },
+      {
+        "name": "ema_memory_row_5",
+        "passed": true
+      },
+      {
+        "name": "ema_bounded_observer_row_6",
+        "passed": true,
+        "detail": {
+          "max_absolute_error": 0.0,
+          "max_bound_fraction": 0.0
+        }
+      },
+      {
+        "name": "ema_memory_row_6",
+        "passed": true
+      },
+      {
+        "name": "historical_H_memory_before_scalar",
+        "passed": true
+      },
+      {
+        "name": "historical_H_gamma_unused",
+        "passed": true
+      },
+      {
+        "name": "new_committed_omega_innovation_witness",
+        "passed": true
+      }
+    ],
+    "INTEGRITY": [
+      {
+        "name": "current_before_inventory_digest",
+        "passed": true
+      },
+      {
+        "name": "current_after_inventory_digest",
+        "passed": true
+      },
+      {
+        "name": "current_all_regular_file_bytes_unchanged",
+        "passed": true
+      },
+      {
+        "name": "old_before_inventory_digest",
+        "passed": true
+      },
+      {
+        "name": "old_after_inventory_digest",
+        "passed": true
+      },
+      {
+        "name": "old_all_regular_file_bytes_unchanged",
+        "passed": true
+      },
+      {
+        "name": "torment_kernel_before_inventory_digest",
+        "passed": true
+      },
+      {
+        "name": "torment_kernel_after_inventory_digest",
+        "passed": true
+      },
+      {
+        "name": "torment_kernel_all_regular_file_bytes_unchanged",
+        "passed": true
+      },
+      {
+        "name": "torment_checkout_before_inventory_digest",
+        "passed": true
+      },
+      {
+        "name": "torment_checkout_after_inventory_digest",
+        "passed": true
+      },
+      {
+        "name": "torment_checkout_all_regular_file_bytes_unchanged",
+        "passed": true
+      },
+      {
+        "name": "git_head_and_tracked_status_unchanged",
+        "passed": true
+      },
+      {
+        "name": "current_head_matches_work_order",
+        "passed": true
+      },
+      {
+        "name": "source_hashes_match_before_after_manifests",
+        "passed": true
+      },
+      {
+        "name": "deliverables_external",
+        "passed": true
+      }
+    ]
+  },
+  "details": {
+    "cubic_permutation_witness": {
+      "123": 141,
+      "132": 147,
+      "213": 123,
+      "231": 147,
+      "312": 123,
+      "321": 141
+    },
+    "proof_scope": "Symbolic residuals/slack factorizations supplement the packet's quantified proofs; numerical samples do not prove universal bounds.",
+    "high_precision_receipts": [
+      {
+        "fixture": 0,
+        "reference": "0.022344961931098431847496098547084036256872561",
+        "actual": 0.022344961931098403,
+        "absolute_error": "2.8618061830278123741e-17",
+        "allowed_bound": "2.0000000000000001554e-15",
+        "rule": "max(2e-14*abs(reference),2e-15); retained P9 fixture tolerance"
+      },
+      {
+        "fixture": 1,
+        "reference": "0.45418669124707592148813989508874415992743058",
+        "actual": 0.4541866912470756,
+        "absolute_error": "3.0802359435467899944e-16",
+        "allowed_bound": "9.083733824941518419e-15",
+        "rule": "max(2e-14*abs(reference),2e-15); retained P9 fixture tolerance"
+      }
+    ],
+    "no_physical_position_definition": "Source contract and signatures define observer coordinates only; this is a semantic boundary, not a numerically testable physical theorem.",
+    "historical_replay": {
+      "scope": "Only hash-bound update_z bodies; six prescribed post-commit states per variant, plus one changed-innovation witness. Step/run/constructor inspected as AST only.",
+      "tolerance": "componentwise max(2e-14*abs(snapshot_reference),2e-15)",
+      "rows": {
+        "staged": [
+          {
+            "row": 1,
+            "q": 1,
+            "t": 0.125,
+            "z": 0.23093190222077417,
+            "m": 0.0
+          },
+          {
+            "row": 2,
+            "q": 2,
+            "t": 0.25,
+            "z": -0.24899342976948602,
+            "m": 0.0
+          },
+          {
+            "row": 3,
+            "q": 3,
+            "t": 0.375,
+            "z": -0.2154641806158624,
+            "m": 0.0
+          },
+          {
+            "row": 4,
+            "q": 4,
+            "t": 0.5,
+            "z": 0.22985271753521405,
+            "m": 0.0
+          },
+          {
+            "row": 5,
+            "q": 5,
+            "t": 0.625,
+            "z": 0.1972090545689817,
+            "m": 0.0
+          },
+          {
+            "row": 6,
+            "q": 6,
+            "t": 0.75,
+            "z": -0.20892184808014166,
+            "m": 0.0
+          }
+        ],
+        "ema": [
+          {
+            "row": 1,
+            "q": 1,
+            "t": 0.125,
+            "z": 0.24708622567228744,
+            "m": -0.0011170006283702763
+          },
+          {
+            "row": 2,
+            "q": 2,
+            "t": 0.25,
+            "z": -0.29019286628924573,
+            "m": -0.0025624124956064405
+          },
+          {
+            "row": 3,
+            "q": 3,
+            "t": 0.375,
+            "z": -0.2718875254052569,
+            "m": -0.004374119533463106
+          },
+          {
+            "row": 4,
+            "q": 4,
+            "t": 0.5,
+            "z": 0.3001393331202874,
+            "m": -0.0065817299627113045
+          },
+          {
+            "row": 5,
+            "q": 5,
+            "t": 0.625,
+            "z": 0.27363695970748836,
+            "m": -0.009205300205191941
+          },
+          {
+            "row": 6,
+            "q": 6,
+            "t": 0.75,
+            "z": -0.334306011293295,
+            "m": -0.012254904595304808
+          }
+        ]
+      }
+    },
+    "focused_repository_tests": {
+      "path": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas06_20260929_aomyfjvw\\pytest.txt",
+      "sha256": "d0b2ef50a797c06b266e3fd2c9faa403524395760ee5c10a6c580c699ff1f4d1",
+      "output": ".................................. [ 52%]\n...............................                                                                     [100%]\n65 passed, 2 deselected, 155 subtests passed in 9.82s\n",
+      "command": "python -B -X utf8 -m pytest -q -p no:cacheprovider kernel_physics/tests/test_z_manifold.py kernel_physics/tests/test_runner_records.py -k 'not diagnostic'",
+      "environment": "conda torment; PYTHONDONTWRITEBYTECODE=1; PYTEST_DISABLE_PLUGIN_AUTOLOAD=1"
+    },
+    "integrity": {
+      "method": "SHA256 each regular file except .git path components; inventory digest SHA256 sorted compact JSON mapping relative POSIX paths to file hashes; timestamps/ACLs/empty directories/git internals not claimed",
+      "trees": {
+        "current": {
+          "root": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+          "count": 7803,
+          "tree_sha256": "eb913f8b685be59b18ed9cbf1656b06e3d7dcb617b6579e3ec60fc27753dc1df",
+          "start_utc": "2026-09-29T10:29:54.273528+00:00",
+          "end_utc": "2026-09-29T10:29:58.643986+00:00",
+          "after_count": 7803,
+          "after_sha256": "eb913f8b685be59b18ed9cbf1656b06e3d7dcb617b6579e3ec60fc27753dc1df",
+          "after_start_utc": "2026-09-29T10:42:45.077283+00:00",
+          "after_end_utc": "2026-09-29T10:42:55.909663+00:00",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "old": {
+          "root": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO",
+          "count": 401,
+          "tree_sha256": "cec5e60047e01772dde3b8053949dca69c7124378bdca9ce68a7aee96962d2bd",
+          "start_utc": "2026-09-29T10:29:58.719075+00:00",
+          "end_utc": "2026-09-29T10:29:59.107162+00:00",
+          "after_count": 401,
+          "after_sha256": "cec5e60047e01772dde3b8053949dca69c7124378bdca9ce68a7aee96962d2bd",
+          "after_start_utc": "2026-09-29T10:42:56.053219+00:00",
+          "after_end_utc": "2026-09-29T10:42:56.775349+00:00",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "torment_kernel": {
+          "root": "C:\\TORMENT\\TORMENT_repo\\TORMENT-fabric_v2\\torment_fabric\\torment_service\\kernel",
+          "count": 64,
+          "tree_sha256": "8b11e5bb287212e51dfd8e80fe7a3e96f1c6757e34f3fcc02bdd5eece7f56b41",
+          "start_utc": "2026-09-29T10:29:59.107162+00:00",
+          "end_utc": "2026-09-29T10:29:59.139291+00:00",
+          "after_count": 64,
+          "after_sha256": "8b11e5bb287212e51dfd8e80fe7a3e96f1c6757e34f3fcc02bdd5eece7f56b41",
+          "after_start_utc": "2026-09-29T10:42:56.776855+00:00",
+          "after_end_utc": "2026-09-29T10:42:56.848953+00:00",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "torment_checkout": {
+          "root": "C:\\TORMENT\\TORMENT_repo\\TORMENT-fabric_v2\\torment_fabric",
+          "count": 173908,
+          "tree_sha256": "3a1a4b061dfbee500f065f053677013573b5f300c847e18c972accac5d512fc4",
+          "start_utc": "2026-09-29T10:29:59.139291+00:00",
+          "end_utc": "2026-09-29T10:32:38.406149+00:00",
+          "after_count": 173908,
+          "after_sha256": "3a1a4b061dfbee500f065f053677013573b5f300c847e18c972accac5d512fc4",
+          "after_start_utc": "2026-09-29T10:42:56.849463+00:00",
+          "after_end_utc": "2026-09-29T10:48:00.513152+00:00",
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "git_before": {
+        "current": {
+          "head": "34c21830e7e7c4b5f4a5a940d084c37feaf1f82c",
+          "tracked_status": ""
+        },
+        "torment_checkout": {
+          "head": "a06edcc5c9df5d3b56405085d9f2942b768dc203",
+          "tracked_status": ""
+        }
+      },
+      "git_after": {
+        "current": {
+          "head": "34c21830e7e7c4b5f4a5a940d084c37feaf1f82c",
+          "tracked_status": ""
+        },
+        "torment_checkout": {
+          "head": "a06edcc5c9df5d3b56405085d9f2942b768dc203",
+          "tracked_status": ""
+        }
+      },
+      "evidence_directory": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas06_20260929_aomyfjvw",
+      "evidence_sha256": {
+        "before.json": "b636f7b95af3d16f14be7e6927e4a00ab4972c855135dae9e4f0f0bad22d2ab4",
+        "after.json": "6d8bbc41271cbcfac40bfa33ae86d1fa3a09f7c468648cf94c294d0a8ecb22ab",
+        "git_before.json": "89a684a2957d0734a810eeea16981657a708733bb07973fc2dff3b415193bb91",
+        "git_after.json": "89a684a2957d0734a810eeea16981657a708733bb07973fc2dff3b415193bb91"
+      },
+      "execution_actions": {
+        "commits": 0,
+        "pushes": 0,
+        "scope": "This Atlas-06 execution; action record, not inferred solely from filesystem hashes"
+      }
+    }
+  },
+  "library_versions": {
+    "sympy": "1.14.0",
+    "numpy": "2.4.4",
+    "mpmath": "1.3.0"
+  },
+  "required_flags": {
+    "CURRENT_REPO_CHANGED": "NO",
+    "OLD_KERNEL_CHANGED": "NO",
+    "TORMENT_CHANGED": "NO",
+    "COMMITS": 0,
+    "PUSHES": 0
+  }
+}

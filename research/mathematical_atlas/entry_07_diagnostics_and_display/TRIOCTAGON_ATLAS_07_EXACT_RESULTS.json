@@ -1,0 +1,1907 @@
+{
+  "atlas": "07",
+  "version": "0.1",
+  "created_utc": "2026-09-29T11:23:56.452123+00:00",
+  "status": "PASS_WITH_RUNTIME_CAVEAT",
+  "scientific_check_status": "PASS",
+  "total": 160,
+  "passed": 160,
+  "failed": 0,
+  "group_counts": {
+    "EXACT_ALGEBRA": {
+      "total": 25,
+      "passed": 25,
+      "failed": 0
+    },
+    "EXACT_BOUNDS": {
+      "total": 10,
+      "passed": 10,
+      "failed": 0
+    },
+    "EXACT_FALSIFIER": {
+      "total": 9,
+      "passed": 9,
+      "failed": 0
+    },
+    "API/PRECISION": {
+      "total": 46,
+      "passed": 46,
+      "failed": 0
+    },
+    "DISPLAY/INFORMATION_LOSS": {
+      "total": 39,
+      "passed": 39,
+      "failed": 0
+    },
+    "OWNERSHIP": {
+      "total": 18,
+      "passed": 18,
+      "failed": 0
+    },
+    "INTEGRITY": {
+      "total": 13,
+      "passed": 13,
+      "failed": 0
+    }
+  },
+  "runtime": {
+    "python": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+    "executable": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+    "sympy": "1.14.0",
+    "numpy": "2.4.4",
+    "mpmath": "1.3.0"
+  },
+  "repository": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+  "expected_head": "34c21830e7e7c4b5f4a5a940d084c37feaf1f82c",
+  "checker_sha256": "2752624a079d0934dc848825ff6f428351e7e45db38a5acbf2ef9b7dd27c8089",
+  "sources": {
+    "DIAG": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\z_diagnostics.py",
+      "sha256": "db6c5d87fcecd492ac76fbc3cbcd6b71520d2ab4c9bbe4b1686c138aa0549d09"
+    },
+    "TEST": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\tests\\test_z_diagnostics.py",
+      "sha256": "b5b4ae0eb43b1c4c0e1b2f919328540f5a74e7930c713766062bb9441935ee3e"
+    },
+    "E": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_E\\v0.1.1\\PAPER_E_Z_MANIFOLD_v0.1.1.md",
+      "sha256": "a79bc29d991c3af8bba546f0bc5e1ff7a6bbe5501d8adf2ef6d19c66b362978d"
+    },
+    "Z": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\z_manifold.py",
+      "sha256": "97ebdbb37103e736d2ae86c272541c458a5b585e1889e6d14ff056b316494f4f"
+    },
+    "C": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\readouts.py",
+      "sha256": "3889051f08c09197224a30263195f8f0d474e5f7b93671fb56e6c240c58e91c9"
+    },
+    "D": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\dynamics.py",
+      "sha256": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4"
+    },
+    "NUM": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\_response_numeric.py",
+      "sha256": "cc33f797e76f7dbeff6fbd58ab52003fde2acbadf35ae299d827b4b55ba29655"
+    },
+    "RUN": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\_runner.py",
+      "sha256": "3a9f3ce718b1600f445bf963b968b9dbb3c41b03e6f2acf15239e2ae1512bcf6"
+    },
+    "RECORDS": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\_records.py",
+      "sha256": "aa82d39cfc92a9d8f58ffd87342186ddf67134c4590f41e475327f0396bb5785"
+    },
+    "RUN_TEST": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\tests\\test_runner_records.py",
+      "sha256": "2b95ca7f03b0942739e3f511b729f9e730c0a8a22c65809f7ddb9508f64b3e0e"
+    },
+    "P9_P10": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\tests\\test_parity_p09_p10.py",
+      "sha256": "081dfa0c3a69b69a170bcc6b2a3dcf61728c8d3b7155d2dd6942b1751eb7b648"
+    },
+    "ORACLE": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\tests\\parity_oracles\\paper_e_oracle.py",
+      "sha256": "6b70279fa402c2ddb49aa0de89f68def34abdd3d5b47886897f700b39d4aa2f0"
+    },
+    "SYMBOLIC": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_E\\check_symbolic.py",
+      "sha256": "674e4cb7cad70825ca01a0a7bb390876f41996cd148849fa51e663b784ff87df"
+    },
+    "SYMBOLIC_RECEIPT": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_E\\evidence\\symbolic_results.json",
+      "sha256": "265e250d69fd6e17176d9eeaf2b43a03e72f72fcbe28fdf3c1e8f7a24d3ff0d2"
+    },
+    "E_REVISION": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_E\\v0.1.1\\check_revision.py",
+      "sha256": "ca704891214c87bce57bb27516dc8e9e04eed1ae47f7cd9255650e72f8e5876a"
+    },
+    "D_POTENTIAL": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_D\\v0.1.1\\PAPER_D_REFERENCE_SCAFFOLD_v0.1.1.md",
+      "sha256": "7bc87de09400ba1a37d5dc9ab7be38c9a978be31bb35ece56102d29ee2e5d25b"
+    },
+    "A04": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\research\\mathematical_atlas\\entry_04_face_state_chirality\\TRIOCTAGON_ATLAS_04_FACE_STATE_CHIRALITY_SOURCE_PACKET_v0.1.md",
+      "sha256": "f9138ae3e0f0369b8adde82ef35314c6024437bbdd2dab45dd5e9cbe1dd82e8d"
+    },
+    "A01": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\research\\mathematical_atlas\\entry_01_complex_triad\\TRIOCTAGON_ATLAS_01_CLOSEOUT_v0.1.md",
+      "sha256": "c4604b5311893850bdd2392c068e6e366085ce2c7be7a04537d18d6eea007c95"
+    }
+  },
+  "atlas06_boundary": {
+    "path": "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_06_Z_OBSERVER_SOURCE_PACKET_v0.1.md",
+    "sha256": "2aca9d099ca21005f87980108a55eb09b2f7a32e26898a3065ed3abd5bf2a5bf",
+    "packaging_constraint": "Atlas06 checker is left unchanged; it requires external execution/output at its own directory. Atlas07 does not inherit that output-location coupling."
+  },
+  "checks": {
+    "EXACT_ALGEBRA": [
+      {
+        "name": "full_euclidean_blend",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "full_signed_Q_blend_including_QM",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "macro_law_implies_Q_zero",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "macro_law_implies_norm_relation",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "gram_determinant",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "raw_chiral_scaling",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "normalization_derivative_off_zero",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "hermitian_graph_equals_minus_P",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "full_finite_intensity_budget",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "remainder_full_cross_terms",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "negative_real_gradient_0",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "negative_real_gradient_1",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "negative_real_gradient_2",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "negative_real_gradient_3",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "negative_real_gradient_4",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "negative_real_gradient_5",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "completed_square_parameter_constant",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "phase_witness_updated_angles",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "phase_witness_pair_before",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "phase_witness_pair_after",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "torus_horizontal_radius_squared",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "torus_meridional_radius_squared",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "torus_inverse_kappa_identity",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "torus_inverse_height_identity",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "inverse_radial_derivative",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      }
+    ],
+    "EXACT_BOUNDS": [
+      {
+        "name": "triangle_bound_slack",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "reverse_triangle_bound_slack",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "sharp_chiral_slack_SOS",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "sharp_equality_scale_0",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "sharp_equality_scale_1",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "sharp_equality_scale_7/3",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "torus_radius_strict_gap",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "torus_radius_gap_positive",
+        "passed": true
+      },
+      {
+        "name": "torus_angular_strict_gap",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "torus_angle_gap_positive",
+        "passed": true
+      }
+    ],
+    "EXACT_FALSIFIER": [
+      {
+        "name": "omitting_nonzero_QM_is_wrong",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "opposite_directions_small_displacement",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "exact_overshoot",
+        "passed": true
+      },
+      {
+        "name": "pure_coupling_growth_polynomial",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "phase_stage_can_increase_graph_potential",
+        "passed": true
+      },
+      {
+        "name": "torus_zero_kappa_keeps_major_angle",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "cylinder_zero_kappa_keeps_height",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "common_state_same_intensity",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0"
+          ]
+        }
+      },
+      {
+        "name": "common_state_different_C",
+        "passed": true,
+        "evidence": {
+          "exact_residuals": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      }
+    ],
+    "API/PRECISION": [
+      {
+        "name": "signed_all_accounting_fields",
+        "passed": true,
+        "evidence": {
+          "alpha": "2",
+          "beta": "-1/4",
+          "supplied_z": "3/4",
+          "macro_norm_squared": "7/8",
+          "chiral_norm_squared": "81/64",
+          "total_norm_squared": "3825/1024",
+          "weighted_macro": "7/2",
+          "weighted_chiral": "81/1024",
+          "cross_term": "5/32",
+          "predicted_norm_squared": "3825/1024",
+          "norm_residual": "0",
+          "q_macro": "-1/4",
+          "q_chiral": "49/64",
+          "q_total": "-47/1024",
+          "q_weighted_macro": "-1",
+          "q_weighted_chiral": "49/1024",
+          "q_cross_term": "29/32",
+          "q_prediction": "-47/1024",
+          "q_residual": "0",
+          "macro_relation_residual": "-1/4"
+        }
+      },
+      {
+        "name": "inconsistent_all_accounting_fields",
+        "passed": true,
+        "evidence": {
+          "alpha": "1",
+          "beta": "1",
+          "supplied_z": "1",
+          "macro_norm_squared": "14",
+          "chiral_norm_squared": "1",
+          "total_norm_squared": "65",
+          "weighted_macro": "14",
+          "weighted_chiral": "1",
+          "cross_term": "4",
+          "predicted_norm_squared": "19",
+          "norm_residual": "46",
+          "q_macro": "-4",
+          "q_chiral": "1",
+          "q_total": "63",
+          "q_weighted_macro": "-4",
+          "q_weighted_chiral": "1",
+          "q_cross_term": "4",
+          "q_prediction": "1",
+          "q_residual": "62",
+          "macro_relation_residual": "12"
+        }
+      },
+      {
+        "name": "scalar_residual_blindness_all_accounting_fields",
+        "passed": true,
+        "evidence": {
+          "alpha": "1",
+          "beta": "0",
+          "supplied_z": "1",
+          "macro_norm_squared": "2",
+          "chiral_norm_squared": "0",
+          "total_norm_squared": "2",
+          "weighted_macro": "2",
+          "weighted_chiral": "0",
+          "cross_term": "0",
+          "predicted_norm_squared": "2",
+          "norm_residual": "0",
+          "q_macro": "0",
+          "q_chiral": "0",
+          "q_total": "0",
+          "q_weighted_macro": "0",
+          "q_weighted_chiral": "0",
+          "q_cross_term": "0",
+          "q_prediction": "0",
+          "q_residual": "0",
+          "macro_relation_residual": "0"
+        }
+      },
+      {
+        "name": "all_residuals_blind_to_Mz_all_accounting_fields",
+        "passed": true,
+        "evidence": {
+          "alpha": "1",
+          "beta": "0",
+          "supplied_z": "1",
+          "macro_norm_squared": "2",
+          "chiral_norm_squared": "0",
+          "total_norm_squared": "2",
+          "weighted_macro": "2",
+          "weighted_chiral": "0",
+          "cross_term": "0",
+          "predicted_norm_squared": "2",
+          "norm_residual": "0",
+          "q_macro": "0",
+          "q_chiral": "0",
+          "q_total": "0",
+          "q_weighted_macro": "0",
+          "q_weighted_chiral": "0",
+          "q_cross_term": "0",
+          "q_prediction": "0",
+          "q_residual": "0",
+          "macro_relation_residual": "0"
+        }
+      },
+      {
+        "name": "attainable_pointwise_cancellation",
+        "passed": true
+      },
+      {
+        "name": "all_gram_polynomial_fields",
+        "passed": true
+      },
+      {
+        "name": "chiral_norm_square_root",
+        "passed": true,
+        "evidence": {
+          "actual": "0.7436252521431747",
+          "reference": "(0.74362525214317459997949412960542647 + 0.0j)",
+          "absolute_error": "5.31837770298229781735e-17",
+          "scale": "0.7436252521431745999795",
+          "factor": 96,
+          "epsilon": "2^-52",
+          "allowed_bound": "1.585132563114316752673e-14",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "gram_residual_unclamped",
+        "passed": true,
+        "evidence": {
+          "gram_rhs": 0.0,
+          "gram_residual": 4.440892098500626e-16,
+          "observed_slack": 9.000000089406967
+        }
+      },
+      {
+        "name": "all_signed_budget_scalar_fields",
+        "passed": true
+      },
+      {
+        "name": "budget_component_intensities",
+        "passed": true
+      },
+      {
+        "name": "budget_increment",
+        "passed": true
+      },
+      {
+        "name": "budget_diagnostic_pre_sync_prediction",
+        "passed": true
+      },
+      {
+        "name": "potential_exact_dyadic",
+        "passed": true
+      },
+      {
+        "name": "requested_overshoot_g_zero",
+        "passed": true
+      },
+      {
+        "name": "threshold_9.999999999999998e-13",
+        "passed": true
+      },
+      {
+        "name": "threshold_1e-12",
+        "passed": true
+      },
+      {
+        "name": "threshold_1.0000000000000002e-12",
+        "passed": true
+      },
+      {
+        "name": "unresolved_parallel_is_not_orthogonality",
+        "passed": true
+      },
+      {
+        "name": "phase_magnitude_0",
+        "passed": true,
+        "evidence": {
+          "actual": "0.03466599249999999",
+          "reference": "(0.034665992500000006315552525393286487 + 0.0j)",
+          "absolute_error": "1.38777878078144567553e-17",
+          "scale": "0.06933198499999999875332",
+          "factor": 96,
+          "epsilon": "2^-52",
+          "allowed_bound": "1.477900148927346863985e-15",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "phase_magnitude_1",
+        "passed": true,
+        "evidence": {
+          "actual": "0.04749088250000002",
+          "reference": "(0.047490882500000011767760099701263243 + 0.0j)",
+          "absolute_error": "6.938893903907228377648e-18",
+          "scale": "0.09498176500000002353552",
+          "factor": 96,
+          "epsilon": "2^-52",
+          "allowed_bound": "2.024658094512688468616e-15",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "phase_magnitude_2",
+        "passed": true,
+        "evidence": {
+          "actual": "0.0035778124999999994",
+          "reference": "(0.003577812499999999396038674603914842 + 0.0j)",
+          "absolute_error": "0.0",
+          "scale": "0.007155624999999998792077",
+          "factor": 96,
+          "epsilon": "2^-52",
+          "allowed_bound": "1.525313209072009810273e-16",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "phase_can_change_potential",
+        "passed": true
+      },
+      {
+        "name": "phase_can_affect_later_magnitudes",
+        "passed": true
+      },
+      {
+        "name": "rounded_torus_endpoints_allowed",
+        "passed": true
+      },
+      {
+        "name": "positive_minor_radius_can_disappear_from_XYZ",
+        "passed": true,
+        "evidence": {
+          "r": 1e-20,
+          "xyz": [
+            [
+              2.0,
+              0.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      {
+        "name": "quadratic_overflow",
+        "passed": true,
+        "evidence": "ResponsePrecisionError: dot term: nonfinite numerical result"
+      },
+      {
+        "name": "quadratic_underflow",
+        "passed": true,
+        "evidence": "ResponsePrecisionError: dot term: nonzero result underflowed to zero"
+      },
+      {
+        "name": "quartic_potential_overflow",
+        "passed": true,
+        "evidence": "ResponsePrecisionError: square: nonfinite numerical result"
+      },
+      {
+        "name": "quartic_gram_underflow",
+        "passed": true,
+        "evidence": "ResponsePrecisionError: dot term: nonzero result underflowed to zero"
+      },
+      {
+        "name": "budget_high_degree_overflow",
+        "passed": true,
+        "evidence": "ResponsePrecisionError: square: nonfinite numerical result"
+      },
+      {
+        "name": "history_dynamic_range_loss",
+        "passed": true,
+        "evidence": "ResponsePrecisionError: height ratio: nonzero result underflowed to zero"
+      },
+      {
+        "name": "cylinder_nonzero_subnormal",
+        "passed": true,
+        "evidence": "ResponsePrecisionError: cylinder x: subnormal result needs higher precision"
+      },
+      {
+        "name": "alignment_norm_overflow",
+        "passed": true,
+        "evidence": "ResponsePrecisionError: norm: nonfinite numerical result"
+      },
+      {
+        "name": "nonfinite_vector",
+        "passed": true,
+        "evidence": "ValueError: vector must be finite in binary64"
+      },
+      {
+        "name": "bool_real_rejected",
+        "passed": true,
+        "evidence": "TypeError: vector must be a real numeric scalar (no bool/string/complex)"
+      },
+      {
+        "name": "empty_torus_rejected",
+        "passed": true,
+        "evidence": "ValueError: torus history must be nonempty"
+      },
+      {
+        "name": "bad_torus_domain",
+        "passed": true,
+        "evidence": "ValueError: adapter requires R > r_max > 0"
+      },
+      {
+        "name": "negative_kappa_rejected",
+        "passed": true,
+        "evidence": "ValueError: kappa must be nonnegative"
+      },
+      {
+        "name": "float_sector_rejected",
+        "passed": true,
+        "evidence": "TypeError: q must be an integer, excluding booleans"
+      },
+      {
+        "name": "invalid_N_even_empty",
+        "passed": true,
+        "evidence": "ValueError: N must be positive"
+      },
+      {
+        "name": "shape_mismatch",
+        "passed": true,
+        "evidence": "ValueError: history requires equally sized one-dimensional arrays"
+      },
+      {
+        "name": "config_type",
+        "passed": true,
+        "evidence": "TypeError: config must be DynamicsConfig"
+      },
+      {
+        "name": "observer_can_succeed_outside_diagnostic_domain",
+        "passed": true
+      },
+      {
+        "name": "observer_readout_accounting_quartic_failure",
+        "passed": true,
+        "evidence": "ResponsePrecisionError: dot term: nonfinite numerical result"
+      },
+      {
+        "name": "manual_record_not_formula_validation",
+        "passed": true
+      },
+      {
+        "name": "focused_repository_test_assertions_passed",
+        "passed": true
+      }
+    ],
+    "DISPLAY/INFORMATION_LOSS": [
+      {
+        "name": "direct_default_and_fallback",
+        "passed": true
+      },
+      {
+        "name": "direct_explicit_key",
+        "passed": true
+      },
+      {
+        "name": "direct_empty_shaped_history",
+        "passed": true
+      },
+      {
+        "name": "malformed_present_does_not_fallback",
+        "passed": true,
+        "evidence": "ValueError: Z_total has an invalid shape"
+      },
+      {
+        "name": "explicit_missing_key_no_fallback",
+        "passed": true,
+        "evidence": "KeyError: 'other'"
+      },
+      {
+        "name": "bare_empty_direct_list_wrong_shape",
+        "passed": true,
+        "evidence": "ValueError: Z_total has an invalid shape"
+      },
+      {
+        "name": "cylinder_zero_kappa_retains_height",
+        "passed": true
+      },
+      {
+        "name": "cylinder_empty_allowed",
+        "passed": true
+      },
+      {
+        "name": "cylinder_custom_N_4_axis0",
+        "passed": true,
+        "evidence": {
+          "actual": "-1.8019377358048383",
+          "reference": "(-1.8019377358048382524722046390148901 + 0.0j)",
+          "absolute_error": "3.952529370613898182135e-17",
+          "scale": "2.0",
+          "factor": 128,
+          "epsilon": "2^-52",
+          "allowed_bound": "5.684341886080801486969e-14",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "cylinder_custom_N_4_axis1",
+        "passed": true,
+        "evidence": {
+          "actual": "-0.867767478235116",
+          "reference": "(-0.86776747823511624095153666569671751 + 0.0j)",
+          "absolute_error": "2.221927487066102416154e-16",
+          "scale": "2.0",
+          "factor": 128,
+          "epsilon": "2^-52",
+          "allowed_bound": "5.684341886080801486969e-14",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "cylinder_custom_N_4_axis2",
+        "passed": true,
+        "evidence": {
+          "actual": "-0.4",
+          "reference": "(-0.4 + 0.0j)",
+          "absolute_error": "2.220446049250313080847e-17",
+          "scale": "0.4",
+          "factor": 128,
+          "epsilon": "2^-52",
+          "allowed_bound": "1.136868377216160297394e-14",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "cylinder_custom_N_-3_axis0",
+        "passed": true,
+        "evidence": {
+          "actual": "-1.8019377358048383",
+          "reference": "(-1.8019377358048382524722046390148901 + 0.0j)",
+          "absolute_error": "3.952529370613898182135e-17",
+          "scale": "2.0",
+          "factor": 128,
+          "epsilon": "2^-52",
+          "allowed_bound": "5.684341886080801486969e-14",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "cylinder_custom_N_-3_axis1",
+        "passed": true,
+        "evidence": {
+          "actual": "-0.867767478235116",
+          "reference": "(-0.86776747823511624095153666569671751 + 0.0j)",
+          "absolute_error": "2.221927487066102416154e-16",
+          "scale": "2.0",
+          "factor": 128,
+          "epsilon": "2^-52",
+          "allowed_bound": "5.684341886080801486969e-14",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "cylinder_custom_N_-3_axis2",
+        "passed": true,
+        "evidence": {
+          "actual": "-0.4",
+          "reference": "(-0.4 + 0.0j)",
+          "absolute_error": "2.220446049250313080847e-17",
+          "scale": "0.4",
+          "factor": 128,
+          "epsilon": "2^-52",
+          "allowed_bound": "1.136868377216160297394e-14",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "cylinder_custom_N_10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002_axis0",
+        "passed": true,
+        "evidence": {
+          "actual": "1.2469796037174667",
+          "reference": "(1.2469796037174670610500097680084796 + 0.0j)",
+          "absolute_error": "3.163666033358492346071e-16",
+          "scale": "2.0",
+          "factor": 128,
+          "epsilon": "2^-52",
+          "allowed_bound": "5.684341886080801486969e-14",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "cylinder_custom_N_10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002_axis1",
+        "passed": true,
+        "evidence": {
+          "actual": "-1.5636629649360598",
+          "reference": "(-1.5636629649360596174168890533481155 + 0.0j)",
+          "absolute_error": "2.118959641998655732307e-16",
+          "scale": "2.0",
+          "factor": 128,
+          "epsilon": "2^-52",
+          "allowed_bound": "5.684341886080801486969e-14",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "cylinder_custom_N_10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002_axis2",
+        "passed": true,
+        "evidence": {
+          "actual": "-0.4",
+          "reference": "(-0.4 + 0.0j)",
+          "absolute_error": "2.220446049250313080847e-17",
+          "scale": "0.4",
+          "factor": 128,
+          "epsilon": "2^-52",
+          "allowed_bound": "1.136868377216160297394e-14",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "torus_metadata",
+        "passed": true
+      },
+      {
+        "name": "mp90_torus_row0_axis0",
+        "passed": true,
+        "evidence": {
+          "actual": "2.8245788696275853",
+          "reference": "(2.8245788696275849870378424723561904 + 0.0j)",
+          "absolute_error": "3.22094358091552364229e-16",
+          "scale": "3.26666666666666668147",
+          "factor": 256,
+          "epsilon": "2^-52",
+          "allowed_bound": "1.856885016119728494158e-13",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "mp90_torus_row0_axis1",
+        "passed": true,
+        "evidence": {
+          "actual": "1.6307713707268148",
+          "reference": "(1.6307713707268150496561779501389349 + 0.0j)",
+          "absolute_error": "2.767338250915526980967e-16",
+          "scale": "3.26666666666666668147",
+          "factor": 256,
+          "epsilon": "2^-52",
+          "allowed_bound": "1.856885016119728494158e-13",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "mp90_torus_row0_axis2",
+        "passed": true,
+        "evidence": {
+          "actual": "0.05202408580677529",
+          "reference": "(0.052024085806775294566470508391450831 + 0.0j)",
+          "absolute_error": "4.469189180474661380015e-18",
+          "scale": "0.2666666666666666814696",
+          "factor": 256,
+          "epsilon": "2^-52",
+          "allowed_bound": "1.51582450295488048067e-14",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "conditional_inverse_kappa_0",
+        "passed": true,
+        "evidence": {
+          "actual": "0.5000000000000009",
+          "reference": "(0.5 + 0.0j)",
+          "absolute_error": "8.881784197001252323389e-16",
+          "scale": "1.0",
+          "factor": 256,
+          "epsilon": "2^-52",
+          "allowed_bound": "5.684341886080801486969e-14",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "conditional_inverse_z_0",
+        "passed": true,
+        "evidence": {
+          "actual": "0.09999999999999988",
+          "reference": "(0.1000000000000000055511151231257827 + 0.0j)",
+          "absolute_error": "1.249000902703301107977e-16",
+          "scale": "0.2000000000000000111022",
+          "factor": 256,
+          "epsilon": "2^-52",
+          "allowed_bound": "1.136868377216160360503e-14",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "mp90_torus_row1_axis0",
+        "passed": true,
+        "evidence": {
+          "actual": "2.0632554212245798e-16",
+          "reference": "(0.0 + 0.0j)",
+          "absolute_error": "2.063255421224579805413e-16",
+          "scale": "3.400000000000000022204",
+          "factor": 256,
+          "epsilon": "2^-52",
+          "allowed_bound": "1.932676241267472518191e-13",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "mp90_torus_row1_axis1",
+        "passed": true,
+        "evidence": {
+          "actual": "3.3695518130796547",
+          "reference": "(3.3695518130796544390626154249569932 + 0.0j)",
+          "absolute_error": "2.394551115817354461363e-16",
+          "scale": "3.400000000000000022204",
+          "factor": 256,
+          "epsilon": "2^-52",
+          "allowed_bound": "1.932676241267472518191e-13",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "mp90_torus_row1_axis2",
+        "passed": true,
+        "evidence": {
+          "actual": "-0.1530733727646326",
+          "reference": "(-0.15307337276463259538826079032443649 + 0.0j)",
+          "absolute_error": "2.819615326453656412572e-18",
+          "scale": "0.4000000000000000222045",
+          "factor": 256,
+          "epsilon": "2^-52",
+          "allowed_bound": "2.273736754432320721005e-14",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "conditional_inverse_kappa_1",
+        "passed": true,
+        "evidence": {
+          "actual": "1.000000000000001",
+          "reference": "(1.0 + 0.0j)",
+          "absolute_error": "1.110223024625156540424e-15",
+          "scale": "2.0",
+          "factor": 256,
+          "epsilon": "2^-52",
+          "allowed_bound": "1.136868377216160297394e-13",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "conditional_inverse_z_1",
+        "passed": true,
+        "evidence": {
+          "actual": "-0.1999999999999999",
+          "reference": "(-0.2000000000000000111022302462515654 + 0.0j)",
+          "absolute_error": "1.110223024625156540424e-16",
+          "scale": "0.4000000000000000222045",
+          "factor": 256,
+          "epsilon": "2^-52",
+          "allowed_bound": "2.273736754432320721005e-14",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "mp90_torus_row2_axis0",
+        "passed": true,
+        "evidence": {
+          "actual": "-1.5000000005236",
+          "reference": "(-1.5000000005235987749438004366714821 + 0.0j)",
+          "absolute_error": "1.27726084201545348982e-15",
+          "scale": "3.533333333333333362939",
+          "factor": 256,
+          "epsilon": "2^-52",
+          "allowed_bound": "2.008467466415216542225e-13",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "mp90_torus_row2_axis1",
+        "passed": true,
+        "evidence": {
+          "actual": "-2.598076212260215",
+          "reference": "(-2.5980762122602156212746538922269172 + 0.0j)",
+          "absolute_error": "6.09123788160116811698e-16",
+          "scale": "3.533333333333333362939",
+          "factor": 256,
+          "epsilon": "2^-52",
+          "allowed_bound": "2.008467466415216542225e-13",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "mp90_torus_row2_axis2",
+        "passed": true,
+        "evidence": {
+          "actual": "0.5333333333333333",
+          "reference": "(0.53333333333333336191119686746090896 + 0.0j)",
+          "absolute_error": "3.597935036496195256196e-17",
+          "scale": "0.5333333333333333629393",
+          "factor": 256,
+          "epsilon": "2^-52",
+          "allowed_bound": "3.03164900590976096134e-14",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "conditional_inverse_kappa_2",
+        "passed": true,
+        "evidence": {
+          "actual": "1.9999999999999996",
+          "reference": "(2.0 + 0.0j)",
+          "absolute_error": "4.440892098500626161695e-16",
+          "scale": "4.0",
+          "factor": 256,
+          "epsilon": "2^-52",
+          "allowed_bound": "2.273736754432320594788e-13",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "conditional_inverse_z_2",
+        "passed": true,
+        "evidence": {
+          "actual": "0.8000000000000002",
+          "reference": "(0.80000000000000004440892098500626162 + 0.0j)",
+          "absolute_error": "1.110223024625156540424e-16",
+          "scale": "1.600000000000000088818",
+          "factor": 256,
+          "epsilon": "2^-52",
+          "allowed_bound": "9.094947017729282884021e-14",
+          "scope": "Bounded fixture tolerance, no universal forward-error theorem"
+        }
+      },
+      {
+        "name": "torus_zero_kappa_loses_z_in_XYZ",
+        "passed": true
+      },
+      {
+        "name": "torus_zero_kappa_retains_angle",
+        "passed": true
+      },
+      {
+        "name": "full_torus_record_keeps_chi",
+        "passed": true
+      },
+      {
+        "name": "regularizer_all_zero_history",
+        "passed": true
+      },
+      {
+        "name": "future_excursion_changes_earlier_display",
+        "passed": true
+      },
+      {
+        "name": "accepted_common_state_information_loss",
+        "passed": true
+      }
+    ],
+    "OWNERSHIP": [
+      {
+        "name": "every_public_function_calls_no_advancement",
+        "passed": true
+      },
+      {
+        "name": "successful_calls_preserve_inputs",
+        "passed": true
+      },
+      {
+        "name": "all_returned_arrays_readonly_detached",
+        "passed": true
+      },
+      {
+        "name": "array_write_rejected",
+        "passed": true,
+        "evidence": "ValueError: assignment destination is read-only"
+      },
+      {
+        "name": "field_write_rejected",
+        "passed": true,
+        "evidence": "FrozenInstanceError: cannot assign to field 'remainder'"
+      },
+      {
+        "name": "direct_input_mutation_does_not_change_result",
+        "passed": true
+      },
+      {
+        "name": "failure_does_not_repair_history",
+        "passed": true,
+        "evidence": "ValueError: adapter requires R > r_max > 0"
+      },
+      {
+        "name": "failed_calls_preserve_inputs",
+        "passed": true
+      },
+      {
+        "name": "static_transitive_boundary_entry_calls",
+        "passed": true,
+        "evidence": [
+          "ChiralAreaAccounting",
+          "Clock",
+          "Coordinates",
+          "HistoricalAlignment",
+          "HistoryTorus",
+          "IntensityBudget",
+          "KeyError",
+          "ReadoutAccounting",
+          "TypeError",
+          "ValueError",
+          "__setattr__",
+          "_array",
+          "_complex_sum",
+          "_difference",
+          "_divide",
+          "_dot",
+          "_freeze",
+          "_history",
+          "_norm",
+          "_real",
+          "_seal",
+          "_square",
+          "_state_parameters",
+          "abs",
+          "any",
+          "append",
+          "array",
+          "asarray",
+          "blend_vectors",
+          "checked_real",
+          "clock_angle",
+          "complex",
+          "complex_vector",
+          "cos",
+          "dataclass",
+          "empty",
+          "float",
+          "getattr",
+          "hypot",
+          "int",
+          "isinstance",
+          "len",
+          "max",
+          "ndindex",
+          "product",
+          "quadratic_form",
+          "range",
+          "real_scalar",
+          "scale_complex",
+          "setflags",
+          "sin",
+          "total",
+          "tuple",
+          "z_chiral",
+          "zip"
+        ]
+      },
+      {
+        "name": "fresh_import_no_historical_production_or_geometry_modules",
+        "passed": true
+      },
+      {
+        "name": "actual_runner_diagnostic_inventory",
+        "passed": true
+      },
+      {
+        "name": "runner_diagnostics_do_not_change_omega_records",
+        "passed": true
+      },
+      {
+        "name": "diagnostics_sample_initial_then_each_new_state",
+        "passed": true,
+        "evidence": [
+          "chiral_area_accounting",
+          "intensity_budget",
+          "potential",
+          "readout_accounting",
+          "historical_alignment",
+          "step3",
+          "chiral_area_accounting",
+          "intensity_budget",
+          "potential",
+          "readout_accounting",
+          "historical_alignment"
+        ]
+      },
+      {
+        "name": "budget_from_each_stored_state",
+        "passed": true
+      },
+      {
+        "name": "requested_diagnostic_failure_aborts_run",
+        "passed": true,
+        "evidence": "ResponsePrecisionError: intentional diagnostic failure"
+      },
+      {
+        "name": "failure_returns_no_partial_record_and_preserves_inputs",
+        "passed": true
+      },
+      {
+        "name": "no_diagnostic_zero_update_can_succeed",
+        "passed": true
+      },
+      {
+        "name": "same_state_requested_diagnostic_fails",
+        "passed": true,
+        "evidence": "ResponsePrecisionError: square: nonzero result underflowed to zero"
+      }
+    ],
+    "INTEGRITY": [
+      {
+        "name": "current_valid_inventory_hashes",
+        "passed": true
+      },
+      {
+        "name": "current_unchanged",
+        "passed": true
+      },
+      {
+        "name": "old_valid_inventory_hashes",
+        "passed": true
+      },
+      {
+        "name": "old_unchanged",
+        "passed": true
+      },
+      {
+        "name": "torment_kernel_valid_inventory_hashes",
+        "passed": true
+      },
+      {
+        "name": "torment_kernel_unchanged",
+        "passed": true
+      },
+      {
+        "name": "torment_checkout_valid_inventory_hashes",
+        "passed": true
+      },
+      {
+        "name": "torment_checkout_unchanged",
+        "passed": true
+      },
+      {
+        "name": "git_heads_and_tracked_status_unchanged",
+        "passed": true
+      },
+      {
+        "name": "expected_current_head",
+        "passed": true
+      },
+      {
+        "name": "papers_A_F_file_bytes_unchanged",
+        "passed": true,
+        "evidence": {
+          "files": 5001
+        }
+      },
+      {
+        "name": "prior_external_Atlas01_to06_artifacts_unchanged",
+        "passed": true,
+        "evidence": {
+          "files": 16
+        }
+      },
+      {
+        "name": "bounded_source_registry_matches_inventories",
+        "passed": true
+      }
+    ]
+  },
+  "details": {
+    "triangle_bound_hypotheses": "u=|alpha| ||M||, v=|beta| ||C||; cosine between weighted nonzero vectors lies in [-1,1]; zero vectors by continuity.",
+    "direction_falsifier": "T+=eta e2, T-=-eta e2: displacement=2eta ->0, unit-direction separation=2.",
+    "potential_constant_scope": "Algebraic completed-square comparison; no distinct completed-square formula was located in the preserved Atlas 01-06 packets. Paper D (35) and Paper E (37) use the same expanded normalization.",
+    "overshoot": {
+      "omega": [
+        2,
+        2,
+        2
+      ],
+      "eps": 1,
+      "g": 0,
+      "k": [
+        1,
+        1,
+        1
+      ],
+      "phase_strength": 0,
+      "D": [
+        -6,
+        -6,
+        -6
+      ],
+      "pre_sync": [
+        -4,
+        -4,
+        -4
+      ],
+      "I_before": 12,
+      "I_after": 48,
+      "onsite": -72,
+      "coupling": 0,
+      "remainder": 108,
+      "delta_I": 36,
+      "V_before": 6,
+      "V_after": 168
+    },
+    "phase_witness": "Unit magnitudes; phases (0,pi/6,0), strength pi/6 -> (pi/6,-pi/6,pi/6). P:4-2sqrt(3)->2; Delta potential=g(sqrt(3)-1)>0 for g>0.",
+    "module_inventory": {
+      "functions": {
+        "quadratic_form": "(vector)",
+        "readout_accounting": "(readout, *, alpha, beta)",
+        "chiral_area_accounting": "(omega)",
+        "historical_alignment": "(macro, chiral, total_vector)",
+        "intensity_budget": "(omega, config)",
+        "potential": "(omega, config)",
+        "direct_history_coordinates": "(history, key='Z_total')",
+        "cylinder_point": "(kappa, q, z, *, N=12)",
+        "cylinder_history_coordinates": "(history, *, N=12)",
+        "history_torus_coordinates": "(history, *, R=2.0, r_max=1.0, N=12)"
+      },
+      "records": {
+        "ReadoutAccounting": [
+          "alpha",
+          "beta",
+          "variant",
+          "initialization",
+          "supplied_z",
+          "macro_norm_squared",
+          "chiral_norm_squared",
+          "total_norm_squared",
+          "weighted_macro",
+          "weighted_chiral",
+          "cross_term",
+          "predicted_norm_squared",
+          "norm_residual",
+          "blend_residual",
+          "q_macro",
+          "q_chiral",
+          "q_total",
+          "q_weighted_macro",
+          "q_weighted_chiral",
+          "q_cross_term",
+          "q_prediction",
+          "q_residual",
+          "macro_relation_residual"
+        ],
+        "ChiralAreaAccounting": [
+          "chiral",
+          "A",
+          "B",
+          "h",
+          "intensity",
+          "chiral_norm",
+          "chiral_norm_squared",
+          "gram_product",
+          "h_squared",
+          "gram_rhs",
+          "gram_residual",
+          "amplitude_bound",
+          "slack_sum_of_squares",
+          "observed_slack",
+          "slack_residual"
+        ],
+        "HistoricalAlignment": [
+          "d_TM",
+          "d_CM",
+          "d_TC",
+          "macro_resolved",
+          "chiral_resolved",
+          "total_resolved",
+          "TM_resolved",
+          "CM_resolved",
+          "TC_resolved",
+          "threshold"
+        ],
+        "IntensityBudget": [
+          "component_intensities",
+          "intensity_before",
+          "increment",
+          "diagnostic_pre_sync_prediction",
+          "intensity_pre_sync",
+          "pair_distance_sum",
+          "onsite",
+          "coupling",
+          "remainder",
+          "predicted_delta",
+          "observed_delta",
+          "residual"
+        ],
+        "Coordinates": [
+          "x",
+          "y",
+          "z"
+        ],
+        "HistoryTorus": [
+          "x",
+          "y",
+          "z",
+          "r",
+          "chi",
+          "z_max",
+          "H_z",
+          "regularizer",
+          "R",
+          "r_max",
+          "N",
+          "normalization"
+        ]
+      }
+    },
+    "phase_runtime": {
+      "potential_without_sync": 0.018051319221236553,
+      "potential_with_sync": 0.021878892334137083
+    },
+    "history_dependence": {
+      "before_xyz": [
+        1.7320508109697512,
+        1.0000000019634951,
+        0.5
+      ],
+      "after_xyz": [
+        2.159732404562741,
+        1.2469220851518559,
+        0.078217232481329
+      ],
+      "before_H": 0.200000001,
+      "after_H": 2.000000001,
+      "earlier_input": {
+        "kappa": 1,
+        "q": 1,
+        "z": 0.2
+      }
+    },
+    "call_boundary": "Diagnostics call validators/checked arithmetic, raw z_chiral, pure blend_vectors and clock_angle. DynamicsConfig/L3 are imported; no recurrence is called. Runtime instrumentation complements source inspection.",
+    "integrity": {
+      "status": "COMPARED",
+      "method": "Per-file SHA256; sorted compact JSON path/hash-map SHA256; all regular files including ignored/untracked except .git components; sequential scans, no timestamp/ACL/empty-directory/git-internal claim",
+      "trees": {
+        "current": {
+          "root": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+          "count": 7803,
+          "tree_sha256": "eb913f8b685be59b18ed9cbf1656b06e3d7dcb617b6579e3ec60fc27753dc1df",
+          "start_utc": "2026-09-29T11:01:36.904506+00:00",
+          "end_utc": "2026-09-29T11:01:45.157573+00:00",
+          "after_sha256": "eb913f8b685be59b18ed9cbf1656b06e3d7dcb617b6579e3ec60fc27753dc1df",
+          "after_count": 7803,
+          "after_start": "2026-09-29T11:15:16.059065+00:00",
+          "after_end": "2026-09-29T11:15:25.083597+00:00",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "old": {
+          "root": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO",
+          "count": 401,
+          "tree_sha256": "cec5e60047e01772dde3b8053949dca69c7124378bdca9ce68a7aee96962d2bd",
+          "start_utc": "2026-09-29T11:01:45.265147+00:00",
+          "end_utc": "2026-09-29T11:01:45.817437+00:00",
+          "after_sha256": "cec5e60047e01772dde3b8053949dca69c7124378bdca9ce68a7aee96962d2bd",
+          "after_count": 401,
+          "after_start": "2026-09-29T11:15:25.205538+00:00",
+          "after_end": "2026-09-29T11:15:25.852695+00:00",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "torment_kernel": {
+          "root": "C:\\TORMENT\\TORMENT_repo\\TORMENT-fabric_v2\\torment_fabric\\torment_service\\kernel",
+          "count": 64,
+          "tree_sha256": "8b11e5bb287212e51dfd8e80fe7a3e96f1c6757e34f3fcc02bdd5eece7f56b41",
+          "start_utc": "2026-09-29T11:01:45.817437+00:00",
+          "end_utc": "2026-09-29T11:01:45.875246+00:00",
+          "after_sha256": "8b11e5bb287212e51dfd8e80fe7a3e96f1c6757e34f3fcc02bdd5eece7f56b41",
+          "after_count": 64,
+          "after_start": "2026-09-29T11:15:25.852695+00:00",
+          "after_end": "2026-09-29T11:15:25.913411+00:00",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "torment_checkout": {
+          "root": "C:\\TORMENT\\TORMENT_repo\\TORMENT-fabric_v2\\torment_fabric",
+          "count": 173908,
+          "tree_sha256": "3a1a4b061dfbee500f065f053677013573b5f300c847e18c972accac5d512fc4",
+          "start_utc": "2026-09-29T11:01:45.875246+00:00",
+          "end_utc": "2026-09-29T11:06:31.965854+00:00",
+          "after_sha256": "3a1a4b061dfbee500f065f053677013573b5f300c847e18c972accac5d512fc4",
+          "after_count": 173908,
+          "after_start": "2026-09-29T11:15:25.913411+00:00",
+          "after_end": "2026-09-29T11:20:14.485655+00:00",
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "git_before": {
+        "current": {
+          "head": "34c21830e7e7c4b5f4a5a940d084c37feaf1f82c",
+          "tracked_status": ""
+        },
+        "torment_checkout": {
+          "head": "a06edcc5c9df5d3b56405085d9f2942b768dc203",
+          "tracked_status": ""
+        }
+      },
+      "git_after": {
+        "current": {
+          "head": "34c21830e7e7c4b5f4a5a940d084c37feaf1f82c",
+          "tracked_status": ""
+        },
+        "torment_checkout": {
+          "head": "a06edcc5c9df5d3b56405085d9f2942b768dc203",
+          "tracked_status": ""
+        }
+      },
+      "evidence_directory": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas07_20260929_917a4721ac",
+      "evidence_sha256": {
+        "before.json": "044c9aba18cf2e99e214ca7b22dfc8a2b4aa43bf476e7ecb3f76840db6981ea6",
+        "after.json": "d6180c02fb7eb0478f505485e6f233084570bbe141c53f786bc07469bce5be72",
+        "git_before.json": "89a684a2957d0734a810eeea16981657a708733bb07973fc2dff3b415193bb91",
+        "git_after.json": "89a684a2957d0734a810eeea16981657a708733bb07973fc2dff3b415193bb91",
+        "prior_artifacts_before.json": "a108812350a8604917cd8f8c4844fb26d5ccdbf78e10e860150d7f7692e280ea"
+      },
+      "prior_artifact_sha256": {
+        "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_01_CLOSEOUT_v0.1.md": "c4604b5311893850bdd2392c068e6e366085ce2c7be7a04537d18d6eea007c95",
+        "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_02_3_TO_12_COVERING_SOURCE_PACKET_v0.1.md": "5a401ec3e8442376055ae36d00b40b339e76ee6e346394d84529f3f0c10b4808",
+        "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_02_EXACT_CHECKS.py": "6be53b07eff99ca8ff38754d97837d0184c9b3062cc1091e6ee914e3e347a706",
+        "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_02_EXACT_RESULTS.json": "06fa4dbf12b02283e5912e2bc6469ba26ae43baa22529410806d989ca405177a",
+        "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_03_EXACT_CHECKS.py": "76929a2a0c58ae81eab3319d316be5876f4fb0e3bf771ccdbbceb752a762f275",
+        "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_03_EXACT_RESULTS.json": "6694ecf54262d847b5a1958311c7634adacaff687270e40bc9239016875ec241",
+        "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_03_FOLDED_GEOMETRY_SOURCE_PACKET_v0.1.md": "c2ee0ffe222828c73d5aae5def61fe876cacb8e31d470338391a40176d3022ad",
+        "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_04_EXACT_CHECKS.py": "08b172d07568c742aa5c3f179b4a07ffea243174a0318c5d2c256b0c65713e91",
+        "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_04_EXACT_RESULTS.json": "5ae102aaf2093c3a149191b591b6b5bb9e5dbe1e905a7a4c11b54eccb7fa6a89",
+        "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_04_FACE_STATE_CHIRALITY_SOURCE_PACKET_v0.1.md": "f9138ae3e0f0369b8adde82ef35314c6024437bbdd2dab45dd5e9cbe1dd82e8d",
+        "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_05_EXACT_CHECKS.py": "ef9fb48d598164c40e491595664f36d2ddda5c7c716d263417a5f771d2108f70",
+        "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_05_EXACT_RESULTS.json": "5d31ef5bafadd9c1f3e123903cbd1c8cb621ce946e22916825ff436c6e90726e",
+        "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_05_REFERENCE_SCAFFOLD_SOURCE_PACKET_v0.1.md": "4f0fe834a7517e0e99c0db1cb9972ab027af2d3d4ffcbb7bbf0e227d652fa49b",
+        "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_06_EXACT_CHECKS.py": "e7fb9b624a4c2656e35743f21b2e30e2c8fcbecd82dc25954a17af6c5ba463eb",
+        "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_06_EXACT_RESULTS.json": "c5aaa75318a54c75cfa562328270b91eb3632d481067aca3e34056199b5aba8c",
+        "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_06_Z_OBSERVER_SOURCE_PACKET_v0.1.md": "2aca9d099ca21005f87980108a55eb09b2f7a32e26898a3065ed3abd5bf2a5bf"
+      },
+      "papers_A_F_count": 5001,
+      "action_record": {
+        "COMMITS": 0,
+        "PUSHES": 0,
+        "ATLAS_07_PUBLISHED": "NO",
+        "scope": "Actions in this Atlas-07 execution, not inferred solely from content hashes"
+      }
+    },
+    "focused_tests": {
+      "receipt_path": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas07_20260929_917a4721ac\\pytest_receipt_retry1.json",
+      "sha256": "ff66d440fb2fb406bbc5918df62a0c1fd82d92da85e5d83758d8b61d6f31eb46",
+      "command": [
+        "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas07_20260929_917a4721ac\\pytest_temp_retry1",
+        "kernel_physics/tests/test_z_diagnostics.py",
+        "kernel_physics/tests/test_parity_p09_p10.py::P10Tests",
+        "kernel_physics/tests/test_parity_p09_p10.py::P9Tests::test_constructor_zero_and_bitwise_passivity",
+        "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_zero_updates_has_one_row_and_no_advancement",
+        "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_exact_schedule_new_omega_then_clock_then_ema_then_observe",
+        "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_observer_and_diagnostic_selection_cannot_change_trajectory",
+        "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_intensity_budget_is_from_each_stored_state",
+        "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_abort_on_numeric_failure_preserves_inputs",
+        "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_bad_requests_are_rejected_before_execution",
+        "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_diagnostic_numbers_are_not_recomputed_or_repaired_on_load"
+      ],
+      "cwd": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+      "selections": [
+        "kernel_physics/tests/test_z_diagnostics.py",
+        "kernel_physics/tests/test_parity_p09_p10.py::P10Tests",
+        "kernel_physics/tests/test_parity_p09_p10.py::P9Tests::test_constructor_zero_and_bitwise_passivity",
+        "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_zero_updates_has_one_row_and_no_advancement",
+        "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_exact_schedule_new_omega_then_clock_then_ema_then_observe",
+        "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_observer_and_diagnostic_selection_cannot_change_trajectory",
+        "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_intensity_budget_is_from_each_stored_state",
+        "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_abort_on_numeric_failure_preserves_inputs",
+        "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_bad_requests_are_rejected_before_execution",
+        "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_diagnostic_numbers_are_not_recomputed_or_repaired_on_load"
+      ],
+      "exclusions": "Only explicit node selections; all diagnostic tests, all P10 methods, one P9 passivity method, seven runner methods. No broad historical workflow, paper rebuild, or archive verifier.",
+      "returncode": 0,
+      "stdout": ".................................................           [100%]\n49 passed, 13 subtests passed in 7.82s\n",
+      "stderr": "Windows fatal exception: access violation\n\nThread 0x00010b08 (most recent call first):\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 1599 in _readerthread\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 982 in run\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1045 in _bootstrap_inner\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1002 in _bootstrap\n\nThread 0x0000cf94 (most recent call first):\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 1599 in _readerthread\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 982 in run\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1045 in _bootstrap_inner\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1002 in _bootstrap\n\nThread 0x00008f88 (most recent call first):\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1139 in _wait_for_tstate_lock\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1119 in join\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 1628 in _communicate\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 1209 in communicate\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 550 in run\n  File \"C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\tests\\test_z_diagnostics.py\", line 556 in test_runtime_import_and_call_boundary\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\unittest\\case.py\", line 579 in _callTestMethod\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\unittest\\case.py\", line 623 in run\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\unittest\\case.py\", line 678 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\unittest.py\", line 389 in runtest\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 179 in pytest_runtest_call\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_callers.py\", line 121 in _multicall\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_manager.py\", line 120 in _hookexec\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_hooks.py\", line 512 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 245 in <lambda>\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 353 in from_call\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 244 in call_and_report\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 137 in runtestprotocol\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 118 in pytest_runtest_protocol\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_callers.py\", line 121 in _multicall\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_manager.py\", line 120 in _hookexec\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_hooks.py\", line 512 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\main.py\", line 396 in pytest_runtestloop\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_callers.py\", line 121 in _multicall\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_manager.py\", line 120 in _hookexec\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_hooks.py\", line 512 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\main.py\", line 372 in _main\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\main.py\", line 318 in wrap_session\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\main.py\", line 365 in pytest_cmdline_main\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_callers.py\", line 121 in _multicall\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_manager.py\", line 120 in _hookexec\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_hooks.py\", line 512 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\config\\__init__.py\", line 199 in main\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\config\\__init__.py\", line 223 in console_main\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pytest\\__main__.py\", line 9 in <module>\n  File \"<frozen runpy>\", line 88 in _run_code\n  File \"<frozen runpy>\", line 198 in _run_module_as_main\nWindows fatal exception: access violation\n\nThread 0x00010b08 (most recent call first):\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 1599 in _readerthread\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 982 in run\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1045 in _bootstrap_inner\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1002 in _bootstrap\n\nThread 0x0000cf94 (most recent call first):\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 1599 in _readerthread\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 982 in run\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1045 in _bootstrap_inner\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1002 in _bootstrap\n\nThread 0x00008f88 (most recent call first):\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1139 in _wait_for_tstate_lock\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1119 in join\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 1628 in _communicate\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 1209 in communicate\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 550 in run\n  File \"C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\tests\\test_z_diagnostics.py\", line 556 in test_runtime_import_and_call_boundary\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\unittest\\case.py\", line 579 in _callTestMethod\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\unittest\\case.py\", line 623 in run\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\unittest\\case.py\", line 678 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\unittest.py\", line 389 in runtest\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 179 in pytest_runtest_call\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_callers.py\", line 121 in _multicall\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_manager.py\", line 120 in _hookexec\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_hooks.py\", line 512 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 245 in <lambda>\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 353 in from_call\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 244 in call_and_report\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 137 in runtestprotocol\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 118 in pytest_runtest_protocol\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_callers.py\", line 121 in _multicall\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_manager.py\", line 120 in _hookexec\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_hooks.py\", line 512 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\main.py\", line 396 in pytest_runtestloop\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_callers.py\", line 121 in _multicall\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_manager.py\", line 120 in _hookexec\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_hooks.py\", line 512 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\main.py\", line 372 in _main\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\main.py\", line 318 in wrap_session\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\main.py\", line 365 in pytest_cmdline_main\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_callers.py\", line 121 in _multicall\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_manager.py\", line 120 in _hookexec\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_hooks.py\", line 512 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\config\\__init__.py\", line 199 in main\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\config\\__init__.py\", line 223 in console_main\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pytest\\__main__.py\", line 9 in <module>\n  File \"<frozen runpy>\", line 88 in _run_code\n  File \"<frozen runpy>\", line 198 in _run_module_as_main\n"
+    },
+    "additional_test_attempts": [
+      {
+        "receipt_path": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas07_20260929_917a4721ac\\pytest_receipt.json",
+        "sha256": "c037cc5588a2367c2a206f0ba6611e5ba4c20adbc3b5b57f3b93f7fec598473a",
+        "command": [
+          "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "-m",
+          "pytest",
+          "-q",
+          "-p",
+          "no:cacheprovider",
+          "--basetemp",
+          "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas07_20260929_917a4721ac\\pytest_temp",
+          "kernel_physics/tests/test_z_diagnostics.py",
+          "kernel_physics/tests/test_parity_p09_p10.py::P10Tests",
+          "kernel_physics/tests/test_parity_p09_p10.py::P9Tests::test_constructor_zero_and_bitwise_passivity",
+          "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_zero_updates_has_one_row_and_no_advancement",
+          "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_exact_schedule_new_omega_then_clock_then_ema_then_observe",
+          "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_observer_and_diagnostic_selection_cannot_change_trajectory",
+          "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_intensity_budget_is_from_each_stored_state",
+          "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_abort_on_numeric_failure_preserves_inputs",
+          "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_bad_requests_are_rejected_before_execution",
+          "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_diagnostic_numbers_are_not_recomputed_or_repaired_on_load"
+        ],
+        "cwd": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+        "selections": [
+          "kernel_physics/tests/test_z_diagnostics.py",
+          "kernel_physics/tests/test_parity_p09_p10.py::P10Tests",
+          "kernel_physics/tests/test_parity_p09_p10.py::P9Tests::test_constructor_zero_and_bitwise_passivity",
+          "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_zero_updates_has_one_row_and_no_advancement",
+          "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_exact_schedule_new_omega_then_clock_then_ema_then_observe",
+          "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_observer_and_diagnostic_selection_cannot_change_trajectory",
+          "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_intensity_budget_is_from_each_stored_state",
+          "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_abort_on_numeric_failure_preserves_inputs",
+          "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_bad_requests_are_rejected_before_execution",
+          "kernel_physics/tests/test_runner_records.py::RunnerRecordTests::test_diagnostic_numbers_are_not_recomputed_or_repaired_on_load"
+        ],
+        "exclusions": "Only explicit node selections; all diagnostic tests, all P10 methods, one P9 passivity method, seven runner methods. No broad historical workflow, paper rebuild, or archive verifier.",
+        "returncode": 0,
+        "stdout": ".................................................           [100%]\n49 passed, 13 subtests passed in 8.11s\n",
+        "stderr": "Windows fatal exception: access violation\n\nThread 0x0000e558 (most recent call first):\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\sympy\\core\\function.py\", line 472 in _new_\nWindows fatal exception: access violation\n\nThread 0x0000e558 (most recent call first):\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\sympy\\core\\basic.py\", line 1935 in args\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\sympy\\core\\mul.py\", line 409 in as_real_imag\n  File ???, line 0 in Windows fatal exception: access violation\n\n"
+      },
+      {
+        "receipt_path": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas07_20260929_917a4721ac\\pytest_receipt_isolated.json",
+        "sha256": "f201a60011a650b08f9067f02e7716d393910a820ba9e47f7f5bc6e5d47bd1aa",
+        "command": [
+          "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "-m",
+          "pytest",
+          "-q",
+          "-s",
+          "-p",
+          "no:cacheprovider",
+          "--basetemp",
+          "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas07_20260929_917a4721ac\\pytest_isolated",
+          "kernel_physics/tests/test_z_diagnostics.py::ContractTests::test_runtime_import_and_call_boundary"
+        ],
+        "cwd": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+        "returncode": 0,
+        "stdout": ".\n1 passed in 1.42s\n",
+        "stderr": "Windows fatal exception: access violation\n\nThread 0x0000e7a8 (most recent call first):\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 1599 in _readerthread\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 982 in run\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1045 in _bootstrap_inner\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1002 in _bootstrap\n\nThread 0x0000759c (most recent call first):\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 1599 in _readerthread\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 982 in run\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1045 in _bootstrap_inner\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1002 in _bootstrap\n\nThread 0x00008bcc (most recent call first):\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1139 in _wait_for_tstate_lock\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1119 in join\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 1628 in _communicate\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 1209 in communicate\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 550 in run\n  File \"C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\tests\\test_z_diagnostics.py\", line 556 in test_runtime_import_and_call_boundary\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\unittest\\case.py\", line 579 in _callTestMethod\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\unittest\\case.py\", line 623 in run\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\unittest\\case.py\", line 678 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\unittest.py\", line 389 in runtest\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 179 in pytest_runtest_call\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_callers.py\", line 121 in _multicall\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_manager.py\", line 120 in _hookexec\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_hooks.py\", line 512 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 245 in <lambda>\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 353 in from_call\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 244 in call_and_report\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 137 in runtestprotocol\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 118 in pytest_runtest_protocol\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_callers.py\", line 121 in _multicall\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_manager.py\", line 120 in _hookexec\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_hooks.py\", line 512 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\main.py\", line 396 in pytest_runtestloop\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_callers.py\", line 121 in _multicall\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_manager.py\", line 120 in _hookexec\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_hooks.py\", line 512 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\main.py\", line 372 in _main\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\main.py\", line 318 in wrap_session\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\main.py\", line 365 in pytest_cmdline_main\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_callers.py\", line 121 in _multicall\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_manager.py\", line 120 in _hookexec\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_hooks.py\", line 512 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\config\\__init__.py\", line 199 in main\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\config\\__init__.py\", line 223 in console_main\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pytest\\__main__.py\", line 9 in <module>\n  File \"<frozen runpy>\", line 88 in _run_code\n  File \"<frozen runpy>\", line 198 in _run_module_as_main\nWindows fatal exception: access violation\n\nThread 0x0000e7a8 (most recent call first):\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 1599 in _readerthread\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 982 in run\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1045 in _bootstrap_inner\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1002 in _bootstrap\n\nThread 0x0000759c (most recent call first):\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 1599 in _readerthread\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 982 in run\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1045 in _bootstrap_inner\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1002 in _bootstrap\n\nThread 0x00008bcc (most recent call first):\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1139 in _wait_for_tstate_lock\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\threading.py\", line 1119 in join\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 1628 in _communicate\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 1209 in communicate\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\subprocess.py\", line 550 in run\n  File \"C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\tests\\test_z_diagnostics.py\", line 556 in test_runtime_import_and_call_boundary\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\unittest\\case.py\", line 579 in _callTestMethod\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\unittest\\case.py\", line 623 in run\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\unittest\\case.py\", line 678 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\unittest.py\", line 389 in runtest\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 179 in pytest_runtest_call\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_callers.py\", line 121 in _multicall\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_manager.py\", line 120 in _hookexec\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_hooks.py\", line 512 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 245 in <lambda>\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 353 in from_call\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 244 in call_and_report\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 137 in runtestprotocol\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\runner.py\", line 118 in pytest_runtest_protocol\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_callers.py\", line 121 in _multicall\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_manager.py\", line 120 in _hookexec\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_hooks.py\", line 512 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\main.py\", line 396 in pytest_runtestloop\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_callers.py\", line 121 in _multicall\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_manager.py\", line 120 in _hookexec\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_hooks.py\", line 512 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\main.py\", line 372 in _main\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\main.py\", line 318 in wrap_session\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\main.py\", line 365 in pytest_cmdline_main\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_callers.py\", line 121 in _multicall\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_manager.py\", line 120 in _hookexec\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pluggy\\_hooks.py\", line 512 in __call__\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\config\\__init__.py\", line 199 in main\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\_pytest\\config\\__init__.py\", line 223 in console_main\n  File \"C:\\Users\\Notandi\\miniconda3\\envs\\torment\\Lib\\site-packages\\pytest\\__main__.py\", line 9 in <module>\n  File \"<frozen runpy>\", line 88 in _run_code\n  File \"<frozen runpy>\", line 198 in _run_module_as_main\n",
+        "scope": "Single directly relevant test isolated after repeated Windows stderr reports"
+      }
+    ],
+    "unresolved_runtime_caveat": "Pytest reported passing assertions and zero exit status, but stderr reported Windows fatal exception/access violation. Receipts are retained; no clean-runtime certification or root-cause attribution is made."
+  },
+  "reproducibility": {
+    "output": "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_07_EXACT_RESULTS.json",
+    "scratch": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas07_20260929_917a4721ac",
+    "overwrite_policy": "exclusive-create; no overwrite option",
+    "source_location_independent": true,
+    "integrity_evidence_optional": true
+  },
+  "required_closeout": {
+    "CURRENT_REPO_CHANGED": "NO",
+    "OLD_KERNEL_CHANGED": "NO",
+    "TORMENT_CHANGED": "NO",
+    "PAPERS_A_F_CHANGED": "NO",
+    "COMMITS": 0,
+    "PUSHES": 0,
+    "ATLAS_07_PUBLISHED": "NO"
+  }
+}
