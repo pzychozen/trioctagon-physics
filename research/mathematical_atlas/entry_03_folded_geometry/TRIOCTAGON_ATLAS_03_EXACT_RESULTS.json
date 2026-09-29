@@ -1,0 +1,3182 @@
+{
+  "atlas": "03",
+  "version": "0.1",
+  "generated_utc": "2026-09-29T06:20:48.371307+00:00",
+  "python": "3.11.15",
+  "sympy": "1.14.0",
+  "interpreter": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+  "frozen_baseline": "0fa3b582c086e51371e8a784bc3dd145f88cfb2b",
+  "script_path": "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_03_EXACT_CHECKS.py",
+  "script_sha256": "76929a2a0c58ae81eab3319d316be5876f4fb0e3bf771ccdbbceb752a762f275",
+  "summary": {
+    "total": 84,
+    "passed": 84,
+    "failed": 0,
+    "by_group": {
+      "API_PARITY": {
+        "total": 7,
+        "passed": 7
+      },
+      "EXACT_MATH": {
+        "total": 59,
+        "passed": 59
+      },
+      "FALSIFIER": {
+        "total": 8,
+        "passed": 8
+      },
+      "INTEGRITY": {
+        "total": 6,
+        "passed": 6
+      },
+      "INTERFACE_GEOMETRY": {
+        "total": 1,
+        "passed": 1
+      },
+      "SOURCE_BOUNDARY": {
+        "total": 3,
+        "passed": 3
+      }
+    }
+  },
+  "checks": [
+    {
+      "group": "EXACT_MATH",
+      "name": "octagon_support_intersections_match_material_order",
+      "passed": true,
+      "evidence": [
+        [
+          "-1/2",
+          "1/2 - sqrt(2)/2"
+        ],
+        [
+          "1/2 - sqrt(2)/2",
+          "-1/2"
+        ],
+        [
+          "-1/2 + sqrt(2)/2",
+          "-1/2"
+        ],
+        [
+          "1/2",
+          "1/2 - sqrt(2)/2"
+        ],
+        [
+          "1/2",
+          "-1/2 + sqrt(2)/2"
+        ],
+        [
+          "-1/2 + sqrt(2)/2",
+          "1/2"
+        ],
+        [
+          "1/2 - sqrt(2)/2",
+          "1/2"
+        ],
+        [
+          "-1/2",
+          "-1/2 + sqrt(2)/2"
+        ]
+      ]
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "octagon_convex_eight_distinct_support_vertices",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "octagon_rotation_transitive_regular",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "octagon_edges_and_interior_angles",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "octagon_apothem_circumradius_and_width",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "octagon_all_four_chord_classes",
+      "passed": true,
+      "evidence": [
+        "(-1 + sqrt(2))**2",
+        "2 - sqrt(2)",
+        "1",
+        "4 - 2*sqrt(2)"
+      ]
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "octagon_centroid_and_area",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "octagon_eight_reflection_axes",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "general_maps_from_hinge_rotations",
+      "passed": true,
+      "evidence": [
+        [
+          "(1/2 - u)*cos(beta) - 1/2",
+          "(1/2 - u)*sin(beta)",
+          "z"
+        ],
+        [
+          "u",
+          "0",
+          "z"
+        ],
+        [
+          "(-u - 1/2)*cos(beta) + 1/2",
+          "-(-u - 1/2)*sin(beta)",
+          "z"
+        ]
+      ]
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "all_real_beta_panel_isometries",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "fixed_two_hinges_for_all_real_beta",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "free_edges_identical_y_z_and_exact_x_gap",
+      "passed": true,
+      "evidence": [
+        "1 - 2*cos(beta)",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "restricted_closure_unique_pi_over_3",
+      "passed": true,
+      "evidence": "{pi/3}"
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "general_normal_relations",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "general_beta_vertical_and_horizontal_set_symmetries",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "welded_coordinates_match_paper_C_table",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "outward_face_cycles_match_paper_C",
+      "passed": true,
+      "evidence": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          3,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          4
+        ],
+        [
+          10,
+          14,
+          15,
+          0,
+          7,
+          16,
+          17,
+          11
+        ]
+      ]
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "six_pair_merges_no_triple",
+      "passed": true,
+      "evidence": {
+        "0": [
+          "P1:v0",
+          "P3:v3"
+        ],
+        "1": [
+          "P1:v1"
+        ],
+        "2": [
+          "P1:v2"
+        ],
+        "3": [
+          "P1:v3",
+          "P2:v0"
+        ],
+        "4": [
+          "P1:v4",
+          "P2:v7"
+        ],
+        "5": [
+          "P1:v5"
+        ],
+        "6": [
+          "P1:v6"
+        ],
+        "7": [
+          "P1:v7",
+          "P3:v4"
+        ],
+        "8": [
+          "P2:v1"
+        ],
+        "9": [
+          "P2:v2"
+        ],
+        "10": [
+          "P2:v3",
+          "P3:v0"
+        ],
+        "11": [
+          "P2:v4",
+          "P3:v7"
+        ],
+        "12": [
+          "P2:v5"
+        ],
+        "13": [
+          "P2:v6"
+        ],
+        "14": [
+          "P3:v1"
+        ],
+        "15": [
+          "P3:v2"
+        ],
+        "16": [
+          "P3:v5"
+        ],
+        "17": [
+          "P3:v6"
+        ]
+      }
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "edge_incidence_21_with_3_seams_18_boundary",
+      "passed": true,
+      "evidence": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          13
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          16
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          10,
+          14
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          11,
+          17
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          16,
+          17
+        ]
+      ]
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "all_mesh_edges_length_s",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "coherent_face_orientation",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "one_skeleton_and_panel_graph_connected",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "all_18_vertex_links_intervals",
+      "passed": true,
+      "evidence": {
+        "0": {
+          "edges": [
+            [
+              7,
+              1
+            ],
+            [
+              15,
+              7
+            ]
+          ],
+          "degrees": [
+            1,
+            1,
+            2
+          ],
+          "connected": true
+        },
+        "1": {
+          "edges": [
+            [
+              0,
+              2
+            ]
+          ],
+          "degrees": [
+            1,
+            1
+          ],
+          "connected": true
+        },
+        "2": {
+          "edges": [
+            [
+              1,
+              3
+            ]
+          ],
+          "degrees": [
+            1,
+            1
+          ],
+          "connected": true
+        },
+        "3": {
+          "edges": [
+            [
+              2,
+              4
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "degrees": [
+            1,
+            1,
+            2
+          ],
+          "connected": true
+        },
+        "4": {
+          "edges": [
+            [
+              3,
+              5
+            ],
+            [
+              13,
+              3
+            ]
+          ],
+          "degrees": [
+            1,
+            1,
+            2
+          ],
+          "connected": true
+        },
+        "5": {
+          "edges": [
+            [
+              4,
+              6
+            ]
+          ],
+          "degrees": [
+            1,
+            1
+          ],
+          "connected": true
+        },
+        "6": {
+          "edges": [
+            [
+              5,
+              7
+            ]
+          ],
+          "degrees": [
+            1,
+            1
+          ],
+          "connected": true
+        },
+        "7": {
+          "edges": [
+            [
+              6,
+              0
+            ],
+            [
+              0,
+              16
+            ]
+          ],
+          "degrees": [
+            1,
+            1,
+            2
+          ],
+          "connected": true
+        },
+        "8": {
+          "edges": [
+            [
+              3,
+              9
+            ]
+          ],
+          "degrees": [
+            1,
+            1
+          ],
+          "connected": true
+        },
+        "9": {
+          "edges": [
+            [
+              8,
+              10
+            ]
+          ],
+          "degrees": [
+            1,
+            1
+          ],
+          "connected": true
+        },
+        "10": {
+          "edges": [
+            [
+              9,
+              11
+            ],
+            [
+              11,
+              14
+            ]
+          ],
+          "degrees": [
+            1,
+            1,
+            2
+          ],
+          "connected": true
+        },
+        "11": {
+          "edges": [
+            [
+              10,
+              12
+            ],
+            [
+              17,
+              10
+            ]
+          ],
+          "degrees": [
+            1,
+            1,
+            2
+          ],
+          "connected": true
+        },
+        "12": {
+          "edges": [
+            [
+              11,
+              13
+            ]
+          ],
+          "degrees": [
+            1,
+            1
+          ],
+          "connected": true
+        },
+        "13": {
+          "edges": [
+            [
+              12,
+              4
+            ]
+          ],
+          "degrees": [
+            1,
+            1
+          ],
+          "connected": true
+        },
+        "14": {
+          "edges": [
+            [
+              10,
+              15
+            ]
+          ],
+          "degrees": [
+            1,
+            1
+          ],
+          "connected": true
+        },
+        "15": {
+          "edges": [
+            [
+              14,
+              0
+            ]
+          ],
+          "degrees": [
+            1,
+            1
+          ],
+          "connected": true
+        },
+        "16": {
+          "edges": [
+            [
+              7,
+              17
+            ]
+          ],
+          "degrees": [
+            1,
+            1
+          ],
+          "connected": true
+        },
+        "17": {
+          "edges": [
+            [
+              16,
+              11
+            ]
+          ],
+          "degrees": [
+            1,
+            1
+          ],
+          "connected": true
+        }
+      }
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "two_degree_two_nine_edge_rims",
+      "passed": true,
+      "evidence": [
+        [
+          0,
+          1,
+          2,
+          3,
+          8,
+          9,
+          10,
+          14,
+          15
+        ],
+        [
+          4,
+          5,
+          6,
+          7,
+          16,
+          17,
+          11,
+          12,
+          13
+        ]
+      ]
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "rim_sign_separation_and_induced_orientation",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "euler_and_conditional_genus_arithmetic",
+      "passed": true,
+      "evidence": {
+        "V": 18,
+        "E": 21,
+        "F": 3,
+        "chi": 0,
+        "b": 2,
+        "g_given_surface_hypotheses": 0
+      }
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "normals_derived_from_oriented_faces",
+      "passed": true,
+      "evidence": [
+        [
+          "-sqrt(3)/2",
+          "1/2",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "sqrt(3)/2",
+          "1/2",
+          "0"
+        ]
+      ]
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "normals_unit_pair_120_sum_zero_rank_two",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "normal_cyclic_cross_handedness",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "centres_outward_plane_offsets",
+      "passed": true,
+      "evidence": [
+        [
+          "-1/4",
+          "sqrt(3)/4",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1/4",
+          "sqrt(3)/4",
+          "0"
+        ]
+      ]
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "three_support_halfspaces_and_only_seam_equalities",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "pair_plane_intersections_are_vertical_seam_lines",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "surface_vertex_and_area_centroids",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "ambient_panel_centre_distances",
+      "passed": true,
+      "evidence": [
+        "1/2",
+        "1/2",
+        "1/2"
+      ]
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "panel_and_total_material_areas",
+      "passed": true,
+      "evidence": [
+        "-2 + 2*sqrt(2)",
+        "-2 + 2*sqrt(2)",
+        "-2 + 2*sqrt(2)"
+      ]
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "material_unique_seam_boundary_lengths",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "ambient_bounding_box",
+      "passed": true,
+      "evidence": [
+        [
+          "-1/2",
+          "1/2"
+        ],
+        [
+          "0",
+          "sqrt(3)/2"
+        ],
+        [
+          "-1/2",
+          "1/2"
+        ]
+      ]
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "twelve_chamfer_edges_45_degrees",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "three_angle_conventions",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "section_all_three_segments_corners",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "enclosed_triangle_area_altitude_radii",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "FALSIFIER",
+      "name": "central_centroid_not_on_shell_or_cap",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "central_and_chamfer_width_formula_join",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "notch_0_spatial_projected_angles_areas_plane",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "notch_3_spatial_projected_angles_areas_plane",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "notch_4_spatial_projected_angles_areas_plane",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "notch_7_spatial_projected_angles_areas_plane",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "notch_10_spatial_projected_angles_areas_plane",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "notch_11_spatial_projected_angles_areas_plane",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "rim_hexagon_alternating_sides_equiangular",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "hexagon_and_projected_notch_partition",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "rim_projection_side_partition_and_lengths",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "FALSIFIER",
+      "name": "rims_nonplanar_and_hexagon_not_regular",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "generator_R_face_edge_seam_rim_orientation",
+      "passed": true,
+      "evidence": {
+        "vertices": [
+          3,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          4,
+          14,
+          15,
+          0,
+          7,
+          16,
+          17,
+          1,
+          2,
+          5,
+          6
+        ],
+        "faces_1based": [
+          2,
+          3,
+          1
+        ],
+        "seams_sorted_0based": [
+          1,
+          2,
+          0
+        ],
+        "rims_0based": [
+          0,
+          1
+        ],
+        "face_orientation": [
+          1,
+          1,
+          1
+        ],
+        "rim_orientation": [
+          1,
+          1
+        ],
+        "determinant": "1"
+      }
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "generator_V_face_edge_seam_rim_orientation",
+      "passed": true,
+      "evidence": {
+        "vertices": [
+          0,
+          15,
+          14,
+          10,
+          11,
+          17,
+          16,
+          7,
+          9,
+          8,
+          3,
+          4,
+          13,
+          12,
+          2,
+          1,
+          6,
+          5
+        ],
+        "faces_1based": [
+          3,
+          2,
+          1
+        ],
+        "seams_sorted_0based": [
+          0,
+          2,
+          1
+        ],
+        "rims_0based": [
+          0,
+          1
+        ],
+        "face_orientation": [
+          -1,
+          -1,
+          -1
+        ],
+        "rim_orientation": [
+          -1,
+          -1
+        ],
+        "determinant": "-1"
+      }
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "generator_H_face_edge_seam_rim_orientation",
+      "passed": true,
+      "evidence": {
+        "vertices": [
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0,
+          13,
+          12,
+          11,
+          10,
+          9,
+          8,
+          17,
+          16,
+          15,
+          14
+        ],
+        "faces_1based": [
+          1,
+          2,
+          3
+        ],
+        "seams_sorted_0based": [
+          0,
+          1,
+          2
+        ],
+        "rims_0based": [
+          1,
+          0
+        ],
+        "face_orientation": [
+          -1,
+          -1,
+          -1
+        ],
+        "rim_orientation": [
+          -1,
+          -1
+        ],
+        "determinant": "-1"
+      }
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "D3h_generator_relations",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "twelve_distinct_group_elements_closed_under_composition",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "six_proper_six_improper_actions",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "vertex_covariance_vertical_axis_distinct",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_MATH",
+      "name": "seams_parallel_equal_midpoint_triangle",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "FALSIFIER",
+      "name": "whole_shell_not_30_or_45_degree_rotation_symmetric",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "FALSIFIER",
+      "name": "not_24_distinct_vertices_and_not_closed_torus",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "FALSIFIER",
+      "name": "three_normals_not_orthogonal_3D_basis",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "FALSIFIER",
+      "name": "nonclosing_pi_over_2_has_different_combinatorics",
+      "passed": true,
+      "evidence": {
+        "angle": "pi/2",
+        "V": 20,
+        "E": 22,
+        "F": 3,
+        "b": 1
+      }
+    },
+    {
+      "group": "FALSIFIER",
+      "name": "beta_zero_panels_overlap",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "FALSIFIER",
+      "name": "negative_closing_branch_material_normals_are_inward",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "INTERFACE_GEOMETRY",
+      "name": "Paper_B_tangent_frames_from_geometry_only",
+      "passed": true,
+      "evidence": {
+        "centres": [
+          [
+            "-1/4",
+            "sqrt(3)/4",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "1/4",
+            "sqrt(3)/4",
+            "0"
+          ]
+        ],
+        "normals": [
+          [
+            "-sqrt(3)/2",
+            "1/2",
+            "0"
+          ],
+          [
+            "0",
+            "-1",
+            "0"
+          ],
+          [
+            "sqrt(3)/2",
+            "1/2",
+            "0"
+          ]
+        ],
+        "vertical": [
+          "0",
+          "0",
+          "1"
+        ],
+        "tangents": [
+          [
+            "-1/2",
+            "-sqrt(3)/2",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "-1/2",
+            "sqrt(3)/2",
+            "0"
+          ]
+        ]
+      }
+    },
+    {
+      "group": "API_PARITY",
+      "name": "geometry_api_welded_vertices_faces",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_PARITY",
+      "name": "geometry_api_edges_seams_rims_euler",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_PARITY",
+      "name": "geometry_api_general_maps",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_PARITY",
+      "name": "geometry_api_normals_and_dihedrals",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_PARITY",
+      "name": "geometry_api_symmetry_generators",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_PARITY",
+      "name": "geometry_api_central_sections",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_PARITY",
+      "name": "geometry_api_rejects_outside_nonreal_undecidable_sections",
+      "passed": true,
+      "evidence": [
+        "1/2",
+        "I",
+        "undecided"
+      ]
+    },
+    {
+      "group": "SOURCE_BOUNDARY",
+      "name": "direct_imports_do_not_couple_geometry_and_dynamics",
+      "passed": true,
+      "evidence": {
+        "geometry_imports": [
+          "collections",
+          "Counter",
+          "dataclasses",
+          "dataclass",
+          "sympy"
+        ],
+        "dynamics_imports": [
+          "dataclasses",
+          "dataclass",
+          "math",
+          "isfinite",
+          "numpy"
+        ],
+        "scope": "Direct imports only; not a theorem about all repository call paths. See packet boundary analysis."
+      }
+    },
+    {
+      "group": "SOURCE_BOUNDARY",
+      "name": "geometry_public_signatures_have_no_Omega_argument",
+      "passed": true,
+      "evidence": "Static API observation, not a physical inference; Paper B supplies a separate optional representation."
+    },
+    {
+      "group": "SOURCE_BOUNDARY",
+      "name": "all_consulted_sources_unchanged_during_checks",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "INTEGRITY",
+      "name": "current_fingerprint_unchanged",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "INTEGRITY",
+      "name": "old_fingerprint_unchanged",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "INTEGRITY",
+      "name": "torment_kernel_fingerprint_unchanged",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "INTEGRITY",
+      "name": "torment_checkout_fingerprint_unchanged",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "INTEGRITY",
+      "name": "current_HEAD_and_tracked_status",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "INTEGRITY",
+      "name": "torment_checkout_HEAD_and_tracked_status",
+      "passed": true,
+      "evidence": null
+    }
+  ],
+  "sources": {
+    "C_CODE": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\geometry.py",
+      "sha256": "18398bd15b12c2dc1711c3ea2769f50215f2bcad5335ced9ee23e4e6baf1ddbf"
+    },
+    "C_PAPER": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_C\\publication\\v1.0.1\\PAPER_C_EXACT_TRIOCTAGON_GEOMETRY_PUBLICATION_v1.0.1.md",
+      "sha256": "5a0cbdae4aaf689cfe1f5b29305960e90c88e26d0db28834802ef70fc16549fb"
+    },
+    "C_TESTS": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\tests\\test_geometry.py",
+      "sha256": "7f85feaa93466c79858904131400e1903142f606ffb8976c9f32c77355964f6c"
+    },
+    "C_ORACLE": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\tests\\parity_oracles\\geometry_oracle.py",
+      "sha256": "bcd004a2b98a650c419212103353a550206288f18b8795f4fdba18ea29c736bd"
+    },
+    "C_SYMBOLS": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_C\\PAPER_C_SYMBOLS_AND_IDENTITIES_v0.2.md",
+      "sha256": "2c22fd11af1114115c5e795b40bc0730d9049646a57a615bad5d75bddca86290"
+    },
+    "C_AUDIT": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_C\\PAPER_C_PROOF_AUDIT_v0.2.2.md",
+      "sha256": "89c454ae67aebf3a3b415c51655e5476299882b43c9d76fe6726ada16588018a"
+    },
+    "C_SPEC": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\research_files\\reconstruction\\TRIOCTAGON_ACTUAL_GEOMETRY_SPEC_v0.2.md",
+      "sha256": "4578873c8a56b318487b7dc237444d3d8ecdd2c5d0f2d0c74b9a4906f987fe4b"
+    },
+    "B_CODE": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\face_state.py",
+      "sha256": "be9d1e25a6f368e644ecfa9b1af70ba9382599e8b4d43d529d1783004d86ded7"
+    },
+    "B_PAPER": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_B\\publication\\v0.1.2\\PAPER_B_TRIADIC_CHIRALITY_AND_ORIENTATION_GEOMETRY_PUBLICATION_v0.1.2.md",
+      "sha256": "fb4575120470e8d7143ebc1f475ee4635caf9f39f21f88308960308fb259e150"
+    },
+    "DYNAMICS": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\dynamics.py",
+      "sha256": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4"
+    },
+    "OLD_3D": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO\\geometry_3d.py",
+      "sha256": "b6803b3a02f5240a5cb00a3dbc9cf403c2e762de713146aa3848996738772400"
+    },
+    "OLD_EMBEDDINGS": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO\\geometry_embeddings.py",
+      "sha256": "5e5a12d0b352fe353aea84d47b598c4288d9d679ee8d83003c25e210a0ec4c4e"
+    },
+    "OLD_TETRA": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO\\dual_tetra_mapper.py",
+      "sha256": "14845223bbfa0c0f17df2781ee4a0ebba9befeee5f374bb01a4647242dbedf9f"
+    },
+    "OLD_CURVES": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO\\analysis_tools.py",
+      "sha256": "3be6de46c7060b6e797bc6801de002c5b59374957a3ef1a9fd37d51b11b20106"
+    }
+  },
+  "integrity": {
+    "status": "ATTACHED",
+    "scopes": {
+      "current": {
+        "root": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+        "before_count": 7783,
+        "after_count": 7783,
+        "before_sha256": "c290755b50b607b9e699bec5d0ca2ff9821def3aece8ee3b2513cad43b1cd880",
+        "after_sha256": "c290755b50b607b9e699bec5d0ca2ff9821def3aece8ee3b2513cad43b1cd880",
+        "before_start": "2026-09-29T05:53:30.368064+00:00",
+        "before_end": "2026-09-29T05:53:36.064279+00:00",
+        "after_start": "2026-09-29T06:17:52.836271+00:00",
+        "after_end": "2026-09-29T06:17:57.238945+00:00",
+        "changed_paths": [],
+        "git_head_after": "0fa3b582c086e51371e8a784bc3dd145f88cfb2b",
+        "git_tracked_status_after": ""
+      },
+      "old": {
+        "root": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO",
+        "before_count": 401,
+        "after_count": 401,
+        "before_sha256": "cec5e60047e01772dde3b8053949dca69c7124378bdca9ce68a7aee96962d2bd",
+        "after_sha256": "cec5e60047e01772dde3b8053949dca69c7124378bdca9ce68a7aee96962d2bd",
+        "before_start": "2026-09-29T05:53:36.068292+00:00",
+        "before_end": "2026-09-29T05:53:36.444510+00:00",
+        "after_start": "2026-09-29T06:17:57.245105+00:00",
+        "after_end": "2026-09-29T06:17:57.532025+00:00",
+        "changed_paths": []
+      },
+      "torment_kernel": {
+        "root": "C:\\TORMENT\\TORMENT_repo\\TORMENT-fabric_v2\\torment_fabric\\torment_service\\kernel",
+        "before_count": 64,
+        "after_count": 64,
+        "before_sha256": "8b11e5bb287212e51dfd8e80fe7a3e96f1c6757e34f3fcc02bdd5eece7f56b41",
+        "after_sha256": "8b11e5bb287212e51dfd8e80fe7a3e96f1c6757e34f3fcc02bdd5eece7f56b41",
+        "before_start": "2026-09-29T05:53:36.448024+00:00",
+        "before_end": "2026-09-29T05:53:36.479804+00:00",
+        "after_start": "2026-09-29T06:17:57.535897+00:00",
+        "after_end": "2026-09-29T06:17:57.561966+00:00",
+        "changed_paths": []
+      },
+      "torment_checkout": {
+        "root": "C:\\TORMENT\\TORMENT_repo\\TORMENT-fabric_v2\\torment_fabric",
+        "before_count": 173908,
+        "after_count": 173908,
+        "before_sha256": "3a1a4b061dfbee500f065f053677013573b5f300c847e18c972accac5d512fc4",
+        "after_sha256": "3a1a4b061dfbee500f065f053677013573b5f300c847e18c972accac5d512fc4",
+        "before_start": "2026-09-29T05:53:36.484318+00:00",
+        "before_end": "2026-09-29T05:55:39.859475+00:00",
+        "after_start": "2026-09-29T06:17:57.566051+00:00",
+        "after_end": "2026-09-29T06:20:01.556138+00:00",
+        "changed_paths": [],
+        "git_head_after": "a06edcc5c9df5d3b56405085d9f2942b768dc203",
+        "git_tracked_status_after": ""
+      }
+    },
+    "snapshot_paths": {
+      "before": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas03_20260929_528qdnad\\before.json",
+      "after": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas03_20260929_528qdnad\\after.json"
+    },
+    "snapshot_sha256": {
+      "before": "5dbc5744a4f951aeb1bce49c3068a6fa0e487f9484f9562a11a01acc0b752473",
+      "after": "bba0e79f5394841055c870c95b8d7813c5d3753541964b15ff6cd0c19fff0c27"
+    },
+    "excluded": ".git administrative contents; timestamps, ACLs and empty directories are not fingerprinted"
+  },
+  "mesh": {
+    "vertices": [
+      {
+        "index": 0,
+        "xyz": [
+          "0",
+          "sqrt(3)/2",
+          "1/2 - sqrt(2)/2"
+        ],
+        "material_aliases": [
+          "P1:v0",
+          "P3:v3"
+        ]
+      },
+      {
+        "index": 1,
+        "xyz": [
+          "-1/2 + sqrt(2)/4",
+          "sqrt(6)/4",
+          "-1/2"
+        ],
+        "material_aliases": [
+          "P1:v1"
+        ]
+      },
+      {
+        "index": 2,
+        "xyz": [
+          "-sqrt(2)/4",
+          "-sqrt(6)/4 + sqrt(3)/2",
+          "-1/2"
+        ],
+        "material_aliases": [
+          "P1:v2"
+        ]
+      },
+      {
+        "index": 3,
+        "xyz": [
+          "-1/2",
+          "0",
+          "1/2 - sqrt(2)/2"
+        ],
+        "material_aliases": [
+          "P1:v3",
+          "P2:v0"
+        ]
+      },
+      {
+        "index": 4,
+        "xyz": [
+          "-1/2",
+          "0",
+          "-1/2 + sqrt(2)/2"
+        ],
+        "material_aliases": [
+          "P1:v4",
+          "P2:v7"
+        ]
+      },
+      {
+        "index": 5,
+        "xyz": [
+          "-sqrt(2)/4",
+          "-sqrt(6)/4 + sqrt(3)/2",
+          "1/2"
+        ],
+        "material_aliases": [
+          "P1:v5"
+        ]
+      },
+      {
+        "index": 6,
+        "xyz": [
+          "-1/2 + sqrt(2)/4",
+          "sqrt(6)/4",
+          "1/2"
+        ],
+        "material_aliases": [
+          "P1:v6"
+        ]
+      },
+      {
+        "index": 7,
+        "xyz": [
+          "0",
+          "sqrt(3)/2",
+          "-1/2 + sqrt(2)/2"
+        ],
+        "material_aliases": [
+          "P1:v7",
+          "P3:v4"
+        ]
+      },
+      {
+        "index": 8,
+        "xyz": [
+          "1/2 - sqrt(2)/2",
+          "0",
+          "-1/2"
+        ],
+        "material_aliases": [
+          "P2:v1"
+        ]
+      },
+      {
+        "index": 9,
+        "xyz": [
+          "-1/2 + sqrt(2)/2",
+          "0",
+          "-1/2"
+        ],
+        "material_aliases": [
+          "P2:v2"
+        ]
+      },
+      {
+        "index": 10,
+        "xyz": [
+          "1/2",
+          "0",
+          "1/2 - sqrt(2)/2"
+        ],
+        "material_aliases": [
+          "P2:v3",
+          "P3:v0"
+        ]
+      },
+      {
+        "index": 11,
+        "xyz": [
+          "1/2",
+          "0",
+          "-1/2 + sqrt(2)/2"
+        ],
+        "material_aliases": [
+          "P2:v4",
+          "P3:v7"
+        ]
+      },
+      {
+        "index": 12,
+        "xyz": [
+          "-1/2 + sqrt(2)/2",
+          "0",
+          "1/2"
+        ],
+        "material_aliases": [
+          "P2:v5"
+        ]
+      },
+      {
+        "index": 13,
+        "xyz": [
+          "1/2 - sqrt(2)/2",
+          "0",
+          "1/2"
+        ],
+        "material_aliases": [
+          "P2:v6"
+        ]
+      },
+      {
+        "index": 14,
+        "xyz": [
+          "sqrt(2)/4",
+          "-sqrt(6)/4 + sqrt(3)/2",
+          "-1/2"
+        ],
+        "material_aliases": [
+          "P3:v1"
+        ]
+      },
+      {
+        "index": 15,
+        "xyz": [
+          "1/2 - sqrt(2)/4",
+          "sqrt(6)/4",
+          "-1/2"
+        ],
+        "material_aliases": [
+          "P3:v2"
+        ]
+      },
+      {
+        "index": 16,
+        "xyz": [
+          "1/2 - sqrt(2)/4",
+          "sqrt(6)/4",
+          "1/2"
+        ],
+        "material_aliases": [
+          "P3:v5"
+        ]
+      },
+      {
+        "index": 17,
+        "xyz": [
+          "sqrt(2)/4",
+          "-sqrt(6)/4 + sqrt(3)/2",
+          "1/2"
+        ],
+        "material_aliases": [
+          "P3:v6"
+        ]
+      }
+    ],
+    "faces": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        3,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        4
+      ],
+      [
+        10,
+        14,
+        15,
+        0,
+        7,
+        16,
+        17,
+        11
+      ]
+    ],
+    "edges": [
+      {
+        "edge": [
+          0,
+          1
+        ],
+        "incidence": 1
+      },
+      {
+        "edge": [
+          0,
+          7
+        ],
+        "incidence": 2
+      },
+      {
+        "edge": [
+          0,
+          15
+        ],
+        "incidence": 1
+      },
+      {
+        "edge": [
+          1,
+          2
+        ],
+        "incidence": 1
+      },
+      {
+        "edge": [
+          2,
+          3
+        ],
+        "incidence": 1
+      },
+      {
+        "edge": [
+          3,
+          4
+        ],
+        "incidence": 2
+      },
+      {
+        "edge": [
+          3,
+          8
+        ],
+        "incidence": 1
+      },
+      {
+        "edge": [
+          4,
+          5
+        ],
+        "incidence": 1
+      },
+      {
+        "edge": [
+          4,
+          13
+        ],
+        "incidence": 1
+      },
+      {
+        "edge": [
+          5,
+          6
+        ],
+        "incidence": 1
+      },
+      {
+        "edge": [
+          6,
+          7
+        ],
+        "incidence": 1
+      },
+      {
+        "edge": [
+          7,
+          16
+        ],
+        "incidence": 1
+      },
+      {
+        "edge": [
+          8,
+          9
+        ],
+        "incidence": 1
+      },
+      {
+        "edge": [
+          9,
+          10
+        ],
+        "incidence": 1
+      },
+      {
+        "edge": [
+          10,
+          11
+        ],
+        "incidence": 2
+      },
+      {
+        "edge": [
+          10,
+          14
+        ],
+        "incidence": 1
+      },
+      {
+        "edge": [
+          11,
+          12
+        ],
+        "incidence": 1
+      },
+      {
+        "edge": [
+          11,
+          17
+        ],
+        "incidence": 1
+      },
+      {
+        "edge": [
+          12,
+          13
+        ],
+        "incidence": 1
+      },
+      {
+        "edge": [
+          14,
+          15
+        ],
+        "incidence": 1
+      },
+      {
+        "edge": [
+          16,
+          17
+        ],
+        "incidence": 1
+      }
+    ],
+    "seams": [
+      [
+        0,
+        7
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        10,
+        11
+      ]
+    ],
+    "boundary_edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        15
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        13
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        7,
+        16
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        10,
+        14
+      ],
+      [
+        11,
+        12
+      ],
+      [
+        11,
+        17
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        14,
+        15
+      ],
+      [
+        16,
+        17
+      ]
+    ],
+    "boundary_loops": [
+      {
+        "indices": [
+          0,
+          1,
+          2,
+          3,
+          8,
+          9,
+          10,
+          14,
+          15
+        ],
+        "coordinates": [
+          [
+            "0",
+            "sqrt(3)/2",
+            "1/2 - sqrt(2)/2"
+          ],
+          [
+            "-1/2 + sqrt(2)/4",
+            "sqrt(6)/4",
+            "-1/2"
+          ],
+          [
+            "-sqrt(2)/4",
+            "-sqrt(6)/4 + sqrt(3)/2",
+            "-1/2"
+          ],
+          [
+            "-1/2",
+            "0",
+            "1/2 - sqrt(2)/2"
+          ],
+          [
+            "1/2 - sqrt(2)/2",
+            "0",
+            "-1/2"
+          ],
+          [
+            "-1/2 + sqrt(2)/2",
+            "0",
+            "-1/2"
+          ],
+          [
+            "1/2",
+            "0",
+            "1/2 - sqrt(2)/2"
+          ],
+          [
+            "sqrt(2)/4",
+            "-sqrt(6)/4 + sqrt(3)/2",
+            "-1/2"
+          ],
+          [
+            "1/2 - sqrt(2)/4",
+            "sqrt(6)/4",
+            "-1/2"
+          ]
+        ],
+        "length": "-9 + 9*sqrt(2)"
+      },
+      {
+        "indices": [
+          4,
+          5,
+          6,
+          7,
+          16,
+          17,
+          11,
+          12,
+          13
+        ],
+        "coordinates": [
+          [
+            "-1/2",
+            "0",
+            "-1/2 + sqrt(2)/2"
+          ],
+          [
+            "-sqrt(2)/4",
+            "-sqrt(6)/4 + sqrt(3)/2",
+            "1/2"
+          ],
+          [
+            "-1/2 + sqrt(2)/4",
+            "sqrt(6)/4",
+            "1/2"
+          ],
+          [
+            "0",
+            "sqrt(3)/2",
+            "-1/2 + sqrt(2)/2"
+          ],
+          [
+            "1/2 - sqrt(2)/4",
+            "sqrt(6)/4",
+            "1/2"
+          ],
+          [
+            "sqrt(2)/4",
+            "-sqrt(6)/4 + sqrt(3)/2",
+            "1/2"
+          ],
+          [
+            "1/2",
+            "0",
+            "-1/2 + sqrt(2)/2"
+          ],
+          [
+            "-1/2 + sqrt(2)/2",
+            "0",
+            "1/2"
+          ],
+          [
+            "1/2 - sqrt(2)/2",
+            "0",
+            "1/2"
+          ]
+        ],
+        "length": "-9 + 9*sqrt(2)"
+      }
+    ],
+    "vertex_links": {
+      "0": {
+        "edges": [
+          [
+            7,
+            1
+          ],
+          [
+            15,
+            7
+          ]
+        ],
+        "degrees": [
+          1,
+          1,
+          2
+        ],
+        "connected": true
+      },
+      "1": {
+        "edges": [
+          [
+            0,
+            2
+          ]
+        ],
+        "degrees": [
+          1,
+          1
+        ],
+        "connected": true
+      },
+      "2": {
+        "edges": [
+          [
+            1,
+            3
+          ]
+        ],
+        "degrees": [
+          1,
+          1
+        ],
+        "connected": true
+      },
+      "3": {
+        "edges": [
+          [
+            2,
+            4
+          ],
+          [
+            4,
+            8
+          ]
+        ],
+        "degrees": [
+          1,
+          1,
+          2
+        ],
+        "connected": true
+      },
+      "4": {
+        "edges": [
+          [
+            3,
+            5
+          ],
+          [
+            13,
+            3
+          ]
+        ],
+        "degrees": [
+          1,
+          1,
+          2
+        ],
+        "connected": true
+      },
+      "5": {
+        "edges": [
+          [
+            4,
+            6
+          ]
+        ],
+        "degrees": [
+          1,
+          1
+        ],
+        "connected": true
+      },
+      "6": {
+        "edges": [
+          [
+            5,
+            7
+          ]
+        ],
+        "degrees": [
+          1,
+          1
+        ],
+        "connected": true
+      },
+      "7": {
+        "edges": [
+          [
+            6,
+            0
+          ],
+          [
+            0,
+            16
+          ]
+        ],
+        "degrees": [
+          1,
+          1,
+          2
+        ],
+        "connected": true
+      },
+      "8": {
+        "edges": [
+          [
+            3,
+            9
+          ]
+        ],
+        "degrees": [
+          1,
+          1
+        ],
+        "connected": true
+      },
+      "9": {
+        "edges": [
+          [
+            8,
+            10
+          ]
+        ],
+        "degrees": [
+          1,
+          1
+        ],
+        "connected": true
+      },
+      "10": {
+        "edges": [
+          [
+            9,
+            11
+          ],
+          [
+            11,
+            14
+          ]
+        ],
+        "degrees": [
+          1,
+          1,
+          2
+        ],
+        "connected": true
+      },
+      "11": {
+        "edges": [
+          [
+            10,
+            12
+          ],
+          [
+            17,
+            10
+          ]
+        ],
+        "degrees": [
+          1,
+          1,
+          2
+        ],
+        "connected": true
+      },
+      "12": {
+        "edges": [
+          [
+            11,
+            13
+          ]
+        ],
+        "degrees": [
+          1,
+          1
+        ],
+        "connected": true
+      },
+      "13": {
+        "edges": [
+          [
+            12,
+            4
+          ]
+        ],
+        "degrees": [
+          1,
+          1
+        ],
+        "connected": true
+      },
+      "14": {
+        "edges": [
+          [
+            10,
+            15
+          ]
+        ],
+        "degrees": [
+          1,
+          1
+        ],
+        "connected": true
+      },
+      "15": {
+        "edges": [
+          [
+            14,
+            0
+          ]
+        ],
+        "degrees": [
+          1,
+          1
+        ],
+        "connected": true
+      },
+      "16": {
+        "edges": [
+          [
+            7,
+            17
+          ]
+        ],
+        "degrees": [
+          1,
+          1
+        ],
+        "connected": true
+      },
+      "17": {
+        "edges": [
+          [
+            16,
+            11
+          ]
+        ],
+        "degrees": [
+          1,
+          1
+        ],
+        "connected": true
+      }
+    },
+    "centres": [
+      [
+        "-1/4",
+        "sqrt(3)/4",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "1/4",
+        "sqrt(3)/4",
+        "0"
+      ]
+    ],
+    "normals": [
+      [
+        "-sqrt(3)/2",
+        "1/2",
+        "0"
+      ],
+      [
+        "0",
+        "-1",
+        "0"
+      ],
+      [
+        "sqrt(3)/2",
+        "1/2",
+        "0"
+      ]
+    ],
+    "tangents": [
+      [
+        "-1/2",
+        "-sqrt(3)/2",
+        "0"
+      ],
+      [
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "-1/2",
+        "sqrt(3)/2",
+        "0"
+      ]
+    ],
+    "bounds": [
+      [
+        "-1/2",
+        "1/2"
+      ],
+      [
+        "0",
+        "sqrt(3)/2"
+      ],
+      [
+        "-1/2",
+        "1/2"
+      ]
+    ]
+  },
+  "symmetry": {
+    "generators": {
+      "R": {
+        "vertices": [
+          3,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          4,
+          14,
+          15,
+          0,
+          7,
+          16,
+          17,
+          1,
+          2,
+          5,
+          6
+        ],
+        "faces_1based": [
+          2,
+          3,
+          1
+        ],
+        "seams_sorted_0based": [
+          1,
+          2,
+          0
+        ],
+        "rims_0based": [
+          0,
+          1
+        ],
+        "face_orientation": [
+          1,
+          1,
+          1
+        ],
+        "rim_orientation": [
+          1,
+          1
+        ],
+        "determinant": "1"
+      },
+      "V": {
+        "vertices": [
+          0,
+          15,
+          14,
+          10,
+          11,
+          17,
+          16,
+          7,
+          9,
+          8,
+          3,
+          4,
+          13,
+          12,
+          2,
+          1,
+          6,
+          5
+        ],
+        "faces_1based": [
+          3,
+          2,
+          1
+        ],
+        "seams_sorted_0based": [
+          0,
+          2,
+          1
+        ],
+        "rims_0based": [
+          0,
+          1
+        ],
+        "face_orientation": [
+          -1,
+          -1,
+          -1
+        ],
+        "rim_orientation": [
+          -1,
+          -1
+        ],
+        "determinant": "-1"
+      },
+      "H": {
+        "vertices": [
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0,
+          13,
+          12,
+          11,
+          10,
+          9,
+          8,
+          17,
+          16,
+          15,
+          14
+        ],
+        "faces_1based": [
+          1,
+          2,
+          3
+        ],
+        "seams_sorted_0based": [
+          0,
+          1,
+          2
+        ],
+        "rims_0based": [
+          1,
+          0
+        ],
+        "face_orientation": [
+          -1,
+          -1,
+          -1
+        ],
+        "rim_orientation": [
+          -1,
+          -1
+        ],
+        "determinant": "-1"
+      }
+    },
+    "elements": {
+      "R^0 V^0 H^0": {
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "faces_1based": [
+          1,
+          2,
+          3
+        ],
+        "seams_sorted_0based": [
+          0,
+          1,
+          2
+        ],
+        "rims_0based": [
+          0,
+          1
+        ],
+        "face_orientation": [
+          1,
+          1,
+          1
+        ],
+        "rim_orientation": [
+          1,
+          1
+        ],
+        "determinant": "1"
+      },
+      "R^0 V^0 H^1": {
+        "vertices": [
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0,
+          13,
+          12,
+          11,
+          10,
+          9,
+          8,
+          17,
+          16,
+          15,
+          14
+        ],
+        "faces_1based": [
+          1,
+          2,
+          3
+        ],
+        "seams_sorted_0based": [
+          0,
+          1,
+          2
+        ],
+        "rims_0based": [
+          1,
+          0
+        ],
+        "face_orientation": [
+          -1,
+          -1,
+          -1
+        ],
+        "rim_orientation": [
+          -1,
+          -1
+        ],
+        "determinant": "-1"
+      },
+      "R^0 V^1 H^0": {
+        "vertices": [
+          0,
+          15,
+          14,
+          10,
+          11,
+          17,
+          16,
+          7,
+          9,
+          8,
+          3,
+          4,
+          13,
+          12,
+          2,
+          1,
+          6,
+          5
+        ],
+        "faces_1based": [
+          3,
+          2,
+          1
+        ],
+        "seams_sorted_0based": [
+          0,
+          2,
+          1
+        ],
+        "rims_0based": [
+          0,
+          1
+        ],
+        "face_orientation": [
+          -1,
+          -1,
+          -1
+        ],
+        "rim_orientation": [
+          -1,
+          -1
+        ],
+        "determinant": "-1"
+      },
+      "R^0 V^1 H^1": {
+        "vertices": [
+          7,
+          16,
+          17,
+          11,
+          10,
+          14,
+          15,
+          0,
+          12,
+          13,
+          4,
+          3,
+          8,
+          9,
+          5,
+          6,
+          1,
+          2
+        ],
+        "faces_1based": [
+          3,
+          2,
+          1
+        ],
+        "seams_sorted_0based": [
+          0,
+          2,
+          1
+        ],
+        "rims_0based": [
+          1,
+          0
+        ],
+        "face_orientation": [
+          1,
+          1,
+          1
+        ],
+        "rim_orientation": [
+          1,
+          1
+        ],
+        "determinant": "1"
+      },
+      "R^1 V^0 H^0": {
+        "vertices": [
+          3,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          4,
+          14,
+          15,
+          0,
+          7,
+          16,
+          17,
+          1,
+          2,
+          5,
+          6
+        ],
+        "faces_1based": [
+          2,
+          3,
+          1
+        ],
+        "seams_sorted_0based": [
+          1,
+          2,
+          0
+        ],
+        "rims_0based": [
+          0,
+          1
+        ],
+        "face_orientation": [
+          1,
+          1,
+          1
+        ],
+        "rim_orientation": [
+          1,
+          1
+        ],
+        "determinant": "1"
+      },
+      "R^1 V^0 H^1": {
+        "vertices": [
+          4,
+          13,
+          12,
+          11,
+          10,
+          9,
+          8,
+          3,
+          17,
+          16,
+          7,
+          0,
+          15,
+          14,
+          6,
+          5,
+          2,
+          1
+        ],
+        "faces_1based": [
+          2,
+          3,
+          1
+        ],
+        "seams_sorted_0based": [
+          1,
+          2,
+          0
+        ],
+        "rims_0based": [
+          1,
+          0
+        ],
+        "face_orientation": [
+          -1,
+          -1,
+          -1
+        ],
+        "rim_orientation": [
+          -1,
+          -1
+        ],
+        "determinant": "-1"
+      },
+      "R^1 V^1 H^0": {
+        "vertices": [
+          3,
+          2,
+          1,
+          0,
+          7,
+          6,
+          5,
+          4,
+          15,
+          14,
+          10,
+          11,
+          17,
+          16,
+          9,
+          8,
+          13,
+          12
+        ],
+        "faces_1based": [
+          1,
+          3,
+          2
+        ],
+        "seams_sorted_0based": [
+          1,
+          0,
+          2
+        ],
+        "rims_0based": [
+          0,
+          1
+        ],
+        "face_orientation": [
+          -1,
+          -1,
+          -1
+        ],
+        "rim_orientation": [
+          -1,
+          -1
+        ],
+        "determinant": "-1"
+      },
+      "R^1 V^1 H^1": {
+        "vertices": [
+          4,
+          5,
+          6,
+          7,
+          0,
+          1,
+          2,
+          3,
+          16,
+          17,
+          11,
+          10,
+          14,
+          15,
+          12,
+          13,
+          8,
+          9
+        ],
+        "faces_1based": [
+          1,
+          3,
+          2
+        ],
+        "seams_sorted_0based": [
+          1,
+          0,
+          2
+        ],
+        "rims_0based": [
+          1,
+          0
+        ],
+        "face_orientation": [
+          1,
+          1,
+          1
+        ],
+        "rim_orientation": [
+          1,
+          1
+        ],
+        "determinant": "1"
+      },
+      "R^2 V^0 H^0": {
+        "vertices": [
+          10,
+          14,
+          15,
+          0,
+          7,
+          16,
+          17,
+          11,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          12,
+          13
+        ],
+        "faces_1based": [
+          3,
+          1,
+          2
+        ],
+        "seams_sorted_0based": [
+          2,
+          0,
+          1
+        ],
+        "rims_0based": [
+          0,
+          1
+        ],
+        "face_orientation": [
+          1,
+          1,
+          1
+        ],
+        "rim_orientation": [
+          1,
+          1
+        ],
+        "determinant": "1"
+      },
+      "R^2 V^0 H^1": {
+        "vertices": [
+          11,
+          17,
+          16,
+          7,
+          0,
+          15,
+          14,
+          10,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          13,
+          12,
+          9,
+          8
+        ],
+        "faces_1based": [
+          3,
+          1,
+          2
+        ],
+        "seams_sorted_0based": [
+          2,
+          0,
+          1
+        ],
+        "rims_0based": [
+          1,
+          0
+        ],
+        "face_orientation": [
+          -1,
+          -1,
+          -1
+        ],
+        "rim_orientation": [
+          -1,
+          -1
+        ],
+        "determinant": "-1"
+      },
+      "R^2 V^1 H^0": {
+        "vertices": [
+          10,
+          9,
+          8,
+          3,
+          4,
+          13,
+          12,
+          11,
+          2,
+          1,
+          0,
+          7,
+          6,
+          5,
+          15,
+          14,
+          17,
+          16
+        ],
+        "faces_1based": [
+          2,
+          1,
+          3
+        ],
+        "seams_sorted_0based": [
+          2,
+          1,
+          0
+        ],
+        "rims_0based": [
+          0,
+          1
+        ],
+        "face_orientation": [
+          -1,
+          -1,
+          -1
+        ],
+        "rim_orientation": [
+          -1,
+          -1
+        ],
+        "determinant": "-1"
+      },
+      "R^2 V^1 H^1": {
+        "vertices": [
+          11,
+          12,
+          13,
+          4,
+          3,
+          8,
+          9,
+          10,
+          5,
+          6,
+          7,
+          0,
+          1,
+          2,
+          16,
+          17,
+          14,
+          15
+        ],
+        "faces_1based": [
+          2,
+          1,
+          3
+        ],
+        "seams_sorted_0based": [
+          2,
+          1,
+          0
+        ],
+        "rims_0based": [
+          1,
+          0
+        ],
+        "face_orientation": [
+          1,
+          1,
+          1
+        ],
+        "rim_orientation": [
+          1,
+          1
+        ],
+        "determinant": "1"
+      }
+    },
+    "surface_group": "D3h = D3 x Cs",
+    "upper_bound": "Analytic crease-component proof in packet; finite enumeration establishes a 12-element lower bound."
+  },
+  "metrics": {
+    "s": "-1 + sqrt(2)",
+    "h": "-1/2 + sqrt(2)/2",
+    "d": "1 - sqrt(2)/2",
+    "face_area": "-2 + 2*sqrt(2)",
+    "material_area": "-6 + 6*sqrt(2)",
+    "seam_total": "-3 + 3*sqrt(2)",
+    "boundary_total": "-18 + 18*sqrt(2)",
+    "rim_each": "-9 + 9*sqrt(2)",
+    "triangle_enclosed_area": "sqrt(3)/4",
+    "section_curve_planar_area": "0",
+    "hexagon_virtual_area": "-7*sqrt(3)/8 + 3*sqrt(6)/4",
+    "notches": [
+      {
+        "tip": 0,
+        "neighbors": [
+          1,
+          15
+        ],
+        "tip_cos": "3/4",
+        "area": "-sqrt(14)/4 + 3*sqrt(7)/8"
+      },
+      {
+        "tip": 3,
+        "neighbors": [
+          2,
+          8
+        ],
+        "tip_cos": "3/4",
+        "area": "-sqrt(14)/4 + 3*sqrt(7)/8"
+      },
+      {
+        "tip": 4,
+        "neighbors": [
+          5,
+          13
+        ],
+        "tip_cos": "3/4",
+        "area": "-sqrt(14)/4 + 3*sqrt(7)/8"
+      },
+      {
+        "tip": 7,
+        "neighbors": [
+          6,
+          16
+        ],
+        "tip_cos": "3/4",
+        "area": "-sqrt(14)/4 + 3*sqrt(7)/8"
+      },
+      {
+        "tip": 10,
+        "neighbors": [
+          9,
+          14
+        ],
+        "tip_cos": "3/4",
+        "area": "-sqrt(14)/4 + 3*sqrt(7)/8"
+      },
+      {
+        "tip": 11,
+        "neighbors": [
+          12,
+          17
+        ],
+        "tip_cos": "3/4",
+        "area": "-sqrt(14)/4 + 3*sqrt(7)/8"
+      }
+    ]
+  },
+  "scope_notes": [
+    "No mesh faces are added for virtual enclosed measurement regions.",
+    "Manifold classification, full symmetry upper bound, all-height sections and all-real closure family have analytic proofs in the packet; finite checks are not substitutes.",
+    "Source-boundary observations do not prove a physical law. No physical point attachment from Omega is specified by the reviewed geometry contract.",
+    "Commits and pushes performed by this work order: zero; the script performs neither."
+  ],
+  "boundary_flags": [
+    "PAPER_C_GEOMETRY != OMEGA_DYNAMICS",
+    "NO_PHYSICAL_POINT_ATTACHMENT_FROM_OMEGA"
+  ]
+}

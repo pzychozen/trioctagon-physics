@@ -1,0 +1,1351 @@
+{
+  "atlas": "05",
+  "version": "0.1",
+  "generated_utc": "2026-09-29T07:21:04.904006+00:00",
+  "baseline": "0fa3b582c086e51371e8a784bc3dd145f88cfb2b",
+  "interpreter": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+  "python": "3.11.15",
+  "sympy": "1.14.0",
+  "script_sha256": "ef9fb48d598164c40e491595664f36d2ddda5c7c716d263417a5f771d2108f70",
+  "summary": {
+    "total": 68,
+    "passed": 68,
+    "failed": 0,
+    "groups": {
+      "API_CONTRACT": {
+        "total": 5,
+        "passed": 5
+      },
+      "API_EXACT": {
+        "total": 9,
+        "passed": 9
+      },
+      "EXACT_FALSIFIER": {
+        "total": 8,
+        "passed": 8
+      },
+      "EXACT_GEOMETRY": {
+        "total": 34,
+        "passed": 34
+      },
+      "EXACT_LIMIT": {
+        "total": 1,
+        "passed": 1
+      },
+      "INTERFACE_BOUNDARY": {
+        "total": 4,
+        "passed": 4
+      },
+      "SOURCE_INTEGRITY": {
+        "total": 1,
+        "passed": 1
+      },
+      "TREE_INTEGRITY": {
+        "total": 6,
+        "passed": 6
+      }
+    }
+  },
+  "checks": [
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "octagon_support_line_derivation_and_order",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "octagon_metrics_radical_reduction",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "octagon_regular_rotation_edges_radius_area",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "radial_tangent_frames_and_C3",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "connector_vector_and_gap_from_radius",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "positive_domain_and_parameter_inverse",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "support_intersections_match_endpoints_and_printed_vertices",
+      "passed": true,
+      "evidence": [
+        [
+          [
+            "sqrt(3)*(2*g_gap + s)/6"
+          ],
+          [
+            "-s/2"
+          ]
+        ],
+        [
+          [
+            "sqrt(3)*(2*g_gap + s)/6"
+          ],
+          [
+            "s/2"
+          ]
+        ],
+        [
+          [
+            "sqrt(3)*(-g_gap + s)/6"
+          ],
+          [
+            "g_gap/2 + s/2"
+          ]
+        ],
+        [
+          [
+            "sqrt(3)*(-g_gap - 2*s)/6"
+          ],
+          [
+            "g_gap/2"
+          ]
+        ],
+        [
+          [
+            "sqrt(3)*(-g_gap - 2*s)/6"
+          ],
+          [
+            "-g_gap/2"
+          ]
+        ],
+        [
+          [
+            "sqrt(3)*(-g_gap + s)/6"
+          ],
+          [
+            "-g_gap/2 - s/2"
+          ]
+        ]
+      ]
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "all_six_positive_edges_turns_and_closure",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "all_vertex_inequalities_and_two_active_edges",
+      "passed": true,
+      "evidence": [
+        [
+          "0",
+          "sqrt(3)*(g_gap + s)/2",
+          "sqrt(3)*g_gap/2",
+          "sqrt(3)*s/2",
+          "sqrt(3)*(g_gap + s)/2",
+          "0"
+        ],
+        [
+          "0",
+          "sqrt(3)*g_gap/2",
+          "sqrt(3)*(g_gap + s)/2",
+          "0",
+          "sqrt(3)*(g_gap + s)/2",
+          "sqrt(3)*s/2"
+        ],
+        [
+          "sqrt(3)*g_gap/2",
+          "0",
+          "sqrt(3)*(g_gap + s)/2",
+          "0",
+          "sqrt(3)*s/2",
+          "sqrt(3)*(g_gap + s)/2"
+        ],
+        [
+          "sqrt(3)*(g_gap + s)/2",
+          "0",
+          "sqrt(3)*g_gap/2",
+          "sqrt(3)*s/2",
+          "0",
+          "sqrt(3)*(g_gap + s)/2"
+        ],
+        [
+          "sqrt(3)*(g_gap + s)/2",
+          "sqrt(3)*g_gap/2",
+          "0",
+          "sqrt(3)*(g_gap + s)/2",
+          "0",
+          "sqrt(3)*s/2"
+        ],
+        [
+          "sqrt(3)*g_gap/2",
+          "sqrt(3)*(g_gap + s)/2",
+          "0",
+          "sqrt(3)*(g_gap + s)/2",
+          "sqrt(3)*s/2",
+          "0"
+        ]
+      ]
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "all_pair_line_intersections_give_exactly_six_feasible_vertices",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "support_triangle_coordinates_and_side",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "all_three_corner_cells_equilateral",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "corner_nonoverlap_barycentric_certificate",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "closed_connector_retained_apex_outer_legs_removed",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "circumcircle_perimeter_and_independent_shoelace_area",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "two_support_distances_and_incircle_criterion",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "incircle_centre_forced_by_three_selected_supports",
+      "passed": true,
+      "evidence": [
+        {
+          "cx": "0",
+          "cy": "0",
+          "radius": "sqrt(3)*g_gap/3 + sqrt(3)*s/6"
+        }
+      ]
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "regular_member_metrics_coordinates",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_LIMIT",
+      "name": "zero_gap_three_vertices_support_triangle",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "generic_C3_and_role_reflection_permutations",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "regular_D6_role_D3_traversal_C3",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_FALSIFIER",
+      "name": "C3_alone_does_not_imply_regular_or_D6",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_FALSIFIER",
+      "name": "regular_60_degree_rotation_exchanges_E_G",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "complete_planar_isometric_octagons_and_selected_edge_orientation",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "complete_planar_frames_C3_D3_centre_upper_bound",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "vertical_frame_centres_normals_top_edges_and_full_octagons",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "vertical_collection_extra_horizontal_reflection",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "paper_C_member_gap_and_scaled_affine_panel_identity",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_FALSIFIER",
+      "name": "paper_C_member_is_not_regular",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "radial_translation_preserves_size_height_and_tunes_gap",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_FALSIFIER",
+      "name": "radial_translation_is_not_common_rigid_translation",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "special_shrink_factor_derived_only_from_paper_C_start",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "shrink_about_vertical_centres_scales_both_local_coordinates",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "fixed_p_changes_planar_centres_and_top_height",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_FALSIFIER",
+      "name": "fixed_planar_centres_is_different_operation",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_FALSIFIER",
+      "name": "special_lambda_not_universal_for_arbitrary_starting_p",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "global_similarity_preserves_gap_ratio",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "width_one_shrink_all_exact_metrics",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "all_three_finite_face_distance_decompositions",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "plane_intersection_and_full_paper_C_side_seams",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_GEOMETRY",
+      "name": "separation_vs_gap_and_regularization_values",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_FALSIFIER",
+      "name": "negative_signed_delta_is_not_negative_distance",
+      "passed": true,
+      "evidence": {
+        "chosen_gap": "s/2",
+        "plane_intersection_local_xi": "s",
+        "signed_delta": "s*(1 - sqrt(2))/2"
+      }
+    },
+    {
+      "group": "EXACT_FALSIFIER",
+      "name": "regular_reference_polygon_does_not_preserve_material_seams",
+      "passed": true,
+      "evidence": {
+        "paper_C": {
+          "V": 18,
+          "E": 21,
+          "F": 3,
+          "seams": 3
+        },
+        "translated_regular": {
+          "V": 24,
+          "E": 24,
+          "F": 3,
+          "seams": 0
+        },
+        "shrunk_regular": {
+          "V": 24,
+          "E": 24,
+          "F": 3,
+          "seams": 0
+        }
+      }
+    },
+    {
+      "group": "API_EXACT",
+      "name": "loaded_authoritative_scaffold_and_parameter_metrics",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_EXACT",
+      "name": "octagon_vertices_outline_filled_and_metrics",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_EXACT",
+      "name": "scaffold_vertices_roles_segments_and_closed_regions",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_EXACT",
+      "name": "halfplane_definitions_boundary_inclusion_and_apex_exclusion",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_EXACT",
+      "name": "complete_planar_and_vertical_frames",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_EXACT",
+      "name": "top_edges_have_expected_horizontal_endpoints_and_height",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_EXACT",
+      "name": "three_named_constructors_have_distinct_semantics",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_EXACT",
+      "name": "rigid_map_formula_on_arbitrary_points",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_EXACT",
+      "name": "width_one_finite_face_vertex_and_edge_equivalence_to_C",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_CONTRACT",
+      "name": "strict_exact_types_and_positive_domains",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_CONTRACT",
+      "name": "three_valued_regularity_and_membership",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_CONTRACT",
+      "name": "hull_is_supplied_generator_prescription_not_hull_algorithm",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_CONTRACT",
+      "name": "immutability_and_coordinate_validation",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_CONTRACT",
+      "name": "composite_positive_length_substitution_before_simplification",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "INTERFACE_BOUNDARY",
+      "name": "scaffold_has_no_direct_dynamics_or_state_imports",
+      "passed": true,
+      "evidence": [
+        "dataclasses",
+        "fractions",
+        "sympy"
+      ]
+    },
+    {
+      "group": "INTERFACE_BOUNDARY",
+      "name": "no_Omega_FaceState_or_chirality_input_in_scaffold",
+      "passed": true,
+      "evidence": {
+        "scope": "Static module boundary, supported by Paper D open-interface statement; not proof of absence in all historical software."
+      }
+    },
+    {
+      "group": "INTERFACE_BOUNDARY",
+      "name": "fresh_process_reference_construction_has_no_state_import",
+      "passed": true,
+      "evidence": {
+        "returncode": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "group": "INTERFACE_BOUNDARY",
+      "name": "gap_length_not_recurrence_coefficient_by_domain_and_scale",
+      "passed": true,
+      "evidence": {
+        "geometry_units": "mathematical_length",
+        "dynamics_role": "coefficient multiplying a state-valued increment; no geometric length calibration",
+        "no_relation": "changing scaffold scale does not write DynamicsConfig"
+      }
+    },
+    {
+      "group": "SOURCE_INTEGRITY",
+      "name": "all_consulted_sources_unchanged",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "TREE_INTEGRITY",
+      "name": "current_paths_and_content_unchanged",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "TREE_INTEGRITY",
+      "name": "old_paths_and_content_unchanged",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "TREE_INTEGRITY",
+      "name": "torment_kernel_paths_and_content_unchanged",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "TREE_INTEGRITY",
+      "name": "torment_checkout_paths_and_content_unchanged",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "TREE_INTEGRITY",
+      "name": "current_git_HEAD_status_unchanged",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "TREE_INTEGRITY",
+      "name": "torment_checkout_git_HEAD_status_unchanged",
+      "passed": true,
+      "evidence": null
+    }
+  ],
+  "sources": {
+    "D_CODE": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\reference_scaffold.py",
+      "sha256": "39723db1d5e808fa8aeb3585eb47ac4b1cbc01310e07e9171b6d6e04111c4aaf"
+    },
+    "D_PAPER": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_D\\v0.1.1\\PAPER_D_REFERENCE_SCAFFOLD_v0.1.1.md",
+      "sha256": "7bc87de09400ba1a37d5dc9ab7be38c9a978be31bb35ece56102d29ee2e5d25b"
+    },
+    "D_TESTS": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\tests\\test_reference_scaffold.py",
+      "sha256": "50f2c49b285ab3937219035c9e4c5b664d40c6a7b391e6e0a9ffb04a67cfa618"
+    },
+    "D_COORDINATES": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_D\\v0.1.1\\geometry_coordinates.py",
+      "sha256": "45d2ec653420bb7dcfe0091eabdbc331dd9f32c3b3a4b0ba15d11bff13b739af"
+    },
+    "D_SYMBOLS": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_D\\v0.1.1\\SYMBOLS_AND_THEOREMS.md",
+      "sha256": "93911abe1eab5a396c0b62099a3358231ee7529970630ad41284e212c6f1ed10"
+    },
+    "EARLIER_NOTE": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\research_notes\\reference_scaffold\\note_source.json",
+      "sha256": "e4047e63b41f3a67362ddfea4be7d923b7202b3988faeebcffa955424a6459f8"
+    },
+    "GEOMETRY_RECORDS": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\_geometry_records.py",
+      "sha256": "7313d6bcea2e03615a0ac5ceec177d7abd9bc695e1a2ac6d9b8aa629838c1f60"
+    },
+    "C_CODE": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\geometry.py",
+      "sha256": "18398bd15b12c2dc1711c3ea2769f50215f2bcad5335ced9ee23e4e6baf1ddbf"
+    },
+    "C_PAPER": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_C\\publication\\v1.0.1\\PAPER_C_EXACT_TRIOCTAGON_GEOMETRY_PUBLICATION_v1.0.1.md",
+      "sha256": "5a0cbdae4aaf689cfe1f5b29305960e90c88e26d0db28834802ef70fc16549fb"
+    },
+    "B_CODE": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\face_state.py",
+      "sha256": "be9d1e25a6f368e644ecfa9b1af70ba9382599e8b4d43d529d1783004d86ded7"
+    },
+    "B_PAPER": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_B\\publication\\v0.1.2\\PAPER_B_TRIADIC_CHIRALITY_AND_ORIENTATION_GEOMETRY_PUBLICATION_v0.1.2.md",
+      "sha256": "fb4575120470e8d7143ebc1f475ee4635caf9f39f21f88308960308fb259e150"
+    },
+    "DYNAMICS": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\dynamics.py",
+      "sha256": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4"
+    },
+    "READOUTS": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\readouts.py",
+      "sha256": "3889051f08c09197224a30263195f8f0d474e5f7b93671fb56e6c240c58e91c9"
+    },
+    "CENSUS": {
+      "path": "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_OLD_NEW_KERNEL_ARCHAEOLOGY_CENSUS_v0.1.md",
+      "sha256": "353512d19901d306b40c34a5d7443773ecb5fa172a87f1b7e101eacad0cae6a7"
+    },
+    "OLD_VIEWER": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO\\toy_3d_triocta.py",
+      "sha256": "3792d0d97bd7e0beed157586453ea71a3828e6a79a4ed8638787163cb490ee05"
+    },
+    "OLD_3D": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO\\geometry_3d.py",
+      "sha256": "b6803b3a02f5240a5cb00a3dbc9cf403c2e762de713146aa3848996738772400"
+    },
+    "OLD_TETRA": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO\\dual_tetra_mapper.py",
+      "sha256": "14845223bbfa0c0f17df2781ee4a0ebba9befeee5f374bb01a4647242dbedf9f"
+    }
+  },
+  "integrity": {
+    "status": "ATTACHED",
+    "scopes": {
+      "current": {
+        "root": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+        "before_count": 7783,
+        "after_count": 7783,
+        "before_sha256": "c290755b50b607b9e699bec5d0ca2ff9821def3aece8ee3b2513cad43b1cd880",
+        "after_sha256": "c290755b50b607b9e699bec5d0ca2ff9821def3aece8ee3b2513cad43b1cd880",
+        "changed_paths": [],
+        "before_interval": [
+          "2026-09-29T06:55:02.117499+00:00",
+          "2026-09-29T06:55:06.515711+00:00"
+        ],
+        "after_interval": [
+          "2026-09-29T07:14:22.137855+00:00",
+          "2026-09-29T07:14:26.516625+00:00"
+        ]
+      },
+      "old": {
+        "root": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO",
+        "before_count": 401,
+        "after_count": 401,
+        "before_sha256": "cec5e60047e01772dde3b8053949dca69c7124378bdca9ce68a7aee96962d2bd",
+        "after_sha256": "cec5e60047e01772dde3b8053949dca69c7124378bdca9ce68a7aee96962d2bd",
+        "changed_paths": [],
+        "before_interval": [
+          "2026-09-29T06:55:06.528824+00:00",
+          "2026-09-29T06:55:06.815215+00:00"
+        ],
+        "after_interval": [
+          "2026-09-29T07:14:26.516625+00:00",
+          "2026-09-29T07:14:26.802586+00:00"
+        ]
+      },
+      "torment_kernel": {
+        "root": "C:\\TORMENT\\TORMENT_repo\\TORMENT-fabric_v2\\torment_fabric\\torment_service\\kernel",
+        "before_count": 64,
+        "after_count": 64,
+        "before_sha256": "8b11e5bb287212e51dfd8e80fe7a3e96f1c6757e34f3fcc02bdd5eece7f56b41",
+        "after_sha256": "8b11e5bb287212e51dfd8e80fe7a3e96f1c6757e34f3fcc02bdd5eece7f56b41",
+        "changed_paths": [],
+        "before_interval": [
+          "2026-09-29T06:55:06.819218+00:00",
+          "2026-09-29T06:55:06.848306+00:00"
+        ],
+        "after_interval": [
+          "2026-09-29T07:14:26.802586+00:00",
+          "2026-09-29T07:14:26.831403+00:00"
+        ]
+      },
+      "torment_checkout": {
+        "root": "C:\\TORMENT\\TORMENT_repo\\TORMENT-fabric_v2\\torment_fabric",
+        "before_count": 173908,
+        "after_count": 173908,
+        "before_sha256": "3a1a4b061dfbee500f065f053677013573b5f300c847e18c972accac5d512fc4",
+        "after_sha256": "3a1a4b061dfbee500f065f053677013573b5f300c847e18c972accac5d512fc4",
+        "changed_paths": [],
+        "before_interval": [
+          "2026-09-29T06:55:06.851303+00:00",
+          "2026-09-29T06:57:15.677536+00:00"
+        ],
+        "after_interval": [
+          "2026-09-29T07:14:26.831403+00:00",
+          "2026-09-29T07:16:42.976695+00:00"
+        ]
+      }
+    },
+    "git_before": {
+      "current": {
+        "head": "0fa3b582c086e51371e8a784bc3dd145f88cfb2b",
+        "tracked_status": ""
+      },
+      "torment_checkout": {
+        "head": "a06edcc5c9df5d3b56405085d9f2942b768dc203",
+        "tracked_status": ""
+      }
+    },
+    "git_after": {
+      "current": {
+        "head": "0fa3b582c086e51371e8a784bc3dd145f88cfb2b",
+        "tracked_status": ""
+      },
+      "torment_checkout": {
+        "head": "a06edcc5c9df5d3b56405085d9f2942b768dc203",
+        "tracked_status": ""
+      }
+    },
+    "snapshot_files": {
+      "before.json": {
+        "path": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas05_20260929_lkh17jm6\\before.json",
+        "sha256": "c679651d1c6df2294caa217156ea88fef46b8e90194103eb37e9eed414e9e7aa"
+      },
+      "after.json": {
+        "path": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas05_20260929_lkh17jm6\\after.json",
+        "sha256": "5c52856606ad090016dedfeb9469103a3341a09c387162edac11641f2debb4a3"
+      },
+      "git_before.json": {
+        "path": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas05_20260929_lkh17jm6\\git_before.json",
+        "sha256": "2b2d1306d88381f1061548cc63eed88d053f4acbcff6aa4ee676cd6c0e81b8e1"
+      }
+    },
+    "required_flags": {
+      "CURRENT_REPO_CHANGED": "NO",
+      "OLD_KERNEL_CHANGED": "NO",
+      "TORMENT_CHANGED": "NO",
+      "COMMITS": 0,
+      "PUSHES": 0
+    }
+  },
+  "exact_data": {
+    "s": "s",
+    "g_gap": "g_gap",
+    "a": "s*(1 + sqrt(2))/2",
+    "p": "sqrt(3)*(2*g_gap + s)/6",
+    "L": "s*(1 + sqrt(2))/2 + sqrt(3)*(2*g_gap + s)/6",
+    "q_H": "sqrt(3)*(g_gap + 2*s)/6",
+    "octagon_vertices": [
+      [
+        [
+          "s*(1 + sqrt(2))/2"
+        ],
+        [
+          "-s/2"
+        ]
+      ],
+      [
+        [
+          "s*(1 + sqrt(2))/2"
+        ],
+        [
+          "s/2"
+        ]
+      ],
+      [
+        [
+          "s/2"
+        ],
+        [
+          "s*(1 + sqrt(2))/2"
+        ]
+      ],
+      [
+        [
+          "-s/2"
+        ],
+        [
+          "s*(1 + sqrt(2))/2"
+        ]
+      ],
+      [
+        [
+          "s*(-sqrt(2) - 1)/2"
+        ],
+        [
+          "s/2"
+        ]
+      ],
+      [
+        [
+          "s*(-sqrt(2) - 1)/2"
+        ],
+        [
+          "-s/2"
+        ]
+      ],
+      [
+        [
+          "-s/2"
+        ],
+        [
+          "s*(-sqrt(2) - 1)/2"
+        ]
+      ],
+      [
+        [
+          "s/2"
+        ],
+        [
+          "s*(-sqrt(2) - 1)/2"
+        ]
+      ]
+    ],
+    "radial": [
+      [
+        [
+          "1"
+        ],
+        [
+          "0"
+        ]
+      ],
+      [
+        [
+          "-1/2"
+        ],
+        [
+          "sqrt(3)/2"
+        ]
+      ],
+      [
+        [
+          "-1/2"
+        ],
+        [
+          "-sqrt(3)/2"
+        ]
+      ]
+    ],
+    "tangent": [
+      [
+        [
+          "0"
+        ],
+        [
+          "1"
+        ]
+      ],
+      [
+        [
+          "-sqrt(3)/2"
+        ],
+        [
+          "-1/2"
+        ]
+      ],
+      [
+        [
+          "sqrt(3)/2"
+        ],
+        [
+          "-1/2"
+        ]
+      ]
+    ],
+    "hexagon_vertices": [
+      [
+        [
+          "sqrt(3)*(2*g_gap + s)/6"
+        ],
+        [
+          "-s/2"
+        ]
+      ],
+      [
+        [
+          "sqrt(3)*(2*g_gap + s)/6"
+        ],
+        [
+          "s/2"
+        ]
+      ],
+      [
+        [
+          "sqrt(3)*(-g_gap + s)/6"
+        ],
+        [
+          "g_gap/2 + s/2"
+        ]
+      ],
+      [
+        [
+          "sqrt(3)*(-g_gap - 2*s)/6"
+        ],
+        [
+          "g_gap/2"
+        ]
+      ],
+      [
+        [
+          "sqrt(3)*(-g_gap - 2*s)/6"
+        ],
+        [
+          "-g_gap/2"
+        ]
+      ],
+      [
+        [
+          "sqrt(3)*(-g_gap + s)/6"
+        ],
+        [
+          "-g_gap/2 - s/2"
+        ]
+      ]
+    ],
+    "vertex_halfplane_slacks": [
+      [
+        "0",
+        "sqrt(3)*(g_gap + s)/2",
+        "sqrt(3)*g_gap/2",
+        "sqrt(3)*s/2",
+        "sqrt(3)*(g_gap + s)/2",
+        "0"
+      ],
+      [
+        "0",
+        "sqrt(3)*g_gap/2",
+        "sqrt(3)*(g_gap + s)/2",
+        "0",
+        "sqrt(3)*(g_gap + s)/2",
+        "sqrt(3)*s/2"
+      ],
+      [
+        "sqrt(3)*g_gap/2",
+        "0",
+        "sqrt(3)*(g_gap + s)/2",
+        "0",
+        "sqrt(3)*s/2",
+        "sqrt(3)*(g_gap + s)/2"
+      ],
+      [
+        "sqrt(3)*(g_gap + s)/2",
+        "0",
+        "sqrt(3)*g_gap/2",
+        "sqrt(3)*s/2",
+        "0",
+        "sqrt(3)*(g_gap + s)/2"
+      ],
+      [
+        "sqrt(3)*(g_gap + s)/2",
+        "sqrt(3)*g_gap/2",
+        "0",
+        "sqrt(3)*(g_gap + s)/2",
+        "0",
+        "sqrt(3)*s/2"
+      ],
+      [
+        "sqrt(3)*g_gap/2",
+        "sqrt(3)*(g_gap + s)/2",
+        "0",
+        "sqrt(3)*(g_gap + s)/2",
+        "sqrt(3)*s/2",
+        "0"
+      ]
+    ],
+    "active_halfplanes": [
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ]
+    ],
+    "support_vertices": [
+      [
+        [
+          "sqrt(3)*(2*g_gap + s)/6"
+        ],
+        [
+          "g_gap + s/2"
+        ]
+      ],
+      [
+        [
+          "sqrt(3)*(-2*g_gap - s)/3"
+        ],
+        [
+          "0"
+        ]
+      ],
+      [
+        [
+          "sqrt(3)*(2*g_gap + s)/6"
+        ],
+        [
+          "-g_gap - s/2"
+        ]
+      ]
+    ],
+    "corner_cells": [
+      [
+        [
+          [
+            "sqrt(3)*(2*g_gap + s)/6"
+          ],
+          [
+            "s/2"
+          ]
+        ],
+        [
+          [
+            "sqrt(3)*(2*g_gap + s)/6"
+          ],
+          [
+            "g_gap + s/2"
+          ]
+        ],
+        [
+          [
+            "sqrt(3)*(-g_gap + s)/6"
+          ],
+          [
+            "g_gap/2 + s/2"
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            "sqrt(3)*(-g_gap - 2*s)/6"
+          ],
+          [
+            "g_gap/2"
+          ]
+        ],
+        [
+          [
+            "sqrt(3)*(-2*g_gap - s)/3"
+          ],
+          [
+            "0"
+          ]
+        ],
+        [
+          [
+            "sqrt(3)*(-g_gap - 2*s)/6"
+          ],
+          [
+            "-g_gap/2"
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            "sqrt(3)*(-g_gap + s)/6"
+          ],
+          [
+            "-g_gap/2 - s/2"
+          ]
+        ],
+        [
+          [
+            "sqrt(3)*(2*g_gap + s)/6"
+          ],
+          [
+            "-g_gap - s/2"
+          ]
+        ],
+        [
+          [
+            "sqrt(3)*(2*g_gap + s)/6"
+          ],
+          [
+            "-s/2"
+          ]
+        ]
+      ]
+    ],
+    "area": "sqrt(3)*(g_gap**2 + 4*g_gap*s + s**2)/4",
+    "circumradius_squared": "g_gap**2/3 + g_gap*s/3 + s**2/3",
+    "perimeter": "3*g_gap + 3*s",
+    "regular_symmetry_actions": [
+      {
+        "k60": 0,
+        "reflection": 0,
+        "permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "roles_preserved": true,
+        "traversal_preserved": true
+      },
+      {
+        "k60": 0,
+        "reflection": 1,
+        "permutation": [
+          1,
+          0,
+          5,
+          4,
+          3,
+          2
+        ],
+        "roles_preserved": true,
+        "traversal_preserved": false
+      },
+      {
+        "k60": 1,
+        "reflection": 0,
+        "permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "roles_preserved": false,
+        "traversal_preserved": true
+      },
+      {
+        "k60": 1,
+        "reflection": 1,
+        "permutation": [
+          2,
+          1,
+          0,
+          5,
+          4,
+          3
+        ],
+        "roles_preserved": false,
+        "traversal_preserved": false
+      },
+      {
+        "k60": 2,
+        "reflection": 0,
+        "permutation": [
+          2,
+          3,
+          4,
+          5,
+          0,
+          1
+        ],
+        "roles_preserved": true,
+        "traversal_preserved": true
+      },
+      {
+        "k60": 2,
+        "reflection": 1,
+        "permutation": [
+          3,
+          2,
+          1,
+          0,
+          5,
+          4
+        ],
+        "roles_preserved": true,
+        "traversal_preserved": false
+      },
+      {
+        "k60": 3,
+        "reflection": 0,
+        "permutation": [
+          3,
+          4,
+          5,
+          0,
+          1,
+          2
+        ],
+        "roles_preserved": false,
+        "traversal_preserved": true
+      },
+      {
+        "k60": 3,
+        "reflection": 1,
+        "permutation": [
+          4,
+          3,
+          2,
+          1,
+          0,
+          5
+        ],
+        "roles_preserved": false,
+        "traversal_preserved": false
+      },
+      {
+        "k60": 4,
+        "reflection": 0,
+        "permutation": [
+          4,
+          5,
+          0,
+          1,
+          2,
+          3
+        ],
+        "roles_preserved": true,
+        "traversal_preserved": true
+      },
+      {
+        "k60": 4,
+        "reflection": 1,
+        "permutation": [
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "roles_preserved": true,
+        "traversal_preserved": false
+      },
+      {
+        "k60": 5,
+        "reflection": 0,
+        "permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "roles_preserved": false,
+        "traversal_preserved": true
+      },
+      {
+        "k60": 5,
+        "reflection": 1,
+        "permutation": [
+          0,
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        "roles_preserved": false,
+        "traversal_preserved": false
+      }
+    ],
+    "p0": "sqrt(3)*s*(1 + sqrt(2))/6",
+    "p_star": "sqrt(3)*s/2",
+    "delta_p": "sqrt(3)*s*(2 - sqrt(2))/6",
+    "shrink_factor": "1/3 + sqrt(2)/3",
+    "signed_face_separation": "g_gap - sqrt(2)*s/2",
+    "finite_face_counts": {
+      "paper_C": {
+        "V": 18,
+        "E": 21,
+        "F": 3,
+        "seams": 3
+      },
+      "translated_regular": {
+        "V": 24,
+        "E": 24,
+        "F": 3,
+        "seams": 0
+      },
+      "shrunk_regular": {
+        "V": 24,
+        "E": 24,
+        "F": 3,
+        "seams": 0
+      }
+    }
+  },
+  "scope": [
+    "Analytic proofs and finite predicates are distinct.",
+    "The g_gap=0 limit is analyzed without admitting it to the runtime domain.",
+    "Finite-face distance sqrt(3)*p-a requires p>=a/sqrt(3); signed negativity is not a negative distance.",
+    "Historical claims are bounded to referenced sources; missing scripts were not reconstructed."
+  ],
+  "boundary_flags": [
+    "PAPER_D_REFERENCE_SCAFFOLD != PAPER_C_MATERIAL_SHELL",
+    "g_gap IS A GEOMETRIC LENGTH",
+    "g_gap != recurrence coupling g",
+    "OMEGA_TO_GAP_INTERFACE = OPEN / UNSPECIFIED"
+  ],
+  "actions": {
+    "commits": 0,
+    "pushes": 0
+  }
+}

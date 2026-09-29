@@ -1,0 +1,2279 @@
+{
+  "atlas": "04",
+  "version": "0.1",
+  "generated_utc": "2026-09-29T06:42:54.468030+00:00",
+  "python": "3.11.15",
+  "sympy": "1.14.0",
+  "numpy": "2.4.4",
+  "interpreter": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+  "baseline": "0fa3b582c086e51371e8a784bc3dd145f88cfb2b",
+  "script_path": "C:\\Users\\Notandi\\.codex\\reports\\TRIOCTAGON_ATLAS_04_EXACT_CHECKS.py",
+  "script_sha256": "08b172d07568c742aa5c3f179b4a07ffea243174a0318c5d2c256b0c65713e91",
+  "summary": {
+    "total": 71,
+    "passed": 71,
+    "failed": 0,
+    "groups": {
+      "API_FLOAT": {
+        "total": 6,
+        "passed": 6
+      },
+      "API_FLOAT_FALSIFIER": {
+        "total": 2,
+        "passed": 2
+      },
+      "API_OWNERSHIP": {
+        "total": 5,
+        "passed": 5
+      },
+      "API_PRECISION": {
+        "total": 5,
+        "passed": 5
+      },
+      "EXACT_ALGEBRA": {
+        "total": 27,
+        "passed": 27
+      },
+      "EXACT_FALSIFIER": {
+        "total": 7,
+        "passed": 7
+      },
+      "EXACT_SPATIAL_ACTION": {
+        "total": 12,
+        "passed": 12
+      },
+      "SOURCE_INTEGRITY": {
+        "total": 1,
+        "passed": 1
+      },
+      "TREE_INTEGRITY": {
+        "total": 6,
+        "passed": 6
+      }
+    }
+  },
+  "checks": [
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "frames_inherited_from_affine_panel_derivatives",
+      "passed": true,
+      "evidence": {
+        "centres": [
+          [
+            [
+              "-1/4"
+            ],
+            [
+              "sqrt(3)/4"
+            ],
+            [
+              "0"
+            ]
+          ],
+          [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          [
+            [
+              "1/4"
+            ],
+            [
+              "sqrt(3)/4"
+            ],
+            [
+              "0"
+            ]
+          ]
+        ],
+        "normals": [
+          [
+            [
+              "-sqrt(3)/2"
+            ],
+            [
+              "1/2"
+            ],
+            [
+              "0"
+            ]
+          ],
+          [
+            [
+              "0"
+            ],
+            [
+              "-1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          [
+            [
+              "sqrt(3)/2"
+            ],
+            [
+              "1/2"
+            ],
+            [
+              "0"
+            ]
+          ]
+        ],
+        "tangents": [
+          [
+            [
+              "-1/2"
+            ],
+            [
+              "-sqrt(3)/2"
+            ],
+            [
+              "0"
+            ]
+          ],
+          [
+            [
+              "1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          [
+            [
+              "-1/2"
+            ],
+            [
+              "sqrt(3)/2"
+            ],
+            [
+              "0"
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "all_tangent_projectors",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "real_linearity_norm_and_inner_product",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "product_real_isometry_6_to_9",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "ED_identity_and_DE_ambient_projection",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "image_exact_tangent_plane_certificate",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "complex_structure_tangent_and_ambient_domains",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "area_form_sign_and_compatibility",
+      "passed": true,
+      "evidence": {
+        "J_coordinate_matrix": [
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ]
+        ],
+        "area_form_matrix": [
+          [
+            "0",
+            "1"
+          ],
+          [
+            "-1",
+            "0"
+          ]
+        ]
+      }
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "area_form_matches_imaginary_Hermitian_product",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "all_nine_transport_component_rank_kernel_image_identities",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "all_27_ambient_transport_compositions",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "transport_partial_isometry_and_adjoint",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "transport_equals_projected_matched_C3_rotation",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "point_affine_rotation_and_free_vector_transport",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "A_B_C_A_holonomy_identity_on_tangent_only",
+      "passed": true,
+      "evidence": [
+        [
+          "1/4",
+          "sqrt(3)/4",
+          "0"
+        ],
+        [
+          "sqrt(3)/4",
+          "3/4",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ]
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "passive_frame_coordinate_transport",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "symbolic_cubic_and_coupling_coordinate_conjugacy",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "phase_step_outward_J_rotation_dictionary",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "zero_rotations_remain_zero",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_FALSIFIER",
+      "name": "common_phase_not_global_recurrence_symmetry_at_zero",
+      "passed": true,
+      "evidence": {
+        "state": [
+          0,
+          1,
+          1
+        ],
+        "phase_shift": "pi/6",
+        "lambda": "pi/6",
+        "nonzero_output_after_shift": "1",
+        "phase_times_original_output": "sqrt(3)/2 + I/2"
+      }
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "all_nine_transported_areas_direct_geometry",
+      "passed": true,
+      "evidence": [
+        [
+          "0",
+          "-p0*q1 + p1*q0",
+          "-p0*q2 + p2*q0"
+        ],
+        [
+          "p0*q1 - p1*q0",
+          "0",
+          "-p1*q2 + p2*q1"
+        ],
+        [
+          "p0*q2 - p2*q0",
+          "p1*q2 - p2*q1",
+          "0"
+        ]
+      ]
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "area_skew_zero_diagonal_raw_cyclic_chirality",
+      "passed": true,
+      "evidence": [
+        [
+          "-p1*q2 + p2*q1"
+        ],
+        [
+          "p0*q2 - p2*q0"
+        ],
+        [
+          "-p0*q1 + p1*q0"
+        ]
+      ]
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "area_trace_determinant_Gram_and_Frobenius_invariants",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "area_square_cube_kernel_and_characteristic_polynomial",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "rank_two_and_zero_rank_witnesses",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "global_phase_vectors_and_area_chirality_invariance",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "raw_complex_scaling_and_conjugation",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_SPATIAL_ACTION",
+      "name": "R0_V0_H0_frame_transport_state_area_Z_laws",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_SPATIAL_ACTION",
+      "name": "R0_V0_H1_frame_transport_state_area_Z_laws",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_SPATIAL_ACTION",
+      "name": "R0_V1_H0_frame_transport_state_area_Z_laws",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_SPATIAL_ACTION",
+      "name": "R0_V1_H1_frame_transport_state_area_Z_laws",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_SPATIAL_ACTION",
+      "name": "R1_V0_H0_frame_transport_state_area_Z_laws",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_SPATIAL_ACTION",
+      "name": "R1_V0_H1_frame_transport_state_area_Z_laws",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_SPATIAL_ACTION",
+      "name": "R1_V1_H0_frame_transport_state_area_Z_laws",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_SPATIAL_ACTION",
+      "name": "R1_V1_H1_frame_transport_state_area_Z_laws",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_SPATIAL_ACTION",
+      "name": "R2_V0_H0_frame_transport_state_area_Z_laws",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_SPATIAL_ACTION",
+      "name": "R2_V0_H1_frame_transport_state_area_Z_laws",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_SPATIAL_ACTION",
+      "name": "R2_V1_H0_frame_transport_state_area_Z_laws",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_SPATIAL_ACTION",
+      "name": "R2_V1_H1_frame_transport_state_area_Z_laws",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_ALGEBRA",
+      "name": "all_six_pure_channel_relabellings",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_FALSIFIER",
+      "name": "cyclic_witness_channel_triple_not_ambient_axial_vector",
+      "passed": true,
+      "evidence": {
+        "Omega": [
+          0,
+          1,
+          "I"
+        ],
+        "Z": [
+          [
+            "1"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ]
+        ],
+        "PZ": [
+          [
+            "0"
+          ],
+          [
+            "1"
+          ],
+          [
+            "0"
+          ]
+        ],
+        "RZ": [
+          [
+            "-1/2"
+          ],
+          [
+            "sqrt(3)/2"
+          ],
+          [
+            "0"
+          ]
+        ],
+        "squared_gap": "2 - sqrt(3)"
+      }
+    },
+    {
+      "group": "EXACT_FALSIFIER",
+      "name": "transport_is_not_invertible_ambient_rotation",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_FALSIFIER",
+      "name": "ambient_inverse_requires_projection",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_FALSIFIER",
+      "name": "normals_not_a_Cartesian_basis",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_FALSIFIER",
+      "name": "decoding_has_no_polygon_endpoint_bound",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "EXACT_FALSIFIER",
+      "name": "transporting_centres_is_not_point_rotation",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_FLOAT",
+      "name": "loaded_authoritative_modules_and_exact_frame_tuples",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_FLOAT",
+      "name": "fresh_readonly_frame_arrays_and_convention_metadata",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_FLOAT",
+      "name": "decoding_roundtrip_and_raw_scale",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_FLOAT",
+      "name": "all_nine_transport_matrices",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_FLOAT",
+      "name": "raw_readout_against_independent_integer_example",
+      "passed": true,
+      "evidence": {
+        "Omega": [
+          [
+            "1 + 4*I"
+          ],
+          [
+            "2 + 5*I"
+          ],
+          [
+            "3 + 6*I"
+          ]
+        ],
+        "Z": [
+          [
+            "-3"
+          ],
+          [
+            "6"
+          ],
+          [
+            "-3"
+          ]
+        ]
+      }
+    },
+    {
+      "group": "API_FLOAT",
+      "name": "all_state_areas_against_geometric_calculation",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_OWNERSHIP",
+      "name": "area_triple_delegates_bitwise_once",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_FLOAT_FALSIFIER",
+      "name": "floating_ED_not_bitwise_identity_witness",
+      "passed": true,
+      "evidence": {
+        "initial_real_hex": [
+          "0x1.0000000000000p+0",
+          "0x0.0p+0",
+          "0x0.0p+0"
+        ],
+        "roundtrip_real_hex": [
+          "0x1.fffffffffffffp-1",
+          "0x0.0p+0",
+          "0x0.0p+0"
+        ]
+      }
+    },
+    {
+      "group": "API_PRECISION",
+      "name": "normal_rejection_scale_homogeneity_and_no_z_slack",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_PRECISION",
+      "name": "subnormal_overflow_and_diagonal_readout_validation",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_PRECISION",
+      "name": "small_nonzero_area_retains_quadratic_scale",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_PRECISION",
+      "name": "strict_shapes_types_and_indices",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_OWNERSHIP",
+      "name": "stored_state_copy_and_derived_readonly_vectors",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_OWNERSHIP",
+      "name": "one_recurrence_per_step_no_encode_feedback_both_paths",
+      "passed": true,
+      "evidence": [
+        {
+          "profile": null,
+          "records": [
+            {
+              "step": 1,
+              "recurrence_calls": 1,
+              "adapter_calls": 0,
+              "bitwise_equal_to_direct": true,
+              "previous_view_unchanged": true
+            },
+            {
+              "step": 2,
+              "recurrence_calls": 1,
+              "adapter_calls": 0,
+              "bitwise_equal_to_direct": true,
+              "previous_view_unchanged": true
+            },
+            {
+              "step": 3,
+              "recurrence_calls": 1,
+              "adapter_calls": 0,
+              "bitwise_equal_to_direct": true,
+              "previous_view_unchanged": true
+            },
+            {
+              "step": 4,
+              "recurrence_calls": 1,
+              "adapter_calls": 0,
+              "bitwise_equal_to_direct": true,
+              "previous_view_unchanged": true
+            }
+          ]
+        },
+        {
+          "profile": "triad_eps005_g02_k0to8_radius3_v1",
+          "records": [
+            {
+              "step": 1,
+              "recurrence_calls": 1,
+              "adapter_calls": 1,
+              "bitwise_equal_to_direct": true,
+              "previous_view_unchanged": true
+            },
+            {
+              "step": 2,
+              "recurrence_calls": 1,
+              "adapter_calls": 1,
+              "bitwise_equal_to_direct": true,
+              "previous_view_unchanged": true
+            },
+            {
+              "step": 3,
+              "recurrence_calls": 1,
+              "adapter_calls": 1,
+              "bitwise_equal_to_direct": true,
+              "previous_view_unchanged": true
+            },
+            {
+              "step": 4,
+              "recurrence_calls": 1,
+              "adapter_calls": 1,
+              "bitwise_equal_to_direct": true,
+              "previous_view_unchanged": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "API_OWNERSHIP",
+      "name": "from_faces_explicit_single_encoding_initialization",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_OWNERSHIP",
+      "name": "failed_view_conversion_preserves_previous_state",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_PRECISION",
+      "name": "zero_phase_convention_and_lambda_zero_identity",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "API_FLOAT_FALSIFIER",
+      "name": "zero_stratum_phase_counterexample",
+      "passed": true,
+      "evidence": {
+        "maximum_gap": 0.5176380902050414
+      }
+    },
+    {
+      "group": "SOURCE_INTEGRITY",
+      "name": "consulted_sources_unchanged_during_checks",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "TREE_INTEGRITY",
+      "name": "current_content_and_paths_unchanged",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "TREE_INTEGRITY",
+      "name": "old_content_and_paths_unchanged",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "TREE_INTEGRITY",
+      "name": "torment_kernel_content_and_paths_unchanged",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "TREE_INTEGRITY",
+      "name": "torment_checkout_content_and_paths_unchanged",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "TREE_INTEGRITY",
+      "name": "current_git_head_and_tracked_status",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "group": "TREE_INTEGRITY",
+      "name": "torment_checkout_git_head_and_tracked_status",
+      "passed": true,
+      "evidence": null
+    }
+  ],
+  "sources": {
+    "B_CODE": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\face_state.py",
+      "sha256": "be9d1e25a6f368e644ecfa9b1af70ba9382599e8b4d43d529d1783004d86ded7"
+    },
+    "READOUTS": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\readouts.py",
+      "sha256": "3889051f08c09197224a30263195f8f0d474e5f7b93671fb56e6c240c58e91c9"
+    },
+    "B_PAPER": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_B\\publication\\v0.1.2\\PAPER_B_TRIADIC_CHIRALITY_AND_ORIENTATION_GEOMETRY_PUBLICATION_v0.1.2.md",
+      "sha256": "fb4575120470e8d7143ebc1f475ee4635caf9f39f21f88308960308fb259e150"
+    },
+    "B_SYMBOLS": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\PAPER_B\\PAPER_B_SYMBOLS_AND_THEOREMS_v0.1.1.md",
+      "sha256": "1987aa42883097ded5f9c498b78cb7b467812ea238bf7bb522078f2e9e19ea66"
+    },
+    "GEOMETRY": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\geometry.py",
+      "sha256": "18398bd15b12c2dc1711c3ea2769f50215f2bcad5335ced9ee23e4e6baf1ddbf"
+    },
+    "DYNAMICS": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\dynamics.py",
+      "sha256": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4"
+    },
+    "NUMERIC_POLICY": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\_response_numeric.py",
+      "sha256": "cc33f797e76f7dbeff6fbd58ab52003fde2acbadf35ae299d827b4b55ba29655"
+    },
+    "BOUNDED_WRAPPER": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\operating_region.py",
+      "sha256": "4428dc5d1b9a8328da818550c51e1aef489d42ddd8338c19c3185fed9300f160"
+    },
+    "FACE_TESTS": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\tests\\test_face_state.py",
+      "sha256": "0625221cf107f2c4ac778e17c9ff3262af64978089bb2ad571ee32bf07740bcb"
+    },
+    "READOUT_TESTS": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\kernel_physics\\tests\\test_readouts.py",
+      "sha256": "df8683819e6733ddf6b47d52cbc42b332a72e7af8ec9148195e3e935201763e0"
+    },
+    "OLD_MODEL": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO\\model_core.py",
+      "sha256": "ce635fd3de1813ef0cdced1d310c1486815672a0a2b93a9f85ebc706c6ee99c6"
+    },
+    "OLD_3D": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO\\geometry_3d.py",
+      "sha256": "b6803b3a02f5240a5cb00a3dbc9cf403c2e762de713146aa3848996738772400"
+    },
+    "OLD_TETRA": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO\\dual_tetra_mapper.py",
+      "sha256": "14845223bbfa0c0f17df2781ee4a0ebba9befeee5f374bb01a4647242dbedf9f"
+    },
+    "OLD_CURVES": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO\\analysis_tools.py",
+      "sha256": "3be6de46c7060b6e797bc6801de002c5b59374957a3ef1a9fd37d51b11b20106"
+    },
+    "OLD_CORRIDOR": {
+      "path": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO\\tangent_corridor_analysis.py",
+      "sha256": "8596940375d1f299a6e8fef40b49e9a603405298867594f276e95fdcd464c81b"
+    },
+    "PRODUCTION_MODEL": {
+      "path": "C:\\TORMENT\\TORMENT_repo\\TORMENT-fabric_v2\\torment_fabric\\torment_service\\kernel\\model_core.py",
+      "sha256": "c9fcc15940749b27fbe9a8afea6aad46fed6e56b469b30ad976a7ba225ac66ab"
+    }
+  },
+  "integrity": {
+    "status": "ATTACHED",
+    "scopes": {
+      "current": {
+        "root": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+        "before_count": 7783,
+        "after_count": 7783,
+        "before_sha256": "c290755b50b607b9e699bec5d0ca2ff9821def3aece8ee3b2513cad43b1cd880",
+        "after_sha256": "c290755b50b607b9e699bec5d0ca2ff9821def3aece8ee3b2513cad43b1cd880",
+        "changed_paths": [],
+        "before_interval": [
+          "2026-09-29T06:26:49.921726+00:00",
+          "2026-09-29T06:26:54.144904+00:00"
+        ],
+        "after_interval": [
+          "2026-09-29T06:35:08.953054+00:00",
+          "2026-09-29T06:35:13.399108+00:00"
+        ]
+      },
+      "old": {
+        "root": "C:\\TORMENT\\TRIOCTAGON_new\\kernel_TO",
+        "before_count": 401,
+        "after_count": 401,
+        "before_sha256": "cec5e60047e01772dde3b8053949dca69c7124378bdca9ce68a7aee96962d2bd",
+        "after_sha256": "cec5e60047e01772dde3b8053949dca69c7124378bdca9ce68a7aee96962d2bd",
+        "changed_paths": [],
+        "before_interval": [
+          "2026-09-29T06:26:54.147446+00:00",
+          "2026-09-29T06:26:54.426916+00:00"
+        ],
+        "after_interval": [
+          "2026-09-29T06:35:13.402486+00:00",
+          "2026-09-29T06:35:13.692560+00:00"
+        ]
+      },
+      "torment_kernel": {
+        "root": "C:\\TORMENT\\TORMENT_repo\\TORMENT-fabric_v2\\torment_fabric\\torment_service\\kernel",
+        "before_count": 64,
+        "after_count": 64,
+        "before_sha256": "8b11e5bb287212e51dfd8e80fe7a3e96f1c6757e34f3fcc02bdd5eece7f56b41",
+        "after_sha256": "8b11e5bb287212e51dfd8e80fe7a3e96f1c6757e34f3fcc02bdd5eece7f56b41",
+        "changed_paths": [],
+        "before_interval": [
+          "2026-09-29T06:26:54.429940+00:00",
+          "2026-09-29T06:26:54.457120+00:00"
+        ],
+        "after_interval": [
+          "2026-09-29T06:35:13.700551+00:00",
+          "2026-09-29T06:35:13.725638+00:00"
+        ]
+      },
+      "torment_checkout": {
+        "root": "C:\\TORMENT\\TORMENT_repo\\TORMENT-fabric_v2\\torment_fabric",
+        "before_count": 173908,
+        "after_count": 173908,
+        "before_sha256": "3a1a4b061dfbee500f065f053677013573b5f300c847e18c972accac5d512fc4",
+        "after_sha256": "3a1a4b061dfbee500f065f053677013573b5f300c847e18c972accac5d512fc4",
+        "changed_paths": [],
+        "before_interval": [
+          "2026-09-29T06:26:54.461121+00:00",
+          "2026-09-29T06:29:03.327350+00:00"
+        ],
+        "after_interval": [
+          "2026-09-29T06:35:13.729446+00:00",
+          "2026-09-29T06:37:28.615978+00:00"
+        ]
+      }
+    },
+    "snapshot_paths": {
+      "before.json": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas04_20260929_pwk5juv2\\before.json",
+      "after.json": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas04_20260929_pwk5juv2\\after.json",
+      "git_before.json": "C:\\Users\\Notandi\\AppData\\Local\\Temp\\trioctagon_atlas04_20260929_pwk5juv2\\git_before.json"
+    },
+    "snapshot_sha256": {
+      "before.json": "797dce7511cfdeb04abd5aadcb38a0f4e37059ef4727afea784df2b733cab958",
+      "after.json": "9926fd0fcc7d7dc01705c0031d7dfb40e215500c30abd5dc99faa6a1dd06ec91",
+      "git_before.json": "2b2d1306d88381f1061548cc63eed88d053f4acbcff6aa4ee676cd6c0e81b8e1"
+    },
+    "git_before": {
+      "current": {
+        "head": "0fa3b582c086e51371e8a784bc3dd145f88cfb2b",
+        "tracked_status": ""
+      },
+      "torment_checkout": {
+        "head": "a06edcc5c9df5d3b56405085d9f2942b768dc203",
+        "tracked_status": ""
+      }
+    },
+    "git_after": {
+      "current": {
+        "head": "0fa3b582c086e51371e8a784bc3dd145f88cfb2b",
+        "tracked_status": ""
+      },
+      "torment_checkout": {
+        "head": "a06edcc5c9df5d3b56405085d9f2942b768dc203",
+        "tracked_status": ""
+      }
+    }
+  },
+  "exact_data": {
+    "centres": [
+      [
+        [
+          "-1/4"
+        ],
+        [
+          "sqrt(3)/4"
+        ],
+        [
+          "0"
+        ]
+      ],
+      [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ],
+      [
+        [
+          "1/4"
+        ],
+        [
+          "sqrt(3)/4"
+        ],
+        [
+          "0"
+        ]
+      ]
+    ],
+    "normals": [
+      [
+        [
+          "-sqrt(3)/2"
+        ],
+        [
+          "1/2"
+        ],
+        [
+          "0"
+        ]
+      ],
+      [
+        [
+          "0"
+        ],
+        [
+          "-1"
+        ],
+        [
+          "0"
+        ]
+      ],
+      [
+        [
+          "sqrt(3)/2"
+        ],
+        [
+          "1/2"
+        ],
+        [
+          "0"
+        ]
+      ]
+    ],
+    "tangents": [
+      [
+        [
+          "-1/2"
+        ],
+        [
+          "-sqrt(3)/2"
+        ],
+        [
+          "0"
+        ]
+      ],
+      [
+        [
+          "1"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ],
+      [
+        [
+          "-1/2"
+        ],
+        [
+          "sqrt(3)/2"
+        ],
+        [
+          "0"
+        ]
+      ]
+    ],
+    "ez": [
+      [
+        "0"
+      ],
+      [
+        "0"
+      ],
+      [
+        "1"
+      ]
+    ],
+    "D_real_matrices": [
+      [
+        [
+          "-1/2",
+          "0"
+        ],
+        [
+          "-sqrt(3)/2",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      [
+        [
+          "-1/2",
+          "0"
+        ],
+        [
+          "sqrt(3)/2",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ]
+    ],
+    "projectors": [
+      [
+        [
+          "1/4",
+          "sqrt(3)/4",
+          "0"
+        ],
+        [
+          "sqrt(3)/4",
+          "3/4",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      [
+        [
+          "1/4",
+          "-sqrt(3)/4",
+          "0"
+        ],
+        [
+          "-sqrt(3)/4",
+          "3/4",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ]
+    ],
+    "complex_structures": [
+      [
+        [
+          "0",
+          "0",
+          "1/2"
+        ],
+        [
+          "0",
+          "0",
+          "sqrt(3)/2"
+        ],
+        [
+          "-1/2",
+          "-sqrt(3)/2",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0",
+          "1/2"
+        ],
+        [
+          "0",
+          "0",
+          "-sqrt(3)/2"
+        ],
+        [
+          "-1/2",
+          "sqrt(3)/2",
+          "0"
+        ]
+      ]
+    ],
+    "transport": {
+      "0<-0": [
+        [
+          "1/4",
+          "sqrt(3)/4",
+          "0"
+        ],
+        [
+          "sqrt(3)/4",
+          "3/4",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "0<-1": [
+        [
+          "-1/2",
+          "0",
+          "0"
+        ],
+        [
+          "-sqrt(3)/2",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "0<-2": [
+        [
+          "1/4",
+          "-sqrt(3)/4",
+          "0"
+        ],
+        [
+          "sqrt(3)/4",
+          "-3/4",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "1<-0": [
+        [
+          "-1/2",
+          "-sqrt(3)/2",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "1<-1": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "1<-2": [
+        [
+          "-1/2",
+          "sqrt(3)/2",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "2<-0": [
+        [
+          "1/4",
+          "sqrt(3)/4",
+          "0"
+        ],
+        [
+          "-sqrt(3)/4",
+          "-3/4",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "2<-1": [
+        [
+          "-1/2",
+          "0",
+          "0"
+        ],
+        [
+          "sqrt(3)/2",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "2<-2": [
+        [
+          "1/4",
+          "-sqrt(3)/4",
+          "0"
+        ],
+        [
+          "-sqrt(3)/4",
+          "3/4",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ]
+    },
+    "A": [
+      [
+        "0",
+        "-p0*q1 + p1*q0",
+        "-p0*q2 + p2*q0"
+      ],
+      [
+        "p0*q1 - p1*q0",
+        "0",
+        "-p1*q2 + p2*q1"
+      ],
+      [
+        "p0*q2 - p2*q0",
+        "p1*q2 - p2*q1",
+        "0"
+      ]
+    ],
+    "Z": [
+      [
+        "-p1*q2 + p2*q1"
+      ],
+      [
+        "p0*q2 - p2*q0"
+      ],
+      [
+        "-p0*q1 + p1*q0"
+      ]
+    ],
+    "holonomy_A": [
+      [
+        "1/4",
+        "sqrt(3)/4",
+        "0"
+      ],
+      [
+        "sqrt(3)/4",
+        "3/4",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "symmetry_actions": [
+      {
+        "element": "R^0 V^0 H^0",
+        "G": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "source_to_destination": [
+          0,
+          1,
+          2
+        ],
+        "P": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "det_G": "1",
+        "det_P": "1",
+        "eta": "1",
+        "state_action": "eta P Omega",
+        "Z_matrix": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ]
+      },
+      {
+        "element": "R^0 V^0 H^1",
+        "G": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1"
+          ]
+        ],
+        "source_to_destination": [
+          0,
+          1,
+          2
+        ],
+        "P": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "det_G": "-1",
+        "det_P": "1",
+        "eta": "-1",
+        "state_action": "-eta P conjugate(Omega)",
+        "Z_matrix": [
+          [
+            "-1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1"
+          ]
+        ]
+      },
+      {
+        "element": "R^0 V^1 H^0",
+        "G": [
+          [
+            "-1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "source_to_destination": [
+          2,
+          1,
+          0
+        ],
+        "P": [
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ]
+        ],
+        "det_G": "-1",
+        "det_P": "-1",
+        "eta": "1",
+        "state_action": "-eta P conjugate(Omega)",
+        "Z_matrix": [
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "element": "R^0 V^1 H^1",
+        "G": [
+          [
+            "-1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1"
+          ]
+        ],
+        "source_to_destination": [
+          2,
+          1,
+          0
+        ],
+        "P": [
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ]
+        ],
+        "det_G": "1",
+        "det_P": "-1",
+        "eta": "-1",
+        "state_action": "eta P Omega",
+        "Z_matrix": [
+          [
+            "0",
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "-1",
+            "0"
+          ],
+          [
+            "-1",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "element": "R^1 V^0 H^0",
+        "G": [
+          [
+            "-1/2",
+            "-sqrt(3)/2",
+            "0"
+          ],
+          [
+            "sqrt(3)/2",
+            "-1/2",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "source_to_destination": [
+          1,
+          2,
+          0
+        ],
+        "P": [
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ]
+        ],
+        "det_G": "1",
+        "det_P": "1",
+        "eta": "1",
+        "state_action": "eta P Omega",
+        "Z_matrix": [
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ]
+        ]
+      },
+      {
+        "element": "R^1 V^0 H^1",
+        "G": [
+          [
+            "-1/2",
+            "-sqrt(3)/2",
+            "0"
+          ],
+          [
+            "sqrt(3)/2",
+            "-1/2",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1"
+          ]
+        ],
+        "source_to_destination": [
+          1,
+          2,
+          0
+        ],
+        "P": [
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ]
+        ],
+        "det_G": "-1",
+        "det_P": "1",
+        "eta": "-1",
+        "state_action": "-eta P conjugate(Omega)",
+        "Z_matrix": [
+          [
+            "0",
+            "0",
+            "-1"
+          ],
+          [
+            "-1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-1",
+            "0"
+          ]
+        ]
+      },
+      {
+        "element": "R^1 V^1 H^0",
+        "G": [
+          [
+            "1/2",
+            "-sqrt(3)/2",
+            "0"
+          ],
+          [
+            "-sqrt(3)/2",
+            "-1/2",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "source_to_destination": [
+          0,
+          2,
+          1
+        ],
+        "P": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ]
+        ],
+        "det_G": "-1",
+        "det_P": "-1",
+        "eta": "1",
+        "state_action": "-eta P conjugate(Omega)",
+        "Z_matrix": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ]
+        ]
+      },
+      {
+        "element": "R^1 V^1 H^1",
+        "G": [
+          [
+            "1/2",
+            "-sqrt(3)/2",
+            "0"
+          ],
+          [
+            "-sqrt(3)/2",
+            "-1/2",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1"
+          ]
+        ],
+        "source_to_destination": [
+          0,
+          2,
+          1
+        ],
+        "P": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ]
+        ],
+        "det_G": "1",
+        "det_P": "-1",
+        "eta": "-1",
+        "state_action": "eta P Omega",
+        "Z_matrix": [
+          [
+            "-1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "-1",
+            "0"
+          ]
+        ]
+      },
+      {
+        "element": "R^2 V^0 H^0",
+        "G": [
+          [
+            "-1/2",
+            "sqrt(3)/2",
+            "0"
+          ],
+          [
+            "-sqrt(3)/2",
+            "-1/2",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "source_to_destination": [
+          2,
+          0,
+          1
+        ],
+        "P": [
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ]
+        ],
+        "det_G": "1",
+        "det_P": "1",
+        "eta": "1",
+        "state_action": "eta P Omega",
+        "Z_matrix": [
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "element": "R^2 V^0 H^1",
+        "G": [
+          [
+            "-1/2",
+            "sqrt(3)/2",
+            "0"
+          ],
+          [
+            "-sqrt(3)/2",
+            "-1/2",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1"
+          ]
+        ],
+        "source_to_destination": [
+          2,
+          0,
+          1
+        ],
+        "P": [
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ]
+        ],
+        "det_G": "-1",
+        "det_P": "1",
+        "eta": "-1",
+        "state_action": "-eta P conjugate(Omega)",
+        "Z_matrix": [
+          [
+            "0",
+            "-1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1"
+          ],
+          [
+            "-1",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "element": "R^2 V^1 H^0",
+        "G": [
+          [
+            "1/2",
+            "sqrt(3)/2",
+            "0"
+          ],
+          [
+            "sqrt(3)/2",
+            "-1/2",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "source_to_destination": [
+          1,
+          0,
+          2
+        ],
+        "P": [
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "det_G": "-1",
+        "det_P": "-1",
+        "eta": "1",
+        "state_action": "-eta P conjugate(Omega)",
+        "Z_matrix": [
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ]
+      },
+      {
+        "element": "R^2 V^1 H^1",
+        "G": [
+          [
+            "1/2",
+            "sqrt(3)/2",
+            "0"
+          ],
+          [
+            "sqrt(3)/2",
+            "-1/2",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1"
+          ]
+        ],
+        "source_to_destination": [
+          1,
+          0,
+          2
+        ],
+        "P": [
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "det_G": "1",
+        "det_P": "-1",
+        "eta": "-1",
+        "state_action": "eta P Omega",
+        "Z_matrix": [
+          [
+            "0",
+            "-1",
+            "0"
+          ],
+          [
+            "-1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1"
+          ]
+        ]
+      }
+    ]
+  },
+  "runtime_trajectory_evidence": [
+    {
+      "profile": null,
+      "records": [
+        {
+          "step": 1,
+          "recurrence_calls": 1,
+          "adapter_calls": 0,
+          "bitwise_equal_to_direct": true,
+          "previous_view_unchanged": true
+        },
+        {
+          "step": 2,
+          "recurrence_calls": 1,
+          "adapter_calls": 0,
+          "bitwise_equal_to_direct": true,
+          "previous_view_unchanged": true
+        },
+        {
+          "step": 3,
+          "recurrence_calls": 1,
+          "adapter_calls": 0,
+          "bitwise_equal_to_direct": true,
+          "previous_view_unchanged": true
+        },
+        {
+          "step": 4,
+          "recurrence_calls": 1,
+          "adapter_calls": 0,
+          "bitwise_equal_to_direct": true,
+          "previous_view_unchanged": true
+        }
+      ]
+    },
+    {
+      "profile": "triad_eps005_g02_k0to8_radius3_v1",
+      "records": [
+        {
+          "step": 1,
+          "recurrence_calls": 1,
+          "adapter_calls": 1,
+          "bitwise_equal_to_direct": true,
+          "previous_view_unchanged": true
+        },
+        {
+          "step": 2,
+          "recurrence_calls": 1,
+          "adapter_calls": 1,
+          "bitwise_equal_to_direct": true,
+          "previous_view_unchanged": true
+        },
+        {
+          "step": 3,
+          "recurrence_calls": 1,
+          "adapter_calls": 1,
+          "bitwise_equal_to_direct": true,
+          "previous_view_unchanged": true
+        },
+        {
+          "step": 4,
+          "recurrence_calls": 1,
+          "adapter_calls": 1,
+          "bitwise_equal_to_direct": true,
+          "previous_view_unchanged": true
+        }
+      ]
+    }
+  ],
+  "scope": [
+    "Exact algebra is independent of the implementation/API lane.",
+    "All normal-bearing ambient inputs have DE=Pi mathematically; production encoder rejects substantive residuals.",
+    "Finite runtime cases do not establish bitwise equality for every input or platform.",
+    "Historical absence findings are bounded to the inspected files, not proofs about all past work."
+  ],
+  "boundary_flags": [
+    "PAPER_C_GEOMETRY != OMEGA_DYNAMICS",
+    "OMEGA_HAS_AN_ACCEPTED_TANGENT_VECTOR_REPRESENTATION",
+    "NO_ACCEPTED_PHYSICAL_POINT_POSITION_LAW_FROM_OMEGA"
+  ],
+  "actions": {
+    "commits": 0,
+    "pushes": 0
+  }
+}

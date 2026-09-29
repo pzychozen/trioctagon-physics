@@ -10,6 +10,7 @@ scientific UI connect the mathematics to explicit numerical experiments.
 This is **not the TORMENT production memory system**.
 
 - **[READ THE RESEARCH](#papers-a-f)** — six current publication editions below.
+- **[MATHEMATICAL ATLAS](research/mathematical_atlas/README.md)** — first-principles derivations, exact checks, counterexamples, scope boundaries and open interfaces for the current kernel mathematics.
 - **[USE THE PYTHON KERNEL](#use-the-python-kernel)** — build, install and save a small explicit experiment.
 - **[RUN THE SCIENTIFIC UI](apps/scientific_ui/README.md#public-installation)** — install the separately certified, locked kernel/UI pair.
 
