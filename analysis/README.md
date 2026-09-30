@@ -61,5 +61,55 @@ contracts. [Conformance map](CONFORMANCE.md) distinguishes B1 checks from
 unimplemented B2 enforcement. [Resource proposal](RESOURCE_LIMIT_PROPOSAL.md)
 is measured planning evidence, **not an approved production policy**.
 
-Scientific research, simulation, replay, recomputation, release publication,
-Core/UI changes and B2 work are outside this package change.
+Scientific research, simulation, replay, recomputation, release publication and
+Core/UI changes remain outside scope. The B2A addition below is disabled proof
+infrastructure only; further execution/activation needs separate authorization.
+
+## B2A proof addendum
+
+[B2A Windows proof](B2A_WINDOWS_PROOF.md) adds a separate refusal-only proof
+harness. Its current outcome is **NOT_PROVEN**: unapproved AVG native startup
+injection prevents the closed execution path from reaching the provider.
+[B2A conformance/resource review](B2A_CONFORMANCE.md) distinguishes the real
+refusal from unverified OS/resource controls. The B1 codecs and normal
+coordinator remain unchanged; no production activation or B2B is implemented.
+
+The preserved disposition is:
+
+~~~text
+B1 = PASS
+B2A_PROOF_HARNESS = PRESERVE
+WINDOWS_EXECUTION_BINDING = NOT_PROVEN
+B2A-R1 = BLOCKED_ENVIRONMENT_NOT_AVAILABLE
+PRODUCTION_ATTESTATION_ENABLED = NO
+READY_FOR_B2B = NO
+~~~
+
+The strict gate refused unapproved `C:\Program Files\AVG\Antivirus\snxhk.dll`
+before provider execution. This is not a maliciousness claim or an approval of
+AVG. R1 identified no usable disposable Windows guest and launched no proof job.
+
+### Preservation classification
+
+Paths below are relative to `analysis/`. These classifications describe reusable
+source/specifications; external evidence, machine inventories, runtime downloads,
+candidate archives and temporary snapshots are not repository artifacts.
+
+| Artifact | Classification |
+|---|---|
+| `README.md` | SPECIFICATION |
+| `pyproject.toml` | PROOF_INFRASTRUCTURE |
+| `B2A_WINDOWS_PROOF.md` | SPECIFICATION |
+| `B2A_CONFORMANCE.md` | SPECIFICATION |
+| `src/trioctagon_analysis/b2a_snapshot.py` | PROOF_INFRASTRUCTURE |
+| `src/trioctagon_analysis/b2a_windows.py` | WINDOWS_ATTESTATION_PROTOTYPE |
+| `src/trioctagon_analysis/b2a_worker.py` | PROOF_INFRASTRUCTURE |
+| `src/trioctagon_analysis/b2a_proof.py` | EVIDENCE_ONLY_COORDINATOR |
+| `tests/test_b2a.py` | TEST_SUPPORT |
+
+No production attestor is implemented. The normal coordinator always refuses
+verified issuance, while the proof coordinator only returns non-production
+evidence with binding NOT_PROVEN. Failed or incomplete attestation has no fallback
+to ordinary APP04 issuance. The inert claim codec remains distinct from actual
+producer attestation. Preservation does not resume proof execution or authorize UI
+work, APP04 recomputation, Historical providers or Research Lab engines.
