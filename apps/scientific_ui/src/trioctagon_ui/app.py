@@ -6,12 +6,15 @@ from importlib import metadata
 import json
 from pathlib import Path
 
+from trioctagon_ui.qt_runtime import prepare_qt
+prepare_qt()
 from PySide6.QtCore import Qt, Signal, QTimer
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFileDialog, QFormLayout,
     QGroupBox, QHBoxLayout, QLabel, QLineEdit, QMainWindow, QMessageBox, QPlainTextEdit,
     QPushButton, QScrollArea, QSlider, QSpinBox, QDoubleSpinBox, QListWidget, QListWidgetItem, QSplitter, QTabWidget, QTableWidget,
     QTableWidgetItem, QTreeWidget, QTreeWidgetItem, QVBoxLayout, QWidget)
 from trioctagon_ui import requests
+from trioctagon_ui.artifact_panel import ArtifactsPanel
 from trioctagon_ui.geometry_view import GeometryView
 from trioctagon_ui.jobs import JobManager
 from trioctagon_ui.plots import StoredPlots, HistoryPlot, ComparisonPlot
@@ -117,6 +120,8 @@ class MainWindow(QMainWindow):
         self.records = []
         self.analysis_cache = []
         self.analysis_current = None
+        self._artifact_selected = False
+        self._artifact_core_pending = False
         self.saved = {}
         self.loaded = set()
         self.resumed = set()
@@ -145,12 +150,32 @@ class MainWindow(QMainWindow):
         self.jobs.elapsed_changed.connect(lambda elapsed: self.job_label.setText(f"Job: {self.jobs.state}; {elapsed:.1f} s; requested samples: {self.requested_samples}"))
         self.jobs.completed.connect(self._completed)
         self.jobs.failed.connect(self._failed)
-        self.jobs.cancelled.connect(lambda: self.statusBar().showMessage("Cancelled; previous completed records preserved"))
+        self.jobs.cancelled.connect(self._cancelled)
         self.sweep_controller.changed.connect(self._dataset_changed)
         self.sweep_controller.record_ready.connect(self._dataset_record)
         self.sweep_controller.persistence_failed.connect(self._failed)
         self.requested_samples = "not applicable"
+        self.tabs.currentChanged.connect(self._artifact_context_changed)
+        self.repro_tabs.currentChanged.connect(self._artifact_context_changed)
         self._render_draft(); self._identity(); self._validity()
+
+    def _artifact_context_active(self):
+        return self._artifact_selected or (hasattr(self, "artifacts") and self.tabs.currentIndex() == 3 and self.repro_tabs.currentWidget() is self.artifacts)
+
+    def _artifact_selection_changed(self):
+        self._artifact_selected = True
+        self._artifact_context_changed()
+
+    def _artifact_context_changed(self, *unused):
+        self._validity(); self._identity()
+
+    def _load_artifact_core(self, candidate):
+        # Explicit closed routing to the unchanged v2 Core loader.
+        if self.jobs.busy or self.sweep_controller.active:
+            self.artifacts.status.setText("Core loader busy; current selection preserved")
+            return
+        self._artifact_core_pending = True
+        self._submit(requests.request("load_record", {"record_json": candidate.raw.decode("utf-8")}))
 
     def _help(self, name):
         item = next(v for v in self.help["items"] if v["id"] == name)
@@ -400,6 +425,7 @@ class MainWindow(QMainWindow):
         layout.addWidget(self.kernel_identity)
         self.history = QComboBox(); self.history.setAccessibleName("Completed and loaded immutable record history")
         self.history.currentIndexChanged.connect(self._history_selected); layout.addWidget(self.history)
+        self.history.activated.connect(self._history_selected)
         row = QHBoxLayout(); layout.addLayout(row)
         self.load_button = button("Load record JSON", "Load public record through worker validation", self._load_record)
         self.save_button = button("Save current record JSON", "Save exact canonical public record JSON", self._save_record)
@@ -436,6 +462,13 @@ class MainWindow(QMainWindow):
         layout.addWidget(self.analysis_tree, 1)
         self.repro_tabs.addTab(page, "Records")
         self._comparison_panel(); self._dataset_panel(); self._export_panel()
+        self.artifacts = ArtifactsPanel("\n\n".join(self._help(name) for name in (
+            "artifacts", "derived_artifact", "attempt_receipt", "legacy_analysis", "producer_claim",
+            "app04_copy", "analysis_execution", "exact_tokens")))
+        self.artifacts.setToolTip(self._help("artifacts"))
+        self.artifacts.selection_changed.connect(self._artifact_selection_changed)
+        self.artifacts.core_requested.connect(self._load_artifact_core)
+        self.repro_tabs.addTab(self.artifacts, "Artifacts")
         self.tabs.addTab(container, "D — Records & Reproducibility")
 
     def _gather(self):
@@ -519,14 +552,14 @@ class MainWindow(QMainWindow):
         except ValueError as exc:
             geometry_valid = False; self.geometry_validation.setText(str(exc))
         self.geometry_button.setEnabled(geometry_valid and not (self.jobs.busy or self.sweep_controller.active))
-        is_run = self.current is not None and self.current.kind == "KERNEL_RUN_RECORD"
+        is_run = not self._artifact_context_active() and self.current is not None and self.current.kind == "KERNEL_RUN_RECORD"
         try:
             requests.integer(self.resume_updates.text(), "resume updates"); resume_valid = True
         except ValueError:
             resume_valid = False
         self.resume_button.setEnabled(is_run and resume_valid and not (self.jobs.busy or self.sweep_controller.active))
         self.checkpoint_button.setEnabled(is_run and not (self.jobs.busy or self.sweep_controller.active))
-        self.save_button.setEnabled(self.current is not None)
+        self.save_button.setEnabled(self.current is not None and not self._artifact_context_active())
         self.load_button.setEnabled(not (self.jobs.busy or self.sweep_controller.active))
         self.cancel_button.setEnabled(self.jobs.busy or self.sweep_controller.active)
         self.step_preview_button.setEnabled(not (self.jobs.busy or self.sweep_controller.active))
@@ -596,6 +629,7 @@ class MainWindow(QMainWindow):
         except ValueError as exc: self._local_error(exc, "geometry input")
 
     def _resume(self):
+        if self._artifact_context_active(): return
         try:
             n = requests.integer(self.resume_updates.text(), "resume updates")
             self._submit(requests.request("resume", {"record_json": self.current.canonical_json, "updates": self.resume_updates.text()}), len(self.current.samples) + n)
@@ -603,6 +637,7 @@ class MainWindow(QMainWindow):
             self._failed({"exception_class": type(exc).__name__, "message": str(exc), "operation": "resume"})
 
     def _prepare_checkpoint(self):
+        if self._artifact_context_active(): return
         parent = self.current
         index = self.sample.value()
         sample = parent.samples[index]
@@ -630,12 +665,17 @@ class MainWindow(QMainWindow):
         result = response["result"]
         if result["result_kind"] == "analysis":
             view = AnalysisView(result); self.analysis_cache.append(view)
+            self.artifacts.add_session("LEGACY DETACHED ANALYSIS", view)
             self.analysis_history.addItem(f"{result['analysis_type']} · parent {(result['parent_digest'] or 'none')[:12]}")
             self.analysis_history.setCurrentIndex(len(self.analysis_cache) - 1)
             self._select_analysis(len(self.analysis_cache) - 1)
             self.statusBar().showMessage("Detached analysis cached; public record history unchanged")
             self._validity(); return
         view = RecordView(result["canonical_json"])
+        if self._artifact_core_pending:
+            self._artifact_core_pending = False
+            self._artifact_selected = False
+            self.repro_tabs.setCurrentIndex(0)
         if result["produced_current"]:
             self.runtime_source = result["source_commit"]
         else:
@@ -643,6 +683,7 @@ class MainWindow(QMainWindow):
         if response["operation"] == "resume":
             self.resumed.add(view.digest)
         self.records.append(view)
+        self.artifacts.add_session("CORE RUN RECORD" if view.kind == "KERNEL_RUN_RECORD" else "CORE GEOMETRY RECORD", view)
         self._comparison_choices()
         self.history.blockSignals(True)
         self.history.addItem(f"{view.kind} · {view.digest[:12]}")
@@ -653,6 +694,7 @@ class MainWindow(QMainWindow):
 
     def _history_selected(self, index):
         if 0 <= index < len(self.records):
+            self._artifact_selected = False
             self._select_record(self.records[index])
 
     def _select_record(self, view):
@@ -704,7 +746,10 @@ class MainWindow(QMainWindow):
             installed = metadata.version("trioctagon-physics")
         except metadata.PackageNotFoundError:
             installed = "missing"
-        self.kernel_identity.setText(f"Preferred locked kernel archive: {self.lock['artifact_filename']}\nPreferred archive SHA-256: {self.lock['artifact_sha256']}\nCertified reconstruction also accepted under lock-v2 equivalence; this is not an installed-archive identity query.\nExpected source: {self.lock['source_commit']}\nInstalled distribution version: {installed}\nCurrent source identity: {self.runtime_source}\nApplication: trioctagon-scientific-ui 0.1.0; separate software identity")
+        self.kernel_identity.setText(f"Preferred locked kernel archive: {self.lock['artifact_filename']}\nPreferred archive SHA-256: {self.lock['artifact_sha256']}\nCertified reconstruction also accepted under lock-v2 equivalence; this is not an installed-archive identity query.\nExpected source: {self.lock['source_commit']}\nInstalled distribution version: {installed}\nCurrent source identity: {self.runtime_source}\nApplication: trioctagon-scientific-ui 0.1.1; separate software identity")
+        if self._artifact_context_active():
+            self.identity.setText("Artifact inspection — " + self.artifacts.heading.text() + "\nUI: trioctagon-scientific-ui 0.1.1 · Analysis loader: independent installed pin 0.1.1 · Core kernel: separate Records identity")
+            return
         if self.current is None:
             self.identity.setText("Draft configuration · no completed record · geometry and dynamics remain independent")
         else:
@@ -712,7 +757,15 @@ class MainWindow(QMainWindow):
             state = "Saved" if view.digest in self.saved else "Loaded validated record — not saved by this session" if view.digest in self.loaded else "Completed record — UNSAVED"
             self.identity.setText(f"{view.kind} · source {view.data['implementation']['commit'][:12]} · digest {view.digest[:16]} · {state}\nDraft edits prepare a new run; recorded inputs stay unchanged.")
 
+    def _cancelled(self):
+        self._artifact_core_pending = False
+        self.statusBar().showMessage("Cancelled; previous completed records preserved")
+
     def _failed(self, error):
+        if self._artifact_core_pending:
+            from trioctagon_ui.artifact_loading import bounded_text
+            self.artifacts.status.setText(bounded_text("Core artifact refused: " + error.get("message", "")))
+        self._artifact_core_pending = False
         if self.sweep_controller.handles(error.get("request_id")): return
         self.error_details.setPlainText(json.dumps(error, indent=2, ensure_ascii=False))
         self.statusBar().showMessage(f"{error.get('exception_class', 'Error')}: {error.get('message', '')}; previous records preserved")
@@ -732,6 +785,7 @@ class MainWindow(QMainWindow):
             self._failed({"exception_class": type(exc).__name__, "message": str(exc), "operation": "load record file"})
 
     def _save_record(self):
+        if self._artifact_context_active(): return
         if self.current is None:
             return
         path, _ = QFileDialog.getSaveFileName(self, "Save exact canonical record JSON", "record.json", "JSON (*.json)")
@@ -1146,6 +1200,7 @@ class MainWindow(QMainWindow):
         self.repro_tabs.addTab(page, "Exports")
 
     def _export_csv(self):
+        if self._artifact_context_active(): return
         try:
             if self.current is None or self.current.kind != "KERNEL_RUN_RECORD": raise ValueError("Select a RunRecord explicitly for CSV")
             mode = self.csv_selection.currentText(); selection = {"mode": mode}
@@ -1157,6 +1212,7 @@ class MainWindow(QMainWindow):
         except Exception as exc: self._local_error(exc, "CSV export")
 
     def _image_source(self):
+        if self._artifact_context_active(): raise ValueError("Artifacts have no figure export source")
         name = self.export_view.currentText()
         context = {"view_type": name, "parents": [], "display_precision": self.precision.value(), "visible_series": [], "selection": None}
         if name in ("Stored time series", "Stored complex planes", "Stored raw chirality"):

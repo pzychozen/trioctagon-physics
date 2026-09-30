@@ -209,7 +209,7 @@ def git_fetch_environment(lock, environment):
     """Authenticate only the immutable repository; never alter caller/config state."""
     env = dict(environment); token = env.pop("GH_TOKEN", None)
     if not token: return env
-    if lock["source_repository"] != LOCKED_GIT_REPOSITORY or lock["source_commit"] != LOCKED_GIT_COMMIT:
+    if lock["source_repository"] != LOCKED_GIT_REPOSITORY or lock["source_commit"] not in (LOCKED_GIT_COMMIT, "df6295b6b5dc581a0bdec8601bae9cc3e14493bd"):
         raise ValueError("Token authentication requires the locked repository and commit")
     if any(k.upper() in ("GIT_CONFIG_COUNT", "GIT_CONFIG_PARAMETERS") or
            k.upper().startswith(("GIT_CONFIG_KEY_", "GIT_CONFIG_VALUE_")) for k in env):
@@ -365,6 +365,75 @@ def inventory(app, workspace):
     return rows
 
 
+def analysis_tools(app):
+    # stdlib-only verifier, loaded without importing the GUI package or analysis.
+    import importlib.util
+    name = "ui_pinned_analysis_identity"
+    spec = importlib.util.spec_from_file_location(name, app / "src/trioctagon_ui/analysis_identity.py")
+    module = importlib.util.module_from_spec(spec); sys.modules[name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+def verify_analysis(app, workspace):
+    lock = json.loads((app / "analysis-artifact.lock.json").read_bytes())
+    if lock["REGISTRY_RESOLUTION_ALLOWED"] is not False:
+        raise ValueError("Registry analysis substitution is forbidden")
+    wheel = workspace / "analysis-wheelhouse" / lock["wheel_filename"]
+    analysis_tools(app).verify_analysis_wheel(wheel, lock)
+    return wheel, lock
+
+
+def reconstruct_analysis(app, workspace):
+    lock = json.loads((app / "analysis-artifact.lock.json").read_bytes())
+    if lock["source_commit"] != "df6295b6b5dc581a0bdec8601bae9cc3e14493bd":
+        raise ValueError("Analysis reconstruction requires the reviewed source pin")
+    directory = Path(tempfile.mkdtemp(prefix="analysis-", dir=workspace)); source = directory / "s"
+    env = dict(os.environ, PYTHONUTF8="1", PYTHONDONTWRITEBYTECODE="1",
+        SOURCE_DATE_EPOCH=lock["build_inputs"]["source_date_epoch"])
+    env.pop("PYTHONPATH", None); fetch_env = dict(env); env.pop("GH_TOKEN", None)
+    def run(label, args): return command(args, directory, directory / (label + ".log"), env).strip()
+    run("init", ["git", "init", source]); run("crlf", ["git", "-C", source, "config", "core.autocrlf", "false"])
+    run("origin", ["git", "-C", source, "remote", "add", "origin", lock["source_repository"]])
+    try: fetch_auth = authenticated_git_fetch(source, lock, directory, fetch_env)
+    finally: fetch_env.clear()
+    run("checkout", ["git", "-C", source, "checkout", "--detach", lock["source_commit"]])
+    if run("head", ["git", "-C", source, "rev-parse", "HEAD"]) != lock["source_commit"]:
+        raise ValueError("Analysis reconstruction HEAD mismatch")
+    if run("tree", ["git", "-C", source, "rev-parse", "HEAD:analysis"]) != lock["analysis_git_tree"]:
+        raise ValueError("Analysis source tree mismatch")
+    names = run("files", ["git", "-C", source, "ls-files", "analysis"]).splitlines()
+    observed = {n.removeprefix("analysis/"): sha(source / n) for n in names}
+    if observed != lock["source_files"] or hashlib.sha256(json.dumps(observed, sort_keys=True,
+            separators=(",", ":")).encode()).hexdigest() != lock["source_content_sha256"]:
+        raise ValueError("Analysis source content mismatch")
+    inputs = [v for v in lock["build_inputs"]["wheels"] if v["filename"].startswith(("setuptools-", "wheel-", "packaging-"))]
+    requirements = directory / "build-requirements.txt"
+    requirements.write_text("".join(v["filename"].split("-")[0] + "==" + v["filename"].split("-")[1] +
+        " --hash=sha256:" + v["sha256"] + "\n" for v in inputs), encoding="utf-8")
+    build_wheels = directory / "build-wheels"
+    run("acquire-tools", [sys.executable, "-I", "-B", "-m", "pip", "--isolated", "download", "--only-binary=:all:",
+        "--no-deps", "--require-hashes", "--dest", build_wheels, "-r", requirements])
+    for row in inputs:
+        if sha(build_wheels / row["filename"]) != row["sha256"]: raise ValueError("Analysis build input mismatch")
+    build = directory / "b"; run("venv", [sys.executable, "-I", "-B", "-m", "venv", build])
+    python = build / "Scripts/python.exe"
+    run("install-tools", [python, "-I", "-B", "-m", "pip", "--isolated", "install", "--no-index",
+        "--no-deps", "--require-hashes", "--find-links", build_wheels, "-r", requirements])
+    copied = directory / "build-source"; shutil.copytree(source / "analysis", copied)
+    wheelhouse = workspace / "analysis-wheelhouse"; wheelhouse.mkdir(exist_ok=True)
+    run("build", [python, "-I", "-B", "-m", "pip", "--isolated", "wheel", "--no-index", "--no-deps",
+        "--no-build-isolation", "--wheel-dir", wheelhouse, copied])
+    wheel, _ = verify_analysis(app, workspace)
+    if run("clean", ["git", "-C", source, "status", "--porcelain"]): raise ValueError("Analysis source changed")
+    report = {"status": "PASS", "source_commit": lock["source_commit"], "wheel_sha256": sha(wheel),
+        "source_content_sha256": lock["source_content_sha256"], "members_verified": len(lock["member_manifest"]),
+        "build_inputs": inputs, "source_date_epoch": env["SOURCE_DATE_EPOCH"], "fetch_auth": fetch_auth,
+        "analysis_ci": lock["ci_run"], "wheel_postprocessing": False, "registry_fallback": False}
+    write_json(workspace / "analysis-acquisition.json", report)
+    return report
+
+
 def acquire(source, workspace):
     require_lane(); source, app, workspace = paths(source, workspace)
     lock = json.loads((app / "kernel-artifact.lock.json").read_text(encoding="utf-8"))
@@ -372,12 +441,13 @@ def acquire(source, workspace):
         command([sys.executable, "-I", "-B", "-m", "pip", "--isolated", "download", "--only-binary=:all:",
             "--no-deps", "--require-hashes", "--dest", workspace / name, "-r", requirements], workspace, workspace / (name + "-acquire.log"))
     rows = inventory(app, workspace)
+    analysis = reconstruct_analysis(app, workspace)
     preferred = acquire_preferred(app, workspace, lock)
     reconstructed = reconstruct_kernel(app, workspace, lock)
     selected = preferred or reconstructed
     write_json(workspace / "kernel-selection.json", {"classification": "PREFERRED_EXACT_ARCHIVE" if preferred else "CERTIFIED_RECONSTRUCTION", "relative_path": selected.relative_to(workspace).as_posix()})
     verify_kernel(app, workspace)
-    write_json(workspace / "acquisition.json", {"status": "PASS", "kernel": lock, "dependencies": rows,
+    write_json(workspace / "acquisition.json", {"status": "PASS", "kernel": lock, "analysis": analysis, "dependencies": rows,
         "preferred_artifact": "PASS" if preferred else "UNAVAILABLE", "forced_reconstruction": json.loads((workspace / "reconstructed-kernel.json").read_text(encoding="utf-8"))})
     print("ACQUISITION=PASS; exact closure and forced certified reconstruction verified", flush=True)
 
@@ -385,6 +455,7 @@ def acquire(source, workspace):
 def certify(source, workspace):
     require_lane(); source, app, workspace = paths(source, workspace)
     kernel, lock = verify_kernel(app, workspace); dependencies = inventory(app, workspace)
+    analysis, analysis_pin = verify_analysis(app, workspace)
     reconstruction = json.loads((workspace / "reconstructed-kernel.json").read_text(encoding="utf-8"))
     reconstructed = (workspace / reconstruction["relative_path"]).resolve()
     if not reconstructed.is_relative_to(workspace): raise ValueError("Reconstruction path escaped acquisition workspace")
@@ -429,16 +500,18 @@ def certify(source, workspace):
         assert all(n in package or ".dist-info/" in n or ".data/data/share/trioctagon-scientific-ui/" in n for n in members)
         for n in members:
             if ".data/" in n:
-                assert Path(n).name in ("kernel-artifact.lock.json", "requirements-win-py311.lock")
+                assert Path(n).name in ("kernel-artifact.lock.json", "analysis-artifact.lock.json", "requirements-win-py311.lock")
                 assert archive.read(n) == (app / Path(n).name).read_bytes()
         assert not any(n.endswith((".whl", ".dll", ".pyd")) or n.startswith(("tests/", "kernel_physics/")) for n in members)
         write_json(evidence / "app-wheel.json", {"filename": wheel.name, "sha256": sha(wheel), "members": members})
     runtime = venv("r")
     locked_install(runtime, app / "requirements-win-py311.lock", workspace / "wheelhouse", "runtime-deps")
-    run("kernel-app-install", [runtime, "-I", "-B", "-m", "pip", "--isolated", "install", "--no-index", "--no-deps", kernel, wheel])
+    run("kernel-app-install", [runtime, "-I", "-B", "-m", "pip", "--isolated", "install", "--no-index", "--no-deps", "--no-compile", analysis, kernel, wheel])
     run("pip-check", [runtime, "-I", "-B", "-m", "pip", "check"])
     tests = attempt / "test-suite"; tests.mkdir()
     for file in (app / "tests").glob("test_*.py"): shutil.copyfile(file, tests / file.name)
+    shutil.copytree(app / "tests/fixtures", tests / "fixtures")
+    env["TRIOCTAGON_UI_ANALYSIS_WHEEL"] = str(analysis)
     env["TRIOCTAGON_UI_APP_WHEEL"] = str(wheel)
     env["TRIOCTAGON_UI_PREFERRED_KERNEL"] = str(workspace / "kernel-evidence" / lock["temporary_retrieval"]["wheel_path"])
     env["TRIOCTAGON_UI_RECONSTRUCTED_KERNEL"] = str(reconstructed)
@@ -449,7 +522,7 @@ def certify(source, workspace):
     # existing scientific worker is GUI-free. The full UI suite ran above.
     alternate = venv("a")
     numeric = [next((workspace / "wheelhouse").glob(n + "-*.whl")) for n in ("numpy", "sympy", "mpmath")]
-    run("reconstructed-install", [alternate, "-I", "-B", "-m", "pip", "--isolated", "install", "--no-index", "--no-deps", *numeric, reconstructed, wheel])
+    run("reconstructed-install", [alternate, "-I", "-B", "-m", "pip", "--isolated", "install", "--no-index", "--no-deps", "--no-compile", analysis, *numeric, reconstructed, wheel])
     smoke_script = empty / "kernel-smoke.py"
     smoke_script.write_text(KERNEL_WORKER_SMOKE, encoding="utf-8")
     original_smoke = json.loads(run("selected-kernel-worker", [runtime, "-I", "-B", smoke_script]))
@@ -457,7 +530,7 @@ def certify(source, workspace):
     assert original_smoke["source_commit"] == rebuilt_smoke["source_commit"] == lock["source_commit"]
     write_json(evidence / "both-kernel-installations.json", {"selected": original_smoke, "reconstructed": rebuilt_smoke,
         "equivalence": verify_wheel_equivalence(reconstructed, lock), "reconstruction": reconstruction})
-    for filename in ("acquisition.json", "preferred-equivalence.json", "reconstructed-kernel.json", "kernel-selection.json"):
+    for filename in ("acquisition.json", "analysis-acquisition.json", "preferred-equivalence.json", "reconstructed-kernel.json", "kernel-selection.json"):
         if (workspace / filename).exists(): shutil.copyfile(workspace / filename, evidence / filename)
     assert {p: sha(source / p) for p in tracked} == starting
     assert git("status", "--porcelain", "--untracked-files=all") == status
@@ -466,7 +539,7 @@ def certify(source, workspace):
     verify_kernel(app, workspace)
     report = {"status": "PASS", "source_commit": head, "github_sha": os.environ.get("GITHUB_SHA"),
         "python": platform.python_version(), "platform": platform.platform(), "kernel": lock,
-        "dependencies": dependencies, "app_wheel": str(wheel), "app_wheel_sha256": sha(wheel),
+        "analysis_pin": analysis_pin, "dependencies": dependencies, "app_wheel": str(wheel), "app_wheel_sha256": sha(wheel),
         "app_tests": int(match[1]), "seconds": float(match[2]), "installed_runtime": str(runtime),
         "offline_installs": True, "runtime_network_attempts": 0, "model_required": False, "gpu_required": False,
         "all_tracked_bytes_unchanged": True, "source_status_unchanged": True, "evidence": str(evidence)}
@@ -515,8 +588,18 @@ class InstallTests(unittest.TestCase):
         from kernel_physics import api
         site = Path(sys.prefix).resolve()
         origins = {"app": str(Path(trioctagon_ui.__file__).resolve()), "kernel_api": str(Path(api.__file__).resolve())}
-        self.assertTrue(all(Path(p).is_relative_to(site) for p in origins.values()))
-        self.assertEqual(importlib.metadata.version("trioctagon-scientific-ui"), "0.1.0")
+        from trioctagon_ui.analysis_identity import verify_installed_analysis
+        identity = verify_installed_analysis()
+        import trioctagon_analysis
+        origins["analysis"] = str(Path(trioctagon_analysis.__file__).resolve())
+        self.assertEqual(identity.version, "0.1.1")
+        source_ui = os.environ.get("TRIOCTAGON_UI_SOURCE_TESTS")
+        if source_ui:
+            self.assertEqual(Path(origins["app"]), Path(source_ui).resolve() / "trioctagon_ui/__init__.py")
+        else:
+            self.assertTrue(Path(origins["app"]).is_relative_to(site))
+        self.assertTrue(all(Path(origins[k]).is_relative_to(site) for k in ("kernel_api", "analysis")))
+        self.assertEqual(importlib.metadata.version("trioctagon-scientific-ui"), "0.1.1")
         self.assertTrue(help_data()["items"])
         self.assertFalse(kernel_lock()["REGISTRY_RESOLUTION_ALLOWED"])
         self.evidence("installed-origins.json", {"prefix": str(site), "origins": origins, "kernel_lock": kernel_lock()})
@@ -689,7 +772,7 @@ class PreferredAcquisitionTests(unittest.TestCase):
                 {"classification": "CERTIFIED_RECONSTRUCTION", "relative_path": "reconstructed/kernel.whl"})
         with patch.dict(globals(), command=lambda *args: None, inventory=lambda *args: [],
             build_requirements=lambda *args: (self.workspace / "tools.txt", []),
-            reconstruct_kernel=lambda *args: selected, verify_kernel=check_selection):
+            reconstruct_kernel=lambda *args: selected, reconstruct_analysis=lambda *args: {"status": "FIXTURE"}, verify_kernel=check_selection):
             with patch("subprocess.run", side_effect=FileNotFoundError):
                 acquire(self.workspace / "source", self.workspace)
         self.assertEqual(json.loads((self.workspace / "acquisition.json").read_text())["preferred_artifact"], "UNAVAILABLE")

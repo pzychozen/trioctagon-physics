@@ -18,6 +18,8 @@ def main(argv=None):
     os.environ.setdefault("QT_OPENGL", "software")
     if args.smoke_test:
         os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+    from trioctagon_ui.qt_runtime import prepare_qt
+    prepare_qt()
     from PySide6.QtCore import QTimer
     from PySide6.QtWidgets import QApplication
     from trioctagon_ui.app import MainWindow

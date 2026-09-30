@@ -43,7 +43,7 @@ def stage_export(destination, artifact_type, writer, metadata):
             staging = Path(staging); artifact = staging / destination.name; companion = staging / sidecar.name
             writer(artifact)
             raw = artifact.read_bytes()
-            result = {**plain(metadata), "artifact_type": artifact_type, "export_schema_version": 1, "app_version": "0.1.0",
+            result = {**plain(metadata), "artifact_type": artifact_type, "export_schema_version": 1, "app_version": "0.1.1",
                 "filename": destination.name, "sha256": hashlib.sha256(raw).hexdigest(), "qualification": QUALIFICATION}
             if artifact_type == "derived_svg":
                 result["rasterized_layers_detected"] = b"<image" in raw

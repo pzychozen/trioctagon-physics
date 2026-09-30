@@ -1,4 +1,4 @@
-# Trioctagon Scientific UI — v0.1.0 research/developer preview candidate
+# Trioctagon Scientific UI — v0.1.1 read-only artifact inspection
 
 UI DISPLAYS SCIENCE. PYTHON KERNEL COMPUTES SCIENCE.
 
@@ -6,6 +6,50 @@ This separately installed Windows x86-64 / CPython 3.11 application consumes the
 certified kernel through `kernel_physics.api`. It does not bundle or modify the
 kernel, Qt, Matplotlib, papers, research or scientific fixtures. The application
 source/version and kernel source/version are distinct identities.
+
+UI-P1 adds **D → Artifacts**, alongside Records, Compare, Datasets and Exports.
+Load a local file to inspect a canonical DerivedAnalysisRecord or AttemptReceipt.
+The separately installed `trioctagon-analysis==0.1.1` loader is pinned by
+`analysis-artifact.lock.json` to source `df6295b6b5dc581a0bdec8601bae9cc3e14493bd`
+and wheel SHA-256
+`90394bd97150bc03630de1cfd8bd868547f1cdb935b1a250b874bbe72320cf18`.
+The acquisition tool reconstructs this exact archive from the pinned source and
+checks all 32 members. It never resolves analysis from a registry. Install analysis
+with `--no-compile`; the viewer checks installed members and module origins before
+loading an artifact and refuses extra runtime files, including bytecode caches.
+
+APP04 displays the stored requested fields, in request order, with numeric axes
+0/1/2, authoritative f64 tokens and secondary decimal text preserving signed zero.
+There are no new scientific calculations, plots, comparisons or execution controls.
+Recorded VERIFIED producer claims remain CLAIMED_ONLY; viewer execution verification
+is UNAVAILABLE and Windows execution binding remains NOT_PROVEN. A valid receipt is
+a refused/failed/cancelled attempt, never a scientific result. Existing legacy
+analysis remains a validated session cache, with no external legacy import or conversion.
+
+Import limits are 16 MiB/file, JSON depth 32, 64 accepted analysis artifacts and
+128 MiB of retained canonical bytes. Diagnostics are limited to 8 KiB and raw text
+previews to 1 MiB, including truncation indicators. Reparse points and remote paths
+are refused. No parent or provenance locator is resolved. Absent external expected
+identity is shown as unavailable; the observed SHA-256 is not its own independent witness.
+These are viewer limits, not provider execution resource limits.
+
+Copy uses retained bytes, owned same-directory staging, flush/fsync, atomic hard-link
+publication without replacement and emitted SHA-256 verification. Existing paths,
+including the source, are refused. Failure cleanup removes only owned staging;
+a published destination is never deleted to hide a verification failure. Filesystems
+without hard-link support fail closed. The status is a local UI copy observation,
+not an analysis AttemptReceipt. Source files and cached bytes remain unchanged.
+
+Selecting Artifacts isolates Core resume/checkpoint/save and figure/CSV export
+sources, including after changing tabs. Explicitly select a Core record in Records
+to restore Core actions. The
+request/response v2 worker files are unchanged; the existing draft-format version
+marker remains 0.1.0 for compatibility, independent of the installed UI version.
+Analysis files never enter RecordView, ComparisonView, sweeps or the scientific worker.
+
+On Windows, GUI startup explicitly selects the OS ICU library required by the
+locked Qt build, avoiding the incompatible `icuuc.dll` in Conda's DLL search path.
+This does not alter Conda, PATH or scientific-worker startup.
 
 The [release identity and draft notes](../../RELEASE_v0.1.0.md) distinguish the
 repository/UI candidate from the older certified kernel used by this application.
@@ -24,6 +68,8 @@ validated physical theory; see the [scientific boundaries and license scopes](..
 - Kernel: the preferred **direct wheel** in `kernel-artifact.lock.json`, from K3c
   Actions run 36291131581, or strictly verified reconstruction of the same source
   `7b3a0fcec2c9bde6c9e1ea482fe1f1ea6b16793e`.
+- Analysis: independently reconstructed exact wheel in `analysis-artifact.lock.json`;
+  no bundling with the UI or Core, and no version-only substitution.
 - Runtime: the complete 15-wheel closure in `requirements-win-py311.lock`, with
   every archive SHA-256 enforced. NumPy 2.4.4, SymPy 1.14.0 and mpmath 1.3.0 remain fixed.
 - Build: Setuptools 81.0.0 and wheel 0.47.0; archive hashes are in `pyproject.toml`.
@@ -94,9 +140,11 @@ before these installation commands:
 $uiPython = Join-Path $work 'manual/Scripts/python.exe'
 $selection = Get-Content "$work/kernel-selection.json" -Raw | ConvertFrom-Json
 $kernelWheel = Join-Path $work $selection.relative_path
+$analysisWheel = Join-Path $work 'analysis-wheelhouse/trioctagon_analysis-0.1.1-py3-none-any.whl'
 $appWheel = $certification.app_wheel
 & $uiPython -I -B -m pip --isolated install --no-index --require-hashes --find-links "$work/wheelhouse" -r "$source/apps/scientific_ui/requirements-win-py311.lock"
 & $uiPython -I -B -m pip --isolated install --no-index --no-deps $kernelWheel
+& $uiPython -I -B -m pip --isolated install --no-index --no-deps --no-compile $analysisWheel
 & $uiPython -I -B -m pip --isolated install --no-index --no-deps $appWheel
 & $uiPython -I -B -m trioctagon_ui --smoke-test
 & $uiPython -I -B -m trioctagon_ui
@@ -107,11 +155,9 @@ environment's Scripts directory. Run from any directory; no PYTHONPATH, editable
 install or source checkout is required. Installed lock data is located through
 distribution metadata, independently of the launch working directory.
 
-Stage A found a host-specific Conda DLL collision when a venv inherited a broad
-development environment: its ICU library shadowed the Windows ICU expected by Qt.
-A fresh minimal Python 3.11 environment passed without replacing any wheel or DLL.
-Use a clean interpreter/environment for
-the application. Do not delete/rename system or Conda DLLs to force an import.
+Stage A found a Conda ICU DLL collision; UI-P1 selects the required Windows system
+ICU explicitly during GUI startup. Certification still uses fresh, isolated venvs.
+Do not delete/rename system or Conda DLLs to force an import.
 Keep the disposable workspace path short on Windows hosts without long-path
 support: the published Qt wheel contains deeply nested supporting files.
 

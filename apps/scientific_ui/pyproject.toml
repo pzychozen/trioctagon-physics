@@ -4,14 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "trioctagon-scientific-ui"
-version = "0.1.0"
+version = "0.1.1"
 description = "Offline scientific companion for an explicitly locked certified kernel"
 readme = "README.md"
 requires-python = ">=3.11,<3.12"
 license = "Apache-2.0"
 license-files = ["LICENSE", "LICENSE_SCOPE.md", "THIRD_PARTY_NOTICES.md"]
 authors = [{name = "Hilmir Frímann Halldórsson"}]
-dependencies = ["PySide6-Essentials==6.11.2", "matplotlib==3.11.2"]
+dependencies = ["PySide6-Essentials==6.11.2", "matplotlib==3.11.2", "trioctagon-analysis==0.1.1"]
 
 [project.scripts]
 trioctagon-scientific-ui = "trioctagon_ui.__main__:main"
@@ -25,7 +25,7 @@ include-package-data = false
 trioctagon_ui = ["help.json"]
 
 [tool.setuptools.data-files]
-"share/trioctagon-scientific-ui" = ["kernel-artifact.lock.json", "requirements-win-py311.lock"]
+"share/trioctagon-scientific-ui" = ["kernel-artifact.lock.json", "analysis-artifact.lock.json", "requirements-win-py311.lock"]
 
 [tool.trioctagon-ui]
 registry-name-availability-certified = false

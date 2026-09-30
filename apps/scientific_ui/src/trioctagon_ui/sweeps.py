@@ -89,7 +89,7 @@ def make_plan(base, dimensions, lock, *, stop_after_failure=False, case_guard=DE
         cases.append({"case_id": f"case-{ordinal:06d}-{request_sha[:12]}", "request_sha256": request_sha,
             "substituted_values": values, "resolved_values": resolved, "status": "pending",
             "record_path": None, "record_digest": None, "record_source_commit": None, "error": None, "requires_rerun_reason": None})
-    return {"manifest_type": "TRIOCTAGON_UI_SWEEP_MANIFEST", "manifest_version": 1, "app_version": "0.1.0",
+    return {"manifest_type": "TRIOCTAGON_UI_SWEEP_MANIFEST", "manifest_version": 1, "app_version": "0.1.1",
         "spec_sha256": digest(specification), "specification": specification,
         "fixed_configuration": {k: deepcopy(base[k]) for k in ("topology", "updates", "observers", "readouts", "diagnostics")},
         "case_count": count, "total_requested_samples": samples,

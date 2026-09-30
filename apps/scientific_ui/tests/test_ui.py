@@ -346,7 +346,7 @@ class UITests(unittest.TestCase):
 
     def test_k4d_dataset_preview_run_continue_and_draft_isolation(self):
         w = self.window; self.filled(); w.numeric["updates"].setText("1")
-        self.assertEqual([w.repro_tabs.tabText(i) for i in range(w.repro_tabs.count())], ["Records", "Compare", "Datasets", "Exports"])
+        self.assertEqual([w.repro_tabs.tabText(i) for i in range(w.repro_tabs.count())], ["Records", "Compare", "Datasets", "Exports", "Artifacts"])
         w.sweep_dimensions.setPlainText('{"g":{"values":[".1",".2"]}}'); w.sweep_build.click()
         self.assertEqual(w.sweep_plan["case_count"], 2); self.assertEqual(w.sweep_plan["total_requested_samples"], 4)
         before = deepcopy(w.sweep_plan); w.numeric["eps"].setText(".04"); self.assertEqual(w.sweep_plan, before)

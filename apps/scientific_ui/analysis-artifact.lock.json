@@ -1,0 +1,324 @@
+{
+  "distribution": "trioctagon-analysis",
+  "version": "0.1.1",
+  "wheel_filename": "trioctagon_analysis-0.1.1-py3-none-any.whl",
+  "wheel_sha256": "90394bd97150bc03630de1cfd8bd868547f1cdb935b1a250b874bbe72320cf18",
+  "source_commit": "df6295b6b5dc581a0bdec8601bae9cc3e14493bd",
+  "git_tree": "c370a85ec4fb210366985b4d7055d7b6b30731e7",
+  "analysis_git_tree": "7d152f2d8f3f2364fd7f8268f8082fec7bda3c71",
+  "source_content_sha256": "f9e28dca1328794c7aa7be69865e9242339ec7e43eab2c17281b6a3734c47a25",
+  "source_files": {
+    "B2A_CONFORMANCE.md": "7fdf5261f6a86f3f404362623eee5b7c810e85366bf5d911a45ae9406b71bacb",
+    "B2A_WINDOWS_PROOF.md": "39c5ea2a424196503890c221bc8e97111dcdc4a76187aafa61e927f827bf5802",
+    "CONFORMANCE.md": "cc7cf355ec0dc0da510c2e6fc41ae5b7fdf6bea3923c3187c78bc9c0c8939ab6",
+    "evidence/resource_measurements.json": "e0a789316ff07dff61fb4f11e3fdda91582175f274a19941d6e69ebb4ec88eb7",
+    "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "LICENSE_SCOPE.md": "2f09dc2b66f87076a232401d29bb5e705afa8b2daf28e37ea5700fd42470de8a",
+    "pyproject.toml": "e59499ab3b242ec54afef7341b1d67b5cd6a3cedc7d2d5b7c34f26dcd098317b",
+    "README.md": "412e88dae9068f2d08e2d101b0fb50e90befce816ec32b42554113be80489507",
+    "requirements-certification-win-py311.lock": "e2aa8dbb37e9badf6ec421b4976ebdfff93167dae2ff1649794b441d25550d6c",
+    "RESOURCE_LIMIT_PROPOSAL.md": "409d52cc2b521db786d3f0030e1d61f22ca535c9ea289a828d92009ed9d11f2f",
+    "SPECIFICATION.md": "5a9de0428207ef4ba7e41f2c795805b6ecf36c77e8c1c03ccdef4efb4a3a1d61",
+    "src/trioctagon_analysis/__init__.py": "c477495f23612848b602a28d9819006b669e0aea1eb6322d070be021cf2f8499",
+    "src/trioctagon_analysis/approval.py": "dc3abaef108b78a19b11eda0209ee10c432f8b34a285c8732d73412479dd31bb",
+    "src/trioctagon_analysis/attestation.py": "4a3dd5afc2b73b751895c6dbcf80941accbb11a842b2639d18a423d646342209",
+    "src/trioctagon_analysis/b2a_proof.py": "43ab0b8c7bda36e07c141bd1157873a0f5d24817700ebb25bf669fa663767268",
+    "src/trioctagon_analysis/b2a_snapshot.py": "7b58115fb33945eb1b27b650d94dded998d0961336a26555d801d443e2d619a6",
+    "src/trioctagon_analysis/b2a_windows.py": "93977eab77c4fb9ef7ad445486cd10c7604f35aeff4de0887f5b3012a54d884a",
+    "src/trioctagon_analysis/b2a_worker.py": "79e80c486f85ddd164d9236b24a6f8a4168678d30ebe20b2b2fcddc4f857f537",
+    "src/trioctagon_analysis/catalogue.py": "815be6d5641f91d51f4006a8d1b162602a6645bb88070d8c2a914fc6683577f2",
+    "src/trioctagon_analysis/codec.py": "49e4afcf568612719c3e7ddc28e648a9ca6021eba687489fbceb51abdad51832",
+    "src/trioctagon_analysis/common.py": "74478e6ec79fbd393f421a92d9c777be62173f2f500a6d24ef8a4f0d8553fa22",
+    "src/trioctagon_analysis/constants.py": "92fbc9816abef307b6610c89329dc92de3d6fdcb4e1c27487ee37aabb02e1d3e",
+    "src/trioctagon_analysis/coordinator.py": "73ef0d92b0906eee278cc430056fa4dd403eee6a8c4eb06491f31900624c4ceb",
+    "src/trioctagon_analysis/digests.py": "6f9355dddc3a8e36b9f905f7bef1ea17577c75d0873f6cef8a48d3b81a2a8ba7",
+    "src/trioctagon_analysis/envelope.py": "5400a166252dad19adba4dba1b8d1f65810996947c4863b8b68d9688e873fa84",
+    "src/trioctagon_analysis/errors.py": "c5a5af275182bbba78a1998ee9e2057c682033d86099023125630d51af862ac6",
+    "src/trioctagon_analysis/persistence.py": "f1053c7455d23eb705f0f01f440bf5be9896abb45adcda1bc725c6010ec5d9df",
+    "src/trioctagon_analysis/provider.py": "5b00880574f830f07a8818f3cb36b42c70e3414281080bf5712309f1ed73ba91",
+    "src/trioctagon_analysis/records.py": "64f49ae8e1932e3a16f52ff6a656a3233d6845727b7db66e677c8dbd342166d6",
+    "src/trioctagon_analysis/requests.py": "d0983bc6863bb83ea1c13b57f2605c9a822b27afbce5b04c1cadb47c3bbb77f6",
+    "src/trioctagon_analysis/schema.py": "37fe0801af06e2f84b58740d08e0a67b05d6545ddf2e681ee622e212e9a7e319",
+    "tests/fixtures/core_record.json": "5dcf1a30945d290a4a1109c73439a390f56397eb9e7765c424d379eca59ea0a7",
+    "tests/fixtures/golden_vectors.json": "6d63c4b377e109657bb805a55b8e945a766681173a4b1f03bbc541698f25dd75",
+    "tests/support.py": "60f9ed9fdb2f5650647efd6fa40cc7b1770a53dd5aac9381683a28c4685923d6",
+    "tests/test_b2a.py": "5f42e0154cbfd1e27536674f836150e942d1d55cddf3592e1f80e141367fa1c4",
+    "tests/test_boundaries.py": "04f63a904a852b6888b8bf4ffeeed64ab83e37de987c6c2768e28101099ca381",
+    "tests/test_codec.py": "72f25a55a38505c71979709d11d02e1710fef431f52d2e10bf05415cce85b1d7",
+    "tests/test_envelope.py": "54ba63257a2b8d6a2d203a85f2b7731cf94a20b4923b3712e605c3168b3831b3",
+    "tests/test_package_boundaries.py": "4531c7dfea40f6bfa5b6c6a9a5fec486397bf3259968d165f913419ceab5d0ed",
+    "tests/test_persistence.py": "504f33406a2f18ac8b06cf9def00def2e38b09f9b69514d70d5b24652cbf8229",
+    "tests/test_provider.py": "18dea1fa3a7ad89238c2d5ab04678aed7b7814fa7a0345023dc5d752b75dfcf5",
+    "tools/certify_distribution.py": "a67755d87e1e37a035d10e76b40a1bacf6b4157a470937e73b2b2fcc402894e5",
+    "tools/kernel-test-artifact.lock.json": "daaa10b3daa1f6bea957596eb2f02705a0b19308c72ddb7a01ec043e059818d1",
+    "tools/run_installed.py": "0d831eb7bbd32d19e53f7e559add233941dc9f452b649f5ba5ed2b731ae08f71"
+  },
+  "build_inputs": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "requirements_sha256": "e2aa8dbb37e9badf6ec421b4976ebdfff93167dae2ff1649794b441d25550d6c",
+    "wheels": [
+      {
+        "filename": "colorama-0.4.6-py2.py3-none-any.whl",
+        "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"
+      },
+      {
+        "filename": "iniconfig-2.3.0-py3-none-any.whl",
+        "sha256": "f631c04d2c48c52b84d0d0549c99ff3859c98df65b3101406327ecc7d53fbf12"
+      },
+      {
+        "filename": "mpmath-1.3.0-py3-none-any.whl",
+        "sha256": "a0b2b9fe80bbcd81a6647ff13108738cfb482d481d826cc0e02f5b35e5c88d2c"
+      },
+      {
+        "filename": "numpy-2.4.4-cp311-cp311-win_amd64.whl",
+        "sha256": "6bbe4eb67390b0a0265a2c25458f6b90a409d5d069f1041e6aff1e27e3d9a79e"
+      },
+      {
+        "filename": "packaging-26.2-py3-none-any.whl",
+        "sha256": "5fc45236b9446107ff2415ce77c807cee2862cb6fac22b8a73826d0693b0980e"
+      },
+      {
+        "filename": "pluggy-1.6.0-py3-none-any.whl",
+        "sha256": "e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746"
+      },
+      {
+        "filename": "pygments-2.20.0-py3-none-any.whl",
+        "sha256": "81a9e26dd42fd28a23a2d169d86d7ac03b46e2f8b59ed4698fb4785f946d0176"
+      },
+      {
+        "filename": "pytest-9.0.3-py3-none-any.whl",
+        "sha256": "2c5efc453d45394fdd706ade797c0a81091eccd1d6e4bccfcd476e2b8e0ab5d9"
+      },
+      {
+        "filename": "pyyaml-6.0.3-cp311-cp311-win_amd64.whl",
+        "sha256": "9f3bfb4965eb874431221a3ff3fdcddc7e74e3b07799e0e84ca4a0f867d449bf"
+      },
+      {
+        "filename": "setuptools-81.0.0-py3-none-any.whl",
+        "sha256": "fdd925d5c5d9f62e4b74b30d6dd7828ce236fd6ed998a08d81de62ce5a6310d6"
+      },
+      {
+        "filename": "sympy-1.14.0-py3-none-any.whl",
+        "sha256": "e091cc3e99d2141a0ba2847328f5479b05d94a6635cb96148ccb3f34671bd8f5"
+      },
+      {
+        "filename": "wheel-0.47.0-py3-none-any.whl",
+        "sha256": "212281cab4dff978f6cedd499cd893e1f620791ca6ff7107cf270781e587eced"
+      }
+    ],
+    "build_system": {
+      "requires": [
+        "setuptools==81.0.0",
+        "wheel==0.47.0"
+      ],
+      "build-backend": "setuptools.build_meta"
+    },
+    "source_date_epoch": "1790790923"
+  },
+  "member_manifest": [
+    {
+      "path": "trioctagon_analysis-0.1.1.data/data/share/trioctagon-analysis/B2A_CONFORMANCE.md",
+      "size": 8222,
+      "sha256": "7fdf5261f6a86f3f404362623eee5b7c810e85366bf5d911a45ae9406b71bacb"
+    },
+    {
+      "path": "trioctagon_analysis-0.1.1.data/data/share/trioctagon-analysis/B2A_WINDOWS_PROOF.md",
+      "size": 10072,
+      "sha256": "39c5ea2a424196503890c221bc8e97111dcdc4a76187aafa61e927f827bf5802"
+    },
+    {
+      "path": "trioctagon_analysis-0.1.1.data/data/share/trioctagon-analysis/CONFORMANCE.md",
+      "size": 7514,
+      "sha256": "cc7cf355ec0dc0da510c2e6fc41ae5b7fdf6bea3923c3187c78bc9c0c8939ab6"
+    },
+    {
+      "path": "trioctagon_analysis-0.1.1.data/data/share/trioctagon-analysis/RESOURCE_LIMIT_PROPOSAL.md",
+      "size": 5581,
+      "sha256": "409d52cc2b521db786d3f0030e1d61f22ca535c9ea289a828d92009ed9d11f2f"
+    },
+    {
+      "path": "trioctagon_analysis-0.1.1.data/data/share/trioctagon-analysis/SPECIFICATION.md",
+      "size": 26318,
+      "sha256": "5a9de0428207ef4ba7e41f2c795805b6ecf36c77e8c1c03ccdef4efb4a3a1d61"
+    },
+    {
+      "path": "trioctagon_analysis-0.1.1.data/data/share/trioctagon-analysis/golden_vectors.json",
+      "size": 5325,
+      "sha256": "6d63c4b377e109657bb805a55b8e945a766681173a4b1f03bbc541698f25dd75"
+    },
+    {
+      "path": "trioctagon_analysis-0.1.1.dist-info/METADATA",
+      "size": 8818,
+      "sha256": "b0c5586233863a67d51c3e735574002c14b4090ac4ff45dee26dba696b5d3b5b"
+    },
+    {
+      "path": "trioctagon_analysis-0.1.1.dist-info/RECORD",
+      "size": 3173,
+      "sha256": "e5b94e738a46bae69e1f2f441b235e7d5a8156d2a5c4a25094d856daebc929bc"
+    },
+    {
+      "path": "trioctagon_analysis-0.1.1.dist-info/WHEEL",
+      "size": 91,
+      "sha256": "60b2577585d0d8543452a9f627eea21080bede239ecbc947df10adbc52e477c4"
+    },
+    {
+      "path": "trioctagon_analysis-0.1.1.dist-info/licenses/LICENSE",
+      "size": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "trioctagon_analysis-0.1.1.dist-info/licenses/LICENSE_SCOPE.md",
+      "size": 826,
+      "sha256": "2f09dc2b66f87076a232401d29bb5e705afa8b2daf28e37ea5700fd42470de8a"
+    },
+    {
+      "path": "trioctagon_analysis-0.1.1.dist-info/top_level.txt",
+      "size": 20,
+      "sha256": "ab55a0e0ee1f4b978ce5fc1aedacc6955c5af4af9e53b4cf68999fa4b71459c2"
+    },
+    {
+      "path": "trioctagon_analysis/__init__.py",
+      "size": 360,
+      "sha256": "c477495f23612848b602a28d9819006b669e0aea1eb6322d070be021cf2f8499"
+    },
+    {
+      "path": "trioctagon_analysis/approval.py",
+      "size": 2185,
+      "sha256": "dc3abaef108b78a19b11eda0209ee10c432f8b34a285c8732d73412479dd31bb"
+    },
+    {
+      "path": "trioctagon_analysis/attestation.py",
+      "size": 5945,
+      "sha256": "4a3dd5afc2b73b751895c6dbcf80941accbb11a842b2639d18a423d646342209"
+    },
+    {
+      "path": "trioctagon_analysis/b2a_proof.py",
+      "size": 13358,
+      "sha256": "43ab0b8c7bda36e07c141bd1157873a0f5d24817700ebb25bf669fa663767268"
+    },
+    {
+      "path": "trioctagon_analysis/b2a_snapshot.py",
+      "size": 9109,
+      "sha256": "7b58115fb33945eb1b27b650d94dded998d0961336a26555d801d443e2d619a6"
+    },
+    {
+      "path": "trioctagon_analysis/b2a_windows.py",
+      "size": 12876,
+      "sha256": "93977eab77c4fb9ef7ad445486cd10c7604f35aeff4de0887f5b3012a54d884a"
+    },
+    {
+      "path": "trioctagon_analysis/b2a_worker.py",
+      "size": 5644,
+      "sha256": "79e80c486f85ddd164d9236b24a6f8a4168678d30ebe20b2b2fcddc4f857f537"
+    },
+    {
+      "path": "trioctagon_analysis/catalogue.py",
+      "size": 3925,
+      "sha256": "815be6d5641f91d51f4006a8d1b162602a6645bb88070d8c2a914fc6683577f2"
+    },
+    {
+      "path": "trioctagon_analysis/codec.py",
+      "size": 4610,
+      "sha256": "49e4afcf568612719c3e7ddc28e648a9ca6021eba687489fbceb51abdad51832"
+    },
+    {
+      "path": "trioctagon_analysis/common.py",
+      "size": 4005,
+      "sha256": "74478e6ec79fbd393f421a92d9c777be62173f2f500a6d24ef8a4f0d8553fa22"
+    },
+    {
+      "path": "trioctagon_analysis/constants.py",
+      "size": 2061,
+      "sha256": "92fbc9816abef307b6610c89329dc92de3d6fdcb4e1c27487ee37aabb02e1d3e"
+    },
+    {
+      "path": "trioctagon_analysis/coordinator.py",
+      "size": 7246,
+      "sha256": "73ef0d92b0906eee278cc430056fa4dd403eee6a8c4eb06491f31900624c4ceb"
+    },
+    {
+      "path": "trioctagon_analysis/digests.py",
+      "size": 3586,
+      "sha256": "6f9355dddc3a8e36b9f905f7bef1ea17577c75d0873f6cef8a48d3b81a2a8ba7"
+    },
+    {
+      "path": "trioctagon_analysis/envelope.py",
+      "size": 3504,
+      "sha256": "5400a166252dad19adba4dba1b8d1f65810996947c4863b8b68d9688e873fa84"
+    },
+    {
+      "path": "trioctagon_analysis/errors.py",
+      "size": 1255,
+      "sha256": "c5a5af275182bbba78a1998ee9e2057c682033d86099023125630d51af862ac6"
+    },
+    {
+      "path": "trioctagon_analysis/persistence.py",
+      "size": 5927,
+      "sha256": "f1053c7455d23eb705f0f01f440bf5be9896abb45adcda1bc725c6010ec5d9df"
+    },
+    {
+      "path": "trioctagon_analysis/provider.py",
+      "size": 7148,
+      "sha256": "5b00880574f830f07a8818f3cb36b42c70e3414281080bf5712309f1ed73ba91"
+    },
+    {
+      "path": "trioctagon_analysis/records.py",
+      "size": 8092,
+      "sha256": "64f49ae8e1932e3a16f52ff6a656a3233d6845727b7db66e677c8dbd342166d6"
+    },
+    {
+      "path": "trioctagon_analysis/requests.py",
+      "size": 2820,
+      "sha256": "d0983bc6863bb83ea1c13b57f2605c9a822b27afbce5b04c1cadb47c3bbb77f6"
+    },
+    {
+      "path": "trioctagon_analysis/schema.py",
+      "size": 3644,
+      "sha256": "37fe0801af06e2f84b58740d08e0a67b05d6545ddf2e681ee622e212e9a7e319"
+    }
+  ],
+  "ci_run": "https://github.com/pzychozen/trioctagon-physics/actions/runs/36754875438",
+  "ci_artifact": {
+    "id": 11115668710,
+    "node_id": "MDg6QXJ0aWZhY3QxMTExNTY2ODcxMA==",
+    "name": "analysis-distribution-df6295b6b5dc581a0bdec8601bae9cc3e14493bd",
+    "size_in_bytes": 226379,
+    "url": "https://api.github.com/repos/pzychozen/trioctagon-physics/actions/artifacts/11115668710",
+    "archive_download_url": "https://api.github.com/repos/pzychozen/trioctagon-physics/actions/artifacts/11115668710/zip",
+    "expired": false,
+    "digest": "sha256:b4630a33edd83afffacb61097968ee0d5135bdcf76d7a521d6af36109cde7fc9",
+    "created_at": "2026-09-30T17:56:28Z",
+    "updated_at": "2026-09-30T17:56:28Z",
+    "expires_at": "2026-10-30T17:56:27Z",
+    "workflow_run": {
+      "id": 36754875438,
+      "repository_id": 1380479263,
+      "head_repository_id": 1380479263,
+      "head_branch": "main",
+      "head_sha": "df6295b6b5dc581a0bdec8601bae9cc3e14493bd"
+    }
+  },
+  "analysis_ci_certification_sha256": "a620d8610ed5e5a70c7c88aea7790833fa563bbda06ead89074e9fb5f72c3d54",
+  "ci_installed_tests": {
+    "tests": 183,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lock_version": 1,
+  "source_repository": "https://github.com/pzychozen/trioctagon-physics",
+  "REGISTRY_RESOLUTION_ALLOWED": false,
+  "protocol": {
+    "family": "TRIOCTAGON_ANALYSIS_PROTOCOL",
+    "version": 1
+  },
+  "schemas": {
+    "TRIOCTAGON_DERIVED_ANALYSIS_RECORD": "1.0.0",
+    "TRIOCTAGON_ANALYSIS_ATTEMPT_RECEIPT": "1.0.0"
+  },
+  "reconstruction": {
+    "method": "EXACT_PINNED_SOURCE_AND_ARCHIVE_BYTES",
+    "wheel_postprocessing": false
+  },
+  "qualification": "Installed member observation is not historical producer authentication or B2 execution binding."
+}
