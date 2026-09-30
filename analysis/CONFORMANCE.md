@@ -66,6 +66,30 @@ checked by its existing build backend and a separately built kernel wheel.
 The new analysis wheel is tested from an external installation and inspected
 for exact package membership; neither kernel nor UI is bundled into it.
 
-No workflow rewrite is required. A main push normally triggers the existing
-kernel-distribution certification workflow. The scientific UI workflow is
-path-filtered to UI/workflow changes, which B1 does not make.
+The original B1 work required no workflow rewrite. UI-P0 adds dedicated
+`analysis-distribution.yml` certification for analysis/workflow changes and
+manual dispatch. Kernel certification may also run on a main push and remains
+separate. Scientific UI certification is path-filtered to UI/workflow changes;
+UI-P0 makes none of those changes.
+
+## UI-P0 inspection API coverage
+
+`tests/test_envelope.py` covers canonical Derived/AttemptReceipt fixtures, Core
+Run/Geometry hints, Catalogue/Request infrastructure hints, unknown families,
+conflicting mechanisms, duplicate keys, malformed family/schema/profile values,
+BOM/UTF-8/JSON-number failures and caller-owned budgets. It exercises the approved
+16 MiB / depth 32 viewer ceilings and bounds displayed test diagnostics to 8 KiB.
+These are inspection limits, not approved provider execution resources.
+
+Noncanonical but parseable input remains `PARSED_CANONICALITY_UNCHECKED`; the
+probe returns no replacement bytes. Digest-corrupted and incomplete artifacts
+can yield hints but still fail strict loading. A fresh isolated child forbids
+Core/UI/provider/coordinator/attestor/strict-loader imports and network/process
+effects while probing attacker-controlled metadata. Existing strict loaders,
+copy semantics and fail-closed coordinator tests remain unchanged.
+
+`tools/certify_distribution.py` and `tools/run_installed.py` verify exact runtime
+module/shared-data/metadata closure, wheel RECORD hashes, installed member bytes,
+no checkout imports and a full installed test run. Certification tools, tests and
+mock attestors are excluded from the runtime wheel. Golden vectors are unchanged.
+No result here proves Windows execution binding or enables production attestation.

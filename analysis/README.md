@@ -1,6 +1,6 @@
-# Detached analysis protocol — Stage B1
+# Detached analysis protocol — Stage B1 and UI-P0 inspection API
 
-`trioctagon-analysis` 0.1.0 is a separate headless distribution. It implements
+`trioctagon-analysis` 0.1.1 is a separate headless distribution. It implements
 protocol v1, strict immutable catalogue/request/derived-record/attempt codecs,
 scoped digests, and the bounded APP04 **recorded-data copy** provider.
 
@@ -11,6 +11,11 @@ or recompute science. B2 requires separate review and implementation.
 
 ## What is available
 
+- `probe_artifact_envelope(raw_bytes, ParseLimits(...))` returns an immutable
+  `ArtifactEnvelopeHint` with closed family, schema/profile hints and
+  `PARSED_CANONICALITY_UNCHECKED`. It uses the existing bounded parser without
+  importing Core, provider, coordinator, attestor or UI. A hint is not validation,
+  canonical-byte certification, trust, resumability or execution authority.
 - `ParentSnapshot` validates retained bytes using only
   `kernel_physics.api.RunRecord.from_json` and binds original bytes, complete
   canonical bytes and the native semantic digest separately.
@@ -64,6 +69,43 @@ is measured planning evidence, **not an approved production policy**.
 Scientific research, simulation, replay, recomputation, release publication and
 Core/UI changes remain outside scope. The B2A addition below is disabled proof
 infrastructure only; further execution/activation needs separate authorization.
+
+## UI-P0 distribution certification
+
+Version 0.1.1 adds only the public inspection API and distribution certification.
+Protocol/schema identities and the frozen 0.1.0 producer-claim/B2A expectation
+contracts remain unchanged. Loading an old claim with the 0.1.1 viewer library
+does not relabel its producer or enable issuance from the new distribution.
+
+The dedicated `analysis-distribution.yml` workflow runs on analysis/workflow
+changes and manual dispatch on Windows x64 Python 3.11. Tooling under `tools/`
+builds externally, verifies all wheel members and RECORD hashes, installs into a
+fresh environment, and runs all analysis tests from copied tests outside the
+checkout. The exact wheel, source/tree identity, tool-wheel hashes, member
+manifest, installed origins and JUnit result are retained as evidence.
+
+Acquisition uses `requirements-certification-win-py311.lock` and an independently
+pinned Core **test-only** wheel. Core is neither bundled nor a resolved runtime
+dependency. The Core certification artifact currently has finite Actions
+retention; loss/expiry fails closed and requires a reviewed test-artifact repin,
+not registry fallback. A local exact archive can be supplied with `--kernel-wheel`.
+
+From an activated `torment` Command Prompt, with an unused external workspace:
+
+~~~bat
+python -I -B analysis/tools/certify_distribution.py --acquire --source C:\path\to\checkout --workspace C:\outside\analysis-certification
+python -I -B analysis/tools/certify_distribution.py --certify --source C:\path\to\checkout --workspace C:\outside\analysis-certification
+~~~
+
+The network acquisition phase needs GitHub Actions read access (`GH_TOKEN` for
+CI). Certification is offline. `--precommit` is local candidate validation only;
+it never assigns a certified source commit and is prohibited on Actions. Source
+inputs must be tracked/staged; final certification requires a clean tracked
+checkout and reads committed analysis blobs for stable line endings. CI requires
+a completely clean checkout. Runtime checks do not use checkout imports.
+
+This certifies the distribution, not Windows B2 execution binding. No new UI
+code, UI artifact lock, execution controls, release or tag is supplied by UI-P0.
 
 ## B2A proof addendum
 

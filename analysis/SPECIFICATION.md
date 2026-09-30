@@ -8,7 +8,7 @@ and production resource approval remain unavailable.
 
 | Item | Frozen value |
 |---|---|
-| Distribution / version | `trioctagon-analysis` / `0.1.0` |
+| Distribution / version | `trioctagon-analysis` / `0.1.1` (UI-P0 additive inspection API) |
 | Import package | `trioctagon_analysis` |
 | Protocol | `TRIOCTAGON_ANALYSIS_PROTOCOL` / integer `1` |
 | Catalogue | `TRIOCTAGON_ANALYSIS_CATALOGUE` / `1.0.0` |
@@ -326,3 +326,99 @@ policy, never declare the scientific schema invalid on that basis.
 No recomputation descriptor, historical provider, experimental engine, API
 endpoint, UI integration, workflow rewrite, release or tag modification is part
 of B1.
+
+## 9. UI-P0 public inert envelope probe (distribution 0.1.1)
+
+UI-P0 adds the following public import, also available from
+`trioctagon_analysis.envelope`:
+
+```python
+from trioctagon_analysis import (
+    ArtifactEnvelopeHint, ArtifactFamilyHint, CanonicalParseState,
+    probe_artifact_envelope,
+)
+from trioctagon_analysis.codec import ParseLimits
+
+hint = probe_artifact_envelope(raw_bytes, ParseLimits(16 * 1024 * 1024, 32))
+```
+
+The exact signature is
+`probe_artifact_envelope(raw_bytes: bytes, limits: ParseLimits) -> ArtifactEnvelopeHint`.
+There is no default budget, file-path argument, lookup hook, validation callback,
+provider selection or executable dispatch. Parsing uses the existing
+analysis-owned `_parse_json` implementation; it is not a second codec.
+
+The result is a frozen, slotted dataclass with these fields:
+
+| Field | Type and meaning |
+|---|---|
+| `family_hint` | `ArtifactFamilyHint`, a closed string enum listed below. Unknown well-formed names map to `UNKNOWN`; their arbitrary identifier is not returned. |
+| `schema_hint` | `str | None`; top-level schema version as present, without a support or validity assertion. |
+| `profile_hint_if_present` | `str | None`; bounded literal profile hint, without domain support or execution authority. |
+| `canonical_parse_state` | `CanonicalParseState.PARSED_CANONICALITY_UNCHECKED`, the only defined state, even for canonical input. |
+
+Closed recognized families are:
+
+| Discriminator | Recognized values | Schema key |
+|---|---|---|
+| `record_type` | `KERNEL_RUN_RECORD`, `GEOMETRY_RECORD` | `schema_version` |
+| `family` | `TRIOCTAGON_DERIVED_ANALYSIS_RECORD`, `TRIOCTAGON_ANALYSIS_ATTEMPT_RECEIPT`, `TRIOCTAGON_ANALYSIS_CATALOGUE`, `TRIOCTAGON_ANALYSIS_REQUEST` | `schema` |
+
+Catalogue and Request are known analysis infrastructure; recognition does not
+make them supported standalone UI results. The probe inspects only the root
+envelope, never an embedded parent/request family as an alternative root.
+
+The root must be a JSON object. Both `record_type` and `family` present is an
+error even if one is unknown. Both schema keys present is an error. A schema key
+belonging to the other discriminator mechanism is an error. A known family under
+the wrong mechanism is an error. Duplicate keys anywhere are rejected by the
+existing parser before hints are selected, including repeated identical values.
+There is no increasingly permissive loader fallback.
+
+Present family/profile values must be strings matching `[A-Z][A-Z0-9_]{0,127}`.
+Present schema values must be strings of at most 64 characters with three
+dot-separated nonnegative decimal integers and no leading zero except `0`.
+For example, `2.0.0` is a well-formed unsupported version **hint**; `1`, null,
+numeric values, `01.0.0` and `1.0.0-beta` are malformed. An absent discriminator
+returns `UNKNOWN`; absent schema/profile fields return `None`. Their absence is
+not a successful schema check. Valid but unsupported profile literals are
+returned unchanged and confer no domain support.
+
+Errors use existing `ProtocolError` categories: `INVALID_CODEC` for parser/type,
+UTF-8/BOM, duplicate-key and prohibited JSON-number failures; `RESOURCE_LIMIT`
+for byte/depth ceilings; `INVALID_SCHEMA` for a non-object or malformed/conflicting
+root envelope. Fixed diagnostics do not echo attacker-provided field values.
+
+The parser prohibits JSON floats/exponents, NaN/Infinity and JSON integer `-0`.
+It permits ordinary integers at this preliminary stage because only the owning
+strict schema can establish their legal paths. Nested field structure, f64 tags,
+Unicode/schema content, digests, authority, producer evidence and Core record
+validity are not certified by probing. Probe success is deliberately weaker than
+`decode` or a strict typed loader; it never computes identity or grants trust.
+
+Whitespace/key order may be noncanonical. The probe neither compares canonical
+bytes nor returns rewritten bytes. After recognition, the authoritative loaders
+remain `DerivedAnalysisRecord.from_bytes` and `AttemptReceipt.from_bytes` for
+their respective families. Future UI acceptance must additionally require
+`raw_bytes == typed_document.to_bytes()` for these analysis artifacts. Core hints
+must go through the existing application's Core loading boundary; the probe
+does not import or validate Core.
+
+The approved initial viewer test ceilings are 16 MiB input, depth 32, and 8 KiB
+displayed diagnostic bytes. The diagnostic display budget belongs to the caller;
+the probe accepts only the existing byte/depth `ParseLimits`. UI-P1 session caps
+(64 loaded analysis artifacts, 128 MiB retained bytes, 1 MiB raw preview) and
+regular-file/reparse-point rules are not implemented here. None is a provider
+execution policy or a change to existing protocol resource limits.
+
+No probe action imports UI, Core, provider, coordinator, attestor or B2A worker;
+performs network/file traversal; resolves a locator; invokes a strict loader;
+or executes an artifact-specified module. The hint does not assert scientific
+validity, producer verification, resumability or execution availability.
+
+Only the distribution/API version advances to 0.1.1. Existing protocol/schema
+identities, golden bytes and strict loaders are unchanged. In particular, frozen
+`ProducerBuild.version` and B2A expectation `analysis_version` remain `0.1.0` in
+their existing claim contracts. A 0.1.1 inspection installation can read those
+claims; it does not issue new 0.1.1 producer claims or relabel historical evidence.
+The normal coordinator remains fail-closed and Windows binding remains NOT_PROVEN.
