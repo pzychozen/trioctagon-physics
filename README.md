@@ -9,6 +9,7 @@ An executable Python kernel, reproducible scientific records and a companion
 scientific UI connect the mathematics to explicit numerical experiments.
 This is **not the TORMENT production memory system**.
 
+- **[SCIENTIFIC DOMAINS](scientific_domains/README.md)** - current core, historical TORMENT and experimental Research Lab ownership and authority.
 - **[READ THE RESEARCH](#papers-a-f)** — six current publication editions below.
 - **[MATHEMATICAL ATLAS](research/mathematical_atlas/README.md)** — first-principles derivations, exact checks, counterexamples, scope boundaries and open interfaces for the current kernel mathematics.
 - **[USE THE PYTHON KERNEL](#use-the-python-kernel)** — build, install and save a small explicit experiment.
