@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools==81.0.0", "wheel==0.47.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trioctagon-analysis"
+version = "0.1.0"
+description = "Headless detached-analysis contracts and recorded APP04 inspection"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+license = "Apache-2.0"
+license-files = ["LICENSE", "LICENSE_SCOPE.md"]
+dependencies = []
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["trioctagon_analysis"]
+include-package-data = false
+
+[tool.setuptools.data-files]
+"share/trioctagon-analysis" = ["SPECIFICATION.md", "RESOURCE_LIMIT_PROPOSAL.md", "CONFORMANCE.md", "tests/fixtures/golden_vectors.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
