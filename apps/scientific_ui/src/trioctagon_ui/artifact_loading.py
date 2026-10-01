@@ -1,6 +1,7 @@
 """Inert, bounded import and no-replacement copy. No scientific jobs here."""
 from dataclasses import dataclass
 import hashlib
+import json
 import os
 from pathlib import Path
 import stat
@@ -8,6 +9,7 @@ import sys
 import tempfile
 
 from .analysis_identity import AnalysisLoaderIdentity, verify_installed_analysis
+from .historical_loading import LoadedHistoricalResult, LoadedHistoricalReceipt, parse_historical
 
 MAX_INPUT_FILE_BYTES = 16 * 1024 * 1024
 MAX_JSON_DEPTH = 32
@@ -121,10 +123,19 @@ class ArtifactLibrary:
             "TRIOCTAGON_DERIVED_ANALYSIS_RECORD": (DerivedAnalysisRecord, LoadedDerivedArtifact),
             "TRIOCTAGON_ANALYSIS_ATTEMPT_RECEIPT": (AttemptReceipt, LoadedAttemptArtifact),
         }
-        if family not in owners:
+        # The public inert probe has already bounded nesting and rejected duplicate
+        # keys, ambiguous envelopes and noncanonical number syntax. It intentionally
+        # classifies Historical families as UNKNOWN; inspect only their literal
+        # routing fields, then require the Historical owning parser. No fallback.
+        envelope = json.loads(raw) if family == "UNKNOWN" else {}
+        historical_family = envelope.get("family", "")
+        if historical_family.startswith("TRIOCTAGON_HISTORICAL_"):
+            document, handle, loader = parse_historical(raw, historical_family, envelope.get("schema"), limits)
+        elif family not in owners:
             raise ValueError("UNKNOWN / UNSUPPORTED: no artifact loader for " + family)
-        owner, handle = owners[family]
-        document = owner.from_bytes(raw, limits)
+        else:
+            owner, handle = owners[family]
+            document = owner.from_bytes(raw, limits)
         if raw != document.to_bytes():
             raise ValueError("NONCANONICAL_INPUT: accepted analysis bytes must already be canonical")
         digest = hashlib.sha256(raw).hexdigest()
@@ -152,7 +163,7 @@ class CopyObservation:
 
 
 def copy_artifact(item, destination):
-    if type(item) not in (LoadedDerivedArtifact, LoadedAttemptArtifact):
+    if type(item) not in (LoadedDerivedArtifact, LoadedAttemptArtifact, LoadedHistoricalResult, LoadedHistoricalReceipt):
         raise TypeError("Canonical copying requires an accepted analysis handle")
     path = local_path(destination, missing_leaf=True)
     if os.path.normcase(str(path)) == os.path.normcase(str(item.source)) or os.path.lexists(path):

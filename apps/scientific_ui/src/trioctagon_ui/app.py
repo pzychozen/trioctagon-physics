@@ -746,9 +746,9 @@ class MainWindow(QMainWindow):
             installed = metadata.version("trioctagon-physics")
         except metadata.PackageNotFoundError:
             installed = "missing"
-        self.kernel_identity.setText(f"Preferred locked kernel archive: {self.lock['artifact_filename']}\nPreferred archive SHA-256: {self.lock['artifact_sha256']}\nCertified reconstruction also accepted under lock-v2 equivalence; this is not an installed-archive identity query.\nExpected source: {self.lock['source_commit']}\nInstalled distribution version: {installed}\nCurrent source identity: {self.runtime_source}\nApplication: trioctagon-scientific-ui 0.1.1; separate software identity")
+        self.kernel_identity.setText(f"Preferred locked kernel archive: {self.lock['artifact_filename']}\nPreferred archive SHA-256: {self.lock['artifact_sha256']}\nCertified reconstruction also accepted under lock-v2 equivalence; this is not an installed-archive identity query.\nExpected source: {self.lock['source_commit']}\nInstalled distribution version: {installed}\nCurrent source identity: {self.runtime_source}\nApplication: trioctagon-scientific-ui 0.1.2; separate software identity")
         if self._artifact_context_active():
-            self.identity.setText("Artifact inspection — " + self.artifacts.heading.text() + "\nUI: trioctagon-scientific-ui 0.1.1 · Analysis loader: independent installed pin 0.1.1 · Core kernel: separate Records identity")
+            self.identity.setText("Artifact inspection — " + self.artifacts.heading.text() + "\nUI: trioctagon-scientific-ui 0.1.2 · Analysis loader: independent installed pin 0.1.1 · Core kernel: separate Records identity")
             return
         if self.current is None:
             self.identity.setText("Draft configuration · no completed record · geometry and dynamics remain independent")

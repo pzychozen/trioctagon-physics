@@ -1,4 +1,4 @@
-# Trioctagon Scientific UI — v0.1.1 read-only artifact inspection
+# Trioctagon Scientific UI — v0.1.2 read-only artifact inspection
 
 UI DISPLAYS SCIENCE. PYTHON KERNEL COMPUTES SCIENCE.
 
@@ -6,6 +6,44 @@ This separately installed Windows x86-64 / CPython 3.11 application consumes the
 certified kernel through `kernel_physics.api`. It does not bundle or modify the
 kernel, Qt, Matplotlib, papers, research or scientific fixtures. The application
 source/version and kernel source/version are distinct identities.
+
+P2 adds strict Historical result and attempt-receipt inspection in the same
+**D → Records & Reproducibility → Artifacts** area. The inert public parsers from
+`trioctagon-historical-protocol==0.1.0` are pinned by
+`historical-protocol-artifact.lock.json` to the certified H6A wheel SHA-256
+`734ae5d2734ce9b42301b851e23d57c4b9db37ac02b32b0fadff328d4724952f`.
+The Historical scientific kernel is neither installed nor imported by this UI.
+No Historical provider, issuer, equation replay or cross-kernel comparison is used.
+
+Only Historical result/receipt family schema 1.0.0 is routed. Unknown schemas,
+requests, catalogues and provider-build documents are refused. The public Core
+envelope probe bounds the inert read and rejects ambiguous/duplicate fields;
+Historical literal hints then select one public Historical owning parser.
+Original canonical bytes are retained, never normalized or modified.
+
+Five result views show stored step, run, staged Z, EMA H and probability-chart
+fields. Run rows 0…N−1 and the historically unstored terminal have separate tabs;
+N=0 has no rows and a constructor terminal. Cached constructor readouts retain
+HISTORICAL_CONSTRUCTOR_ZERO, distinct from RECOMPUTED. Raw C pairs remain ordered
+23,31,12; chart components remain (cu,cx,cy). Neither is labelled physical XYZ.
+Exact f64 tokens remain authoritative when decimal precision changes. The EMA
+view explicitly shows equal input/output memory tokens and zero memory advances.
+
+Frozen qualifications have a read-only tab. Original artifact claims and current
+viewer observations have separate named panels. Schema/digest validity does not
+authenticate execution, historical authorship or physical validation. Producer
+execution attestation stays UNAVAILABLE, Windows execution binding NOT_PROVEN,
+and production attestation NOT ENABLED. LOCAL_CHECK_PASSED is never promoted to
+VERIFIED. Historical receipts are explicitly NOT A SCIENTIFIC RESULT (N18).
+Historical selection never becomes a Core record, resume/checkpoint, current
+state or comparison input (N21). Parsing cannot imply replay or attestation (N34).
+
+Certification runs source and installed/offline UI tests, frozen analysis and
+Historical protocol regressions, and relevant Core record tests. Test tools have
+a separate environment. Immutable H6A/H6B test artifacts retain their original
+identities in `tests/fixtures/historical/manifest.json`; UI tests do not generate
+Historical science. The external closeout supplies the certified Windows CMD
+launch command and six operator-review files; manual review is a separate step.
 
 UI-P1 adds **D → Artifacts**, alongside Records, Compare, Datasets and Exports.
 Load a local file to inspect a canonical DerivedAnalysisRecord or AttemptReceipt.
@@ -70,6 +108,8 @@ validated physical theory; see the [scientific boundaries and license scopes](..
   `7b3a0fcec2c9bde6c9e1ea482fe1f1ea6b16793e`.
 - Analysis: independently reconstructed exact wheel in `analysis-artifact.lock.json`;
   no bundling with the UI or Core, and no version-only substitution.
+- Historical protocol: independently reconstructed exact H6A wheel, installed with
+  `--no-compile`; the viewer verifies its installed contents and module origins.
 - Runtime: the complete 15-wheel closure in `requirements-win-py311.lock`, with
   every archive SHA-256 enforced. NumPy 2.4.4, SymPy 1.14.0 and mpmath 1.3.0 remain fixed.
 - Build: Setuptools 81.0.0 and wheel 0.47.0; archive hashes are in `pyproject.toml`.
@@ -141,10 +181,11 @@ $uiPython = Join-Path $work 'manual/Scripts/python.exe'
 $selection = Get-Content "$work/kernel-selection.json" -Raw | ConvertFrom-Json
 $kernelWheel = Join-Path $work $selection.relative_path
 $analysisWheel = Join-Path $work 'analysis-wheelhouse/trioctagon_analysis-0.1.1-py3-none-any.whl'
+$historicalProtocolWheel = Join-Path $work 'historical-wheelhouse/trioctagon_historical_protocol-0.1.0-py3-none-any.whl'
 $appWheel = $certification.app_wheel
 & $uiPython -I -B -m pip --isolated install --no-index --require-hashes --find-links "$work/wheelhouse" -r "$source/apps/scientific_ui/requirements-win-py311.lock"
 & $uiPython -I -B -m pip --isolated install --no-index --no-deps $kernelWheel
-& $uiPython -I -B -m pip --isolated install --no-index --no-deps --no-compile $analysisWheel
+& $uiPython -I -B -m pip --isolated install --no-index --no-deps --no-compile $analysisWheel $historicalProtocolWheel
 & $uiPython -I -B -m pip --isolated install --no-index --no-deps $appWheel
 & $uiPython -I -B -m trioctagon_ui --smoke-test
 & $uiPython -I -B -m trioctagon_ui

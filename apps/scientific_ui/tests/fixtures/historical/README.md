@@ -1,0 +1,1 @@
+Immutable H6A synthetic fixtures and H6B retained artifacts. See manifest.json for exact original byte identities and provenance. P2 tests only parse and present these bytes; they never invoke scientific providers or generate results. H6B local admission is not producer execution attestation.

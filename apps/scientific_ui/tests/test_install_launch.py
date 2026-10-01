@@ -209,7 +209,7 @@ def git_fetch_environment(lock, environment):
     """Authenticate only the immutable repository; never alter caller/config state."""
     env = dict(environment); token = env.pop("GH_TOKEN", None)
     if not token: return env
-    if lock["source_repository"] != LOCKED_GIT_REPOSITORY or lock["source_commit"] not in (LOCKED_GIT_COMMIT, "df6295b6b5dc581a0bdec8601bae9cc3e14493bd"):
+    if lock["source_repository"] != LOCKED_GIT_REPOSITORY or lock["source_commit"] not in (LOCKED_GIT_COMMIT, "df6295b6b5dc581a0bdec8601bae9cc3e14493bd", "1b7a48c1218aa2e3b1ab81b37799f3d320583352"):
         raise ValueError("Token authentication requires the locked repository and commit")
     if any(k.upper() in ("GIT_CONFIG_COUNT", "GIT_CONFIG_PARAMETERS") or
            k.upper().startswith(("GIT_CONFIG_KEY_", "GIT_CONFIG_VALUE_")) for k in env):
@@ -433,6 +433,141 @@ def reconstruct_analysis(app, workspace):
     write_json(workspace / "analysis-acquisition.json", report)
     return report
 
+def historical_tools(app):
+    # stdlib-only verifier, loaded without importing the GUI package or analysis.
+    import importlib.util
+    name = "ui_pinned_historical_identity"
+    spec = importlib.util.spec_from_file_location(name, app / "src/trioctagon_ui/historical_identity.py")
+    module = importlib.util.module_from_spec(spec); sys.modules[name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+def verify_historical(app, workspace):
+    lock = json.loads((app / "historical-protocol-artifact.lock.json").read_bytes())
+    if lock["REGISTRY_RESOLUTION_ALLOWED"] is not False:
+        raise ValueError("Registry Historical protocol substitution is forbidden")
+    wheel = workspace / "historical-wheelhouse" / lock["wheel_filename"]
+    historical_tools(app).verify_historical_wheel(wheel, lock)
+    return wheel, lock
+
+
+def reconstruct_historical(app, workspace):
+    lock = json.loads((app / "historical-protocol-artifact.lock.json").read_bytes())
+    if lock["source_commit"] != "1b7a48c1218aa2e3b1ab81b37799f3d320583352":
+        raise ValueError("Historical protocol reconstruction requires the reviewed source pin")
+    directory = Path(tempfile.mkdtemp(prefix="historical-", dir=workspace)); source = directory / "s"
+    env = dict(os.environ, PYTHONUTF8="1", PYTHONDONTWRITEBYTECODE="1",
+        SOURCE_DATE_EPOCH=lock["build_inputs"]["source_date_epoch"])
+    env.pop("PYTHONPATH", None); fetch_env = dict(env); env.pop("GH_TOKEN", None)
+    def run(label, args): return command(args, directory, directory / (label + ".log"), env).strip()
+    run("init", ["git", "init", source]); run("crlf", ["git", "-C", source, "config", "core.autocrlf", "false"])
+    run("origin", ["git", "-C", source, "remote", "add", "origin", lock["source_repository"]])
+    try: fetch_auth = authenticated_git_fetch(source, lock, directory, fetch_env)
+    finally: fetch_env.clear()
+    run("checkout", ["git", "-C", source, "checkout", "--detach", lock["source_commit"]])
+    if run("head", ["git", "-C", source, "rev-parse", "HEAD"]) != lock["source_commit"]:
+        raise ValueError("Historical protocol reconstruction HEAD mismatch")
+    if run("tree", ["git", "-C", source, "rev-parse", "HEAD:historical_protocol"]) != lock["source_tree"]:
+        raise ValueError("Historical protocol source tree mismatch")
+    names = run("files", ["git", "-C", source, "ls-files", "historical_protocol"]).splitlines()
+    observed = {n.removeprefix("historical_protocol/"): sha(source / n) for n in names}
+    if observed != lock["source_files"] or hashlib.sha256(json.dumps(observed, sort_keys=True,
+            separators=(",", ":")).encode()).hexdigest() != lock["source_content_sha256"]:
+        raise ValueError("Historical protocol source content mismatch")
+    inputs = [v for v in lock["build_inputs"]["wheels"] if v["filename"].startswith(("setuptools-", "wheel-", "packaging-"))]
+    requirements = directory / "build-requirements.txt"
+    requirements.write_text("".join(v["filename"].split("-")[0] + "==" + v["filename"].split("-")[1] +
+        " --hash=sha256:" + v["sha256"] + "\n" for v in inputs), encoding="utf-8")
+    build_wheels = directory / "build-wheels"
+    run("acquire-tools", [sys.executable, "-I", "-B", "-m", "pip", "--isolated", "download", "--only-binary=:all:",
+        "--no-deps", "--require-hashes", "--dest", build_wheels, "-r", requirements])
+    for row in inputs:
+        if sha(build_wheels / row["filename"]) != row["sha256"]: raise ValueError("Historical protocol build input mismatch")
+    build = directory / "b"; run("venv", [sys.executable, "-I", "-B", "-m", "venv", build])
+    python = build / "Scripts/python.exe"
+    run("install-tools", [python, "-I", "-B", "-m", "pip", "--isolated", "install", "--no-index",
+        "--no-deps", "--require-hashes", "--find-links", build_wheels, "-r", requirements])
+    copied = directory / "build-source"; shutil.copytree(source / "historical_protocol", copied)
+    wheelhouse = workspace / "historical-wheelhouse"; wheelhouse.mkdir(exist_ok=True)
+    run("build", [python, "-I", "-B", "-m", "pip", "--isolated", "wheel", "--no-index", "--no-deps",
+        "--no-build-isolation", "--wheel-dir", wheelhouse, copied])
+    wheel, _ = verify_historical(app, workspace)
+    if run("clean", ["git", "-C", source, "status", "--porcelain"]): raise ValueError("Historical protocol source changed")
+    report = {"status": "PASS", "source_commit": lock["source_commit"], "wheel_sha256": sha(wheel),
+        "source_content_sha256": lock["source_content_sha256"], "members_verified": len(lock["member_manifest"]),
+        "build_inputs": inputs, "source_date_epoch": env["SOURCE_DATE_EPOCH"], "fetch_auth": fetch_auth,
+        "historical_ci": lock["ci_run"], "wheel_postprocessing": False, "registry_fallback": False}
+    write_json(workspace / "historical-acquisition.json", report)
+    return report
+
+
+def acquire_regression_tools(app, workspace):
+    # Test tools are never installed into the certified UI runtime.
+    lock = json.loads((app / "analysis-artifact.lock.json").read_bytes())
+    requirements = workspace / "regression-requirements.txt"
+    requirements.write_text("".join(row["filename"].split("-")[0] + "==" + row["filename"].split("-")[1] +
+        " --hash=sha256:" + row["sha256"] + "\n" for row in lock["build_inputs"]["wheels"]), encoding="utf-8")
+    command([sys.executable, "-I", "-B", "-m", "pip", "--isolated", "download", "--only-binary=:all:",
+        "--no-deps", "--require-hashes", "--dest", workspace / "regression-wheelhouse", "-r", requirements],
+        workspace, workspace / "regression-acquire.log")
+
+
+def certify_regressions(source, app, workspace, attempt, evidence, analysis, historical, kernel, reconstruction, run, venv):
+    def frozen_source(folder, pin):
+        candidates = list(workspace.glob(folder + "-*/s/" + ("analysis" if folder == "analysis" else "historical_protocol")))
+        for path in candidates:
+            observed = {n: sha(path / n) for n in pin["source_files"]}
+            if observed == pin["source_files"]:
+                return path
+        raise ValueError("Missing immutable regression source: " + folder)
+    analysis_pin = json.loads((app / "analysis-artifact.lock.json").read_bytes())
+    historical_pin = json.loads((app / "historical-protocol-artifact.lock.json").read_bytes())
+    a_source = frozen_source("analysis", analysis_pin)
+    h_source = frozen_source("historical", historical_pin)
+    python = venv("t")
+    tools_wheels = workspace / "regression-wheelhouse"
+    for row in analysis_pin["build_inputs"]["wheels"]:
+        if sha(tools_wheels / row["filename"]) != row["sha256"]:
+            raise ValueError("Regression tool archive mismatch")
+    run("regression-tools", [python, "-I", "-B", "-m", "pip", "--isolated", "install", "--no-index", "--no-deps", "--no-compile",
+        *[tools_wheels / r["filename"] for r in analysis_pin["build_inputs"]["wheels"]]])
+    run("regression-owners", [python, "-I", "-B", "-m", "pip", "--isolated", "install", "--no-index", "--no-deps", "--no-compile", analysis, historical, kernel])
+    regression = attempt / "regression"; regression.mkdir()
+    empty = regression / "empty"; empty.mkdir()
+    tests = regression / "analysis-tests"; shutil.copytree(a_source / "tests", tests)
+    expected = regression / "analysis-expected.json"
+    write_json(expected, dict(source=str(source), analysis_source=str(a_source), evidence=str(evidence),
+        tests=str(tests), wheel=str(analysis), members=analysis_pin["member_manifest"], kernel=str(kernel)))
+    run("analysis-regressions", [python, "-I", "-B", a_source / "tools/run_installed.py", expected], cwd=empty)
+    historical_tests = regression / "historical-tests"; shutil.copytree(h_source / "tests", historical_tests)
+    run("historical-protocol-regressions", [python, "-I", "-B", h_source / "tools/run_tests.py",
+        "--tests", historical_tests, "--evidence", evidence, "--lane", "historical-protocol",
+        "--checkout", source, "--core-golden", tests / "fixtures/golden_vectors.json", "--wheel", historical], cwd=empty)
+    core_source = (workspace / reconstruction["relative_path"]).parent.parent / "s"
+    core_tests = regression / "core" / "tests"; core_tests.mkdir(parents=True)
+    for name in ("__init__.py", "test_public_contract.py", "test_runner_records.py", "test_geometry_records.py"):
+        shutil.copyfile(core_source / "kernel_physics/tests" / name, core_tests / name)
+    runner = regression / "core-tests.py"
+    runner.write_text(CORE_TEST_RUNNER, encoding="utf-8")
+    run("core-regressions", [python, "-I", "-B", runner, core_tests.parent, evidence / "core-result.json"], cwd=empty)
+    results = {n: json.loads((evidence / p).read_bytes()) for n,p in
+        (("analysis", "installed-result.json"), ("historical_protocol", "historical-protocol-result.json"), ("core", "core-result.json"))}
+    assert all(r["status"] == "PASS" for r in results.values())
+    return {name: {k:v for k,v in result.items() if k in ("status", "counts", "tests")} for name,result in results.items()}
+
+
+CORE_TEST_RUNNER = '''import sys,json,unittest,pathlib
+import kernel_physics
+original=pathlib.Path(kernel_physics.__file__).resolve()
+assert original.is_relative_to(pathlib.Path(sys.prefix))
+kernel_physics.__path__.append(sys.argv[1]) # copied tests only, never source implementation
+names=['kernel_physics.tests.'+n for n in ('test_public_contract','test_runner_records','test_geometry_records')]
+result=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromNames(names))
+pathlib.Path(sys.argv[2]).write_text(json.dumps({'status':'PASS' if result.wasSuccessful() else 'FAIL','tests':result.testsRun,'origin':str(original)}))
+raise SystemExit(not result.wasSuccessful())
+'''
+
 
 def acquire(source, workspace):
     require_lane(); source, app, workspace = paths(source, workspace)
@@ -442,12 +577,14 @@ def acquire(source, workspace):
             "--no-deps", "--require-hashes", "--dest", workspace / name, "-r", requirements], workspace, workspace / (name + "-acquire.log"))
     rows = inventory(app, workspace)
     analysis = reconstruct_analysis(app, workspace)
+    historical = reconstruct_historical(app, workspace)
+    acquire_regression_tools(app, workspace)
     preferred = acquire_preferred(app, workspace, lock)
     reconstructed = reconstruct_kernel(app, workspace, lock)
     selected = preferred or reconstructed
     write_json(workspace / "kernel-selection.json", {"classification": "PREFERRED_EXACT_ARCHIVE" if preferred else "CERTIFIED_RECONSTRUCTION", "relative_path": selected.relative_to(workspace).as_posix()})
     verify_kernel(app, workspace)
-    write_json(workspace / "acquisition.json", {"status": "PASS", "kernel": lock, "analysis": analysis, "dependencies": rows,
+    write_json(workspace / "acquisition.json", {"status": "PASS", "kernel": lock, "analysis": analysis, "historical": historical, "dependencies": rows,
         "preferred_artifact": "PASS" if preferred else "UNAVAILABLE", "forced_reconstruction": json.loads((workspace / "reconstructed-kernel.json").read_text(encoding="utf-8"))})
     print("ACQUISITION=PASS; exact closure and forced certified reconstruction verified", flush=True)
 
@@ -456,6 +593,7 @@ def certify(source, workspace):
     require_lane(); source, app, workspace = paths(source, workspace)
     kernel, lock = verify_kernel(app, workspace); dependencies = inventory(app, workspace)
     analysis, analysis_pin = verify_analysis(app, workspace)
+    historical, historical_pin = verify_historical(app, workspace)
     reconstruction = json.loads((workspace / "reconstructed-kernel.json").read_text(encoding="utf-8"))
     reconstructed = (workspace / reconstruction["relative_path"]).resolve()
     if not reconstructed.is_relative_to(workspace): raise ValueError("Reconstruction path escaped acquisition workspace")
@@ -465,6 +603,8 @@ def certify(source, workspace):
     starting = {p: sha(source / p) for p in tracked}
     status = git("status", "--porcelain", "--untracked-files=all")
     head = git("rev-parse", "HEAD").decode().strip()
+    if os.environ.get("GITHUB_ACTIONS"):
+        assert head == os.environ["GITHUB_SHA"] and not status.strip()
     # Each attempt gets a fresh, external installation; failed evidence is retained.
     # Short environment paths also support Windows hosts without long-path opt-in.
     attempt = Path(tempfile.mkdtemp(prefix="c-", dir=workspace))
@@ -500,29 +640,47 @@ def certify(source, workspace):
         assert all(n in package or ".dist-info/" in n or ".data/data/share/trioctagon-scientific-ui/" in n for n in members)
         for n in members:
             if ".data/" in n:
-                assert Path(n).name in ("kernel-artifact.lock.json", "analysis-artifact.lock.json", "requirements-win-py311.lock")
+                assert Path(n).name in ("kernel-artifact.lock.json", "analysis-artifact.lock.json", "historical-protocol-artifact.lock.json", "requirements-win-py311.lock")
                 assert archive.read(n) == (app / Path(n).name).read_bytes()
         assert not any(n.endswith((".whl", ".dll", ".pyd")) or n.startswith(("tests/", "kernel_physics/")) for n in members)
         write_json(evidence / "app-wheel.json", {"filename": wheel.name, "sha256": sha(wheel), "members": members})
     runtime = venv("r")
     locked_install(runtime, app / "requirements-win-py311.lock", workspace / "wheelhouse", "runtime-deps")
-    run("kernel-app-install", [runtime, "-I", "-B", "-m", "pip", "--isolated", "install", "--no-index", "--no-deps", "--no-compile", analysis, kernel, wheel])
+    run("kernel-app-install", [runtime, "-I", "-B", "-m", "pip", "--isolated", "install", "--no-index", "--no-deps", "--no-compile", analysis, historical, kernel, wheel])
     run("pip-check", [runtime, "-I", "-B", "-m", "pip", "check"])
+    closure_script = attempt / "runtime-closure.py"
+    closure_script.write_text(RUNTIME_CLOSURE, encoding="utf-8")
+    approved = {row["name"]: row["version"] for row in dependencies}
+    approved.update({"trioctagon-scientific-ui": "0.1.2", "trioctagon-analysis": analysis_pin["version"],
+        "trioctagon-historical-protocol": historical_pin["version"], "trioctagon-physics": lock["version"]})
+    closure = json.loads(run("runtime-closure", [runtime, "-I", "-B", closure_script, json.dumps(approved)]))
+    write_json(evidence / "runtime-closure.json", closure)
     tests = attempt / "test-suite"; tests.mkdir()
     for file in (app / "tests").glob("test_*.py"): shutil.copyfile(file, tests / file.name)
     shutil.copytree(app / "tests/fixtures", tests / "fixtures")
     env["TRIOCTAGON_UI_ANALYSIS_WHEEL"] = str(analysis)
+    env["TRIOCTAGON_UI_HISTORICAL_WHEEL"] = str(historical)
     env["TRIOCTAGON_UI_APP_WHEEL"] = str(wheel)
     env["TRIOCTAGON_UI_PREFERRED_KERNEL"] = str(workspace / "kernel-evidence" / lock["temporary_retrieval"]["wheel_path"])
     env["TRIOCTAGON_UI_RECONSTRUCTED_KERNEL"] = str(reconstructed)
     result = run("app-tests", [runtime, "-I", "-B", "-m", "unittest", "discover", "-s", tests, "-p", "test_*.py", "-v"])
     match = re.search(r"Ran (\d+) tests in ([\d.]+)s\s+OK\s*$", result)
     assert match
+    source_evidence = evidence / "source-ui"; source_evidence.mkdir()
+    source_ui = attempt / "source-ui"
+    shutil.copytree(app / "src", source_ui, ignore=shutil.ignore_patterns("__pycache__", "*.egg-info"))
+    source_env = dict(env, TRIOCTAGON_UI_SOURCE_TESTS=str(source_ui), TRIOCTAGON_UI_EVIDENCE=str(source_evidence))
+    source_runner = attempt / "source-runner.py"
+    source_runner.write_text("import sys,unittest;sys.path.insert(0,sys.argv[1]);result=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.discover(sys.argv[2]));raise SystemExit(not result.wasSuccessful())", encoding="utf-8")
+    source_result = command([runtime, "-I", "-B", source_runner, source_ui, tests], empty, evidence / "source-ui-tests.log", source_env)
+    source_match = re.search(r"Ran (\d+) tests in ([\d.]+)s\s+OK\s*$", source_result)
+    assert source_match and source_match[1] == match[1]
+    regressions = certify_regressions(source, app, workspace, attempt, evidence, analysis, historical, kernel, reconstruction, run, venv)
     # Second kernel installation needs only the frozen numeric closure: the
     # existing scientific worker is GUI-free. The full UI suite ran above.
     alternate = venv("a")
     numeric = [next((workspace / "wheelhouse").glob(n + "-*.whl")) for n in ("numpy", "sympy", "mpmath")]
-    run("reconstructed-install", [alternate, "-I", "-B", "-m", "pip", "--isolated", "install", "--no-index", "--no-deps", "--no-compile", analysis, *numeric, reconstructed, wheel])
+    run("reconstructed-install", [alternate, "-I", "-B", "-m", "pip", "--isolated", "install", "--no-index", "--no-deps", "--no-compile", analysis, historical, *numeric, reconstructed, wheel])
     smoke_script = empty / "kernel-smoke.py"
     smoke_script.write_text(KERNEL_WORKER_SMOKE, encoding="utf-8")
     original_smoke = json.loads(run("selected-kernel-worker", [runtime, "-I", "-B", smoke_script]))
@@ -530,7 +688,7 @@ def certify(source, workspace):
     assert original_smoke["source_commit"] == rebuilt_smoke["source_commit"] == lock["source_commit"]
     write_json(evidence / "both-kernel-installations.json", {"selected": original_smoke, "reconstructed": rebuilt_smoke,
         "equivalence": verify_wheel_equivalence(reconstructed, lock), "reconstruction": reconstruction})
-    for filename in ("acquisition.json", "analysis-acquisition.json", "preferred-equivalence.json", "reconstructed-kernel.json", "kernel-selection.json"):
+    for filename in ("acquisition.json", "analysis-acquisition.json", "historical-acquisition.json", "preferred-equivalence.json", "reconstructed-kernel.json", "kernel-selection.json"):
         if (workspace / filename).exists(): shutil.copyfile(workspace / filename, evidence / filename)
     assert {p: sha(source / p) for p in tracked} == starting
     assert git("status", "--porcelain", "--untracked-files=all") == status
@@ -539,7 +697,7 @@ def certify(source, workspace):
     verify_kernel(app, workspace)
     report = {"status": "PASS", "source_commit": head, "github_sha": os.environ.get("GITHUB_SHA"),
         "python": platform.python_version(), "platform": platform.platform(), "kernel": lock,
-        "analysis_pin": analysis_pin, "dependencies": dependencies, "app_wheel": str(wheel), "app_wheel_sha256": sha(wheel),
+        "analysis_pin": analysis_pin, "historical_pin": historical_pin, "regressions": regressions, "source_tests": int(source_match[1]), "dependencies": dependencies, "app_wheel": str(wheel), "app_wheel_sha256": sha(wheel),
         "app_tests": int(match[1]), "seconds": float(match[2]), "installed_runtime": str(runtime),
         "offline_installs": True, "runtime_network_attempts": 0, "model_required": False, "gpu_required": False,
         "all_tracked_bytes_unchanged": True, "source_status_unchanged": True, "evidence": str(evidence)}
@@ -547,6 +705,21 @@ def certify(source, workspace):
     write_json(evidence / "certification.json", report)
     write_json(workspace / "latest-certification.json", report)
     print(json.dumps({k: report[k] for k in ("status", "app_tests", "app_wheel_sha256", "evidence", "installed_runtime")}), flush=True)
+
+
+RUNTIME_CLOSURE = '''import sys,json,re,pathlib,importlib.metadata as m,importlib.util
+expected=json.loads(sys.argv[1]);installed={re.sub('[-_.]+','-',d.metadata['Name']).lower():d.version for d in m.distributions()}
+bootstrap={k:v for k,v in installed.items() if k in ('pip','setuptools')}
+assert {k:v for k,v in installed.items() if k not in bootstrap}==expected,(installed,expected)
+assert importlib.util.find_spec('trioctagon_historical_kernel') is None
+from trioctagon_ui.analysis_identity import verify_installed_analysis
+from trioctagon_ui.historical_identity import verify_installed_historical
+verify_installed_analysis();verify_installed_historical()
+for name in ('trioctagon_ui','trioctagon_analysis','trioctagon_historical_protocol','kernel_physics'):
+ spec=importlib.util.find_spec(name);assert pathlib.Path(spec.origin).resolve().is_relative_to(pathlib.Path(sys.prefix))
+assert not any(n.startswith(('trioctagon_historical_kernel','kernel_TO','torment_service')) for n in sys.modules)
+print(json.dumps({'status':'PASS','approved_runtime':expected,'venv_bootstrap':bootstrap,'no_editable_checkout_imports':True,'historical_kernel_installed':False,'historical_kernel_imported':False}))
+'''
 
 
 KERNEL_WORKER_SMOKE = '''import json,pathlib,subprocess,sys,tempfile
@@ -599,7 +772,7 @@ class InstallTests(unittest.TestCase):
         else:
             self.assertTrue(Path(origins["app"]).is_relative_to(site))
         self.assertTrue(all(Path(origins[k]).is_relative_to(site) for k in ("kernel_api", "analysis")))
-        self.assertEqual(importlib.metadata.version("trioctagon-scientific-ui"), "0.1.1")
+        self.assertEqual(importlib.metadata.version("trioctagon-scientific-ui"), "0.1.2")
         self.assertTrue(help_data()["items"])
         self.assertFalse(kernel_lock()["REGISTRY_RESOLUTION_ALLOWED"])
         self.evidence("installed-origins.json", {"prefix": str(site), "origins": origins, "kernel_lock": kernel_lock()})
@@ -772,7 +945,8 @@ class PreferredAcquisitionTests(unittest.TestCase):
                 {"classification": "CERTIFIED_RECONSTRUCTION", "relative_path": "reconstructed/kernel.whl"})
         with patch.dict(globals(), command=lambda *args: None, inventory=lambda *args: [],
             build_requirements=lambda *args: (self.workspace / "tools.txt", []),
-            reconstruct_kernel=lambda *args: selected, reconstruct_analysis=lambda *args: {"status": "FIXTURE"}, verify_kernel=check_selection):
+            reconstruct_kernel=lambda *args: selected, reconstruct_analysis=lambda *args: {"status": "FIXTURE"},
+            reconstruct_historical=lambda *args: {"status": "FIXTURE"}, acquire_regression_tools=lambda *args: None, verify_kernel=check_selection):
             with patch("subprocess.run", side_effect=FileNotFoundError):
                 acquire(self.workspace / "source", self.workspace)
         self.assertEqual(json.loads((self.workspace / "acquisition.json").read_text())["preferred_artifact"], "UNAVAILABLE")

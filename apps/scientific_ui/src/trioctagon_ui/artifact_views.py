@@ -1,6 +1,6 @@
 """Immutable presentation adapters for documents validated by their owning codec."""
 from dataclasses import asdict, dataclass, field
-from .artifact_loading import LoadedAttemptArtifact, bounded_text
+from .artifact_loading import LoadedDerivedArtifact, LoadedAttemptArtifact, bounded_text
 from .record_views import freeze
 
 QUALIFICATION = ("Artifact structure and internal digest bindings are valid.\n"
@@ -27,8 +27,8 @@ class DerivedArtifactView:
     qualification: str = QUALIFICATION
 
     def __post_init__(self):
-        if isinstance(self.artifact, LoadedAttemptArtifact):
-            raise TypeError("A receipt is not a scientific result")
+        if type(self.artifact) is not LoadedDerivedArtifact:
+            raise TypeError("Core result inspector requires a Core result handle")
         data = self.artifact.document.to_dict()
         request, producer = data["request"], data["producer"]
         descriptor = data["catalogue"]["descriptors"][0]
@@ -84,6 +84,8 @@ class AttemptReceiptView:
         "Production execution verification unavailable. Windows execution binding NOT_PROVEN.")
 
     def __post_init__(self):
+        if type(self.artifact) is not LoadedAttemptArtifact:
+            raise TypeError("Core receipt inspector requires a Core receipt handle")
         data = self.artifact.document.to_dict()
         diagnostic = bounded_text(data.pop("diagnostic"))
         object.__setattr__(self, "heading", "Analysis attempt receipt — " + data["outcome"])

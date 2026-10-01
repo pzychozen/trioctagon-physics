@@ -27,14 +27,14 @@ jobs:
         with:
           python-version: '3.11'
           architecture: x64
-      - name: Acquire exact certified Core, analysis and hashed wheels
+      - name: Acquire exact Core, analysis, Historical protocol and hashed wheels
         env:
           GH_TOKEN: ${{ github.token }}
         shell: pwsh
         run: >-
           python -B apps/scientific_ui/tests/test_install_launch.py --acquire
           --source "$env:GITHUB_WORKSPACE" --workspace "$env:RUNNER_TEMP/scientific-ui"
-      - name: Offline build, installed tests, Qt and worker verification
+      - name: Offline source and installed UI, protocol and Core regressions
         shell: pwsh
         run: >-
           python -B apps/scientific_ui/tests/test_install_launch.py --certify
@@ -56,6 +56,8 @@ jobs:
             ${{ runner.temp }}/scientific-ui/*-inventory-certification.json
             ${{ runner.temp }}/scientific-ui/analysis-acquisition.json
             ${{ runner.temp }}/scientific-ui/analysis-wheelhouse/*.whl
+            ${{ runner.temp }}/scientific-ui/historical-acquisition.json
+            ${{ runner.temp }}/scientific-ui/historical-wheelhouse/*.whl
             ${{ runner.temp }}/scientific-ui/acquisition.json
             ${{ runner.temp }}/scientific-ui/latest-certification.json
           if-no-files-found: error
