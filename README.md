@@ -37,6 +37,8 @@ versions and publication editions need not have the same number.
 | E — v0.1.1 | [The Tri-Octagon Z Manifold](papers/PAPER_E/v0.1.1/publication/PAPER_E_Z_MANIFOLD_v0.1.1.pdf) | [Recorded review/revision status](papers/PAPER_E/v0.1.1/README.md); owner-authorized for this preview at that status. |
 | F — v0.2 | [Transverse Chirality, Dihedral Harmonic Selection, and Local Linearization](papers/PAPER_F/PAPER_F_PUBLICATION_v0.2.pdf) | [Accepted scientific source and publication-build status](papers/PAPER_F/README.md); owner-authorized for this preview at that status. |
 
+- [Kernel history and comparison — v0.1](papers/KERNEL_HISTORY_AND_COMPARISON/README.md)
+
 The [owner publication disposition](PUBLIC_RELEASE_CONTENT_DISPOSITION_v0.1.md)
 authorizes E/F public visibility/publication at their currently recorded
 scientific/review status. It supersedes earlier owner-authorization-pending
