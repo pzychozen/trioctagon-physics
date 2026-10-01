@@ -1,0 +1,53 @@
+name: Historical protocol certification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'historical_protocol/**'
+      - '.github/workflows/historical-protocol.yml'
+  pull_request:
+    paths:
+      - 'historical_protocol/**'
+      - '.github/workflows/historical-protocol.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  windows-python311:
+    runs-on: windows-latest
+    timeout-minutes: 25
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.11'
+          architecture: x64
+      - name: Certify Historical schemas and unchanged Core compatibility
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: pwsh
+        run: >-
+          python -I -B historical_protocol/tools/certify_distribution.py
+          --source "$env:GITHUB_WORKSPACE"
+          --workspace "$env:RUNNER_TEMP/historical-certification"
+      - name: Retain exact wheels and schema certification evidence
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: historical-protocol-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/historical-certification/evidence/
+            ${{ runner.temp }}/historical-certification/core/certified/evidence/
+            ${{ runner.temp }}/historical-certification/core/acquisition.json
+            ${{ runner.temp }}/historical-certification/core/acquisition.log
+          if-no-files-found: error
+          retention-days: 30

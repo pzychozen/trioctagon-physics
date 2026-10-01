@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools==81.0.0", "wheel==0.47.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trioctagon-historical-protocol"
+version = "0.1.0"
+description = "Inert Historical analysis protocol schemas; no scientific provider or issuer"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+license = "Apache-2.0"
+license-files = ["LICENSE", "LICENSE_SCOPE.md"]
+dependencies = ["trioctagon-analysis==0.1.1"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["trioctagon_historical_protocol"]
+include-package-data = false
+
+[tool.setuptools.package-data]
+trioctagon_historical_protocol = ["data/authority.json", "data/constants.json", "data/comparison.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
