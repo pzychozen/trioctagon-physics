@@ -1,0 +1,52 @@
+name: Independent Historical kernel certification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'historical_kernel/**'
+      - '.github/workflows/historical-kernel.yml'
+  pull_request:
+    paths:
+      - 'historical_kernel/**'
+      - '.github/workflows/historical-kernel.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  windows-python311:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.11'
+          architecture: x64
+      - name: Certify independent science and external local admission
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: pwsh
+        run: >-
+          python -I -B historical_kernel/tools/certify_distribution.py
+          --source "$env:GITHUB_WORKSPACE"
+          --workspace "$env:RUNNER_TEMP/historical-kernel-certification"
+      - name: Retain exact wheel, conformance, measurements and external admission
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: historical-kernel-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/historical-kernel-certification/evidence/
+            ${{ runner.temp }}/historical-kernel-certification/core/certified/evidence/
+            ${{ runner.temp }}/historical-kernel-certification/core/acquisition.json
+          if-no-files-found: error
+          retention-days: 30
