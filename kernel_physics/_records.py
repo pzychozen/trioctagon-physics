@@ -300,7 +300,7 @@ def _distribution_manifest():
     # These software build-input hashes remain metadata in an installation.
     # Only the 14 frozen implementation paths are record identity members.
     inputs = tuple(sorted((*_MODULES, *("kernel_physics/" + n + ".py" for n in
-        ("covering", "face_state", "boundary_response", "srg", "operating_region")),
+        ("covering", "face_state", "boundary_response", "srg", "operating_region", "axial_observables")),
         "pyproject.toml", "_build_backend.py", "LICENSE", "LICENSE_SCOPE.md", "kernel_physics/README.md")))
     entries = _array(build["files"], len(inputs), lambda v: v)
     for entry, path in zip(entries, inputs):

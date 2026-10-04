@@ -81,6 +81,11 @@ class ImportBoundaryTests(unittest.TestCase):
             self.assertFalse(reachable(imports, module) & {"dynamics", "z_manifold", "z_diagnostics", "_runner"})
         self.assertFalse(reachable(imports, "z_manifold") & {"dynamics", "geometry", "reference_scaffold", "_runner"})
         self.assertFalse(reachable(imports, "z_diagnostics") & {"geometry", "reference_scaffold", "_runner"})
+        self.assertFalse(reachable(imports, "axial_observables") & {
+            "api", "_contract_types", "_records", "_geometry_records", "_runner", "geometry",
+            "reference_scaffold", "face_state", "boundary_response", "srg", "operating_region"})
+        for name in ("dynamics", "_runner", "_records", "z_manifold", "geometry"):
+            self.assertNotIn("axial_observables", reachable(imports, name))
         self.assertNotIn("_geometry_records", reachable(imports, "_runner"))
         # K0 explicitly permits FaceState as a mixed legacy leaf, outside API.
         self.assertTrue({"geometry", "dynamics", "operating_region"} <= reachable(imports, "face_state"))
@@ -149,6 +154,8 @@ print(json.dumps({'before':before,'after':sorted(name for name in sys.modules if
             readout = a.observe_staged(state().omega, request.clock, request.config)
             a.observe_ema(state().omega, ema.clock, ema.config, ema.memory)
             a.z_chiral(state().omega)
+            a.axial_snapshot(state().omega)
+            a.axial_source_budget(state(), parameters())
             a.quadratic_form([1, 2, 3])
             a.readout_accounting(readout, alpha=1, beta=.5)
             a.chiral_area_accounting(state().omega)

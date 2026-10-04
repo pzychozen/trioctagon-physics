@@ -220,3 +220,11 @@ K1 files, import tests, and P1–P12 tolerances/pass/failure meanings. The ledge
 current implementation references do not authorize K0 edits to any referenced
 file. Pending support/provenance/fixture decisions are the only OPEN families;
 they do not conceal unresolved authority for an accepted runtime equation.
+
+## Additive Paper G observation contract (K-G0/K-G1)
+
+The [axial observation extension](K0_AXIAL_OBSERVATION_EXTENSION_v0.1.md)
+defines passive AX01/AX02 under package 0.2.0 and observation API 1.0.0.
+This separate extension does not renumber or reinterpret any frozen definition
+above, change record ledger 0.1, or authorize observer feedback. Paper G and
+its exact/interval results remain distinct from binary64 observation outputs.

@@ -765,3 +765,11 @@ K4a validation: parse JSON; verify exact 34-export coverage, one control class p
 | LICENSE_SCOPE.md | 5da42df1c921eef7a244e15b4b06060d8be70ff13832b3714f48196d084c4449 | [source](https://github.com/pzychozen/trioctagon-physics/blob/7b3a0fcec2c9bde6c9e1ea482fe1f1ea6b16793e/LICENSE_SCOPE.md) |
 | pyproject.toml | 50f0d464fbaa8d800bec4afd659a81fc41f4a6f3368c1fc7a67bbc6a82f74939 | [source](https://github.com/pzychozen/trioctagon-physics/blob/7b3a0fcec2c9bde6c9e1ea482fe1f1ea6b16793e/pyproject.toml) |
 | .github/workflows/kernel-distribution.yml | 07f723dccc3e5e4424284050a9f7fd8a238c8d9a5365a774551094a07f4a480d | [source](https://github.com/pzychozen/trioctagon-physics/blob/7b3a0fcec2c9bde6c9e1ea482fe1f1ea6b16793e/.github/workflows/kernel-distribution.yml) |
+
+## Later kernel-only additive surface: Paper G
+
+The [K-G0/K-G1 extension](K0_AXIAL_OBSERVATION_EXTENSION_v0.1.md) adds two
+passive axial operations to kernel package 0.2.0. The frozen K4A table and JSON
+describe their original source identity, not this later extension. No UI source,
+UI version or UI kernel lock is changed by the kernel work. Future application
+integration requires its own request/result admission and certified pairing.

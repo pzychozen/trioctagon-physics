@@ -101,7 +101,7 @@ jobs:
           dist = metadata.distribution('trioctagon-physics')
           fields = {k: str(dist.metadata[k]) for k in ('Name', 'Version', 'Author', 'License-Expression', 'Requires-Python')}
           assert fields['Name'] == 'trioctagon-physics'
-          assert fields['Version'] == '0.1.0'
+          assert fields['Version'] == '0.2.0'
           assert fields['Author'] == 'Hilmir Fr\u00edmann Halld\u00f3rsson'
           assert fields['License-Expression'] == 'Apache-2.0'
           assert set(fields['Requires-Python'].split(',')) == {'>=3.11', '<3.12'}
@@ -142,6 +142,9 @@ jobs:
               ring = a.State(omega=s.omega*2, update_index=0)
               assert a.step(ring, p, topology='ring').update_index == 1
               a.z_chiral(s.omega)
+              assert a.AXIAL_OBSERVATION_API_VERSION == '1.0.0'
+              assert a.axial_snapshot((1, 1j, 1)).C == (-1., 0., 1.)
+              assert a.axial_source_budget(s, p).comparison_status == 'PREDICTION_ONLY'
               staged, ema = observers
               staged_readout = a.observe_staged(s.omega, staged.clock, staged.config)
               a.observe_ema(s.omega, ema.clock, ema.config, ema.memory)
@@ -157,6 +160,17 @@ jobs:
                   assert a.RunRecord.from_json(record.to_json()).to_json() == record.to_json()
                   identity(record)
               continued = a.resume(runs['1'], updates=2)
+              a.axial_source_budget(s, p)
+              assert run(1).to_json() == runs['1'].to_json()
+              assert a.resume(runs['1'], updates=2).to_json() == continued.to_json()
+              old = a.RunRecord.from_json(expected['old_record_json'])
+              assert old.to_json() == expected['old_record_json']
+              try:
+                  a.resume(old, updates=1)
+              except ValueError as exc:
+                  assert 'matching source revision and module hashes' in str(exc)
+              else:
+                  raise AssertionError('old source unexpectedly resumed under candidate')
               assert continued.data['samples'] == runs['3'].data['samples']
               identity(continued)
               geometries = {n: geometry(n) for n in ('C01', 'D03')}
@@ -168,7 +182,8 @@ jobs:
               checks = ['triad_step', 'ring_step', 'z_chiral', 'staged_observer', 'ema_observer',
                   'clock_advance', 'ema_advance', 'passive_diagnostics', 'zero_one_three_updates',
                   'run_roundtrip', 'compatible_resume', 'C01', 'D03', 'geometry_roundtrip',
-                  'manifest_source_and_papers', 'all_19_installed_hashes']
+                  'manifest_source_and_papers', 'all_20_installed_hashes', 'axial_snapshot',
+                  'axial_source_budget', 'axial_noninterference', 'old_record_load_strict_resume']
           else:
               saved = json.loads(args.records.read_text(encoding='utf-8'))
               prior = a.RunRecord.from_json(saved['run'])
@@ -375,16 +390,17 @@ jobs:
           backend = load('certification_backend', source/'_build_backend.py')
           inputs, manifest = backend.capture(source)
           contents = [backend.archive_contents(p, inputs, manifest) for p in (wheel, rebuilt)]
-          info = backend.metadata_names('0.1.0')[0]
+          info = backend.metadata_names('0.2.0')[0]
           for name in (*backend.PYTHON_FILES, backend.MANIFEST, info+'/METADATA', info+'/WHEEL',
                        info+'/licenses/LICENSE', info+'/licenses/LICENSE_SCOPE.md', info+'/top_level.txt'):
               assert contents[0][name] == contents[1][name], name
           python_hashes = {p: digest(inputs[p]) for p in backend.PYTHON_FILES}
-          assert len(python_hashes) == 19 and len(backend.MODULES) == 14
+          assert len(python_hashes) == 20 and len(backend.MODULES) == 14
           for p, sha in python_hashes.items():
               assert digest(git('show', head+':'+p)) == sha
           save('expected.json', {'manifest': manifest, 'python_hashes': python_hashes,
-              'runtime_versions': runtime_versions, 'forbidden_roots': [str(source), str(extraction)]})
+              'runtime_versions': runtime_versions, 'forbidden_roots': [str(source), str(extraction)],
+              'old_record_json': (source/'kernel_physics/tests/fixtures/axial_v1/old_run.json').read_text(encoding='utf-8')})
           for artifact in archives['artifacts']:
               artifact['source_commit'] = head
               artifact['manifest_build_input_sha256'] = manifest['build_input_sha256']
@@ -456,6 +472,26 @@ jobs:
                   manifest_path.write_bytes(backend.canonical(changed))
               smoke('mutation-'+mode, mutation_python, evidence/'direct-records.json', mode=mode)
 
+          # The passive owner is outside the frozen 14-path record identity,
+          # but remains a mandatory verified installed distribution member.
+          for mode in ('missing', 'tampered'):
+              run('axial-'+mode+'-reinstall', [mutation_python, '-I', '-B', '-m', 'pip', '--isolated', 'install',
+                  '--force-reinstall', '--no-index', '--no-deps', wheel])
+              path = mutation_site/'kernel_physics/axial_observables.py'
+              if mode == 'missing':
+                  path.unlink()
+              else:
+                  path.write_bytes(path.read_bytes()+b'\n# disposable axial installed tamper\n')
+              try:
+                  load('axial_verifier_'+mode, verifier).installed_smoke(mutation_python)
+              except subprocess.CalledProcessError as exc:
+                  diagnostic = exc.stderr or ''
+                  assert ('axial_observables' in diagnostic if mode == 'missing'
+                          else 'installed Python member bytes differ' in diagnostic)
+                  save('axial-'+mode+'.json', {'status':'PASS', 'refusal':diagnostic})
+              else:
+                  raise AssertionError('invalid installed axial member was accepted')
+
           unrelated = base/'unrelated-git'
           run('unrelated-git-init', ['git', 'init', '-q', unrelated], cwd=base)
           unrelated_cwd = unrelated/'empty'
@@ -476,6 +512,7 @@ jobs:
               'python': platform.python_version(), 'platform': platform.platform(), 'dependency_artifacts': dependencies,
               'tracked_tests': int(match[1]), 'direct_install': 'PASS', 'rebuilt_install': 'PASS',
               'missing_manifest': 'PASS', 'installed_tamper': 'PASS', 'changed_commit_resume_rejection': 'PASS',
+              'missing_axial_member': 'PASS', 'tampered_axial_member': 'PASS',
               'unrelated_git': 'PASS', 'network_attempts': 0, 'paper_open_attempts': 0,
               'model_required': False, 'gpu_required': False, 'setuptools_workaround': False,
               'source_clean': True, 'all_tracked_bytes_unchanged': True, 'evidence': str(evidence)})

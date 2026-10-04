@@ -87,6 +87,13 @@ if not root.is_relative_to(pathlib.Path(sys.prefix).resolve()):
     raise RuntimeError("API is not installed under the supplied interpreter prefix")
 if (root/'.git').exists() or (root/'papers').exists() or (root/'research').exists():
     raise RuntimeError("installed smoke must be repository independent")
+manifest=records._distribution_manifest()
+python_members={v['path']:v['sha256'] for v in manifest['build']['files']
+ if v['path'].startswith('kernel_physics/') and v['path'].endswith('.py')}
+assert len(python_members)==20 and 'kernel_physics/axial_observables.py' in python_members
+installed_python_hashes={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in python_members}
+if installed_python_hashes != python_members:
+    raise ValueError('installed Python member bytes differ from build manifest')
 p=a.Parameters(eps=.05,g=.2,phase_strength=.001,k=(1,1,1))
 s=a.State(omega=(.2+.3j,-.4+.1j,.1-.2j),update_index=0)
 v=a.Provenance(kind='user_supplied',source_id='distribution smoke',source_revision=None,
@@ -97,7 +104,12 @@ def run(n):
  observers=observers,readouts=('z_chiral',),diagnostics=('chiral_area_accounting','readout_accounting'))
 assert a.step(s,p,topology='triad').update_index==1
 a.z_chiral(s.omega)
+assert a.AXIAL_OBSERVATION_API_VERSION=='1.0.0'
+assert a.axial_snapshot((1,1j,1)).C==(-1.,0.,1.)
+assert a.axial_source_budget(s,p).comparison_status=='PREDICTION_ONLY'
 zero,one=run(0),run(1)
+a.axial_source_budget(s,p)
+assert run(1).to_json()==one.to_json()
 assert a.RunRecord.from_json(one.to_json()).to_json()==one.to_json()
 continued=a.resume(one,updates=1)
 assert continued.data['samples'][:-1]==one.data['samples']
@@ -115,6 +127,7 @@ print(json.dumps({'api_origin':str(a.__file__),'origins':origins,'source':record
  'environment':records._producer_environment(),'zero_update_digest':zero.deterministic_sha256,
  'one_update_digest':one.deterministic_sha256,'geometry_digests':geometry,
  'installed_module_hashes':{p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in records._MODULES},
+ 'installed_python_hashes':installed_python_hashes,
  'smoke':'PASS'}))
 '''
 
@@ -141,10 +154,13 @@ def main():
         parser.error("report must be outside source and the verifier repository")
     result = verify(args.source, args.wheel, args.sdist)
     if args.installed_python:
+        backend = backend_module()
         smoke = installed_smoke(args.installed_python)
         if smoke["source"]["commit"] != result["source_identity"]["commit"] or smoke["installed_module_hashes"] != {
                 m["path"]: m["sha256"] for m in result["manifest"]["modules"]}:
             raise ValueError("installed identity differs from verified artifacts")
+        if smoke["installed_python_hashes"] != {p: backend.digest(raw) for p, raw in backend.read_inputs(args.source).items() if p in backend.PYTHON_FILES}:
+            raise ValueError("installed Python members differ from verified source")
         result["installed_smoke"] = smoke
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(json.dumps(result, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")

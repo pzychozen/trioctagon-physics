@@ -1,5 +1,30 @@
 # kernel_physics v0.1 baseline + opt-in response, face view, scaffold and Z observer
 
+## Additive Paper G observations — package 0.2.0
+
+`kernel_physics.api` now additionally exposes `axial_snapshot(omega)` and
+`axial_source_budget(before, parameters, *, after=None)`, immutable AxialSnapshot
+and AxialSourceBudget, AXIAL_OBSERVATION_API_VERSION="1.0.0" and
+AXIAL_OBSERVER_REVISION="AXIAL_M1_V1". See the
+[frozen observation contract](K0_AXIAL_OBSERVATION_EXTENSION_v0.1.md).
+All previous public signatures and legacy API/schema 1.0.0 remain unchanged.
+
+The passive owner reuses canonical chirality and reports W=T C, Gamma, area
+decomposition, signed accounting residuals and all seven finite-step source
+terms. It reconstructs predictions without stepping, modifying State or feeding
+back into dynamics. Supplied comparison requires index n+1 but does not assert
+same-parent provenance. Binary64 observations are not exact-real/interval
+certificates or physical magnetic fields; zero-component Arg0 qualifications
+remain. Cycle diagnostics, ring, overlays, X01 and UI integration are absent.
+
+The new owner is a mandatory twentieth distributed Python module, included in
+the build-input identity and installed verifier, while the fourteen-path legacy
+RunRecord identity stays frozen. Old schema-1.0.0 records remain loadable;
+cross-commit/module resume still refuses. No UI lock changes or public registry
+release accompany this kernel extension. The historical K3 baseline below is
+retained as provenance; its package version and artifact identities do not
+certify the new 0.2.0 build.
+
 ## Software distribution — K3 engineering
 
 The distribution/project metadata name is **trioctagon-physics**; the source

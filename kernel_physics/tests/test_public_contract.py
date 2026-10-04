@@ -205,5 +205,6 @@ class PublicContractTests(unittest.TestCase):
 
     def test_exact_public_export_set(self):
         expected = "Parameters State Seed Provenance historical_seed step z_chiral Clock StagedConfig EMAConfig EMAState advance_clock advance_ema observe_staged observe_ema historical_observer ObserverRequest ZReadout ResponsePrecisionError run resume RunRecord GeometryRecord get_geometry quadratic_form readout_accounting chiral_area_accounting intensity_budget potential historical_alignment direct_history_coordinates cylinder_point cylinder_history_coordinates history_torus_coordinates".split()
+        expected += "AXIAL_OBSERVATION_API_VERSION AXIAL_OBSERVER_REVISION AxialSnapshot AxialSourceBudget axial_snapshot axial_source_budget".split()
         self.assertEqual(set(a.__all__), set(expected))
         self.assertEqual({key for key in vars(a) if not key.startswith("_")}, set(expected))

@@ -8,6 +8,9 @@ from ._records import RunRecord
 from ._geometry_records import GeometryRecord, get_geometry
 from ._runner import run, resume, _step
 from . import readouts as _readouts, z_manifold as _z, z_diagnostics as _d
+from . import axial_observables as _axial
+from .axial_observables import (AXIAL_OBSERVATION_API_VERSION, AXIAL_OBSERVER_REVISION,
+                                AxialSnapshot, AxialSourceBudget)
 
 __all__ = (
     "Parameters", "State", "Seed", "Provenance", "historical_seed", "step", "z_chiral",
@@ -17,6 +20,8 @@ __all__ = (
     "quadratic_form", "readout_accounting", "chiral_area_accounting", "intensity_budget",
     "potential", "historical_alignment", "direct_history_coordinates", "cylinder_point",
     "cylinder_history_coordinates", "history_torus_coordinates",
+    "AXIAL_OBSERVATION_API_VERSION", "AXIAL_OBSERVER_REVISION", "AxialSnapshot",
+    "AxialSourceBudget", "axial_snapshot", "axial_source_budget",
 )
 
 
@@ -26,6 +31,26 @@ def step(state: State, parameters: Parameters, *, topology: str) -> State:
 
 def z_chiral(omega):
     return _readouts.z_chiral(_triad(omega, "omega"))
+
+
+def axial_snapshot(omega) -> AxialSnapshot:
+    return _axial.axial_snapshot(_triad(omega, "omega"))
+
+
+def axial_source_budget(before: State, parameters: Parameters, *,
+                        after: State | None = None) -> AxialSourceBudget:
+    _require(before, State, "before")
+    _require(parameters, Parameters, "parameters")
+    omega = _triad(before.omega, "before.omega")
+    after_omega = None
+    if after is not None:
+        _require(after, State, "after")
+        after_omega = _triad(after.omega, "after.omega")
+        if after.update_index != before.update_index + 1:
+            raise ValueError("after must have update_index = before.update_index + 1")
+    return _axial.axial_source_budget(omega, parameters._native(),
+        before_index=before.update_index, after_omega=after_omega,
+        after_index=None if after is None else after.update_index)
 
 
 def advance_clock(clock: Clock, dt) -> Clock:

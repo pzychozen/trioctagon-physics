@@ -70,6 +70,31 @@ class DistributionProvenanceTests(unittest.TestCase):
         self.assertEqual(records._distribution_manifest(), self.manifest)
         self.assertEqual(build.validate_manifest(self.data, self.inputs), self.manifest)
 
+    def test_axial_member_is_distributed_outside_frozen_record_identity(self):
+        path = "kernel_physics/axial_observables.py"
+        self.assertEqual(len(build.PYTHON_FILES), 20)
+        self.assertIn(path, build.PYTHON_FILES)
+        self.assertIn(path, build.INPUTS)
+        self.assertNotIn(path, build.MODULES)
+        self.assertNotIn(path, records._MODULES)
+        self.assertEqual(len(records._MODULES), 14)
+
+    def test_missing_axial_build_input_refused(self):
+        incomplete = dict(self.inputs)
+        del incomplete["kernel_physics/axial_observables.py"]
+        with self.assertRaises((ValueError, KeyError)):
+            build.validate_manifest(self.data, incomplete)
+
+    def test_tampered_axial_build_input_refused(self):
+        changed = dict(self.inputs)
+        changed["kernel_physics/axial_observables.py"] += b"\n# mutation\n"
+        with self.assertRaisesRegex(ValueError, "source byte identity"):
+            build.validate_manifest(self.data, changed)
+
+    def test_stale_pre_axial_manifest_refused(self):
+        self.rejected(lambda d: d["build"].update(files=[
+            row for row in d["build"]["files"] if row["path"] != "kernel_physics/axial_observables.py"]))
+
     def test_canonical_hash_and_key_order(self):
         payload = {k: v for k, v in self.data.items() if k != "build_input_sha256"}
         raw = json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False).encode()

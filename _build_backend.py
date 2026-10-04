@@ -25,7 +25,7 @@ MODULES = tuple(sorted("kernel_physics/" + n + ".py" for n in (
     "_presets", "dynamics", "readouts", "z_manifold", "z_diagnostics",
     "_response_numeric", "geometry", "reference_scaffold")))
 PYTHON_FILES = tuple(sorted((*MODULES, *("kernel_physics/" + n + ".py" for n in
-    ("covering", "face_state", "boundary_response", "srg", "operating_region")))))
+    ("covering", "face_state", "boundary_response", "srg", "operating_region", "axial_observables")))))
 INPUTS = tuple(sorted((*PYTHON_FILES, "pyproject.toml", "_build_backend.py", "LICENSE",
                        "LICENSE_SCOPE.md", "kernel_physics/README.md")))
 MANIFEST = "kernel_physics/_distribution_provenance.json"
@@ -139,7 +139,7 @@ def validate_project(inputs):
 
 
 def validate_manifest(data, inputs):
-    """Strict build-side validation, including all 19 files and build inputs.
+    """Strict build-side validation, including all 20 files and build inputs.
 
     Runtime's smaller validator in _records checks the same schema and the 14
     identity files; it cannot require build tools or paper files in a wheel.
