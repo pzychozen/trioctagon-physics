@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 import tempfile
 from trioctagon_ui.comparison import leaves, plain
+from trioctagon_ui import __version__
 
 FIELD_GROUPS = ("omega", "raw_readouts", "observer_states", "observer_results", "diagnostics")
 QUALIFICATION = "Derived presentation artifact. Authoritative scientific source is the referenced public record. Detached analysis retains its separate application lineage."
@@ -43,7 +44,7 @@ def stage_export(destination, artifact_type, writer, metadata):
             staging = Path(staging); artifact = staging / destination.name; companion = staging / sidecar.name
             writer(artifact)
             raw = artifact.read_bytes()
-            result = {**plain(metadata), "artifact_type": artifact_type, "export_schema_version": 1, "app_version": "0.1.1",
+            result = {**plain(metadata), "artifact_type": artifact_type, "export_schema_version": 1, "app_version": __version__,
                 "filename": destination.name, "sha256": hashlib.sha256(raw).hexdigest(), "qualification": QUALIFICATION}
             if artifact_type == "derived_svg":
                 result["rasterized_layers_detected"] = b"<image" in raw

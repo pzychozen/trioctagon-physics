@@ -17,6 +17,59 @@ def series_style(index):
     return {"linestyle": ("-", "--", "-.", ":")[index % 4], "marker": ("o", "s", "^", "x", "+", "d")[index % 6], "markersize": 3}
 
 
+class AxialHistoryPlot(QWidget):
+    """Decode and plot cached returned components; no transforms or norms."""
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setAccessibleName('Signed axial history and planar W; table alternative in adjacent tab')
+        layout = QVBoxLayout(self)
+        self.note = QLabel('NOT ANALYZED'); self.note.setWordWrap(True); layout.addWidget(self.note)
+        self.tabs = QTabWidget(); layout.addWidget(self.tabs)
+        self.figures = []; self.canvases = []; self.markers = []; self.ordinal_rows = {}; self.view = None
+        for label in ('Signed W_x / W_y / Gamma', 'Planar W trajectory'):
+            page = QWidget(); box = QVBoxLayout(page); figure = Figure(figsize=(7, 3), layout='constrained')
+            canvas = FigureCanvasQTAgg(figure); canvas.setAccessibleName(label + '; exact table alternative available')
+            box.addWidget(ViewToolbar(canvas, page)); box.addWidget(canvas)
+            self.figures.append(figure); self.canvases.append(canvas); self.tabs.addTab(page, label)
+
+    def set_view(self, view):
+        from trioctagon_ui.record_views import f64
+        self.view = view; self.markers = []; self.ordinal_rows = {}
+        for f in self.figures: f.clear()
+        if view is None or view.artifact['analysis_kind'] != 'axial_history':
+            self.note.setText('NOT ANALYZED')
+            for c in self.canvases: c.draw_idle()
+            return
+        a = view.artifact; selection = a['selection']; snapshots = a['data']['snapshots']
+        self.ordinal_rows = {s['sample_ordinal']: i for i, s in enumerate(selection)}
+        indices = [s['update_index'] for s in selection]
+        columns = ([f64(s['W'][0]) for s in snapshots], [f64(s['W'][1]) for s in snapshots], [f64(s['Gamma']) for s in snapshots])
+        for i, label in enumerate(('W_x', 'W_y', 'Gamma')):
+            ax = self.figures[0].add_subplot(3, 1, i + 1)
+            ax.plot(indices, columns[i], label=label, **series_style(i)); ax.set_ylabel(label + '\n(signed)', rotation=0, labelpad=28)
+            if i == 2: ax.set_xlabel('Stored update index')
+            else: ax.tick_params(labelbottom=False)
+            ax.grid(True, alpha=.2)
+            marker, = ax.plot([], [], 'ko', markersize=6); self.markers.append((marker, indices, columns[i]))
+        ax = self.figures[1].add_subplot(111)
+        ax.plot(columns[0], columns[1], **series_style(0)); ax.set_aspect('equal', adjustable='datalim')
+        ax.set_xlabel('W_x (squared-amplitude scale)'); ax.set_ylabel('W_y (squared-amplitude scale)')
+        ax.grid(True, alpha=.2)
+        marker, = ax.plot([], [], 'ks', markersize=6); self.markers.append((marker, columns[0], columns[1]))
+        label = 'parent ' + a['parent']['deterministic_sha256'][:12] + ' / observation ' + a['content_sha256'][:12]
+        for f in self.figures: f.suptitle(label, fontsize=9)
+        self.note.setText('Visual connections between selected stored samples; no interpolated evolution. Signed values and exact tokens are available in the table.')
+        for c in self.canvases: c.draw_idle()
+
+    def select_sample(self, parent_digest, ordinal):
+        same_parent = self.view and self.view.artifact['parent']['deterministic_sha256'] == parent_digest
+        row = self.ordinal_rows.get(ordinal) if same_parent else None
+        for marker, xs, ys in self.markers:
+            marker.set_data([] if row is None else [xs[row]], [] if row is None else [ys[row]])
+        self.note.setText('NOT ANALYZED' if row is None else 'Selected stored sample; visual connections only, no interpolated evolution')
+        for c in self.canvases: c.draw_idle()
+
+
 class StoredPlots(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)

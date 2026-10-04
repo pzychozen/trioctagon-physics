@@ -99,7 +99,7 @@ def verify_wheel_equivalence(wheel, lock):
         contents = {name: archive.read(name) for name in names}
     optional = rule["optional_prepared_metadata"]; record_path = rule["record"]["path"]
     stable = {v["path"]: v for v in rule["stable_members"]}
-    if len(stable) != 25 or rule["stable_member_count"] != 25: raise ValueError("Frozen stable inventory must have 25 members")
+    if len(stable) != 26 or rule["stable_member_count"] != 26: raise ValueError("Frozen stable inventory must have 26 members")
     if set(contents) - {optional["path"], record_path} != set(stable) or record_path not in contents:
         raise ValueError("Stable member set mismatch or unknown extra member")
     for name, expected in stable.items():
@@ -129,7 +129,7 @@ def verify_wheel_equivalence(wheel, lock):
     core = hashlib.sha256(json.dumps(projected, ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False).encode("utf-8")).hexdigest()
     if core != rule["record"]["core_sha256"]: raise ValueError("RECORD core identity mismatch")
     return {"status": "PASS", "archive_sha256": hashlib.sha256(raw).hexdigest(), "member_count": len(contents),
-        "stable_member_count": 25, "prepared_metadata_witness": present, "record_internal_validation": "PASS",
+        "stable_member_count": 26, "prepared_metadata_witness": present, "record_internal_validation": "PASS",
         "record_core_sha256": core, "manifest_identity": "PASS", "source_commit": manifest["source"]["commit"]}
 
 
@@ -201,7 +201,7 @@ def verify_preferred(app, workspace, lock):
 
 
 LOCKED_GIT_REPOSITORY = "https://github.com/pzychozen/trioctagon-physics"
-LOCKED_GIT_COMMIT = "7b3a0fcec2c9bde6c9e1ea482fe1f1ea6b16793e"
+LOCKED_GIT_COMMIT = "3f42d4e56afd973c397ce4c557b66183a71a6044"
 GIT_CREDENTIAL_REDACTION = "[REDACTED_GIT_CREDENTIAL]"
 
 
@@ -651,7 +651,7 @@ def certify(source, workspace):
     closure_script = attempt / "runtime-closure.py"
     closure_script.write_text(RUNTIME_CLOSURE, encoding="utf-8")
     approved = {row["name"]: row["version"] for row in dependencies}
-    approved.update({"trioctagon-scientific-ui": "0.1.2", "trioctagon-analysis": analysis_pin["version"],
+    approved.update({"trioctagon-scientific-ui": "0.2.0", "trioctagon-analysis": analysis_pin["version"],
         "trioctagon-historical-protocol": historical_pin["version"], "trioctagon-physics": lock["version"]})
     closure = json.loads(run("runtime-closure", [runtime, "-I", "-B", closure_script, json.dumps(approved)]))
     write_json(evidence / "runtime-closure.json", closure)
@@ -715,6 +715,10 @@ assert importlib.util.find_spec('trioctagon_historical_kernel') is None
 from trioctagon_ui.analysis_identity import verify_installed_analysis
 from trioctagon_ui.historical_identity import verify_installed_historical
 verify_installed_analysis();verify_installed_historical()
+from trioctagon_ui.axial_identity import verify_installed_axial
+from trioctagon_ui.axial_reference import load_reference
+axial=verify_installed_axial();assert len(axial['scientific_dependencies'])==20
+reference=load_reference();assert reference['m3']['sufficient_entry_index']==301
 for name in ('trioctagon_ui','trioctagon_analysis','trioctagon_historical_protocol','kernel_physics'):
  spec=importlib.util.find_spec(name);assert pathlib.Path(spec.origin).resolve().is_relative_to(pathlib.Path(sys.prefix))
 assert not any(n.startswith(('trioctagon_historical_kernel','kernel_TO','torment_service')) for n in sys.modules)
@@ -733,7 +737,21 @@ with tempfile.TemporaryDirectory(prefix='kernel-worker-smoke-') as directory:
  assert child.returncode==0,child.stderr
  result=json.loads(response.read_text(encoding='utf-8'))
  assert result['status']=='completed' and result['isolated'] and result['imports']=={'gui':[],'models':[]} and result['runtime_network_attempts']==[]
- print(json.dumps({'status':'PASS','source_commit':result['result']['source_commit'],'digest':result['result']['deterministic_sha256'],'isolated_worker':True,'runtime_network_attempts':0}))
+ parent=result['result']['canonical_json']
+ from trioctagon_ui.axial_artifacts import loads,canonical
+ from trioctagon_ui.axial_reference import load_reference
+ reference=load_reference();assert reference['m3']['sufficient_entry_index']==301
+ observed=[]
+ for kind,inputs in [('axial_snapshot',{}),('axial_history',{'sample_indices':['0','1']}),('axial_source_budget',{'after_sample_index':'1'})]:
+  envelope=requests.analysis_request(kind,inputs,source={'mode':'record','record_json':parent,'sample_index':'0'})
+  request.write_text(json.dumps(envelope),encoding='utf-8')
+  child=subprocess.run([sys.executable,'-I','-B','-m','trioctagon_ui.worker','--request',str(request),'--response',str(response)],cwd=directory,capture_output=True,text=True,encoding='utf-8')
+  assert child.returncode==0,child.stderr
+  axial=json.loads(response.read_text(encoding='utf-8'))
+  assert axial['status']=='completed' and axial['imports']=={'gui':[],'models':[]} and axial['runtime_network_attempts']==[] and axial['isolated']
+  artifact=loads(canonical(axial['result']['data']));assert artifact['reference_comparison'] is None
+  observed.append({'kind':kind,'digest':artifact['content_sha256'],'source':artifact['implementation']['source_commit']})
+ print(json.dumps({'status':'PASS','source_commit':result['result']['source_commit'],'digest':result['result']['deterministic_sha256'],'isolated_worker':True,'runtime_network_attempts':0,'axial_observations':observed,'static_reference':'PASS'}))
 '''
 
 
@@ -772,7 +790,7 @@ class InstallTests(unittest.TestCase):
         else:
             self.assertTrue(Path(origins["app"]).is_relative_to(site))
         self.assertTrue(all(Path(origins[k]).is_relative_to(site) for k in ("kernel_api", "analysis")))
-        self.assertEqual(importlib.metadata.version("trioctagon-scientific-ui"), "0.1.2")
+        self.assertEqual(importlib.metadata.version("trioctagon-scientific-ui"), "0.2.0")
         self.assertTrue(help_data()["items"])
         self.assertFalse(kernel_lock()["REGISTRY_RESOLUTION_ALLOWED"])
         self.evidence("installed-origins.json", {"prefix": str(site), "origins": origins, "kernel_lock": kernel_lock()})
@@ -1086,7 +1104,7 @@ class KernelEquivalenceTests(unittest.TestCase):
             observed.update(direct=verify_wheel_equivalence(preferred, lock), rebuilt=verify_wheel_equivalence(rebuilt, lock))
             self.assertTrue(observed["direct"]["prepared_metadata_witness"])
             self.assertFalse(observed["rebuilt"]["prepared_metadata_witness"])
-        self.assertTrue(all(v["stable_member_count"] == 25 for v in observed.values()))
+        self.assertTrue(all(v["stable_member_count"] == 26 for v in observed.values()))
         self.assertEqual({v["record_core_sha256"] for v in observed.values()}, {lock["wheel_equivalence"]["record"]["core_sha256"]})
         if os.environ.get("TRIOCTAGON_UI_EVIDENCE"): write_json(Path(os.environ["TRIOCTAGON_UI_EVIDENCE"]) / "kernel-equivalence.json", observed)
 

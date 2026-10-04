@@ -34,7 +34,7 @@ jobs:
         run: >-
           python -B apps/scientific_ui/tests/test_install_launch.py --acquire
           --source "$env:GITHUB_WORKSPACE" --workspace "$env:RUNNER_TEMP/scientific-ui"
-      - name: Offline source and installed UI, protocol and Core regressions
+      - name: Certify source and installed axial UI, exact K pairing and protocol regressions
         shell: pwsh
         run: >-
           python -B apps/scientific_ui/tests/test_install_launch.py --certify

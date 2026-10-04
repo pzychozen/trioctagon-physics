@@ -27,9 +27,11 @@ def validate_response(response, request):
             parent = json.loads(source["record_json"]) if source["mode"] == "record" else None
             if result["parent_digest"] != (parent["deterministic_sha256"] if parent else None) or result["parent_source_commit"] != (parent["implementation"]["commit"] if parent else None):
                 raise ValueError("Detached analysis parent identity mismatch")
-            from trioctagon_ui.requests import HISTORY_TYPES
-            ordinal = int(source["sample_index"]) if parent and result["analysis_type"] not in HISTORY_TYPES else None
+            from trioctagon_ui.requests import HISTORY_TYPES, AXIAL_TYPES
+            ordinal = int(source["sample_index"]) if parent and result["analysis_type"] not in (*HISTORY_TYPES, 'axial_history') else None
             if result["sample_index"] != ordinal: raise ValueError("Detached analysis sample lineage mismatch")
+            if result['analysis_type'] in AXIAL_TYPES:
+                validate_axial_result(result, request['payload'], parent)
         else:
             required = {"result_kind", "canonical_json", "record_type", "deterministic_sha256", "source_commit", "produced_current"}
             if set(result) != required or result["result_kind"] != "record" or not isinstance(result["canonical_json"], str) or type(result["produced_current"]) is not bool:
@@ -45,6 +47,23 @@ def validate_response(response, request):
     if response.get("imports", {}).get("gui") or response.get("imports", {}).get("models") or response.get("runtime_network_attempts"):
         raise ValueError("Worker violated the GUI/model/network boundary")
     return response
+
+
+def validate_axial_result(result, payload, parent):
+    from trioctagon_ui import axial_artifacts
+    from trioctagon_ui.axial_inputs import resolve
+    from trioctagon_ui.axial_identity import verify_installed_axial
+    artifact = axial_artifacts.plain(axial_artifacts.loads(axial_artifacts.canonical(result['data'])))
+    if artifact['analysis_kind'] != payload['analysis_type']: raise ValueError('Axial result family mismatch')
+    binding = resolve(payload['analysis_type'], payload['inputs'], payload['source'], parent)
+    for key in ('parent', 'selection', 'input_policy', 'requested_expressions', 'resolved_inputs_hex'):
+        if artifact[key] != binding[key]: raise ValueError('Axial request binding mismatch: ' + key)
+    if artifact['implementation'] != verify_installed_axial(): raise ValueError('Axial response installed identity mismatch')
+    if result['qualification'] != axial_artifacts.QUALIFICATION or result['inputs'] != {
+            'request': payload['inputs'], 'source': {k: v for k, v in payload['source'].items() if k != 'record_json'}}:
+        raise ValueError('Axial request context mismatch')
+    if payload['analysis_type'] == 'axial_source_budget' and artifact['data']['comparison_availability'] != binding['comparison_availability']:
+        raise ValueError('Axial comparison availability mismatch')
 
 
 class JobManager(QObject):

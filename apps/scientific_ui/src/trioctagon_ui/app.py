@@ -15,6 +15,8 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFileDialog, 
     QTableWidgetItem, QTreeWidget, QTreeWidgetItem, QVBoxLayout, QWidget)
 from trioctagon_ui import requests
 from trioctagon_ui.artifact_panel import ArtifactsPanel
+from trioctagon_ui.axial_views import AxialPanel
+from trioctagon_ui.axial_artifacts import AxialAnalysisView
 from trioctagon_ui.geometry_view import GeometryView
 from trioctagon_ui.jobs import JobManager
 from trioctagon_ui.plots import StoredPlots, HistoryPlot, ComparisonPlot
@@ -369,10 +371,15 @@ class MainWindow(QMainWindow):
         hist.addWidget(self.history_button)
         self.history_plot = HistoryPlot(); hist.addWidget(self.history_plot, 2)
         self.observer_tabs.addTab(history, "History coordinates")
+        self.axial_panel = AxialPanel(self._analysis_source_record)
+        self.axial_panel.requested.connect(self._submit)
+        self.axial_panel.loaded.connect(self._accept_axial_saved)
+        self.observer_tabs.addTab(self.axial_panel, 'Axial Observables')
         self.analysis_table = QTableWidget(0, 3); self.analysis_table.setHorizontalHeaderLabels(["Detached result / input / lineage", "Display value", "Exact stored spelling"])
         self.analysis_table.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers)
         self.analysis_table.setAccessibleName("Detached analysis table including every returned history coordinate and normalization field")
         layout.addWidget(self.analysis_table, 1)
+        self.observer_tabs.currentChanged.connect(lambda _: self.analysis_table.setVisible(self.observer_tabs.currentWidget() is not self.axial_panel))
         self.tabs.addTab(page, "B — Observers & Diagnostics")
 
     def _geometry(self):
@@ -564,6 +571,7 @@ class MainWindow(QMainWindow):
         self.cancel_button.setEnabled(self.jobs.busy or self.sweep_controller.active)
         self.step_preview_button.setEnabled(not (self.jobs.busy or self.sweep_controller.active))
         self.analysis_button.setEnabled(self.analysis_kind.currentIndex() > 0 and not (self.jobs.busy or self.sweep_controller.active))
+        self.axial_panel.set_busy(self.jobs.busy or self.sweep_controller.active)
         self.history_button.setEnabled(is_run and not (self.jobs.busy or self.sweep_controller.active))
 
         for item in (self.sweep_build, self.sweep_load, self.sweep_start, self.sweep_continue, self.dataset_choose):
@@ -664,8 +672,9 @@ class MainWindow(QMainWindow):
         if not dataset and self.sweep_controller.handles(response.get("request_id")): return
         result = response["result"]
         if result["result_kind"] == "analysis":
-            view = AnalysisView(result); self.analysis_cache.append(view)
-            self.artifacts.add_session("LEGACY DETACHED ANALYSIS", view)
+            view = AxialAnalysisView(result) if result['analysis_type'] in requests.AXIAL_TYPES else AnalysisView(result)
+            self.analysis_cache.append(view)
+            self.artifacts.add_session('AXIAL FLOATING OBSERVATION' if isinstance(view, AxialAnalysisView) else "LEGACY DETACHED ANALYSIS", view)
             self.analysis_history.addItem(f"{result['analysis_type']} · parent {(result['parent_digest'] or 'none')[:12]}")
             self.analysis_history.setCurrentIndex(len(self.analysis_cache) - 1)
             self._select_analysis(len(self.analysis_cache) - 1)
@@ -738,6 +747,7 @@ class MainWindow(QMainWindow):
         self.sample_label.setText(f"sample ordinal={index}; actual update_index={sample['update_index']}; raw chirality: {view.missing_series('chirality0')}")
         fill_tree(self.passive_tree, {k: sample[k] for k in ("observer_states", "observer_results", "diagnostics", "raw_readouts")}, self.precision.value())
         self.plots.select_sample(index)
+        self.axial_panel.select_sample(view.digest, index)
         if self.analysis_current and self.analysis_current.result["parent_digest"] == view.digest: self.history_plot.select_sample(index)
         self._analysis_context()
 
@@ -746,9 +756,9 @@ class MainWindow(QMainWindow):
             installed = metadata.version("trioctagon-physics")
         except metadata.PackageNotFoundError:
             installed = "missing"
-        self.kernel_identity.setText(f"Preferred locked kernel archive: {self.lock['artifact_filename']}\nPreferred archive SHA-256: {self.lock['artifact_sha256']}\nCertified reconstruction also accepted under lock-v2 equivalence; this is not an installed-archive identity query.\nExpected source: {self.lock['source_commit']}\nInstalled distribution version: {installed}\nCurrent source identity: {self.runtime_source}\nApplication: trioctagon-scientific-ui 0.1.2; separate software identity")
+        self.kernel_identity.setText(f"Preferred locked kernel archive: {self.lock['artifact_filename']}\nPreferred archive SHA-256: {self.lock['artifact_sha256']}\nCertified reconstruction also accepted under lock-v2 equivalence; this is not an installed-archive identity query.\nExpected source: {self.lock['source_commit']}\nInstalled distribution version: {installed}\nCurrent source identity: {self.runtime_source}\nApplication: trioctagon-scientific-ui 0.2.0; separate software identity")
         if self._artifact_context_active():
-            self.identity.setText("Artifact inspection — " + self.artifacts.heading.text() + "\nUI: trioctagon-scientific-ui 0.1.2 · Analysis loader: independent installed pin 0.1.1 · Core kernel: separate Records identity")
+            self.identity.setText("Artifact inspection — " + self.artifacts.heading.text() + "\nUI: trioctagon-scientific-ui 0.2.0 · Analysis loader: independent installed pin 0.1.1 · Core kernel: separate Records identity")
             return
         if self.current is None:
             self.identity.setText("Draft configuration · no completed record · geometry and dynamics remain independent")
@@ -759,9 +769,11 @@ class MainWindow(QMainWindow):
 
     def _cancelled(self):
         self._artifact_core_pending = False
+        self.axial_panel.status.setText('Cancelled; previous completed axial cache retained')
         self.statusBar().showMessage("Cancelled; previous completed records preserved")
 
     def _failed(self, error):
+        if error.get('operation') == 'passive_analysis': self.axial_panel.show_error(error.get('message', 'Worker failed'))
         if self._artifact_core_pending:
             from trioctagon_ui.artifact_loading import bounded_text
             self.artifacts.status.setText(bounded_text("Core artifact refused: " + error.get("message", "")))
@@ -982,6 +994,7 @@ class MainWindow(QMainWindow):
         except (ValueError, TypeError) as exc: self._local_error(exc, "scratchpad observer copy")
 
     def _analysis_source_record(self):
+        if self._artifact_context_active(): raise ValueError('Select a Core RunRecord explicitly in Records first')
         if self.current is None or self.current.kind != "KERNEL_RUN_RECORD": raise ValueError("Explicitly select a RunRecord first")
         return {"mode": "record", "record_json": self.current.canonical_json, "sample_index": str(self.sample.value())}
 
@@ -1008,9 +1021,23 @@ class MainWindow(QMainWindow):
             self._submit(requests.analysis_request(kind, inputs, source=self._analysis_source_record()))
         except ValueError as exc: self._local_error(exc, "history display")
 
+    def _accept_axial_saved(self, view):
+        self.analysis_cache.append(view)
+        self.artifacts.add_session('AXIAL UNAUTHENTICATED SAVED OBSERVATION', view)
+        self.analysis_history.addItem(view.result['analysis_type'] + ' · unauthenticated saved observation')
+        self.analysis_history.setCurrentIndex(len(self.analysis_cache) - 1)
+        self._select_analysis(len(self.analysis_cache) - 1)
+
     def _select_analysis(self, index):
         if not 0 <= index < len(self.analysis_cache): return
         view = self.analysis_cache[index]; self.analysis_current = view
+        self.analysis_table.setVisible(not isinstance(view, AxialAnalysisView))
+        if isinstance(view, AxialAnalysisView):
+            self.axial_panel.show_view(view)
+            self.history_plot.set_analysis(view)
+            fill_tree(self.analysis_tree, {'axial_observation': view.artifact['content_sha256'],
+                'location': 'Observers & Diagnostics / Axial Observables', 'evidence': 'UNAUTHENTICATED SAVED OBSERVATION' if view.saved_import else 'FLOATING_OBSERVATION'})
+            return
         fill_tree(self.analysis_tree, view.result, self.precision.value())
         rows = view.rows(self.precision.value()); self.analysis_table.setRowCount(len(rows))
         for i, row in enumerate(rows):

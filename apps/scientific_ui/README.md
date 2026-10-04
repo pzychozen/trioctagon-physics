@@ -1,4 +1,4 @@
-# Trioctagon Scientific UI — v0.1.2 read-only artifact inspection
+# Trioctagon Scientific UI — v0.2.0 passive axial observations
 
 UI DISPLAYS SCIENCE. PYTHON KERNEL COMPUTES SCIENCE.
 
@@ -6,6 +6,86 @@ This separately installed Windows x86-64 / CPython 3.11 application consumes the
 certified kernel through `kernel_physics.api`. It does not bundle or modify the
 kernel, Qt, Matplotlib, papers, research or scientific fixtures. The application
 source/version and kernel source/version are distinct identities.
+
+
+## Paper G axial observations (APP-G1 / APP-G2 / APP-G3)
+
+**B — Observers & Diagnostics → Axial Observables** provides State, History,
+Source Accounting and Paper G Reference sections. Analyze is always explicit.
+Use decimal strings in the JSON input editor, or choose a stored triad sample.
+Record mode uses the selected Core RunRecord and the sample scrubber in Dynamics;
+it never fills scientific parameters from a draft. Histories require explicit,
+strictly increasing unique sample ordinals, anchored at the selected sample.
+Source accounting accepts an optional same-parent after ordinal only when its
+actual update index is n+1. An unavailable next sample stays unavailable; no
+automatic step is taken. Prediction-only comparisons have null residuals.
+
+The worker calls only public `api.axial_snapshot` and `api.axial_source_budget`.
+Every scientific number, norm, source term and residual is returned by kernel K.
+The UI formats returned values and plots signed W_x/W_y/Gamma against actual
+stored indices, plus equal-aspect planar W. Lines are visual connections, not
+interpolated evolution. Scrubbing an uncached sample says NOT ANALYZED. Keyboard,
+reduced-motion and exact-token table alternatives remain available. Current
+input editors remain separate from completed caches; select an earlier completed
+analysis in Records to inspect it again.
+
+C is a channel-space area vector; W is the geometry-attached planar axial
+observable; Gamma is the complementary signed channel-area scalar. **Geometry-attached
+axial observable; squared-amplitude scale; not a physical field.** Reconstructed
+pre-sync values are predictions, not stored intermediates. Snapshot common-phase
+invariance does not assert global map equivariance through zero components.
+
+Axial requests use the existing `passive_analysis` v2 envelope and preserve its
+eight result fields. Only the three new kinds have mode-specific schemas:
+`axial_snapshot`, record-only `axial_history`, and `axial_source_budget`. The
+nested `TRIOCTAGON_AXIAL_OBSERVATION` artifact is schema 0.1.0, observation API
+1.0.0, revision AXIAL_M1_V1. Its canonical digest excludes only content_sha256.
+The codec rejects duplicate/unknown keys, malformed shapes, nonfinite/noncanonical
+tokens, invalid selections, conflicting comparison claims and digest mismatches.
+Jobs bind request, parent bytes/digest/source, resolved tokens, actual indices and
+observed installed implementation before immutable cache admission. Failed or
+cancelled jobs retain the previous completed cache. Guards are 4096 selected
+samples and 16 MiB per artifact/parent; displays cap tables at 10000 rows and raw
+preview at 64 KiB, explicitly marked. Exports retain the complete artifact.
+
+Strict JSON, CSV and PNG/SVG exports use accepted cached values only. CSV and
+figures carry provenance sidecars; all formats retain schema/API/revision,
+implementation, exact selection, parent identity, content digest and evidence
+class. Existing destinations are refused. Loaded JSON is visibly **UNAUTHENTICATED
+SAVED OBSERVATIONS** and never triggers calculation or becomes a Core record.
+
+The inert `axial_reference_v0_1.json` binds five accepted authority hashes and
+the exact archived M3 rational receipts. It preserves N=301 sufficient entry,
+norm-three entrance, q<=4789/5000 per two updates, E_minus as an outer enclosure,
+the separate H-symmetry certificate and the qualified full-state two-cycle limit.
+Static exact statements, archived interval certificates, current binary64
+experiments and passive stored-sample recomputation are visibly separate. No
+user run gets theorem status; reference_comparison is always null. No automatic
+model matching, phase fitting, cycle residuals, ring extension, overlays, X01 or
+new scientific proof is included.
+
+### Exact K/U pairing
+
+Kernel K is `3f42d4e56afd973c397ce4c557b66183a71a6044`, package 0.2.0.
+UI U is the exact application commit identified in the external CERT-G report;
+building a kernel at U is not an admitted substitute. Legacy Core API and record
+schemas remain 1.0.0; old records can load and be passively observed, while resume
+still requires the original producer commit/modules.
+
+The new lock explicitly selects the certified **CI direct wheel** from run
+37236797473, SHA-256
+`1795e6bbbfbf353b23dcd69c93bd2c340387bb4b47957c375ad1366fdc02d779`.
+The accepted local reference wheel remains separately identified as
+`012eaad0c2319574caa32a669a4dde50397efcb65363cf7de3b1ba85cba9984d`.
+All 20 Python members agree; the recorded repository URL's `.git` spelling changes
+provenance/build-input identities. These archive hashes are not interchangeable.
+The CI archive is preferred here because it fits the existing verified Actions
+retrieval and exact-source reconstruction route. The installed axial identity
+check validates all 26 stable members, runtime closure and loaded origins against
+the exact new lock; it does not trust version/lock claims alone. This is observed
+byte correspondence, not external execution attestation.
+
+## Earlier read-only artifact inspection (preserved)
 
 P2 adds strict Historical result and attempt-receipt inspection in the same
 **D → Records & Reproducibility → Artifacts** area. The inert public parsers from
@@ -81,7 +161,7 @@ not an analysis AttemptReceipt. Source files and cached bytes remain unchanged.
 Selecting Artifacts isolates Core resume/checkpoint/save and figure/CSV export
 sources, including after changing tabs. Explicitly select a Core record in Records
 to restore Core actions. The
-request/response v2 worker files are unchanged; the existing draft-format version
+request/response envelopes remain v2; the existing draft-format version
 marker remains 0.1.0 for compatibility, independent of the installed UI version.
 Analysis files never enter RecordView, ComparisonView, sweeps or the scientific worker.
 
@@ -90,7 +170,7 @@ locked Qt build, avoiding the incompatible `icuuc.dll` in Conda's DLL search pat
 This does not alter Conda, PATH or scientific-worker startup.
 
 The [release identity and draft notes](../../RELEASE_v0.1.0.md) distinguish the
-repository/UI candidate from the older certified kernel used by this application.
+earlier repository/UI candidate from its earlier kernel pairing. The current pairing is specified below.
 Registry-name availability is not certified. Do not install either project by an
 assumed public registry name. No tag, public release, upload, installer or frozen
 executable is created by release preparation.
@@ -104,8 +184,8 @@ validated physical theory; see the [scientific boundaries and license scopes](..
 ## Exact installation inputs
 
 - Kernel: the preferred **direct wheel** in `kernel-artifact.lock.json`, from K3c
-  Actions run 36291131581, or strictly verified reconstruction of the same source
-  `7b3a0fcec2c9bde6c9e1ea482fe1f1ea6b16793e`.
+  Actions run 37236797473, or strictly verified reconstruction of the same source
+  `3f42d4e56afd973c397ce4c557b66183a71a6044`.
 - Analysis: independently reconstructed exact wheel in `analysis-artifact.lock.json`;
   no bundling with the UI or Core, and no version-only substitution.
 - Historical protocol: independently reconstructed exact H6A wheel, installed with
@@ -114,10 +194,10 @@ validated physical theory; see the [scientific boundaries and license scopes](..
   every archive SHA-256 enforced. NumPy 2.4.4, SymPy 1.14.0 and mpmath 1.3.0 remain fixed.
 - Build: Setuptools 81.0.0 and wheel 0.47.0; archive hashes are in `pyproject.toml`.
 - Application: an ordinarily built companion wheel. Its contents include original
-  application modules/help, license metadata, and installed lock data only.
+  application modules/help, the inert axial reference resource, license metadata, and installed lock data only.
 
 The preferred kernel archive remains classified as a
-TEMPORARY_CERTIFIED_DEVELOPMENT_ARTIFACT in the unchanged lock. Lock v2 accepts
+TEMPORARY_CERTIFIED_DEVELOPMENT_ARTIFACT in the new kernel lock. Lock v2 accepts
 certified reconstruction from the exact frozen K3 source with locked build tools
 and the narrow wheel-equivalence v1 contract below. Actions retention is not a
 required source of installation bytes. **Do not substitute the root kernel built
@@ -504,10 +584,10 @@ reconstruction. Received metadata identity failures, partial failed downloads an
 downloaded/cached artifacts failing verification remain fatal; no rebuild around
 corrupt evidence. Registry kernel resolution remains forbidden.
 
-Wheel equivalence v1 freezes 25 stable paths, their SHA256 and byte sizes. These
-include all 19 Python files, all 14 record-identity modules, the mandatory provenance
+Wheel equivalence v1 freezes 26 stable paths, their SHA256 and byte sizes. These
+include all 20 Python files, all 14 record-identity modules, the mandatory provenance
 manifest and distribution/license metadata. Exactly one member is optional:
-trioctagon_physics-0.1.0.dist-info/build_input.sha256. If present it must be exactly
+trioctagon_physics-0.2.0.dist-info/build_input.sha256. If present it must be exactly
 64 ASCII bytes equal to the mandatory manifest digest. The file witnesses the
 PEP 517 prepared-metadata handoff; the underlying provenance is never optional.
 
@@ -515,11 +595,11 @@ RECORD is parsed as CSV. Exactly one row must cover each actual wheel member;
 SHA256 URL-safe hashes and sizes must match, with the standard empty self-row.
 The verification-only core projection removes only the optional witness row,
 retains the self-row, sorts triples by path, and hashes compact UTF-8 JSON. Core
-SHA256 is 6b4a00e32cb818dda250ab1496a04a55106e39e252a200fae546a81250bac01a.
+SHA256 is 0fb467f61c6a2a53f5039136fef4cb981d93f6e91803e392c9176324083f58f6.
 No other metadata variance or wheel post-processing is allowed.
 
 Acquisition always exercises forced reconstruction: external detached checkout at
-7b3a0fcec2c9bde6c9e1ea482fe1f1ea6b16793e, exact origin and clean source, approved
+3f42d4e56afd973c397ce4c557b66183a71a6044, exact origin and clean source, approved
 Setuptools 81.0.0 / wheel 0.47.0 archive hashes, existing frozen backend/verifier,
 and full equivalence validation. Offline certification installs both the selected
 and reconstructed kernel and runs the isolated scientific worker with matching

@@ -7,6 +7,7 @@ import json
 import math
 import re
 import uuid
+from trioctagon_ui.axial_inputs import AXIAL_TYPES
 
 OPERATIONS = frozenset(("run", "resume", "new_checkpoint_run", "geometry", "load_record", "passive_analysis"))
 DIAGNOSTICS = ("chiral_area_accounting", "intensity_budget", "potential",
@@ -415,7 +416,10 @@ HISTORY_TYPES = ("direct_history_coordinates", "cylinder_history_coordinates", "
 KAPPA_SOURCES = ("chiral_area_accounting.intensity", "intensity_budget.intensity_before")
 
 
-def analysis_template(kind):
+def analysis_template(kind, source_mode='explicit'):
+    if kind in AXIAL_TYPES:
+        from trioctagon_ui.axial_inputs import template
+        return template(kind, source_mode)
     if kind not in ANALYSIS_TYPES: raise ValueError("Unsupported detached analysis")
     omega = [["", ""] for _ in range(3)]; vector = ["", "", ""]
     parameters = {"eps": "", "g": "", "phase_strength": "", "k": ["", "", ""]}
@@ -437,6 +441,11 @@ def analysis_template(kind):
 
 
 def analysis_request(kind, inputs, *, source=None):
+    if kind in AXIAL_TYPES:
+        from trioctagon_ui.axial_inputs import validate
+        if source is None: source = {'mode': 'explicit'}
+        validate(kind, inputs, source)
+        return request('passive_analysis', {'analysis_type': kind, 'inputs': inputs, 'source': source})
     if kind not in ANALYSIS_TYPES or not isinstance(inputs, dict) or set(inputs) != set(analysis_template(kind)):
         raise ValueError("Detached analysis input fields do not match the selected public operation")
     if source is None: source = {"mode": "explicit"}

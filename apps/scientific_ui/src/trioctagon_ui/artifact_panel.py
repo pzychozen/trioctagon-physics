@@ -257,6 +257,13 @@ class ArtifactsPanel(QWidget):
                 "Bounded diagnostic": self.current.diagnostic})
         else:
             legacy = kind.startswith("LEGACY")
+            if kind.startswith('AXIAL'):
+                self.heading.setText(kind)
+                self.qualification.setText('Floating observation; no external execution attestation. Inspect the retained cache in Observers & Diagnostics / Axial Observables. Saved imports are unauthenticated.')
+                self.inspector.show_panels({'Session identity': {'kind': kind, 'content_sha256': self.current.artifact['content_sha256']},
+                    'Boundary': 'No Core actions, scientific recomputation or theorem certification from this selection.'})
+                self.selection_changed.emit()
+                return
             self.heading.setText("Legacy detached analysis" if legacy else kind)
             self.qualification.setText("Producer not independently verified under the new analysis protocol. Existing validated session cache only." if legacy else "Validated Core record in session. Select it explicitly in Records to use Core actions.")
             self.inspector.show_panels({"Session identity": {"kind": kind, "digest": getattr(self.current, "digest", None)},

@@ -14,10 +14,10 @@ from trioctagon_ui.record_views import atomic_text, f64, kernel_lock
 
 def execute(envelope):
     requests.validate_envelope(envelope)
-    from kernel_physics import api
     payload, operation = envelope["payload"], envelope["operation"]
     if operation == "passive_analysis":
         return passive_analysis(payload)
+    from kernel_physics import api
 
     def keys(expected):
         if set(payload) != set(expected):
@@ -158,10 +158,12 @@ def lossless(value):
 
 
 def passive_analysis(payload):
-    from kernel_physics import api
     if set(payload) != {"analysis_type", "inputs", "source"}: raise ValueError("Malformed passive-analysis payload")
     kind, original, source = payload["analysis_type"], payload["inputs"], payload["source"]
     requests.analysis_request(kind, original, source=source)
+    if kind in requests.AXIAL_TYPES:
+        return axial_analysis(kind, original, source)
+    from kernel_physics import api
     inputs = json.loads(json.dumps(original)); context = {"request": original, "source": {k: v for k, v in source.items() if k != "record_json"}}
     parent = None; sample_index = None
     if source["mode"] == "record":
@@ -247,6 +249,38 @@ def passive_analysis(payload):
         "parent_source_commit": parent.data["implementation"]["commit"] if parent else None, "sample_index": sample_index,
         "inputs": lossless(context), "data": lossless(result),
         "qualification": "Detached current-public-API analysis. Parent record identity shown separately; current implementation identity is not independently exposed. Not a RunRecord, GeometryRecord or scientific replay certificate. Observer-vector coordinates — not physical placement. Step preview is not a recorded trajectory; standalone observe calls recompute their readout."}
+
+
+def axial_analysis(kind, inputs, source):
+    from trioctagon_ui.axial_identity import verify_installed_axial
+    from trioctagon_ui.axial_inputs import resolve
+    from trioctagon_ui import axial_artifacts
+    identity = verify_installed_axial()  # Verify bytes before loading/calling science.
+    from kernel_physics import api
+    if api.AXIAL_OBSERVATION_API_VERSION != '1.0.0' or api.AXIAL_OBSERVER_REVISION != 'AXIAL_M1_V1':
+        raise ValueError('Installed axial API/revision mismatch')
+    parent = api.RunRecord.from_json(source['record_json']) if source['mode'] == 'record' else None
+    if parent and parent.to_json() != source['record_json']:
+        raise ValueError('Axial parent must be the canonical RunRecord bytes returned by the public loader')
+    binding = resolve(kind, inputs, source, lossless(parent.data) if parent else None)
+    resolved = binding['resolved_inputs_hex']
+    def omega(state): return tuple(complex(f64(v['re']), f64(v['im'])) for v in state['omega'])
+    def state(value): return api.State(omega=omega(value), update_index=value['update_index'])
+    if kind == 'axial_snapshot': data = {'snapshot': lossless(api.axial_snapshot(omega(resolved['states'][0])))}
+    elif kind == 'axial_history': data = {'snapshots': [lossless(api.axial_snapshot(omega(s))) for s in resolved['states']]}
+    else:
+        p = resolved['parameters']; states = resolved['states']
+        parameters = api.Parameters(**{k: f64(p[k]) for k in ('eps', 'g', 'phase_strength')}, k=tuple(f64(v) for v in p['k']))
+        result = api.axial_source_budget(state(states[0]), parameters, after=state(states[1]) if len(states) == 2 else None)
+        status = 'RECORDED_ADJACENT_PAIR' if parent and len(states) == 2 else result.comparison_status
+        data = {'budget': lossless(result), 'comparison_status': status, 'comparison_availability': binding['comparison_availability']}
+    artifact = axial_artifacts.create(kind, binding, identity, data)
+    return {'result_kind': 'analysis', 'analysis_type': kind,
+        'parent_digest': parent.deterministic_sha256 if parent else None,
+        'parent_source_commit': parent.data['implementation']['commit'] if parent else None,
+        'sample_index': binding['selection'][0]['sample_ordinal'] if kind != 'axial_history' else None,
+        'inputs': {'request': inputs, 'source': {k: v for k, v in source.items() if k != 'record_json'}},
+        'data': artifact, 'qualification': axial_artifacts.QUALIFICATION}
 
 
 def respond(envelope):
