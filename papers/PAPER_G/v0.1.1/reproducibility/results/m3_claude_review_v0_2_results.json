@@ -1,0 +1,279 @@
+{
+ "kind": "CLAUDE_M3_EXTERNAL_REVIEW_v0.2",
+ "iv_dps": 80,
+ "checks": {
+  "A: eps, g, k_i interval enclosures contain the exact rationals (1/20, 1/5, decimal strings)": true,
+  "A: lambda_c interval taken from the M2 certified integer enclosure (2^-240 scale), lambda = lambda_c + 0.005 enclosed": true,
+  "A (finding, confirmed): Codex's encoded lambda_c interval does NOT contain the M2-certified enclosure: its upper endpoint is a display string truncated ~1.8e-46 below the certified upper endpoint (defect in certificate accounting; repaired here by using the certified integer enclosure)": true,
+  "A: entrance box encloses sqrt3 f_1 = (1, -1/2 - i sqrt3/2, -1/2 + i sqrt3/2) (negative Fourier convention; sqrt3 by iv.sqrt)": true,
+  "C0: M2 certificate records strict Krawczyk inclusion K(X) subset int X (so the unique exact host lies in K(X))": true,
+  "C0: K(X) subset X (consistency of the certificate fields)": true,
+  "C: recomputed tight lambda_c lies inside the M2 certified lambda_c enclosure": true,
+  "C (resolves A finding): Codex's encoded lambda_c interval CONTAINS the rigorously enclosed exact lambda_c (its truncated upper string is ~3e-39 above the exact value); defect was certificate accounting only": true,
+  "C1: Codex's 1e-25 host boxes (around its printed 60-digit host) contain the M2-certified host box": true,
+  "C2/C3: the exact normalized v1(u*), v2(u*) (enclosed from the certified host box) lie inside 1e-25 boxes around the basis computed from Codex's printed host": true,
+  "C4: the quotient conversion depends on the basis only through u_iv, v1_iv, v2_iv (and lambda): the rerun below uses the certified-box intervals directly": true,
+  "B: every pre-sync radius box over steps 0-20 is strictly positive (lower bound >= 0.0422121224279638593 as Codex reported)": true,
+  "B: every (pre-sync real, imag) box over steps 0-20 excludes the closed negative real axis -> atan2 continuous on every box, mean-value form valid": true,
+  "D: at the conversion (index 21) the gauge uses atan2 (Codex did too): u.Omega_21 is bounded away from zero and its box excludes the closed negative real axis (here Re < 0, Im strictly one-signed), so atan2 is continuous on the box": true,
+  "D/E: all ratio-atan denominators (pre-sync real parts) > 1.3096 and the gauge denominator > 0 throughout 21-300 (Codex reported 1.3096147241289281421 for the former; the latter was not recorded by Codex)": true,
+  "E: quotient radii lower bound >= 1.3132035799719558 over 21-300": true,
+  "E: final N=300 quotient box max width <= 1.4603673018171074548e-22 (Codex) within 1%": true,
+  "G: Fhat^2(U_plus) subset interior(U_plus) with all five margins positive (Codex: 2.416e-6, 2.492e-6, 2.846e-6, 4.636e-7, 6.756e-6)": true,
+  "G: weighted contraction factor max_i < 1 (Codex 0.957798686507835)": true,
+  "G: trap chart radii lower bound >= 1.5073367430120650 (Codex) and all denominators positive": true,
+  "G: U_plus and U_minus are disjoint (gap ~0.87 in coordinate 5) -> the F^2 fixed point is not an F fixed point": true,
+  "E/G: N=300 quotient box subset U_minus (exact endpoints)": true,
+  "centre-in-box held at every mean-value step (count 300)": true,
+  "trap centre box c_pt lies inside U_plus (mean-value form with interval centre valid)": true,
+  "ENTRY (repair, direct): Fhat(qbox_300) = qbox_301 subset int U_plus -> F^301(Omega_0) is in the trap U_plus": true,
+  "ENTRY (repair, alternative): qbox_300 subset int H(U_plus); H(U_plus) is a trap for Fhat^2 by exact H-equivariance (same margins, same weighted bound)": true,
+  "PHASE: theta(H z) = -theta(z) consistency: the two enclosures are negatives of each other up to rounding, and their sum contains 0": true,
+  "H (repair): Krawczyk K(U_plus) subset interior(U_plus) for G = H o Fhat -> there EXISTS z* in U_plus with Fhat(z*) = H(z*); z* is an Fhat^2 fixed point in U_plus, so z* = p: the captured point is the H-symmetric two-cycle": true
+ },
+ "values": {
+  "A: certified upper endpoint minus Codex's encoded upper endpoint": "1.8149e-46",
+  "A: certified lambda_c interval": [
+   "0.36747639460421353654937599159885992870560445021664",
+   "0.36747639460421353654937599160503122659638797918149"
+  ],
+  "C: recomputed lambda_c over K(X) (interval)": [
+   "0.367476394604213536549375991601945577650996214699067058307151",
+   "0.367476394604213536549375991601945577650996214699067058307161",
+   "width 9.98e-60"
+  ],
+  "C: widths of interval host / v1 / v2 from the certified box": [
+   "189483336807/55213970774324510299478046898216203619608871777363092441300193790394368",
+   "2737692611214979597333/948568795032094272909893509191171341133987714380927500611236528192824358010355712",
+   "1370519195664673149609/237142198758023568227473377297792835283496928595231875152809132048206089502588928"
+  ],
+  "C: max distance of Codex printed host from the certified centre": "4.92e-60",
+  "B: full-state min pre-sync radius lower bound over steps 0-20": "0.04221212242796385935136318",
+  "B: full-state final (step 21) max width": "6.1338707e-54",
+  "D: conversion gauge argument u.Omega_21: Re box, Im box": [
+   [
+    "-4.08530931335025",
+    "-4.08530931335025"
+   ],
+   [
+    "6.34189563174007",
+    "6.34189563174007"
+   ]
+  ],
+  "D: |u.Omega_21|^2 lower bound": "56.9093923896302",
+  "D: quotient box max width right after conversion (index 21)": "1.94992e-53",
+  "E: quotient chart lower bounds over indices 21-300: pre-sync real parts, gauge denominator u.Re(F), radii": [
+   "1.3096147241289281421",
+   "7.7839261785287128809",
+   "1.3132035799719558266"
+  ],
+  "E: final N=300 quotient box max width": "4.5654299e-57",
+  "E: N=300 quotient box": [
+   [
+    "-0.06084874932734710276885454",
+    "-0.06084874932734710276885454"
+   ],
+   [
+    "-0.0636801330182159122959401",
+    "-0.0636801330182159122959401"
+   ],
+   [
+    "-0.07761520927300047911171452",
+    "-0.07761520927300047911171452"
+   ],
+   [
+    "0.01014970675980567034528098",
+    "0.01014970675980567034528098"
+   ],
+   [
+    "-0.437254406060244901014389",
+    "-0.437254406060244901014389"
+   ]
+  ],
+  "G: strict-interior margins of Fhat^2(U_plus) in U_plus (exact endpoints, interval Fhat^2(c))": [
+   "2.416080297e-6",
+   "2.491963831e-6",
+   "2.84550366e-6",
+   "4.635684939e-7",
+   "6.755949571e-6"
+  ],
+  "G: weighted row bounds of |D(Fhat^2)| over U_plus (rigorous upper bounds)": [
+   "0.931599571528859",
+   "0.931618163476453",
+   "0.933070428033412",
+   "0.957798686507835",
+   "0.932440504286828"
+  ],
+  "G: chart lower bounds during the two trap evaluations (pre-sync real, gauge denominator, radii)": [
+   "1.5046726819698976568",
+   "8.8698230520473262805",
+   "1.5073367430120650397"
+  ],
+  "G: U_minus radii (exact)": [
+   "3.44642776888853e-5",
+   "3.54581105526288e-5",
+   "4.12596223824353e-5",
+   "1.24653438841777e-5",
+   "9.65734922479844e-5"
+  ],
+  "G: separation between U_plus and U_minus (largest coordinate gap)": "-6.978686778e-5",
+  "E/G: max |qbox endpoint - U_minus centre| / U_minus radius": "0.01571871367",
+  "ENTRY: enclosure of Fhat(U_minus-box): radii vs U_plus radii": [
+   [
+    "3.36398e-5",
+    "3.53226e-5"
+   ],
+   [
+    "3.46005e-5",
+    "3.64419e-5"
+   ],
+   [
+    "4.0033e-5",
+    "4.25149e-5"
+   ],
+   [
+    "1.34695e-5",
+    "1.09847e-5"
+   ],
+   [
+    "9.33e-5",
+    "0.0001"
+   ]
+  ],
+  "ENTRY: box-level test Fhat(U_minus-box) subset int U_plus (would make Codex's inference valid as stated)": false,
+  "entry_box_level_inference_holds": false,
+  "ENTRY: N=301 box: max |endpoint - z_plus| / U_plus radius": "0.01458363717",
+  "ENTRY: N=301 quotient box": [
+   [
+    "-0.06084872917527362318376328798268483442522",
+    "-0.06084872917527362318376328798268483442522"
+   ],
+   [
+    "-0.06368011203829516160471059568605627111659",
+    "-0.06368011203829516160471059568605627111659"
+   ],
+   [
+    "-0.07761518423758381335877466998556396718581",
+    "-0.07761518423758381335877466998556396718581"
+   ],
+   [
+    "-0.01014970541152723414311414788968414395758",
+    "-0.01014970541152723414311414788968414395758"
+   ],
+   [
+    "0.4372543464128896517249816592399872588329",
+    "0.4372543464128896517249816592399872588329"
+   ]
+  ],
+  "EXACT: N=300 box endpoints (rationals)": [
+   [
+    "-923507597258425570997297512794547312654235199168839536688733614516921155915421327/15177100720513508366558296147058741458143803430094840009779784451085189728165691392",
+    "-923507597258425570997297512794547312654235199168839536662709624455612638578111409/15177100720513508366558296147058741458143803430094840009779784451085189728165691392"
+   ],
+   [
+    "-120809974089145097088821052493352545758581687138081881528255955788543964464869603/1897137590064188545819787018382342682267975428761855001222473056385648716020711424",
+    "-120809974089145097088821052493352545758581687138081881524907050096201826255527829/1897137590064188545819787018382342682267975428761855001222473056385648716020711424"
+   ],
+   [
+    "-588986924290031153710303093211270384488357072080243909799648162285915890611070135/7588550360256754183279148073529370729071901715047420004889892225542594864082845696",
+    "-588986924290031153710303093211270384488357072080243909784632024333605230507544041/7588550360256754183279148073529370729071901715047420004889892225542594864082845696"
+   ],
+   [
+    "154043121777247465796720074543412264992565657389223406384934988973644109279162531/15177100720513508366558296147058741458143803430094840009779784451085189728165691392",
+    "154043121777247465796720074543412264992565657389223406402847158442869130587857589/15177100720513508366558296147058741458143803430094840009779784451085189728165691392"
+   ],
+   [
+    "-829531770158081130798528371494257315039513125225915830671626337799736870770849917/1897137590064188545819787018382342682267975428761855001222473056385648716020711424",
+    "-829531770158081130798528371494257315039513125225915830662965089099363527525660319/1897137590064188545819787018382342682267975428761855001222473056385648716020711424"
+   ]
+  ],
+  "EXACT: N=301 box endpoints (rationals)": [
+   [
+    "-923507291408376644145245387247543446403090856644933833572495137780113897284122289/15177100720513508366558296147058741458143803430094840009779784451085189728165691392",
+    "-923507291408376644145245387247543446403090856644933833546618201178262332399371055/15177100720513508366558296147058741458143803430094840009779784451085189728165691392"
+   ],
+   [
+    "-241619868574697608769600944058765892506579253172990144565954971731788375050759561/3794275180128377091639574036764685364535950857523710002444946112771297432041422848",
+    "-241619868574697608769600944058765892506579253172990144559294966675993218199414519/3794275180128377091639574036764685364535950857523710002444946112771297432041422848"
+   ],
+   [
+    "-588986734307510995632883770127338016606136890525013816046254301105840534136103593/7588550360256754183279148073529370729071901715047420004889892225542594864082845696",
+    "-588986734307510995632883770127338016606136890525013816031323225253109469393808791/7588550360256754183279148073529370729071901715047420004889892225542594864082845696"
+   ],
+   [
+    "-308086202628579680519975131946157141537552327688874954198705434370179746820458963/30354201441027016733116592294117482916287606860189680019559568902170379456331382784",
+    "-308086202628579680519975131946157141537552327688874954163035271121789675669547277/30354201441027016733116592294117482916287606860189680019559568902170379456331382784"
+   ],
+   [
+    "25922864281213791858096745022346149271960950839654713529682115962417904648041185/59285549689505892056868344324448208820874232148807968788202283012051522375647232",
+    "414765828499420669729547920357538388351375213434475416479220585979018931889859519/948568795032094272909893509191171341133987714380927500611236528192824358010355712"
+   ]
+  ],
+  "PHASE: gauge-angle enclosure theta(F(Omega(z))) over U_plus and over H(U_plus)": [
+   [
+    "0.0585975229447",
+    "0.0595512341844"
+   ],
+   [
+    "-0.0595512341844",
+    "-0.0585975229447"
+   ]
+  ],
+  "H: margins of H(Fhat(U_plus)) inside U_plus": [
+   "8.583124e-7",
+   "9.837862673e-7",
+   "1.25527166e-6",
+   "-1.480650387e-6",
+   "3.426507752e-6"
+  ],
+  "H: weighted row bounds of |D(H o Fhat)| = |D Fhat| over U_plus": [
+   "0.975700751336902",
+   "0.973003977477804",
+   "0.97047454337456",
+   "1.13479214391522",
+   "0.965734922479844"
+  ],
+  "H: one-step G = H o Fhat self-map/contraction with Codex's weights on U_plus (informational)": {
+   "H(Fhat(U_plus)) strictly inside U_plus": false,
+   "max weighted row bound": "1.13479214392"
+  },
+  "G_one_step_contraction_max": "1.13479214391522",
+  "H: Krawczyk image radii for G(z)=z on U_plus vs U_plus radii": [
+   [
+    "3.00537e-6",
+    "3.53226e-5"
+   ],
+   [
+    "3.18825e-6",
+    "3.64419e-5"
+   ],
+   [
+    "3.79054e-6",
+    "4.25149e-5"
+   ],
+   [
+    "1.21045e-6",
+    "1.09847e-5"
+   ],
+   [
+    "8.98586e-6",
+    "0.0001"
+   ]
+  ],
+  "H: Krawczyk |G(c)-c| residual (interval upper bound)": "6.81916e-59",
+  "H: Perron estimate of the weighted one-step |DFhat| norm over U_plus (spectral radius of |J1| upper matrix)": "0.9698531459",
+  "H: note": "one-step Perron radius < 1 suggests a one-step weighted trap could also be built with different weights; not needed: the F^2 trap plus the Krawczyk existence test for Fhat(z) = H(z) already identifies the captured point as the H-symmetric cycle"
+ },
+ "summary": "28/28",
+ "script_sha256": "f00b6bc62a47d6aac88d32215a9361d2be77dc67903db5945a8c0740245be27e",
+ "versions": {
+  "python": "3.11.15",
+  "mpmath": "1.3.0",
+  "iv_dps": 80,
+  "mp_dps": 90
+ },
+ "inputs": {
+  "gpt_m2_certificate_json_sha256": "551484274c6f71b9adb2506d6bd09bc132d5b8722fe7a2c2b379fb0e7ae43499",
+  "codex_m3_validated_entry_json_sha256": "c4e1e5fc191e4aafddac8d1155bac0f3e3ffec08d02323d0a0f5e5c9b9c95361"
+ }
+}

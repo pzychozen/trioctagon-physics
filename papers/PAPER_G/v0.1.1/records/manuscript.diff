@@ -1,0 +1,128 @@
+--- v0.1/source/paper_g.tex
++++ v0.1.1/source/paper_g.tex
+@@ -8,7 +8,7 @@
+ \definecolor{inkblue}{HTML}{176B91}
+ \hypersetup{colorlinks=true,linkcolor=inkblue,citecolor=inkblue,urlcolor=inkblue,pdftitle={Paper G: Geometry-Attached Axial Observables},pdfauthor={Hilmir Frímann Halldórsson}}
+ \graphicspath{{../figures/}}
+-\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Paper G v0.1}\fancyhead[R]{\small LOCAL REVIEW DRAFT}\fancyfoot[C]{\thepage}
++\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Paper G v0.1.1}\fancyhead[R]{\small LOCAL REVIEW DRAFT}\fancyfoot[C]{\thepage}
+ \setlength{\headheight}{14pt}\setlength{\parskip}{4pt}\setlength{\parindent}{0pt}
+ \setlength{\emergencystretch}{2em}
+ \raggedbottom\clubpenalty=10000\widowpenalty=10000\displaywidowpenalty=10000
+@@ -17,7 +17,7 @@
+ \newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}\newcommand{\Om}{\Omega}\newcommand{\Fh}{\widehat F}\newcommand{\cof}{\operatorname{cof}}\newcommand{\diag}{\operatorname{diag}}\newcommand{\Argz}{\operatorname{Arg}_0}\newcommand{\iu}{\mathrm i}\newcommand{\dd}{\mathrm d}
+ \title{\vspace{-10mm}Geometry-Attached Axial Observables,\newline Period-Doubling, and Certified Entrance Capture\newline in the Tri-Octagon Map}
+ \author{Hilmir Frímann Halldórsson}
+-\date{Paper G v0.1 \quad 4 October 2026\\\small LOCAL REVIEW DRAFT: prepared for author and scientific review}
++\date{Paper G v0.1.1 \quad 4 October 2026\\\small LOCAL REVIEW DRAFT: prepared for author and scientific review}
+ \begin{document}
+ \maketitle\thispagestyle{fancy}
+ \begin{abstract}
+@@ -28,7 +28,7 @@
+ \section{Problem, model and evidence}
+ The question is whether a geometrically meaningful axial observable can be extracted from the already defined dynamics, and whether that observable can persist along an orbit reached from a specified entrance. Three logically different answers are needed. A kinematic construction attaches signed channel areas to fixed geometry. A local bifurcation theorem establishes an alternating branch near a real host. A finite entrance certificate establishes capture by a two-cycle at a particular parameter. None of these steps substitutes a visual pattern for a theorem.
+ 
+-We use the map of Paper A \cite{PA}, the outward-oriented frames and transported area convention of Paper B \cite{PB}, and the corrected, jointly accepted M1, M2 and M3 source records \cite{M1,M2,M3}. Paper E's staged and cognitive readouts remain distinct observables \cite{PE}; neither is $W$. Paper F provides limited local angular background, not a continuation result for the unequal-coefficient model here \cite{PF}. Atlas 08 supplies the already adopted Fourier-form endpoint context \cite{Atlas}; its preparation and physical interpretation are not prerequisites of the present theorems.
++We use the map of Paper A \cite{PA}, the outward-oriented frames and transported area convention of Paper B \cite{PB}, and the corrected, jointly accepted M1, M2 and M3 source records \cite{M1,M2,M3}. Paper E's staged and committed-EMA readouts remain distinct observables \cite{PE}; neither is $W$. Paper F provides limited local angular background, not a continuation result for the unequal-coefficient model here \cite{PF}. Atlas 08 supplies the already adopted Fourier-form endpoint context \cite{Atlas}; its preparation and physical interpretation are not prerequisites of the present theorems.
+ 
+ We distinguish \emph{exact algebraic deductions}, \emph{computer-assisted theorems} based on outward enclosures, and \emph{nominal numerical illustrations}. The latter cannot upgrade an unproved parameter range or a rounded experiment to an exact-model theorem. The accompanying claim map identifies the final corrected sources for each statement. Standard flip, contraction and interval-existence methods are used with attribution; no global novelty claim is made.
+ 
+@@ -57,7 +57,8 @@
+ $T,T_{ij}$ & Tangent-column attachment matrix and matched tangent-plane transport.\\
+ $H_s,H$ & Spatial horizontal reflection and its conjugation action in quotient coordinates.\\
+ $V$ & Orthonormal basis matrix of $u^\perp$, not the spatial mirror.\\
+-$c_{\rm nf},c_*,r_i$ & Flip coefficient, trap center, positive trap weights.\\\bottomrule
++$c_{\rm nf},c_*,r_i$ & Flip coefficient, trap center, positive trap weights.\\
++$\Om_*^{(+)},\Om_*^{(-)}$ & Full complex cycle states in M2 or M3, scoped to each theorem.\\\bottomrule
+ \end{tabular}
+ \caption{Notation keeps channel area, evolution, geometry and proof coordinates distinct.}
+ \end{table}
+@@ -99,7 +100,7 @@
+ \begin{equation}
+  C'=\det(G)\det(Q)QC.\label{eq:Ccov}
+ \end{equation}
+-The frame matrices obey $T\det(Q)Q=GT$, verified on the cyclic rotation, horizontal mirror $H_s=\diag(1,1,-1)$ and vertical mirror $V_s=\diag(-1,1,1)$ (which swaps $A,C$). Consequently $W'=\det(G)GW$. In contrast $\Gamma$ has generator signs $(+,-,+)$; $\Gamma e_z$ is polar-$z$-like, not axial. The distinct transformation laws forbid replacing $T$ by $N$.
++The frame matrices obey $T\det(Q)Q=GT$, verified on the cyclic rotation, horizontal mirror $H_s=\diag(1,1,-1)$ and vertical mirror $V_s=\diag(-1,1,1)$ (which swaps the channel labels $A$ and $C$). Consequently $W'=\det(G)GW$. In contrast $\Gamma$ has generator signs $(+,-,+)$; $\Gamma e_z$ is polar-$z$-like, not axial. The distinct transformation laws forbid replacing $T$ by $N$.
+ 
+ For uniqueness, horizontal reflection acts as $-I$ on $C$ but as $\diag(-1,-1,1)$ on an axial vector. An intertwiner therefore has zero $z$ row. The invariant input line $\R e$ has no nonzero image in the planar cyclic representation. On $e^\perp$, $T$ identifies the two real planar representations. An endomorphism commuting with a $120^\circ$ rotation has the form $aI+bJ_2$; commuting also with the vertical mirror forces $b=0$. Hence the intertwiner is a scalar multiple of $T$.
+ \end{proof}
+@@ -267,7 +268,7 @@
+ \begin{proof}
+ The interval inequalities verify nondegeneracy, transversality and stability of the remaining directions. The standard local flip and center-manifold results apply \cite{Kuznetsov}. Equivariance permits an odd reduced map; thus even powers are absent in \eqref{eq:normal}. Solving $f_\mu(a)=-a$ for $a\ne0$ gives \eqref{eq:scale}. Differentiation at the emerging cycle gives $f_\mu'(a_\pm)=-1+2\sigma\mu+O(\mu^2)$; multiplying the two derivatives gives \eqref{eq:mult}. The different expression $1+2\sigma\mu+O(\mu^2)$ is the two-step multiplier of the host, not of this cycle.
+ 
+-The local unique cycle is exchanged by $H$, since $H$ negates the leading center direction. Put $\eta_c=Vq_{\eta}$; then $W=aT(u\times\eta_c)+O(a^3)$. The interval computation excludes zero in the norm of this leading vector. Finally, if $A_*=s(z_+)$ and $F(A_*)=e^{\iu\theta}\overline{A_*}$, common-phase and conjugation equivariance give $F^2(A_*)=A_*$. Conjugation reverses $W$; common phase leaves it invariant.
++The local unique cycle is exchanged by $H$, since $H$ negates the leading center direction. Put $\eta_c=Vq_{\eta}$; then $W=aT(u\times\eta_c)+O(a^3)$. The interval computation excludes zero in the norm of this leading vector. Finally, if $\Om_*^{(+)}=s(z_+)$ and $F(\Om_*^{(+)})=e^{\iu\theta}\overline{\Om_*^{(+)}}$, common-phase and conjugation equivariance give $F^2(\Om_*^{(+)})=\Om_*^{(+)}$. Conjugation reverses $W$; common phase leaves it invariant.
+ \end{proof}
+ Numerically, $W_q=T(u\times\eta_c)\simeq(3.17358673,1.94734707,0)$ and $\sigma\simeq3.9006841581$, hence
+ \begin{equation}
+@@ -305,10 +306,10 @@
+ \begin{theorem}[Fixed-parameter capture, repaired M3]\label{thm:M3}
+ For \eqref{eq:params} and \eqref{eq:entranceM3} at $\lambda=\lambda_c+1/200$, the exact quotient trajectory is in $\operatorname{int}U_+$ at index $301$. On $U_+$, $\Fh^2$ maps strictly into itself and has Lipschitz constant at most $4789/5000=0.9578$ in $\|\cdot\|_r$. It has a unique fixed point $p$ there, with $\Fh(p)=H(p)\ne p$.
+ 
+-Put $A_*=s(p)$ and $B_*=F(A_*)=e^{\iu\theta_p}\overline{A_*}$. Then $F(B_*)=A_*$. For some constant $\beta$, with parity anchored at entry,
+-\begin{equation}
+- \Om_{301+2m}\longrightarrow e^{\iu\beta}A_*,\qquad
+- \Om_{302+2m}\longrightarrow e^{\iu\beta}B_*.
++Put $\Om_*^{(+)}=s(p)$ and $\Om_*^{(-)}=F(\Om_*^{(+)})=e^{\iu\theta_p}\overline{\Om_*^{(+)}}$. Then $F(\Om_*^{(-)})=\Om_*^{(+)}$. For some constant $\beta$, with parity anchored at entry,
++\begin{equation}
++ \Om_{301+2m}\longrightarrow e^{\iu\beta}\Om_*^{(+)},\qquad
++ \Om_{302+2m}\longrightarrow e^{\iu\beta}\Om_*^{(-)}.
+ \label{eq:fulllimit}
+ \end{equation}
+ Convergence is geometric per two steps. The limiting $W$ and $\Gamma$ are nonzero and reverse sign at each step. The conjugate entrance $\sqrt3f_2$ satisfies the conjugate conclusion.
+@@ -371,8 +372,8 @@
+ \subsection{Full-state lift and phase summability}
+ On the trapped cycle, equivariance and $\Fh(p)=Hp$ imply
+ \begin{equation}
+- F(A_*)=e^{\iu\theta_p}\overline{A_*},\qquad
+- F^2(A_*)=e^{\iu\theta_p}\overline{F(A_*)}=A_*.
++ F(\Om_*^{(+)})=e^{\iu\theta_p}\overline{\Om_*^{(+)}},\qquad
++ F^2(\Om_*^{(+)})=e^{\iu\theta_p}\overline{F(\Om_*^{(+)})}=\Om_*^{(+)}.
+ \end{equation}
+ A generic quotient cycle could instead lift to a relative cycle with nonzero total phase. Here the extra $H$-equation removes that ambiguity.
+ 
+@@ -399,7 +400,7 @@
+ 
+ The capture theorem is not a global basin theorem, a first-entry theorem or a claim for all entrance amplitudes. The local coefficient does not supply a universal generation threshold or a guarantee at $\lambda=0.5$. Exact real-arithmetic statements do not automatically hold for the discontinuous binary64 rounding map. Stored rounded parameters, algebraic initial components and runtime implementation identities must remain distinct in any numerical comparison.
+ 
+-The attachment is finite-dimensional and kinematic. It specifies no interpolation over a surface or volume, no magnetic field lines, no cap flux, no charge or current, no calibrated energy and no Maxwell or dynamo law. External plasma phenomena and earlier magnet-control studies supply no missing premise. Physical identification would need new assumptions and evidence. No such assumptions are adopted in this manuscript.
++The attachment is finite-dimensional and kinematic. It specifies no interpolation over a surface or volume, no magnetic field lines, no cap flux, no charge or current, no calibrated energy and no Maxwell or dynamo law. No additional physical premise is required for the mathematical results proved here. Physical identification would need new assumptions and evidence. No such assumptions are adopted in this manuscript.
+ 
+ Paper F's small-seed angular law transfers to $W$ through the orientation-preserving similarity $T|_{e^\perp}$ with its fixed angular offset, subject to Paper F's own equal-coefficient, local and nonzero-direction hypotheses. It does not imply sustained circulation or six-axis attraction here. Likewise, M1's separate ring analysis and S01 sideband result are not needed for the triad certificate. The exact residue-three lift remains in its invariant sector; a transverse instability does not make an exactly lifted state leave it without a perturbation. No ring robustness or M4 problem is opened. The optional X01 state-dependent connection is unadopted and absent from all proofs and software designs here.
+ 
+@@ -409,6 +410,11 @@
+ The M2 onset figure reuses three rows of the original finite-run table; no long onset trajectories were rerun. The other nominal figure data come from the declared short replay. All four figures have deterministic scripts, data and source identities. Source manifests authenticate bytes; the running verifiers, mathematical arguments and reviewed rounding operations establish the proof, not hashes by themselves.
+ 
+ The companion \path{OBSERVATION_IMPLEMENTATION_CONTRACT.md} is a design for passive current-model application features. It specifies one pure mathematical owner, additive public facade functions, existing isolated-worker dispatch and immutable derived caches. It separates stored-state recomputation, one-step accounting prediction and comparison with a genuinely adjacent stored sample. The UI would display signed histories and source terms without becoming a trajectory owner. A static M3 proof card would describe the accepted exact-model result; new floating runs would not inherit it. Implementation, packaging certification and publication are separate future authorizations. No kernel or UI changes accompany this draft.
++
++\section{Conclusion}
++Within the stated real-linear equivariant class, $W=TC$ is the geometry-attached planar axial observable, while $\Gamma=e^TC$ retains the complementary hidden channel area. For the accepted Fourier entrance, unequal $k$ exposes that area in $W$ after one exact update, provided the entrance amplitude, $\epsilon$ and all factors $b_i$ are nonzero. This conversion and the finite-step accounting are algebraic statements, not claims of a physical field.
++
++For the specified unequal-$k$ host, the positive interval-certified cubic coefficient establishes a local supercritical flip for sufficiently small positive $\mu$. Separately, at the exact $\lambda=\lambda_c+1/200$, the entrance with squared norm three is certified to enter the repaired M3 trap at $N=301$ and converge, up to one constant common-phase rotation, to a nonzero $H$-symmetric complex two-cycle. Its $W$ and $\Gamma$ alternate in sign. The local M2 branch and the fixed-parameter M3 orbit have not been proved to form one continued branch. No physical magnetic field has been identified.
+ 
+ \appendix
+ \section{Replay entry points and exact objects}
+@@ -430,16 +436,17 @@
+ This manuscript was prepared with AI-assisted synthesis and computational checking from the accepted local records. Their internal cross-review is not external peer review. All included local evidence copies retain their attribution and hashes. Publication and redistribution approval remains to be decided for this assembled package; the repository's Apache-2.0 software license does not automatically license papers, figures or research datasets. No external full-text PDFs or figures are redistributed here.
+ 
+ \begin{thebibliography}{99}\small
+-\bibitem{PA} H. F. Halldórsson, \emph{Cycle-Covering Dynamics of a Three-State Nonlinear Kernel}, Paper A, current repository publication edition, especially \S6.1. \path{papers/PAPER_A/publication/paper_A_publication.md}.
+-\bibitem{PB} H. F. Halldórsson, \emph{Triadic Chirality and Orientation Geometry}, Paper B v0.1.2, current publication, frames and transported areas. \path{papers/PAPER_B/publication/v0.1.2/}.
++\item[] Repository paths in references [1]--[5] identify the cited editions at baseline \nolinkurl{64ddea159e0e69888926aa21fa281e42f5dd50b4}; see Appendix B and the project-source manifest. Supplement paths in [6]--[8] are relative to this Paper G edition.
++\bibitem{PA} H. F. Halldórsson, \emph{Cycle-Covering Dynamics of a Three-State Nonlinear Kernel}, Paper A v1.0 (21 September 2026), especially \S6.1. \path{papers/PAPER_A/publication/paper_A_publication.md}.
++\bibitem{PB} H. F. Halldórsson, \emph{Triadic Chirality and Orientation Geometry}, Paper B v0.1.2, frames and transported areas. \path{papers/PAPER_B/publication/v0.1.2/}.
+ \bibitem{PE} H. F. Halldórsson, \emph{The Tri-Octagon Z Manifold: Harmonic Macro Geometry, Chiral Deformation, and Diagnostic Dynamics}, Paper E v0.1.1. \path{papers/PAPER_E/v0.1.1/PAPER_E_Z_MANIFOLD_v0.1.1.md}.
+ \bibitem{PF} H. F. Halldórsson, \emph{Transverse Chirality, Dihedral Harmonic Selection, and Local Linearization in a Three-Channel Nonlinear Map}, Paper F v0.2. \path{papers/PAPER_F/PAPER_F_PUBLICATION_v0.2.md}.
+ \bibitem{Atlas} \emph{TRIOCTAGON Mathematical Atlas 08: Boundary Response, Fixed SRG, Initialization Handoff}, v0.1, 29 September 2026, local source packet, especially the Fourier-form endpoint; no physical boundary law. Repository \path{research/mathematical_atlas/entry_08_boundary_srg_handoff/}.
+ \bibitem{M1} \emph{M1 Joint Acceptance Record v0.2} and \emph{Common Equations Candidate v0.2}, accepted CE01--CE11 with stated domains; final assents supersede the candidate-status label. The separate S01 sideband proof is in the GPT reconciliation note, \S4, retained as \path{reproducibility/authorities/M1_RECONCILIATION_AND_S01.md} with its final disposition in the joint record. Supplement \path{reproducibility/authorities/}.
+-\bibitem{M2} \emph{M2 Joint Acceptance Record v0.1}, with GPT's analytic interval sign certificate, Claude's correction addendum and Codex's acceptance addendum, 1--2 October 2026. Supplement \path{reproducibility/authorities/M2_JOINT_ACCEPTANCE.md}, \path{M2_CLAUDE_CORRECTIONS.md}, \path{M2_CODEX_ASSENT.md}; input \path{reproducibility/inputs/m2_accepted_certificate.json}.
+-\bibitem{M3} \emph{M3 Joint Acceptance Record v0.1}, Claude repaired review v0.2 and Codex reconciliation addendum v0.1, 4 October 2026. Supplement \path{reproducibility/authorities/M3_JOINT_ACCEPTANCE.md}, \path{M3_CLAUDE_REPAIRED_REVIEW.md}, \path{M3_CODEX_RECONCILIATION.md}.
+-\bibitem{Kuznetsov} Y. A. Kuznetsov, \emph{Elements of Applied Bifurcation Theory}, 2nd ed., Springer, 1998, \S\S4.4--4.5 (Theorems 4.3--4.4), 5.1--5.2 and 5.4.2. \url{https://wwwf.imperial.ac.uk/~dturaev/kuznetsov.pdf}. Standard flip and center-manifold results; no new attribution to this paper.
++\bibitem{M2} \emph{M2 Joint Acceptance Record v0.1}, with GPT's analytic interval sign certificate, Claude's correction addendum and Codex's acceptance addendum, 1--2 October 2026. Supplement \path{reproducibility/authorities/M2_JOINT_ACCEPTANCE.md}, \path{reproducibility/authorities/M2_CLAUDE_CORRECTIONS.md}, \path{reproducibility/authorities/M2_CODEX_ASSENT.md}; input \path{reproducibility/inputs/m2_accepted_certificate.json}.
++\bibitem{M3} \emph{M3 Joint Acceptance Record v0.1}, Claude repaired review v0.2 and Codex reconciliation addendum v0.1, 4 October 2026. Supplement \path{reproducibility/authorities/M3_JOINT_ACCEPTANCE.md}, \path{reproducibility/authorities/M3_CLAUDE_REPAIRED_REVIEW.md}, \path{reproducibility/authorities/M3_CODEX_RECONCILIATION.md}.
++\bibitem{Kuznetsov} Y. A. Kuznetsov, \emph{Elements of Applied Bifurcation Theory}, 2nd ed., Springer-Verlag, New York, 1998, \S\S4.4--4.5 (Theorems 4.3--4.4), 5.1--5.2 and 5.4.2. \url{https://doi.org/10.1007/b98848}. Access copy: \url{https://wwwf.imperial.ac.uk/~dturaev/kuznetsov.pdf}. Standard flip and center-manifold results; no new attribution to this paper.
+ \bibitem{Banach} S. Banach, Sur les opérations dans les ensembles abstraits et leur application aux équations intégrales, \emph{Fundamenta Mathematicae} 3 (1922), 133--181. \url{https://doi.org/10.4064/fm-3-1-133-181}. Contraction principle; its iteration estimate is applied explicitly above.
+-\bibitem{Rump} S. M. Rump and S. Graillat, Verified error bounds for multiple roots of systems of nonlinear equations, \emph{Numerical Algorithms} 54 (2010), 359--377, Theorem 2.1 (simple-root interval inclusion). Author-hosted text: \url{https://www.tuhh.de/ti3/paper/rump/RuGr09.pdf}. The multiple-root results are not used.
++\bibitem{Rump} S. M. Rump and S. Graillat, Verified error bounds for multiple roots of systems of nonlinear equations, \emph{Numerical Algorithms} 54(3) (2010), 359--377. \url{https://doi.org/10.1007/s11075-009-9339-3}. Theorem 2.1 (simple-root interval inclusion). Author-hosted text: \url{https://www.tuhh.de/ti3/paper/rump/RuGr09.pdf}. The multiple-root results are not used.
+ \end{thebibliography}
+ \end{document}

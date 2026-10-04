@@ -10,7 +10,7 @@ scientific UI connect the mathematics to explicit numerical experiments.
 This is **not the TORMENT production memory system**.
 
 - **[SCIENTIFIC DOMAINS](scientific_domains/README.md)** - current core, historical TORMENT and experimental Research Lab ownership and authority.
-- **[READ THE RESEARCH](#papers-a-f)** — six current publication editions below.
+- **[READ THE RESEARCH](#papers-a-g)** — seven repository publication editions below.
 - **[MATHEMATICAL ATLAS](research/mathematical_atlas/README.md)** — first-principles derivations, exact checks, counterexamples, scope boundaries and open interfaces for the current kernel mathematics.
 - **[USE THE PYTHON KERNEL](#use-the-python-kernel)** — build, install and save a small explicit experiment.
 - **[RUN THE SCIENTIFIC UI](apps/scientific_ui/README.md#public-installation)** — install the separately certified, locked kernel/UI pair.
@@ -22,9 +22,11 @@ physical energy law, geometry↔dynamics physical coupling, Z↔six-opening spat
 registration, or host/gap causal dynamics. Mathematical identities, numerical
 evidence and open physical interfaces remain distinct.
 
-## Papers A-F
+<a id="papers-a-f"></a>
 
-These are the authoritative publication editions for this preview. Earlier
+## Papers A-G
+
+These are the authoritative repository publication editions. Earlier
 editions remain available as historical/superseded research; mathematical source
 versions and publication editions need not have the same number.
 
@@ -36,6 +38,7 @@ versions and publication editions need not have the same number.
 | D — v0.1.1 | [Tri-Octagon Reference-Scaffold Geometry](papers/PAPER_D/v0.1.1/publication/PAPER_D_REFERENCE_SCAFFOLD_v0.1.1.pdf) | [Edition and scoped acceptance](papers/PAPER_D/v0.1.1/README.md). |
 | E — v0.1.1 | [The Tri-Octagon Z Manifold](papers/PAPER_E/v0.1.1/publication/PAPER_E_Z_MANIFOLD_v0.1.1.pdf) | [Recorded review/revision status](papers/PAPER_E/v0.1.1/README.md); owner-authorized for this preview at that status. |
 | F — v0.2 | [Transverse Chirality, Dihedral Harmonic Selection, and Local Linearization](papers/PAPER_F/PAPER_F_PUBLICATION_v0.2.pdf) | [Accepted scientific source and publication-build status](papers/PAPER_F/README.md); owner-authorized for this preview at that status. |
+| G — v0.1.1 | [Geometry-Attached Axial Observables, Period-Doubling, and Certified Entrance Capture in the Tri-Octagon Map](papers/PAPER_G/v0.1.1/publication/PAPER_G_v0.1.1_LOCAL_REVIEW.pdf) | [Edition, source and publication disposition](papers/PAPER_G/README.md); author-authorized repository publication of the approved review artifact, unchanged. |
 
 - [Kernel history and comparison — v0.1](papers/KERNEL_HISTORY_AND_COMPARISON/README.md)
 
@@ -43,6 +46,10 @@ The [owner publication disposition](PUBLIC_RELEASE_CONTENT_DISPOSITION_v0.1.md)
 authorizes E/F public visibility/publication at their currently recorded
 scientific/review status. It supersedes earlier owner-authorization-pending
 notices without inventing another review round. No external peer review is claimed.
+
+Paper G has a separate [author publication disposition](papers/PAPER_G/repository_publication/v0.1.1/PUBLICATION_DISPOSITION.md).
+Its approved v0.1.1 PDF/source retain their review labels and exact bytes;
+that later disposition authorizes repository publication without changing the science.
 
 ## Licensing and reuse
 
