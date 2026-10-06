@@ -1,0 +1,95 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "SRG negative-exponent basis/action",
+      "passed": true,
+      "kind": "binary64 smoke"
+    },
+    {
+      "name": "Scale-related lens inputs",
+      "passed": true,
+      "kind": "binary64 smoke"
+    },
+    {
+      "name": "Endpoint gains",
+      "passed": true,
+      "kind": "binary64 smoke"
+    },
+    {
+      "name": "D1 retained midpoint h=0.0",
+      "passed": true,
+      "kind": "110-digit residual smoke, not new continuation"
+    },
+    {
+      "name": "D1 retained midpoint h=0.1",
+      "passed": true,
+      "kind": "110-digit residual smoke, not new continuation"
+    },
+    {
+      "name": "One original D1 fixed-root enclosure",
+      "passed": true,
+      "kind": "same 100-digit interval routine; one point only"
+    },
+    {
+      "name": "D1 retained midpoint h=0.01",
+      "passed": true,
+      "kind": "110-digit residual smoke, not new continuation"
+    },
+    {
+      "name": "D1 retained midpoint h=0.001",
+      "passed": true,
+      "kind": "110-digit residual smoke, not new continuation"
+    }
+  ],
+  "passed": 8,
+  "total": 8,
+  "details": {
+    "one_point_certificate": {
+      "certified": true,
+      "eta_interval": [
+        "0.00025",
+        "0.00025"
+      ],
+      "radius": "1.0e-60",
+      "q_upper": "1.0920059960421225608311221949218143356056829981584638054601499639231089226214698e-57",
+      "Y_upper": "9.7348880864924089278120992327426565488388850040438028544910545040019858700407885e-100",
+      "inclusion_margin_lower": "9.9999999999999999999999999999999999999902651119135075910612678408068351178428499e-61",
+      "input_modulus_squared_lower": "0.49915915693163157968076347393270265489616995512246816794074671142001940433429947",
+      "prestage_modulus_squared_lower": "0.49915915693163157968076347393270265489616995512246816794074648230229976475993488",
+      "gauge_positive_lower": "0.99999769355147028148292896952826706652976379260339246752851634463564521196773271",
+      "inverse_norm_upper": "77.962699418515212312115566561960233733811324295708722553216157134711809426441425",
+      "point_center": [
+        "0.00080187578237515831474407327548711924603865430996061543720090992314149374672146798348034738739358103632361338516",
+        "0.000034217167422701735291908321978546728092758876529113142455628594950629150673865190672334026685954949191845637922",
+        "-0.0008430122953870156012490730126644663848400353763123259941045046111561869948891362146972776576512784585224974861",
+        "0.0020991458418113125405882157301476016332306668629777402135113253813520620493177636188222709912910979951933223325",
+        "-0.004003820172771038363795867242110569188423420807582923741701362314822029514334485467190436515658428060413805581",
+        "0.0019046743309597258232076515119629675551927539446051835281900369334699674650167218483681655243673300652204832486",
+        "0.000000017476443334916817536010337791094898642793396986507191008183424254230557001757105416426702651538700846968705017"
+      ]
+    },
+    "midpoint_absolute_residuals": [
+      "9.2753367221550871023e-112",
+      "4.586669583179430405e-105",
+      "7.805495638141970466e-112",
+      "1.0957976298158879314e-111"
+    ],
+    "adapter": {
+      "source_sha256": "413dfa38354d894443bfcd40ec1a2f52ac0442c9d7290eca9d088dff8b0f25b2",
+      "method": "AST function/class bodies unchanged; module path/I-O/assertion/main side effects excluded",
+      "precision": {
+        "mpmath": 110,
+        "interval": 100
+      },
+      "full_133_suite_replayed": false,
+      "historical_preservation_checks_replayed": false
+    }
+  },
+  "versions": {
+    "python": "3.11.15",
+    "numpy": "2.4.4",
+    "sympy": "1.14.0",
+    "mpmath": "1.3.0"
+  }
+}

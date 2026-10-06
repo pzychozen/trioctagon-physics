@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "runs": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/typeset.py"
+      ],
+      "returncode": 0,
+      "stdout": "Both sources generated; 47 measurement and 53 drift labels retained.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/figures.py"
+      ],
+      "returncode": 0,
+      "stdout": "Two formula figures generated as PDF/SVG; retained TL4 PNG unchanged.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/smoke.py"
+      ],
+      "returncode": 0,
+      "stdout": "{\"status\": \"PASS\", \"candidate_smoke_checks\": 8, \"output\": \"<clean-package>\\\\results\\\\portable_smoke.json\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/build.py",
+        "--tectonic",
+        "tectonic",
+        "--fontconfig",
+        "<existing platform fontconfig>"
+      ],
+      "returncode": 0,
+      "stdout": "measurement {'file': 'measurement/Measurement_Geometry_v0.1.pdf', 'bytes': 392877, 'sha256': 'a3b74f063612408532814a26540ebc7873ebcbf2472f5dbfa2e2da34b4290cdb', 'compiler': 'Tectonic 0.17.0', 'source_date_epoch': '1791244800', 'python': '3.11.15', 'returncode': 0}\ndrift {'file': 'drift/Cubic_Common_Phase_Drift_v0.1.pdf', 'bytes': 175214, 'sha256': '716716683c44ed9adab0d56ca334557a92120f18e0c0978b3481346f2af50f04', 'compiler': 'Tectonic 0.17.0', 'source_date_epoch': '1791244800', 'python': '3.11.15', 'returncode': 0}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/check_package.py"
+      ],
+      "returncode": 0,
+      "stdout": "{\"status\": \"PASS\", \"checks\": [{\"name\": \"Unchanged archival/native/reviewer copies\", \"passed\": true, \"details\": {\"files\": 77, \"mismatches\": []}}, {\"name\": \"measurement all displayed equations, including unnumbered\", \"passed\": true, \"details\": {\"original_display_count\": 51, \"missing\": []}}, {\"name\": \"measurement label crosswalk\", \"passed\": true, \"details\": {\"count\": 47}}, {\"name\": \"measurement equation references\", \"passed\": true, \"details\": []}, {\"name\": \"measurement portable local links\", \"passed\": true, \"details\": []}, {\"name\": \"measurement no private production path or placeholders\", \"passed\": true, \"details\": null}, {\"name\": \"measurement build diagnostics\", \"passed\": true, \"details\": []}, {\"name\": \"drift all displayed equations, including unnumbered\", \"passed\": true, \"details\": {\"original_display_count\": 64, \"missing\": []}}, {\"name\": \"drift label crosswalk\", \"passed\": true, \"details\": {\"count\": 53}}, {\"name\": \"drift equation references\", \"passed\": true, \"details\": []}, {\"name\": \"drift portable local links\", \"passed\": true, \"details\": []}, {\"name\": \"drift no private production path or placeholders\", \"passed\": true, \"details\": null}, {\"name\": \"drift build diagnostics\", \"passed\": true, \"details\": []}, {\"name\": \"Candidate smoke independent of retained counts\", \"passed\": true, \"details\": {\"retained_suites_replayed\": false}}], \"passed\": 14, \"total\": 14}\n",
+      "stderr": ""
+    }
+  ],
+  "pdfs": {
+    "measurement": {
+      "sha256": "a3b74f063612408532814a26540ebc7873ebcbf2472f5dbfa2e2da34b4290cdb",
+      "bytes": 392877,
+      "clean_copy_sha256": "a3b74f063612408532814a26540ebc7873ebcbf2472f5dbfa2e2da34b4290cdb",
+      "byte_identical": true
+    },
+    "drift": {
+      "sha256": "716716683c44ed9adab0d56ca334557a92120f18e0c0978b3481346f2af50f04",
+      "bytes": 175214,
+      "clean_copy_sha256": "716716683c44ed9adab0d56ca334557a92120f18e0c0978b3481346f2af50f04",
+      "byte_identical": true
+    }
+  },
+  "scope": "Fresh directory; same installed Python, Tectonic and dependencies. No fresh environment installation or cross-platform reproducibility claimed."
+}

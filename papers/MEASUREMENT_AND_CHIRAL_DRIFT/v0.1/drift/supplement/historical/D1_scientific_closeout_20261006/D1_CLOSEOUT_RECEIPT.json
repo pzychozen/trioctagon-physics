@@ -1,0 +1,77 @@
+{
+  "disposition": "PASS_WITH_QUALIFICATIONS",
+  "checkpoint": "D1 CLOSED; no D2 authorized",
+  "operation": "External written scientific closeout, source-identity review and preservation only",
+  "provided_review": {
+    "source": "supplied-review/D1_SCIENTIFIC_CLOSEOUT.md",
+    "sha256": "e62cdc5c72b0b3f9b1359e89c3104d80abec58de07ad168adf7a3140e022bef6",
+    "verbatim_copy": "D1_SCIENTIFIC_CLOSEOUT.md",
+    "authorship": "User-supplied GPT scientific review; its first-person review claims are attributed to that document, not to this local execution"
+  },
+  "baseline": {
+    "head": "82cab10cbe550f58c43163fb8b05fabdad1b05ae",
+    "branch": "main"
+  },
+  "predecessor_identities": {
+    "research\\D0_chiral_reference_20261006\\D0_CHIRAL_REFERENCE_AND_RECONCILIATION.md": "a84ece868b9f68713f90792b7c3a092e4829fef0861e3e630a43bcc1962f4b60",
+    "research\\D0_chiral_reference_20261006\\D0_RESULTS.json": "fa649d2b17f23e3a9e98b72c6b3153ff780558d04c3f37c874f5b3ad556dddbc",
+    "research\\D0_chiral_reference_20261006\\verify_d0.py": "01b187447a1db981b3d67baaa4bbd9d6e30b6f5ea6d70501972d2477634ef8f1",
+    "research\\D1_chiral_drift_20261006\\D1_NATIVE_CHIRAL_PHASE_DRIFT.md": "7fa8bb8f61dab09c4f94f0a2227300f94bede4a7651241679e35375d0b8c0737",
+    "research\\D1_chiral_drift_20261006\\D1_RESULTS.json": "749eea6f2727fc953e690cc1a5ffe0b39dd8ecbc61b637463fd9e2bbcc217767",
+    "research\\D1_chiral_drift_20261006\\verify_d1.py": "413dfa38354d894443bfcd40ec1a2f52ac0442c9d7290eca9d088dff8b0f25b2"
+  },
+  "retained_check_counts": {
+    "D0": {
+      "passed": 64,
+      "total": 64,
+      "rerun_in_closeout": false
+    },
+    "D1": {
+      "passed": 133,
+      "total": 133,
+      "rerun_in_closeout": false
+    }
+  },
+  "reviewer_companions": {
+    "names": [
+      "check_d1_exact_jet.py",
+      "exact_jet_check.json",
+      "check_d1_midpoints.py",
+      "midpoint_check.json"
+    ],
+    "availability": "Not found in the bounded search of Downloads and external research; no claim about other locations or archives",
+    "replayed": false,
+    "review_claims": "Reported by the supplied review; not independently replayed in this closeout"
+  },
+  "review_disposition": {
+    "coefficient_normalization": "Consistent with stored D1 exact expressions: nu_eta3=2*c_plus_h",
+    "generator_rate": "Nonzero exact cubic coefficient retained",
+    "gradient_obstruction": "Conditional contradiction proof reviewed: a positive-definite pure gradient of a common-phase-invariant potential cannot equal a nonzero tangent to that symmetry orbit",
+    "weighted_edge_identity": "Opposite edge orientations pair to (r_i^2-r_j^2)*sin(3*(theta_j-theta_i)) with the displayed sign",
+    "certificate_review_limit": "The reviewer did not have original verifier/results; this local closeout verifies their identities and retained receipts but does not claim an independent replay of their interval implementation"
+  },
+  "boundaries": [
+    "No new research, parameter scan or trajectory",
+    "No kernel/UI/paper/fixture/history edits",
+    "No source publication or repository actions",
+    "No physical clock, current or spatial rotation adopted",
+    "No automatic D2",
+    "TL0-TL4 synthesis remains separate and outstanding"
+  ],
+  "after": {
+    "head": "82cab10cbe550f58c43163fb8b05fabdad1b05ae",
+    "branch": "main"
+  },
+  "preservation_passed": true,
+  "output_hashes": {
+    "D1_SCIENTIFIC_CLOSEOUT.md": "e62cdc5c72b0b3f9b1359e89c3104d80abec58de07ad168adf7a3140e022bef6",
+    "D1_LOCAL_CLOSEOUT_RECORD.md": "3bd1be1a70c91a645662ac8b52350f662bca2de102623085308816cd39005e23"
+  },
+  "completion": "Scientific closeout recorded; reviewer limitations retained; no further work started.",
+  "_public_export": {
+    "status": "Public derivative; not byte-identical to raw original",
+    "original_raw_sha256": "dc1d0b139e257584117b506f0eb700083c81a9bddd6f4bd7f94a1daede789261",
+    "map": "provenance/public_export_map.json",
+    "note": "Exact operational omissions and locator substitutions only. Original historical counts are retained, not replayed."
+  }
+}

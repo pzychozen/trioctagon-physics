@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "commands_executed": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/typeset.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/figures.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/smoke.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/build.py",
+        "--tectonic",
+        "tectonic",
+        "--fontconfig",
+        "<existing platform fontconfig>"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/check_package.py"
+      ],
+      "returncode": 0
+    }
+  ],
+  "checker_only_repairs": [
+    "Drive-letter detector excludes URI schemes and TeX mathematical expressions; the initial detector misread https:// and set-builder notation as drive paths.",
+    "Historical math fingerprint reader normalizes CRLF to LF, matching its recorded text-reading convention; actual math strings are unchanged."
+  ],
+  "science_replayed_after_checker_repairs": false,
+  "pdfs": {
+    "measurement": {
+      "sha256": "117474240877e9eaa61faa041d6e362fbdb5ec9b6971569563d2d746674f0fed",
+      "bytes": 395015,
+      "byte_identical": true
+    },
+    "drift": {
+      "sha256": "f1be0a9979c08607a0d6ba79358c4a6c04f268822dbe29130a73da46824f8538",
+      "bytes": 178544,
+      "byte_identical": true
+    }
+  },
+  "source_files_unchanged": 76,
+  "historical_writer_executed": false,
+  "scope": "Fresh public-layout directory in the same installed Python/Tectonic environment. Source/figure/smoke/build commands passed first; only package checker was rerun after two reader-pattern fixes. No fresh dependency installation or cross-platform identity claimed."
+}

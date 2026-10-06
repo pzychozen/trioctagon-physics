@@ -1,0 +1,63 @@
+========================================================================
+A. Fixed point + phase Jacobian = S P  (independent re-derivation)
+fixed-point residual: 2.220446049250313e-16
+H r = r  (ground-state transform) : True
+max |J_fd - S P| : 2.042810365310288e-14
+P_{i,i+1} = g r_{i+1}/r_i : True
+pre-sync phase block in Cartesian b=R phi is H (uniform conductance g, symmetric): True True
+========================================================================
+B. Bloch-block imaginary obstruction: native vs generator vs weighted-sync diagnostic
+ g=0.2, ell=0.03:  -Im B_native=+2.630769e-05  GR2 Gamma=ell g E V/abc=+2.630769e-05
+           -Im B_gen   =-0.000000e+00  ell g (ell-g) V/abc=+2.942308e-05   | weighted-sync diagnostic: -2.711e-19
+ g=0.2, ell=0.3:  -Im B_native=-4.846154e-04  GR2 Gamma=ell g E V/abc=-4.846154e-04
+           -Im B_gen   =-0.000000e+00  ell g (ell-g) V/abc=-1.730769e-04   | weighted-sync diagnostic: +6.505e-19
+ g=0.1, ell=0.1:  -Im B_native=-8.653846e-06  GR2 Gamma=ell g E V/abc=-8.653846e-06
+           -Im B_gen   =-0.000000e+00  ell g (ell-g) V/abc=-0.000000e+00   | weighted-sync diagnostic: +2.711e-20
+
+ step-size scaling g=h*0.4, ell=h*0.9 (so ell_hat-g_hat=0.5):
+  h=1e-01: E/h=0.608000 (=(ell^-g^)+3 h g^ell^ = 0.608000); GammaNat/h^3=-6.31385e-03, GammaGen/h^3=-0.00000e+00, weighted/h^3=-0.000e+00
+           eigen-rates/h (native, z=i): [0.34612+0.0007j  4.41366+0.00045j 2.49723-0.00115j]
+  h=1e-02: E/h=0.510800 (=(ell^-g^)+3 h g^ell^ = 0.510800); GammaNat/h^3=-5.30446e-03, GammaGen/h^3=-0.00000e+00, weighted/h^3=+1.654e-16
+           eigen-rates/h (native, z=i): [0.34802+0.00051j 4.89412+0.00049j 2.63303-0.001j  ]
+  h=1e-03: E/h=0.501080 (=(ell^-g^)+3 h g^ell^ = 0.501080); GammaNat/h^3=-5.20352e-03, GammaGen/h^3=-0.00000e+00, weighted/h^3=-1.292e-17
+           eigen-rates/h (native, z=i): [4.94217+0.00049j 2.6466 -0.00098j 0.3482 +0.00049j]
+
+ same with ell = g (no metric mismatch at generator level), h=1e-3:
+  GammaNat=-5.409e-15 (order h^4, pure splitting), GammaGen=-0.000e+00
+========================================================================
+C. Triad Kolmogorov cycle factor: native vs generator
+  h=1e-01: C_native/h^3=-3.298401e-03  C_gen/h^3=-5.192308e-03  g ell (g-ell)[cyclic ratio diff]/h^3=-5.192308e-03
+  h=1e-02: C_native/h^3=-4.973542e-03  C_gen/h^3=-5.192308e-03  g ell (g-ell)[cyclic ratio diff]/h^3=-5.192308e-03
+  h=1e-03: C_native/h^3=-5.170102e-03  C_gen/h^3=-5.192308e-03  g ell (g-ell)[cyclic ratio diff]/h^3=-5.192308e-03
+========================================================================
+D. Channel area = planar-spin vector chirality = U(1) Noether bond current; local Z3 of sync
+ C = (s_B x s_C, s_C x s_A, s_A x s_B): True | C = Im(conj(Om_i) Om_j): True
+ I^2 = |Om.Om|^2 + 4|C|^2 (3D polarization / oscillator identity): True
+ f1 . f1 = 0 (circular / maximal chirality): True
+ sync stage commutes with LOCAL Z3 phase rotations: True
+ graph-coupling stage does NOT (max defect): 4.671
+========================================================================
+E. Paper G M2 flip location vs explicit-step stability of the synchronizer
+ lambda_c = 0.367476394604;  sync-alone triad transverse multiplier 1-9*lambda_c = -2.307288  (|.|>1 for lambda>2/9=0.222222)
+ SIMS boundary g*=2/3  <->  1-3g = -1 (explicit diffusion step limit on the triad)
+========================================================================
+F. Generator (small-step) limit of the complex Bloch rates; Hatano-Nelson net flux
+generator-level rates (P+S-I), per unit h, z=i, ghat=0.4, ellhat=0.9:
+ h=1e-01 native [0.346118+0.000697j 2.497231-0.001149j 4.413659+0.000452j]
+        gen    [0.348226+0.000491j 2.648108-0.000982j 4.947513+0.000491j]
+        R2-wtd [0.308773-0.j 2.374608-0.j 4.789812-0.j]
+ h=1e-02 native [0.348016+0.000509j 2.633026-0.001j    4.894121+0.000491j]
+        gen    [0.348226+0.000491j 2.648108-0.000982j 4.947513+0.000491j]
+        R2-wtd [0.310409+0.j 2.501732-0.j 5.33447 +0.j]
+ h=1e-03 native [0.348205+0.000493j 2.646599-0.000984j 4.942173+0.000491j]
+        gen    [0.348226+0.000491j 2.648108-0.000982j 4.947513+0.000491j]
+        R2-wtd [0.310574+0.j 2.514444+0.j 5.388935+0.j]
+ h=1e-04 native [0.348224+0.000491j 2.647957-0.000982j 4.946979+0.000491j]
+        gen    [0.348226+0.000491j 2.648108-0.000982j 4.947513+0.000491j]
+        R2-wtd [0.310591+0.j 2.515715+0.j 5.394381+0.j]
+
+ell_hat = g_hat (=0.5) generator: [0.2630538 +0.j 2.05992449+0.j 3.85682941-0.j]
+
+generator ring N=12: log(prod fwd/prod bwd) = -0.009104723379147146  per cell: -0.0022761808447867866
+ max |Im eig| (generator, N=12): 9.818370952108246e-05
+ max |Im eig| (native,    N=12): 0.00011491049162143387
