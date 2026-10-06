@@ -1,0 +1,62 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=26mm,headheight=15pt]{geometry}
+\usepackage{graphicx,booktabs,longtable,array,tabularx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{microtype,enumitem,fancyhdr}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{bookmark}
+\hypersetup{pdftitle={Native Response Geometry and Spectral Circulation in the Tri-Octagon Map},pdfauthor={Tri-Octagon research programme},pdfsubject={Research publication v0.1; finite-dimensional mathematical synthesis}}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{2em}
+\setlist{itemsep=2pt,topsep=4pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Native response geometry}
+\fancyhead[R]{\small Research publication v0.1}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\one}{\mathbf1}\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\tr}{\operatorname{tr}}\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\im}{\operatorname{Im}}\newcommand{\re}{\operatorname{Re}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\src}[1]{\textit{Checkpoint authority: #1}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\vspace*{13mm}
+{\small\color{MidnightBlue} TRI-OCTAGON MATHEMATICAL RESEARCH\par}
+\vspace{8mm}
+{\LARGE\bfseries Native Response Geometry and Spectral Circulation in the Tri-Octagon Map\par}
+\vspace{7mm}
+{\large Finite-Ring SPD Self-Adjointness, Equivariant Spatial Observables,\\and State--Shell Attachment\par}
+\vspace{8mm}
+{\normalsize Research publication v0.1\\6 October 2026\par}
+\vspace{8mm}
+\begin{abstract}
+We study the exact linear response and geometric representations of an existing nonlinear complex-state map on cycles of length \(N=3q\). At a positive synchronized background, the complete amplitude and phase multipliers are real, even finite-ring Fourier symbols. Weak three-periodic inhomogeneity produces a positive weighted inner product for the pre-synchronization phase response, with weights equal to squared background amplitudes. Composition with the uniform phase synchronizer generically violates every positive diagonal balance condition. This local obstruction has different spectral consequences in different finite sectors. The positive triad has exactly real transverse spectrum and, near a strictly stable equal background, admits a generally non-diagonal positive-definite symmetrizer. For \(N\ge9\), three-distinct repeated backgrounds satisfying an explicit nondegeneracy condition force non-real Bloch modes. Separately, a six-ring admits an exact rank-one square-zero response and a real/defective/complex unfolding using only an existing parameter. We then classify low-degree spatial equivariants and finite shell-carrier assignments, showing that symmetry does not select a unique position observable. The adopted face decoder is an invertible representation on three tangent fibres, while intensities and chirality generally fail autonomous closure. Full complex coherence and the real Gram matrix do close on the nonzero-pre-synchronization domain, with an exact obstruction at the native zero convention. These are finite-dimensional mathematical results; no physical metric, current, motion or boundary dynamics is identified.
+\end{abstract}
+\vfill
+{\small\textbf{Scope.} Synthesis of the completed GR0, GR1, GR2, CM0 and SA0 checkpoints. No scientific source changes or new physical model. The retained evidence comprises 429 heterogeneous exact/source checks, supplemented by separately reported numerical evidence. It is not a count of theorems.}
+\end{titlepage}
+\pagenumbering{roman}\hypersetup{pageanchor=true}
+\setcounter{tocdepth}{1}
+\begingroup\small\setlength{\parskip}{0pt}\tableofcontents\endgroup
+\clearpage
+\pagenumbering{arabic}
+\input{response}
+\input{spectral}
+\input{observables_closure}
+\input{discussion}
+\appendix
+\input{appendices}
+\input{references}
+\end{document}

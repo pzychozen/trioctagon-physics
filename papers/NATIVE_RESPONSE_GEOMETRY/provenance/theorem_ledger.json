@@ -1,0 +1,1985 @@
+{
+  "stage": "Created before manuscript prose; anti-overstatement authority",
+  "records": [
+    {
+      "id": "L01",
+      "name": "Native map and regular chart",
+      "statement": "The native map is amplitude/coupling followed by harmonic-three phase synchronization; Arg0(0)=0. N=3q, coefficients repeated every three nodes.",
+      "hypotheses": "Real parameters; finite states; differential claims only on nonzero pre-sync charts.",
+      "classification": "DEFINITION / ADOPTION",
+      "checkpoint": "GR0",
+      "source_section_equation": "§5.1–5.2; native inventory §3",
+      "known_before_GR0": "Yes: Paper A §6.1",
+      "manuscript_proof_label": "sec:native",
+      "qualifications": "No global differentiability at zeros for nonzero lambda.",
+      "interpretation_limit": "No physical time or spatial mesh is introduced.",
+      "proof_location": "GR0 §5.1–5.2; native inventory §3; manuscript sec:native",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 33,
+          "name": "synchronizer real Jacobian from explicit nonzero chart"
+        },
+        {
+          "ordinal": 34,
+          "name": "amplitude-stage real Jacobian at k=r^2"
+        },
+        {
+          "ordinal": 35,
+          "name": "complete composed Jacobian, including product term"
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "Panel and state isometries",
+      "statement": "The panel pullback metric is I_2; D_i(q+ip)=qt_i+pe_z is isometric, ED=I and DE is the ambient tangent projector.",
+      "hypotheses": "Canonical frames; arbitrary real fold for individual panel isometry; D/E restricted to tangent domain.",
+      "classification": "DERIVED IDENTITY",
+      "checkpoint": "GR0",
+      "source_section_equation": "§4(a)",
+      "known_before_GR0": "Yes: Papers B/C; Atlas 03/04",
+      "manuscript_proof_label": "sec:attachment",
+      "qualifications": "DE is not the ambient nine-dimensional identity.",
+      "interpretation_limit": "Fixed panel geometry and state geometry remain distinct.",
+      "proof_location": "GR0 §4(a); manuscript sec:attachment",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 1,
+          "name": "panel 1: induced metric for arbitrary real fold"
+        },
+        {
+          "ordinal": 3,
+          "name": "panel 2: induced metric for arbitrary real fold"
+        },
+        {
+          "ordinal": 5,
+          "name": "panel 3: induced metric for arbitrary real fold"
+        },
+        {
+          "ordinal": 7,
+          "name": "face 0: tangent projector"
+        },
+        {
+          "ordinal": 8,
+          "name": "face 0: exact tangent isometry"
+        },
+        {
+          "ordinal": 12,
+          "name": "face 1: tangent projector"
+        },
+        {
+          "ordinal": 13,
+          "name": "face 1: exact tangent isometry"
+        },
+        {
+          "ordinal": 17,
+          "name": "face 2: tangent projector"
+        },
+        {
+          "ordinal": 18,
+          "name": "face 2: exact tangent isometry"
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "Matched transport",
+      "statement": "T_ij=t_it_j^T+e_ze_z^T satisfies T_ij T_jk=T_ik; closed products restrict to identity on W_i.",
+      "hypotheses": "Labelled tangent fibres; ambient maps have rank two.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "GR0",
+      "source_section_equation": "§4(b)–(c); SA0 §3.2",
+      "known_before_GR0": "Yes: Paper B Proposition 2",
+      "manuscript_proof_label": "sec:attachment",
+      "qualifications": "Ambient closed product is a projector.",
+      "interpretation_limit": "No arbitrary surface-path or physical connection is derived.",
+      "proof_location": "GR0 §4(b)–(c); SA0 §3.2; manuscript sec:attachment",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 9,
+          "name": "face 0: closed matched transport"
+        },
+        {
+          "ordinal": 10,
+          "name": "face 0: loop restricted to tangent plane"
+        },
+        {
+          "ordinal": 11,
+          "name": "face 0: loop kills normal"
+        },
+        {
+          "ordinal": 14,
+          "name": "face 1: closed matched transport"
+        },
+        {
+          "ordinal": 15,
+          "name": "face 1: loop restricted to tangent plane"
+        },
+        {
+          "ordinal": 16,
+          "name": "face 1: loop kills normal"
+        },
+        {
+          "ordinal": 19,
+          "name": "face 2: closed matched transport"
+        },
+        {
+          "ordinal": 20,
+          "name": "face 2: loop restricted to tangent plane"
+        },
+        {
+          "ordinal": 21,
+          "name": "face 2: loop kills normal"
+        },
+        {
+          "ordinal": 22,
+          "name": "all 27 ambient transport composition identities"
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "Potential and exact intensity budget",
+      "statement": "The pre-stage increment is -grad V for V=epsilon sum(s_i^2/4-k_i s_i/2)+(g/2)sum_edges|z_i-z_j|^2. The full intensity increment includes +||increment||^2.",
+      "hypotheses": "Triad; real Cartesian gradient; exact normalization.",
+      "classification": "DERIVED IDENTITY",
+      "checkpoint": "GR0",
+      "source_section_equation": "§4(d)–(e)",
+      "known_before_GR0": "Yes: Papers B/D/E; Atlas 07",
+      "manuscript_proof_label": "sec:native",
+      "qualifications": "No universal discrete descent: common input 2 at eps=k=1,g=0 maps to -4.",
+      "interpretation_limit": "Not a calibrated physical energy or elastic shell energy.",
+      "proof_location": "GR0 §4(d)–(e); manuscript sec:native",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 23,
+          "name": "six-real-coordinate potential normalization and negative gradient"
+        },
+        {
+          "ordinal": 24,
+          "name": "graph Dirichlet identity"
+        },
+        {
+          "ordinal": 25,
+          "name": "face 0: transported graph increment equals original"
+        },
+        {
+          "ordinal": 26,
+          "name": "face 1: transported graph increment equals original"
+        },
+        {
+          "ordinal": 27,
+          "name": "face 2: transported graph increment equals original"
+        },
+        {
+          "ordinal": 28,
+          "name": "transported graph quadratic equals pairwise complex quadratic"
+        },
+        {
+          "ordinal": 29,
+          "name": "exact full-step intensity budget (phase preserves moduli)"
+        },
+        {
+          "ordinal": 31,
+          "name": "retained potential overshoot witness V before=6"
+        },
+        {
+          "ordinal": 32,
+          "name": "retained potential overshoot witness V after=168"
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "Positive synchronized fixed circle",
+      "statement": "For epsilon nonzero, fixed states on the nonzero common-channel line form sqrt(k) exp(i chi) 1 exactly when k>0.",
+      "hypotheses": "Any admitted finite ring; real g,lambda.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "GR0",
+      "source_section_equation": "§5.1",
+      "known_before_GR0": "Yes in unit/triad cases; general equal-k formulation consolidated by GR0",
+      "manuscript_proof_label": "sec:homogeneous",
+      "qualifications": "At epsilon=0 every common amplitude is fixed and an extra neutral direction appears.",
+      "interpretation_limit": "A fixed circle in state space is not a material orbit.",
+      "proof_location": "GR0 §5.1; manuscript sec:homogeneous",
+      "supporting_verification_predicates": [],
+      "verification_note": "Written proof/source statement is authority; no individually matched predicate claimed."
+    },
+    {
+      "id": "L06",
+      "name": "Complete homogeneous derivative",
+      "statement": "Amplitude block is (1-2 epsilon k)I+g Delta; phase block is (I+3lambda Delta)(I+g Delta).",
+      "hypotheses": "Positive equal-k background; local real amplitude/phase chart.",
+      "classification": "DERIVED IDENTITY",
+      "checkpoint": "GR0",
+      "source_section_equation": "§5.2",
+      "known_before_GR0": "Unit triad known in Paper F; all-ring equal-k derivation GR0",
+      "manuscript_proof_label": "sec:homogeneous",
+      "qualifications": "Stage order matters away from homogeneous commutation.",
+      "interpretation_limit": "No inertia is added.",
+      "proof_location": "GR0 §5.2; manuscript sec:homogeneous",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 33,
+          "name": "synchronizer real Jacobian from explicit nonzero chart"
+        },
+        {
+          "ordinal": 34,
+          "name": "amplitude-stage real Jacobian at k=r^2"
+        },
+        {
+          "ordinal": 35,
+          "name": "complete composed Jacobian, including product term"
+        },
+        {
+          "ordinal": 45,
+          "name": "triad Paper-F b multiplier recovered"
+        }
+      ]
+    },
+    {
+      "id": "L07",
+      "name": "Finite Fourier spectrum",
+      "statement": "mu_a=1-2epsilon k-g h_m; mu_phi=(1-g h_m)(1-3lambda h_m); h_m=4sin^2(pi m/N).",
+      "hypotheses": "N=3q, m=0,...,N-1, equal positive k.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "GR0",
+      "source_section_equation": "§5.3",
+      "known_before_GR0": "Cycle Fourier calculus and unit triad known; present synthesis from GR0",
+      "manuscript_proof_label": "sec:homogeneous",
+      "qualifications": "Triad pullback modes have h=0,3,3 and are not long-wave modes.",
+      "interpretation_limit": "Real/even multipliers exclude propagating linear wave dispersion only on this branch.",
+      "proof_location": "GR0 §5.3; manuscript sec:homogeneous",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 36,
+          "name": "C3: exact Fourier Laplacian eigenvalues"
+        },
+        {
+          "ordinal": 37,
+          "name": "C3: exact amplitude Fourier multipliers"
+        },
+        {
+          "ordinal": 38,
+          "name": "C3: exact full-phase Fourier multipliers"
+        },
+        {
+          "ordinal": 39,
+          "name": "C12: exact Fourier Laplacian eigenvalues"
+        },
+        {
+          "ordinal": 40,
+          "name": "C12: exact amplitude Fourier multipliers"
+        },
+        {
+          "ordinal": 41,
+          "name": "C12: exact full-phase Fourier multipliers"
+        }
+      ]
+    },
+    {
+      "id": "L08",
+      "name": "Normal stability",
+      "statement": "Strict contraction normal to the fixed circle is equivalent to |mu_a(m)|<1 for all m and |mu_phi(m)|<1 for m nonzero; it yields local finite-N attraction modulo common phase.",
+      "hypotheses": "Fixed finite N; nonzero chart; strict inequalities.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "GR0",
+      "source_section_equation": "§5.4",
+      "known_before_GR0": "Prior local methods in Paper F; scope GR0",
+      "manuscript_proof_label": "sec:homogeneous",
+      "qualifications": "No uniform-in-N basin; equality at unit modulus is undecided by the linear test.",
+      "interpretation_limit": "Relaxation may include sign alternation.",
+      "proof_location": "GR0 §5.4; manuscript sec:homogeneous",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 36,
+          "name": "C3: exact Fourier Laplacian eigenvalues"
+        },
+        {
+          "ordinal": 37,
+          "name": "C3: exact amplitude Fourier multipliers"
+        },
+        {
+          "ordinal": 38,
+          "name": "C3: exact full-phase Fourier multipliers"
+        },
+        {
+          "ordinal": 39,
+          "name": "C12: exact Fourier Laplacian eigenvalues"
+        },
+        {
+          "ordinal": 40,
+          "name": "C12: exact amplitude Fourier multipliers"
+        },
+        {
+          "ordinal": 41,
+          "name": "C12: exact full-phase Fourier multipliers"
+        }
+      ]
+    },
+    {
+      "id": "L09",
+      "name": "Restricted modal limit",
+      "statement": "For fixed m and D_phi=g+3lambda>0, mu_phi(2pi m/N)^floor(tau N^2) tends uniformly on bounded tau intervals to exp(-4pi^2 D_phi m^2 tau), with O(N^-2) error.",
+      "hypotheses": "Fixed native coefficients and fixed finite collection of Fourier indices; N→infinity through 3q.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "GR0",
+      "source_section_equation": "§6.1–6.2",
+      "known_before_GR0": "Not asserted as prior result; GR0",
+      "manuscript_proof_label": "sec:homogeneous",
+      "qualifications": "No nonlinear continuum theorem or control of all growing modes; D_phi=0 has quartic leading decrement.",
+      "interpretation_limit": "Diffusion-like modal analogy, no physical dt or length.",
+      "proof_location": "GR0 §6.1–6.2; manuscript sec:homogeneous",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 42,
+          "name": "small-wave-number phase multiplier through q^4"
+        },
+        {
+          "ordinal": 43,
+          "name": "small-wave-number amplitude multiplier through q^4"
+        },
+        {
+          "ordinal": 44,
+          "name": "D=0 phase boundary is fourth-order in graph wave number"
+        }
+      ]
+    },
+    {
+      "id": "L10",
+      "name": "Positive unequal branch and screening",
+      "statement": "The local analytic positive solution of epsilon r_i(k_i-r_i^2)+g Delta r_i=0 has (2epsilon k I-g Delta)u=epsilon sqrt(k) kappa; for three-periodic zero-mean kappa, u=epsilon sqrt(k) kappa/(2epsilon k+3g).",
+      "hypotheses": "k>0; strict finite-N normal stability at equal point; k_i=k+eta kappa_i.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "GR1",
+      "source_section_equation": "§2, (2)–(6)",
+      "known_before_GR0": "Fixed equation known Paper A §7.5; response formula GR1",
+      "manuscript_proof_label": "sec:unequal",
+      "qualifications": "Positive inverse derivative, local uniqueness only; no global branch continuation.",
+      "interpretation_limit": "Screened-Poisson structural analogy only when g>0.",
+      "proof_location": "GR1 §2, (2)–(6); manuscript sec:unequal",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 1,
+          "name": "fixed-equation substitution H r = r"
+        },
+        {
+          "ordinal": 5,
+          "name": "native fixed-equation first derivative"
+        },
+        {
+          "ordinal": 6,
+          "name": "triad zero-sum branch derivative"
+        }
+      ]
+    },
+    {
+      "id": "L11",
+      "name": "Pre-stage weighted response",
+      "statement": "P=R^-1 H R, Hr=r; R^2P=P^T R^2. Its inner product has weights r_i^2 and Dirichlet form g sum_edges r_i r_j(f_i-f_j)^2.",
+      "hypotheses": "Every positive fixed branch; real g; uniqueness of weights up to scale when g nonzero and graph connected.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "GR1",
+      "source_section_equation": "§3, (7)–(12)",
+      "known_before_GR0": "Derivative framework prior; explicit weighting/classification GR1",
+      "manuscript_proof_label": "sec:weighted",
+      "qualifications": "g=0 permits every positive diagonal weight; g<0 reverses form sign; stochasticity needs entrywise nonnegativity.",
+      "interpretation_limit": "Background-dependent mathematical response geometry, not spacetime.",
+      "proof_location": "GR1 §3, (7)–(12); manuscript sec:weighted",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 1,
+          "name": "fixed-equation substitution H r = r"
+        },
+        {
+          "ordinal": 2,
+          "name": "pre-sync rows sum to one"
+        },
+        {
+          "ordinal": 3,
+          "name": "pre-sync exact detailed balance R^2 P = P^T R^2"
+        },
+        {
+          "ordinal": 4,
+          "name": "weighted Dirichlet form"
+        }
+      ]
+    },
+    {
+      "id": "L12",
+      "name": "Full unequal derivative",
+      "statement": "J_phi=S_phi P with S_phi=I+ell Delta, ell=3lambda; amplitude block H-2epsilon R^2; no first-order amplitude/phase mixing.",
+      "hypotheses": "Positive branch; phase coordinates b=R phi.",
+      "classification": "DERIVED IDENTITY",
+      "checkpoint": "GR1",
+      "source_section_equation": "§3, (13)–(15)",
+      "known_before_GR0": "Prior derivative framework; GR1 full formulation",
+      "manuscript_proof_label": "sec:weighted",
+      "qualifications": "Cartesian imaginary block is R S_phi R^-1 H; not SP in those coordinates.",
+      "interpretation_limit": "Two separately self-adjoint factors need not have a common metric.",
+      "proof_location": "GR1 §3, (13)–(15); manuscript sec:weighted",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 7,
+          "name": "native radial derivative"
+        },
+        {
+          "ordinal": 8,
+          "name": "native imaginary derivative"
+        },
+        {
+          "ordinal": 9,
+          "name": "native mixed derivative zero"
+        },
+        {
+          "ordinal": 10,
+          "name": "native other mixed derivative zero"
+        },
+        {
+          "ordinal": 11,
+          "name": "harmonic-three synchronizer derivative"
+        },
+        {
+          "ordinal": 12,
+          "name": "composed common-phase mode"
+        }
+      ]
+    },
+    {
+      "id": "L13",
+      "name": "Triad cycle factorization",
+      "statement": "C_cyc=g ell(1-3ell)(a-b)(a-c)(b-c) K/(a^2b^2c^2), where K=g^2ell sigma1^3+[g^2(1-2ell)-gell]sigma1 sigma2+(3gell-g+ell)sigma3.",
+      "hypotheses": "a,b,c>0; exact algebra for any real g,ell.",
+      "classification": "DERIVED IDENTITY",
+      "checkpoint": "GR1",
+      "source_section_equation": "§4, (16)–(20)",
+      "known_before_GR0": "GR1; no historical priority claim",
+      "manuscript_proof_label": "sec:cycle",
+      "qualifications": "GR2 (36) omits a '+' in its restatement; this paper uses verified GR1 (20).",
+      "interpretation_limit": "Algebraic response circulation, not physical current.",
+      "proof_location": "GR1 §4, (16)–(20); manuscript sec:cycle",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 13,
+          "name": "exact triad Kolmogorov factorization"
+        }
+      ]
+    },
+    {
+      "id": "L14",
+      "name": "Triad diagonal criterion and exceptions",
+      "statement": "With positive off-diagonals, C_cyc=0 iff positive diagonal balance exists; W=diag(J21J31,J12J31,J13J21). Exceptional factors: g=0,ell=0,ell=1/3,two equal radii,or K=0.",
+      "hypotheses": "Sufficiently near a strictly stable equal triad, guaranteeing positive off-diagonals.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "GR1",
+      "source_section_equation": "§4, (18)–(24)",
+      "known_before_GR0": "GR1 classification; cycle logic standard and reproved",
+      "manuscript_proof_label": "sec:cycle",
+      "qualifications": "Outside positive-entry neighbourhood zero cycle alone does not prove positive weights.",
+      "interpretation_limit": "Locality of weights is a mathematical restriction.",
+      "proof_location": "GR1 §4, (18)–(24); manuscript sec:cycle",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 14,
+          "name": "equal-background off-diagonal response"
+        },
+        {
+          "ordinal": 15,
+          "name": "equal-background remaining cycle factor"
+        },
+        {
+          "ordinal": 16,
+          "name": "tree weights balance edge 12"
+        },
+        {
+          "ordinal": 17,
+          "name": "tree weights balance edge 13"
+        },
+        {
+          "ordinal": 18,
+          "name": "tree weights last edge equals cycle"
+        },
+        {
+          "ordinal": 19,
+          "name": "no-sync exception"
+        },
+        {
+          "ordinal": 20,
+          "name": "no-coupling exception"
+        },
+        {
+          "ordinal": 21,
+          "name": "equal-background exception"
+        },
+        {
+          "ordinal": 22,
+          "name": "two-equal cycle exception"
+        },
+        {
+          "ordinal": 23,
+          "name": "rank-one synchronizer exception"
+        },
+        {
+          "ordinal": 24,
+          "name": "rank-one positive candidate weights"
+        },
+        {
+          "ordinal": 25,
+          "name": "accidental hypersurface is affine in ell"
+        },
+        {
+          "ordinal": 26,
+          "name": "rational accidental-locus balance"
+        },
+        {
+          "ordinal": 27,
+          "name": "rational accidental-locus weights strictly positive"
+        }
+      ]
+    },
+    {
+      "id": "L15",
+      "name": "Cubic onset",
+      "statement": "C_cyc= g ell(1-3ell)K0 [epsilon/(2epsilon k+3g)]^3 V(kappa) eta^3+O(eta^4), K0=g(9g-1)+ell(1-3g)^2.",
+      "hypotheses": "Weak branch of result 10; three-periodic zero-mean perturbation.",
+      "classification": "DERIVED IDENTITY",
+      "checkpoint": "GR1",
+      "source_section_equation": "§5, (25)–(26)",
+      "known_before_GR0": "GR1",
+      "manuscript_proof_label": "sec:cycle",
+      "qualifications": "If K0=0 the obstruction is O(eta^5) or smaller, not automatically zero.",
+      "interpretation_limit": "First-order fitted weights cannot settle exact diagonal balance.",
+      "proof_location": "GR1 §5, (25)–(26); manuscript sec:cycle",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 13,
+          "name": "exact triad Kolmogorov factorization"
+        },
+        {
+          "ordinal": 15,
+          "name": "equal-background remaining cycle factor"
+        }
+      ]
+    },
+    {
+      "id": "L16",
+      "name": "Larger-ring diagonal impossibility",
+      "statement": "For N>=6 and g ell nonzero, distinct positive repeated radii forbid positive diagonal balance. For (a,a,c), it exists iff ell-g-gell(2a/c+c/a)=0, then W=R.",
+      "hypotheses": "N=3q>=6; positive three-periodic branch; no entrywise positivity/stability assumption.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "GR1",
+      "source_section_equation": "§6, (27)–(30)",
+      "known_before_GR0": "GR1",
+      "manuscript_proof_label": "sec:cycle",
+      "qualifications": "g=0,ell=0,or equal radii remain reversible; triad exceptional loci do not suffice on the full ring.",
+      "interpretation_limit": "Distance-two response links strengthen the node-local obstruction.",
+      "proof_location": "GR1 §6, (27)–(30); manuscript sec:cycle",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 28,
+          "name": "N=6 two-step edge"
+        },
+        {
+          "ordinal": 29,
+          "name": "N=6 reverse two-step edge"
+        },
+        {
+          "ordinal": 30,
+          "name": "N=6 weighted nearest-edge obstruction"
+        },
+        {
+          "ordinal": 31,
+          "name": "N=6 exact triad phase pullback"
+        },
+        {
+          "ordinal": 32,
+          "name": "N=6 two-equal exceptional weighting"
+        },
+        {
+          "ordinal": 33,
+          "name": "N=12 two-step edge"
+        },
+        {
+          "ordinal": 34,
+          "name": "N=12 reverse two-step edge"
+        },
+        {
+          "ordinal": 35,
+          "name": "N=12 weighted nearest-edge obstruction"
+        },
+        {
+          "ordinal": 36,
+          "name": "N=12 exact triad phase pullback"
+        },
+        {
+          "ordinal": 37,
+          "name": "N=12 two-equal exceptional weighting"
+        },
+        {
+          "ordinal": 38,
+          "name": "distinct-triple incompatibility"
+        }
+      ]
+    },
+    {
+      "id": "L17",
+      "name": "SPD criterion",
+      "statement": "A real J admits SPD G with GJ=J^TG iff it has real semisimple spectrum. G=V^-T K V^-1 for SPD K commuting with the real eigenvalue matrix; equivalently positive sums of E_rho^T E_rho.",
+      "hypotheses": "Any finite real matrix; repeated semisimple/zero roots allowed.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "GR2",
+      "source_section_equation": "§2, (4)–(6)",
+      "known_before_GR0": "Standard finite-dimensional lemma, reproved; not a novelty claim",
+      "manuscript_proof_label": "sec:spd",
+      "qualifications": "Defective real matrices fail as well as complex-spectrum matrices.",
+      "interpretation_limit": "G is nonunique and need not be node-local or physically privileged.",
+      "proof_location": "GR2 §2, (4)–(6); manuscript sec:spd",
+      "supporting_verification_predicates": [],
+      "verification_note": "Written proof/source statement is authority; no individually matched predicate claimed."
+    },
+    {
+      "id": "L18",
+      "name": "Exact triad reality",
+      "statement": "M=sigma R^-1-11^T is symmetric PSD with kernel r; its other eigenvalues have sum h and product t. Q(xi)=xi^2-d(2-gh)xi+d^2(1-gh+g^2t), D3=d^2g^2(h^2-4t)>=0.",
+      "hypotheses": "Positive a,b,c; arbitrary real g,ell; d=1-3ell; transverse means quotient by common phase.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "GR2",
+      "source_section_equation": "§3, (7)–(13)",
+      "known_before_GR0": "GR2",
+      "manuscript_proof_label": "sec:triad",
+      "qualifications": "h^2-4t=0 iff radii equal; g=0 or d=0 also gives semisimple transverse coincidence.",
+      "interpretation_limit": "Triad diagonal obstruction does not force complex roots.",
+      "proof_location": "GR2 §3, (7)–(13); manuscript sec:triad",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 1,
+          "name": "symmetric triad reduction H=I-g M"
+        },
+        {
+          "ordinal": 2,
+          "name": "positive-kernel vector M r=0"
+        },
+        {
+          "ordinal": 3,
+          "name": "triad trace M"
+        },
+        {
+          "ordinal": 4,
+          "name": "triad second elementary invariant"
+        },
+        {
+          "ordinal": 5,
+          "name": "triad characteristic factorization"
+        }
+      ]
+    },
+    {
+      "id": "L19",
+      "name": "Full triad resonance defect",
+      "statement": "For an M eigenvector w_alpha perpendicular to r, put v_alpha=R^-1 w_alpha,p_alpha=1-g mu_alpha. A full defect occurs at d p_alpha=1 with ell p_alpha 1^Tv_alpha nonzero.",
+      "hypotheses": "Positive nonconstant background; degenerate g,ell,d cases treated separately.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "GR2",
+      "source_section_equation": "§3, (14)–(15)",
+      "known_before_GR0": "GR2",
+      "manuscript_proof_label": "sec:triad",
+      "qualifications": "Three distinct radii imply a defective resonance; equal-pair antisymmetric collision is semisimple. Local strict stability excludes eigenvalue-one resonance.",
+      "interpretation_limit": "Transverse quotient semisimplicity is not always full-matrix semisimplicity.",
+      "proof_location": "GR2 §3, (14)–(15); manuscript sec:triad",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 17,
+          "name": "triad defective common-phase resonance exact rank"
+        },
+        {
+          "ordinal": 18,
+          "name": "triad semisimple common-phase resonance exact rank"
+        }
+      ]
+    },
+    {
+      "id": "L20",
+      "name": "Triad discriminant onset",
+      "statement": "D3=6d^2g^2[epsilon/(2epsilon k+3g)]^2 sum(kappa_i^2) eta^2+O(eta^3). No order produces complex transverse roots on a positive triad.",
+      "hypotheses": "Weak branch; dg and kappa nonzero for positive leading term.",
+      "classification": "DERIVED IDENTITY",
+      "checkpoint": "GR2",
+      "source_section_equation": "§4, (16)",
+      "known_before_GR0": "GR2",
+      "manuscript_proof_label": "sec:triad",
+      "qualifications": "dg=0 leaves exact real coincidence.",
+      "interpretation_limit": "Independent from the cubic diagonal-cycle obstruction.",
+      "proof_location": "GR2 §4, (16); manuscript sec:triad",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 12,
+          "name": "triad discriminant first nonzero coefficient"
+        }
+      ]
+    },
+    {
+      "id": "L21",
+      "name": "Finite Bloch blocks",
+      "statement": "For phi_(n,alpha)=z^n v_alpha, z^q=1, J(z)=(I+ell D(z))R^-1 H(z)R with D(z)=[[-2,1,z^-1],[1,-2,1],[z,1,-2]].",
+      "hypotheses": "N=3q; repeated a,b,c>0; exact finite Fourier transform under translation by three.",
+      "classification": "DERIVED IDENTITY",
+      "checkpoint": "GR2",
+      "source_section_equation": "§5, (17)",
+      "known_before_GR0": "GR2 specialization; finite Fourier decomposition standard",
+      "manuscript_proof_label": "sec:bloch",
+      "qualifications": "Conjugate blocks pair; each block need not have real coefficients.",
+      "interpretation_limit": "No continuum approximation.",
+      "proof_location": "GR2 §5, (17); manuscript sec:bloch",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 19,
+          "name": "N=6 Fourier block z=1"
+        },
+        {
+          "ordinal": 21,
+          "name": "N=6 Fourier block z=-1"
+        },
+        {
+          "ordinal": 23,
+          "name": "N=6 characteristic polynomial product"
+        },
+        {
+          "ordinal": 24,
+          "name": "N=12 Fourier block z=1"
+        },
+        {
+          "ordinal": 26,
+          "name": "N=12 Fourier block z=I"
+        },
+        {
+          "ordinal": 28,
+          "name": "N=12 Fourier block z=-1"
+        },
+        {
+          "ordinal": 30,
+          "name": "N=12 Fourier block z=-I"
+        },
+        {
+          "ordinal": 32,
+          "name": "N=12 characteristic polynomial product"
+        }
+      ]
+    },
+    {
+      "id": "L22",
+      "name": "Bloch polynomial and circulation coefficient",
+      "statement": "det(xi I-J(z))=xi^3-T xi^2+B(z)xi-Ddet, with coefficients of GR2 (20); Gamma_B=ell g[ell(1+3g)-g](a-b)(a-c)(b-c)/(abc) and Im B=-Gamma_B sin theta.",
+      "hypotheses": "Same finite positive branch; all real parameters; |z|=1.",
+      "classification": "DERIVED IDENTITY",
+      "checkpoint": "GR2",
+      "source_section_equation": "§5, (18)–(20)",
+      "known_before_GR0": "GR2",
+      "manuscript_proof_label": "sec:bloch",
+      "qualifications": "Gamma_B differs from the triad cycle factor and the chiral scalar Gamma_ch.",
+      "interpretation_limit": "Spectral response coefficient, not physical flux.",
+      "proof_location": "GR2 §5, (18)–(20); manuscript sec:bloch",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 6,
+          "name": "general Bloch trace"
+        },
+        {
+          "ordinal": 7,
+          "name": "general Bloch quadratic coefficient"
+        },
+        {
+          "ordinal": 8,
+          "name": "general Bloch determinant"
+        },
+        {
+          "ordinal": 9,
+          "name": "Bloch orientation coefficient"
+        },
+        {
+          "ordinal": 10,
+          "name": "Bloch synchronizer determinant"
+        },
+        {
+          "ordinal": 11,
+          "name": "Bloch pre-stage determinant"
+        }
+      ]
+    },
+    {
+      "id": "L23",
+      "name": "Exact block decision",
+      "statement": "Gamma_B sin(theta) nonzero forces non-real roots. For real cubic coefficients, discriminant positive gives three simple real roots, negative a complex pair; zero requires rank/minimal-polynomial tests.",
+      "hypotheses": "Every admitted Bloch block; full ring SPD iff all blocks have real semisimple spectra.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "GR2",
+      "source_section_equation": "§5, (21)–(23)",
+      "known_before_GR0": "GR2 application; cubic/rank tests reproved",
+      "manuscript_proof_label": "sec:bloch",
+      "qualifications": "At a double root rho with distinct sigma, rank(J-rho I)=1 is required; at triple root J=rho I is required.",
+      "interpretation_limit": "Non-real does not imply defective or unstable.",
+      "proof_location": "GR2 §5, (21)–(23); manuscript sec:bloch",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 20,
+          "name": "N=6 z=1 exact positive cubic discriminant"
+        },
+        {
+          "ordinal": 22,
+          "name": "N=6 z=-1 exact positive cubic discriminant"
+        },
+        {
+          "ordinal": 25,
+          "name": "N=12 z=1 exact positive cubic discriminant"
+        },
+        {
+          "ordinal": 27,
+          "name": "N=12 z=I exact non-real spectral obstruction"
+        },
+        {
+          "ordinal": 29,
+          "name": "N=12 z=-1 exact positive cubic discriminant"
+        },
+        {
+          "ordinal": 31,
+          "name": "N=12 z=-I exact non-real spectral obstruction"
+        }
+      ]
+    },
+    {
+      "id": "L24",
+      "name": "Generic larger-ring complex response",
+      "statement": "For q>=3, three distinct radii and g ell[ell(1+3g)-g] nonzero force non-real spectrum. Gamma_B is cubic in weak inequality; simple nonzero roots have the stated cubic imaginary shift.",
+      "hypotheses": "N>=9; repeated weak branch; simple-root expansion needs distinct nonzero equal-background root.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "GR2",
+      "source_section_equation": "§5, (24)–(27)",
+      "known_before_GR0": "GR2",
+      "manuscript_proof_label": "sec:bloch",
+      "qualifications": "Vanishing Gamma_B is not sufficient for real semisimple spectrum; stability can persist.",
+      "interpretation_limit": "Oscillatory linear response only.",
+      "proof_location": "GR2 §5, (24)–(27); manuscript sec:bloch",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 9,
+          "name": "Bloch orientation coefficient"
+        },
+        {
+          "ordinal": 27,
+          "name": "N=12 z=I exact non-real spectral obstruction"
+        },
+        {
+          "ordinal": 31,
+          "name": "N=12 z=-I exact non-real spectral obstruction"
+        }
+      ]
+    },
+    {
+      "id": "L25",
+      "name": "Generic weak six-ring reality",
+      "statement": "At z=-1, Dpi=6g^2(1-ell)^2 sum(v_i^2)(3Epi)^4 eta^2+O(eta^3), Epi=g+ell-5gell.",
+      "hypotheses": "Fixed stable equal N=6 baseline; g(1-ell)Epi nonzero and nontrivial inequality.",
+      "classification": "DERIVED IDENTITY",
+      "checkpoint": "GR2",
+      "source_section_equation": "§6, (29)–(30)",
+      "known_before_GR0": "GR2",
+      "manuscript_proof_label": "sec:six",
+      "qualifications": "Neighbourhood not uniform near exceptional baselines. At Epi=0 a separate first-order test applies; ell=1 needs rank test.",
+      "interpretation_limit": "Six and twelve rings need not share spectral reality.",
+      "proof_location": "GR2 §6, (29)–(30); manuscript sec:six",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 13,
+          "name": "antiperiodic doublet splitting coefficient"
+        },
+        {
+          "ordinal": 14,
+          "name": "antiperiodic triple-resonance trace"
+        },
+        {
+          "ordinal": 15,
+          "name": "antiperiodic triple-resonance determinant"
+        },
+        {
+          "ordinal": 16,
+          "name": "antiperiodic triple-resonance squared trace"
+        }
+      ]
+    },
+    {
+      "id": "L26",
+      "name": "Exact six-ring nilpotent fixture",
+      "statement": "At r=(1-tau,1,1+tau),g=(1-tau^2)/4,ell=1, J(-1)=tau^2/4 (1,-1,1)^T(1+tau,2,1-tau); rank=1,J^2=0,Jordan sizes 2+1.",
+      "hypotheses": "0<|tau| sufficiently small; eps=1/20; k_i from exact native fixed equations.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "GR2",
+      "source_section_equation": "§6, (31)–(33)",
+      "known_before_GR0": "GR2",
+      "manuscript_proof_label": "sec:six",
+      "qualifications": "At tau=1/1000 the exact contraction box links fixture to weak native branch; varying tau does not hold kappa fixed.",
+      "interpretation_limit": "A normally stable response can be defective.",
+      "proof_location": "GR2 §6, (31)–(33); manuscript sec:six",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 33,
+          "name": "exact six-ring nilpotent block"
+        },
+        {
+          "ordinal": 34,
+          "name": "nilpotent block squares to zero"
+        },
+        {
+          "ordinal": 36,
+          "name": "exact six-ring unfolding defective: zero eigenvalue triple, Jordan sizes 2+1"
+        },
+        {
+          "ordinal": 41,
+          "name": "nilpotent fixture native fixed equation"
+        },
+        {
+          "ordinal": 42,
+          "name": "nilpotent native fixed-branch contraction box"
+        }
+      ]
+    },
+    {
+      "id": "L27",
+      "name": "Six-ring complex unfolding",
+      "statement": "With the same r,g,k_i,eps and ell=1+delta, characteristic coefficients are GR2 (34); Dpi=(27/2)tau^12 delta^3+O(delta^4).",
+      "hypotheses": "Fixed nonzero small tau; sufficiently small delta.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "GR2",
+      "source_section_equation": "§6, (34)–(35)",
+      "known_before_GR0": "GR2",
+      "manuscript_proof_label": "sec:six",
+      "qualifications": "delta<0 complex pair; delta=0 defect; delta>0 distinct real roots; exact rational signs checked at ±10^-14 for tau=10^-3.",
+      "interpretation_limit": "Modes can remain inside unit disk.",
+      "proof_location": "GR2 §6, (34)–(35); manuscript sec:six",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 35,
+          "name": "nilpotent-unfolding discriminant leading coefficient"
+        },
+        {
+          "ordinal": 37,
+          "name": "exact six-ring unfolding three distinct real roots"
+        },
+        {
+          "ordinal": 38,
+          "name": "exact six-ring unfolding one real root and a non-real conjugate pair"
+        }
+      ]
+    },
+    {
+      "id": "L28",
+      "name": "Actual spatial representation",
+      "statement": "C3:(q,p)->(Pq,Pp); vertical mirror:(q,p)->(-Sq,Sp); horizontal mirror:(q,p)->(q,-p).",
+      "hypotheses": "Fixed accepted shell frames; spatial polar/axial laws distinct.",
+      "classification": "DEFINITION / ADOPTION",
+      "checkpoint": "CM0",
+      "source_section_equation": "§2, actual mirror-action table",
+      "known_before_GR0": "Yes: Paper B conventions, reused by CM0",
+      "manuscript_proof_label": "sec:observables",
+      "qualifications": "Not ordinary S3 action on both channel triples. This is kinematic covariance; F carries k under permutations and has a regular-domain qualification for mirrors involving common phase.",
+      "interpretation_limit": "Kinematic symmetry does not silently give full fixed-unequal-k dynamical symmetry.",
+      "proof_location": "CM0 §2, actual mirror-action table; manuscript sec:observables",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 1,
+          "name": "centres relative to shell centroid"
+        },
+        {
+          "ordinal": 2,
+          "name": "normal frame Gram"
+        },
+        {
+          "ordinal": 3,
+          "name": "tangent frame Gram"
+        },
+        {
+          "ordinal": 4,
+          "name": "C3 equivariance Lh"
+        },
+        {
+          "ordinal": 5,
+          "name": "C3 equivariance Lz"
+        },
+        {
+          "ordinal": 6,
+          "name": "C3 equivariance Ah"
+        },
+        {
+          "ordinal": 7,
+          "name": "C3 equivariance Az"
+        },
+        {
+          "ordinal": 8,
+          "name": "C3 equivariance Q1"
+        },
+        {
+          "ordinal": 9,
+          "name": "C3 equivariance Q2"
+        },
+        {
+          "ordinal": 10,
+          "name": "C3 equivariance Q3"
+        },
+        {
+          "ordinal": 11,
+          "name": "C3 equivariance Q4"
+        },
+        {
+          "ordinal": 12,
+          "name": "C3 equivariance Q5"
+        },
+        {
+          "ordinal": 13,
+          "name": "C3 equivariance B1"
+        },
+        {
+          "ordinal": 14,
+          "name": "C3 equivariance B2"
+        },
+        {
+          "ordinal": 15,
+          "name": "C3 equivariance B3"
+        },
+        {
+          "ordinal": 16,
+          "name": "vertical equivariance Lh"
+        },
+        {
+          "ordinal": 17,
+          "name": "vertical equivariance Lz"
+        },
+        {
+          "ordinal": 18,
+          "name": "vertical equivariance Ah"
+        },
+        {
+          "ordinal": 19,
+          "name": "vertical equivariance Az"
+        },
+        {
+          "ordinal": 20,
+          "name": "vertical equivariance Q1"
+        },
+        {
+          "ordinal": 21,
+          "name": "vertical equivariance Q2"
+        },
+        {
+          "ordinal": 22,
+          "name": "vertical equivariance Q3"
+        },
+        {
+          "ordinal": 23,
+          "name": "vertical equivariance Q4"
+        },
+        {
+          "ordinal": 24,
+          "name": "vertical equivariance Q5"
+        },
+        {
+          "ordinal": 25,
+          "name": "vertical equivariance B1"
+        },
+        {
+          "ordinal": 26,
+          "name": "vertical equivariance B2"
+        },
+        {
+          "ordinal": 27,
+          "name": "vertical equivariance B3"
+        },
+        {
+          "ordinal": 28,
+          "name": "horizontal equivariance Lh"
+        },
+        {
+          "ordinal": 29,
+          "name": "horizontal equivariance Lz"
+        },
+        {
+          "ordinal": 30,
+          "name": "horizontal equivariance Ah"
+        },
+        {
+          "ordinal": 31,
+          "name": "horizontal equivariance Az"
+        },
+        {
+          "ordinal": 32,
+          "name": "horizontal equivariance Q1"
+        },
+        {
+          "ordinal": 33,
+          "name": "horizontal equivariance Q2"
+        },
+        {
+          "ordinal": 34,
+          "name": "horizontal equivariance Q3"
+        },
+        {
+          "ordinal": 35,
+          "name": "horizontal equivariance Q4"
+        },
+        {
+          "ordinal": 36,
+          "name": "horizontal equivariance Q5"
+        },
+        {
+          "ordinal": 37,
+          "name": "horizontal equivariance B1"
+        },
+        {
+          "ordinal": 38,
+          "name": "horizontal equivariance B2"
+        },
+        {
+          "ordinal": 39,
+          "name": "horizontal equivariance B3"
+        }
+      ]
+    },
+    {
+      "id": "L29",
+      "name": "Ambient polynomial multiplicities",
+      "statement": "Real-linear polar/axial map dimensions are 2/2; quadratic homogeneous dimensions are 5/3; full bases given in CM0 (4)–(7).",
+      "hypotheses": "Real polynomials in six state coordinates, full D3h, fixed geometry.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "CM0",
+      "source_section_equation": "§3; §4 for sectors",
+      "known_before_GR0": "CM0 census; no priority claim",
+      "manuscript_proof_label": "sec:observables",
+      "qualifications": "C3 alone admits many more maps; mixtures' images are not sums of separate images.",
+      "interpretation_limit": "No unique core observable follows.",
+      "proof_location": "CM0 §3; §4 for sectors; manuscript sec:observables",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 4,
+          "name": "C3 equivariance Lh"
+        },
+        {
+          "ordinal": 5,
+          "name": "C3 equivariance Lz"
+        },
+        {
+          "ordinal": 6,
+          "name": "C3 equivariance Ah"
+        },
+        {
+          "ordinal": 7,
+          "name": "C3 equivariance Az"
+        },
+        {
+          "ordinal": 8,
+          "name": "C3 equivariance Q1"
+        },
+        {
+          "ordinal": 9,
+          "name": "C3 equivariance Q2"
+        },
+        {
+          "ordinal": 10,
+          "name": "C3 equivariance Q3"
+        },
+        {
+          "ordinal": 11,
+          "name": "C3 equivariance Q4"
+        },
+        {
+          "ordinal": 12,
+          "name": "C3 equivariance Q5"
+        },
+        {
+          "ordinal": 13,
+          "name": "C3 equivariance B1"
+        },
+        {
+          "ordinal": 14,
+          "name": "C3 equivariance B2"
+        },
+        {
+          "ordinal": 15,
+          "name": "C3 equivariance B3"
+        },
+        {
+          "ordinal": 16,
+          "name": "vertical equivariance Lh"
+        },
+        {
+          "ordinal": 17,
+          "name": "vertical equivariance Lz"
+        },
+        {
+          "ordinal": 18,
+          "name": "vertical equivariance Ah"
+        },
+        {
+          "ordinal": 19,
+          "name": "vertical equivariance Az"
+        },
+        {
+          "ordinal": 20,
+          "name": "vertical equivariance Q1"
+        },
+        {
+          "ordinal": 21,
+          "name": "vertical equivariance Q2"
+        },
+        {
+          "ordinal": 22,
+          "name": "vertical equivariance Q3"
+        },
+        {
+          "ordinal": 23,
+          "name": "vertical equivariance Q4"
+        },
+        {
+          "ordinal": 24,
+          "name": "vertical equivariance Q5"
+        },
+        {
+          "ordinal": 25,
+          "name": "vertical equivariance B1"
+        },
+        {
+          "ordinal": 26,
+          "name": "vertical equivariance B2"
+        },
+        {
+          "ordinal": 27,
+          "name": "vertical equivariance B3"
+        },
+        {
+          "ordinal": 28,
+          "name": "horizontal equivariance Lh"
+        },
+        {
+          "ordinal": 29,
+          "name": "horizontal equivariance Lz"
+        },
+        {
+          "ordinal": 30,
+          "name": "horizontal equivariance Ah"
+        },
+        {
+          "ordinal": 31,
+          "name": "horizontal equivariance Az"
+        },
+        {
+          "ordinal": 32,
+          "name": "horizontal equivariance Q1"
+        },
+        {
+          "ordinal": 33,
+          "name": "horizontal equivariance Q2"
+        },
+        {
+          "ordinal": 34,
+          "name": "horizontal equivariance Q3"
+        },
+        {
+          "ordinal": 35,
+          "name": "horizontal equivariance Q4"
+        },
+        {
+          "ordinal": 36,
+          "name": "horizontal equivariance Q5"
+        },
+        {
+          "ordinal": 37,
+          "name": "horizontal equivariance B1"
+        },
+        {
+          "ordinal": 38,
+          "name": "horizontal equivariance B2"
+        },
+        {
+          "ordinal": 39,
+          "name": "horizontal equivariance B3"
+        },
+        {
+          "ordinal": 40,
+          "name": "exact character projection dimensions for D3h and C3"
+        },
+        {
+          "ordinal": 41,
+          "name": "basis independence polar_linear"
+        },
+        {
+          "ordinal": 42,
+          "name": "basis independence axial_linear"
+        },
+        {
+          "ordinal": 43,
+          "name": "basis independence polar_quadratic"
+        },
+        {
+          "ordinal": 44,
+          "name": "basis independence axial_quadratic"
+        }
+      ]
+    },
+    {
+      "id": "L30",
+      "name": "Optional common-phase invariance",
+      "statement": "The U(1)-invariant quadratic polar space has dimension three, spanned by N(au+bv),N(u^2+v^2),Gamma_ch e_z; axial space has dimension one, spanned by W.",
+      "hypotheses": "Additional common-phase invariance imposed as a kinematic requirement.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "CM0",
+      "source_section_equation": "§3, (8)–(9)",
+      "known_before_GR0": "CM0 classification; W definition already accepted",
+      "manuscript_proof_label": "sec:observables",
+      "qualifications": "There is no nonzero invariant real-linear map; this is not a globally valid phase quotient of F at zeros.",
+      "interpretation_limit": "Even extra phase invariance does not select a polar position observable.",
+      "proof_location": "CM0 §3, (8)–(9); manuscript sec:observables",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 45,
+          "name": "optional common-phase invariant dimensions"
+        }
+      ]
+    },
+    {
+      "id": "L31",
+      "name": "Independent chiral projections",
+      "statement": "C=q cross p=e cross(av-bu)+u cross v; W=TC=sqrt(3)(bNu-aNv) is horizontal axial; Gamma_ch e_z=(e^TC)e_z is vertical polar.",
+      "hypotheses": "D3h shell representation; degree-two antisymmetric bilinears.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "CM0",
+      "source_section_equation": "§4, (13); SA0 §6",
+      "known_before_GR0": "C and W accepted earlier; complete two-projection statement CM0",
+      "manuscript_proof_label": "sec:observables",
+      "qualifications": "Neither projection alone determines C; raw C is not ambient; axial parity need not imply chirality.",
+      "interpretation_limit": "No physical rotation axis.",
+      "proof_location": "CM0 §4, (13); SA0 §6; manuscript sec:observables",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 46,
+          "name": "chiral planar projection in quadratic basis"
+        },
+        {
+          "ordinal": 47,
+          "name": "chiral vertical projection depends on transverse sectors"
+        }
+      ]
+    },
+    {
+      "id": "L32",
+      "name": "Observable kernels and images",
+      "statement": "For transverse u,v, ||N(u^2)||^2=||u||^4/4, ||N(uv)||^2=||u||^2||v||^2/4, Gamma_ch^2=3(||u||^2||v||^2-(u.v)^2).",
+      "hypotheses": "u,v perpendicular to e; native fixed N.",
+      "classification": "DERIVED IDENTITY",
+      "checkpoint": "CM0",
+      "source_section_equation": "§4, (10)–(12) and generator tables",
+      "known_before_GR0": "CM0",
+      "manuscript_proof_label": "sec:observables",
+      "qualifications": "Nonlinear kernels are zero sets; mixture images must be computed jointly.",
+      "interpretation_limit": "Nonzero spatial readout at a fixed state is not displacement per step.",
+      "proof_location": "CM0 §4, (10)–(12) and generator tables; manuscript sec:observables",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 48,
+          "name": "quadratic kernel norm identity"
+        },
+        {
+          "ordinal": 49,
+          "name": "mixed quadratic kernel norm identity"
+        },
+        {
+          "ordinal": 50,
+          "name": "chiral vertical Gram identity"
+        }
+      ]
+    },
+    {
+      "id": "L33",
+      "name": "Observable increments and response",
+      "statement": "Delta V=V(F(Omega))-V(Omega); polynomial increments follow substitution, and the local response is DV at the background composed with the complete native derivative.",
+      "hypotheses": "Degree<=2 basis; equal or weak unequal positive branch for linear response.",
+      "classification": "DERIVED IDENTITY",
+      "checkpoint": "CM0",
+      "source_section_equation": "§5, (14)–(20) and response tables",
+      "known_before_GR0": "CM0 application of chain rule",
+      "manuscript_proof_label": "sec:observables",
+      "qualifications": "Generic basis readouts can be generated from zero; not preserved or autonomous in general.",
+      "interpretation_limit": "Delta V is not velocity or acceleration.",
+      "proof_location": "CM0 §5, (14)–(20) and response tables; manuscript sec:observables",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 53,
+          "name": "exact increment Lh"
+        },
+        {
+          "ordinal": 54,
+          "name": "exact increment Lz"
+        },
+        {
+          "ordinal": 55,
+          "name": "exact increment Ah"
+        },
+        {
+          "ordinal": 56,
+          "name": "exact increment Az"
+        },
+        {
+          "ordinal": 57,
+          "name": "exact increment Q1"
+        },
+        {
+          "ordinal": 58,
+          "name": "exact increment Q2"
+        },
+        {
+          "ordinal": 59,
+          "name": "exact increment Q3"
+        },
+        {
+          "ordinal": 60,
+          "name": "exact increment Q4"
+        },
+        {
+          "ordinal": 61,
+          "name": "exact increment Q5"
+        },
+        {
+          "ordinal": 62,
+          "name": "exact increment B1"
+        },
+        {
+          "ordinal": 63,
+          "name": "exact increment B2"
+        },
+        {
+          "ordinal": 64,
+          "name": "exact increment B3"
+        },
+        {
+          "ordinal": 65,
+          "name": "equal-background leading response Lh"
+        },
+        {
+          "ordinal": 66,
+          "name": "equal-background leading response Lz"
+        },
+        {
+          "ordinal": 67,
+          "name": "equal-background leading response Ah"
+        },
+        {
+          "ordinal": 68,
+          "name": "equal-background leading response Az"
+        },
+        {
+          "ordinal": 69,
+          "name": "equal-background leading response Q1"
+        },
+        {
+          "ordinal": 70,
+          "name": "equal-background leading response Q2"
+        },
+        {
+          "ordinal": 71,
+          "name": "equal-background leading response Q3"
+        },
+        {
+          "ordinal": 72,
+          "name": "equal-background leading response Q4"
+        },
+        {
+          "ordinal": 73,
+          "name": "equal-background leading response Q5"
+        },
+        {
+          "ordinal": 74,
+          "name": "equal-background leading response B1"
+        },
+        {
+          "ordinal": 75,
+          "name": "equal-background leading response B2"
+        },
+        {
+          "ordinal": 76,
+          "name": "equal-background leading response B3"
+        },
+        {
+          "ordinal": 77,
+          "name": "bounded native examples generate every basis observable from its own zero set"
+        },
+        {
+          "ordinal": 78,
+          "name": "native one-step planar direction change"
+        }
+      ]
+    },
+    {
+      "id": "L34",
+      "name": "Invertible shell attachment",
+      "statement": "D:C^3->direct sum W_i has inverse E; full section evolves by DFE, with transported graph term and outward-normal phase rotation.",
+      "hypotheses": "Exactly three labelled tangent fibres; fixed centres and frames.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "SA0",
+      "source_section_equation": "§§2–3; §8.1",
+      "known_before_GR0": "Yes: Paper B; SA0 types the inherited structure",
+      "manuscript_proof_label": "sec:attachment",
+      "qualifications": "No continuous polygon field, deformation, seam/rim data or physical position follows.",
+      "interpretation_limit": "Only the discrete section exists as a native state representation.",
+      "proof_location": "SA0 §§2–3; §8.1; manuscript sec:attachment",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 176,
+          "name": "transport frame match 0,0"
+        },
+        {
+          "ordinal": 177,
+          "name": "transport composition 0,0,0"
+        },
+        {
+          "ordinal": 178,
+          "name": "transport composition 0,0,1"
+        },
+        {
+          "ordinal": 179,
+          "name": "transport composition 0,0,2"
+        },
+        {
+          "ordinal": 180,
+          "name": "transport frame match 0,1"
+        },
+        {
+          "ordinal": 181,
+          "name": "transport composition 0,1,0"
+        },
+        {
+          "ordinal": 182,
+          "name": "transport composition 0,1,1"
+        },
+        {
+          "ordinal": 183,
+          "name": "transport composition 0,1,2"
+        },
+        {
+          "ordinal": 184,
+          "name": "transport frame match 0,2"
+        },
+        {
+          "ordinal": 185,
+          "name": "transport composition 0,2,0"
+        },
+        {
+          "ordinal": 186,
+          "name": "transport composition 0,2,1"
+        },
+        {
+          "ordinal": 187,
+          "name": "transport composition 0,2,2"
+        },
+        {
+          "ordinal": 188,
+          "name": "transport frame match 1,0"
+        },
+        {
+          "ordinal": 189,
+          "name": "transport composition 1,0,0"
+        },
+        {
+          "ordinal": 190,
+          "name": "transport composition 1,0,1"
+        },
+        {
+          "ordinal": 191,
+          "name": "transport composition 1,0,2"
+        },
+        {
+          "ordinal": 192,
+          "name": "transport frame match 1,1"
+        },
+        {
+          "ordinal": 193,
+          "name": "transport composition 1,1,0"
+        },
+        {
+          "ordinal": 194,
+          "name": "transport composition 1,1,1"
+        },
+        {
+          "ordinal": 195,
+          "name": "transport composition 1,1,2"
+        },
+        {
+          "ordinal": 196,
+          "name": "transport frame match 1,2"
+        },
+        {
+          "ordinal": 197,
+          "name": "transport composition 1,2,0"
+        },
+        {
+          "ordinal": 198,
+          "name": "transport composition 1,2,1"
+        },
+        {
+          "ordinal": 199,
+          "name": "transport composition 1,2,2"
+        },
+        {
+          "ordinal": 200,
+          "name": "transport frame match 2,0"
+        },
+        {
+          "ordinal": 201,
+          "name": "transport composition 2,0,0"
+        },
+        {
+          "ordinal": 202,
+          "name": "transport composition 2,0,1"
+        },
+        {
+          "ordinal": 203,
+          "name": "transport composition 2,0,2"
+        },
+        {
+          "ordinal": 204,
+          "name": "transport frame match 2,1"
+        },
+        {
+          "ordinal": 205,
+          "name": "transport composition 2,1,0"
+        },
+        {
+          "ordinal": 206,
+          "name": "transport composition 2,1,1"
+        },
+        {
+          "ordinal": 207,
+          "name": "transport composition 2,1,2"
+        },
+        {
+          "ordinal": 208,
+          "name": "transport frame match 2,2"
+        },
+        {
+          "ordinal": 209,
+          "name": "transport composition 2,2,0"
+        },
+        {
+          "ordinal": 210,
+          "name": "transport composition 2,2,1"
+        },
+        {
+          "ordinal": 211,
+          "name": "transport composition 2,2,2"
+        }
+      ]
+    },
+    {
+      "id": "L35",
+      "name": "Two distinct seam criteria",
+      "statement": "For constant per-face extensions, ambient equality at every seam requires q=0,p=b e; matched parallelism requires q=a e,p=b e.",
+      "hypotheses": "Conditional extension criteria on the canonical three vertical planes.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "SA0",
+      "source_section_equation": "§3.3",
+      "known_before_GR0": "SA0 comparison, not new native seam law",
+      "manuscript_proof_label": "sec:attachment",
+      "qualifications": "Neither condition is imposed; not a classification of every intrinsic notion of continuity.",
+      "interpretation_limit": "No physical seam law is inferred.",
+      "proof_location": "SA0 §3.3; manuscript sec:attachment",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 212,
+          "name": "ambient constant traces: only common vertical sector"
+        },
+        {
+          "ordinal": 213,
+          "name": "matched parallel sections: common complex sector"
+        },
+        {
+          "ordinal": 214,
+          "name": "ambient continuous basis"
+        },
+        {
+          "ordinal": 215,
+          "name": "matched parallel basis"
+        },
+        {
+          "ordinal": 216,
+          "name": "matched parallel basis"
+        }
+      ]
+    },
+    {
+      "id": "L36",
+      "name": "Finite-carrier census",
+      "statement": "Degree (0,1,2) counts: face scalars/normal (1,1,8), tangent (0,4,8), ambient-face (1,5,16), vertical seam (0,2,4), rim scalars (1,1,5), rim vectors (1,3,12).",
+      "hypotheses": "Full D3h, polynomial state maps, finite carriers; seam labels via opposite face; whole-rim values.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "SA0",
+      "source_section_equation": "§5.1–5.6",
+      "known_before_GR0": "SA0; centre counts reused CM0",
+      "manuscript_proof_label": "sec:attachment",
+      "qualifications": "Pointwise fields require a spatial function space; values on loops need not be tangent everywhere.",
+      "interpretation_limit": "Multiplicity cannot supply physical selection.",
+      "proof_location": "SA0 §5.1–5.6; manuscript sec:attachment",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 154,
+          "name": "face_scalar degree 0 independence"
+        },
+        {
+          "ordinal": 155,
+          "name": "face_scalar degree 1 independence"
+        },
+        {
+          "ordinal": 156,
+          "name": "face_scalar degree 2 independence"
+        },
+        {
+          "ordinal": 157,
+          "name": "face_tangent degree 1 independence"
+        },
+        {
+          "ordinal": 158,
+          "name": "face_tangent degree 2 independence"
+        },
+        {
+          "ordinal": 159,
+          "name": "seam_vertical degree 1 independence"
+        },
+        {
+          "ordinal": 160,
+          "name": "seam_vertical degree 2 independence"
+        },
+        {
+          "ordinal": 161,
+          "name": "rim_scalar degree 0 independence"
+        },
+        {
+          "ordinal": 162,
+          "name": "rim_scalar degree 1 independence"
+        },
+        {
+          "ordinal": 163,
+          "name": "rim_scalar degree 2 independence"
+        },
+        {
+          "ordinal": 164,
+          "name": "rim_vector degree 0 independence"
+        },
+        {
+          "ordinal": 165,
+          "name": "rim_vector degree 1 independence"
+        },
+        {
+          "ordinal": 166,
+          "name": "rim_vector degree 2 independence"
+        },
+        {
+          "ordinal": 167,
+          "name": "face_scalar complete dimensions"
+        },
+        {
+          "ordinal": 168,
+          "name": "face_tangent complete dimensions"
+        },
+        {
+          "ordinal": 169,
+          "name": "seam_vertical complete dimensions"
+        },
+        {
+          "ordinal": 170,
+          "name": "rim_scalar complete dimensions"
+        },
+        {
+          "ordinal": 171,
+          "name": "rim_vector complete dimensions"
+        },
+        {
+          "ordinal": 172,
+          "name": "ambient per-face direct-sum dimensions"
+        },
+        {
+          "ordinal": 173,
+          "name": "K squared on transverse channels"
+        }
+      ]
+    },
+    {
+      "id": "L37",
+      "name": "Preparation type separation",
+      "statement": "Lens/xi -> C^2 tensor C^3 -> fixed U^n -> (chi† tensor I) -> Omega0 -> D Omega0; no map identifies preparation internals with material shell cells/boundaries and no feedback enters F.",
+      "hypotheses": "Named existing response, tensor order, branch and initialization receipt.",
+      "classification": "DERIVED IDENTITY",
+      "checkpoint": "SA0",
+      "source_section_equation": "§7.1–7.2",
+      "known_before_GR0": "Preparation formula prior Atlas 08; unified separation SA0",
+      "manuscript_proof_label": "sec:attachment",
+      "qualifications": "Final Omega does have the existing D attachment; C^6 has twelve real dimensions.",
+      "interpretation_limit": "Initialization is not boundary dynamics.",
+      "proof_location": "SA0 §7.1–7.2; manuscript sec:attachment",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 223,
+          "name": "dynamics has no geometry/observer feedback import"
+        },
+        {
+          "ordinal": 224,
+          "name": "boundary_response has no geometry/observer feedback import"
+        },
+        {
+          "ordinal": 225,
+          "name": "srg has no geometry/observer feedback import"
+        },
+        {
+          "ordinal": 226,
+          "name": "operating_region has no geometry/observer feedback import"
+        }
+      ]
+    },
+    {
+      "id": "L38",
+      "name": "Fibre closure criterion",
+      "statement": "A F=F_A A on image(A) iff A(x)=A(x') implies A(Fx)=A(Fx').",
+      "hypotheses": "Any set maps; restrict domain explicitly for local/regular versions.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "SA0",
+      "source_section_equation": "§8.1",
+      "known_before_GR0": "Elementary quotient criterion reproved, no priority claim",
+      "manuscript_proof_label": "sec:closure",
+      "qualifications": "No smoothness, locality or invertibility conclusion.",
+      "interpretation_limit": "Closure is not physical observability.",
+      "proof_location": "SA0 §8.1; manuscript sec:closure",
+      "supporting_verification_predicates": [],
+      "verification_note": "Written proof/source statement is authority; no individually matched predicate claimed."
+    },
+    {
+      "id": "L39",
+      "name": "Nonclosed lower readouts",
+      "statement": "Single face values, intensities, raw C, W, Gamma_ch and (W,Gamma_ch) generally fail closure; g=0 gives I_i^+=I_i[1+epsilon(k_i-I_i)]^2.",
+      "hypotheses": "Exact native witnesses in SA0; parameters fixed in each comparison.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "SA0",
+      "source_section_equation": "§8.1–8.2",
+      "known_before_GR0": "CM0 had ambient witnesses; these explicit fibre comparisons SA0",
+      "manuscript_proof_label": "sec:closure",
+      "qualifications": "Do not claim every combination/parameter locus is nonclosed.",
+      "interpretation_limit": "Lost state information obstructs an autonomous readout law.",
+      "proof_location": "SA0 §8.1–8.2; manuscript sec:closure",
+      "supporting_verification_predicates": [
+        {
+          "ordinal": 219,
+          "name": "equal input intensity"
+        },
+        {
+          "ordinal": 220,
+          "name": "intensity closure obstruction"
+        },
+        {
+          "ordinal": 221,
+          "name": "equal input raw chirality"
+        },
+        {
+          "ordinal": 222,
+          "name": "raw chirality closure obstruction"
+        }
+      ]
+    },
+    {
+      "id": "L40",
+      "name": "Complex coherence quotient",
+      "statement": "H_Omega=Omega Omega† closes where all diag(M H M^T)>0: H+=Udelta M H M^T Udelta† with delta from imaginary cubes of normalized transposed coherence entries.",
+      "hypotheses": "Rank<=1 PSD Hermitian H; real native parameters; regular pre-sync domain.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "SA0",
+      "source_section_equation": "§8.3, first theorem",
+      "known_before_GR0": "SA0 synthesis result",
+      "manuscript_proof_label": "sec:closure",
+      "qualifications": "One-step domain need not be invariant; zero-stratum obstruction retained.",
+      "interpretation_limit": "Channel coherence is not a spatial metric.",
+      "proof_location": "SA0 §8.3, first theorem; manuscript sec:closure",
+      "supporting_verification_predicates": [],
+      "verification_note": "Written proof and exact source statement; bounded quotient comparisons are in SA0 numerical_checks, not in the 226 exact/source predicate list."
+    },
+    {
+      "id": "L41",
+      "name": "Real Gram quotient",
+      "statement": "S_G=qq^T+pp^T also closes on the regular pre-sync domain, because equal Gram factors differ by O(2), i.e. common phase and/or conjugation.",
+      "hypotheses": "Rank<=2 real PSD Gram matrix; same regularity test.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "SA0",
+      "source_section_equation": "§8.3, second theorem",
+      "known_before_GR0": "SA0",
+      "manuscript_proof_label": "sec:closure",
+      "qualifications": "S_G loses chiral orientation; autonomy follows from symmetry, not injectivity.",
+      "interpretation_limit": "A nonlocal channel quotient, not one scalar per face.",
+      "proof_location": "SA0 §8.3, second theorem; manuscript sec:closure",
+      "supporting_verification_predicates": [],
+      "verification_note": "Written proof and exact source statement; bounded quotient comparisons are in SA0 numerical_checks, not in the 226 exact/source predicate list."
+    },
+    {
+      "id": "L42",
+      "name": "Global zero-stratum failure",
+      "statement": "For eps=g=0,lambda=1/10, z=(1,-1,0) and exp(i pi/6)z have identical H and S_G but output H12=-1 versus -exp(-i/5), S12=-1 versus -cos(1/5).",
+      "hypotheses": "Native Arg0 convention; same exact parameter tuple.",
+      "classification": "EXACT THEOREM",
+      "checkpoint": "SA0",
+      "source_section_equation": "§8.4",
+      "known_before_GR0": "SA0 explicit closure witness; zero convention caveat prior Paper A/B",
+      "manuscript_proof_label": "sec:closure",
+      "qualifications": "At lambda=0 both Gram congruences close globally.",
+      "interpretation_limit": "No repaired zero convention is introduced.",
+      "proof_location": "SA0 §8.4; manuscript sec:closure",
+      "supporting_verification_predicates": [],
+      "verification_note": "Written proof and exact source statement; bounded quotient comparisons are in SA0 numerical_checks, not in the 226 exact/source predicate list."
+    },
+    {
+      "id": "L43",
+      "name": "Retained computational evidence",
+      "statement": "Counts are GR0 45, GR1 38, GR2 42, CM0 78, SA0 226, total 429 heterogeneous exact/source checks. Native finite differences, 100-digit evaluations and residuals remain separate datasets.",
+      "hypotheses": "Only bounded fixtures and precisions actually recorded.",
+      "classification": "NUMERICAL EVIDENCE",
+      "checkpoint": "ALL",
+      "source_section_equation": "GR0 §7; GR1 §7; GR2 §8; CM0 §7; SA0 §9",
+      "known_before_GR0": "Retained evidence, not newly rerun or new theorems",
+      "manuscript_proof_label": "sec:repro",
+      "qualifications": "Predicates are not proofs; small native residuals cannot resolve every tiny imaginary part.",
+      "interpretation_limit": "No broad numerical survey or certification is claimed.",
+      "proof_location": "ALL GR0 §7; GR1 §7; GR2 §8; CM0 §7; SA0 §9; manuscript sec:repro",
+      "supporting_verification_predicates": [],
+      "verification_note": "Written proof/source statement is authority; no individually matched predicate claimed."
+    },
+    {
+      "id": "L44",
+      "name": "Interpretation boundary",
+      "statement": "Response inner products, screening, complex modes, circulation, vector parity, face sections and initialization do not by themselves define the corresponding physical metric, gravity, wave, current, position, deformation or flux.",
+      "hypotheses": "Claims confined to the finite native mathematical model.",
+      "classification": "PHYSICAL INTERPRETATION",
+      "checkpoint": "ALL",
+      "source_section_equation": "Checkpoint conclusions and explicit limits",
+      "known_before_GR0": "Consistent with accepted paper boundaries",
+      "manuscript_proof_label": "sec:limits",
+      "qualifications": "Absence in this model is not a universal no-go theorem.",
+      "interpretation_limit": "No new physical theory is established.",
+      "proof_location": "ALL Checkpoint conclusions and explicit limits; manuscript sec:limits",
+      "supporting_verification_predicates": [],
+      "verification_note": "Written proof/source statement is authority; no individually matched predicate claimed."
+    },
+    {
+      "id": "L45",
+      "name": "Open interfaces",
+      "statement": "Global branch/zero-stratum analysis, nonlinear uniform limits, privileged observable/metric selection and minimal sufficient coherence subsets remain open.",
+      "hypotheses": "No new research undertaken for this publication synthesis.",
+      "classification": "OPEN QUESTION",
+      "checkpoint": "ALL",
+      "source_section_equation": "GR2 §9; CM0 §6; SA0 §10 question 6",
+      "known_before_GR0": "Open, not claimed results",
+      "manuscript_proof_label": "sec:discussion",
+      "qualifications": "Existing finite proofs do not solve these interfaces.",
+      "interpretation_limit": "Research publication stops at synthesis.",
+      "proof_location": "ALL GR2 §9; CM0 §6; SA0 §10 question 6; manuscript sec:discussion",
+      "supporting_verification_predicates": [],
+      "verification_note": "Written proof/source statement is authority; no individually matched predicate claimed."
+    }
+  ]
+}

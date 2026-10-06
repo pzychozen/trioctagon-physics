@@ -1,0 +1,1810 @@
+{
+  "GR0": {
+    "source_results": "GR0_results.json",
+    "source_sha256": "a5bd5bfde9c4fb6c993f070a85a7de5cf84c2478d6e437c4723a041a4abf1bca",
+    "retained_not_rerun": true,
+    "verification": {
+      "python": "3.11.15",
+      "numpy": "2.4.4",
+      "sympy": "1.14.0",
+      "mpmath": "1.3.0",
+      "exact_predicates": 45,
+      "exact_checks": [
+        {
+          "name": "panel 1: induced metric for arbitrary real fold",
+          "passed": true
+        },
+        {
+          "name": "panel 1: affine second derivatives",
+          "passed": true
+        },
+        {
+          "name": "panel 2: induced metric for arbitrary real fold",
+          "passed": true
+        },
+        {
+          "name": "panel 2: affine second derivatives",
+          "passed": true
+        },
+        {
+          "name": "panel 3: induced metric for arbitrary real fold",
+          "passed": true
+        },
+        {
+          "name": "panel 3: affine second derivatives",
+          "passed": true
+        },
+        {
+          "name": "face 0: tangent projector",
+          "passed": true
+        },
+        {
+          "name": "face 0: exact tangent isometry",
+          "passed": true
+        },
+        {
+          "name": "face 0: closed matched transport",
+          "passed": true
+        },
+        {
+          "name": "face 0: loop restricted to tangent plane",
+          "passed": true
+        },
+        {
+          "name": "face 0: loop kills normal",
+          "passed": true
+        },
+        {
+          "name": "face 1: tangent projector",
+          "passed": true
+        },
+        {
+          "name": "face 1: exact tangent isometry",
+          "passed": true
+        },
+        {
+          "name": "face 1: closed matched transport",
+          "passed": true
+        },
+        {
+          "name": "face 1: loop restricted to tangent plane",
+          "passed": true
+        },
+        {
+          "name": "face 1: loop kills normal",
+          "passed": true
+        },
+        {
+          "name": "face 2: tangent projector",
+          "passed": true
+        },
+        {
+          "name": "face 2: exact tangent isometry",
+          "passed": true
+        },
+        {
+          "name": "face 2: closed matched transport",
+          "passed": true
+        },
+        {
+          "name": "face 2: loop restricted to tangent plane",
+          "passed": true
+        },
+        {
+          "name": "face 2: loop kills normal",
+          "passed": true
+        },
+        {
+          "name": "all 27 ambient transport composition identities",
+          "passed": true
+        },
+        {
+          "name": "six-real-coordinate potential normalization and negative gradient",
+          "passed": true
+        },
+        {
+          "name": "graph Dirichlet identity",
+          "passed": true
+        },
+        {
+          "name": "face 0: transported graph increment equals original",
+          "passed": true
+        },
+        {
+          "name": "face 1: transported graph increment equals original",
+          "passed": true
+        },
+        {
+          "name": "face 2: transported graph increment equals original",
+          "passed": true
+        },
+        {
+          "name": "transported graph quadratic equals pairwise complex quadratic",
+          "passed": true
+        },
+        {
+          "name": "exact full-step intensity budget (phase preserves moduli)",
+          "passed": true
+        },
+        {
+          "name": "phase-chart gradient normalization (derived scalar, not runtime potential)",
+          "passed": true
+        },
+        {
+          "name": "retained potential overshoot witness V before=6",
+          "passed": true
+        },
+        {
+          "name": "retained potential overshoot witness V after=168",
+          "passed": true
+        },
+        {
+          "name": "synchronizer real Jacobian from explicit nonzero chart",
+          "passed": true
+        },
+        {
+          "name": "amplitude-stage real Jacobian at k=r^2",
+          "passed": true
+        },
+        {
+          "name": "complete composed Jacobian, including product term",
+          "passed": true
+        },
+        {
+          "name": "C3: exact Fourier Laplacian eigenvalues",
+          "passed": true
+        },
+        {
+          "name": "C3: exact amplitude Fourier multipliers",
+          "passed": true
+        },
+        {
+          "name": "C3: exact full-phase Fourier multipliers",
+          "passed": true
+        },
+        {
+          "name": "C12: exact Fourier Laplacian eigenvalues",
+          "passed": true
+        },
+        {
+          "name": "C12: exact amplitude Fourier multipliers",
+          "passed": true
+        },
+        {
+          "name": "C12: exact full-phase Fourier multipliers",
+          "passed": true
+        },
+        {
+          "name": "small-wave-number phase multiplier through q^4",
+          "passed": true
+        },
+        {
+          "name": "small-wave-number amplitude multiplier through q^4",
+          "passed": true
+        },
+        {
+          "name": "D=0 phase boundary is fourth-order in graph wave number",
+          "passed": true
+        },
+        {
+          "name": "triad Paper-F b multiplier recovered",
+          "passed": true
+        }
+      ],
+      "numerical_groups": [
+        {
+          "name": "native frame/transport/potential source parity",
+          "transport_max_abs_error": 1.1102230246251565e-16,
+          "potential_abs_error": 1.1102230246251565e-16,
+          "passed": true
+        },
+        {
+          "name": "C3 complete update Jacobian",
+          "k": 1,
+          "phase": "0",
+          "eps": "1/20",
+          "g": "1/5",
+          "lambda": "1/1000",
+          "native_fixed_point_residual": 0.0,
+          "native_central_difference": [
+            {
+              "difference_step": 0.0001,
+              "max_abs_error": 5.002105396556544e-10
+            },
+            {
+              "difference_step": 1e-05,
+              "max_abs_error": 1.3377798868674518e-11
+            },
+            {
+              "difference_step": 1e-06,
+              "max_abs_error": 6.126227303226983e-11
+            }
+          ],
+          "mpmath_100_digit_central_difference": [
+            {
+              "difference_step": "0.0000000001",
+              "max_abs_error": "5.0e-22"
+            },
+            {
+              "difference_step": "0.00000000000000000001",
+              "max_abs_error": "5.0e-42"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "name": "C12 complete update Jacobian",
+          "k": 4,
+          "phase": "pi/7",
+          "eps": "1/20",
+          "g": "1/5",
+          "lambda": "1/1000",
+          "native_fixed_point_residual": 0.0,
+          "native_central_difference": [
+            {
+              "difference_step": 0.0001,
+              "max_abs_error": 5.023085281052886e-10
+            },
+            {
+              "difference_step": 1e-05,
+              "max_abs_error": 2.8703755998478112e-11
+            },
+            {
+              "difference_step": 1e-06,
+              "max_abs_error": 1.621475176349918e-10
+            }
+          ],
+          "mpmath_100_digit_central_difference": [
+            {
+              "difference_step": "0.0000000001",
+              "max_abs_error": "5.0e-22"
+            },
+            {
+              "difference_step": "0.00000000000000000001",
+              "max_abs_error": "5.0e-42"
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "scope": "Two fixed parameter/background witnesses, C3 and C12; no parameter scan. High-precision checks use an independent transcription, separately checked against native binary64 derivatives. No interval certification."
+    }
+  },
+  "GR1": {
+    "source_results": "GR1_results.json",
+    "source_sha256": "f5dccd1f3ca1600bd422f550a68f44c837d740682322b15a0ed4c1bf731b1197",
+    "retained_not_rerun": true,
+    "verification": {
+      "passed": true,
+      "python": "3.11.15",
+      "sympy": "1.14.0",
+      "mpmath": "1.3.0",
+      "numpy": "2.4.4",
+      "symbolic_checks": [
+        "fixed-equation substitution H r = r",
+        "pre-sync rows sum to one",
+        "pre-sync exact detailed balance R^2 P = P^T R^2",
+        "weighted Dirichlet form",
+        "native fixed-equation first derivative",
+        "triad zero-sum branch derivative",
+        "native radial derivative",
+        "native imaginary derivative",
+        "native mixed derivative zero",
+        "native other mixed derivative zero",
+        "harmonic-three synchronizer derivative",
+        "composed common-phase mode",
+        "exact triad Kolmogorov factorization",
+        "equal-background off-diagonal response",
+        "equal-background remaining cycle factor",
+        "tree weights balance edge 12",
+        "tree weights balance edge 13",
+        "tree weights last edge equals cycle",
+        "no-sync exception",
+        "no-coupling exception",
+        "equal-background exception",
+        "two-equal cycle exception",
+        "rank-one synchronizer exception",
+        "rank-one positive candidate weights",
+        "accidental hypersurface is affine in ell",
+        "rational accidental-locus balance",
+        "rational accidental-locus weights strictly positive",
+        "N=6 two-step edge",
+        "N=6 reverse two-step edge",
+        "N=6 weighted nearest-edge obstruction",
+        "N=6 exact triad phase pullback",
+        "N=6 two-equal exceptional weighting",
+        "N=12 two-step edge",
+        "N=12 reverse two-step edge",
+        "N=12 weighted nearest-edge obstruction",
+        "N=12 exact triad phase pullback",
+        "N=12 two-equal exceptional weighting",
+        "distinct-triple incompatibility"
+      ],
+      "symbolic_check_count": 38,
+      "exact_accidental_example": {
+        "r": [
+          "999/1000",
+          "1",
+          "1001/1000"
+        ],
+        "g": "1/10",
+        "ell": "333331/16333302",
+        "lambda": "333331/48999906",
+        "positive_W": true
+      },
+      "numerical_domain": {
+        "decimal_precision": 100,
+        "k": "1",
+        "kappa": [
+          -1,
+          0,
+          1
+        ],
+        "epsilon": "1/20",
+        "g": "1/5",
+        "lambda": "1/1000",
+        "no_parameter_scan": true
+      },
+      "weak_branch_samples": [
+        {
+          "eta": "0.01",
+          "r": [
+            "0.99928771786192922335825290468132533645093198556074809665529004123",
+            "1.0000016034938624356284164644075089388255702726568700475041377166",
+            "1.0007162908746552611686626788869889519714735577908533737139526791"
+          ],
+          "fixed_residual": "1.0085796363131590706870946217097302929768109719025505508251037359e-99",
+          "first_order_max_error": "0.0000020051603695468829483931727032376857592720765676594282383934214374",
+          "first_order_error_over_eta_squared": "0.020051603695468829483931727032376857592720765676594282383934214374",
+          "cycle_difference": "-0.000000000000069549038487949152727539449052719989635120550959071124083284040394",
+          "cycle_over_eta_cubed": "-0.000000069549038487949152727539449052719989635120550959071124083284040394",
+          "cycle_leading_coefficient": "-0.000000069549131195335276967930029154518950437317784256559766763848396501",
+          "cycle_factorization_error": "1.8751748319749511088929488150148076488406210319449600753483394964e-104",
+          "pre_sync_balance_residual": "1.78591779887855465971216179422709524914360936691062290814863413e-102"
+        },
+        {
+          "eta": "0.005",
+          "r": [
+            "0.9996433581368362731184067342559448623591236640790989517960081951",
+            "1.0000004008743430777962712787932355513703731408484080701239079954",
+            "1.0003576440491419465675801544367880537393117023253742016223447443"
+          ],
+          "fixed_residual": "3.814259986472069375771970550756501279176829770931183886836975432e-102",
+          "first_order_max_error": "0.00000050119199908942472301157964519659645455946823134447948760139937405",
+          "first_order_error_over_eta_squared": "0.020047679963576988920463185807863858182378729253779179504055974962",
+          "cycle_difference": "-0.0000000000000086936385023053385034518241556183750720867239813361129956741529918",
+          "cycle_over_eta_cubed": "-0.000000069549108018442708027614593244947000576693791850688903965393223934",
+          "cycle_leading_coefficient": "-0.000000069549131195335276967930029154518950437317784256559766763848396501",
+          "cycle_factorization_error": "9.2633301370578214205926403747642292860545646641159731650636935453e-104",
+          "pre_sync_balance_residual": "1.78591779887855465971216179422709524914360936691062290814863413e-102"
+        },
+        {
+          "eta": "0.0025",
+          "r": [
+            "0.99982155383235684481332719697448521568633444448279854035884019573",
+            "1.0000001002186406114457370624732335789269440890916382570062045512",
+            "1.0001786967142522166332116071916600035493233097112497098939760197"
+          ],
+          "fixed_residual": "1.9489874416472508127229890674304481844902182300025596678282213284e-102",
+          "first_order_max_error": "0.0000001252856807880617830357630885749778947382826782813225474482443268",
+          "first_order_error_over_eta_squared": "0.020045708926089885285722094171996463158125228525011607591719092287",
+          "cycle_difference": "-0.0000000000000010867050843923321462026984508545180782574705340417158338572177176",
+          "cycle_over_eta_cubed": "-0.000000069549125401109257356972700854689157008478114178669813366861933929",
+          "cycle_leading_coefficient": "-0.000000069549131195335276967930029154518950437317784256559766763848396501",
+          "cycle_factorization_error": "1.1159143909138934284457073206309295907986883428796695964490217675e-103",
+          "pre_sync_balance_residual": "3.5718355977571093194243235884541904982872187338212458162972682601e-102"
+        }
+      ],
+      "high_precision_phase_differences": [
+        {
+          "h": "1e-10",
+          "maximum_error": "1.6218086726492139950164008387036860566206036846873496227440400514e-22"
+        },
+        {
+          "h": "1e-20",
+          "maximum_error": "1.6218086726492139950156364093547959300330418301249662315406878156e-42"
+        }
+      ],
+      "native_complex128_checks": [
+        {
+          "N": 3,
+          "fixed_residual": 1.1102230246251565e-16,
+          "finite_differences": [
+            {
+              "h": 0.0001,
+              "phase_max_error": 1.6218085208130617e-10,
+              "radial_max_error": 5.003017999882786e-10
+            },
+            {
+              "h": 1e-05,
+              "phase_max_error": 1.6218137943724287e-12,
+              "radial_max_error": 7.917944078172923e-12
+            },
+            {
+              "h": 1e-06,
+              "phase_max_error": 1.6209256159527285e-14,
+              "radial_max_error": 1.6324774865239533e-10
+            }
+          ],
+          "common_phase_eigenvalue": "1.000000000000001",
+          "other_phase_spectral_radius": 0.3966449054199171,
+          "radial_spectral_radius": 0.8999994784584056
+        },
+        {
+          "N": 12,
+          "fixed_residual": 0.0,
+          "finite_differences": [
+            {
+              "h": 0.0001,
+              "phase_max_error": 1.6133927527306469e-10,
+              "radial_max_error": 5.003017999882786e-10
+            },
+            {
+              "h": 1e-05,
+              "phase_max_error": 1.6134038549608931e-12,
+              "radial_max_error": 5.351136200815176e-12
+            },
+            {
+              "h": 1e-06,
+              "phase_max_error": 1.6153745008296028e-14,
+              "radial_max_error": 1.6324774865239533e-10
+            }
+          ],
+          "common_phase_eigenvalue": "(0.9999999999999989+0j)",
+          "other_phase_spectral_radius": 0.9456494517361405,
+          "radial_spectral_radius": 0.8999994784584048
+        }
+      ]
+    }
+  },
+  "GR2": {
+    "source_results": "GR2_results.json",
+    "source_sha256": "c7d50be86ed4e0cda2cf59112f77f1645026fbf06c8674e0d05b34d656f504cc",
+    "retained_not_rerun": true,
+    "verification": {
+      "passed": true,
+      "python": "3.11.15",
+      "sympy": "1.14.0",
+      "mpmath": "1.3.0",
+      "numpy": "2.4.4",
+      "symbolic_checks": [
+        "symmetric triad reduction H=I-g M",
+        "positive-kernel vector M r=0",
+        "triad trace M",
+        "triad second elementary invariant",
+        "triad characteristic factorization",
+        "general Bloch trace",
+        "general Bloch quadratic coefficient",
+        "general Bloch determinant",
+        "Bloch orientation coefficient",
+        "Bloch synchronizer determinant",
+        "Bloch pre-stage determinant",
+        "triad discriminant first nonzero coefficient",
+        "antiperiodic doublet splitting coefficient",
+        "antiperiodic triple-resonance trace",
+        "antiperiodic triple-resonance determinant",
+        "antiperiodic triple-resonance squared trace",
+        "triad defective common-phase resonance exact rank",
+        "triad semisimple common-phase resonance exact rank",
+        "N=6 Fourier block z=1",
+        "N=6 z=1 exact positive cubic discriminant",
+        "N=6 Fourier block z=-1",
+        "N=6 z=-1 exact positive cubic discriminant",
+        "N=6 characteristic polynomial product",
+        "N=12 Fourier block z=1",
+        "N=12 z=1 exact positive cubic discriminant",
+        "N=12 Fourier block z=I",
+        "N=12 z=I exact non-real spectral obstruction",
+        "N=12 Fourier block z=-1",
+        "N=12 z=-1 exact positive cubic discriminant",
+        "N=12 Fourier block z=-I",
+        "N=12 z=-I exact non-real spectral obstruction",
+        "N=12 characteristic polynomial product",
+        "exact six-ring nilpotent block",
+        "nilpotent block squares to zero",
+        "nilpotent-unfolding discriminant leading coefficient",
+        "exact six-ring unfolding defective: zero eigenvalue triple, Jordan sizes 2+1",
+        "exact six-ring unfolding three distinct real roots",
+        "exact six-ring unfolding one real root and a non-real conjugate pair",
+        "ordinary fixture native fixed equation",
+        "ordinary native fixed-branch contraction box",
+        "nilpotent fixture native fixed equation",
+        "nilpotent native fixed-branch contraction box"
+      ],
+      "symbolic_check_count": 42,
+      "exact_N6_N12": [
+        {
+          "N": 6,
+          "blocks": [
+            {
+              "z": "1",
+              "char_coefficients": [
+                "1",
+                "-298799503/166666500",
+                "2638695087829/2777775000000",
+                "-1309435113487/8333325000000"
+              ],
+              "discriminant": "1508800854038780065599677619085863563/24112557870515046199845703125000000000000000",
+              "verdict": "three distinct real roots"
+            },
+            {
+              "z": "-1",
+              "char_coefficients": [
+                "1",
+                "-298799503/166666500",
+                "528541417561/555555000000",
+                "-100725672452813/801281250000000"
+              ],
+              "discriminant": "1491012446352615834055866259334687159/24112557870515046199845703125000000000000000",
+              "verdict": "three distinct real roots"
+            }
+          ]
+        },
+        {
+          "N": 12,
+          "blocks": [
+            {
+              "z": "1",
+              "char_coefficients": [
+                "1",
+                "-298799503/166666500",
+                "2638695087829/2777775000000",
+                "-1309435113487/8333325000000"
+              ],
+              "discriminant": "1508800854038780065599677619085863563/24112557870515046199845703125000000000000000",
+              "verdict": "three distinct real roots"
+            },
+            {
+              "z": "I",
+              "char_coefficients": [
+                "1",
+                "-298799503/166666500",
+                "67710284303/71225000000 - 61*I/260416406250000",
+                "-38262696308381/270562500000000"
+              ],
+              "discriminant": "252501447323272261246330727402567391016744109/35881782545409294940246582031250000000000000000 + 2674782749621265560565356539156657*I/67086666083831480924606323242187500000000000000",
+              "verdict": "all three roots non-real; simple"
+            },
+            {
+              "z": "-1",
+              "char_coefficients": [
+                "1",
+                "-298799503/166666500",
+                "528541417561/555555000000",
+                "-100725672452813/801281250000000"
+              ],
+              "discriminant": "1491012446352615834055866259334687159/24112557870515046199845703125000000000000000",
+              "verdict": "three distinct real roots"
+            },
+            {
+              "z": "-I",
+              "char_coefficients": [
+                "1",
+                "-298799503/166666500",
+                "67710284303/71225000000 + 61*I/260416406250000",
+                "-38262696308381/270562500000000"
+              ],
+              "discriminant": "252501447323272261246330727402567391016744109/35881782545409294940246582031250000000000000000 - 2674782749621265560565356539156657*I/67086666083831480924606323242187500000000000000",
+              "verdict": "all three roots non-real; simple"
+            }
+          ]
+        }
+      ],
+      "exact_nilpotent_unfolding": [
+        {
+          "ell_minus_one": "0",
+          "discriminant": "0",
+          "verdict": "defective: zero eigenvalue triple, Jordan sizes 2+1",
+          "char_coefficients": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "ell_minus_one": "1/100000000000000",
+          "discriminant": "1704092868711093267247995211147598253280503159/128000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "verdict": "three distinct real roots",
+          "char_coefficients": [
+            "1",
+            "3/200000000000000",
+            "-239100000300003/16000000000000000000000000000000000000000",
+            "-674999925000008999999/4000000000000000000000000000000000000000000000000000000000000"
+          ]
+        },
+        {
+          "ell_minus_one": "-1/100000000000000",
+          "discriminant": "-1751882831450905347652992990407601746719496841/128000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "verdict": "one real root and a non-real conjugate pair",
+          "char_coefficients": [
+            "1",
+            "-3/200000000000000",
+            "240899999699997/16000000000000000000000000000000000000000",
+            "-674999924999991000001/4000000000000000000000000000000000000000000000000000000000000"
+          ]
+        }
+      ],
+      "native_fixed_fixture_domains": [
+        {
+          "name": "ordinary",
+          "k_i": [
+            "328334333/333000000",
+            "1",
+            "1015003001/1001000000"
+          ],
+          "mean_k": "499995833333/499999500000",
+          "box": [
+            "49/50",
+            "51/50"
+          ],
+          "native_radial_contraction_bound": "18150921801/20020000000"
+        },
+        {
+          "name": "nilpotent",
+          "k_i": [
+            "491493/500000",
+            "1",
+            "508493/500000"
+          ],
+          "mean_k": "749993/750000",
+          "box": [
+            "49/50",
+            "51/50"
+          ],
+          "native_radial_contraction_bound": "9067893/10000000"
+        }
+      ],
+      "numerical_precision_digits": 100,
+      "GR1_weak_family": [
+        {
+          "eta": "0.01",
+          "r": [
+            "0.99928771786192922335825290468132533645093198556075",
+            "1.0000016034938624356284164644075089388255702726569",
+            "1.0007162908746552611686626788869889519714735577909"
+          ],
+          "fixed_equation_residual": "1.0121514719109161800065189452981844834750981906364e-99",
+          "blocks": [
+            {
+              "z": "1.0",
+              "eigenvalues": [
+                {
+                  "real": "0.39615448784618342237478786830995478591512172171902",
+                  "imag": "0.0"
+                },
+                {
+                  "real": "0.39664490541991712639041526187947723643082247314753",
+                  "imag": "0.0"
+                },
+                {
+                  "real": "1.0",
+                  "imag": "0.0"
+                }
+              ],
+              "maximum_imaginary_part": "0.0",
+              "maximum_imaginary_part_over_eta_cubed": "0.0",
+              "maximum_characteristic_residual": "3.4751654770505946089815917026487376955974040242728e-102"
+            },
+            {
+              "z": "-1.0",
+              "eigenvalues": [
+                {
+                  "real": "0.19759959673517814044621545406572978386247419552668",
+                  "imag": "0.0"
+                },
+                {
+                  "real": "0.79735320491727977545986316818455257218708027971149",
+                  "imag": "0.0"
+                },
+                {
+                  "real": "0.79784659161364263285912450793914966629638971962839",
+                  "imag": "0.0"
+                }
+              ],
+              "maximum_imaginary_part": "0.0",
+              "maximum_imaginary_part_over_eta_cubed": "0.0",
+              "maximum_characteristic_residual": "1.4369441692809868864773838680417374824302067599666e-105"
+            },
+            {
+              "z": "(0.0 + 1.0j)",
+              "eigenvalues": [
+                {
+                  "real": "0.25075014439766146231559708842285872934441584292793",
+                  "imag": "0.00000000000008911672800928429258978573203260554681807528831822"
+                },
+                {
+                  "real": "0.59639979713229865352379686716008362694170007008852",
+                  "imag": "-0.00000000000042173672522388603255233226108478854973828191657239"
+                },
+                {
+                  "real": "0.9456494517361404329258091746064896660598282818501",
+                  "imag": "0.00000000000033261999721460173996254652905218300292020662825417"
+                }
+              ],
+              "maximum_imaginary_part": "0.00000000000042173672522388603255233226108478854973828191657239",
+              "maximum_imaginary_part_over_eta_cubed": "0.00000042173672522388603255233226108478854973828191657239",
+              "maximum_characteristic_residual": "8.084648281073912258162778389699367729517477403516e-102"
+            }
+          ],
+          "triad_transverse_discriminant_over_eta_squared": "0.0024050939662685301482700243590977648912635166278401",
+          "Gamma_over_eta_cubed": "0.000000085364253052274241155343505535378438524139579565052"
+        },
+        {
+          "eta": "0.005",
+          "r": [
+            "0.9996433581368362731184067342559448623591236640791",
+            "1.0000004008743430777962712787932355513703731408484",
+            "1.0003576440491419465675801544367880537393117023254"
+          ],
+          "fixed_equation_residual": "3.2232990176652901398008701684946521583213390841552e-102",
+          "blocks": [
+            {
+              "z": "1.0",
+              "eigenvalues": [
+                {
+                  "real": "0.3962773197196350862126656817968076843778737031466",
+                  "imag": "0.0"
+                },
+                {
+                  "real": "0.39652252859674109613431783752688338179670940104252",
+                  "imag": "0.0"
+                },
+                {
+                  "real": "1.0",
+                  "imag": "0.0"
+                }
+              ],
+              "maximum_imaginary_part": "0.0",
+              "maximum_imaginary_part_over_eta_cubed": "0.0",
+              "maximum_characteristic_residual": "1.8231665646557622112558813388140415119269763149864e-101"
+            },
+            {
+              "z": "-1.0",
+              "eigenvalues": [
+                {
+                  "real": "0.19759989918370373587808099433183157689809114553762",
+                  "imag": "0.0"
+                },
+                {
+                  "real": "0.79747662782700217318877088438112676388397534129605",
+                  "imag": "0.0"
+                },
+                {
+                  "real": "0.79772332130567027328013164061073272539251661735546",
+                  "imag": "0.0"
+                }
+              ],
+              "maximum_imaginary_part": "0.0",
+              "maximum_imaginary_part_over_eta_cubed": "0.0",
+              "maximum_characteristic_residual": "4.2831513049319515335952608681754173939698265089245e-102"
+            },
+            {
+              "z": "(0.0 + 1.0j)",
+              "eigenvalues": [
+                {
+                  "real": "0.2507504921005652127742873199618030896302415010757",
+                  "imag": "0.000000000000011139636505862609432686091782032361838955486044953"
+                },
+                {
+                  "real": "0.59639994928301266513152316474471542536897551568748",
+                  "imag": "-0.000000000000052717246300717795398415911065456848825267459770178"
+                },
+                {
+                  "real": "0.94564940693279830444117303461717255117536608742594",
+                  "imag": "0.000000000000041577609794855185965729819283424486986311973725225"
+                }
+              ],
+              "maximum_imaginary_part": "0.000000000000052717246300717795398415911065456848825267459770178",
+              "maximum_imaginary_part_over_eta_cubed": "0.00000042173797040574236318732728852365479060213967816142",
+              "maximum_characteristic_residual": "1.2366505245212151936978125121331463183326415065143e-101"
+            }
+          ],
+          "triad_transverse_discriminant_over_eta_squared": "0.0024050957364636110675841714356259989761740547276707",
+          "Gamma_over_eta_cubed": "0.000000085364386878131218287927824756093046402716953794933"
+        },
+        {
+          "eta": "0.0025",
+          "r": [
+            "0.9998215538323568448133271969744852156863344444828",
+            "1.0000001002186406114457370624732335789269440890916",
+            "1.0001786967142522166332116071916600035493233097112"
+          ],
+          "fixed_equation_residual": "1.9489874416472508127229890674304481844902182300026e-102",
+          "blocks": [
+            {
+              "z": "1.0",
+              "eigenvalues": [
+                {
+                  "real": "0.39633867881462590170071005219686316307747841902518",
+                  "imag": "0.0"
+                },
+                {
+                  "real": "0.39646128326445883418717819379579074896078122071299",
+                  "imag": "0.0"
+                },
+                {
+                  "real": "1.0",
+                  "imag": "0.0"
+                }
+              ],
+              "maximum_imaginary_part": "0.0",
+              "maximum_imaginary_part_over_eta_cubed": "0.0",
+              "maximum_characteristic_residual": "4.3377914480148893947687925041196458024723835817793e-102"
+            },
+            {
+              "z": "-1.0",
+              "eigenvalues": [
+                {
+                  "real": "0.197599974795920259003511899612079646533727336679",
+                  "imag": "0.0"
+                },
+                {
+                  "real": "0.79753832026375978214103683893359562113268702697933",
+                  "imag": "0.0"
+                },
+                {
+                  "real": "0.79766166701940469474333950744697864437184527607985",
+                  "imag": "0.0"
+                }
+              ],
+              "maximum_imaginary_part": "0.0",
+              "maximum_imaginary_part_over_eta_cubed": "0.0",
+              "maximum_characteristic_residual": "1.7138707068036908564976453766458110521003583283353e-102"
+            },
+            {
+              "z": "(0.0 + 1.0j)",
+              "eigenvalues": [
+                {
+                  "real": "0.25075057902639667911507867276687598757569906276561",
+                  "imag": "0.0000000000000013924559852601129970009211896284686471032023860015"
+                },
+                {
+                  "real": "0.59639998732074929138463273780126497536985002294732",
+                  "imag": "-0.00000000000000658966065159855135029203346780979667316720233153"
+                },
+                {
+                  "real": "0.94564939573193876538817683542451294909271055402524",
+                  "imag": "0.0000000000000051972046663384383532911122781813280260639999455285"
+                }
+              ],
+              "maximum_imaginary_part": "0.00000000000000658966065159855135029203346780979667316720233153",
+              "maximum_imaginary_part_over_eta_cubed": "0.00000042173828170230728641869014193982698708270094921792",
+              "maximum_characteristic_residual": "1.5709124888491035177307207807501360367351542247482e-101"
+            }
+          ],
+          "triad_transverse_discriminant_over_eta_squared": "0.0024050961790137694094447104951987526485969994148503",
+          "Gamma_over_eta_cubed": "0.000000085364420334687048666478020611368201919679370544355"
+        }
+      ],
+      "constructed_triad_SPD_metric": {
+        "formula": "V^{-T} V^{-1}; no fitted weighting",
+        "minimum_eigenvalue": "0.99884129103933426328098422798123754726373552895736",
+        "balance_residual": "1.6073260189906991937409456148043857242292484302196e-101",
+        "triad_cycle_obstruction": "-0.000000000000069549038487949152727539449052719989635120550959071",
+        "matrix": [
+          [
+            "0.99905431502274456339080640874411365005324575517688",
+            "-0.0004734359952437671183113345750762834822087866023902",
+            "-0.00000049911411917468832125126352899367885771203614541337"
+          ],
+          [
+            "-0.0004734359952437671183113345750762834822087866023902",
+            "0.99999931373227113459588808578227020505234725479138",
+            "0.00047326292872950082515348831673948126096735462301135"
+          ],
+          [
+            "-0.00000049911411917468832125126352899367885771203614541337",
+            "0.00047326292872950082515348831673948126096735462301135",
+            "1.0009477156062511839762637005173477366946052780628"
+          ]
+        ]
+      },
+      "native_response_checks": [
+        {
+          "N": 3,
+          "phase_increment": 1e-06,
+          "finite_difference_max_error": 1.6209256159527285e-14
+        },
+        {
+          "N": 6,
+          "phase_increment": 1e-06,
+          "finite_difference_max_error": 1.6153745008296028e-14
+        },
+        {
+          "N": 12,
+          "phase_increment": 1e-06,
+          "finite_difference_max_error": 1.6153745008296028e-14
+        }
+      ]
+    }
+  },
+  "CM0": {
+    "source_results": "CM0_results.json",
+    "source_sha256": "a87e55a1ae70bb08ee183ecf797fc990fabcd590f75c36de935f1e26dff56f8d",
+    "retained_not_rerun": true,
+    "verification": {
+      "passed": true,
+      "python": "3.11.15",
+      "sympy": "1.14.0",
+      "numpy": "2.4.4",
+      "symbolic_check_count": 78,
+      "symbolic_checks": [
+        "centres relative to shell centroid",
+        "normal frame Gram",
+        "tangent frame Gram",
+        "C3 equivariance Lh",
+        "C3 equivariance Lz",
+        "C3 equivariance Ah",
+        "C3 equivariance Az",
+        "C3 equivariance Q1",
+        "C3 equivariance Q2",
+        "C3 equivariance Q3",
+        "C3 equivariance Q4",
+        "C3 equivariance Q5",
+        "C3 equivariance B1",
+        "C3 equivariance B2",
+        "C3 equivariance B3",
+        "vertical equivariance Lh",
+        "vertical equivariance Lz",
+        "vertical equivariance Ah",
+        "vertical equivariance Az",
+        "vertical equivariance Q1",
+        "vertical equivariance Q2",
+        "vertical equivariance Q3",
+        "vertical equivariance Q4",
+        "vertical equivariance Q5",
+        "vertical equivariance B1",
+        "vertical equivariance B2",
+        "vertical equivariance B3",
+        "horizontal equivariance Lh",
+        "horizontal equivariance Lz",
+        "horizontal equivariance Ah",
+        "horizontal equivariance Az",
+        "horizontal equivariance Q1",
+        "horizontal equivariance Q2",
+        "horizontal equivariance Q3",
+        "horizontal equivariance Q4",
+        "horizontal equivariance Q5",
+        "horizontal equivariance B1",
+        "horizontal equivariance B2",
+        "horizontal equivariance B3",
+        "exact character projection dimensions for D3h and C3",
+        "basis independence polar_linear",
+        "basis independence axial_linear",
+        "basis independence polar_quadratic",
+        "basis independence axial_quadratic",
+        "optional common-phase invariant dimensions",
+        "chiral planar projection in quadratic basis",
+        "chiral vertical projection depends on transverse sectors",
+        "quadratic kernel norm identity",
+        "mixed quadratic kernel norm identity",
+        "chiral vertical Gram identity",
+        "intensity vector basis decomposition",
+        "decoded-vector sum",
+        "exact increment Lh",
+        "exact increment Lz",
+        "exact increment Ah",
+        "exact increment Az",
+        "exact increment Q1",
+        "exact increment Q2",
+        "exact increment Q3",
+        "exact increment Q4",
+        "exact increment Q5",
+        "exact increment B1",
+        "exact increment B2",
+        "exact increment B3",
+        "equal-background leading response Lh",
+        "equal-background leading response Lz",
+        "equal-background leading response Ah",
+        "equal-background leading response Az",
+        "equal-background leading response Q1",
+        "equal-background leading response Q2",
+        "equal-background leading response Q3",
+        "equal-background leading response Q4",
+        "equal-background leading response Q5",
+        "equal-background leading response B1",
+        "equal-background leading response B2",
+        "equal-background leading response B3",
+        "bounded native examples generate every basis observable from its own zero set",
+        "native one-step planar direction change"
+      ],
+      "equivariant_dimensions": {
+        "D3h": {
+          "0": {
+            "polar": 0,
+            "axial": 0
+          },
+          "1": {
+            "polar": 2,
+            "axial": 2
+          },
+          "2": {
+            "polar": 5,
+            "axial": 3
+          }
+        },
+        "C3": {
+          "0": {
+            "polar": 1,
+            "axial": 1
+          },
+          "1": {
+            "polar": 6,
+            "axial": 6
+          },
+          "2": {
+            "polar": 21,
+            "axial": 21
+          }
+        }
+      },
+      "optional_U1_invariant_dimensions": {
+        "polar_linear": 0,
+        "axial_linear": 0,
+        "polar_quadratic": 3,
+        "axial_quadratic": 1
+      },
+      "exact_one_step_witnesses": [
+        {
+          "seed": 1,
+          "q": [
+            "1",
+            "1",
+            "1"
+          ],
+          "p": [
+            "1",
+            "-1",
+            "0"
+          ],
+          "q_next": [
+            "19/20",
+            "19/20",
+            "1"
+          ],
+          "p_next": [
+            "7/20",
+            "-7/20",
+            "0"
+          ],
+          "basis_maps_generated_from_zero": [
+            "Lh",
+            "Q1",
+            "Q2",
+            "Q5",
+            "B3"
+          ],
+          "Gamma_before": "0",
+          "Gamma_after": "7/200",
+          "W_before": [
+            "3/2",
+            "-3*sqrt(3)/2",
+            "0"
+          ],
+          "W_after": [
+            "203/400",
+            "-203*sqrt(3)/400",
+            "0"
+          ]
+        },
+        {
+          "seed": 2,
+          "q": [
+            "1",
+            "-1",
+            "0"
+          ],
+          "p": [
+            "1",
+            "1",
+            "1"
+          ],
+          "q_next": [
+            "7/20",
+            "-7/20",
+            "0"
+          ],
+          "p_next": [
+            "19/20",
+            "19/20",
+            "1"
+          ],
+          "basis_maps_generated_from_zero": [
+            "Ah",
+            "Q3",
+            "Q4",
+            "Q5",
+            "B3"
+          ],
+          "Gamma_before": "0",
+          "Gamma_after": "-7/200",
+          "W_before": [
+            "-3/2",
+            "3*sqrt(3)/2",
+            "0"
+          ],
+          "W_after": [
+            "-203/400",
+            "203*sqrt(3)/400",
+            "0"
+          ]
+        },
+        {
+          "seed": 3,
+          "q": [
+            "1",
+            "-1",
+            "0"
+          ],
+          "p": [
+            "1",
+            "1",
+            "-2"
+          ],
+          "q_next": [
+            "7/20",
+            "-7/20",
+            "0"
+          ],
+          "p_next": [
+            "7/20",
+            "7/20",
+            "-1/2"
+          ],
+          "basis_maps_generated_from_zero": [
+            "Lz",
+            "Q3",
+            "B2"
+          ],
+          "Gamma_before": "6",
+          "Gamma_after": "119/200",
+          "W_before": [
+            "0",
+            "0",
+            "0"
+          ],
+          "W_after": [
+            "-7/200",
+            "7*sqrt(3)/200",
+            "0"
+          ]
+        },
+        {
+          "seed": 4,
+          "q": [
+            "1",
+            "1",
+            "-2"
+          ],
+          "p": [
+            "1",
+            "-1",
+            "0"
+          ],
+          "q_next": [
+            "7/20",
+            "7/20",
+            "-1/2"
+          ],
+          "p_next": [
+            "7/20",
+            "-7/20",
+            "0"
+          ],
+          "basis_maps_generated_from_zero": [
+            "Az",
+            "Q1",
+            "B1"
+          ],
+          "Gamma_before": "-6",
+          "Gamma_after": "-119/200",
+          "W_before": [
+            "0",
+            "0",
+            "0"
+          ],
+          "W_after": [
+            "7/200",
+            "-7*sqrt(3)/200",
+            "0"
+          ]
+        },
+        {
+          "seed": 5,
+          "q": [
+            "1",
+            "2",
+            "3"
+          ],
+          "p": [
+            "0",
+            "0",
+            "0"
+          ],
+          "q_next": [
+            "8/5",
+            "17/10",
+            "6/5"
+          ],
+          "p_next": [
+            "0",
+            "0",
+            "0"
+          ],
+          "basis_maps_generated_from_zero": [],
+          "Gamma_before": "0",
+          "Gamma_after": "0",
+          "W_before": [
+            "0",
+            "0",
+            "0"
+          ],
+          "W_after": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      ],
+      "numerical_checks": [
+        {
+          "background": "equal",
+          "all_12_observable_derivatives_max_error": 3.068001408479404e-11,
+          "increment": 1e-05
+        },
+        {
+          "background": "weak_unequal",
+          "all_12_observable_derivatives_max_error": 1.1219691842256907e-11,
+          "increment": 1e-05
+        },
+        {
+          "case": "partial-zero qualification",
+          "C_before": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "C_after": [
+            0.0,
+            0.0,
+            -0.0003199997866666915
+          ],
+          "expected": [
+            0.0,
+            0.0,
+            "-(4/25) sin(1/500)"
+          ],
+          "maximum_error": 1.7835125737386548e-17
+        },
+        {
+          "case": "native decoder identity",
+          "passed": true
+        }
+      ],
+      "scope": "Degree <=2 polynomial classification; exact one-step examples; no trajectories or scans"
+    }
+  },
+  "SA0": {
+    "source_results": "SA0_results.json",
+    "source_sha256": "5d2f02ce2548c5f20e6b1150c3823ec471cfb594917a8d3b16c7d90266df3765",
+    "retained_not_rerun": true,
+    "verification": {
+      "exact_predicate_count": 226,
+      "exact_predicates": [
+        "C3 face_scalar degree 0 basis 1",
+        "C3 face_scalar degree 1 basis 1",
+        "C3 face_scalar degree 2 basis 1",
+        "C3 face_scalar degree 2 basis 2",
+        "C3 face_scalar degree 2 basis 3",
+        "C3 face_scalar degree 2 basis 4",
+        "C3 face_scalar degree 2 basis 5",
+        "C3 face_scalar degree 2 basis 6",
+        "C3 face_scalar degree 2 basis 7",
+        "C3 face_scalar degree 2 basis 8",
+        "C3 face_tangent degree 1 basis 1",
+        "C3 face_tangent degree 1 basis 2",
+        "C3 face_tangent degree 1 basis 3",
+        "C3 face_tangent degree 1 basis 4",
+        "C3 face_tangent degree 2 basis 1",
+        "C3 face_tangent degree 2 basis 2",
+        "C3 face_tangent degree 2 basis 3",
+        "C3 face_tangent degree 2 basis 4",
+        "C3 face_tangent degree 2 basis 5",
+        "C3 face_tangent degree 2 basis 6",
+        "C3 face_tangent degree 2 basis 7",
+        "C3 face_tangent degree 2 basis 8",
+        "C3 seam_vertical degree 1 basis 1",
+        "C3 seam_vertical degree 1 basis 2",
+        "C3 seam_vertical degree 2 basis 1",
+        "C3 seam_vertical degree 2 basis 2",
+        "C3 seam_vertical degree 2 basis 3",
+        "C3 seam_vertical degree 2 basis 4",
+        "C3 rim_scalar degree 0 basis 1",
+        "C3 rim_scalar degree 1 basis 1",
+        "C3 rim_scalar degree 2 basis 1",
+        "C3 rim_scalar degree 2 basis 2",
+        "C3 rim_scalar degree 2 basis 3",
+        "C3 rim_scalar degree 2 basis 4",
+        "C3 rim_scalar degree 2 basis 5",
+        "C3 rim_vector degree 0 basis 1",
+        "C3 rim_vector degree 1 basis 1",
+        "C3 rim_vector degree 1 basis 2",
+        "C3 rim_vector degree 1 basis 3",
+        "C3 rim_vector degree 2 basis 1",
+        "C3 rim_vector degree 2 basis 2",
+        "C3 rim_vector degree 2 basis 3",
+        "C3 rim_vector degree 2 basis 4",
+        "C3 rim_vector degree 2 basis 5",
+        "C3 rim_vector degree 2 basis 6",
+        "C3 rim_vector degree 2 basis 7",
+        "C3 rim_vector degree 2 basis 8",
+        "C3 rim_vector degree 2 basis 9",
+        "C3 rim_vector degree 2 basis 10",
+        "C3 rim_vector degree 2 basis 11",
+        "C3 rim_vector degree 2 basis 12",
+        "vertical face_scalar degree 0 basis 1",
+        "vertical face_scalar degree 1 basis 1",
+        "vertical face_scalar degree 2 basis 1",
+        "vertical face_scalar degree 2 basis 2",
+        "vertical face_scalar degree 2 basis 3",
+        "vertical face_scalar degree 2 basis 4",
+        "vertical face_scalar degree 2 basis 5",
+        "vertical face_scalar degree 2 basis 6",
+        "vertical face_scalar degree 2 basis 7",
+        "vertical face_scalar degree 2 basis 8",
+        "vertical face_tangent degree 1 basis 1",
+        "vertical face_tangent degree 1 basis 2",
+        "vertical face_tangent degree 1 basis 3",
+        "vertical face_tangent degree 1 basis 4",
+        "vertical face_tangent degree 2 basis 1",
+        "vertical face_tangent degree 2 basis 2",
+        "vertical face_tangent degree 2 basis 3",
+        "vertical face_tangent degree 2 basis 4",
+        "vertical face_tangent degree 2 basis 5",
+        "vertical face_tangent degree 2 basis 6",
+        "vertical face_tangent degree 2 basis 7",
+        "vertical face_tangent degree 2 basis 8",
+        "vertical seam_vertical degree 1 basis 1",
+        "vertical seam_vertical degree 1 basis 2",
+        "vertical seam_vertical degree 2 basis 1",
+        "vertical seam_vertical degree 2 basis 2",
+        "vertical seam_vertical degree 2 basis 3",
+        "vertical seam_vertical degree 2 basis 4",
+        "vertical rim_scalar degree 0 basis 1",
+        "vertical rim_scalar degree 1 basis 1",
+        "vertical rim_scalar degree 2 basis 1",
+        "vertical rim_scalar degree 2 basis 2",
+        "vertical rim_scalar degree 2 basis 3",
+        "vertical rim_scalar degree 2 basis 4",
+        "vertical rim_scalar degree 2 basis 5",
+        "vertical rim_vector degree 0 basis 1",
+        "vertical rim_vector degree 1 basis 1",
+        "vertical rim_vector degree 1 basis 2",
+        "vertical rim_vector degree 1 basis 3",
+        "vertical rim_vector degree 2 basis 1",
+        "vertical rim_vector degree 2 basis 2",
+        "vertical rim_vector degree 2 basis 3",
+        "vertical rim_vector degree 2 basis 4",
+        "vertical rim_vector degree 2 basis 5",
+        "vertical rim_vector degree 2 basis 6",
+        "vertical rim_vector degree 2 basis 7",
+        "vertical rim_vector degree 2 basis 8",
+        "vertical rim_vector degree 2 basis 9",
+        "vertical rim_vector degree 2 basis 10",
+        "vertical rim_vector degree 2 basis 11",
+        "vertical rim_vector degree 2 basis 12",
+        "horizontal face_scalar degree 0 basis 1",
+        "horizontal face_scalar degree 1 basis 1",
+        "horizontal face_scalar degree 2 basis 1",
+        "horizontal face_scalar degree 2 basis 2",
+        "horizontal face_scalar degree 2 basis 3",
+        "horizontal face_scalar degree 2 basis 4",
+        "horizontal face_scalar degree 2 basis 5",
+        "horizontal face_scalar degree 2 basis 6",
+        "horizontal face_scalar degree 2 basis 7",
+        "horizontal face_scalar degree 2 basis 8",
+        "horizontal face_tangent degree 1 basis 1",
+        "horizontal face_tangent degree 1 basis 2",
+        "horizontal face_tangent degree 1 basis 3",
+        "horizontal face_tangent degree 1 basis 4",
+        "horizontal face_tangent degree 2 basis 1",
+        "horizontal face_tangent degree 2 basis 2",
+        "horizontal face_tangent degree 2 basis 3",
+        "horizontal face_tangent degree 2 basis 4",
+        "horizontal face_tangent degree 2 basis 5",
+        "horizontal face_tangent degree 2 basis 6",
+        "horizontal face_tangent degree 2 basis 7",
+        "horizontal face_tangent degree 2 basis 8",
+        "horizontal seam_vertical degree 1 basis 1",
+        "horizontal seam_vertical degree 1 basis 2",
+        "horizontal seam_vertical degree 2 basis 1",
+        "horizontal seam_vertical degree 2 basis 2",
+        "horizontal seam_vertical degree 2 basis 3",
+        "horizontal seam_vertical degree 2 basis 4",
+        "horizontal rim_scalar degree 0 basis 1",
+        "horizontal rim_scalar degree 1 basis 1",
+        "horizontal rim_scalar degree 2 basis 1",
+        "horizontal rim_scalar degree 2 basis 2",
+        "horizontal rim_scalar degree 2 basis 3",
+        "horizontal rim_scalar degree 2 basis 4",
+        "horizontal rim_scalar degree 2 basis 5",
+        "horizontal rim_vector degree 0 basis 1",
+        "horizontal rim_vector degree 1 basis 1",
+        "horizontal rim_vector degree 1 basis 2",
+        "horizontal rim_vector degree 1 basis 3",
+        "horizontal rim_vector degree 2 basis 1",
+        "horizontal rim_vector degree 2 basis 2",
+        "horizontal rim_vector degree 2 basis 3",
+        "horizontal rim_vector degree 2 basis 4",
+        "horizontal rim_vector degree 2 basis 5",
+        "horizontal rim_vector degree 2 basis 6",
+        "horizontal rim_vector degree 2 basis 7",
+        "horizontal rim_vector degree 2 basis 8",
+        "horizontal rim_vector degree 2 basis 9",
+        "horizontal rim_vector degree 2 basis 10",
+        "horizontal rim_vector degree 2 basis 11",
+        "horizontal rim_vector degree 2 basis 12",
+        "face_scalar degree 0 independence",
+        "face_scalar degree 1 independence",
+        "face_scalar degree 2 independence",
+        "face_tangent degree 1 independence",
+        "face_tangent degree 2 independence",
+        "seam_vertical degree 1 independence",
+        "seam_vertical degree 2 independence",
+        "rim_scalar degree 0 independence",
+        "rim_scalar degree 1 independence",
+        "rim_scalar degree 2 independence",
+        "rim_vector degree 0 independence",
+        "rim_vector degree 1 independence",
+        "rim_vector degree 2 independence",
+        "face_scalar complete dimensions",
+        "face_tangent complete dimensions",
+        "seam_vertical complete dimensions",
+        "rim_scalar complete dimensions",
+        "rim_vector complete dimensions",
+        "ambient per-face direct-sum dimensions",
+        "K squared on transverse channels",
+        "chirality split",
+        "chirality reconstruction",
+        "transport frame match 0,0",
+        "transport composition 0,0,0",
+        "transport composition 0,0,1",
+        "transport composition 0,0,2",
+        "transport frame match 0,1",
+        "transport composition 0,1,0",
+        "transport composition 0,1,1",
+        "transport composition 0,1,2",
+        "transport frame match 0,2",
+        "transport composition 0,2,0",
+        "transport composition 0,2,1",
+        "transport composition 0,2,2",
+        "transport frame match 1,0",
+        "transport composition 1,0,0",
+        "transport composition 1,0,1",
+        "transport composition 1,0,2",
+        "transport frame match 1,1",
+        "transport composition 1,1,0",
+        "transport composition 1,1,1",
+        "transport composition 1,1,2",
+        "transport frame match 1,2",
+        "transport composition 1,2,0",
+        "transport composition 1,2,1",
+        "transport composition 1,2,2",
+        "transport frame match 2,0",
+        "transport composition 2,0,0",
+        "transport composition 2,0,1",
+        "transport composition 2,0,2",
+        "transport frame match 2,1",
+        "transport composition 2,1,0",
+        "transport composition 2,1,1",
+        "transport composition 2,1,2",
+        "transport frame match 2,2",
+        "transport composition 2,2,0",
+        "transport composition 2,2,1",
+        "transport composition 2,2,2",
+        "ambient constant traces: only common vertical sector",
+        "matched parallel sections: common complex sector",
+        "ambient continuous basis",
+        "matched parallel basis",
+        "matched parallel basis",
+        "native shell combinatorics",
+        "two nine-edge rims",
+        "equal input intensity",
+        "intensity closure obstruction",
+        "equal input raw chirality",
+        "raw chirality closure obstruction",
+        "dynamics has no geometry/observer feedback import",
+        "boundary_response has no geometry/observer feedback import",
+        "srg has no geometry/observer feedback import",
+        "operating_region has no geometry/observer feedback import"
+      ],
+      "dimensions": {
+        "face_scalar": [
+          1,
+          1,
+          8
+        ],
+        "face_tangent": [
+          0,
+          4,
+          8
+        ],
+        "seam_vertical": [
+          0,
+          2,
+          4
+        ],
+        "rim_scalar": [
+          1,
+          1,
+          5
+        ],
+        "rim_vector": [
+          1,
+          3,
+          12
+        ],
+        "face_ambient": [
+          1,
+          5,
+          16
+        ]
+      },
+      "closure_witnesses": {
+        "intensity_input": "(1,1,1) and (1,-1,1), both real",
+        "intensity_output": [
+          "1",
+          "1",
+          "1"
+        ],
+        "intensity_other_output": [
+          "9/25",
+          "1/25",
+          "9/25"
+        ],
+        "chirality_input": [
+          "1",
+          "1",
+          "-2"
+        ],
+        "chirality_outputs": [
+          [
+            "7/20",
+            "7/20",
+            "-133/200"
+          ],
+          [
+            "323/1600",
+            "323/1600",
+            "-1273/3200"
+          ]
+        ],
+        "zero_stratum": {
+          "config": "eps=g=0, lambda=1/10",
+          "inputs": "(1,-1,0) and exp(i*pi/6)*(1,-1,0)",
+          "H12_after": "-1 and -exp(-i/5)",
+          "S12_after": "-1 and -cos(1/5)"
+        }
+      },
+      "numerical_checks": [
+        {
+          "name": "Hermitian Gram quotient identity",
+          "residual": 1.672496975539925e-16,
+          "tolerance": 2e-13
+        },
+        {
+          "name": "real Gram closure under phase",
+          "residual": 5.551115123125783e-17,
+          "tolerance": 2e-13
+        },
+        {
+          "name": "real Gram closure under conjugation",
+          "residual": 0.0,
+          "tolerance": 2e-13
+        },
+        {
+          "name": "zero-stratum witness formula",
+          "residual": 1.1102230246251565e-16,
+          "tolerance": 2e-13
+        },
+        {
+          "name": "canonical FaceState step",
+          "residual": 0.0,
+          "tolerance": 1e-15
+        },
+        {
+          "name": "decoded view after step",
+          "residual": 0.0,
+          "tolerance": 1e-15
+        },
+        {
+          "name": "SRG handoff direct product n=0",
+          "residual": 0.0,
+          "tolerance": 2e-13
+        },
+        {
+          "name": "SRG handoff direct product n=1",
+          "residual": 1.0971354589302191e-17,
+          "tolerance": 2e-13
+        },
+        {
+          "name": "SRG handoff direct product n=2",
+          "residual": 3.127317220692751e-18,
+          "tolerance": 2e-13
+        },
+        {
+          "name": "SRG handoff direct product n=3",
+          "residual": 6.605630197227462e-18,
+          "tolerance": 2e-13
+        }
+      ],
+      "zero_stratum_numerical_gap": 0.019933422158758374,
+      "source_imports": {
+        "dynamics": [
+          {
+            "module": "dataclasses",
+            "level": 0,
+            "names": [
+              "dataclass"
+            ]
+          },
+          {
+            "module": "math",
+            "level": 0,
+            "names": [
+              "isfinite"
+            ]
+          }
+        ],
+        "boundary_response": [
+          {
+            "module": "_response_numeric",
+            "level": 1,
+            "names": [
+              "ResponsePrecisionError",
+              "checked_real",
+              "complex_vector",
+              "product",
+              "real_scalar",
+              "scale_complex"
+            ]
+          }
+        ],
+        "srg": [
+          {
+            "module": "dataclasses",
+            "level": 0,
+            "names": [
+              "dataclass"
+            ]
+          },
+          {
+            "module": "_response_numeric",
+            "level": 1,
+            "names": [
+              "ResponsePrecisionError",
+              "bra_dot",
+              "checked_real",
+              "complex_product",
+              "complex_vector",
+              "product",
+              "scale_complex"
+            ]
+          },
+          {
+            "module": "boundary_response",
+            "level": 1,
+            "names": [
+              "RESPONSE_ID",
+              "_theta",
+              "lens_area_gain"
+            ]
+          }
+        ],
+        "operating_region": [
+          {
+            "module": "_response_numeric",
+            "level": 1,
+            "names": [
+              "ResponsePrecisionError",
+              "checked_array",
+              "complex_vector",
+              "real_scalar"
+            ]
+          },
+          {
+            "module": "dynamics",
+            "level": 1,
+            "names": [
+              "DynamicsConfig",
+              "step3"
+            ]
+          },
+          {
+            "module": "srg",
+            "level": 1,
+            "names": [
+              "handoff_area_response"
+            ]
+          }
+        ],
+        "reference_scaffold": [
+          {
+            "module": "dataclasses",
+            "level": 0,
+            "names": [
+              "dataclass"
+            ]
+          },
+          {
+            "module": "fractions",
+            "level": 0,
+            "names": [
+              "Fraction"
+            ]
+          }
+        ],
+        "geometry": [
+          {
+            "module": "collections",
+            "level": 0,
+            "names": [
+              "Counter"
+            ]
+          },
+          {
+            "module": "dataclasses",
+            "level": 0,
+            "names": [
+              "dataclass"
+            ]
+          }
+        ],
+        "face_state": [
+          {
+            "module": "dataclasses",
+            "level": 0,
+            "names": [
+              "dataclass",
+              "field"
+            ]
+          },
+          {
+            "module": "pathlib",
+            "level": 0,
+            "names": [
+              "Path"
+            ]
+          },
+          {
+            "module": null,
+            "level": 1,
+            "names": [
+              "dynamics",
+              "geometry",
+              "operating_region",
+              "readouts"
+            ]
+          },
+          {
+            "module": "_response_numeric",
+            "level": 1,
+            "names": [
+              "checked_real",
+              "complex_vector",
+              "product",
+              "real_scalar",
+              "total"
+            ]
+          }
+        ]
+      },
+      "versions": {
+        "python": "3.11.15",
+        "sympy": "1.14.0",
+        "numpy": "2.4.4"
+      }
+    }
+  }
+}

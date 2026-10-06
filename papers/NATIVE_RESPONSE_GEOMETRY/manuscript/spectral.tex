@@ -1,0 +1,215 @@
+\section{General SPD self-adjointness}\label{sec:spd}
+Because ``symmetrizable'' often denotes positive diagonal symmetrization in matrix literature, we use \emph{diagonal balance} for that stronger node-local property and \emph{SPD self-adjointness} for \(GJ=J^TG\) with arbitrary \(G>0\). See, for example, the positive-diagonal convention in \cite[Definition~4.1]{MS}.
+
+\begin{theorem}[Finite real criterion]\label{thm:spd}
+A real square J admits a real symmetric positive-definite G with \(GJ=J^TG\) if and only if J is diagonalizable over \(\R\) with entirely real spectrum.
+\end{theorem}
+\begin{proof}
+If G exists, \(Q=G^{1/2}\) makes \(QJQ^{-1}\) real symmetric, since
+\((QJQ^{-1})^T=Q^{-1}J^TQ=QJQ^{-1}\).
+Conversely, write \(J=V\Lambda V^{-1}\) with V real invertible and \(\Lambda\) real diagonal. For any SPD K commuting with \(\Lambda\),
+\begin{equation}
+G=V^{-T}KV^{-1}\label{eq:SPDconstruct}
+\end{equation}
+is positive and balances J. These are all solutions: multiplying balance by \(V^T,V\) gives \(K\Lambda=\Lambda K\).
+\end{proof}
+Repeated semisimple roots and zero eigenvalues are allowed. An alternative, avoiding basis choices inside eigenspaces, is
+\begin{equation}
+G=\sum_\rho c_\rho E_\rho^TE_\rho,\qquad
+E_\rho=\prod_{\sigma\ne\rho}\frac{J-\sigma I}{\rho-\sigma},\qquad c_\rho>0 .
+\end{equation}
+Here \(\sum E_\rho=I\) proves positivity, and \(E_\rho J=\rho E_\rho\) proves balance. In general these forms mix nodes and are nonunique. Positive diagonal detailed balance is strictly stronger than arbitrary SPD self-adjointness. Neither existence nor nonuniqueness selects a physical geometry. \src{GR2 \S2, L17; elementary lemma, no priority claim.}
+
+\section{Exact positive-triad spectrum}\label{sec:triad}
+Define
+\begin{equation}
+\sigma=a+b+c,\qquad
+h=\sigma(1/a+1/b+1/c)-3,\qquad
+t=\frac{\sigma(a^2+b^2+c^2)}{abc},\qquad d=1-3\ell .
+\end{equation}
+The invariant t is not time. The symmetric matrix
+\begin{equation}
+M_3=\sigma R^{-1}-\one\one^T,\qquad H_r=I-gM_3
+\end{equation}
+has kernel r. Weighted Cauchy--Schwarz gives
+\[
+v^TM_3v=\sigma\sum_i v_i^2/r_i-(\sum_i v_i)^2\ge0,
+\]
+with equality precisely for \(v\parallel r\). Its positive eigenvalues \(\mu_\pm\) therefore have sum h and product t, by trace and principal minors.
+
+\begin{theorem}[Reality of the transverse quotient]\label{thm:triad}
+The characteristic polynomial is
+\begin{align}
+\det(\xi I-J)&=(\xi-1)Q(\xi),\\
+Q(\xi)&=\xi^2-d(2-gh)\xi+d^2(1-gh+g^2t),\label{eq:triadpoly}\\
+\mathcal D_3&=\boxed{d^2g^2(h^2-4t)\ge0},\quad
+\rho_\pm=d(1-g\mu_\pm).\label{eq:triadD}
+\end{align}
+The transverse quotient is always real semisimple. Its roots are distinct exactly when \(gd\ne0\) and the positive radii are not all equal.
+\end{theorem}
+\begin{proof}
+The transverse object is \(\R^3/\operatorname{span}\{\one\}\); the Euclidean sum-zero plane need not be J-invariant. P is similar to symmetric \(I-gM_3\); its noncommon eigenvectors span this quotient. The synchronizer \(dI+\ell\one\one^T\) acts as scalar d on it, proving the polynomial and semisimplicity.
+
+The two positive eigenvalues of \(M_3\) coincide only at equal radii. If both equal \(\mu\), then \(M_3=\mu(I-rr^T/(r^Tr))\). Its off-diagonal entries are all \(-1\), forcing ab=ac=bc and hence equality. The converse follows by substitution. Cases g=0 and d=0 yield scalar quotient action.
+\end{proof}
+
+\subsection{Full-matrix defects and local SPD geometry}
+Let \(w_\alpha\perp r\) be eigenvectors of \(M_3\), \(v_\alpha=R^{-1}w_\alpha\), and \(p_\alpha=1-g\mu_\alpha\). In the basis \((\one,v_-,v_+)\),
+\begin{equation}
+J\sim
+\begin{pmatrix}
+1&\ell p_-\one^Tv_-&\ell p_+\one^Tv_+\\
+0&dp_-&0\\0&0&dp_+
+\end{pmatrix}.\label{eq:triadres}
+\end{equation}
+This follows by applying P and then \(dI+\ell\one\one^T\) to each vector. Thus, for nonconstant radii and \(g\ell d\ne0\), a defect occurs exactly when
+\begin{equation}
+dp_\alpha=1,\qquad \one^Tv_\alpha\ne0.\label{eq:resonance}
+\end{equation}
+It is a size-two Jordan block at one, not a defective transverse coincidence.
+
+To classify the vanishing coupling, multiply \(M_3w=\mu w\) by \(\one^T\):
+\[
+\one^TR^{-1}w=(\mu+3)\one^Tw/\sigma .
+\]
+If this is zero, the eigen-equation reduces to \(\sigma R^{-1}w=\mu w\). A nonzero sum-zero w can then be supported only on equal radii. Consequently every resonance for three distinct radii is defective; for exactly two equal radii the antisymmetric equal-pair mode is semisimple at resonance and the other mode is defective. Equal radii and cases \(g=0,\ell=0,d=0\) are diagonalizable; at d=0, \(J^2=J\).
+
+Near a strictly stable equal background the transverse eigenvalues remain inside the unit disk and away from one. These resonances are excluded, so Theorem~\ref{thm:spd} supplies an SPD metric throughout a sufficiently small positive unequal triad branch, even when Theorem~\ref{thm:cycle} excludes every positive diagonal weight.
+
+Finally, let \(v_i=u_i/\sqrt{k}\) in the weak expansion. The first variation of \(M_3\), restricted to the equal-background transverse plane, is
+\(-3\Pi\diag(v)\Pi\), \(\Pi=I-\one\one^T/3\). It is traceless and has squared eigenvalue gap \(6\sum v_i^2\). Therefore
+\begin{equation}
+\mathcal D_3=
+6d^2g^2\left(\frac{\eps}{2\eps k+3g}\right)^2
+\sum_i\kappa_i^2\,\eta^2+O(\eta^3).\label{eq:triadweak}
+\end{equation}
+The positive quadratic onset splits real roots; no order makes the positive-triad transverse spectrum complex. This is independent of the cubic cycle obstruction. \src{GR2 \S\S3--4, L18--L20.}
+
+\section{Exact finite Bloch decomposition}\label{sec:bloch}
+Number nodes by cell \(n=0,\ldots,q-1\) and residue \(\alpha=0,1,2\). For
+\(\phi_{n,\alpha}=z^nv_\alpha\), \(z=e^{i\theta}\), \(\theta=2\pi m/q\),
+\begin{align}
+D(z)&=\begin{pmatrix}-2&1&z^{-1}\\1&-2&1\\z&1&-2\end{pmatrix},\\
+H_r(z)&=I-g\diag((\sigma-3r_\alpha)/r_\alpha)+gD(z),\\
+J(z)&=\boxed{(I+\ell D(z))R^{-1}H_r(z)R}.\label{eq:bloch}
+\end{align}
+Substitution at cell boundaries supplies the \(z^{\pm1}\) factors. Fourier transformation in n is an exact finite direct sum. Both D and \(H_r\) are Hermitian on the unit circle, but the product in \eqref{eq:bloch} need not be. Conjugate phases give conjugate blocks.
+
+To prevent a collision of notation with the chiral scalar below, write
+\begin{align}
+V_r&=(a-b)(a-c)(b-c),\quad E_B=\ell(1+3g)-g,\\
+\Gamma_B&=\ell gE_B V_r/(abc),\qquad w=z+z^{-1}-2,\\
+C_B&=\ell g\left[\ell gt-\tfrac12(g+\ell-\ell g)h\right].
+\end{align}
+\begin{proposition}[Exact coefficients]\label{prop:blochpoly}
+Writing \(\det(\xi I-J(z))=\xi^3-T_B\xi^2+B_B(z)\xi-D_B(z)\),
+\begin{align}
+T_B&=3-6\ell-dgh,\label{eq:BT}\\
+B_B(z)&=d(2-gh)+d^2(1-gh+g^2t)+C_Bw-\frac{\Gamma_B}{2}(z-z^{-1}),\label{eq:BB}\\
+D_B(z)&=(d^2+\ell^3w)(1-gh+g^2t+g^3w).\label{eq:BD}
+\end{align}
+\end{proposition}
+\begin{proof}
+Take the trace of \eqref{eq:bloch} to obtain \(T_B\). The middle coefficient is \(((\tr J)^2-\tr J^2)/2\). Collecting \(z,z^{-1}\) gives mean coefficient \(C_B\), difference \(-\Gamma_B\); its value at z=1 is fixed by \eqref{eq:triadpoly}. For the determinant, multiply
+\(\det(I+\ell D)=d^2+\ell^3w\) and
+\(\det H_r=1-gh+g^2t+g^3w\).
+Similarity by R changes neither determinant. These operations derive all coefficients; Appendix~\ref{app:bloch} records a reproducible algebra route.
+\end{proof}
+
+\begin{theorem}[Blockwise spectral decision]\label{thm:blocks}
+If \(\Gamma_B\sin\theta\ne0\), the block has non-real spectrum and the full real ring has no SPD symmetrizer. If this product vanishes, its coefficients are real and the cubic discriminant
+\begin{equation}
+\mathfrak D=T_B^2B_B^2-4B_B^3-4T_B^3D_B-27D_B^2+18T_BB_BD_B\label{eq:cubicD}
+\end{equation}
+classifies simple roots: positive means three distinct real roots; negative means a real root and a conjugate pair. At zero discriminant, a Jordan test is additionally necessary.
+\end{theorem}
+\begin{proof}
+\(\im B_B=-\Gamma_B\sin\theta\) whereas \(T_B,D_B\) are real. An all-real root set would have real coefficients, a contradiction. In fact a real root would obey \((\im B_B)\xi=0\), so if \(D_B\ne0\) all three block roots are non-real. The conjugate block supplies their conjugates.
+
+For a real cubic the discriminant is the product of squared root differences. It is positive for three distinct real roots; for a conjugate pair the squared difference of that pair is negative and the remaining paired product positive, giving negative sign. Repeated roots give zero. For a double root \(\rho\) and distinct \(\sigma_0\), diagonalizability is equivalent to \(\rank(J-\rho I)=1\), or \((J-\rho I)(J-\sigma_0I)=0\). At a triple root it is equivalent to J being scalar. This follows directly from the eigenspace dimensions or minimal polynomial.
+\end{proof}
+When not all roots coincide, the repeated root at zero discriminant is
+\[
+\rho=\frac{T_BB_B-9D_B}{2(T_B^2-3B_B)},\qquad \sigma_0=T_B-2\rho .
+\]
+Triple coincidence occurs when \(B_B=T_B^2/3,D_B=T_B^3/27\). If coefficients are non-real, repeated-root rank tests still distinguish complex Jordan defects, although SPD balance is already excluded.
+
+The full ring admits an SPD symmetrizer exactly when every block has real semisimple spectrum. Conjugate Fourier eigenvectors then give a real eigenbasis; repeated roots in separate blocks do not create Jordan coupling.
+
+For q at least three, an allowed phase has nonzero sine. Thus three distinct radii and
+\begin{equation}
+g\ell[\ell(1+3g)-g]\ne0\label{eq:generic}
+\end{equation}
+force non-real spectrum on every admitted \(N\ge9\), however weak the nonzero inequality. The immediate obstruction vanishes when g=0, \(\ell=0\), \(E_B=0\), \(V_r=0\), or the particular phase is \(z=\pm1\). Its vanishing is not sufficient for real semisimple spectrum.
+
+Along the weak branch,
+\[
+\Gamma_B=\ell gE_B\left(\frac{\eps}{2\eps k+3g}\right)^3V(\kappa)\eta^3+O(\eta^4).
+\]
+At a simple nonzero equal-background block root rho, differentiating the characteristic equation gives
+\[
+\im\delta\rho=\frac{\Gamma_B\sin\theta\,\rho}
+{\prod_{\sigma'\ne\rho}(\rho-\sigma')}+O(\eta^4).
+\]
+Repeated or zero baseline roots require the exact polynomial tests instead. Complex roots can remain strictly inside the unit disk. They are oscillatory linear-response modes, with no physical wave interpretation. \src{GR2 \S5, L21--L24.}
+
+\section{Six-ring reality, defect and complex unfolding}\label{sec:six}
+For N=6 only \(z=1,-1\) occur; N=12 adds \(z=i,-i\). The first block is the triad. At z=-1 the polynomial is real with w=-4; at \(z=\pm i\), its imaginary middle coefficient is \(\mp\Gamma_B\). Thus the same native background can have a real-diagonalizable six-ring response and a non-real twelve-ring response.
+
+At equal radii the antiperiodic block has double root
+\(\rho_1=(1-\ell)(1-g)\) and simple root
+\(\rho_4=(1-4\ell)(1-4g)\), with gap \(3E_\pi\), \(E_\pi=g+\ell-5g\ell\).
+For \(v_i=u_i/\sqrt{k}\), its discriminant is
+\begin{equation}
+\mathfrak D_\pi=
+6g^2(1-\ell)^2\sum_i v_i^2(3E_\pi)^4\eta^2+O(\eta^3).\label{eq:sixgeneric}
+\end{equation}
+Indeed the first derivative is
+\((I+\ell D_\pi)g([D_\pi,\diag v]+3\diag v)\).
+Its projection onto the double \(-1\) eigenspace of \(D_\pi\) is
+\(3g(1-\ell)\Pi_\pi\diag(v)\Pi_\pi\), symmetric with the squared gap shown in \eqref{eq:sixgeneric}. Multiply by the fourth power of separation from the third root. At a fixed stable baseline with \(g(1-\ell)E_\pi\ne0\), weak nontrivial inequality therefore gives real simple antiperiodic roots and an SPD full-ring metric, despite the diagonal obstruction.
+
+The neighbourhood is not uniform near exceptional baselines. At \(E_\pi=0\), \(\ell=g/(5g-1)\), the first variation \(K_\pi\) has trace and determinant zero and
+\[
+\tr K_\pi^2=\frac{3g^2(4g-1)^2}{(5g-1)^2}\sum_i v_i^2.
+\]
+Unless this coefficient vanishes, its three first-order roots are distinct and real. At \(\ell=1\), the antiperiodic synchronizer has rank one. The exact response can instead be defective.
+
+\begin{theorem}[Exact native nilpotent response and unfolding]\label{thm:nilpotent}
+Take
+\begin{equation}
+r=(1-\tau,1,1+\tau),\quad g=(1-\tau^2)/4,\quad
+\ell=1,\quad \eps=1/20,\quad
+k_i=r_i^2-\frac g\eps\frac{(\Delta_3r)_i}{r_i},\label{eq:fixture}
+\end{equation}
+with \(0<|\tau|\) sufficiently small. Then
+\begin{equation}
+\boxed{J(-1)=\frac{\tau^2}{4}
+\begin{pmatrix}1\\-1\\1\end{pmatrix}
+\begin{pmatrix}1+\tau&2&1-\tau\end{pmatrix}.}\label{eq:nilpotent}
+\end{equation}
+It has rank one, square zero, and Jordan sizes \(2+1\) at eigenvalue zero. Holding r,g,\(k_i,\eps\) fixed and varying only \(\ell=1+\delta\), its discriminant satisfies
+\begin{equation}
+\mathfrak D_\pi=\frac{27}{2}\tau^{12}\delta^3+O(\delta^4).\label{eq:unfold}
+\end{equation}
+For each fixed nonzero small tau, sufficiently small negative delta gives a complex pair, positive delta gives three distinct real roots, and zero delta gives the defect.
+\end{theorem}
+\begin{proof}
+Substitute \eqref{eq:fixture} in \eqref{eq:bloch}; direct multiplication gives \eqref{eq:nilpotent}. Its nonzero row and column pair to zero, proving rank one and square zero. A three-dimensional nonzero square-zero rank-one operator has one size-two block and one size-one block. The coefficients under the stated variation are exactly
+\begin{align}
+T_B&=-3\delta/2,\\
+B_B&=-\frac{3\delta}{16}\,[8\tau^4+\delta(10\tau^4+\tau^2-3)],\\
+D_B&=\frac{\delta^2\tau^4(4\delta+3)(9-\tau^2)}{16}.\label{eq:unfoldcoeff}
+\end{align}
+Substituting into \eqref{eq:cubicD} leaves the cubic coefficient \(27\tau^{12}/2>0\), proving the sign conclusions and simplicity away from zero for small delta.
+\end{proof}
+
+This is a native fixed point by construction, not an arbitrary matrix. The coefficients are positive for small tau, with mean \(k=1-28\tau^2/3\). For each fixture, \(\eta=\tau\) and \(\kappa_i=(k_i-k)/\tau\) put it in the admitted form. Varying tau in this auxiliary family does \emph{not} keep kappa fixed. At the rational fixture \(\tau=10^{-3}\), exact contraction-box inequalities connect the point to the unique weak branch for its fixed direction (Appendix~\ref{app:fixture}).
+
+The equal-reference noncommon phase multipliers at \(\ell=1\) are \(0,-1/2-3\tau^2/2,-3\tau^2\); its radial multipliers are strictly inside the unit disk for small tau. At the unequal point the triad transverse roots are
+\(-\tfrac12(1\pm\tau\sqrt{3+6\tau^2})\), and the antiperiodic eigenvalues vanish. Moreover \(\|J(-1)\|_\infty=\tau^2\). Thus the defect and its sufficiently small unfolding can remain normally stable. Stability, reality and diagonalizability are separate questions. \src{GR2 \S6, L25--L27.}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\linewidth]{../figures/03_spectral_hierarchy.pdf}
+\caption{Finite spectral hierarchy, with hypotheses stated on each branch. The six-ring three-way alternative uses \eqref{eq:fixture} and variation of the existing synchronizer parameter only. The larger-ring statement requires \eqref{eq:generic} and distinct radii. All are finite linear-response results. Source: GR2 \S\S3--6.}
+\end{figure}
