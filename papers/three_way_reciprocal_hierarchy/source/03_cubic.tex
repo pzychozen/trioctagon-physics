@@ -1,0 +1,114 @@
+\section{The cubic equal-value correspondence}\label{sec:cubic}
+Let
+\begin{equation}\label{eq:cubic_original}
+ F_3(y)=\frac{Ay^3-By^2-Cy+1}{y^3-Cy^2-By+A}=\frac{P(y)}{Q(y)}.
+\end{equation}
+The elementary fiber and cancellation identities are
+\begin{align}\label{eq:cubic_fibers}
+ P-Q&=(y-1)[(A-1)(y^2+y+1)+(C-B)y],\notag\\
+ P+Q&=(y+1)[(A+1)(y^2-y+1)-(B+C)y],\\
+ \Res(P,Q)&=(A-B-C+1)(A+B-C-1)H_3^2,\label{eq:cubic_resultant}\\
+ H_3&=A^2+AC-B-1.\notag
+\end{align}
+The two linear factors of the resultant correspond to cancellation at \(\pm1\); the square corresponds to reciprocal-pair cancellation, including intersections with the fixed-point strata. Zeros are the roots of \(P/G\), with reciprocal poles. When \(A\ne0\),
+\begin{equation}\label{eq:cubic_zero_disc}
+ \Disc(P)=B^2C^2+4AC^3+4B^3+18ABC-27A^2.
+\end{equation}
+For a real uncanceled cubic, a positive value gives three distinct real zeros and a negative value one real zero and a conjugate nonreal pair. A zero discriminant signals repetition. These familiar real-cubic facts do not decide which zeros lie in \(y\ge0\).
+
+\subsection{Exact factorization in the original source}
+Put \(a=B-AC\), \(b=C-AB\), \(c=A^2-1\). Direct expansion gives
+\begin{equation}\label{eq:original_factor}
+ F_3(u)-F_3(y)=\frac{(u-y)\mathcal Q_y(u)}{Q(u)Q(y)},
+\end{equation}
+where
+\begin{align}\label{eq:original_residual}
+ \mathcal Q_y(u)={}&(ay^2+by+c)u^2\notag\\
+ &+[by^2+(c+B^2-C^2)y+b]u+cy^2+by+a.
+\end{align}
+The quadratic describes the two other sheets. Its leading coefficient can vanish at a particular source point; this is a projective phenomenon, not a global rational splitting. On the degree-three locus, any rational root over \(\CC(y)\) would give a Möbius deck transformation. Since the order of a deck group divides the cover degree, one nonidentity deck element forces a cyclic Galois cover of degree three. The exceptional splitting criterion will therefore coincide with the cyclic criterion below.
+
+\subsection{Odd coordinates and the discriminant curve}
+In \(z=(y-1)/(y+1)\) and \(w=(F_3-1)/(F_3+1)\), set
+\begin{equation}\label{eq:pqrs}
+ \begin{aligned}
+ p&=A+B-C-1,&q&=3(A-1)-B+C,\\
+ r&=3(A+1)+B+C,&s&=A+1-B-C.
+ \end{aligned}
+\end{equation}
+Then
+\begin{equation}\label{eq:odd_cubic}
+ w=H(z)=\frac{z(pz^2+q)}{rz^2+s},\qquad r+s-p-q=8.
+\end{equation}
+The last relation fixes the common scalar in these coefficients. The homogeneous numerator and denominator are \(pZ^3+qZT^2\) and \(rZ^2T+sT^3\). Consequently
+\begin{equation}\label{eq:degree3}
+ \deg H=3\quad\Longleftrightarrow\quad ps(ps-qr)\ne0,
+ \qquad ps-qr=-8H_3.
+\end{equation}
+After removing \(v-z\) from the equality \(H(v)=H(z)\), the residual relation is
+\begin{equation}\label{eq:K}
+ \mathcal K_z(v)=p(rz^2+s)v^2+(ps-qr)zv+s(pz^2+q)=0.
+\end{equation}
+Its discriminant is
+\begin{equation}\label{eq:D}
+ \mathcal D(z)=-4p^2rsz^4+(q^2r^2-6pqrs-3p^2s^2)z^2-4pqs^2.
+\end{equation}
+Adjoining its square root recovers the second sheet via
+\begin{equation}\label{eq:eta_incidence}
+ \eta=2p(rz^2+s)v+(ps-qr)z.
+\end{equation}
+The third sheet is then rational in the first two, since the fiber cubic is
+\begin{equation}\label{eq:fiber_cubic}
+ pT^3-wrT^2+qT-ws=0,
+ \qquad u=\frac rp w-z-v.
+\end{equation}
+Thus the smooth normalization of
+\begin{equation}\label{eq:E}
+ E:\quad\eta^2=\mathcal D(z)
+\end{equation}
+has the full splitting field over \(\CC(w)\) as its function field, whenever \(\mathcal K\) is irreducible. It is not merely a curve introduced by analogy.
+
+\subsection{Critical points and branch values}
+Differentiation and a cubic discriminant give respectively
+\begin{align}\label{eq:J}
+ J_z&=prz^4+(3ps-qr)z^2+qs,\\
+ \mathcal B(w)&=-4r^3sw^4+(q^2r^2+18pqrs-27p^2s^2)w^2-4pq^3.
+ \label{eq:branch_quartic}
+\end{align}
+Interpret both as binary quartics, retaining roots at infinity. The first is the critical divisor; the second is \(\Disc_T(pT^3-wrT^2+qT-ws)\), whose zeros are the branch values. In original target coordinates, the latter are \((1+w)/(1-w)\). Exact discriminants are
+\begin{align}\label{eq:cubic_discriminants}
+ \Disc(J_z)&=16pqrs(ps-qr)^2(9ps-qr)^2,\notag\\
+ \Disc(\mathcal D)&=256p^3qrs^3(ps-qr)^6(9ps-qr)^2.
+\end{align}
+In particular the smooth elliptic locus is
+\begin{equation}\label{eq:elliptic_locus}
+ pqrs(ps-qr)(9ps-qr)\ne0.
+\end{equation}
+There the quartic \(\mathcal D\) has four distinct roots. A double cover of the sphere branched at four points has genus one, so \(E\) is a genus-one curve. The map \(E\to\PP^1_w\) has degree six and group \(S_3\), consistently with Theorem~\ref{thm:generic}.
+
+\subsection{Six root orderings and the elliptic action}\label{sec:action}
+Over a regular \(w\), a point of \(E\) specifies an ordered pair \((z,v)\) of distinct roots, or equivalently the full ordering \((z,v,u)\). There are six such points. Compactification also includes the limiting configurations with coincident roots; deleting them would lose ramification.
+
+The field automorphisms
+\begin{equation}\label{eq:generators}
+ \tau(z,v,u)=(v,u,z),\qquad \iota(z,v,u)=(z,u,v)
+\end{equation}
+preserve \(w\) and satisfy
+\(\tau^3=\iota^2=1\), \(\iota\tau\iota=\tau^{-1}\).
+In quartic coordinates, \(\iota(z,\eta)=(z,-\eta)\). An explicit formula for \(\tau\) follows by solving \eqref{eq:eta_incidence} for \(v\), using \eqref{eq:fiber_cubic} for \(u\), and taking
+\((v,,2p(rv^2+s)u+(ps-qr)v)\) as the new quartic coordinates.
+
+Choose one branch point \(a\) of \(\mathcal D\), and let \(O=(a,0)\) be the elliptic origin. This choice is over \(\CC\); a real origin is not assumed. Then \(\iota=[-1]\).
+
+\begin{proposition}\label{prop:torsion_action}
+There is a nonzero point \(P\in E[3]\) such that \(\tau=T_P\). The six deck automorphisms of \(E\to\PP^1_w\) are
+\begin{equation}\label{eq:six_autos}
+ 1,\ T_P,\ T_{-P},\ [-1],\ T_P[-1],\ T_{-P}[-1].
+\end{equation}
+\end{proposition}
+\begin{proof}
+Every inertia group has order two, so an element of order three has no fixed point. Alternatively, a fixed ordering under \(\tau\) would require a triple root, absent on \eqref{eq:elliptic_locus}. Every elliptic automorphism is \(T_R a\), with \(a\) fixing the origin. If \(a\ne1\), the nonzero isogeny \(1-a\) is surjective, giving a solution of \((1-a)X=R\) and thus a fixed point. Hence \(\tau\) is a translation; its exact order implies \(P\ne O\) and \(3P=O\). The relations in \eqref{eq:generators} give the remaining elements.
+\end{proof}
+The fixed points of the three transpositions solve \(2X=kP\), for \(k=0,1,-1\). Each transposition has four fixed points. Only the selected \([-1]\) is origin-fixing in this description. An abstract group count alone would not establish these translations or fixed-point sets.
+
+\fig{02_incidence}{A regular cubic fiber has three sheets and six ordered pairs. Root-label permutations act on this six-element set; choosing the first entry gives the three-sheet quotient. Position permutations give the commuting regular deck action. The elliptic normalization includes the branch limits as well as these regular fibers.}{fig:incidence}

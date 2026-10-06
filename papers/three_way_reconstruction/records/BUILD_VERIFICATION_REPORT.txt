@@ -1,0 +1,129 @@
+THREE-WAY RECONSTRUCTION v0.1 — BUILD AND VERIFICATION REPORT
+5 October 2026
+
+DELIVERABLE
+The complete reconstruction draft is output/pdf/three_way_reconstruction_v0.1.pdf:
+40 PDF pages, including the title, contents, scientific body, evidence appendices,
+and bibliography. Its editable sources are source/main.tex, six numbered section
+files, and source/references.tex. Ten explanatory figures are supplied separately
+in vector PDF, vector SVG, and 300-dpi PNG (30 figure files). The bibliography has
+21 entries; the claim ledger records 22 principal claims and their proof/evidence
+locations. records/PRIOR_ART_AUDIT_CLAIMS.txt specifies the subsequent audit scope.
+
+PDF SHA-256:
+dbab6dcdb4ca3271f87b39fd2435c37c51ba8e0ff232bfb53612c6a433253cb6
+
+The paper is explicitly a later reconstruction. It makes no mathematical novelty
+or research-priority claim. Author/publication metadata remain subject to author
+review. No publication, release, upload, tag, commit, or repository push was made.
+
+EXACT MATHEMATICS AND NUMERICAL SUPPORT
+verification/verify.py completed successfully with Python 3.11.15, SymPy 1.14.0,
+and mpmath 1.3.0. All 77 exact symbolic checks passed. They cover the rational
+identities, exceptional C-extension, involutions and normal form, quotient maps,
+large-L chart identities, elliptic models/invariants, isogeny, and group actions.
+The separate finite permutation check verifies transitivity, order 16, and the
+identity product of the displayed branch cycles. These computational checks
+support the manuscript's proofs; they do not replace the proofs or constitute a
+machine-verified proof of the complete moduli/Hurwitz classification.
+
+At 100 decimal digits, 48 nonsingular normal-form comparisons had maximum
+normalized discrepancy 2.3146503400523145903e-100. The four historical examples
+were evaluated at the same precision, including agreement of the three j-formulas.
+The (pi,e) CM problem was not investigated further.
+
+The six fixed intermediate-chart samples s = +/-0.5, +/-sqrt(2), +/-3 were checked
+at L = 10^4, 10^8, 10^12. The largest profile errors were, respectively,
+0.11323974956100712442,
+0.0011003150872743067644,
+0.000011000031500087250243.
+Their ratios to L^(-1/2) approach approximately 11 on this finite sample. Separate
+bulk and thin-lock overlap checks also converge; full values and definitions are
+in verification/results.json and the manuscript's verification appendix. Finite
+samples are numerical evidence only. The uniform compact-set convergence and
+matching domains are proved algebraically in the paper.
+
+BUILD AND REFERENCES
+The final Tectonic 0.17.0 build returned exit code 0 using --only-cached and
+SOURCE_DATE_EPOCH=1791158400. The final TeX build did not access the network.
+An initial dependency fetch populated a dedicated copied TeX cache, without
+altering another paper's cache. The multi-file manuscript was built with the
+repository's existing Tectonic executable in an external publication workspace.
+No TeX installation or editor plugin was installed.
+
+records/build_record.json records the exact command, engine path/version/hash,
+cache, environment setting, source/figure hashes, and final PDF checksum.
+records/build_console.log and records/latex_build.log preserve diagnostics.
+
+The final log has four Underfull hbox warnings. These are spacing warnings in
+accepted rendered text; there are no overfull boxes, missing-glyph warnings,
+undefined references/citations, or multiply defined labels. The delivery audit
+resolved all 106 source labels, 81 reference uses, and all 174 internal PDF links.
+The typeset and BibTeX bibliography keys agree. External URLs were recorded, not
+treated as a guarantee that each endpoint will remain available.
+
+VISUAL REVIEW
+The final PDF was rendered with Poppler into 40 page PNGs. Every page was inspected
+in readable contact sheets; final pages 14, 29, 30, 36, and 40 also received enlarged
+inspection. All ten figures were reviewed individually during preparation and
+again in their final manuscript context. The final review found no clipped text,
+overlapping equations/labels, blank pages, broken glyphs, or unreadable figures.
+The mathematical diagrams distinguish schematics from plotted data. Branch-cut
+identifications and the sphere/elliptic-torus/revolution distinctions are explicit.
+
+Review renders and contact sheets are retained outside the repository at:
+C:/TORMENT/TRIOCTAGON_new/publication_workspaces/three_way_reconstruction_20261005
+They are quality-assurance working files, not additional scientific results.
+
+PROVENANCE AND INTEGRITY
+The evidence manifest records 33 original files and their unmodified snapshots,
+including historical documents, archived code/data, five external reconstruction
+reports, prior notes, and work-order material. Original and snapshot SHA-256
+values were rechecked successfully. Formula signs, inconsistent (9,9)/(9,1)
+labels, and documentary uncertainties are retained explicitly. Historical
+quotations/formulae were checked against extracted source text; decisive H1
+appendix and H3 formula pages were also visually inspected.
+
+The baseline hash check confirms all 756 protected repository files remain
+unchanged, including the kernel, UI, and protected historical material. Existing
+uncommitted work was preserved. Repository HEAD remains:
+fe5758f21cc185665c13d8585674b362e36dad35
+
+records/baseline.json preserves the before-state; records/delivery_audit.json
+records the final audit. records/artifact_manifest.json provides final deliverable
+hashes, excluding itself. The optional convenience ZIP excludes that outer
+manifest and itself to avoid circular hashing; its own BUNDLE_CONTENTS_SHA256.json
+verifies every packaged file. The outer manifest includes the ZIP checksum.
+
+REPRODUCTION
+From the paper directory, use an environment with the required libraries:
+  python verification/verify.py
+  python tools/make_figures.py
+  python tools/build_paper.py
+  python tools/audit_delivery.py
+  python tools/package_delivery.py
+  python tools/audit_delivery.py
+
+Verification/figure generation used:
+C:/TORMENT/app-g-dev/env/Scripts/python.exe
+Build/PDF audit/packaging used the bundled Python runtime:
+C:/Users/Notandi/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+
+README.txt explains build-path overrides and initial TeX dependency fetching.
+The evidence-integrity audit intentionally refers to original local paths; on a
+different machine the ZIP's content manifest can verify the portable snapshots,
+while a full original-location audit requires access to the recorded originals.
+Do not rerun prepare_evidence.py over this edition's baseline.
+
+LIMITATIONS AND STOP POINT
+Printed historical dates were verified, but live Zenodo deposition timestamps
+were not independently confirmed where retrieval failed. The old curvature and
+stability pipelines were not rerun. The historical coefficient-label conflict is
+documented rather than silently resolved. Author recollections are identified as
+retrospective evidence. The (pi,e) CM status remains unresolved. The chain match
+remains a reduced spectral-quotient identification, with no independently selected
+full physical observable or additional x-cover meaning established.
+
+Known literature was checked for attribution and mathematical terminology; a
+broad novelty/priority search was deliberately not performed. The manuscript,
+claim ledger, and exact audit-claim list are now ready for that separate stage.

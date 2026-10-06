@@ -1,0 +1,71 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=26mm,headheight=15pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{texgyrepagella-regular.otf}[BoldFont=texgyrepagella-bold.otf,ItalicFont=texgyrepagella-italic.otf,BoldItalicFont=texgyrepagella-bolditalic.otf]
+\usepackage{amsmath,amssymb,unicode-math}
+\setmathfont{texgyrepagella-math.otf}
+\usepackage{graphicx,booktabs,longtable,array,tabularx,xcolor,enumitem,fancyhdr}
+\usepackage[unicode,colorlinks=true,linkcolor=teal!60!black,citecolor=teal!60!black,urlcolor=teal!60!black,bookmarksnumbered=true]{hyperref}
+\usepackage{bookmark,xurl}
+\graphicspath{{../figures/}}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{3pt}
+\clubpenalty=10000\widowpenalty=10000\displaywidowpenalty=10000
+\raggedbottom
+\renewcommand{\topfraction}{.9}\renewcommand{\bottomfraction}{.85}
+\renewcommand{\textfraction}{.08}\renewcommand{\floatpagefraction}{.85}
+\setcounter{topnumber}{2}\setcounter{bottomnumber}{2}\setcounter{totalnumber}{3}
+\setlist{itemsep=2pt,topsep=4pt}
+\renewcommand{\arraystretch}{1.16}\setlength{\tabcolsep}{4pt}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Three-Way reciprocal hierarchy}
+\fancyhead[R]{\small Paper II / v0.1}\fancyfoot[C]{\thepage}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newenvironment{proof}{\par\noindent\textit{Proof.}\ }{\hfill\(\square\)\par\medskip}
+\numberwithin{equation}{section}
+\newcommand{\PP}{\mathbb P}\newcommand{\CC}{\mathbb C}\newcommand{\RR}{\mathbb R}\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\Mon}{\operatorname{Mon}}\newcommand{\Deck}{\operatorname{Deck}}
+\newcommand{\ord}{\operatorname{ord}}\newcommand{\Res}{\operatorname{Res}}\newcommand{\Disc}{\operatorname{Disc}}
+\newcommand{\fig}[3]{\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{#1.pdf}\caption{#2}\label{#3}\end{figure}}
+\hypersetup{pdftitle={The Three-Way Reciprocal Hierarchy: From Quadratic Involutions to Elliptic Correspondences and Symmetric Galois Closures},pdfauthor={Mathematical continuation prepared for Hilmir F. Halldorsson with Codex assistance},pdfsubject={Reciprocal rational maps, symmetric monodromy, elliptic correspondence, modular curves; novelty-neutral draft}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}\centering\vspace*{14mm}
+{\Large The Three-Way Reciprocal Hierarchy\par}\vspace{7mm}
+{\LARGE\bfseries From Quadratic Involutions to Elliptic Correspondences and Symmetric Galois Closures\par}
+\vspace{12mm}
+{\large Mathematical continuation prepared for Hilmir F. Halldórsson\par}
+\vspace{3mm}{with Codex assistance\par}
+\vspace{7mm}{Paper II / Version 0.1 / 5 October 2026\par}
+\vspace{9mm}
+\begin{minipage}{.93\textwidth}
+\textbf{Abstract.} We extend the reconstructed Three-Way coefficient-reversal formula to
+\(F_n(y)=P_n(y)/[y^nP_n(1/y)]\).
+For every degree \(n\ge2\), we prove that a nonempty Zariski-open subset has symmetric monodromy \(S_n\) and Galois-closure genus
+\(1+\frac{n!}{2}(n-3)\), over the unchanged target of \(F_n\).
+The generic genera in degrees two, three, and four are therefore \(0,1,13\).
+Degree two is exceptional because its unique other sheet is a Möbius deck partner. For the cubic, the two other sheets form an irreducible quadratic correspondence whose normalization is elliptic. Its \(S_3\) action consists of translations by 3-torsion and translated inversions, and its alternating quotient is an explicit 3-isogeny. Forgetting reciprocal marking gives \(X_0(3)\); retaining the distinguished nonzero 2-torsion gives \(X_0(6)\). We derive coordinates, modular invariants, and the cubic degeneration strata, then record a bounded quartic checkpoint. A final comparison preserves an exact finite \(S_3\)-incidence correspondence with six existing Tri-Octagon measurement patches. The inspected shell, scaffold, and response definitions supply no independently justified continuous modular identification. The comparison ends at the finite correspondence.
+\end{minipage}
+\vfill
+\begin{minipage}{.93\textwidth}\small
+\textbf{Status.} Novelty-neutral mathematical draft. Standard covering, elliptic, and modular theory is distinguished from explicit family calculations and the project-specific comparison. No physics interpretation, submission, or publication is implied. Attribution and publication metadata remain subject to author review. Paper I and the source research reports are preserved unchanged.
+\end{minipage}
+\end{titlepage}
+\hypersetup{pageanchor=true}\pagenumbering{roman}
+{\small\setlength{\parskip}{0pt}\tableofcontents}\clearpage\pagenumbering{arabic}
+\input{01_general.tex}
+\input{02_generic_theorem.tex}
+\input{03_cubic.tex}
+\input{04_elliptic_modular.tex}
+\input{05_boundaries_quartic.tex}
+\input{06_bridge.tex}
+\clearpage\appendix\input{07_evidence.tex}
+\clearpage\phantomsection\addcontentsline{toc}{section}{References}
+\input{references.tex}
+\end{document}

@@ -1,0 +1,153 @@
+\section{Elliptic equations, isogeny, and marked moduli}\label{sec:modular}
+\subsection{An explicit Weierstrass model}
+For compact notation put
+\begin{equation}\label{eq:UV}
+ U=ps,\quad V=qr,\quad
+ \alpha=-4p^2rs,\quad\beta=V^2-6UV-3U^2,\quad\gamma=-4pqs^2.
+\end{equation}
+Then \(\mathcal D(z)=f(z)=\alpha z^4+\beta z^2+\gamma\). Let
+\begin{equation}\label{eq:IJ}
+ I=\beta^2+12\alpha\gamma,\qquad J=72\alpha\beta\gamma-2\beta^3.
+\end{equation}
+With \(a\) and \(O\) chosen as above, the birational transformation
+\begin{equation}\label{eq:weierstrass_map}
+ X=\frac{f'(a)}{4(z-a)}+\frac{f''(a)}{24},\qquad
+ Y=-\frac{f'(a)\eta}{8(z-a)^2}
+\end{equation}
+gives
+\begin{equation}\label{eq:weierstrass}
+ Y^2=X^3-\frac I{48}X-\frac J{1728}.
+\end{equation}
+The inverse is \(z=a+f'(a)/[4(X-f''(a)/24)]\), followed by
+\(\eta=-8Y(z-a)^2/f'(a)\). Substitution using \(f(a)=0\) proves the identity; the exceptional affine denominators are filled on the smooth projective curves. The invariants in this convention are
+\begin{align}\label{eq:invariants}
+ c_4&=I,\qquad c_6=J/2,\notag\\
+ \Delta_E&=\frac{\alpha\gamma(\beta^2-4\alpha\gamma)^2}{16}
+   =p^3qrs^3(ps-qr)^6(9ps-qr)^2,\notag\\
+ j(E)&=\frac{16(\beta^2+12\alpha\gamma)^3}
+                 {\alpha\gamma(\beta^2-4\alpha\gamma)^2}.
+\end{align}
+In particular \(\Disc(f)=256\Delta_E\), which reconciles the quartic and Weierstrass discriminant conventions.
+
+For a consistent orientation of \(\tau\), its translation point in this model is
+\begin{equation}\label{eq:P}
+ P=\left(\frac{(V+3U)^2}{12},-\frac{U(V-U)^2}{2}\right).
+\end{equation}
+It lies on \eqref{eq:weierstrass}, and the tangent doubling formula gives \(2P=-P\). Its ordinate is nonzero on \eqref{eq:elliptic_locus}. Reversing the cyclic generator changes its sign. The link to the actual incidence action, rather than just an independently found torsion point, is made explicit below.
+
+\subsection{Reciprocity selects nonzero 2-torsion}
+Simultaneous reciprocity on the three roots lifts as
+\begin{equation}\label{eq:rho}
+ \rho(z,v,u)=(-z,-v,-u),\qquad \rho(z,\eta)=(-z,-\eta).
+\end{equation}
+It commutes with every root-position permutation and sends \(w\) to \(-w\). Its only possible fixed source coordinates are zero and infinity. It swaps the two points above zero, since \(\gamma\ne0\); at infinity it exchanges the points distinguished by \(\eta/z^2=\pm\sqrt\alpha\). It is therefore fixed-point-free. The argument of Proposition~\ref{prop:torsion_action} gives
+\begin{equation}\label{eq:Q}
+ \begin{gathered}
+ \rho=T_Q,\qquad Q\in E[2],\quad Q\ne O,\\
+ Q=(-a,0)\ \text{on the quartic},\qquad
+ Q=(-\beta/6,0)\ \text{on \eqref{eq:weierstrass}}.
+ \end{gathered}
+\end{equation}
+The other lift \((z,\eta)\mapsto(-z,\eta)\) is \(T_Q[-1]\), has fixed points, and does not commute with the entire \(S_3\) action. Thus the commuting lift characterizes the selected 2-torsion. The translations \(\langle P,Q\rangle\) form a cyclic group of order six, and together with inversion generate \(S_3\times C_2\). Only its \(S_3\) subgroup fixes \(w\).
+
+\subsection{The alternating quotient is a 3-isogeny}\label{sec:isogeny}
+Quotienting by \(\langle\iota\rangle\) recovers the original \(z\)-sphere. Quotienting instead by the normal translation group \(\langle\tau\rangle=C_3\) gives a genus-one curve \(E'\), since that action is free. With origin \(O'=\phi(O)\), its quotient map is an isogeny of degree three.
+
+The model and map are explicit:
+\begin{equation}\label{eq:isogeny}
+ \boxed{E':\chi^2=\mathcal B(w),\qquad
+ \phi(z,\eta)=\left(H(z),\frac{J_z\eta}{(rz^2+s)^2}\right).}
+\end{equation}
+Here \(\mathcal B\) and \(J_z\) are \eqref{eq:branch_quartic} and \eqref{eq:J}. Direct substitution proves the equation. More intrinsically,
+\begin{equation}\label{eq:vandermonde}
+ \chi=p^2(z-v)(z-u)(v-u)
+\end{equation}
+is invariant under 3-cycles and changes sign under transpositions. The field \(\CC(w,\chi)\) is therefore exactly the fixed field of \(C_3\). This proves degree, kernel, and quotient meaning, rather than just agreement of two equations. The commutative diagram is
+\begin{equation}\label{eq:isogeny_diagram}
+ \begin{array}{ccc}
+ E&\xrightarrow{\ \phi\ (3)\ }&E'=E/C_3\\
+ \downarrow 2&&\downarrow 2\\
+ \PP^1_z&\xrightarrow{\ H\ (3)\ }&\PP^1_w.
+ \end{array}
+\end{equation}
+Both vertical maps are quotients by inversion with the selected origins. In particular the cubic's four critical values are the images of \(E'[2]\) on the lower target. They are not the four branch points of the left vertical map.
+
+\subsection{Normalization and the modular functions}
+On the smooth locus choose \(\sigma^2=s/r\) and set
+\begin{equation}\label{eq:normalization}
+ z=\sigma Z,\qquad \eta=U\sigma Y_0,\qquad
+ w=(p/r)\sigma W,\qquad t=\frac{qr}{ps}.
+\end{equation}
+The normalized map and curves become
+\begin{align}\label{eq:normalized}
+ W&=\frac{Z(Z^2+t)}{Z^2+1},\notag\\
+ E_t:&\quad Y_0^2=-4Z^4+(t^2-6t-3)Z^2-4t,\notag\\
+ E'_t:&\quad \chi_0^2=-4W^4+(t^2+18t-27)W^2-4t^3.
+\end{align}
+The generic domain is \(t\notin\{0,1,9,\infty\}\). The square-root choice changes the coordinate embedding, not \(t\). With \(M=t^2-6t-3\),
+\begin{align}\label{eq:normalized_invariants}
+ c_4&=M^2+192t=(t+3)(t^3-15t^2+75t+3),\notag\\
+ c_6&=M(576t-M^2),\qquad \Delta=t(t-1)^6(t-9)^2,\\
+ j(E_t)&=\frac{(t+3)^3(t^3-15t^2+75t+3)^3}
+                   {t(t-1)^6(t-9)^2},\label{eq:jt}\\
+ j(E'_t)&=\frac{(t+3)^3(t^3+225t^2-405t+243)^3}
+                   {t^3(t-1)^2(t-9)^6}.\label{eq:jprime}
+\end{align}
+The normalized torsion coordinates are \(P_t=((t+3)^2/12,-(t-1)^2/2)\). To identify them with \(\tau(O)\), choose a critical point \(b\) of the normalized cubic. Then
+\begin{equation}\label{eq:torsion_link}
+ t=\frac{b^2(b^2+3)}{b^2-1},\qquad a=\frac{2b}{b^2-1}.
+\end{equation}
+The corresponding ordered fiber is \((a,b,b)\). Its cyclic image is \((b,b,a)\), whose quartic ordinate is \(b(2b^2+3-t)\). Formula~\eqref{eq:weierstrass_map} gives exactly \(P_t\). The exceptional denominators are excluded on the smooth locus or handled in the projective chart. This calculation also explains the orientation convention in \eqref{eq:P}.
+
+Now define
+\begin{equation}\label{eq:h}
+ h=\frac{t(t-9)^2}{(t-1)^2}.
+\end{equation}
+Exact substitution gives
+\begin{equation}\label{eq:jh}
+ \boxed{j(E)=\frac{(h+27)(h+3)^3}{h},\qquad
+ j(E')=\frac{(h+27)(h+243)^3}{h^3}.}
+\end{equation}
+Dualizing the isogeny exchanges these formulas by \(h\mapsto729/h\). They agree with the standard level-three formulas in Elkies' exposition, with this source/quotient orientation recorded \cite[§4, Eq.~(80)]{elkies}.
+
+\subsection{Why the two marked modular curves classify the cubic}\label{sec:moduli_proof}
+Here equivalence means independent source and target Möbius changes, with the stated markings preserved. It is not dynamical conjugacy, and it does not preserve the original real plotting coordinate.
+
+\begin{proposition}\label{prop:moduli}
+The generic cubic cover without reciprocal marking is classified by the oriented datum \((E,\langle P\rangle)\), an open subset of the coarse modular curve \(X_0(3)\). Retaining reciprocal marking gives \((E,\langle P\rangle,Q)\), equivalently a cyclic subgroup of order six, and an open subset of \(X_0(6)\). The coordinates above are Hauptmoduln: \(h\) on \(X_0(3)\) and \(t\) on \(X_0(6)\).
+\end{proposition}
+\begin{proof}
+The splitting field and its normal order-three subgroup recover \((E,\langle P\rangle)\) from the cover. Conversely any elliptic curve with a cyclic order-three subgroup gives \eqref{eq:isogeny_diagram} by quotienting its 3-isogeny through inversion. This is a degree-three sphere cover with four simple branch values. Choosing a conjugate transposition subgroup changes only the intermediate source isomorphism, not the cover class. The origin can be chosen among the fixed points of that involution; changing it gives an isomorphic datum.
+
+Reciprocity adds the uniquely specified commuting translation \(T_Q\). Conversely, given \((E,\langle P\rangle,Q)\), it descends to nontrivial involutions on both Kummer spheres. The fixed points on the source Kummer sphere are the classes of solutions of \(2R=Q\); there are two such classes. The 3-isogeny is an isomorphism on 4-torsion, and therefore takes this pair bijectively to the corresponding target fixed pair. Normalize the matching pairs to zero and infinity. The cubic becomes an odd map of the form \eqref{eq:odd_cubic}. Independent source and target scalings give \eqref{eq:normalized}. Reversing both matching fixed pairs replaces source and target coordinates by reciprocal coordinates and leaves \(qr/(ps)\) unchanged. No other generic coordinate freedom remains. Thus \(t\) is a complete generic marked coordinate.
+
+There are three choices of nonzero \(Q\) for a generic \((E,\langle P\rangle)\). Forgetting \(Q\) has degree three. The rational function \eqref{eq:h} also has degree three, and the two rational functions in \eqref{eq:jh} generically determine \(h\): over \(\CC(h)\), the gcd of the cleared equations \(j_E(k)=j_E(h)\) and \(j_{E'}(k)=j_{E'}(h)\) is \(k-h\). This exact polynomial check is preserved in the verification suite. Since the ordered pair of \(j\)-invariants is invariant under forgetting \(Q\), \(\CC(h)\) is the fixed moduli field; the equality of degrees shows there is no intermediate missing parameter. Hence \(h\) is the asserted Hauptmodul. The construction also identifies \(\langle P,Q\rangle\) as cyclic of order six, giving \(X_0(6)\).
+\end{proof}
+
+A generic elliptic curve has four cyclic subgroups of order three (the four lines of \(E[3]\cong\mathbb F_3^2\)). Accordingly \(h\mapsto j(E)\) has degree four, while \(t\mapsto j(E)\) has degree twelve. Bare \(j\) forgets both the selected 3-isogeny and the reciprocal 2-torsion. Generators \(P\) and \(-P\) give the same cyclic subgroup and are identified by inversion on coarse moduli; an additional rigid labeling of all group elements would be extra data.
+
+The original coefficients satisfy
+\begin{equation}\label{eq:ABC_modulus}
+ U=(A-C)^2-(B-1)^2,\qquad V=(3A+C)^2-(B+3)^2,
+ \qquad t=V/U.
+\end{equation}
+There is no extra algebraic restriction on generic \(t\). For instance a rational section is
+\begin{equation}\label{eq:section}
+ (A,B,C)=\left(\frac{t+3}{1-t},\ 1,\ \frac{t-5}{1-t}\right).
+\end{equation}
+It gives \(p=r=s=8/(1-t)\), \(q=8t/(1-t)\). Thus the three original coefficients contain one intrinsic marked modulus and two generic dimensions of coordinate embedding data. This is a complex-cover classification, not a claim that all corresponding real plots coincide.
+
+\fig{03_moduli_tower}{The cubic sphere map descends from the 3-isogeny. The marked modular coordinate \(t\) retains a nonzero 2-torsion point; \(h\) forgets that choice; \(j(E)\) also forgets the selected cyclic 3-subgroup. Degrees shown are generic coarse degrees.}{fig:moduli}
+
+\subsection{Four critical values and their cross-ratio}
+Write the four target branch values as \(c,-c,d,-d\). With a chosen ordering,
+\begin{equation}\label{eq:crossratio}
+ m'=\left(\frac{d-c}{d+c}\right)^2
+\end{equation}
+is a Legendre parameter of \(E'\). Reordering gives its six anharmonic transforms. If \(L=t^2+18t-27\), one compatible algebraic expression, up to that reordering, is
+\begin{equation}\label{eq:crossratio_t}
+ m'=\frac{L+8t^{3/2}}{L-8t^{3/2}},\qquad
+ j(E')=256\frac{(1-m'+m'^2)^3}{m'^2(1-m')^2}.
+\end{equation}
+For comparison, the source double cover \(E\to\PP^1_Z\) has a Legendre parameter
+\(m=(M+8\sqrt t)/(M-8\sqrt t)\), with the same ordering caveat. These are algebraic branch choices, not single-valued rational functions of \(t\). The unordered target branch set determines \(j(E')\), but it does not determine the selected incoming 3-isogeny. Four labeled branch values retain additional level-two information.

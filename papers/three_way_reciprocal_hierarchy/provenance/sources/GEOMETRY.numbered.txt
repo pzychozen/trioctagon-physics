@@ -1,0 +1,183 @@
+0001: """Exact width-one local shell from Paper C §§2–7,9 and Appendix B.
+0002: 
+0003: Points are immutable tuples of SymPy expressions; no floating-point welding.
+0004: Panel numbers in panel_point are 1,2,3. Mesh face indices are 0,1,2.
+0005: """
+0006: 
+0007: from collections import Counter
+0008: from dataclasses import dataclass
+0009: 
+0010: import sympy as sp
+0011: 
+0012: Point = tuple[sp.Expr, sp.Expr, sp.Expr]
+0013: Edge = tuple[int, int]
+0014: Face = tuple[int, ...]
+0015: 
+0016: WIDTH = sp.Integer(1)
+0017: EDGE_LENGTH = sp.sqrt(2) - 1
+0018: FOLD_ANGLE = sp.pi / 3
+0019: HALF = sp.Rational(1, 2)
+0020: CENTROID = (sp.Integer(0), sp.sqrt(3) / 6, sp.Integer(0))
+0021: LOCAL_OCTAGON = (
+0022:     (-HALF, -EDGE_LENGTH / 2), (-EDGE_LENGTH / 2, -HALF),
+0023:     (EDGE_LENGTH / 2, -HALF), (HALF, -EDGE_LENGTH / 2),
+0024:     (HALF, EDGE_LENGTH / 2), (EDGE_LENGTH / 2, HALF),
+0025:     (-EDGE_LENGTH / 2, HALF), (-HALF, EDGE_LENGTH / 2),
+0026: )
+0027: 
+0028: 
+0029: def _point(x, y, z) -> Point:
+0030:     # Expanded, denested radicals make exact vertex keys and normals consistent.
+0031:     return tuple(sp.expand(sp.radsimp(sp.sqrtdenest(sp.simplify(v))))
+0032:                  for v in (x, y, z))
+0033: 
+0034: 
+0035: def panel_point(panel: int, u, z, beta=FOLD_ANGLE) -> Point:
+0036:     """Paper C Theorem 2: general-angle maps from the reversed stacked start.
+0037: 
+0038:     The expressions extend to real beta; the canonical shell uses pi/3.
+0039:     Intermediate configurations are not asserted to avoid intersections.
+0040:     """
+0041:     u, z, beta = map(sp.sympify, (u, z, beta))
+0042:     if panel == 1:
+0043:         return _point(-HALF + (HALF - u) * sp.cos(beta),
+0044:                       (HALF - u) * sp.sin(beta), z)
+0045:     if panel == 2:
+0046:         return _point(u, 0, z)
+0047:     if panel == 3:
+0048:         return _point(HALF - (HALF + u) * sp.cos(beta),
+0049:                       (HALF + u) * sp.sin(beta), z)
+0050:     raise ValueError("panel must be 1, 2 or 3")
+0051: 
+0052: 
+0053: def _face_edges(face: Face):
+0054:     return zip(face, face[1:] + face[:1])
+0055: 
+0056: 
+0057: @dataclass(frozen=True, slots=True)
+0058: class FoldedModule:
+0059:     """Immutable exact vertices and outward-oriented face cycles."""
+0060: 
+0061:     vertices: tuple[Point, ...]
+0062:     faces: tuple[Face, ...]
+0063: 
+0064:     def _incidence(self) -> Counter:
+0065:         return Counter(tuple(sorted(edge))
+0066:                        for face in self.faces for edge in _face_edges(face))
+0067: 
+0068:     @property
+0069:     def edges(self) -> tuple[Edge, ...]:
+0070:         return tuple(sorted(self._incidence()))
+0071: 
+0072:     @property
+0073:     def seam_edges(self) -> tuple[Edge, ...]:
+0074:         return tuple(sorted(e for e, n in self._incidence().items() if n == 2))
+0075: 
+0076:     @property
+0077:     def boundary_edges(self) -> tuple[Edge, ...]:
+0078:         return tuple(sorted(e for e, n in self._incidence().items() if n == 1))
+0079: 
+0080:     @property
+0081:     def euler_characteristic(self) -> int:
+0082:         return len(self.vertices) - len(self.edges) + len(self.faces)
+0083: 
+0084:     @property
+0085:     def boundary_loops(self) -> tuple[Face, ...]:
+0086:         """Trace degree-two boundary graphs; omit the repeated closing vertex.
+0087: 
+0088:         Each loop starts at its lowest index and first takes its lower neighbor.
+0089:         The canonical result orders the bottom rim before the top rim.
+0090:         """
+0091:         neighbors: dict[int, list[int]] = {}
+0092:         for a, b in self.boundary_edges:
+0093:             neighbors.setdefault(a, []).append(b)
+0094:             neighbors.setdefault(b, []).append(a)
+0095:         if any(len(adj) != 2 for adj in neighbors.values()):
+0096:             raise ValueError("boundary is not a union of degree-two cycles")
+0097:         unvisited = set(neighbors)
+0098:         loops = []
+0099:         while unvisited:
+0100:             start = min(unvisited)
+0101:             loop = [start]
+0102:             previous, current = start, min(neighbors[start])
+0103:             while current != start:
+0104:                 if current in loop:
+0105:                     raise ValueError("boundary cycle revisits a vertex")
+0106:                 loop.append(current)
+0107:                 following = next(v for v in neighbors[current] if v != previous)
+0108:                 previous, current = current, following
+0109:             unvisited.difference_update(loop)
+0110:             loops.append(tuple(loop))
+0111:         return tuple(loops)
+0112: 
+0113:     def face_normal(self, index: int) -> Point:
+0114:         """Outward unit normal from the oriented coordinates, not an angle label."""
+0115:         if not 0 <= index < len(self.faces):
+0116:             raise IndexError("face index out of range")
+0117:         a, b, c = (sp.ImmutableMatrix(self.vertices[i])
+0118:                    for i in self.faces[index][:3])
+0119:         normal = (b - a).cross(c - a)
+0120:         length = sp.sqrt(sp.simplify(normal.dot(normal)))
+0121:         return _point(*(normal / length))
+0122: 
+0123:     def normal_separation(self, first: int, second: int) -> sp.Expr:
+0124:         """Outward-normal angle for two distinct adjacent faces, in radians."""
+0125:         if first == second:
+0126:             raise ValueError("choose two distinct adjacent faces")
+0127:         n1 = sp.ImmutableMatrix(self.face_normal(first))
+0128:         n2 = sp.ImmutableMatrix(self.face_normal(second))
+0129:         return sp.acos(sp.simplify(n1.dot(n2)))
+0130: 
+0131:     def interior_dihedral(self, first: int, second: int) -> sp.Expr:
+0132:         """Interior wedge angle, the supplement of outward-normal separation."""
+0133:         return sp.simplify(sp.pi - self.normal_separation(first, second))
+0134: 
+0135: 
+0136: def folded_module() -> FoldedModule:
+0137:     """Weld exact panel images in material order, matching Paper C §4 indices."""
+0138:     vertices = []
+0139:     index = {}
+0140:     faces = []
+0141:     for panel in (1, 2, 3):
+0142:         face = []
+0143:         for u, z in LOCAL_OCTAGON:
+0144:             point = panel_point(panel, u, z)
+0145:             if point not in index:
+0146:                 index[point] = len(vertices)
+0147:                 vertices.append(point)
+0148:             face.append(index[point])
+0149:         faces.append(tuple(face))
+0150:     return FoldedModule(tuple(vertices), tuple(faces))
+0151: 
+0152: 
+0153: def central_section(height=0) -> tuple[tuple[Point, Point], ...]:
+0154:     """Three unit segments of the section curve, not a filled region or cap.
+0155: 
+0156:     Height must be provably real and within the closed central band.
+0157:     """
+0158:     height = sp.sympify(height)
+0159:     if height.is_real is not True or (sp.Abs(height) <= EDGE_LENGTH / 2) != sp.true:
+0160:         raise ValueError("height must lie in [-s/2, s/2]")
+0161:     corners = (_point(-HALF, 0, height), _point(HALF, 0, height),
+0162:                _point(0, sp.sqrt(3) / 2, height))
+0163:     return tuple((corners[i], corners[(i + 1) % 3]) for i in range(3))
+0164: 
+0165: 
+0166: def rotate_c3(point: Point) -> Point:
+0167:     """120-degree rotation about the vertical centroid axis (Paper C §9)."""
+0168:     x, y, z = map(sp.sympify, point)
+0169:     y0 = y - CENTROID[1]
+0170:     return _point(-x / 2 - sp.sqrt(3) * y0 / 2,
+0171:                   CENTROID[1] + sp.sqrt(3) * x / 2 - y0 / 2, z)
+0172: 
+0173: 
+0174: def reflect_vertical(point: Point) -> Point:
+0175:     """sigma_v: reflection through x=0."""
+0176:     x, y, z = map(sp.sympify, point)
+0177:     return _point(-x, y, z)
+0178: 
+0179: 
+0180: def reflect_horizontal(point: Point) -> Point:
+0181:     """sigma_h: reflection through z=0."""
+0182:     x, y, z = map(sp.sympify, point)
+0183:     return _point(x, y, -z)

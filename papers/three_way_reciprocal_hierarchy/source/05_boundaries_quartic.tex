@@ -1,0 +1,147 @@
+\section{Exceptional cubic strata and the quartic checkpoint}\label{sec:exceptions}
+\subsection{Complete cubic ramification classification}
+Restrict first to the degree-three condition \(ps(ps-qr)\ne0\). Define
+\begin{equation}\label{eq:K3}
+ K_3=3AC+B^2-3B-C^2,\qquad 9ps-qr=-8K_3.
+\end{equation}
+The critical divisor \eqref{eq:J} and its discriminant give the complete table below. The ramification column lists the index of the unique ramified point over each distinct branch value.
+\begin{table}[htbp]\centering\small
+\begin{tabularx}{\linewidth}{Yllll}\toprule
+Condition & Indices & Monodromy & Deck & Closure genus\\\midrule
+\(qr\ne0,\ qr\ne9ps\) & \(2,2,2,2\) & \(S_3\) & trivial & 1\\
+Exactly one of \(q,r\) zero & \(3,2,2\) & \(S_3\) & trivial & 0\\
+\(q=r=0\) & \(3,3\) & \(C_3\) & \(C_3\) & 0\\
+\(qr=9ps\) & \(3,3\) & \(C_3\) & \(C_3\) & 0\\\bottomrule
+\end{tabularx}
+\caption{All degree-three cases. Closure degrees are six for the \(S_3\) rows and three for the \(C_3\) rows.}\label{tab:cubic_strata}
+\end{table}
+
+\begin{proof}
+A degree-three sphere map has total ramification four and local degree at most three. Its critical divisor can therefore consist only of four simple points, one double point and two simple points, or two double points. Distinct critical points cannot share an image: even two simple ramification points would use degree four in one fiber. Formula~\eqref{eq:J} gives exactly the rows displayed, including infinity through its binary form. In the first two rows, transitivity and the presence of a transposition force \(S_3\); in the last two, the branch cycles generate \(C_3\). Galois Riemann--Hurwitz gives respectively
+\begin{equation}\label{eq:RH_strata}
+ \begin{array}{ll}
+ 6[-2+4(1-1/2)]=0,&g=1,\\
+ 6[-2+(1-1/3)+2(1-1/2)]=-2,&g=0,\\
+ 3[-2+2(1-1/3)]=-2,&g=0.
+ \end{array}
+\end{equation}
+No critical-value collision locus has been omitted within the degree-three domain.
+\end{proof}
+
+The residual quadratic splits over \(\CC(z)\) exactly on the two cyclic rows:
+\begin{equation}\label{eq:cyclic_loci}
+ q=r=0\quad\text{or}\quad qr=9ps.
+\end{equation}
+Indeed a rational root would give a nontrivial deck transformation and hence a cyclic cover; conversely a cyclic cover has two rational partners. In original coefficients these loci are
+\begin{equation}\label{eq:cyclic_ABC}
+ B=-3,\quad C=-3A,\qquad\text{or}\qquad K_3=0,
+\end{equation}
+always with \eqref{eq:degree3}. They are disjoint there. On the first, \(w=(p/s)z^3\), with deck maps \(z\mapsto\omega z\), \(\omega^3=1\). On the second, choose \(a^2=3s/r\), put \(\kappa=3pa/r\), and observe
+\begin{equation}\label{eq:cyclic_conjugacy}
+ \frac{w-\kappa}{w+\kappa}=\left(\frac{z-a}{z+a}\right)^3.
+\end{equation}
+Conjugating multiplication by \(\omega\) gives the Möbius partners explicitly. These formulas are over \(\CC\), without a claim that all such partners are real for real coefficients.
+
+Adding reciprocal equivariance to the cyclic deck group produces \(C_6\) on \(q=r=0\), since \(-z\) commutes with multiplication by \(\omega\). On \(qr=9ps\) it produces the dihedral group of order six, since \(({-z}-a)/({-z}+a)\) is the reciprocal of \((z-a)/(z+a)\). These extended groups do not fix the target pointwise. Generically the only source transformations fixing or inverting the value are the identity and reciprocity: composing any second value-inverting map with reciprocity would give a deck transformation.
+
+\subsection{Cancellation and singular limits are different operations}
+The lower-degree strata follow directly from the homogeneous pair after \eqref{eq:pqrs}. Constants are \(A=1,B=C\) for \(+1\), and \(A=-1,C=-B\) for \(-1\). A nonconstant point has degree two exactly when one of \(p,s\) is zero and \(ps-qr\ne0\). Every other nonconstant point on the resultant-zero locus has degree one. A factor at zero comes from \(s=0\), a factor at infinity from \(p=0\), and the reciprocal quadratic factor from \(ps=qr\) when \(p,s\ne0\). Their intersections give the stated degree-one or constant cases. Covers of degree two and one have respectively \(C_2\) and trivial monodromy, with genus-zero closures.
+
+Degenerating the quartic model \(E\) is not the same operation as taking the connected Galois closure of the specialized rational map. On \(qr=9ps\), for example,
+\begin{equation}\label{eq:degenerate_square}
+ \mathcal D(z)=-\frac{4p^2s}{r}(rz^2-3s)^2,
+\end{equation}
+so the compactified correspondence splits into two rational components meeting at two ordinary nodes. Meanwhile
+\begin{equation}\label{eq:branch_square}
+ \mathcal B(w)=-4r^3s\left(w^2-\frac{27p^2s}{r^3}\right)^2,
+\end{equation}
+and the four simple critical values coalesce in pairs. The specialized cubic itself is a smooth cyclic cover with connected closure \(\PP^1\); the reducible limit of the old degree-six closure is a different object.
+
+If \(q=0,r\ne0\), then
+\(\mathcal D=-p^2s z^2(4rz^2+3s)\).
+It has an ordinary node at zero and irreducible rational normalization, still with \(S_3\) monodromy. If \(r=0,q\ne0\), the analogous double root is at infinity. If \(q=r=0\), the binary quartic is \(-3p^2s^2Z^2T^2\), giving two rational components with nodes at zero and infinity. The genus-zero correspondence in the one-zero cases remains irreducible over the source field and does not create a rational partner.
+
+\subsection{The four modular boundary points}
+In the normalized family the excluded values are \(t=0,1,9,\infty\). The Weierstrass discriminant has orders \(1,6,2,3\), respectively; the last follows by the minimal scaling \(X=t^2\bar X\), \(Y=t^3\bar Y\) near infinity. In each case the correspondingly scaled \(c_4\) is nonzero. These are multiplicative, nodal degenerations of the elliptic model, not cuspidal cubic degenerations. For the associated semistable elliptic surface, the minimal resolved fibers have types \(I_1,I_6,I_2,I_3\). One should distinguish that resolved surface model from an uncontracted incidence model such as \eqref{eq:degenerate_square}.
+
+The modular maps make the boundary orders transparent:
+\begin{equation}\label{eq:h_ramification}
+ \frac{dh}{dt}=\frac{(t-9)(t+3)^2}{(t-1)^3},\qquad
+ h+27=\frac{(t+3)^3}{(t-1)^2}.
+\end{equation}
+The two cusps of \(X_0(3)\) are \(h=0,\infty\), with source-\(j\) pole orders one and three. Their preimages give the four \(X_0(6)\) cusp widths listed above. At \(h=-27\), the selected level-three datum has an order-three elliptic stabilizer; its threefold preimage is \(t=-3\). The zero at \(h=-3\) is instead triple in \(j(E)\). Also
+\begin{equation}\label{eq:j1728}
+ j(E)-1728=\frac{(h^2+18h-27)^2}{h}.
+\end{equation}
+There is no order-two elliptic point on \(X_0(3)\); the two roots in \eqref{eq:j1728} have local degree two over the bare elliptic invariant. Retaining \(Q\) eliminates these extra elliptic stabilizers beyond the generic inversion on the coarse \(X_0(6)\) datum.
+
+At intersections of coefficient strata, the normalized chart can itself be singular. For example \(q=r=0\) has \(t=0\), but a path along which both vanish simply makes \(t\) vanish to order two, while \(\sigma^2=s/r\) diverges. The two-component incidence limit there does not contradict the simple nodal fiber of the normalized \(t\)-model at zero. The paper makes no exhaustive claim about all boundary paths or their chosen total-space resolutions.
+
+\fig{04_boundaries}{The degree-three parameter strata separate smooth elliptic closure, rational \(S_3\) normalization, cyclic splitting, and degree loss. The normalized coordinate reaches the four cusps with the displayed source-\(j\) pole orders. Coefficient intersections can require different local charts.}{fig:boundaries}
+
+\subsection{Quartic checkpoint}\label{sec:quartic}
+For
+\begin{equation}\label{eq:quartic}
+ F_4(y)=\frac{Ay^4-By^3-Cy^2-Dy+1}{y^4-Dy^3-Cy^2-By+A},
+\end{equation}
+the exact fixed-value numerators are
+\begin{align}\label{eq:quartic_fibers}
+ P-Q&=(y^2-1)[(A-1)(y^2+1)+(D-B)y],\notag\\
+ P+Q&=(A+1)(y^4+1)-(B+D)(y^3+y)-2Cy^2.
+\end{align}
+Set
+\begin{equation}\label{eq:H4}
+ \begin{split}
+ H_4={}&A^3+A^2C-A^2+ABD-2AC-AD^2\\
+       &-A-B^2+BD+C+1.
+ \end{split}
+\end{equation}
+Then
+\begin{equation}\label{eq:quartic_resultant}
+ \Res(P,Q)=(A-B-C-D+1)(A+B-C+D+1)H_4^2.
+\end{equation}
+The Wronskian is
+\begin{equation}\label{eq:W4}
+ W_4=a_4(y^6+1)+b_4(y^5+y)+c_4^{\rm crit}(y^4+y^2)+d_4y^3,
+\end{equation}
+with
+\begin{equation}\label{eq:W4_coeff}
+ \begin{aligned}
+ a_4&=B-AD,& b_4&=2C(1-A),\\
+ c_4^{\rm crit}&=-3AB+BC-CD+3D,&d_4&=4A^2+2B^2-2D^2-4.
+ \end{aligned}
+\end{equation}
+The superscript distinguishes this critical-polynomial coefficient from an elliptic invariant. With \(\zeta=y+1/y\), its finite nonzero roots are obtained from
+\begin{equation}\label{eq:critical_cubic4}
+ a_4\zeta^3+b_4\zeta^2+(c_4^{\rm crit}-3a_4)\zeta+d_4-2b_4=0,
+ \qquad y^2-\zeta y+1=0.
+\end{equation}
+On the generic locus there are six simple, distinct branch values. The closure has group \(S_4\), degree 24, and
+\begin{equation}\label{eq:quartic_genus}
+ 2g-2=24[-2+6/2]=24,\qquad g=13.
+\end{equation}
+There is no generic deck transformation; the residual partner relation is an irreducible cubic. The return of a \(+1\) lock at \(-1\) is an even-degree effect, not a return of quadratic Galois geometry.
+
+Three previously established exceptional families suffice to demonstrate the limits of the generic theorem. In each example assume the displayed map remains degree four.
+\begin{enumerate}
+\item \(B=D=0\): \(F_4(y)=F_{2;A,C}(y^2)\), a decomposable cover with deck symmetry \(y\mapsto-y\).
+\item \(B=C=D=0\), \(A^2\ne1\): \(F_4\) is a target Möbius transform of \(y^4\), a cyclic \(C_4\) Galois cover with genus-zero source.
+\item \(A=-1\), \(B=D=0\), \(C\ne0\): the deck maps are \(y,-y,i/y,-i/y\). They form \(V_4\), and the cover is Galois of genus zero.
+\end{enumerate}
+These are selected loci, not an exhaustive quartic census.
+
+\subsection{The squaring lift and real plots}\label{sec:x_lift}
+For a reduced degree-\(d\) map, \(f_n(x)=F_n(x^2)\) has degree \(2d\) and obeys
+\begin{equation}\label{eq:x_lift}
+ f_n(-x)=f_n(x),\qquad f_n(1/x)=1/f_n(x),\qquad
+ e_{f_n}(x)=e_{x^2}(x)e_{F_n}(x^2).
+\end{equation}
+The first is a deck symmetry; the second is equivariance. For generic coefficients, each old simple branch value has two simple ramification points in the lift, with partition \(2^2 1^{2n-4}\). Zero and infinity of the \(x\)-sphere add branch values \(1/a_0\) and \(a_0\), each with partition \(2,1^{2n-2}\). These values are generically distinct from one another and from the old branch values. Thus the cubic lift has degree six and six branch values; the quartic lift has degree eight and eight branch values. Total ramification is \(2(2n-2)+2=4n-2\), as required. The genus formula in Theorem~\ref{thm:generic} is not a formula for these lifted covers or their further target quotients.
+
+For real plotting, only \(y=x^2\ge0\) is sampled. Positive zeros or poles give paired real locations \(x=\pm\sqrt y\); negative real locations in \(y\) give imaginary \(x\), and nonreal roots have complex square roots. Generic locks at \(y=1\) give \(x=\pm1\). The parity-controlled behavior at \(y=-1\) lies at \(x=\pm i\), outside the real plot. General complex Möbius equivalences do not preserve this half-line or the original embedding.
+
+Even real coefficients need not make the correspondence an elliptic curve with a real origin. At \(t=2\), realized for instance by \((A,B,C)=(-5,1,3)\),
+\begin{equation}\label{eq:real_torsor}
+ E_2:\ Y_0^2=-4Z^4-11Z^2-8
+\end{equation}
+has no real points, including at infinity. Its Jacobian has a real identity, but this genus-one curve is a real torsor without a real point. The complex Weierstrass transformation selected a complex origin. Real twists, branch ordering, and the \(y\ge0\) restriction are extra data not captured by complex \(j\) or \(t\).

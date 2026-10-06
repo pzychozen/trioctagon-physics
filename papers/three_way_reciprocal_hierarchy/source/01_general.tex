@@ -1,0 +1,119 @@
+\section{The hierarchy and the cover being studied}\label{sec:scope}
+Paper I reconstructs the historical quadratic Three-Way formula, its reciprocal quotient, and its additional squaring cover \cite{paper1}. The present paper asks a different mathematical question: what survives when coefficient reversal is extended to arbitrary degree? We begin with
+\begin{equation}\label{eq:family}
+ P_n(y)=a_0y^n-\sum_{j=1}^{n-1}a_jy^{n-j}+1,
+ \qquad Q_n(y)=y^nP_n(1/y),\qquad F_n=P_n/Q_n.
+\end{equation}
+The coefficients range over \(\CC\); the minus signs impose no positivity condition. All covers are reduced rational maps between smooth projective curves, in characteristic zero. ``Generic'' means a nonempty Zariski-open subset of the indicated coefficient space. A real coefficient or real plotting statement will be identified explicitly.
+
+Throughout the main theorem, the base field is \(\CC(v)\), with \(v=F_n(y)\). The Galois closure is the smooth connected curve with the splitting field of the generic fiber polynomial as its function field. Its degree is the order of the monodromy group. Neither target inversion nor the substitution \(y=x^2\) is incorporated into that extension unless explicitly stated.
+
+This convention resolves a potentially misleading comparison. The degree-two cover \(F_2\) is already Galois and has sphere source, so its own closure has genus zero. The Edwards genus-one curve of Paper I belongs to the larger degree-eight quotient/lift tower studied there. Changing the base quotient or adding a source cover changes the function-field extension. The two genus statements are compatible, and no identification of their elliptic curves is asserted.
+
+The results here assemble two external exact-analysis reports \cite{hierarchy,cubic}. The basic species is standard: after Cayley coordinates these are odd rational functions, an order-two instance of the normal form for maps commuting with a rotation \cite[§2.1, Lemma 2]{msw}. A commuting automorphism in that dynamical usage need not fix the value of the map. We reserve \emph{deck transformation} for a source automorphism that fixes the target pointwise. General low-genus Galois closures of rational maps are also established territory \cite[§2 and Theorems 1.1--1.2]{pakovich}. Our purpose is an explicit, verified account of this coefficient chart, without a priority claim.
+
+\subsection{Reduction precedes locks and special values}
+Write \(P=P_n\), \(Q=Q_n\), \(G=\gcd(P,Q)\) monic, and
+\begin{equation}\label{eq:reduced}
+ N=P/G,\qquad D=Q/G,\qquad F=N/D.
+\end{equation}
+Since \(P(0)=1\) and \(Q\) is monic of degree \(n\), no common zero occurs at zero or infinity. For a nonconstant map,
+\begin{equation}\label{eq:degree}
+ \deg F=n-\deg G.
+\end{equation}
+In particular, \(a_0=0\) need not lower the map degree. The displayed unreduced fraction still has holes at common zeros, even though its reduced rational continuation is defined projectively there.
+
+\begin{proposition}[Reciprocal divisors]\label{prop:reciprocal}
+For every coefficient choice, as a rational identity,
+\begin{equation}\label{eq:reciprocity}
+ F(1/y)=1/F(y).
+\end{equation}
+For a nonconstant map and \(R(y)=1/y\),
+\begin{equation}\label{eq:divisor}
+ \ord_{R(a)}F=-\ord_aF.
+\end{equation}
+Thus surviving zeros and poles pair reciprocally with equal multiplicity, including zero and infinity. Common factors occur in reciprocal pairs, except at the fixed points \(\pm1\).
+\end{proposition}
+\begin{proof}
+Reversal twice gives \(Q^*=P\). Hence \(P(1/y)/Q(1/y)=Q(y)/P(y)\); this remains true after reduction. Taking local orders proves the divisor statement. A common root and its reciprocal have common multiplicities interchanged by reversal.
+\end{proof}
+
+For \(a_0\ne0\), write \(P=a_0\prod_i(y-r_i)\). Then \(Q=a_0\prod_i(1-r_i y)\), and
+\begin{align}\label{eq:resultant_general}
+ \Res(P,Q)&=a_0^{2n}\prod_{i,j}(1-r_i r_j)\notag\\
+ &=(-1)^na_0^{2n-2}P(1)P(-1)
+       \prod_{i<j}(1-r_i r_j)^2.
+\end{align}
+Cancellation is therefore equivalent to a reciprocal root pair, allowing a repeated index at \(r_i=\pm1\). At \(a_0=0\), use the polynomial resultant or the gcd instead of this degree-\(n\) root parameterization. Repeated surviving zeros are ramified points over zero; their reciprocal poles have the same multiplicities. A double zero alone is simple ramification and does not force a drop in generic monodromy.
+
+\subsection{Parity and the fixed-value fibers}
+The correct homogeneous fiber equations are
+\begin{equation}\label{eq:fibers}
+ F=1:\ N-D=0,\qquad F=-1:\ N+D=0.
+\end{equation}
+Equivalently divide \(P-Q\) and \(P+Q\) by \(G\) first. Projective interpretation includes infinity; at a finite solution the reduced denominator must be nonzero. The equation \(F=1/F\) is exactly the union of these two fibers, since neither zero nor infinity is fixed by target inversion.
+
+The form \(P-Q\) is anti-reciprocal and \(P+Q\) is reciprocal. Their forced factors are
+\begin{center}
+\begin{tabular}{lll}\toprule
+Parity & \(P-Q\) & \(P+Q\)\\\midrule
+Even \(n\) & \((y-1)(y+1)\) & no forced linear factor\\
+Odd \(n\) & \(y-1\) & \(y+1\)\\\bottomrule
+\end{tabular}
+\end{center}
+Consequently an uncanceled fraction has
+\begin{equation}\label{eq:locks}
+ F(1)=1,\qquad F(-1)=(-1)^n.
+\end{equation}
+There is a precise correction at a canceled fixed point.
+
+\begin{proposition}[Lock continuation]\label{prop:lock}
+If \(P\) vanishes to order \(m\) at \(\epsilon\in\{1,-1\}\), its reduced continuation satisfies
+\begin{equation}\label{eq:lock_continuation}
+ F(\epsilon)=\epsilon^n(-1)^m.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Put \(y=\epsilon+h\). Since \(1/y-\epsilon=-h+O(h^2)\), reversal multiplies the leading local coefficient by \(\epsilon^n(-1)^m\). Dividing gives the stated value.
+\end{proof}
+Thus odd-order cancellation flips a lock. For example, at \((A,B)=(2,3)\), \(F_2\) reduces to \((2y-1)/(y-2)\), whose value at \(y=1\) is \(-1\). The original fraction has a hole there.
+
+For \(a_0\ne0\), \(F(0)=1/a_0\) and \(F(\infty)=a_0\). If \(a_0=0\) and \(d_P=\deg P<n\), zero is a pole and infinity a zero, both of order \(n-d_P\). Finally the only constant maps are \(+1\) and \(-1\). They occur respectively when
+\begin{align}\label{eq:constant}
+ a_0=1,&\quad a_j=a_{n-j},\notag\\
+ a_0=-1,&\quad a_j=-a_{n-j}.
+\end{align}
+For even \(n\), the second condition forces the middle coefficient to vanish. These statements follow by reversing \(P=cQ\), which forces \(c^2=1\).
+
+\subsection{Critical pairing and Cayley oddness}
+The reduced critical divisor is obtained by homogenizing
+\begin{equation}\label{eq:wronskian}
+ W_{\rm red}=N'D-ND',\qquad P'Q-PQ'=G^2W_{\rm red}
+\end{equation}
+to degree \(2\deg F-2\). This includes ramified poles and infinity. A zero of order \(m\) in the divisor has local degree \(m+1\). Direct differentiation of reversal gives
+\begin{equation}\label{eq:W_reversal}
+ W(1/y)=y^{2-2n}W(y),\qquad W=P'Q-PQ'.
+\end{equation}
+Hence critical points and values pair as \((c,F(c))\leftrightarrow(1/c,1/F(c))\).
+
+Let
+\begin{equation}\label{eq:cayley}
+ \mathcal C(y)=\frac{y-1}{y+1},\qquad
+ z=\mathcal C(y),\qquad H=\mathcal C\circ F\circ\mathcal C^{-1}.
+\end{equation}
+Then \(\mathcal C(1/y)=-\mathcal C(y)\), so
+\begin{equation}\label{eq:odd}
+ H(-z)=-H(z),\qquad H(z)=z\Psi(z^2),\quad \Psi\in\CC(T).
+\end{equation}
+Here \(T\) is an independent variable: \(H(z)/z\) belongs to the fixed field \(\CC(z^2)\), so \(\Psi\) is a rational function evaluated at \(z^2\). The generic forms in the uncanceled coefficient chart are
+\begin{equation}\label{eq:odd_types}
+ \begin{array}{ll}
+ n=2m+1:& H(z)=zU_m(z^2)/V_m(z^2),\\
+ n=2m:& H(z)=zU_{m-1}(z^2)/V_m(z^2).
+ \end{array}
+\end{equation}
+The leading and constant coefficients displayed here are generically nonzero. The odd-degree component fixes zero and infinity; the even-degree component sends both to zero. Cancellation may change component and degree.
+
+At a source fixed point of reciprocity the target must also be fixed by inversion. In local coordinates that turn both involutions into sign change, the map is odd. Its local degree is therefore odd. In particular \(y=\pm1\) cannot be simple critical points, although local degree three or higher is possible exceptionally.
+
+For real coefficients, conjugation and reciprocity imply \(|F(y)|=1\) on \(|y|=1\), wherever the raw fraction is defined. A surviving zero or pole cannot lie on that circle: conjugation preserves its divisor sign while inversion reverses it. The reduced nonconstant map therefore extends across raw holes on the circle with unit-modulus values. This unit-circle statement concerns a complex source contour, not the real plotting interval \(y\ge0\).

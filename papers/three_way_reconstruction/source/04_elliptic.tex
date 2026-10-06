@@ -1,0 +1,261 @@
+\section{The closure as an Edwards elliptic curve}\label{sec:edwards}
+
+Choose \(a_e^2=t\) and take the elliptic origin \(O=(0,a_e)\) on \(E_t\). The subscript distinguishes this square root from the source-coordinate scale \(\rho\) and from the generic orbit point used earlier. Choosing an origin does not add a modulus of the complex genus-one curve. There is also the section \((1,i)\) over \(\CC(t)\); thus the family has a point without adjoining \(\sqrt t\), although \(O\) makes the group formulas simpler on each fiber.
+
+Set \(U=x/a_e\), \(V=z/a_e\). The equation becomes
+\begin{equation}\label{eq:Edwards}
+U^2+V^2=1+t^2U^2V^2,\qquad O=(0,1).
+\end{equation}
+This is exactly an untwisted Edwards form, a standard elliptic model~\cite{Edwards,Morain,EFD}. The excluded values \(t=0,\pm1,\infty\) are essential. We use its smooth compactification; the affine real curve and a singular plane-quartic closure are not substitutes for that compact curve.
+
+\subsection{Montgomery and Weierstrass equations}
+Define on a dense open set
+\[
+M=\frac{1+V}{1-V},\qquad N_M=\frac{M}{U}.
+\]
+Substituting \(U^2=(1-V^2)/(1-t^2V^2)\) gives
+\begin{equation}\label{eq:Montgomery}
+\gamma N_M^2=M^3+\alpha M^2+M,
+\qquad \alpha=\frac{2(1+t^2)}{1-t^2}=4\nu-2,
+\quad\gamma=\frac4{1-t^2}=4\nu.
+\end{equation}
+The inverse is \(U=M/N_M\), \(V=(M-1)/(M+1)\). Rational inverse maps between smooth projective curves extend over the finitely many omitted coordinate points, so these are isomorphisms of compact curves. The origin goes to infinity. Over \(\CC\), put \(W=\sqrt\gamma N_M\), obtaining
+\begin{equation}\label{eq:Weierstrass}
+W^2=M^3+(4\nu-2)M^2+M.
+\end{equation}
+The square root can affect a twist over a smaller field; it does not change the complex isomorphism class being classified.
+
+For the short Weierstrass form put \(M=\xi-\alpha/3\). Then
+\begin{align}
+W^2&=\xi^3+p\xi+q,\nonumber\\
+p&=-\frac{16\nu^2-16\nu+1}{3},\qquad
+q=\frac{2(2\nu-1)(32\nu^2-32\nu-1)}{27},\label{eq:short}\\
+\Delta_W&=-16(4p^3+27q^2)=256\nu(\nu-1).\label{eq:Wdisc}
+\end{align}
+The subscript on \(\Delta_W\) distinguishes it from the coefficient discriminant \(\Delta\). Its displayed form is an affine model on the finite \(\nu\)-line; analyzing infinity requires changing coordinates and, if desired, choosing a minimal model.
+
+\subsection{Jacobi quartic and a fully explicit Legendre map}
+Set \(w=(tx^2-1)z\). Squaring and using \eqref{eq:Et} gives
+\begin{equation}\label{eq:quartic}
+w^2=(tx^2-1)(x^2-t)=tx^4-(t^2+1)x^2+t.
+\end{equation}
+Thus \(v=w/a_e\) satisfies the Jacobi-quartic equation
+\[
+v^2=x^4-(t+t^{-1})x^2+1.
+\]
+This is another established model, with Jacobi parameter \(-\tfrac12(t+t^{-1})\) in the convention \(v^2=x^4+2a_Jx^2+1\)~\cite{EFD}. The inverse recovers \(z=w/(tx^2-1)\).
+
+Define
+\begin{equation}\label{eq:Legendrechange}
+q_0=\frac{1-t}{1+t},\quad
+\ell=q_0\frac{x-a_e}{x+a_e},\quad
+\kappa=\frac{2ia_e(t-1)}{(t+1)^2},\quad
+\eta_E=\kappa\frac{w}{(x+a_e)^2}.
+\end{equation}
+Then
+\begin{equation}\label{eq:Legendre}
+\eta_E^2=\ell(\ell-1)(\ell-m),\qquad
+m=\left(\frac{t-1}{t+1}\right)^2.
+\end{equation}
+To verify the constant as well as the branch cross-ratio, the four branch points map as
+\[
+a_e\mapsto0,\quad -a_e\mapsto\infty,\quad
+-a_e^{-1}\mapsto1,\quad a_e^{-1}\mapsto m,
+\]
+and direct multiplication yields
+\[
+\ell(\ell-1)(\ell-m)
+=-\frac{4t(t-1)^2}{(t+1)^4}\frac{w^2}{(x+a_e)^4}.
+\]
+This is \(\kappa^2w^2/(x+a_e)^4\). The inverse starts with
+\(x=a_e(q_0+\ell)/(q_0-\ell)\) and then recovers \(w,z\). This Legendre map uses \((-a_e,0)\) as the point sent to infinity, so it changes the elliptic origin relative to \(O\). It leaves the bare curve and its \(j\)-invariant unchanged. Reordering the four branch points gives the usual six cross-ratio transforms of \(m\).
+
+\fig{09_edwards_legendre}{Affine real representatives for \(t=1/2\) and \(m=1/9\). The Edwards origin and order-four point are marked. These panels display real equations, not a homeomorphism between their plotted real loci: the displayed Legendre change uses an imaginary factor and is asserted over \(\CC\). Both compact complex curves have genus one.}{fig:models}
+
+\subsection{Two independent computations of j}
+For \eqref{eq:Weierstrass}, the standard Weierstrass invariants computed from its coefficients are
+\[
+c_4=16(\alpha^2-3),\quad\Delta_W=16(\alpha^2-4),\quad
+j=256\frac{(\alpha^2-3)^3}{\alpha^2-4}.
+\]
+Substitution gives the two equivalent expressions
+\begin{equation}\label{eq:jt}
+j(t)=16\frac{(t^4+14t^2+1)^3}{t^2(t^2-1)^4},
+\end{equation}
+\begin{equation}\label{eq:jnu}
+j(\nu)=16\frac{(16\nu^2-16\nu+1)^3}{\nu(\nu-1)}.
+\end{equation}
+Independently, the Legendre expression
+\(256(1-m+m^2)^3/[m^2(1-m)^2]\), with \(m\) from \eqref{eq:Legendre}, reduces to \eqref{eq:jt}. These are exact algebraic identities, not numerical recognition of an elliptic invariant. The standard Edwards/Montgomery invariant framework is discussed in Morain~\cite[\S\S2.4--2.5]{Morain}; all substitutions needed here have been displayed.
+
+\section{Translations, inversion, and the two Klein-four actions}\label{sec:group}
+
+The abstract Galois group acquires a concrete geometric meaning on \(E_t\). On the Edwards equation, addition is
+\[
+(U_1,V_1)+(U_2,V_2)=
+\left(\frac{U_1V_2+V_1U_2}{1+t^2U_1U_2V_1V_2},
+\frac{V_1V_2-U_1U_2}{1-t^2U_1U_2V_1V_2}\right),
+\]
+where defined, extending on the smooth compact curve~\cite{EFD}. Negation is \((-U,V)\). Let \(P=(a_e,0)\) in the original coordinates. The formula gives
+\[
+2P=(0,-a_e),\qquad4P=O,\qquad
+\tau_P(x,z)=(z,-x),\qquad\tau_{2P}(x,z)=(-x,-z).
+\]
+Thus \(P\) has exact order four and
+\begin{equation}\label{eq:translationactions}
+\mathsf X=[-1],\quad
+\mathsf Y=\tau_{2P}[-1],\quad
+\mathsf S=\tau_P[-1].
+\end{equation}
+
+The remaining involution \(\mathsf C\) has no fixed point on a smooth fiber. A fixed point would require \(x,z\in\{1,-1\}\), forcing \(t=1\). Every elliptic involution with linear part \(-1\) has a fixed point, since \([2]\) is surjective on a complex elliptic curve. A fixed-point-free involution must therefore be translation by a nonzero two-torsion point. Here it is
+\[
+Q_2=\mathsf C(O)=(\infty,a_e^{-1}),\qquad Q_2\ne2P.
+\]
+Consequently
+\begin{equation}\label{eq:Gelliptic}
+H_{\rm tr}=\langle P,Q_2\rangle\simeq C_4\times C_2,
+\qquad G=H_{\rm tr}\rtimes\langle[-1]\rangle\simeq D_4\times C_2.
+\end{equation}
+Inversion negates the order-four generator and fixes the order-two generator. This identifies the order-four group element as a translation, rather than merely assigning it a dihedral name.
+
+The full two-torsion is \(E_t[2]=\{O,2P,Q_2,2P+Q_2\}\), at the four points
+\[
+(0,\pm a_e),\qquad(\infty,\pm a_e^{-1}).
+\]
+The four branch points of the \(x\)-projection form the coset \(P+E_t[2]\), with coordinates \((\pm a_e,0)\) and \((\pm a_e^{-1},\infty)\). This connects the branch calculation directly to elliptic torsion.
+
+The original source sphere is the Kummer quotient
+\begin{equation}\label{eq:Kummerx}
+\PP^1_x=E_t/\langle\mathsf Y\rangle.
+\end{equation}
+Since \(\mathsf Y(R)=-R+2P\), it is inversion after shifting the origin to \(P\). Two-torsion translations commute with it and descend faithfully to \(x\mapsto\pm x,\pm1/x\). This is the \(V_4\) deck action on the degree-eight sphere map.
+
+For the other sphere,
+\[
+\PP^1_y=E_t/\langle\mathsf X,\mathsf Y\rangle.
+\]
+Let \(E'=E_t/\langle2P\rangle\). Then the \(y\)-sphere is the Kummer quotient of \(E'\), and
+\(H_{\rm tr}/\langle2P\rangle=E'[2]\). Its two-torsion translations induce the original normalized \(u\)-action by \(-u,1/u\). The two Klein-four actions are thus related through an isogeny, but they act on different spheres and arise from different subgroups before quotienting.
+
+\section{The modular meaning of nu and the natural two-isogeny}\label{sec:modular}
+
+\begin{theorem}[The selected cyclic subgroup]\label{thm:X04}
+The coordinate \(\nu\) is a Hauptmodul on \(X_0(4)\) for the pair \((E_t,\langle P\rangle)\). On the smooth locus,
+\[
+Y_0(4)\simeq\PP^1_\nu\smallsetminus\{0,1,\infty\}.
+\]
+Forgetting the cyclic subgroup gives the degree-six map \eqref{eq:jnu} to the \(j\)-line. In particular \(\nu\) retains more than the bare complex elliptic isomorphism class.
+\end{theorem}
+\begin{proof}
+In the Weierstrass model, the order-four generator and its double are
+\[
+P=(1,\sqrt{\alpha+2}),\qquad2P=(0,0).
+\]
+Conversely take a complex elliptic curve with a cyclic order-four subgroup \(\langle P\rangle\). Put its nonzero double at \((0,0)\) in an equation \(Y^2=X(X^2+bX+c_0)\). The duplication formula gives
+\[
+X(2P)=\frac{(X(P)^2-c_0)^2}{4X(P)(X(P)^2+bX(P)+c_0)}=0,
+\]
+so \(X(P)^2=c_0\). Scaling by the nonzero \(X(P)\) normalizes the cubic to \(W^2=M(M^2+\alpha M+1)\), with \(M(P)=1\). A subgroup-preserving isomorphism fixes infinity, the selected two-torsion point at zero, and the common coordinate one of the two generators. The induced affine change of the cubic coordinate is therefore the identity, so it fixes \(\alpha\). Conversely \(\alpha\ne\pm2\) defines such a pair. Thus \(\nu=(\alpha+2)/4\) is a complete coordinate on the noncuspidal moduli problem, which is precisely \(Y_0(4)\)~\cite[\S19.3]{Sutherland}.
+
+A generic elliptic curve has twelve exact-order-four points, forming six cyclic subgroups. Its only origin-preserving automorphisms are \(\pm1\), which preserve each subgroup. Hence forgetting the subgroup is generically six-to-one, in agreement with the degree of \eqref{eq:jnu}. Adding the three missing parameter values compactifies to a projective line, establishing the Hauptmodul statement.
+\end{proof}
+
+For example \(j(1-\nu)=j(\nu)\), corresponding to \(t\mapsto1/t\), but that identity alone does not describe the entire generic sixfold fiber. These are equivalences of bare complex curves, not equivalences of the fully labeled Three-Way cover. Neither do they identify real twists or fixed real plots.
+
+The natural quotient by \(2P=(0,0)\) is explicit. Put
+\[
+M'=M+\alpha+M^{-1},\qquad W'=W(1-M^{-2}).
+\]
+Squaring and using \eqref{eq:Weierstrass} gives
+\begin{equation}\label{eq:isogenous}
+E':\qquad W'^2=M'(M'-(\alpha+2))(M'-(\alpha-2)).
+\end{equation}
+The map has degree two and kernel \(\{O,2P\}\). The nonzero roots are \(4\nu,4(\nu-1)\). Under \(s'=\nu-M'/4\), the three roots become \(\nu,0,1\); a nonzero constant rescaling of the ordinate therefore gives a Legendre equation with parameter \(\nu\). Thus
+\begin{equation}\label{eq:jprime}
+j(E')=256\frac{(1-\nu+\nu^2)^3}{\nu^2(1-\nu)^2}.
+\end{equation}
+This generally differs from \eqref{eq:jnu}. The parameter \(\nu\) is Legendre for the natural two-isogenous curve, whereas the displayed Legendre parameter for \(E_t\) itself is \(m\).
+
+Let \(\overline E=E_t/H_{\rm tr}\). Since
+\(H_{\rm tr}=[2]^{-1}(\langle2P\rangle)\), this quotient is also isomorphic to \(E'\). The map \(E_t\to\overline E\) is a degree-eight isogeny, realized by multiplication by two followed by the two-isogeny. The remaining quotient by inversion is a degree-two map \(\overline E\to\PP^1_\beta\) branched at \(0,1,\infty,\nu\). This explains geometrically why those four target points encode a Legendre curve different from the original closure.
+
+\section{The marking lambda upstairs}\label{sec:divisor}
+
+Let \(\pi:E_t\to\PP^1_\beta\) denote the degree-sixteen Galois map. For a regular marked value,
+\begin{equation}\label{eq:Dlambda}
+D_\lambda=\pi^*[\lambda],\qquad \lambda\notin\{0,1,\infty,\nu\},
+\end{equation}
+is a reduced effective divisor of degree sixteen. A Galois group acts transitively on every unramified fiber and the stabilizer is trivial, so this is one full free \(G\)-orbit. Choosing a lift \(R\) describes its support as
+\begin{equation}\label{eq:orbitdivisor}
+(R+H_{\rm tr})\ \cup\ (-R+H_{\rm tr}).
+\end{equation}
+On \(\overline E\), this is simply an unordered pair \(\{q,-q\}\). Neither one of the two points nor a particular lift is selected. Generically the points are not torsion.
+
+The divisor class does not vary:
+\[
+D_\lambda\sim D_\infty,
+\]
+because their difference is the principal divisor of \(\beta-\lambda\). Hence \(\lambda\) specifies a particular effective divisor in this fiber family, not a new class in \(\operatorname{Pic}^{16}(E_t)\), and not another elliptic modulus. Under the \(F\)-decoration the four zeros and four poles on the \(x\)-sphere each lift to two points, splitting \(D_\lambda\) into eight zero points and eight pole points. That partition is extra labeling of the orbit, already accounted for in the automorphism discussion.
+
+The two-modulus object can therefore be described either as the selected decorated branched cover over five labeled target points, or as the elliptic closure with its covering structure and a marked quotient orbit. It should not be replaced by an arbitrary elliptic curve with one marked point: that would forget the cyclic subgroup, the cover labels, and the unordered-pair structure.
+
+\section{Degeneration, enhanced automorphisms, and topology}\label{sec:topology}
+
+\subsection{The explicit limiting elliptic fibers}
+The biquadratic equation gives concrete limits, including the components at infinity. At \(t=0\), it is \(x^2+z^2=0\), two rational \((1,1)\) components \(z=\pm ix\), meeting at \((0,0)\) and \((\infty,\infty)\). At \(t=\infty\), first divide the equation by \(t\); the limit is \(x^2z^2+1=0\), two components \(xz=\pm i\), meeting at \((0,\infty)\) and \((\infty,0)\). At \(t=1\), the factorization is \((x^2-1)(z^2-1)=0\); at \(t=-1\), it is \((x^2+1)(z^2+1)=0\), up to a nonzero sign. Each consists of two vertical and two horizontal rational components in a four-cycle.
+
+The intersections are ordinary nodes. Differentiation with respect to \(t\), or \(1/t\) at infinity, shows that the nearby total family is smooth at these nodes. Thus this explicit semistable family over the \(t\)-line has polygon fibers \(I_2,I_2,I_4,I_4\). With only an elliptic origin retained, stabilization contracts unmarked rational components to a nodal rational stable genus-one curve. None is a smooth torus at the boundary.
+
+The invariant has asymptotics
+\[
+j(\nu)\sim-16/\nu\quad(\nu\to0),\qquad
+j(\nu)\sim16/(\nu-1)\quad(\nu\to1),\qquad
+j(\nu)\sim65536\nu^4\quad(\nu\to\infty).
+\]
+The pole orders \(1,1,4\) are the cusp widths for this \(X_0(4)\) coordinate. The double covering by \(t\) ramifies at zero and infinity, explaining the two order-two poles there. A \(j\)-pole alone does not determine the fiber type of every twisted Weierstrass model; the component assertions above concern the explicit biquadratic family.
+
+\subsection{Smooth extra automorphisms are different from boundaries}
+For an elliptic curve with origin, the short equation \eqref{eq:short} shows that an automorphism has scaling form \((\xi,W)\mapsto(\omega^2\xi,\omega^3W)\), with \(\omega^4p=p\), \(\omega^6q=q\). Therefore \(\Aut(E,O)\) is \(C_2\) generically, \(C_4\) at \(j=1728\), and \(C_6\) at \(j=0\). Translations are additional automorphisms if no origin is fixed.
+
+The exact smooth loci in the parameter line are
+\begin{align*}
+j=0:&\quad t^2=-7\pm4\sqrt3,
+\qquad\nu=(2\pm\sqrt3)/4,\\
+j=1728:&\quad t=\pm i\ \text{or}\ t^2\pm6t+1=0,\\
+&\quad\nu=1/2\ \text{or}\ \nu=(4\pm3\sqrt2)/8.
+\end{align*}
+For the second statement one can check directly
+\[
+j(t)-1728=
+\frac{16(t^2+1)^2(t^2-6t+1)^2(t^2+6t+1)^2}{t^2(t^2-1)^4}.
+\]
+In coefficient coordinates the corresponding equations are
+\[
+j=0:\ B^4+14B^2c^2+c^4=0,
+\]
+\[
+j=1728:\ (B^2+c^2)(B^2-6Bc+c^2)(B^2+6Bc+c^2)=0,
+\]
+away from the excluded singular loci. For real \(t\), \(j=0\) never occurs; the real \(j=1728\) parameters are \(\pm(3\pm2\sqrt2)\).
+
+These are smooth complex-multiplication points, not branch collisions. Extra units do not preserve the selected cyclic order-four subgroup: if such a unit acted as \(\pm1\) on a generator, an endomorphism with norm at most three would annihilate an order-four point, impossible since its kernel would have to contain four points. The deck group of the labeled degree-sixteen cover stays of order sixteen. Most CM curves have only the generic two origin-preserving automorphisms, so enhanced finite symmetry and CM are also different questions.
+
+\subsection{The original source is a sphere; the closure is a torus}
+The distinction is exact:
+\begin{equation}\label{eq:spheretorus}
+\boxed{\text{Original complex source }=\PP^1_x,\quad g=0,}
+\qquad
+\boxed{\text{Generic normal closure }=E_t,\quad g=1.}
+\end{equation}
+A smooth compact complex genus-one curve is analytically \(\CC/\Lambda\), hence topologically a torus. Its real locus, when defined over \(\RR\), consists of circles or is empty depending on the real form; it is not itself a real two-dimensional torus. The graph \(\{(x,f(x)):x\in\RR, D(x^2)\ne0\}\) is a collection of one-dimensional real arcs. Neither that graph nor the original sphere becomes a torus merely because its normal closure has genus one.
+
+\fig{10_sphere_torus_distinction}{Two different operations: restrict a rational sphere map to a real graph, or pass to its complex normal closure and uniformize. The right-hand torus belongs to the latter operation.}{fig:topology}
+
+A surface of revolution requires a specified planar profile, an axis, and choices at endpoints and singularities. For instance, rotating the full graph about the vertical ordinate axis produces the parametrized set
+\[
+(r\cos\theta,F(r^2),r\sin\theta),\qquad r\ge0,
+\]
+on each pole-free radial interval. The two signs of the original horizontal coordinate then describe the same circle, so \(x=\pm1\) become one radius-one circle at height one, not one point. A connected such branch is a radial graph: it has no self-intersection and, if it includes the axis regularly, a disk-like cap; otherwise it is annular. Its noncompact ends or pole-separated components do not create a compact torus. Adding the reciprocal profile can create intersections along common circles; reflecting about the lock line adds \(2-F(r^2)\), another prescribed profile. Additional cutting and gluing could define other objects, but the rational-map data alone do not select those operations.
+
+The earlier requests to identify \(-1\) and \(1\) about a center, and to mirror across height one, are therefore compatible with discussing a separately prescribed construction, but are not proofs of its topology. The phase lift in H4 is likewise an added map with its own definitions. The appearance of an associated elliptic torus makes the historical intuition interesting in retrospect; it supplies no evidence for a toroidal universe, brane, or spacetime.

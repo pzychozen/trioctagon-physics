@@ -1,0 +1,528 @@
+CODEX WORK ORDER — THREE-WAY FULL RECONSTRUCTION PAPER v0.1
+
+Authorization: begin drafting the complete modern Three-Way reconstruction paper.
+
+Repository lane: trioctagon-physics, research/paper material only.
+Do not modify kernel_physics. Do not wire Three-Way into the scientific kernel.
+
+Purpose
+
+We have completed the main mathematical reconstruction of the historical Three-Way family.
+
+The goal now is to turn the accumulated archaeology, exact derivations, verification work, known-mathematics identifications, physical comparison, and historical provenance into one coherent standalone paper.
+
+This is not a rewrite of the old historical papers.
+
+The historical Zenodo documents remain unchanged and retain their original dates, language, interpretations, mistakes, and limitations.
+
+The new paper must explicitly present itself as a later reconstruction:
+
+$$ \text{historical construction} \rightarrow \text{modern mathematical reconstruction}. $$
+Critical publication rule
+
+Do not claim mathematical novelty or research priority in this draft.
+
+We know many constituent structures are established mathematics:
+
+\(V_4\) quotients;
+Belyi maps;
+Joukowski maps;
+\(M_{0,4}\) and \(M_{0,5}\);
+Hurwitz/admissible-cover theory;
+Edwards curves;
+Jacobi quartics;
+Legendre and Weierstrass forms;
+\(X_0(4)\);
+Kummer quotients;
+elliptic torsion;
+the nearest-neighbor spectral quotient.
+
+The exact novelty/priority of the assembled Three-Way family, its particular tower, reconstruction, parameter interpretation, and historical derivation has not yet received a dedicated prior-art audit.
+
+Therefore use language such as:
+
+“we derive,”
+“we reconstruct,”
+“we identify,”
+“within this analysis,”
+“the family is equivalent to…”
+
+and avoid:
+
+“new mathematical structure,”
+“first discovery,”
+“novel Belyi map,”
+“previously unknown elliptic family,”
+or similar priority claims.
+
+A dedicated novelty audit will occur after the complete draft exists.
+
+1. Working paper concept
+
+Working title:
+
+Three-Way Reciprocal Geometry: Reconstruction of a Historical Rational Model from Belyi Quotients to an Edwards Elliptic Galois Closure
+
+Improve the title if a cleaner scholarly version emerges, but preserve the reconstruction character.
+
+This should be a detailed paper, not a compressed note.
+
+Prefer completeness and explanatory clarity over artificial page limits.
+
+A target around 30–50 pages is acceptable if that is what the mathematics requires.
+
+2. Historical narrative
+
+Explain honestly how the construction arose.
+
+The original motivation involved directed reciprocal comparisons among constants associated with geometrical forms, especially quantities such as \(\pi,e,\phi\), with later experiments using other coefficient pairs.
+
+Three-Way was exploratory and historically accumulated speculative physical language before the underlying rational geometry had been classified.
+
+Preserve the distinction between:
+
+historical intuition
+
+and
+
+modern mathematical conclusions.
+
+Do not retroactively write the old authorship as if the Belyi/\(M_{0,5}\)/Edwards/\(X_0(4)\) structure had been understood at the time.
+
+A reader should be able to see:
+
+what was originally constructed, what was believed or conjectured, what later became confused, and what can now actually be proved.
+
+3. Formula provenance
+
+Recover and explain the authoritative minus-sign family
+
+$$ F_{A,B}(y) = \frac{Ay^2-By+1} {y^2-By+A}, \qquad y=x^2. $$
+
+Include the historical plus/minus-sign conflict and the evidence that established the minus-sign family as the appropriate reconstruction target.
+
+Explain rather than bury:
+
+historical \((9,9)\);
+\((9,1)\);
+\((\pi,e)\);
+\((\phi,1-\phi)\);
+later plus-sign variants;
+archived numerical evidence;
+source-code evidence where relevant.
+
+Keep provenance separate from mathematical proof.
+
+4. Exact elementary structure
+
+Derive clearly:
+
+$$ F(1/y)=1/F(y), $$
+
+the \(F=\pm1\) loci,
+zeros,
+poles,
+discriminants,
+cancellation loci,
+critical points,
+parameter exceptions,
+and real versus complex roots.
+
+Explain why old claims about some poles/locks were incorrect where cancellation intervened.
+
+Include the exact parameter boundaries:
+
+$$ A=1, $$ $$ B^2=4A, $$ $$ B=\pm(A+1), $$
+
+plus other genuinely distinguished loci established by the reports.
+
+5. Second involution and \(V_4\)
+
+Derive the equal-value involution
+
+$$ T(y) = \frac{(A+1)y-B} {By-(A+1)}, $$
+
+together with
+
+$$ R(y)=1/y. $$
+
+Show exactly when these are valid Möbius involutions and prove that they commute.
+
+Introduce coherent square-root choices and the normalized coordinate \(u\) in which
+
+$$ R:u\mapsto-u, \qquad T:u\mapsto1/u. $$
+
+Explain the generic orbit
+
+$$ \{u,-u,1/u,-1/u\}. $$
+6. Universal Belyi quotient
+
+Derive
+
+$$ \beta(u) = \frac{(u^2+1)^2}{4u^2} = \left(\frac{u+u^{-1}}2\right)^2. $$
+
+Explain:
+
+degree four;
+deck group \(V_4\);
+branch values \(0,1,\infty\);
+passport \((2^2,2^2,2^2)\);
+spherical orbifold \(S^2(2,2,2)\);
+Joukowski-plus-squaring factorization;
+invariant-field interpretation.
+
+Explicitly state that these are known mathematical species.
+
+7. Meaning of the original parameters
+
+Introduce
+
+$$ \lambda= \frac{(A-1)^2} {(A+1)^2-B^2} $$
+
+and the coordinate-embedding quantities.
+
+Explain exactly in what sense the generic reduced complex \(y\)-construction has one intrinsic marked-fiber modulus.
+
+Show that equal \(\lambda\) gives equivalent labeled reduced quotient geometry under the established equivalence.
+
+Explain what \(\lambda\) forgets:
+
+source embedding;
+fixed plotting coordinate;
+real-domain placement;
+discrete markings where applicable.
+8. Real plotting geometry
+
+This needs substantial explanation because it was historically important.
+
+Distinguish:
+
+$$ \text{complex-cover equivalence} $$
+
+from
+
+$$ \text{real graph equivalence}. $$
+
+Explain why mathematically equivalent reduced covers can produce visibly different graphs when \(y=x^2\ge0\) is retained.
+
+Include the real parameter regimes and historical examples.
+
+Explain why \(9\) itself was never the mechanism.
+
+9. Large-coefficient reconstruction
+
+Include the diagonal family
+
+$$ A=B=L $$
+
+and the full large-\(L\) analysis.
+
+Explain the fixed-scale, inner, outer, intermediate, and thin-lock charts.
+
+Include the exact limits and matching arguments, particularly
+
+$$ W(s)=-s-\frac2s. $$
+
+Explain:
+
+$$ s\mapsto-s $$
+
+versus
+
+$$ s\mapsto2/s, $$
+
+including their distinct finite-\(L\) origins.
+
+Show how the shoulder points
+
+$$ s=\pm\sqrt2 $$
+
+arise as fixed points of the equal-value involution and stationary points of the limiting profile.
+
+Explain the real threshold \(L=4\).
+
+10. Full \(x\)-cover
+
+Return to
+
+$$ y=x^2. $$
+
+Explain why retaining this additional cover changes the classification.
+
+Introduce
+
+$$ \nu= \frac{(A+1)^2} {(A+1)^2-B^2}. $$
+
+Derive the degree-eight map and its generic branch data.
+
+Explain why the second \(y\)-involution does not generally lift to a rational automorphism of \(x\).
+
+Preserve the exceptional lift loci and the dihedral specializations.
+
+11. \(M_{0,5}\) and Hurwitz interpretation
+
+Explain rigorously that, for the selected Three-Way covering type, the generic decorated coarse moduli space is
+
+$$ M_{0,5}, $$
+
+represented by
+
+$$ (0,1,\infty,\lambda,\nu). $$
+
+Preserve the important qualification that five target points alone do not specify the covering type.
+
+Explain:
+
+unmarked degree-eight cover classified by \(\nu\);
+decorated construction classified by \((\lambda,\nu)\);
+coefficient map and four equivalent presentations;
+covering stack versus coarse moduli;
+real forms;
+collision boundaries;
+admissible-cover/stable-target interpretation.
+12. Monodromy and Galois closure
+
+Derive the genus-one Galois closure:
+
+$$ E_t: \quad tx^2z^2-x^2-z^2+t=0. $$
+
+Explain the degree-sixteen Galois extension and
+
+$$ G_{\rm mon}\cong D_4\times C_2. $$
+
+Include a clear geometric explanation of the group action, not merely a permutation table.
+
+13. Edwards elliptic geometry
+
+Derive the exact Edwards form
+
+$$ U^2+V^2=1+t^2U^2V^2. $$
+
+Then present, as useful equivalent models:
+
+Montgomery;
+Weierstrass;
+Jacobi quartic;
+Legendre.
+
+Verify the Legendre parameter
+
+$$ m= \left(\frac{t-1}{t+1}\right)^2. $$
+
+Derive
+
+$$ j(t)= 16\frac{(t^4+14t^2+1)^3} {t^2(t^2-1)^4} $$
+
+and
+
+$$ j(\nu)= 16\frac{(16\nu^2-16\nu+1)^3} {\nu(\nu-1)}. $$
+14. Modular interpretation
+
+Explain exactly why
+
+$$ \nu $$
+
+is a Hauptmodul for
+
+$$ X_0(4) $$
+
+when the genus-one closure is equipped with its cyclic subgroup of order four.
+
+Explain the distinction:
+
+$$ j=\text{bare elliptic isomorphism class}, $$ $$ \nu=\text{elliptic curve + selected cyclic order-four subgroup}. $$
+
+Include the natural two-isogenous curve for which \(\nu\) becomes a Legendre parameter.
+
+15. Meaning of \(\lambda\) upstairs
+
+Explain the lifted divisor
+
+$$ D_\lambda=\pi^*[\lambda]. $$
+
+Generically it is a degree-sixteen effective divisor and one full Galois-group orbit.
+
+Explain its equivalent description as
+
+$$ \{q,-q\} $$
+
+on the appropriate quotient.
+
+Make clear that \(\lambda\) is not another elliptic modulus.
+
+16. Sphere versus torus
+
+Give this its own explanatory section.
+
+State explicitly:
+
+$$ \boxed{\text{original }x\text{-source}=\mathbb P^1} $$
+
+while
+
+$$ \boxed{\text{generic Galois closure}=E_t,\text{ genus }1}. $$
+
+Over \(\mathbb C\), the smooth genus-one closure is analytically a torus.
+
+This does not imply that the original real graph is a torus or that any physical universe/spacetime/brane is toroidal.
+
+Explain why the historical torus intuition is interesting in retrospect but not evidence.
+
+17. Historical coefficient examples
+
+Give full worked examples for:
+
+$$ (9,9),\quad (9,1),\quad (\pi,e),\quad (\phi,1-\phi). $$
+
+Include where useful:
+
+$$ a,\ k,\ \lambda,\ \nu,\ t,\ m,\ j. $$
+
+Clearly distinguish exact values from numerical approximations.
+
+Preserve the established CM conclusions:
+
+\((9,9)\): non-CM;
+\((9,1)\): non-CM;
+\((\phi,1-\phi)\): \(j=2048\), non-CM;
+\((\pi,e)\): CM status unresolved.
+
+Do not pursue the unresolved \((\pi,e)\) arithmetic question further for this draft.
+
+18. Physical comparison
+
+Include a bounded section on the established nearest-neighbor spectral quotient.
+
+Derive:
+
+$$ \epsilon=u+u^{-1}, \qquad \beta=\epsilon^2/4. $$
+
+Explain why this is an exact reduced spectral-quotient match.
+
+Also include the negative physical-dictionary result:
+
+no independently selected physical observable was established for the full
+$$ F=(\epsilon+k)/(\epsilon-k); $$
+the closest exact expression was a chosen ratio of momentum-resolved Green functions;
+no independent physical role for the extra \(x\)-cover was found.
+
+This section must not inflate the mathematical comparison into a physical theory.
+
+19. Earlier speculative interpretation
+
+Briefly document historically used language such as brane/toroidal/inter-universal/gravitational interpretations where necessary to understand the provenance.
+
+Do not ridicule the historical work, and do not quietly preserve unsupported claims.
+
+Classify them explicitly as historical speculation not established by the present reconstruction.
+
+20. What was learned
+
+End the scientific body with a clear table:
+
+Historical question	Modern answer
+
+Include, at minimum:
+
+Is reciprocity real?
+Why are \(x=\pm1\) special?
+What controls zero/pole behavior?
+Was \(9\) special?
+Why did large coefficients generate nested scales?
+What are \(\lambda\) and \(\nu\)?
+Is the construction a sphere or torus?
+Is there established physics?
+What remains physically unexplained?
+21. Evidence architecture
+
+Preserve all existing external reconstruction reports as source/evidence.
+
+Do not overwrite them.
+
+Build the paper from them.
+
+Maintain an internal claim ledger mapping important statements to:
+
+exact proof in the manuscript;
+external reconstruction report;
+historical source;
+established literature.
+
+Every theorem should be reproducible independently from the paper.
+
+Numerical checks support proofs but must not replace them.
+
+22. Figures
+
+Produce publication-quality figures where they genuinely help:
+
+historical real graphs;
+generic \(V_4\) orbit;
+Belyi quotient diagram;
+parameter-plane strata;
+large-\(L\) chart hierarchy;
+degree-eight cover/tower diagram;
+\(M_{0,5}\) target configuration;
+genus-one Galois closure;
+Edwards/Legendre representation;
+sphere-vs-torus hierarchy.
+
+Figures must explain mathematics, not decorate it.
+
+23. Output structure
+
+Create a dedicated paper/research directory separate from kernel_physics, consistent with the repository's existing paper organization.
+
+Suggested semantic lane:
+
+papers/three_way_reconstruction/
+
+but inspect current repository conventions before choosing the final location.
+
+Keep:
+
+source;
+figures;
+verification;
+provenance/historical index;
+bibliography;
+generated PDF;
+manifest/checksums where appropriate.
+
+Do not move or alter historical originals.
+
+24. Validation
+
+Before presenting the draft:
+
+rebuild the paper from source;
+verify equations against reconstruction reports;
+run all relevant symbolic verification;
+verify citations and page/section references;
+inspect every figure;
+check internal links;
+confirm historical quotations/provenance;
+report unresolved issues rather than silently repairing them.
+25. Stop point
+
+Once the complete polished novelty-neutral draft is ready, stop.
+
+Do not perform a broad novelty search as part of this work order.
+
+Return:
+
+manuscript source;
+PDF;
+figure set;
+evidence/claim ledger;
+bibliography;
+build/verification report;
+recommended exact claims for the subsequent prior-art audit.
+
+No publication, release, Zenodo upload, tag, or repository push unless separately authorized.
+
+The next stage will be:
+
+$$ \boxed{\text{DEDICATED PRIOR-ART / NOVELTY AUDIT}} $$
+
+against the claims of the finished manuscript.

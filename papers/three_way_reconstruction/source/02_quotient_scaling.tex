@@ -1,0 +1,241 @@
+\section{The second involution and a coherent normal form}\label{sec:normal}
+
+The reciprocal transformation exchanges the zero and pole fibers. A different transformation pairs points of equal value. It is already determined by the degree-two map, rather than being fitted to a graph.
+
+\begin{theorem}[Klein-four normalization]\label{thm:normal}
+Assume \(\Delta\ne0\). Define
+\begin{equation}\label{eq:RT}
+R(y)=1/y,\qquad T(y)=\frac{cy-B}{By-c}.
+\end{equation}
+These are distinct commuting Möbius involutions and generate \(V_4\). They satisfy \(F\circ R=1/F\) and \(F\circ T=F\). Choose \(d^2=\Delta\) and, coherently, put
+\begin{equation}\label{eq:uk}
+\rho=\frac{c+B}{d}=\frac{d}{c-B},\quad
+u=\rho\frac{y-1}{y+1},\quad k=\frac{2(A-1)}d,
+\quad r=u+u^{-1}.
+\end{equation}
+Then
+\begin{equation}\label{eq:normal}
+R:u\mapsto-u,\qquad T:u\mapsto u^{-1},\qquad
+F=\frac{r+k}{r-k}.
+\end{equation}
+At \(A=1\) the last expression is interpreted as the constant rational map \(1\).
+\end{theorem}
+\begin{proof}
+Cross-multiplying \(F(v)=F(y)\) and removing the diagonal factor gives
+\[
+N(v)D(y)-N(y)D(v)
+=(A-1)(v-y)\{c(v+y)-B(vy+1)\}.
+\]
+For a nonconstant map, the other solution is \(v=T(y)\). The matrix
+\(\left(\begin{smallmatrix}c&-B\\B&-c\end{smallmatrix}\right)\)
+squares to \(\Delta I\) and has nonzero determinant \(-\Delta\), proving the involution assertion. Direct substitution gives commutation with \(R\). The coordinate \(u\) is Möbius because \(\rho\ne0\); substitution gives its two stated actions. Finally,
+\[
+r=\frac{2[c(y^2+1)-2By]}{d(y^2-1)}.
+\]
+Combining this with \eqref{eq:sumdifference} yields \eqref{eq:normal}.
+\end{proof}
+
+The two square roots must not be chosen independently. Replacing \(d\) by \(-d\) sends \((\rho,u,k,r)\) to \((-\rho,-u,-k,-r)\) and leaves \(F\) unchanged. Writing two unrelated principal square roots for \(\rho\) and \(k\) can introduce a false sign discrepancy in the normal form, particularly for complex parameters.
+
+A generic orbit is \(\{u,-u,u^{-1},-u^{-1}\}\). The fixed pairs of \(R,T,RT\) are, respectively, \(\{0,\infty\}\), \(\{1,-1\}\), and \(\{i,-i\}\). Within the \(F\)-coordinate, \(T\) preserves value and \(R,RT\) reciprocate it. Thus the critical pair in Eq.~\eqref{eq:derivative} is exactly the fixed pair of the equal-value involution. This identifies its geometric role independently of a derivative calculation.
+
+\fig{02_v4_orbit}{A generic Klein-four orbit in the normalized source plane. The orange pairing is reciprocity; the purple pairing is equal value. The unit circle is a coordinate guide, not the image of every real plot.}{fig:orbit}
+
+\section{The fixed Belyi quotient and the reduced modulus}\label{sec:belyi}
+
+\begin{theorem}[Universal quotient]\label{thm:belyi}
+The quotient by the action in Theorem~\ref{thm:normal} is
+\begin{equation}\label{eq:beta}
+\beta(u)=\frac{(u^2+1)^2}{4u^2}=\frac{r^2}{4}.
+\end{equation}
+It has degree four, deck group \(V_4\), and ramification partitions \((2,2)\) over each of \(0,1,\infty\), with no other branch values. Moreover,
+\begin{equation}\label{eq:marked}
+\lambda=\frac{k^2}{4}=\frac{(A-1)^2}{\Delta},\qquad
+\beta-\lambda=\frac{4ND}{\Delta(y^2-1)^2}.
+\end{equation}
+Thus the zero and pole sets form the marked quotient fiber \(\beta^{-1}(\lambda)\).
+\end{theorem}
+\begin{proof}
+The function \(\beta\) is invariant under \(u\mapsto-u,1/u\). Its degree is four, so the four automorphisms account for the whole extension and
+\(\CC(u)^{V_4}=\CC(\beta)\). It factors as the degree-two Joukowski map \(u\mapsto r=u+u^{-1}\) followed by \(r\mapsto r^2/4\). The fibers over zero and one are \(u=\pm i\) and \(u=\pm1\), each with multiplicity two; the poles \(0,\infty\) also have order two. Their total ramification is six, which equals \(2\cdot4-2\), so the list is complete. Squaring the expression for \(r\) in the preceding proof and using \((N+D)^2-(N-D)^2=4ND\) proves \eqref{eq:marked}.
+\end{proof}
+
+This is a standard Belyi map: a complex cover with branch values contained in \(\{0,1,\infty\}\), in the terminology reviewed by Sijsling and Voight~\cite{SV}. Its quotient orbifold is \(S^2(2,2,2)\), whose orbifold Euler characteristic is
+\(2-3(1-1/2)=1/2\). Multiplying by the group order gives the source-sphere Euler characteristic two. The Klein-four orbifold is an established object~\cite{KO}. The original \(F\) has degree two in \(y\); it is not itself this degree-four map.
+
+\fig{03_belyi_quotient}{The quotient factors through Joukowski and squaring maps. The bottom row identifies the three exceptional orbits. Branch labels are retained throughout the classification.}{fig:belyi}
+
+\subsection{Exactly what equality of lambda means}
+Retain the labeled quotient branch values \(0,1,\infty\), and mark the fiber containing zeros and poles; allow Möbius changes of source. In the generic reduced \(y\)-construction, equality of \(\lambda\) is necessary and sufficient for equivalence. Necessity follows because a labeled target isomorphism fixes the three normalized values and hence is the identity. For sufficiency, \(k'^2=k^2\), so \(k'=\sigma k\) for \(\sigma=\pm1\). The source change \(u'=\sigma u\) sends \(r'=\sigma r\) and preserves the full output value
+\[
+\frac{r'+k'}{r'-k'}=\frac{r+k}{r-k}.
+\]
+Composing with \(u\mapsto1/u\) gives the other equivalent choice. This also proves the assertion if the zero and pole sets are separately named: the isomorphism carries zero to zero and pole to pole between the two presentations.
+
+The sign of \(k\) is needed in a fixed oriented \(u\)-chart. Changing it alone sends \(F\) to \(1/F\); changing \((u,k)\) simultaneously does not. Hence a signed coordinate choice is forgotten by \(\lambda\), but is not a further intrinsic modulus under the stated source equivalence. Labeling an individual zero, a sheet, or a fixed source coordinate is additional data not being classified here.
+
+The lost embedding parameter can be recovered explicitly from \((\rho,k)\):
+\begin{equation}\label{eq:recover}
+A=\frac{\rho+\rho^{-1}+k}{\rho+\rho^{-1}-k},\qquad
+B=\frac{2(\rho-\rho^{-1})}{\rho+\rho^{-1}-k}.
+\end{equation}
+The denominator must be nonzero for finite coefficients. These formulas follow by solving \(c/d=(\rho+\rho^{-1})/2\), \(B/d=(\rho-\rho^{-1})/2\), and \((A-1)/d=k/2\). They exhibit one marked-fiber coordinate and one source embedding coordinate, with a simultaneous sign ambiguity.
+
+If both the branch labels and the zero/pole partition are forgotten, a still coarser equivalence identifies the six cross-ratio transforms
+\[
+\lambda,\ 1-\lambda,\ \lambda^{-1},\ (1-\lambda)^{-1},\
+\lambda/(\lambda-1),\ (\lambda-1)/\lambda.
+\]
+For example, \(u\mapsto iu\) induces \(\beta\mapsto1-\beta\), and \(u\mapsto(u+1)/(u-1)\) induces \(\beta\mapsto\beta/(\beta-1)\). This coarser object is not the labeled object used in this paper.
+
+\section{Real forms and the geometry of the plots}\label{sec:real}
+
+For real coefficients with \(\Delta>0\), \(\rho,k\) may be chosen real. The real projective \(y\)-line maps to the real projective \(u\)-line. Since \(|u+u^{-1}|\ge2\) for nonzero real \(u\), its quotient image is \([1,\infty]\). For \(\Delta<0\), the same coherent choices are imaginary. Write \(u=iv\), \(v\) real. Then
+\[
+\beta=-\frac{(v-v^{-1})^2}{4}\le0.
+\]
+The real quotient image is the other projective arc, \((-\infty,0]\) with its endpoint at infinity. These are different real forms of the same complex quotient.
+
+The identity
+\begin{equation}\label{eq:chi-lambda}
+\lambda-1=\frac{\chi}{\Delta}
+\end{equation}
+now explains the zero/pole regimes geometrically. If \(\Delta>0\), the marked level is positive. For \(0<\lambda<1\) it lies outside the real quotient image; for \(\lambda=1\) it meets a branch fiber and creates repeated roots; for \(\lambda>1\) it gives four real \(y\)-points. If \(\Delta<0\), then \(\lambda<0\) for a nonconstant family, and the marked fiber is real. Thus the statement ``\(\lambda<1\) means no real roots'' would be wrong without specifying the real form.
+
+The real \(x\)-plot is stricter still: \(y=x^2\ge0\). In a real \(\rho\)-chart, this half-line maps to the segment joining \(-\rho\) and \(\rho\), not the whole real projective line. When \(\rho>1\), that segment contains \(u=\pm1\), hence the two nonzero real stationary points on the positive \(x\)-half-axis, provided they are finite graph values. If \(0<\rho<1\), it omits them. A real source Möbius equivalence at the \(y\)-level need not preserve the positive half-line, and need not lift to a real \(x\)-equivalence.
+
+\fig{01_historical_graphs}{The four documented minus-sign examples, with \(f\) solid and \(1/f\) dashed. All share the exact \((\pm1,1)\) locks. Only \((9,9)\) has real zeros and poles. Curves are split at actual poles; vertical clipping is for display and does not join separate branches.}{fig:historical}
+\fig{04_parameter_strata}{Real coefficient strata. The straight lines are cancellation, the parabola is repeated zeros/poles, and the dashed vertical line is the constant family. The dotted lines \(A=-1\) and \(B=0\) become distinguished in the full cover. The named examples occupy different marked-fiber and embedding regimes.}{fig:strata}
+
+Complex conjugation, parity, source inversion, and output reciprocity have different roles. Real coefficients imply \(F(\overline y)=\overline{F(y)}\); parity acts in \(x\); \(x\mapsto1/x\) reciprocates the value. Reflecting a drawn graph about height one instead sends \(f\) to \(2-f\). That operation agrees with none of these globally for a nonconstant \(f\). Indeed, \(2-f=1/f\) implies \((f-1)^2=0\). It may be prescribed as a visual operation, but it is not an additional exact algebraic symmetry of this family.
+
+\section{The diagonal large-coefficient family}\label{sec:scaling}
+
+Let \(A=B=L\), with \(L\to+\infty\), and write \(f_L=F_{L,L}(x^2)\). The real transition at \(L=4\) is immediate from \(\chi=L(L-4)\). For \(0<L<4\), away from the constant case \(L=1\), zeros and poles are nonreal; at four they are double; for \(L>4\) they are real. At the threshold,
+\[
+F_{4,4}(y)=\frac{(2y-1)^2}{(y-2)^2}.
+\]
+The cancellation line intersects the positive diagonal nowhere; the excluded constant value is a separate event.
+
+For \(L>4\), set
+\[
+q_L=\sqrt{\frac{1+\sqrt{1-4/L}}2}.
+\]
+The four positive distinguished roots, in increasing order, are
+\begin{equation}\label{eq:Lroots}
+z_{\rm in}=\frac1{\sqrt Lq_L}<z_{\rm near}=q_L<1<
+p_{\rm near}=q_L^{-1}<p_{\rm out}=\sqrt Lq_L.
+\end{equation}
+Reciprocal pairing exchanges the first and last and the two middle points. Expansion gives \(q_L=1-(2L)^{-1}-5/(8L^2)+O(L^{-3})\). Thus a zero approaches the origin on scale \(L^{-1/2}\), a pole escapes on scale \(L^{1/2}\), and the two near-lock roots approach one on scale \(L^{-1}\). These are geometrically distinct uses of similar powers of \(L\).
+
+\subsection{Bulk, inner, outer, and thin-lock limits}
+The bulk identity is exact:
+\begin{equation}\label{eq:bulk}
+f_L(x)+x^2=\frac{x^6+1}{x^4+L(1-x^2)}.
+\end{equation}
+Consequently \(f_L\to-x^2\) locally uniformly on compact sets avoiding \(x=\pm1\). The reciprocal tends to \(-x^{-2}\) on compact sets also avoiding zero. At the locks, \(f_L(\pm1)=1\) for every \(L\); their limit cannot be read from the bulk formula. At zero the bulk absolute limit is correct, but it loses the leading value \(f_L(0)=L^{-1}\).
+
+Three substitutions recover those missing scales:
+\begin{align}
+\zeta=Ly:&\quad
+L F_{L,L}(\zeta/L)
+=\frac{1-\zeta+\zeta^2/L}{1-\zeta/L+\zeta^2/L^3}
+\longrightarrow1-\zeta,\label{eq:inner}\\
+\eta=y/L:&\quad
+\frac{F_{L,L}(L\eta)}L
+=\frac{\eta^2-\eta/L+L^{-3}}{\eta^2-\eta+L^{-1}}
+\longrightarrow\frac{\eta}{\eta-1},\label{eq:outer}\\
+\tau=L(y-1):&\quad
+F_{L,L}(1+\tau/L)
+=\frac{1+\tau+\tau^2/L}{1-\tau+2\tau/L+\tau^2/L^2}
+\longrightarrow\frac{1+\tau}{1-\tau}.\label{eq:thin}
+\end{align}
+Limits are locally uniform where the limiting denominators are nonzero. In \eqref{eq:outer}, the unreduced denominator vanishes at \(\eta=0\), so the stated derivation is uniform only away from \(0,1\); the simplified limiting expression's removable value at zero is not a claim of a uniform outer chart through the origin. The reciprocal profiles follow by inversion away from zeros: \(L^{-1}/F\to(1-\zeta)^{-1}\), \(L/F\to(\eta-1)/\eta\), and \(1/F\to(1-\tau)/(1+\tau)\), respectively.
+
+The inner and bulk expansions overlap when \(1\ll|\zeta|\ll L\), where \((1-\zeta)/L\sim-y\). The outer and bulk expansions overlap when \(1\ll|y|\ll L\), equivalently \(L^{-1}\ll|\eta|\ll1\), where \(L\eta/(\eta-1)\sim-y\). Inversion exchanges the inner variable \(\zeta\) and outer variable \(\eta=1/\zeta\). In the thin chart it sends \(\tau\) exactly to \(-\tau/(1+\tau/L)\), tending to \(-\tau\), and reciprocates the limiting Möbius profile. These comparisons state explicit overlaps; no single truncated formula is asserted to be uniform across a pole.
+
+\subsection{The intermediate shoulder profile, with matching}
+Put \(h=L^{-1/2}\), \(s=(y-1)/h\), and \(P_h(s)=(f_L+1)/h\). Substituting into the exact rational expression gives
+\begin{equation}\label{eq:Ph}
+P_h(s)=\frac{s^2+2+2hs+h^2s^2}{-s+h(1+hs)^2}.
+\end{equation}
+\begin{theorem}[Intermediate limit and two-sided matching]\label{thm:matching}
+On every compact subset of \(\CC\smallsetminus\{0\}\), for sufficiently small \(h>0\),
+\begin{equation}\label{eq:W}
+P_h(s)=W(s)-h(3+2/s^2)+O(h^2),\qquad
+W(s)=-s-2/s.
+\end{equation}
+The convergence holds with any fixed number of derivatives. In the overlap
+\(L^{-1}\ll|\delta|\ll1\), \(\delta=y-1\),
+\begin{equation}\label{eq:twoterms}
+f_L+1\sim-\left(\delta+\frac2{L\delta}\right)
+\end{equation}
+for real nonzero \(\delta\). The bulk-side overlap \(L^{-1/2}\ll|\delta|\ll1\) gives \(f_L+1\sim-\delta\); the lock-side overlap \(L^{-1}\ll|\delta|\ll L^{-1/2}\) gives \(f_L+1\sim-2/(L\delta)\).
+\end{theorem}
+\begin{proof}
+On a compact set avoiding zero, the denominator in \eqref{eq:Ph} stays bounded away from zero for small \(h\). Taylor expansion in \(h\), including differentiation, gives \eqref{eq:W}; alternatively the exact difference is
+\[
+P_h-W=
+\frac{h\{3s^2+2+h(3s^3+4s)+h^2(s^4+2s^2)\}}
+{s[-s+h(1+hs)^2]}.
+\]
+To prove matching without an illicit interchange of limits, use the exact identity
+\begin{equation}\label{eq:deltaexact}
+f_L+1=-\frac{\delta+2/(L\delta)+(\delta+2)/L}
+{1-(1+\delta)^2/(L\delta)}.
+\end{equation}
+For real \(0<|\delta|\le1/2\) and \(L|\delta|\ge5\), the relative difference from the two-term expression in \eqref{eq:twoterms} is at most \(10/(L|\delta|)\). Indeed the denominator correction is at most \(9/(4L|\delta|)\), hence its absolute denominator is at least \(11/20\); the extra numerator term relative to \(|\delta+2/(L\delta)|\) is at most \(5/(2L|\delta|)\). The triangle inequality gives the stated conservative bound. The two displayed overlap limits follow by comparing \(\delta^2\) with \(L^{-1}\).
+
+For explicit comparison with the thin profile, set \(\tau=L\delta\). Its excess over \(-1\) is \(2/(1-\tau)\). Dividing the exact \(f_L+1\) by this expression gives
+\[
+\frac{[1+(\tau^2+2\tau)/(2L)+\tau^2/(2L^2)](1-\tau)}
+{1-\tau+2\tau/L+\tau^2/L^2}=1+O(\tau^2/L)
+\]
+when \(1\ll|\tau|\ll\sqrt L\). Its large-\(|\tau|\) limit is \(-2/\tau\), exactly the lock-side intermediate term. This proves both matches in actual common domains.
+\end{proof}
+
+The real-relative statement avoids cancellation of the two leading terms. Over complex \(\delta\), those terms cancel at \(L\delta^2=-2\); the local analytic limit \eqref{eq:W} remains valid, but a uniform relative-error claim through those zeros would not be meaningful.
+
+\subsection{Two involutions, two distinct finite-scale origins}
+The source reciprocity \(y\mapsto1/y\) acts on the intermediate coordinate exactly as
+\begin{equation}\label{eq:Rh}
+R_h(s)=-\frac{s}{1+hs}\longrightarrow-s,
+\qquad P_h(R_h(s))=-\frac{P_h(s)}{1-hP_h(s)}.
+\end{equation}
+Thus \(W(-s)=-W(s)\); reciprocity does not tend to \(s\mapsto2/s\). The equal-value involution from Theorem~\ref{thm:normal}, however, gives
+\begin{equation}\label{eq:Jh}
+\delta\mapsto\frac{\delta+2}{L\delta-1},\qquad
+J_h(s)=\frac{hs+2}{s-h}\longrightarrow\frac2s,
+\qquad P_h(J_h(s))=P_h(s).
+\end{equation}
+The two finite-
+\(h\) Möbius transformations commute and square to the identity; they give an exact \(V_4\) action in this chart. Their limits generate \(s\mapsto-s,2/s\).
+
+The same limiting equal-value symmetry exchanges the two matched terms in \eqref{eq:twoterms}: \(\delta\leftrightarrow2/(L\delta)\). It is therefore both visible as a balance symmetry of the matched expansion and inherited from the exact second involution. It is an emergent simple formula in the scaled coordinate, not a new independent symmetry of the original family, and specifically not the limit of reciprocal inversion.
+
+Differentiating \eqref{eq:Ph} yields
+\begin{equation}\label{eq:shoulders}
+P_h'(s)=\frac{(1-h^2)(2+2hs-s^2)}{[-s+h(1+hs)^2]^2}.
+\end{equation}
+Its critical points are \(s=h\pm\sqrt{2+h^2}\), exactly the fixed points of \(J_h\). They tend to \(\pm\sqrt2\), the fixed points of \(s\mapsto2/s\), and
+\(W'(s)=-1+2/s^2\) vanishes precisely there. The values are \(W(\pm\sqrt2)=\mp2\sqrt2\). These shoulders are the fold points of a degree-two equal-value quotient and the balance points of the two asymptotic contributions. This is a precise geometric interpretation of a visible feature, without an additional physical interpretation.
+
+\fig{05_scaling_hierarchy}{The lock width and intermediate width are different powers of \(L\). On the right, the rescaled exact profiles approach \(W\), with stationary points approaching the purple marked points. The chart excludes \(s=0\); the exact lock lies in the thinner chart.}{fig:scales}
+
+\subsection{How the quotient sees the charts}
+For the diagonal family,
+\[
+\lambda_L=\frac{(L-1)^2}{2L+1},\qquad
+\nu_L=\frac{(L+1)^2}{2L+1},\qquad
+\nu_L-\lambda_L=\frac{4L}{2L+1}\longrightarrow2.
+\]
+Although both marked values diverge, their separation has a finite limit. Direct substitution in \eqref{eq:beta}, or in the marked-fiber identity, gives the chart descriptions
+\begin{align*}
+\text{bulk: }&\quad \beta/(L/2)\longrightarrow ((y-1)/(y+1))^2,\\
+\text{thin lock: }&\quad \beta/(L/2)\longrightarrow\tau^{-2},\\
+\text{intermediate: }&\quad u\longrightarrow s/\sqrt2,
+\quad\beta\longrightarrow(s+2/s)^2/8,\\
+\text{inner: }&\quad \beta-\lambda_L\longrightarrow2(1-\zeta),\\
+\text{outer: }&\quad \beta-\lambda_L\longrightarrow2(1-1/\eta).
+\end{align*}
+Each statement excludes its displayed denominator zeros and any coordinate singularities; it is locally uniform on the remaining compact sets. Inversion pairs the inner and outer formulas. The equal-value involution sends fixed inner points toward \(\tau=-1\) and fixed outer points toward \(\tau=1\), collapsing further distinctions at leading thin-chart order. Resolving those images uniformly would require finer subcharts. We do not claim that this finite list is a compactification resolving every simultaneous limiting path. It is sufficient for the bulk, roots, lock, and shoulder regimes under discussion.

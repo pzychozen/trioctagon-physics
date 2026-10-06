@@ -1,0 +1,191 @@
+\section{Retaining the original squaring cover}\label{sec:xcover}
+
+The reduced classification forgets where \(y=0,\infty\) lie on the normalized source. The original construction does not: those are the branch values of \(y=x^2\). Their images under the degree-four quotient coincide, introducing
+\begin{equation}\label{eq:nu}
+\nu=\frac{c^2}{\Delta}=\frac{(\rho+\rho^{-1})^2}{4},\qquad
+\nu-1=\frac{B^2}{\Delta},\qquad \nu-\lambda=\frac{4A}{\Delta}.
+\end{equation}
+This is precisely the information lost when the extra cover is discarded.
+
+\begin{theorem}[Degree-eight sphere cover]\label{thm:xcover}
+If \(Bc\Delta\ne0\), the composite quotient is
+\begin{equation}\label{eq:QAB}
+Q_{A,B}(x)=\frac{[c(x^4+1)-2Bx^2]^2}{\Delta(x^4-1)^2}.
+\end{equation}
+It has degree eight and branch partitions \(2^4\) over \(0,1,\infty\), and \(2^2 1^4\) over \(\nu\). Its deck group is exactly \(\{x,-x,1/x,-1/x\}\simeq V_4\). In particular it is generically neither Galois nor a Belyi map after a target Möbius change.
+\end{theorem}
+\begin{proof}
+Substitute \(y=x^2\) into \eqref{eq:beta}. Its numerator is nonzero at every root of \(x^4=1\), since \(c\pm B\ne0\), so its degree is eight. The identities
+\begin{align}
+Q-1&=\frac{[B(x^4+1)-2cx^2]^2}{\Delta(x^4-1)^2},\label{eq:Q1}\\
+Q-\nu&=\frac{4x^2(c-Bx^2)(cx^2-B)}{\Delta(x^4-1)^2}\label{eq:Qnu}
+\end{align}
+give the stated multiplicities, with order two at both zero and infinity in the second line. Total ramification is \(4+4+4+2=14=2\cdot8-2\), proving completeness. The four stated source transformations preserve \(Q\).
+
+For completeness of the deck group, a deck transformation preserves the uniquely identified ramified pair \(\{0,\infty\}\) over \(\nu\). It is therefore \(x\mapsto bx\) or \(b/x\). Preserving the pole set \(x^4=1\) forces \(b^4=1\), and preserving the nonzero mixed term of the numerator forces \(b^2=1\). Finally there are four distinct branch values, and the mixed partition at \(\nu\) is incompatible with a Galois cover, whose ramification indices over a fixed value must all agree.
+\end{proof}
+
+Writing \(t=B/c\) gives the simpler form
+\begin{equation}\label{eq:Qt}
+Q_t(x)=\frac{(x^4-2tx^2+1)^2}{(1-t^2)(x^4-1)^2},\qquad
+\nu=\frac1{1-t^2}.
+\end{equation}
+For a fixed generic \(\nu\), the two signs of \(t\) give isomorphic complex labeled covers because \(Q_{-t}(ix)=Q_t(x)\). Conversely the moving labeled branch value is invariant. Thus \(\nu\) is a complete modulus for this selected family of covers with labeled branch values, before marking zeros and poles.
+
+The second \(y\)-involution would lift rationally only if
+\[
+g(x)^2=\frac{cx^2-B}{Bx^2-c}.
+\]
+For \(Bc\Delta\ne0\), the right side has simple, distinct zeros and poles, so it is not a square in \(\CC(x)\). A rational square has even valuation at every point. The only nondegenerate exceptions are \(B=0\), where \(T(y)=-y\) lifts to \(ix\), and \(c=0\), where \(T(y)=-1/y\) lifts to \(i/x\). Their specialized maps are
+\begin{equation}\label{eq:D4special}
+Q_0(x)=\frac{(x^4+1)^2}{(x^4-1)^2},\qquad
+Q_\infty(x)=-\frac{4x^4}{(x^4-1)^2}.
+\end{equation}
+Both are invariant under \(ix\) and \(1/x\), which generate a dihedral group of order eight, denoted \(D_4\) here. Since the map degree is eight, these are Galois covers. Their branch partitions are respectively \((2^4,4^2,2^4)\) and \((4^2,2^4,2^4)\) over \((0,1,\infty)\). They differ by \(Q_0=1-Q_\infty\), but that target relabeling is not allowed in the labeled problem.
+
+\section{Two moduli, five marked points, and a selected Hurwitz type}\label{sec:moduli}
+
+\subsection{The generic domain and the equivalence relation}
+Let
+\begin{equation}\label{eq:Omega}
+\Omega=\{(\lambda,\nu):\lambda,\nu\notin\{0,1,\infty\},\ \lambda\ne\nu\}.
+\end{equation}
+An ordered five-pointed projective line is uniquely normalized by putting its first three labels at \(0,1,\infty\). Its remaining coordinates give exactly \(\Omega\), the familiar coordinate presentation of \(M_{0,5}\)~\cite[Eq.~(210)]{Mnev}. The statement about this target configuration is elementary; the statement that it classifies a cover requires additional proof and a specified covering type.
+
+We retain the degree-two squaring tower, the three labeled quotient branches, the additional branch label \(\nu\), and the marked zero/pole fiber \(\lambda\). Individual sheets and individual zeros are not labeled. Source Möbius transformations are allowed; the target labels are preserved. Over the normalized fixed target, such a target transformation is the identity.
+
+\begin{theorem}[Generic decorated classification]\label{thm:moduli}
+For the Three-Way covering type, the generic decorated coarse moduli space is \(\Omega\simeq M_{0,5}\). Its coefficient domain is
+\[
+\mathcal P^\circ=\{(A,B)\in\CC^2:A(A-1)(A+1)B\Delta\chi\ne0\}.
+\]
+The map \((A,B)\mapsto(\lambda,\nu)\) is a four-sheeted finite étale cover of \(\Omega\), with fibers
+\begin{equation}\label{eq:fourpairs}
+(A,B),\quad(A,-B),\quad(A^{-1},B/A),\quad(A^{-1},-B/A).
+\end{equation}
+There is no additional algebraic constraint on \((\lambda,\nu)\) in this generic open set.
+\end{theorem}
+\begin{proof}
+Introduce \(h_0=(A-1)/(A+1)\), distinct from the large-\(L\) variable \(h\). Then
+\[
+\lambda=\frac{h_0^2}{1-t^2},\qquad \nu=\frac1{1-t^2}.
+\]
+Given any point of \(\Omega\), choose the two independent square roots
+\begin{equation}\label{eq:inversemoduli}
+h_0^2=\lambda/\nu,\qquad t^2=1-1/\nu,
+\qquad A=\frac{1+h_0}{1-h_0},\quad B=\frac{2t}{1-h_0}.
+\end{equation}
+Neither root vanishes, \(h_0\ne\pm1\), and \(t\ne\pm1\); all four choices give finite points in \(\mathcal P^\circ\). These are precisely \eqref{eq:fourpairs}. Algebraically, the two square roots are square roots of invertible regular functions on \(\Omega\), so they define a finite étale cover; the four choices are distinct. As a differential check,
+\[
+\det\frac{\partial(\lambda,\nu)}{\partial(A,B)}
+=\frac{8B(A+1)(A-1)}{\Delta^3}\ne0.
+\]
+
+The coefficient transformations are realized in \(y\) by \(-y\) and \(1/y\), with complex \(x\)-lifts \(ix\) and \(1/x\). In particular
+\(F_{A,-B}(-y)=F_{A,B}(y)\) and
+\(F_{1/A,B/A}(1/y)=F_{A,B}(y)\).
+Thus all four presentations define the same decorated object, even if zero and pole sets are separately named. Conversely equality of decorated objects preserves both target values. This proves completeness and surjectivity.
+\end{proof}
+
+The distinction between a marked whole fiber and separate zero/pole labels affects automorphisms, although not this coarse classification. For \(Q\), or \(Q\) with its entire regular fiber at \(\lambda\), the generic automorphism group is \(V_4\). Requiring the normalized \(F\), or its zero and pole sets separately, leaves only \(\{x,-x\}\simeq C_2\): inversion swaps the two sets. Five distinct labeled points on the target have trivial automorphism group. Therefore the covering stack is not the fine moduli space of five points; it retains stabilizers that the coarse space forgets.
+
+\fig{07_five_marked_target}{The target configuration defining \(M_{0,5}\). The three fixed branch labels, the additional branch label, and the regular marked-fiber label have different covering roles. Their positions alone do not specify those roles or the covering type.}{fig:five}
+
+\subsection{Why five points and the passport are not sufficient by themselves}
+Over a regular \(\nu\), the universal quotient has the fiber
+\(\{a,-a,a^{-1},-a^{-1}\}\), where here \(a\) is any one point of that fiber. A double cover of the source sphere branched at an unordered pair from this set again has a sphere as source. The six pairs fall into three \(V_4\)-orbits:
+\[
+\{a,-a\}\quad(R\text{-paired}),\qquad
+\{a,a^{-1}\}\quad(T\text{-paired}),\qquad
+\{a,-a^{-1}\}\quad(RT\text{-paired}).
+\]
+The Three-Way squaring construction selects the first type, since \(y=0,\infty\) map to \(u=-\rho,\rho\). The other two types give the same generic degree-eight ramification partitions but different labeled covers. Section~\ref{sec:galois} proves that the degree-four Galois intermediate is intrinsic and unique; any isomorphism of the whole cover must therefore preserve this pair-type distinction. Permuting target branch labels can relate the types, but our equivalence forbids that permutation.
+
+This qualification locates the role of Hurwitz theory: \(M_{0,5}\) describes the selected component's coarse objects, not all covers sharing its target points and degree. No classification of unrelated monodromy types is needed here.
+
+\subsection{Real presentations and fixed plotting coordinates}
+For real coefficients in \(\mathcal P^\circ\), both square roots in \eqref{eq:inversemoduli} must be real. Hence the attainable real target region is exactly
+\begin{equation}\label{eq:realmoduli}
+(\nu>1,\lambda>0)\quad\text{or}\quad(\nu<0,\lambda<0),
+\end{equation}
+with the exclusions of \eqref{eq:Omega}. The converse follows from the inverse formulas. In particular the real coefficient family does not reach \(0<\nu<1\).
+
+There are two real isomorphism classes among the four coefficient presentations over each attainable generic pair, distinguished by the sign of \(t\). Changing the sign of \(h_0\) is realized by the real transformation \(x\mapsto1/x\). Changing the sign of \(t\) requires \(ix\). To see that no alternative real Möbius map accomplishes it, any such map would preserve the ramified pair \(\{0,\infty\}\) and the pole set \(x^4=1\); it is therefore one of \(\pm x,\pm1/x\), all preserving \(t\). The actual graph retains even more: its fixed coordinate, chosen intervals, ordinate, and the restriction \(y\ge0\). A complex moduli point does not encode that graphical embedding.
+
+\section{The genus-one normal closure and its monodromy}\label{sec:galois}
+
+\begin{theorem}[Explicit Galois closure]\label{thm:galois}
+For \(t\notin\{0,1,-1,\infty\}\), the smooth compactification in \(\PP^1_x\times\PP^1_z\) of
+\begin{equation}\label{eq:Et}
+E_t:\qquad tx^2z^2-x^2-z^2+t=0
+\end{equation}
+is the Galois closure of \(\CC(x)/\CC(Q_t)\). It has genus one and the map to the \(\beta\)-sphere has degree sixteen and group \(D_4\times C_2\), with \(|D_4|=8\).
+\end{theorem}
+\begin{proof}
+Adjoin \(z\) by \(z^2=(x^2-t)/(tx^2-1)=T(x^2)\). The double cover of the \(x\)-sphere has four distinct branch points
+\(\pm\sqrt t,\pm1/\sqrt t\). Riemann--Hurwitz gives
+\(2g-2=2(-2)+4=0\), so its smooth compactification has genus one. The same branch calculation verifies smoothness of this normalized model; the displayed bidegree-\((2,2)\) compactification is smooth when those points are distinct.
+
+Over \(\CC(y)\), the square classes of \(y\) and \((y-t)/(ty-1)\) are independent: their odd valuations occur respectively at \(0,\infty\) and \(t,1/t\), disjoint pairs. The degree over \(\CC(y)\) is four, hence sixteen over \(\CC(\beta)\). All conjugates of \(x\) are
+\[
+\pm x,\quad\pm1/x,\quad\pm z,\quad\pm1/z,
+\]
+so this field is the splitting field and therefore the normal closure.
+
+The automorphisms
+\begin{equation}\label{eq:generators}
+\mathsf X(x,z)=(-x,z),\quad\mathsf Y(x,z)=(x,-z),\quad
+\mathsf S(x,z)=(z,x),\quad\mathsf C(x,z)=(1/x,1/z)
+\end{equation}
+preserve the equation and \(\beta\). The first three generate the signed coordinate permutations, a group of order eight with \(\mathsf S\mathsf X\mathsf S=\mathsf Y\). The independent involution \(\mathsf C\) commutes with them. This gives sixteen distinct automorphisms, the whole extension degree, and the claimed direct product.
+\end{proof}
+
+\fig{06_cover_tower}{Degrees and genera of the reconstructed tower. The genus-one curve is an auxiliary normal closure of the degree-eight map. Passing to that closure changes the source; it does not change the genus of the original \(x\)-sphere.}{fig:tower}
+\fig{08_elliptic_double_cover}{A cut-and-glue schematic for a real parameter \(0<t<1\), with \(a=\sqrt t\). Two sheets of the \(x\)-sphere, branched at four points, produce the compact genus-one surface. The drawing represents a complex double cover, not a surface obtained by rotating the real function graph.}{fig:closure}
+
+\subsection{A reproducible branch-cycle description}
+The degree-eight permutation action is on cosets of \(H=\langle\mathsf Y\rangle\). One branch-cycle tuple in loop order \(0,1,\nu,\infty\) is
+\begin{align}
+\sigma_0&=(1\,4)(2\,3)(5\,8)(6\,7),&
+\sigma_1&=(1\,3)(2\,4)(5\,7)(6\,8),\nonumber\\
+\sigma_\nu&=(1\,7)(2\,8),&
+\sigma_\infty&=(1\,8)(2\,7)(3\,4)(5\,6).\label{eq:cycles}
+\end{align}
+With rightmost permutations acting first, their product is the identity. They are the coset actions of \(\mathsf S\mathsf C,\mathsf S,\mathsf X,\mathsf X\mathsf C\), respectively. They generate a transitive order-sixteen group; the cycle partitions agree with Theorem~\ref{thm:xcover}. Thus this tuple realizes the stated cover rather than merely listing arbitrary permutations with matching cycle types.
+
+For an intrinsic intermediate-cover argument, the normal closure of \(H\) in the Galois group is
+\(N=\langle\mathsf X,\mathsf Y\rangle\), of order four. Any degree-four intermediate extension that is Galois over \(\CC(\beta)\) corresponds to a normal order-four subgroup containing \(H\), which must contain its normal closure and hence equal \(N\). This proves uniqueness of the degree-four Galois intermediate and completes the pair-type distinction used in Section~\ref{sec:moduli}.
+
+\section{Collision boundaries and specialized maps}\label{sec:boundary}
+
+The identities \eqref{eq:chi-lambda} and \eqref{eq:nu} give a dictionary between coefficient strata and collisions of target labels.
+\begin{table}[htbp]\centering\small
+\begin{tabularx}{\linewidth}{L{28mm}L{27mm}Y}\toprule
+Coefficient locus & Target event & Meaning away from intersections\\\midrule
+\(A=1\) & \(\lambda=0\) & The nonconstant \(F\)-decoration disappears; \(Q\) can remain degree eight.\\
+\(B^2=4A\) & \(\lambda=1\) & Double zeros and poles; the marked fiber meets a branch value.\\
+\(A=0\) & \(\lambda=\nu\) & Zeros/poles meet the additional branching from squaring.\\
+\(B=0\) & \(\nu=1\) & Dihedral degree-eight Galois specialization.\\
+\(A=-1, B\ne0\) & \(\nu=0\) & The other labeled dihedral specialization.\\
+\(\Delta=0\) & \(\lambda,\nu\to\infty\) & Generically a triple target collision and cancellation of \(F\).\\\bottomrule
+\end{tabularx}\caption{Different exceptional loci have different geometric meanings. A marked-point collision need not lower the degree of the unmarked cover.}\label{tab:boundaries}
+\end{table}
+
+The standard stable-target compactification is
+\begin{equation}\label{eq:barM}
+\overline M_{0,5}=\operatorname{Bl}_{(0,0),(1,1),(\infty,\infty)}
+(\PP^1_\lambda\times\PP^1_\nu).
+\end{equation}
+Its ten boundary divisors correspond to partitions of the five labels into a pair and a triple~\cite[\S2]{Braungardt}. Seven are the proper transforms of the six coordinate lines and the diagonal; the other three are exceptional divisors. A collision is represented by an additional rational target component carrying the colliding labels. The labels are retained, not deleted.
+
+For the cover, the standard limit is an admissible cover, with nodes mapping to nodes and equal local ramification on the two branches. The local expressions have the form \(\xi\mapsto\xi^e\), \(\eta\mapsto\eta^e\), with the source and target smoothing parameters related accordingly~\cite[Definition 8; \S5.1]{CMR}. Products of colliding branch cycles in \eqref{eq:cycles} have types \(4^2\) when \(\nu\to0\) or one, and \(2^4\) when \(\nu\to\infty\). The regular marking \(\lambda\) has identity monodromy, so its collisions do not add a permutation factor.
+
+At a generic point of \(\Delta=0\),
+\[
+\lambda/\nu=((A-1)/(A+1))^2
+\]
+retains the relative position of the colliding labels \(\infty,\lambda,\nu\). The stable target lies on the exceptional divisor over \((\infty,\infty)\), with partition \(\{0,1\}\mid\{\infty,\lambda,\nu\}\). Reducing the canceled rational expression \(F\) to degree one loses the other components and is not the same operation as taking this degree-preserving limit. At intersection points such as \((1,\pm2)\) or \((-1,0)\), approach directions and rates can matter; an indeterminate coefficient point alone does not choose a stable marked limit.
+
+One precise coarse statement uses the normalization of the closure of the selected Hurwitz component in an admissible-cover compactification, without individual sheet labels. Its branch map is proper with finite fibers: over a fixed stable marked target, there are finitely many monodromy choices and compatible node gluings. It is therefore finite, and it is birational because the interior classification is one-to-one. A finite birational morphism to the normal surface \(\overline M_{0,5}\) is an isomorphism. This concerns the normalized coarse component only. It does not identify boundary stacks or a fixed-coordinate rational formula with the stable compactification.
+
+Finally, the rational dihedral maps \eqref{eq:D4special} result from merging branch labels. Their rational Galois closures have degree eight. A degeneration of the generic degree-sixteen genus-one Galois cover, with all labels retained, is a different object with additional components. The two descriptions are compatible, but their source genera and degrees should not be interchanged.

@@ -1,0 +1,228 @@
+CODEX WORK ORDER — THREE-WAY PAPER II + FINAL BRIDGE TEST
+
+Purpose: complete the Three-Way reciprocal-hierarchy lane, produce a second polished paper beside the existing reconstruction paper, then stop and park the subject.
+
+Do not modify Paper I, kernel_physics, UI code, production kernels, or historical originals.
+
+1. Paper II scope
+
+Paper I reconstructed the original \(n=2\) Three-Way formula.
+
+Paper II should begin with the general hierarchy
+
+$$ F_n(y)=\frac{P_n(y)}{y^nP_n(1/y)},\qquad n\ge2, $$
+
+and explain what happens when the coefficient-reversal construction is extended indefinitely.
+
+The paper should be a mathematical continuation, not a second historical reconstruction.
+
+Suggested working title:
+
+The Three-Way Reciprocal Hierarchy: From Quadratic Involutions to Elliptic Correspondences and Symmetric Galois Closures
+
+Improve if useful.
+
+2. Core theorem
+
+Present and prove the generic theorem:
+
+$$ \operatorname{Mon}(F_n)=S_n, $$
+
+and
+
+$$ \boxed{ g(\widetilde F_n) = 1+\frac{n!}{2}(n-3). } $$
+
+Explain carefully that this concerns the Galois closure of \(F_n\) over its unchanged target.
+
+Include:
+
+$$ n=2:\quad C_2,\quad g=0, $$ $$ n=3:\quad S_3,\quad g=1, $$ $$ n=4:\quad S_4,\quad g=13. $$
+
+Preserve the correction that the earlier \(n=2\) Edwards genus-one curve belongs to the larger quotient/lift tower, not to the Galois closure of \(F_2\) itself.
+
+3. Why \(n=2\) is exceptional
+
+Explain conceptually:
+
+degree two has exactly one other sheet;
+the other sheet is therefore a rational partner;
+every separable quadratic extension is Galois;
+this produces the Möbius partner involution;
+reciprocity plus that partner produces the familiar quadratic \(V_4\) structure.
+
+For \(n\ge3\), explain why generic \(S_n\) monodromy makes the remaining \(n-1\) sheets an irreducible correspondence and destroys the generic single-valued partner.
+
+4. General reciprocal structure
+
+Develop the all-\(n\) facts:
+
+$$ F_n(1/y)=1/F_n(y), $$
+
+reciprocal zero/pole divisors, cancellation in reciprocal pairs, parity-controlled \(\pm1\) fibers, critical-point pairing, Cayley-coordinate oddness, and unit-circle behavior for real coefficients.
+
+Treat cancellation before interpreting locks or special values.
+
+5. Cubic as the first genuinely new level
+
+Give the \(n=3\) member substantial attention.
+
+Present the exact residual equal-value quadratic correspondence and its normalization
+
+$$ E_3:\eta^2=\mathcal D(z). $$
+
+Explain:
+
+$$ 3\text{ sheets}, \quad 6\text{ ordered sheet pairs}, \quad S_3. $$
+
+Derive the exact elliptic action:
+
+$$ C_3=\text{translation by 3-torsion}, $$
+
+while transpositions are translated elliptic inversions.
+
+Include the degree-three isogeny
+
+$$ E_3\to E_3/C_3. $$
+6. Modular interpretation
+
+Present the established distinction:
+
+forgetting reciprocal marking:
+$$ (E,\langle P\rangle)\in X_0(3); $$
+retaining the distinguished reciprocal nonzero \(2\)-torsion:
+$$ (E,\langle P\rangle,Q)\in X_0(6). $$
+
+Include
+
+$$ t=\frac{qr}{ps}, \qquad h=\frac{t(t-9)^2}{(t-1)^2}, $$
+
+and the verified modular \(j\)-functions.
+
+Explain why \(t\) carries more marked information than the bare elliptic \(j\).
+
+7. Cubic exceptional loci
+
+Include the proved cyclic loci and distinguish:
+
+generic \(S_3\), genus-one closure;
+\(S_3\) genus-zero boundary with ramification \((3,2,2)\);
+cyclic \(C_3\) specializations;
+cancellation/lower-degree loci.
+
+Explain why specialization of the rational cover is not identical to specialization of the generic elliptic Galois closure.
+
+8. Quartic checkpoint
+
+Use \(n=4\) only far enough to demonstrate the qualitative jump:
+
+$$ S_4,\qquad |\text{closure}|=24,\qquad g=13. $$
+
+Include selected decomposable/Galois exceptional examples already proved.
+
+Do not launch an exhaustive quartic exceptional-locus census.
+
+9. One final Tri-Octagon bridge test
+
+The existing Tri-Octagon candidate-patch geometry has already produced an exact finite correspondence:
+
+$$ \mathcal P_j^\epsilon \longleftrightarrow (j,j+\epsilon), $$
+
+giving a regular \(S_3\)-set of six patches and a three-pair quotient.
+
+Preserve that result exactly.
+
+Now perform one final bounded test:
+
+Does the already-existing Tri-Octagon shell mathematics contain a naturally defined continuous invariant whose symmetry and transformation law allow an exact identification with any of:
+
+$$ t\in X_0(6), \qquad h\in X_0(3), $$
+
+or the cubic four-critical-value cross-ratio?
+
+Use only quantities already defined independently in the Tri-Octagon geometry.
+
+Possible inputs may include existing patch geometry, radii, angles, orientations, boundary-response variables, or other already-documented invariants.
+
+Do not invent a new scalar just to force a match.
+
+Classification:
+
+EXACT CONTINUOUS BRIDGE — explicit structure-preserving map exists.
+FINITE \(S_3\) BRIDGE ONLY — discrete incidence matches, continuous modular data do not.
+INSUFFICIENT DATA — existing shell definition does not specify enough structure.
+
+If no exact continuous bridge exists, record the finite \(S_3\) correspondence as the endpoint and stop.
+
+Do not modify the Tri-Octagon kernel.
+
+10. Relationship to Paper I
+
+Paper II should cite Paper I as the reconstruction of the historical \(n=2\) object.
+
+Avoid repeating Paper I's entire archaeology.
+
+Paper II should read as:
+
+$$ \text{What happens when the historical construction is extended to arbitrary degree?} $$
+11. Novelty posture
+
+Remain novelty-neutral.
+
+Clearly distinguish:
+
+standard reciprocal rational-map mathematics;
+standard elliptic/modular mathematics;
+derivations specific to this family;
+project-specific Tri-Octagon comparison.
+
+No priority claims.
+
+12. Paper location
+
+Keep Paper II beside Paper I in trioctagon-physics/papers/, in a separate sibling directory consistent with repository conventions.
+
+Suggested lane:
+
+papers/
+    three_way_reconstruction/
+    three_way_reciprocal_hierarchy/
+
+Paper II must remain independent of kernel_physics.
+
+Preserve:
+
+manuscript source;
+PDF;
+figures;
+verification;
+bibliography;
+claim/evidence ledger;
+build report.
+
+Do not overwrite the external research reports.
+
+13. Validation
+
+Re-run the exact symbolic verification underlying the hierarchy and cubic correspondence.
+
+Check every theorem in the paper against the source reports.
+
+Verify figures and internal links.
+
+If the final bridge test uses existing Tri-Octagon material, preserve a claim-source map to the exact pre-existing definitions used.
+
+14. Final stop
+
+Once Paper II is complete:
+
+STOP.
+
+Do not begin \(n=5\), a quartic census, physics interpretation, kernel integration, or further Tri-Octagon coupling.
+
+Return the complete paper bundle and a short closeout stating:
+
+$$ \boxed{\text{THREE-WAY RECIPROCAL HIERARCHY = PARKED}} $$
+
+with the exact status of the Tri-Octagon bridge:
+
+continuous bridge / finite bridge only / insufficient data.

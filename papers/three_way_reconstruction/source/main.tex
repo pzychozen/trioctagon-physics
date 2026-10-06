@@ -1,0 +1,82 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=26mm,headheight=15pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{texgyrepagella-regular.otf}[BoldFont=texgyrepagella-bold.otf,ItalicFont=texgyrepagella-italic.otf,BoldItalicFont=texgyrepagella-bolditalic.otf]
+\usepackage{amsmath,amssymb}
+\usepackage{unicode-math}
+\setmathfont{texgyrepagella-math.otf}
+\usepackage{graphicx,booktabs,longtable,array,tabularx}
+\usepackage{xcolor,enumitem,fancyhdr}
+\usepackage[unicode,colorlinks=true,linkcolor=teal!60!black,citecolor=teal!60!black,urlcolor=teal!60!black,bookmarksnumbered=true]{hyperref}
+\usepackage{bookmark}
+\usepackage{xurl}
+\graphicspath{{../figures/}}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{3pt}
+\clubpenalty=10000\widowpenalty=10000\displaywidowpenalty=10000
+\raggedbottom
+\renewcommand{\topfraction}{.9}
+\renewcommand{\bottomfraction}{.85}
+\renewcommand{\textfraction}{.08}
+\renewcommand{\floatpagefraction}{.85}
+\setcounter{topnumber}{2}\setcounter{bottomnumber}{2}\setcounter{totalnumber}{3}
+\setlist{itemsep=2pt,topsep=4pt}
+\renewcommand{\arraystretch}{1.16}
+\setlength{\tabcolsep}{4pt}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Three-Way reciprocal geometry}\fancyhead[R]{\small Reconstruction v0.1}\fancyfoot[C]{\thepage}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newenvironment{proof}{\par\noindent\textit{Proof.}\ }{\hfill\(\square\)\par\medskip}
+\numberwithin{equation}{section}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\fig}[3]{\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{#1.pdf}\caption{#2}\label{#3}\end{figure}}
+\hypersetup{pdftitle={Three-Way Reciprocal Geometry: Reconstruction of a Historical Rational Model},pdfauthor={Reconstruction draft prepared for Hilmir F. Halldorsson with Codex assistance},pdfsubject={Rational maps, branched covers, elliptic Galois closure; novelty-neutral draft}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\centering\vspace*{18mm}
+{\Large Three-Way Reciprocal Geometry\par}\vspace{7mm}
+{\LARGE\bfseries Reconstruction of a Historical Rational Model from Belyi Quotients to an Edwards Elliptic Galois Closure\par}
+\vspace{15mm}
+{\large Reconstruction draft prepared for Hilmir F. Halldórsson\par}
+\vspace{3mm}{with Codex assistance\par}
+\vspace{8mm}{Version 0.1 \quad 5 October 2026\par}
+\vspace{12mm}
+\begin{minipage}{.91\textwidth}
+\textbf{Abstract.} We reconstruct the minus-sign reciprocal family
+\[
+F_{A,B}(y)=\frac{Ay^2-By+1}{y^2-By+A},\qquad y=x^2,
+\]
+from a historical visual construction and its later, partly inconsistent documentary record. Exact algebra separates locks, poles, cancellations, and real plotting restrictions. A coherent source normalization identifies a fixed degree-four Klein-four Belyi quotient with one marked-fiber parameter \(\lambda\). Retaining the original squaring cover introduces an independent parameter \(\nu\); for the selected covering type, the generic decorated coarse moduli space is \(M_{0,5}\). The degree-eight sphere map has a degree-sixteen genus-one Galois closure with group \(D_4\times C_2\). Its explicit equation is an Edwards curve, and \(\nu\) is a coordinate on \(X_0(4)\) for the closure with its selected cyclic subgroup of order four. The second marking specifies an effective fiber divisor, not a second elliptic modulus. We also prove the nested large-coefficient limits, explain the two distinct intermediate-chart involutions, and delimit an exact nearest-neighbor spectral-quotient comparison. The original real graph, the complex sphere cover, the elliptic closure, and any separately proposed surface of revolution are different objects. Historical physical claims are documented without being adopted.
+\end{minipage}
+\vfill
+\begin{minipage}{.91\textwidth}\small
+\textbf{Status.} This is a later mathematical reconstruction, not a revision of the historical papers. No mathematical novelty or priority is claimed. A dedicated prior-art audit of the assembled claims remains a separate stage. Author and publication metadata remain subject to author review; no submission or release is implied.
+\end{minipage}
+\end{titlepage}
+\hypersetup{pageanchor=true}\pagenumbering{roman}
+\tableofcontents\clearpage\pagenumbering{arabic}
+\input{01_history_elementary.tex}
+\input{02_quotient_scaling.tex}
+\input{03_cover_moduli.tex}
+\input{04_elliptic.tex}
+\input{05_examples_physics.tex}
+\appendix
+\input{06_evidence.tex}
+\clearpage
+\phantomsection\addcontentsline{toc}{section}{References}
+\input{references.tex}
+\end{document}

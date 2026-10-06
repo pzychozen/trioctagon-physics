@@ -1,0 +1,112 @@
+\section{Final bounded Tri-Octagon bridge test}\label{sec:bridge}
+This section is a comparison with pre-existing project definitions, not a physical interpretation or a proposed change to the shell. The six objects being compared are \emph{candidate measurement patches}. The source explicitly states that the welded shell has two connected nine-edge rims, not six boundary components \cite[§§1--2]{patch}. Their group action was derived in the external cubic report \cite[§12]{cubic}. We preserve that result and ask only whether the already defined continuous quantities supply a modular identification.
+
+\subsection{The exact finite correspondence}
+Use fresh geometric notation to avoid confusing a patch parameter with the modular coordinate \(t\). Put
+\begin{equation}\label{eq:patch_constants}
+ s_g=\sqrt2-1,\quad d=1-\sqrt2/2,\quad
+ O=(0,\sqrt3/6,0),\quad h_0=s_g/2,\quad r_0=1/\sqrt3,
+\end{equation}
+and \(u_j=R_z(2\pi j/3)(0,1,0)\), \(v_j=R_z(2\pi j/3)(-1,0,0)\). The existing finite triangles are
+\begin{equation}\label{eq:patches}
+ \begin{split}
+ \mathcal P_j^\epsilon:\quad
+ X&=O+r(\ell)u_j+\omega v_j+\epsilon h(\ell)e_z,\\
+ r(\ell)&=r_0-\sqrt3d\ell/2,\qquad h(\ell)=h_0+d\ell,\\
+ 0&\le\ell\le1,\quad |\omega|\le d\ell/2,
+ \quad j\in\ZZ/3,\quad\epsilon\in\{1,-1\}.
+ \end{split}
+\end{equation}
+On coordinates centered at \(O\), define the actual rigid maps
+\begin{equation}\label{eq:patch_group}
+ R=R_z(2\pi/3),\qquad S=\operatorname{diag}(-1,1,-1).
+\end{equation}
+Then \(R^3=S^2=1\), \(SRS=R^{-1}\). They act on whole patches by
+\begin{equation}\label{eq:patch_action}
+ R:\mathcal P_j^\epsilon\mapsto\mathcal P_{j+1}^\epsilon,
+ \qquad S:\mathcal P_j^\epsilon\mapsto\mathcal P_{-j}^{-\epsilon}.
+\end{equation}
+Indeed \(Su_j=u_{-j}\), \(Sv_j=-v_{-j}\), \(Se_z=-e_z\); the change \(\omega\mapsto-\omega\) preserves the finite triangle inequalities. No nonidentity rotation fixes a patch label, and every involution swaps upper and lower. The resulting \(S_3\) action is free and transitive.
+
+The explicit bijection
+\begin{equation}\label{eq:finite_bridge}
+ \boxed{\Phi:\mathcal P_j^\epsilon\longmapsto(j,j+\epsilon)}
+\end{equation}
+identifies the patches with the six ordered pairs of distinct elements of \(\ZZ/3\). Under \(R\), both entries increase by one; under \(S\), both are negated. Forgetting the second entry corresponds to forgetting upper/lower and retaining the vertical pair \(j\). Its three stabilizers are the three transposition subgroups. This is an exact equivalence of finite group actions and incidence projections, stronger than a match of the numbers three and six.
+
+It matches the left regular monodromy action on root labels. The deck action \eqref{eq:generators} permutes positions and gives the commuting right regular action on complete root orderings. Identifying these actions without that distinction would obscure which quotient is being used. The bijection also requires a seed label and orientation; it is not a canonical assignment of spatial patches to analytic branches.
+
+The pure upper/lower reflection at fixed \(j\) commutes with \(R\), producing \(C_3\times C_2\), not \(S_3\). The noncommuting involution in \eqref{eq:patch_group} is specifically a half-turn that reverses pair index as well as height. This geometric step is essential to the established finite result.
+
+\subsection{What would constitute a continuous bridge?}
+The candidate targets are not interchangeable. The coordinate \(t\) determines a reciprocal-marked cubic cover; \(h\) determines its oriented cyclic 3-isogeny; and an ordered four-critical-value cross-ratio determines a labeling of the branch divisor of the quotient elliptic curve \(E'\). A structure-preserving identification must derive the relevant data from the shell definitions. It must not choose a convenient scalar and declare it equal to a modular coordinate.
+
+In particular, a cross-ratio requires four independently selected distinct points on a common projective line, with a stated ordering or its permutation class. For \(h\) one needs the selected 3-isogeny, not merely an elliptic \(j\). For \(t\) one additionally needs the selected nonzero 2-torsion. The finite regular \(S_3\)-set supplies none of these continuous choices by itself.
+
+There is a precise non-identifiability argument. For every \(t\) in the smooth domain of \eqref{eq:normalized}, the regular fiber has exactly the same finite \(S_3\)-set and the same three-sheet incidence projection. Therefore \eqref{eq:finite_bridge} can be made at every such \(t\). Two generic distinct \(t\)'s define inequivalent reciprocal-marked covers by Proposition~\ref{prop:moduli}, yet their finite incidence data are isomorphic. Thus the finite bridge cannot determine \(t\), \(h\), or the four-point branch configuration.
+
+\subsection{Audit of independently defined continuous quantities}
+The bounded test consulted the exact definitions below, preserved as numbered snapshots with hashes. The full source map appears in Appendix~\ref{app:bridge_sources} and the companion ledger. No kernel module was imported or executed for this comparison.
+
+\paragraph{Fixed welded-shell shape.}
+The patch source defines normals
+\(n_j^\epsilon=(2u_j+\epsilon\sqrt3e_z)/\sqrt7\),
+spatial side lengths \((s_g,s_g,d)\), tip angle \(\arccos(3/4)\), and projected equilateral triangles of side \(d\). It also defines tip, centroid, and base-midpoint radius/height ratios. For example the centroid has
+\begin{equation}\label{eq:fixed_ratio}
+ r_c/h_c=2\sqrt3-\sqrt6.
+\end{equation}
+These dimensionless values are constants for the accepted shell up to similarity. An invariant of this fixed similarity class cannot furnish a nonconstant modular family. A chosen constant could be assigned to one elliptic curve, but the definitions select neither that curve nor an isogeny. The parameter \(\ell\) in \eqref{eq:patches} runs over points inside a fixed triangle; it is not a deformation modulus of the shell.
+
+\paragraph{Separate reference scaffold.}
+The pre-existing reference scaffold \cite{scaffold} has independent positive lengths \(s\) and \(g_{\rm gap}\), alternating side lengths \((s,g_{\rm gap})\), and
+\begin{equation}\label{eq:scaffold}
+ \begin{split}
+ g_{\rm gap}&=\sqrt3p-s/2,\qquad
+ R_H^2=(s^2+sg_{\rm gap}+g_{\rm gap}^2)/3,\\
+ \mathcal A_H&=\sqrt3(s^2+4sg_{\rm gap}+g_{\rm gap}^2)/4.
+ \end{split}
+\end{equation}
+Modulo scale, \(g_{\rm gap}/s\) is a genuine shape parameter, with regularity at one. The selected edge/connector roles are retained by its class-preserving \(D_3\) symmetry, so that ratio is invariant under that action. Paper C's member has \(g_{\rm gap}/s=1/\sqrt2\); varying the scaffold is a separate family, not a hidden deformation already present in the fixed welded shell.
+
+Neither the defining formulas nor the documented derivation supplies a projective four-point branch divisor, an elliptic group law, or a selected isogeny. Both a shape ratio and \(t\) being invariant under a finite symmetry is compatible with many arbitrary functions between them; it does not single out one. Defining \(t=g_{\rm gap}/s\), or applying a rational reparameterization to force the cusp values, would add precisely the dictionary being tested. We do not make that assignment. The natural six scaffold vertices are also not already four critical values; selecting four would require a new rule and branch-cover interpretation.
+
+\paragraph{Orientation, readout, and conditional registration.}
+The source harmonic is \(A\cos3(\theta-\ell_0)\). Its six extrema have three vertical pairs, while the fixed sampled clock is a different finite set. The source's finite-patch registration uses an additionally assumed coordinate dictionary and a free relative angle \(\delta\), with a linked scale
+\begin{equation}\label{eq:registration}
+ a(\delta)=\frac{K}{\cos\delta+\sqrt3/2},\qquad
+ K=\sqrt3/12+\sqrt6/4.
+\end{equation}
+That parameter chooses an attachment of an observer construction to the shell; it is not an intrinsic shell invariant. The report leaves a unique gate anchor, axis, and channel assignment undetermined. Rotations or a choice of readout origin do not produce four projectively defined branch points. Treating one of these angles as a modular coordinate would add an attachment convention and an analytic structure absent from the accepted definitions.
+
+The existing readout code also defines \(J_{\rm read}=\operatorname{Im}(\Omega_1\overline{\Omega_2}\Omega_3)\), its bounded normalization \(J_{\rm read}/(1+|J_{\rm read}|)\), and a memory update \cite{readout}. The function name \texttt{cubic\_j} does not make it an elliptic \(j\)-invariant. It is a state-dependent real cubic expression and is not even invariant under a cyclic permutation of its arguments: \((1,i,1)\) gives \(-1\), while \((i,1,1)\) gives \(+1\). No documented transformation law turns this readout into one of the cover invariants.
+
+\paragraph{Existing boundary response and transfer.}
+The boundary-response module explicitly labels its choice a toy response \cite{boundary}. Independently of the Three-Way hierarchy, it defines
+\begin{equation}\label{eq:lens}
+ \theta=\arccos\frac{d_\ell}{2r_\ell},\qquad
+ I(\theta)=\frac{2\theta-\sin2\theta}{\pi},\qquad
+ \mathcal P(\theta,\xi)=\sqrt{I(\theta)}(\xi\otimes f_0),
+\end{equation}
+with \(0\le\theta\le\pi/2\) and \(f_0=(1,1,1)/\sqrt3\). The area fraction ranges from zero to one and is strictly increasing on the interior, since \(I'(\theta)=4\sin^2\theta/\pi>0\). It is a lens geometry scalar, and \(\xi\) is an independent incident two-vector. Neither specifies a cubic cover or branch labeling. The interval is not itself an obstruction to parameterizing a real modular arc; the missing point is an independently defined structure-preserving rule.
+
+The existing SRG module fixes numerical parameters and a transfer \(U=B\otimes(RZC)\), with a specified two-by-two helicity matrix and chosen eigenmode gauge \cite{srg}. Its transfer count is discrete and incident state is externally supplied. Its fixed spectra and projectors supply no documented varying four-point branch divisor or selected elliptic isogeny. Selecting four among eigenvalues, or applying an arbitrary transform to an input amplitude, would be a new construction. The operating-region profile bounds this initialization and an existing recurrence; those bounds do not introduce modular structure \cite{operating}. These definitions were read for the bridge audit only, without changing or retesting the production implementation.
+
+\subsection{Bridge classification and endpoint}\label{sec:bridge_result}
+\begin{center}
+\fbox{\parbox{.9\linewidth}{\centering\textbf{FINITE \(S_3\) BRIDGE ONLY}\par
+The patch action and its three-pair quotient match exactly. No continuous modular identification is independently justified by the inspected definitions.}}
+\end{center}
+The positive result is \eqref{eq:finite_bridge}. The fixed shell has no varying similarity modulus. The separate scaffold and response systems do have continuous inputs, but their definitions do not give the missing elliptic or branch-cover data. Consequently this bounded test establishes no structure-preserving map to \(t\), \(h\), or the four-critical-value cross-ratio.
+
+This is a source-limited negative result, not a theorem that no future mathematical construction could connect these subjects. The continuous part is underdetermined by the inspected definitions; the overall classification is ``finite bridge only'' because the finite equivalence is already proved. No scalar was fitted, no new model was introduced, and no physics claim follows. The comparison stops at this endpoint.
+
+\fig{05_finite_bridge}{The preserved finite correspondence intertwines actual rigid patch symmetries with ordered-pair label permutations. Every smooth cubic parameter has this same finite incidence system. The missing continuous data are a branch divisor and its covering or isogeny marking; the figure asserts no map from shell dimensions to a modular coordinate.}{fig:bridge}
+
+\section{Closeout}\label{sec:closeout}
+Coefficient reversal preserves equivariance, reciprocal divisors, parity-sensitive fibers, and an odd Cayley normal form throughout the hierarchy. It does not preserve the quadratic deck partner. The generic other-sheet relation becomes irreducible, symmetric monodromy controls the closure, and Riemann--Hurwitz gives the exact genus formula. The cubic is the first elliptic level of this particular extension, with an explicit translation/inversion action and a 3-isogeny. The quartic already has generic closure genus thirteen.
+
+The intrinsic cubic modulus is one-dimensional after coordinate embeddings are forgotten, with the selected marking distinguishing \(X_0(6)\) from \(X_0(3)\) and from bare elliptic \(j\). This geometry is established independently of the Tri-Octagon comparison. The latter ends with an exact finite incidence match and no justified continuous extension.
+\begin{equation*}
+ \boxed{\text{THREE-WAY RECIPROCAL HIERARCHY = PARKED}}
+\end{equation*}
+The paper undertakes no further degree-five study, quartic census, physical interpretation, kernel integration, or new shell coupling.

@@ -1,0 +1,158 @@
+\section{Four historical coefficient pairs}\label{sec:examples}
+
+All four documented examples have \(A>1\), \(c>0\), and \(\Delta>0\). We choose \(d=\sqrt\Delta>0\), so \(\rho=(c+B)/d>0\) and \(k>0\). Let \(\phi=(1+\sqrt5)/2\), and abbreviate \(J(t)\) by the rational expression in Eq.~\eqref{eq:jt}.
+
+\begin{table}[htbp]\centering\small
+\begin{tabular}{lllll}\toprule
+Pair & \(\Delta\) & \(\rho\) & \(k\) & \(\lambda\)\\\midrule
+\((9,9)\) & \(19\) & \(\sqrt{19}\) & \(16/\sqrt{19}\) & \(64/19\)\\
+\((9,1)\) & \(99\) & \(\sqrt{11}/3\) & \(16/(3\sqrt{11})\) & \(64/99\)\\
+\((\pi,e)\) & \((\pi+1)^2-e^2\) & \(\sqrt{\frac{\pi+1+e}{\pi+1-e}}\) & \(\frac{2(\pi-1)}{\sqrt\Delta}\) & \(\frac{(\pi-1)^2}{\Delta}\)\\
+\((\phi,1-\phi)\) & \(4\phi\) & \(\phi^{-1/2}\) & \(\phi^{-3/2}\) & \((\sqrt5-2)/4\)\\\bottomrule
+\end{tabular}\caption{Exact reduced-quotient data. In the \((\pi,e)\) row, \(\Delta\) means that row's exact value.}\label{tab:examples1}
+\end{table}
+
+\begin{table}[htbp]\centering\small
+\begin{tabular}{llll}\toprule
+Pair & \(t\) & \(\nu\) & \(m\)\\\midrule
+\((9,9)\) & \(9/10\) & \(100/19\) & \(1/361\)\\
+\((9,1)\) & \(1/10\) & \(100/99\) & \(81/121\)\\
+\((\pi,e)\) & \(e/(\pi+1)\) & \(\frac{(\pi+1)^2}{(\pi+1)^2-e^2}\) & \(\frac{(\pi+1-e)^2}{(\pi+1+e)^2}\)\\
+\((\phi,1-\phi)\) & \(2-\sqrt5\) & \((2+\sqrt5)/4\) & \(\phi^2\)\\\bottomrule
+\end{tabular}\caption{Exact full-cover and elliptic data. The parameter \(m\) refers to the displayed Legendre model of the closure, not its two-isogenous quotient.}\label{tab:examples2}
+\end{table}
+
+\subsection{The pair (9,9)}
+Here \(\chi=45\), \(\lambda=64/19>1\), and the marked fiber lies inside the real quotient interval. Its roots are
+\[
+y_z=(3\pm\sqrt5)/6,\qquad y_p=(9\pm3\sqrt5)/2.
+\]
+They are positive and distinct, producing four real zeros and four real poles in \(x\). This accounts for the archived asymptote list without an appeal to numerical symbolism. The critical \(y\)-pair is \((10\pm\sqrt{19})/9\), also positive. Both \(-1\) level points are nonreal because \(\Delta>0\).
+
+The closure has
+\[
+j=\frac{8780093172522724}{263900025}
+\simeq33270528.0059095258.
+\]
+This rational number is not an integer. Every CM \(j\)-invariant is an algebraic integer~\cite[Theorem 2.1]{DLR}, and a rational algebraic integer is an integer. Therefore this elliptic curve is non-CM. A large numerical value of \(j\) is not the proof; its exact arithmetic is.
+
+\subsection{The pair (9,1)}
+Here \(\chi=-35\) and \(0<\lambda=64/99<1\). The marked level is outside the real quotient image, so neither \(f\) nor its reciprocal has a real zero or pole. Nevertheless the exact real locks persist, and the positive critical pair \(10\pm\sqrt{99}\) produces a different smooth graph shape. Its \(-1\) fiber is again nonreal. The full cover has \(\nu=100/99\), close to the boundary value one but not on it.
+
+The exact elliptic invariant is
+\[
+j=\frac{5927735656804}{2401490025}
+\simeq2468.35739274161674,
+\]
+another rational noninteger, proving non-CM by the same integrality criterion. Thus the historical ambiguity between the two integer pairs changes both real geometry and elliptic covering data, despite their shared value of \(A\).
+
+\subsection{The pair (pi,e)}
+Elementary bounds imply \(e^2<4\pi\), hence \(\chi<0\) and \(0<\lambda<1\). This pair occupies the same zero/pole regime as \((9,1)\), with different values of both moduli. Its source scale exceeds one, so the critical points are on the positive \(y\)-half-line. The \(-1\) fiber is nonreal. At 100-digit working precision the principal invariants, rounded for display, are
+\begin{align*}
+\rho&\simeq2.195372442666,& k&\simeq1.370752047260,\\
+\lambda&\simeq0.469740293767,&\nu&\simeq1.75678591761901002,\\
+t&\simeq0.656337321369094558,&m&\simeq0.0430494062828726886,\\
+j&\simeq132958.437104208270.&&
+\end{align*}
+Its exact \(j\) is \(J(e/(\pi+1))\). The CM status remains unresolved in this analysis. Transcendental input constants do not by themselves prove that a rational expression in them is transcendental. No further arithmetic investigation of this case is undertaken in this draft, and no proximity to any special numerical value is used as evidence.
+
+\subsection{The pair (phi,1-phi)}
+The golden-ratio relation \(\phi^2=\phi+1\) simplifies the exact invariants to those in Tables~\ref{tab:examples1}--\ref{tab:examples2}. Here \(B<0\), \(\rho<1\), and \(0<\lambda=(\sqrt5-2)/4<1\). There are no real zeros or poles and no nonzero real \(x\)-critical points: the real \(y\)-critical pair is negative. On \(y\ge0\), the function increases from \(1/\phi\) to \(\phi\), crossing height one exactly at \(y=1\). The \(-1\) level is nonreal. This additional embedding difference is not captured merely by saying that the marked fiber lies below one.
+
+For \(m=\phi^2\), one has \(m^2-3m+1=0\), so \((m-1)^2=m\) and the Legendre formula reduces exactly to \(j=2048\). The complete list of thirteen rational CM \(j\)-values does not contain 2048~\cite[Introduction]{DLR}; consequently this curve is non-CM. Its algebraic simplification is real, but does not make it an enhanced-automorphism or CM point.
+
+All four curves are smooth and none has \(j=0\) or \(1728\). For the transcendental pair, the elementary bound \(0.65<t<0.66\), compared with the explicit exceptional \(t\)-values in Section~\ref{sec:topology}, suffices to establish that statement without deciding CM.
+
+\section{A bounded nearest-neighbor spectral comparison}\label{sec:physics}
+
+This section begins with an independently specified standard chain and derives its objects before making a comparison. We do not change its Hamiltonian, fit its parameters to a graph, or postulate a new observable.
+
+Let the uniform nearest-neighbor Hamiltonian on \(\ell^2(\ZZ)\) be
+\begin{equation}\label{eq:chain}
+(H\psi)_n=E_0\psi_n-J(\psi_{n+1}+\psi_{n-1}),\qquad J>0.
+\end{equation}
+The eigenvalue equation, with \(\epsilon=(E_0-E)/J\), becomes
+\(\psi_{n+1}+\psi_{n-1}=\epsilon\psi_n\). Its Bloch ansatz \(\psi_n=u^n\) therefore yields
+\begin{equation}\label{eq:dispersion}
+\epsilon=u+u^{-1},\qquad E=E_0-J(u+u^{-1}).
+\end{equation}
+This is the familiar tight-binding dispersion derived, for example, in Tong~\cite[\S2.1.1, Eqs.~(2.1)--(2.5)]{Tong}. Quotienting the two multipliers by exchange \(u\leftrightarrow u^{-1}\), and then identifying energies relative to the band center by \(\epsilon\leftrightarrow-\epsilon\), gives
+\begin{equation}\label{eq:spectralquotient}
+\beta=\epsilon^2/4.
+\end{equation}
+This is exactly the reduced quotient already derived in Section~\ref{sec:belyi}, for every generic coefficient pair. The chain has not acquired new couplings depending on \(A,B\); those coefficients select a source coordinate and marked spectral value \(\lambda=k^2/4\).
+
+\subsection{Domains cannot be identified by the formula alone}
+Propagating real-energy states have \(u=e^{iq}\), real \(q\), so \(|u|=1\), \(\epsilon=2\cos q\in[-2,2]\), and \(\beta\in[0,1]\). For real \(\epsilon\) outside the band, the two multipliers are real and reciprocal; one grows and one decays. A decaying multiplier can enter a resolvent or a boundary problem, but it is not a propagating Bloch wave. At the band edges the multipliers coalesce.
+
+For the original real plotting contour with \(\Delta>0\), \(u\) is real, not generally on the unit circle; it samples this evanescent algebraic continuation. Its marked \(k\) is real, with \(0<\lambda<1\), \(\lambda=1\), and \(\lambda>1\) corresponding to a level inside the band, at an edge, or outside it. A marked level can lie inside the band even when the original real plotting contour does not reach it. For \(\Delta<0\), both \(u\) and \(k\) are imaginary on the chosen real source contour, and \(\epsilon\) is generally imaginary. That is a complex spectral continuation, not a real-energy evanescent state. These restrictions survive the full two-parameter normalization.
+
+\subsection{Standard chain objects and the requested ratio}
+The transfer matrix derived from the recurrence is
+\[
+\begin{pmatrix}\psi_{n+1}\\\psi_n\end{pmatrix}
+=\begin{pmatrix}\epsilon&-1\\1&0\end{pmatrix}
+\begin{pmatrix}\psi_n\\\psi_{n-1}\end{pmatrix}.
+\]
+Its eigenvalues are \(u,u^{-1}\); the adjacent-amplitude ratio of a Bloch solution is \(u\). These quantities contain the characteristic square root \(\sqrt{\epsilon^2-4}\). No independent level \(k\) appears.
+
+To fix resolvent signs, let \(\mathcal A=S+S^*\) be the dimensionless adjacency operator, and define Green functions with \((z-\mathcal A)^{-1}\). On the semi-infinite chain, a Schur complement at the endpoint gives
+\[
+g(z)=\frac1{z-g(z)},\qquad
+g(z)=\frac{z-\sqrt{z^2-4}}2,
+\]
+where the branch is chosen so that \(g(z)\sim z^{-1}\) at infinity. The alternative Weyl convention \(\langle\delta_0,(\mathcal A-z)^{-1}\delta_0\rangle\) is \(-g\). On the full line the diagonal Green function is \(1/\sqrt{z^2-4}\), as follows either by Fourier integration or by joining two half-line self-energies:
+\(1/(z-2g(z))=1/\sqrt{z^2-4}\). A hopping self-energy is the appropriately dimensioned multiple of the half-line function. These independently defined functions are not the desired rational ratio.
+
+For a uniform full chain there is no scattering defect: reflection is zero and transmission is a reference-dependent propagation phase. For a hard endpoint with \(\psi_0=0\), writing \(\psi_n=e^{-iqn}+r e^{iqn}\) gives \(r=-1\). Moving the reference plane only multiplies by a known phase. A more general endpoint impedance could introduce a boundary parameter, but selecting one to force a desired formula would change the stated problem. These standard cases therefore do not independently yield \((\epsilon+k)/(\epsilon-k)\).
+
+There is a precise but limited Green-function identity. Fourier diagonalization gives the momentum-resolved resolvent
+\[
+G(z;q)=\frac1{z-2\cos q}.
+\]
+Choose a momentum \(q_0\) and write \(k=2\cos q_0\). The opposite band-center level occurs at \(\pi-q_0\), so
+\begin{equation}\label{eq:Greenratio}
+\frac{G(\epsilon;q_0)}{G(\epsilon;\pi-q_0)}
+=\frac{\epsilon+k}{\epsilon-k}=F.
+\end{equation}
+The Green functions are independently defined standard objects; the choice of two momenta and the decision to take this ratio are not selected by the uniform chain itself. Thus \eqref{eq:Greenratio} is an exact constructed comparison, not an independently established observable dictionary. For \(|k|>2\), \(q_0\) is complex and even the selected momentum is outside the real Bloch band; imaginary \(k\) requires complex continuation as well.
+
+The limited negative result is therefore that no independently selected chain observable equal to the full nonconstant \(F\) has been established among these objects. It is not a theorem that no conceivable reformulation could ever contain this ratio. That stronger claim would require a defined class of all observables and boundary problems, which is not part of this task.
+
+\subsection{Does the additional square root have a physical meaning?}
+The chain naturally has a two-sheeted multiplier relation: solving \(u+u^{-1}=\epsilon\) interchanges the growing and decaying, or left- and right-moving, branches. That is already the Joukowski part of the quotient. Spatial reflection exchanges \(u\) and \(u^{-1}\); staggering \(\psi_n\mapsto(-1)^n\psi_n\) exchanges \(u\) and \(-u\) and reverses energy about the band center. These explain the reduced algebraic symmetries.
+
+They do not independently produce
+\[
+y=x^2,\qquad u=\rho\frac{y-1}{y+1}.
+\]
+The additional branching at \(u=\pm\rho\), with image \(\nu\), is selected by the rational construction and its coordinate embedding, not by a standard chain parity reduction or an amplitude-squaring rule. Calling \(x\) a square root of a multiplier would ignore the intervening Möbius transformation; calling it an amplitude would define a meaning rather than derive one. No independent physical meaning for the extra \(x\)-cover was found. The successful dictionary stops at the reduced complex spectral quotient \eqref{eq:spectralquotient}.
+
+\section{Historical interpretation and what the reconstruction establishes}\label{sec:lessons}
+
+The historical papers used toroidal, brane, inter-universal, and gravitational language to motivate or interpret exploratory geometry~\cite{H1,H2,H4}. Those statements remain part of the historical record. They are not assumptions needed for the mathematical proofs, and the present reconstruction supplies neither dynamics nor a metric, stress tensor, matter model, empirical coupling, or predictive identification that would establish them as physics. Retaining that distinction respects the historical exploration without preserving unsupported conclusions.
+
+There are three kinds of results here. Exact identities and classifications follow from the displayed algebra and covering arguments. Numerical checks provide bounded independent consistency tests of those identities and limits. Graphs and topological schematics make their geometric interpretation visible, but do not replace the proofs. The later reconstruction is more precise than the early imagery because it specifies which object carries each claimed property.
+
+Many individual structures are explicitly identified with established mathematics. Basic reciprocity, parity, and intersections were also already present in historical or local analytical material. The manuscript's reconstruction includes the coherent organization of those facts, the additional involution, the marked-fiber classification, the multiscale chart relations, and the exact normal-closure identification. Whether that particular assembly or any specific formulation has appeared elsewhere is deliberately left to a dedicated prior-art audit. Neither the use of special constants nor an unexpectedly simple invariant is evidence of novelty.
+
+The remaining questions have narrower scopes than the early physical claims. A future prior-art audit can compare the precise tower and parameter maps with existing cover and elliptic constructions. A separate geometrical work order could specify a complete rotation and gluing rule for the visual object. A physical investigation would first need an independently defined observable and a justified meaning for the extra source cover. The CM status of the \((\pi,e)\) curve remains recorded as unresolved, without further investigation here.
+
+\begin{longtable}{L{51mm}L{101mm}}
+\caption{Historical questions and modern answers.}\label{tab:lessons}\\
+\toprule Historical question & Modern answer\\\midrule\endfirsthead
+\toprule Historical question & Modern answer\\\midrule\endhead
+Is reciprocity real? & Yes. Coefficient reversal gives an exact rational identity, with poles, zeros, and cancellation handled projectively.\\
+Why are \(x=\pm1\) special? & They give \(y=1\), where numerator and denominator agree. The height is exactly one unless the expression cancels or is undefined; cancellation must be analyzed separately.\\
+Do the historical real plots also reach \(-1\)? & No for all four examples studied here: \(\Delta>0\) makes that fiber nonreal. The complex \(-1\) fiber still exists.\\
+What controls zeros and poles? & \(\chi=B^2-4A\) controls repeated roots and real-root transitions; \(\Delta=0\) and \(A=1\) control cancellation. The positive \(y\)-restriction decides which roots are visible in real \(x\).\\
+Was the number \(9\) the mechanism? & No. The algebraic symmetries hold throughout the generic family. \((9,9)\) and \((9,1)\) occupy different strata and cannot be merged.\\
+Why do large coefficients create nested scales? & Distinct balances resolve an inner zero, an outer pole, a thin lock, and intermediate stationary shoulders. Exact overlap identities prove the matching.\\
+Where does \(s\mapsto2/s\) come from? & It is the scaled limit of the equal-value involution and exchanges the two matched contributions. Reciprocal inversion instead tends to \(s\mapsto-s\).\\
+What are \(\lambda\) and \(\nu\)? & \(\lambda\) marks the zero/pole fiber; \(\nu\) is the additional branch value from squaring and the modular coordinate for the selected elliptic order-four structure.\\
+Is the full object a five-marked sphere? & Its selected generic decorated coarse space is \(M_{0,5}\). The Hurwitz object also retains a covering type and nontrivial automorphisms.\\
+Is the construction a sphere or a torus? & The original complex source is a sphere; its generic normal closure is genus one and analytically a torus. A revolved real profile is a separate construction.\\
+Is there established physics? & There is an exact reduced nearest-neighbor spectral-quotient match. No full physical theory follows from it.\\
+What remains physically unexplained? & No independently selected observable for \(F\), and no independent physical role for the additional \(x\)-cover, has been established.\\
+\bottomrule
+\end{longtable}

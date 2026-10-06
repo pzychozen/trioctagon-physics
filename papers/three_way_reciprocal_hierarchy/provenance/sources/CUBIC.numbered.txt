@@ -1,0 +1,737 @@
+0001: # Cubic Three-Way elliptic correspondence v0.1
+0002: 
+0003: 5 October 2026 · External mathematical research · No novelty or physics claim
+0004: 
+0005: ## 1. Result and stopping point
+0006: 
+0007: The generic cubic correspondence is a standard elliptic **3-isogeny/Kummer construction**. Its order-three deck transformations are translations by a nonzero 3-torsion point. Its three transpositions are elliptic inversions followed by translations. The original degree-three rational map is recovered by quotienting this construction by inversion.
+0008: 
+0009: The proposed \(X_0(3)\) interpretation is correct **after forgetting the original reciprocal marking**. Retaining that marking selects a nonzero 2-torsion point as well, so the more finely marked object is parametrized by \(X_0(6)\). Explicit coordinates are
+0010: 
+0011: \[
+0012: \boxed{t=\frac{qr}{ps},\qquad
+0013: h=\frac{t(t-9)^2}{(t-1)^2},}
+0014: \tag{1}
+0015: \]
+0016: 
+0017: where \(t\) is a coordinate on \(X_0(6)\), \(h\) on \(X_0(3)\), and
+0018: 
+0019: \[
+0020: \boxed{j(E_3)=\frac{(h+27)(h+3)^3}{h},\qquad
+0021: j(E_3/C_3)=\frac{(h+27)(h+243)^3}{h^3}.}
+0022: \tag{2}
+0023: \]
+0024: 
+0025: These statements are established below by explicit models, group actions, an isogeny, and a converse moduli construction; resemblance to a known \(j\)-formula alone is not used as proof.
+0026: 
+0027: A second, separate stopping point occurs in the requested Tri-Octagon comparison. The **six documented candidate notch triangles**, with three upper/lower pairs, support an exact regular \(S_3\)-action and an equivariant identification with the six ordered pairs of distinct cubic sheets. This is an equivalence of finite group-action/incidence data. It supplies no identification of a geometric shell with an elliptic curve, a branched covering, or its four critical values. The explicit map and limitations are in §12.
+0028: 
+0029: Both requested stopping conditions have therefore been met. This report closes the algebraic/modular identification and that bounded comparison; it does not investigate other modular families, the earlier quadratic Edwards closure, or physical interpretations.
+0030: 
+0031: ## 2. Domain, coefficients, and preserved exceptions
+0032: 
+0033: Starting from
+0034: 
+0035: \[
+0036: F_3(y)=\frac{Ay^3-By^2-Cy+1}{y^3-Cy^2-By+A},
+0037: \quad z=\frac{y-1}{y+1},\quad w=\frac{F_3-1}{F_3+1},
+0038: \]
+0039: 
+0040: put
+0041: 
+0042: \[
+0043: \begin{aligned}
+0044: p&=A+B-C-1,&q&=3(A-1)-B+C,\\
+0045: r&=3(A+1)+B+C,&s&=A+1-B-C.
+0046: \end{aligned}
+0047: \tag{3}
+0048: \]
+0049: 
+0050: Then \(r+s-p-q=8\), and
+0051: 
+0052: \[
+0053: w(z)=\frac{z(pz^2+q)}{rz^2+s}.
+0054: \tag{4}
+0055: \]
+0056: 
+0057: The degree-three condition is \(ps(ps-qr)\ne0\). The smooth genus-one regime studied here is
+0058: 
+0059: \[
+0060: \boxed{pqrs(ps-qr)(9ps-qr)\ne0.}
+0061: \tag{5}
+0062: \]
+0063: 
+0064: It has four simple critical points and four distinct critical values. In normalized coordinates this is \(t\notin\{0,1,9,\infty\}\).
+0065: 
+0066: The previously established exceptions remain:
+0067: 
+0068: - \(ps=0\) or \(ps=qr\): cancellation/lower degree; reduce the original rational function first.
+0069: - Exactly one of \(q,r\) zero, with degree three retained: ramification \((3,2,2)\), monodromy \(S_3\), genus-zero closure.
+0070: - \(q=r=0\): cyclic cubic, equivalently \(B=-3,C=-3A\), subject to the degree condition.
+0071: - \(qr=9ps\): cyclic cubic, equivalently \(3AC+B^2-3B-C^2=0\), subject to the degree condition.
+0072: - The last two cases have deck/monodromy \(C_3\) and smooth rational Galois closure after specialization.
+0073: 
+0074: All intrinsic classifications below are over \(\mathbb C\). An origin and certain displayed transformations require algebraic choices. Over a coefficient field or over \(\mathbb R\), twists and genus-one torsors require additional care; see §10.
+0075: 
+0076: ## 3. Quartic, origin, and standard forms
+0077: 
+0078: ### 3.1 Convenient invariants and normalization
+0079: 
+0080: Set
+0081: 
+0082: \[
+0083: U=ps,\quad V=qr,\quad
+0084: \alpha=-4p^2rs,\quad
+0085: \beta=V^2-6UV-3U^2,\quad
+0086: \gamma=-4pqs^2.
+0087: \tag{6}
+0088: \]
+0089: 
+0090: The correspondence curve is the smooth projective normalization of
+0091: 
+0092: \[
+0093: E:\eta^2=f(z)=\alpha z^4+\beta z^2+\gamma.
+0094: \tag{7}
+0095: \]
+0096: 
+0097: Choose \(\sigma^2=s/r\). The substitutions
+0098: 
+0099: \[
+0100: z=\sigma Z,\quad \eta=U\sigma Y,
+0101: \quad w=\frac{p}{r}\sigma W
+0102: \]
+0103: 
+0104: give
+0105: 
+0106: \[
+0107: W=\frac{Z(Z^2+t)}{Z^2+1},\qquad
+0108: E_t:\ Y^2=-4Z^4+(t^2-6t-3)Z^2-4t.
+0109: \tag{8}
+0110: \]
+0111: 
+0112: Thus two coordinate scales disappear and one parameter \(t\) remains when reciprocity is retained. The signs of square roots affect coordinate choices, not the complex coarse moduli point.
+0113: 
+0114: Choose a root \(a\) of \(f\) and the origin
+0115: 
+0116: \[
+0117: O=(a,0).
+0118: \tag{9}
+0119: \]
+0120: 
+0121: All four roots are simple on (5). This choice makes the involution \((z,\eta)\mapsto(z,-\eta)\) elliptic inversion. Choosing another such origin changes the origin by 2-torsion and yields an isomorphic marked group structure.
+0122: 
+0123: ### 3.2 An explicit Weierstrass transformation
+0124: 
+0125: Define the binary-quartic combinations
+0126: 
+0127: \[
+0128: I=\beta^2+12\alpha\gamma,
+0129: \qquad J=72\alpha\beta\gamma-2\beta^3.
+0130: \]
+0131: 
+0132: The exact birational transformation is
+0133: 
+0134: \[
+0135: X=\frac{f'(a)}{4(z-a)}+\frac{f''(a)}{24},\qquad
+0136: Y_W=-\frac{f'(a)\eta}{8(z-a)^2}.
+0137: \tag{10}
+0138: \]
+0139: 
+0140: It gives
+0141: 
+0142: \[
+0143: \boxed{Y_W^2=X^3-\frac I{48}X-\frac J{1728}.}
+0144: \tag{11}
+0145: \]
+0146: 
+0147: The inverse is
+0148: 
+0149: \[
+0150: z=a+\frac{f'(a)}{4(X-f''(a)/24)},\qquad
+0151: \eta=-\frac{8Y_W(z-a)^2}{f'(a)}.
+0152: \]
+0153: 
+0154: These are birational maps of the smooth projective curves; the apparent exceptional denominators are handled by extension to their projective points. The point (9) maps to the Weierstrass point at infinity. Substitution using \(f(a)=0\) proves (11), and the accompanying script checks the identity symbolically.
+0155: 
+0156: The coefficients of (11) lie in the coefficient field even if \(a\) does not. In that field, (11) is the Jacobian model; the displayed isomorphism from the original genus-one curve uses the chosen origin over an extension. No rational section of the original quartic over an arbitrary coefficient field is being assumed.
+0157: 
+0158: ### 3.3 Exact elliptic invariants
+0159: 
+0160: For the displayed model (11), with the usual convention \(\Delta=(c_4^3-c_6^2)/1728\),
+0161: 
+0162: \[
+0163: \begin{aligned}
+0164: c_4&=I=\beta^2+12\alpha\gamma,\\
+0165: c_6&=J/2=\beta(36\alpha\gamma-\beta^2),\\
+0166: \Delta_E&=\frac{\alpha\gamma(\beta^2-4\alpha\gamma)^2}{16}\\
+0167: &=\boxed{p^3qrs^3(ps-qr)^6(9ps-qr)^2},\\
+0168: j(E)&=\frac{16(\beta^2+12\alpha\gamma)^3}
+0169: {\alpha\gamma(\beta^2-4\alpha\gamma)^2}.
+0170: \end{aligned}
+0171: \tag{12}
+0172: \]
+0173: 
+0174: The polynomial discriminant of \(f\) is \(256\Delta_E\). The model-dependent \(c_4,c_6,\Delta_E\) scale with a change of invariant differential; \(j\) does not.
+0175: 
+0176: In \(U,V\), a useful fully factored formula is
+0177: 
+0178: \[
+0179: \boxed{j(E)=
+0180: \frac{(V+3U)^3(V^3-15UV^2+75U^2V+3U^3)^3}
+0181: {U^3V(U-V)^6(9U-V)^2}.}
+0182: \tag{13}
+0183: \]
+0184: 
+0185: In the normalized family let \(M=t^2-6t-3\). Then
+0186: 
+0187: \[
+0188: \begin{aligned}
+0189: c_4(t)&=M^2+192t=(t+3)(t^3-15t^2+75t+3),\\
+0190: c_6(t)&=M(576t-M^2),\\
+0191: \Delta(t)&=t(t-1)^6(t-9)^2,\\
+0192: j(t)&=\frac{(t+3)^3(t^3-15t^2+75t+3)^3}
+0193: {t(t-1)^6(t-9)^2}.
+0194: \end{aligned}
+0195: \tag{14}
+0196: \]
+0197: 
+0198: For the original coefficients no large expanded polynomial is necessary:
+0199: 
+0200: \[
+0201: \begin{aligned}
+0202: U&=(A-C)^2-(B-1)^2,\\
+0203: V&=(3A+C)^2-(B+3)^2,\\
+0204: H_3&=A^2+AC-B-1,\\
+0205: K_3&=3AC+B^2-3B-C^2.
+0206: \end{aligned}
+0207: \tag{15}
+0208: \]
+0209: 
+0210: Here \(V-U=8H_3\), \(V-9U=8K_3\), and \(V+3U=4(3A^2-B^2+C^2-3)\). Substitute these expressions in (13); equivalently,
+0211: 
+0212: \[
+0213: \boxed{h=\frac{V K_3^2}{U H_3^2},\qquad
+0214: j(E)=\frac{(h+27)(h+3)^3}{h},\qquad
+0215: \Delta_E=2^{24}U^3V H_3^6K_3^2.}
+0216: \tag{16}
+0217: \]
+0218: 
+0219: The bare complex elliptic isomorphism class has **one modulus**, namely \(j\). The parameter \(t\) is not a one-to-one coordinate on bare elliptic isomorphism classes: its map to the \(j\)-line has degree twelve.
+0220: 
+0221: ### 3.4 Legendre, Montgomery, and Edwards forms
+0222: 
+0223: For a direct Legendre form, write the four roots of \(f\) as \(a,-a,b,-b\), keeping (9) as origin. Put
+0224: 
+0225: \[
+0226: c=\frac{b-a}{b+a},\quad m=c^2,\quad
+0227: X_L=c\frac{z+a}{z-a},\quad
+0228: Y_L=\kappa\frac{\eta}{(z-a)^2},\quad
+0229: \kappa^2=-\frac{4a^2c^2}{\alpha(a+b)^2}.
+0230: \tag{17}
+0231: \]
+0232: 
+0233: Then \(Y_L^2=X_L(X_L-1)(X_L-m)\). The inverse is \(z=a(X_L+c)/(X_L-c)\), followed by the inverse scaling of \(\eta\). Changing the ordering of the roots gives the usual six cross-ratio values. This is an algebraic transformation after choosing the displayed roots, not generally a rational Legendre parameter over \(\mathbb C(A,B,C)\).
+0234: 
+0235: There is also a natural marked 2-torsion point, proved in §5. In (11) it is \(Q=(-\beta/6,0)\). With \(X_2=X+\beta/6\),
+0236: 
+0237: \[
+0238: Y_W^2=X_2^3-\frac\beta2X_2^2+
+0239: \frac{\beta^2-4\alpha\gamma}{16}X_2.
+0240: \tag{18}
+0241: \]
+0242: 
+0243: Choose \(d^2=(\beta^2-4\alpha\gamma)/16\), set \(X_2=d u\), \(Y_W=d^{3/2}v\), and \(A_M=-\beta/(2d)\). This gives the Montgomery form
+0244: 
+0245: \[
+0246: v^2=u^3+A_Mu^2+u.
+0247: \]
+0248: 
+0249: The exact substitutions \(x_E=u/v\), \(y_E=(u-1)/(u+1)\) then give
+0250: 
+0251: \[
+0252: (A_M+2)x_E^2+y_E^2=1+(A_M-2)x_E^2y_E^2.
+0253: \tag{19}
+0254: \]
+0255: 
+0256: The inverse is \(u=(1+y_E)/(1-y_E)\), \(v=(1+y_E)/[(1-y_E)x_E]\). These standard forms are useful consequences of the selected 2-torsion and explicit algebraic choices. They do not identify this curve with the earlier quadratic tower's Edwards curve. [Standard Montgomery conventions](https://www.hyperelliptic.org/EFD/g1p/auto-montgom.html)
+0257: 
+0258: ## 4. Ordered sheet pairs and the exact S₃ action
+0259: 
+0260: To avoid confusing Cayley coordinates with the original \(y\), write the three roots of a fiber of (4) as \((z,v,u)\). The fiber polynomial is
+0261: 
+0262: \[
+0263: pT^3-wrT^2+qT-ws=0.
+0264: \]
+0265: 
+0266: Once the first two roots are specified, the third is
+0267: 
+0268: \[
+0269: u=\frac rp w-z-v.
+0270: \tag{20}
+0271: \]
+0272: 
+0273: The correspondence equation is
+0274: 
+0275: \[
+0276: p(rz^2+s)v^2+(ps-qr)zv+s(pz^2+q)=0,
+0277: \]
+0278: 
+0279: and the relation to the quartic is
+0280: 
+0281: \[
+0282: \eta=2p(rz^2+s)v+(ps-qr)z.
+0283: \tag{21}
+0284: \]
+0285: 
+0286: Thus, over a regular target value, a point of \(E\) is an **ordered pair of distinct source points in the same cubic fiber**, equivalently a full ordering of its three roots. There are \(3\cdot2=6\) such points. The compactified normalization also contains the limiting points where two roots coincide; one must not remove those points when studying ramification.
+0287: 
+0288: Define
+0289: 
+0290: \[
+0291: \tau:(z,v,u)\mapsto(v,u,z),\qquad
+0292: \iota:(z,v,u)\mapsto(z,u,v).
+0293: \tag{22}
+0294: \]
+0295: 
+0296: These give rational automorphisms of the function field, hence automorphisms of the smooth projective curve. They preserve \(w\), satisfy
+0297: 
+0298: \[
+0299: \tau^3=\iota^2=1,\qquad \iota\tau\iota=\tau^{-1},
+0300: \tag{23}
+0301: \]
+0302: 
+0303: and generate the six-element Galois group. In quartic coordinates, \(\iota(z,\eta)=(z,-\eta)\); the action of \(\tau\) is explicit by (20)–(22): first recover \(v\) from (21), then set the new first coordinate to \(v\) and the new ordinate to \(2p(rv^2+s)u+(ps-qr)v\).
+0304: 
+0305: ### Why the 3-cycles really are translations
+0306: 
+0307: Inertia in this Galois cover has order two. Consequently an order-three element fixes no point of \(E\). This also follows from (22): a fixed ordering would require a triple root, absent on (5).
+0308: 
+0309: Every automorphism of a complex elliptic curve has the form \(T_R\circ a\), where \(a\) fixes the origin. If \(a\ne1\), then \(1-a\) is a nonzero isogeny and is surjective, so \(T_R\circ a\) has a fixed point. Therefore a fixed-point-free finite automorphism is a translation. It follows that
+0310: 
+0311: \[
+0312: \tau=T_P,\qquad 3P=O,\quad P\ne O.
+0313: \tag{24}
+0314: \]
+0315: 
+0316: Since \(\iota\) fixes the origin (9), it is \([-1]\). The six automorphisms are therefore exactly
+0317: 
+0318: \[
+0319: \boxed{1,T_P,T_{-P},[-1],T_P[-1],T_{-P}[-1].}
+0320: \tag{25}
+0321: \]
+0322: 
+0323: The last three are the transpositions. Their fixed points satisfy \(2R=kP\), for \(k=0,1,-1\), respectively; each has four fixed points. They are not all origin-fixing automorphisms. This proof uses the actual action and its lack of fixed points, rather than the abstract group name alone.
+0324: 
+0325: ### An explicit 3-torsion point
+0326: 
+0327: In the Weierstrass model (11), a generator is
+0328: 
+0329: \[
+0330: \boxed{P=\left(\frac{(V+3U)^2}{12},
+0331: -\frac{U(V-U)^2}{2}\right).}
+0332: \tag{26}
+0333: \]
+0334: 
+0335: The sign fixes the orientation of the cycle in (22); replacing it by its opposite chooses the other generator. In the normalized family,
+0336: 
+0337: \[
+0338: P_t=\left(\frac{(t+3)^2}{12},-\frac{(t-1)^2}{2}\right).
+0339: \]
+0340: 
+0341: Substitution proves that it lies on (11), and the tangent doubling formula gives \(2P=-P\). Its ordinate is nonzero on (5), so it is nontrivial of exact order three.
+0342: 
+0343: For an explicit link to the original incidence action, in (8) choose a critical point \(b\), so
+0344: 
+0345: \[
+0346: t=\frac{b^2(b^2+3)}{b^2-1},\qquad a=\frac{2b}{b^2-1}.
+0347: \]
+0348: 
+0349: The fiber has roots \((a,b,b)\), so \(O\) is represented by \((a,b)\) and \(\tau(O)\) by \((b,b)\). Formula (21) at the latter is \(Y=b(2b^2+3-t)\). Applying (10) yields exactly (26)'s normalized coordinates. Thus the torsion point in the Weierstrass model has been identified with the actual cyclic deck action.
+0350: 
+0351: ## 5. Reciprocity supplies an additional 2-torsion marking
+0352: 
+0353: Original reciprocity becomes \(z\mapsto-z\), \(w\mapsto-w\). Its simultaneous lift to the ordered incidence curve is
+0354: 
+0355: \[
+0356: \rho:(z,v,u)\mapsto(-z,-v,-u),
+0357: \qquad \rho(z,\eta)=(-z,-\eta).
+0358: \tag{27}
+0359: \]
+0360: 
+0361: It commutes with all root permutations, has order two, and is fixed-point-free: above \(z=0\) it swaps the two nonzero ordinates; at infinity it swaps the two points distinguished by \(\eta/z^2=\pm\sqrt\alpha\). Hence
+0362: 
+0363: \[
+0364: \boxed{\rho=T_Q,\qquad Q\in E[2]\setminus\{O\}.}
+0365: \tag{28}
+0366: \]
+0367: 
+0368: For the chosen origin, \(Q=(-a,0)\) in quartic coordinates and
+0369: 
+0370: \[
+0371: Q=(-\beta/6,0)
+0372: \]
+0373: 
+0374: in (11). The other lift covering the same source involution is \(\rho\iota=(-z,\eta)=T_Q[-1]\); it has fixed points. The simultaneous lift (27) is the one commuting with the entire \(S_3\)-action. This characterizes the extra marking without arbitrarily selecting a different 2-torsion point.
+0375: 
+0376: The translations \(\langle P,Q\rangle\) form a cyclic subgroup of order six. The transformations generated by them and inversion form \(S_3\times C_2\), of order twelve. Only the \(S_3\) subgroup fixes \(w\); \(\rho\) sends \(w\) to \(-w\). The original reciprocal involution remains an equivariance, not a deck transformation of the cubic map to its fixed target.
+0377: 
+0378: ## 6. Quotient tower and explicit 3-isogeny
+0379: 
+0380: Let \(H=\langle\iota\rangle\). Its invariant field is \(\mathbb C(z)\), so
+0381: 
+0382: \[
+0383: E/H\simeq\mathbb P^1_z\simeq\mathbb P^1_y.
+0384: \]
+0385: 
+0386: The degree-six quotient by \(S_3\) is the \(w\)-sphere, and the intermediate degree-three map is exactly (4). The three conjugate transposition subgroups fix, respectively, the first, second, or third root coordinate. Choosing one gives one of the three conjugate cubic subfields. At a generic target point, the three sheets can be described by the cosets of one such subgroup; the six points above them are full root orderings.
+0387: 
+0388: Now take the normal subgroup \(\langle\tau\rangle=C_3\). It acts freely, so its quotient \(E'=E/C_3\) has genus one by Riemann–Hurwitz. With \(O'=\phi(O)\), the quotient map is a degree-three isogeny with kernel \(\{O,P,-P\}\).
+0389: 
+0390: An explicit model and map are obtained from the cubic discriminant. Put
+0391: 
+0392: \[
+0393: \begin{aligned}
+0394: \mathcal B(w)&=-4r^3s w^4+(V^2+18UV-27U^2)w^2-4pq^3,\\
+0395: J_z&=prz^4+(3ps-qr)z^2+qs.
+0396: \end{aligned}
+0397: \]
+0398: 
+0399: Then
+0400: 
+0401: \[
+0402: \boxed{E':\chi^2=\mathcal B(w),\qquad
+0403: \phi(z,\eta)=\left(
+0404: \frac{z(pz^2+q)}{rz^2+s},
+0405: \frac{J_z\eta}{(rz^2+s)^2}\right).}
+0406: \tag{29}
+0407: \]
+0408: 
+0409: The identity \(\chi^2=\mathcal B(w(z))\) is checked directly. Its field-theoretic meaning is especially simple:
+0410: 
+0411: \[
+0412: \chi=p^2(z-v)(z-u)(v-u).
+0413: \tag{30}
+0414: \]
+0415: 
+0416: This Vandermonde expression is invariant under 3-cycles and changes sign under transpositions. Thus \(\mathbb C(w,\chi)\) is exactly the fixed field of \(C_3\), of degree two over \(\mathbb C(w)\), rather than a separately guessed elliptic model. The formula extends to the smooth projective curves, sends the selected origins to each other, and is therefore the asserted isogeny.
+0417: 
+0418: The full diagram is
+0419: 
+0420: \[
+0421: \begin{array}{ccc}
+0422: E&\xrightarrow{\quad\phi\ (3)\quad}&E'=E/C_3\\
+0423: \downarrow 2&&\downarrow 2\\
+0424: \mathbb P^1_z&\xrightarrow{\quad w(z)\ (3)\quad}&\mathbb P^1_w.
+0425: \end{array}
+0426: \tag{31}
+0427: \]
+0428: 
+0429: Both vertical arrows are Kummer quotients by inversion with the chosen origins. In particular
+0430: 
+0431: \[
+0432: E/S_3=(E/C_3)/\{\pm1\}\simeq\mathbb P^1.
+0433: \]
+0434: 
+0435: This exact diagram explains the original cubic while keeping its sphere source distinct from its elliptic Galois closure.
+0436: 
+0437: ## 7. Four branch values and the other Legendre parameter
+0438: 
+0439: Because the involution of \(E'\) is \((w,\chi)\mapsto(w,-\chi)=[-1]\), its four fixed points are precisely \(E'[2]\). Their images on the \(w\)-sphere are the four zeros of the homogeneous quartic \(\mathcal B\). These are exactly the cubic's four simple critical values. They are not, in general, the four branch points of the different degree-two map \(E\to\mathbb P^1_z\).
+0440: 
+0441: Write these target values as \(c,-c,d,-d\). After choosing an ordering, their cross-ratio can be taken as
+0442: 
+0443: \[
+0444: \boxed{m'=\left(\frac{d-c}{d+c}\right)^2.}
+0445: \tag{32}
+0446: \]
+0447: 
+0448: The same transformation as (17), with \(z,\eta,a,b\) replaced by \(w,\chi,c,d\), puts \(E'\) into Legendre form with parameter \(m'\). Thus it is the **3-isogenous quotient** whose Legendre parameter is furnished by the original four critical values.
+0449: 
+0450: In normalized coordinates, let \(L=t^2+18t-27\). The quotient quartic is
+0451: 
+0452: \[
+0453: \chi^2=-4w^4+Lw^2-4t^3.
+0454: \]
+0455: 
+0456: Up to root ordering and the six standard cross-ratio transforms,
+0457: 
+0458: \[
+0459: m'=\frac{L+8t^{3/2}}{L-8t^{3/2}},\qquad
+0460: m=\frac{M+8\sqrt t}{M-8\sqrt t}
+0461: \tag{33}
+0462: \]
+0463: 
+0464: for \(E'\) and \(E\), respectively. The signs of square roots account for permitted reorderings. These expressions are not asserted to be single-valued rational functions of \(t\). In both cases the invariant is
+0465: 
+0466: \[
+0467: j=256\frac{(1-m+m^2)^3}{m^2(1-m)^2}.
+0468: \]
+0469: 
+0470: The unordered four-point branch configuration determines \(j(E')\). It does not generically determine which cyclic 3-isogeny produced the cubic: that is additional finite covering data. Likewise a labeling of the four points is additional level-two data and is not silently built into \(h\).
+0471: 
+0472: ## 8. Precise modular interpretation and its proof
+0473: 
+0474: ### 8.1 The X₀(3) statement
+0475: 
+0476: Forgetting reciprocity leaves the datum \((E,\langle P\rangle)\), with the direction of the isogeny retained. A generic elliptic curve has four cyclic order-three subgroups, the four lines in \(E[3]\simeq\mathbb F_3^2\). Consequently the forgetful map \(X_0(3)\to X(1)\) has degree four.
+0477: 
+0478: Conversely, any complex elliptic curve with a cyclic order-three subgroup gives (31): quotient by that subgroup, then descend the isogeny through inversion. Its degree-three rational map has a genus-one \(S_3\) Galois closure. Choosing another transposition subgroup merely changes the intermediate source by an isomorphism. Thus this is the intrinsic moduli datum of the generic cubic cover under independent source and target Möbius transformations.
+0479: 
+0480: The quartic invariants of (29) give, directly,
+0481: 
+0482: \[
+0483: j(E')=\frac{(t+3)^3(t^3+225t^2-405t+243)^3}
+0484: {t^3(t-1)^2(t-9)^6}.
+0485: \tag{34}
+0486: \]
+0487: 
+0488: Substitution of (1) into (2) reproduces (14) and (34) exactly. The rational functions \(j_E(h),j_{E'}(h)\) generically determine \(h\): the symbolic gcd, in a second variable \(k\), of the two cleared equations \(j_E(k)=j_E(h)\), \(j_{E'}(k)=j_{E'}(h)\), is \(k-h\). This rules out an unnoticed generic identification of the oriented isogeny pair. The next subsection establishes that forgetting the extra 2-torsion has degree three, equal to the degree of \(t\mapsto h\). Hence \(h\) generates the function field of the selected \(X_0(3)\) moduli problem: it is a Hauptmodul.
+0489: 
+0490: These are the standard level-three modular formulas. Elkies gives the \((h+27)(h+243)^3/h^3\) convention and the duality \(h\mapsto729/h\); our source curve uses the dual orientation. This agreement is a literature identification, in addition to the independent construction above. [Elkies, §4, equation (80)](https://people.math.harvard.edu/~elkies/modular.pdf)
+0491: 
+0492: ### 8.2 Why the reciprocal object is X₀(6)
+0493: 
+0494: Retaining (27) retains \(Q\ne O\) in \(E[2]\), so the datum is
+0495: 
+0496: \[
+0497: (E,\langle P\rangle,Q)\quad\Longleftrightarrow\quad
+0498: (E,\langle P,Q\rangle),\qquad |\langle P,Q\rangle|=6.
+0499: \tag{35}
+0500: \]
+0501: 
+0502: This equivalence is exact: a cyclic group of order six has unique subgroups of orders two and three. Over a generic elliptic curve there are three choices for \(Q\); hence forgetting it has degree three.
+0503: 
+0504: For a converse, start with (35). Translation by \(Q\) commutes with both inversion and the order-three translations, so it descends to involutions on both spheres in (31). On the source Kummer sphere its two fixed points come from \(2R=Q\). The 3-isogeny is an isomorphism on 4-torsion, so it maps these two fixed points bijectively to the two fixed points of the target involution. Choose them as 0 and infinity on each sphere, with matching images. The descended cubic is then odd and has the form (4). This reconstructs the reciprocal marking from (35).
+0505: 
+0506: Independent coordinate scalings \(z\mapsto az\), \(w\mapsto bw\) reduce (4) to (8). The remaining simultaneous exchange of the two matched fixed points on both spheres also leaves \(qr/(ps)\) unchanged. Thus \(t\) is generically complete for this reciprocal marked object. The converse construction proves that its coarse parameter curve is \(X_0(6)\), not just a curve with a similar \(j\)-function.
+0507: 
+0508: Accordingly,
+0509: 
+0510: \[
+0511: \boxed{X_0(6)_t\xrightarrow{3}X_0(3)_h\xrightarrow{4}\mathbb P^1_j.}
+0512: \tag{36}
+0513: \]
+0514: 
+0515: These are coarse moduli statements. Individual root labels, fixed coordinate scales, differential normalizations, and field-of-definition descent are separate markings or arithmetic data. The two generator signs \(P,-P\) are exchanged by inversion; for orders three and six this does not add a generic coarse-moduli sheet. Rigid labeling of group elements can still retain an orientation. The explicit rational torsion point (26) in our Jacobian model is compatible with this statement; it does not turn the intrinsic subgroup into a universally chosen labeled sheet.
+0516: 
+0517: ### 8.3 Cusps and enhanced automorphisms
+0518: 
+0519: In the \(h\)-coordinate, the cusps are \(0\) and infinity. The source \(j\)-function has pole orders 1 and 3 there. Its distinguished finite fibers are
+0520: 
+0521: \[
+0522: \begin{aligned}
+0523: j=0 &: h=-27\ \text{(simple)},\quad h=-3\ \text{(triple)},\\
+0524: j-1728&=\frac{(h^2+18h-27)^2}{h}.
+0525: \end{aligned}
+0526: \tag{37}
+0527: \]
+0528: 
+0529: Thus the two points over 1728 are \(h=-9\pm6\sqrt3\), each with ramification two. The modular orbifold \(X_0(3)\) has one enhanced order-three elliptic point, at \(h=-27\), and no order-two elliptic point. At \(h=-3\), the bare elliptic curve also has \(j=0\), but its extra automorphisms do not preserve the selected cyclic subgroup; that point is instead triply ramified in the forgetful map.
+0530: 
+0531: The four \(t\)-cusps are \(0,1,9,\infty\), with source \(j\)-pole orders \(1,6,2,3\). Moreover
+0532: 
+0533: \[
+0534: \frac{dh}{dt}=\frac{(t-9)(t+3)^2}{(t-1)^3},\qquad
+0535: h+27=\frac{(t+3)^3}{(t-1)^2}.
+0536: \tag{38}
+0537: \]
+0538: 
+0539: Choosing nonzero 2-torsion removes the order-three stabilizer: the enhanced point lifts with ramification three at \(t=-3\). There is no elliptic stabilizer beyond the generic central \(\pm1\) on the level-six coarse problem. These enhanced automorphism points are smooth fibers, not the singular cubic-cover specializations in §9.
+0540: 
+0541: ## 9. Degenerations and the two kinds of genus-zero specialization
+0542: 
+0543: ### 9.1 Discriminant and modular boundary
+0544: 
+0545: Equations (12) and (14) factor the complete elliptic discriminant. The following table refers to the normalized one-parameter Jacobian model; its orders are read after the usual change of scale at infinity.
+0546: 
+0547: | t | h | Order of the elliptic discriminant | Meaning in coefficient space |
+0548: |---|---|---:|---|
+0549: | 0 | 0 | 1 | \(q=0\) or \(r=0\); their intersection requires separate analysis |
+0550: | 9 | 0 | 2 | \(qr=9ps\), cyclic degree-three locus |
+0551: | 1 | infinity | 6 | \(ps=qr\), cancellation |
+0552: | infinity | infinity | 3 | \(p=0\) or \(s=0\), cancellation in the original degree-three chart |
+0553: 
+0554: The suitably scaled \(c_4\) is nonzero at each of these four cusps. Thus the minimal Weierstrass fibers are nodal/multiplicative, not cuspidal. Resolving a minimal Weierstrass total space may introduce the familiar polygonal components; a contracted Weierstrass cubic and an uncontracted correspondence model need not display the same components. Higher-order or intersecting coefficient paths can change multiplicities. The direct correspondence fibers below give the relevant distinction without treating cancellation as a smooth elliptic cover.
+0555: 
+0556: ### 9.2 The cyclic surface qr = 9ps
+0557: 
+0558: On this locus, with degree three retained,
+0559: 
+0560: \[
+0561: \eta^2=-\frac{4p^2s}{r}(rz^2-3s)^2.
+0562: \tag{39}
+0563: \]
+0564: 
+0565: Over \(\mathbb C\) it is the union of two rational components, meeting at \(z=\pm\sqrt{3s/r}\). Both intersections are ordinary nodes. These components are the graphs of the two nonidentity cyclic deck transformations; the residual correspondence has split.
+0566: 
+0567: The target discriminant simultaneously becomes
+0568: 
+0569: \[
+0570: \mathcal B(w)=-4r^3s\left(w^2-\frac{27p^2s}{r^3}\right)^2.
+0571: \tag{40}
+0572: \]
+0573: 
+0574: The four simple branch values coalesce in pairs to two values. The specialized cubic is smooth as a rational map and has two totally ramified fibers, hence cyclic monodromy \(C_3\). Its connected Galois closure is a sphere. It is **not** the singular or reducible genus-one fiber (39). Formation of the generic connected closure and specialization do not commute in that naive sense.
+0575: 
+0576: This locus maps to \(t=9\), hence the \(h=0\) cusp. It must not be interpreted as a smooth special elliptic curve with extra automorphisms.
+0577: 
+0578: ### 9.3 The cyclic line q = r = 0
+0579: 
+0580: Here \(w=(p/s)z^3\) and the homogeneous quartic is
+0581: 
+0582: \[
+0583: \eta^2=-3p^2s^2 Z^2T^2.
+0584: \tag{41}
+0585: \]
+0586: 
+0587: It is again two rational components with two ordinary intersections, now above \(z=0,\infty\). The two components describe the two cyclic partners of \(z\). The target branch quartic has double zeros at \(w=0,\infty\).
+0588: 
+0589: This coefficient locus has \(t\to0\), but it is the **intersection** of the divisors \(q=0\) and \(r=0\). Along a path where both vanish simply, \(t\) vanishes to order two and \(\Delta_E\) has order two, rather than the transverse order one of a single divisor. The coordinate normalization (8) also becomes singular because it divides by \(r\). This explains why the original correspondence fiber is reducible although the normalized generic \(t=0\) model has an irreducible node. Modular boundary data alone forget this embedding-path distinction.
+0590: 
+0591: ### 9.4 Exactly one of q, r vanishes
+0592: 
+0593: For \(q=0,r\ne0\),
+0594: 
+0595: \[
+0596: \eta^2=-p^2s z^2(4rz^2+3s).
+0597: \tag{42}
+0598: \]
+0599: 
+0600: This is irreducible and nodal at \(z=0\); its normalization has genus zero. The two target branch values approaching \(w=0\) coalesce into a triple-ramification value of the cubic, while the other two remain simple. For \(r=0,q\ne0\), the analogous node and collision occur at infinity:
+0601: 
+0602: \[
+0603: \eta^2=-ps^2(3pz^2+4q),
+0604: \]
+0605: 
+0606: read as a homogeneous quartic with a double factor at infinity. Both specializations keep \(S_3\) monodromy and give ramification \((3,2,2)\). Their connected normalizations are still degree-six Galois covers, now from a sphere. They are boundaries of the same elliptic family with monodromy retained, unlike the split cyclic boundaries. Their Riemann–Hurwitz value is \(6[-2+2/3+1/2+1/2]=-2\).
+0607: 
+0608: ## 10. What survives from the three coefficients
+0609: 
+0610: The generic counts are precise:
+0611: 
+0612: | Data retained | Intrinsic parameter | Further information forgotten |
+0613: |---|---|---|
+0614: | Bare complex elliptic curve | \(j(E)\), one modulus | Four possible cyclic 3-subgroups and three possible nonzero 2-torsion points |
+0615: | Elliptic curve plus the cyclic 3-subgroup; equivalently the generic cubic up to independent source/target Möbius maps | \(h\in X_0(3)\), one modulus | The selected reciprocal 2-torsion; three generic possibilities |
+0616: | Same object with the original reciprocal equivariance | \(t\in X_0(6)\), one modulus | Original coordinate embedding and scales |
+0617: | Four unordered critical values up to target Möbius transformation | \(j(E')\), one modulus | Which of the four generic dual 3-isogeny choices supplied the cubic |
+0618: | Original \((A,B,C)\) expression | Three complex parameters | Nothing quotiented: two generic continuous parameters are embedding data |
+0619: 
+0620: The generic fibers of \((A,B,C)\mapsto t\) are two-dimensional. Surjectivity onto the generic \(t\)-line is explicit: one section is
+0621: 
+0622: \[
+0623: \boxed{A=\frac{t+3}{1-t},\quad B=1,\quad C=\frac{t-5}{1-t}.}
+0624: \tag{43}
+0625: \]
+0626: 
+0627: It has \(p=r=s=8/(1-t)\) and \(q=8t/(1-t)\). Under arbitrary source and target Möbius equivalence, \(h\), rather than \(t\), is the invariant. Under equivalence preserving the selected reciprocal involutions, \(t\) is the invariant. Reversing the isogeny replaces \(h\) by \(729/h\); that reverses an oriented datum and is not silently identified here.
+0628: 
+0629: Over \(\mathbb R\) there is more information. The normalization scale \(\sqrt{s/r}\) can be imaginary; the orders and real/complex placement of roots and branch values matter. Most importantly, the genus-one incidence curve need not have a real point. For example, at \(t=2\),
+0630: 
+0631: \[
+0632: Y^2=-4Z^4-11Z^2-8
+0633: \]
+0634: 
+0635: has no real affine points and no real points at infinity. The section (43) realizes it at real coefficients \((A,B,C)=(-5,1,3)\). Its Jacobian has a real Weierstrass origin, but the original real genus-one curve does not. The complex origin choice in §3 therefore must not be advertised as a real birational identification in all regimes.
+0636: 
+0637: Even when a real origin exists, twists and real embeddings are not fixed by complex \(j\). Retaining \(y=x^2\ge0\) restricts the original real source still further; a general Möbius equivalence does not preserve that domain. No number of physical degrees of freedom is assigned to these coefficients.
+0638: 
+0639: ## 11. Short comparison with the quadratic construction
+0640: 
+0641: For a separable degree-two rational map, the one other sheet is automatically a rational Möbius deck partner. Adjoining reciprocal equivariance yields the familiar quadratic \(V_4\) action, and further quotients/lifts can produce the previously studied elliptic closure.
+0642: 
+0643: For the generic cubic, the two other sheets cannot be chosen rationally over the original source. Their ordered incidence relation itself normalizes to genus one, and its six root orderings form the \(S_3\) closure. The 3-torsion translation subgroup is a consequence of this cubic closure, not a continuation of the quadratic deck involution.
+0644: 
+0645: No identification or isogeny with the earlier quadratic-tower Edwards curve has been tested or inferred. Writing both kinds of elliptic curve in a standard Edwards form is not such an identification.
+0646: 
+0647: ## 12. Tri-Octagon comparison gate: an exact finite incidence match
+0648: 
+0649: This subsection was undertaken only after the elliptic structure above was derived. It uses the already documented mathematical patches, not a presumed physical interpretation of “gaps.”
+0650: 
+0651: The existing [six-patch report, §2–§3.1](C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/research/GATE_TORUS_INVESTIGATION_v0.1/REPORT.md) defines three upper candidate notch triangles and their three lower mirrors. It explicitly distinguishes these measurement triangles from boundary components: the underlying shell has two connected rims. Its source formula, using a different symbol \(\ell\) for the triangle parameter to avoid the modular \(t\), is
+0652: 
+0653: \[
+0654: \mathcal P_j^\epsilon:
+0655: X=O+r(\ell)u_j+\omega v_j+\epsilon h(\ell)e_z,
+0656: \quad 0\le\ell\le1,\quad |\omega|\le d\ell/2,
+0657: \tag{44}
+0658: \]
+0659: 
+0660: where \(j\in\mathbb Z/3\), \(\epsilon=\pm1\),
+0661: 
+0662: \[
+0663: u_j=R_z(2\pi j/3)(0,1,0),\quad
+0664: v_j=R_z(2\pi j/3)(-1,0,0),
+0665: \]
+0666: 
+0667: \(O=(0,\sqrt3/6,0)\), \(d=1-\sqrt2/2\), \(r(\ell)=1/\sqrt3-\sqrt3d\ell/2\), and \(h(\ell)=(\sqrt2-1)/2+d\ell>0\).
+0668: 
+0669: On centered spatial coordinates define
+0670: 
+0671: \[
+0672: R=R_z(2\pi/3),\qquad S=\operatorname{diag}(-1,1,-1).
+0673: \tag{45}
+0674: \]
+0675: 
+0676: The second is a half-turn about the horizontal \(u_0\)-axis through \(O\), combining the documented vertical and horizontal reflections. These are actual rigid maps, not permutations invented solely from the count six. They satisfy
+0677: 
+0678: \[
+0679: R^3=S^2=1,\quad SRS=R^{-1},
+0680: \]
+0681: 
+0682: and act on the whole finite triangles by
+0683: 
+0684: \[
+0685: R:\mathcal P_j^\epsilon\mapsto\mathcal P_{j+1}^\epsilon,
+0686: \qquad
+0687: S:\mathcal P_j^\epsilon\mapsto\mathcal P_{-j}^{-\epsilon}.
+0688: \tag{46}
+0689: \]
+0690: 
+0691: For the second identity, \(Su_j=u_{-j}\), \(Sv_j=-v_{-j}\), and \(Se_z=-e_z\); it preserves the triangle inequalities by \(\omega\mapsto-\omega\). A nonidentity rotation fixes no label, and each involution swaps upper and lower. Thus the group acts freely and transitively on the six triangles: this is a regular \(S_3\)-set.
+0692: 
+0693: There is an explicit incidence-preserving bijection to the six ordered pairs of distinct elements of \(\mathbb Z/3\):
+0694: 
+0695: \[
+0696: \boxed{\Phi:\mathcal P_j^\epsilon\longmapsto(j,j+\epsilon).}
+0697: \tag{47}
+0698: \]
+0699: 
+0700: Here \(+1,-1\) are read modulo three. Under \(R\), both entries increase by one; under \(S\), both are negated. Hence (47) intertwines the actual geometric generators with the natural \(S_3\) permutation action on three symbols. Forgetting the second entry corresponds to forgetting upper/lower and retaining the vertical pair \(j\). Each such pair has an order-two stabilizer, and the three stabilizers are precisely the three transposition subgroups.
+0701: 
+0702: This matches the finite monodromy/incidence system of a regular cubic fiber: three sheet labels, six ordered sheet pairs, and the projection from an ordered pair to its first sheet. Technically, label permutation is the left regular monodromy action on root orderings; the deck transformations (22) permute positions and provide the commuting right regular action. These two standard actions must not be confused. The displayed identification concerns the former together with its three-point quotient.
+0703: 
+0704: **Classification: exact finite group-action/incidence equivalence, with chosen initial labels and orientation.** It is stronger than an equality of counts. It is not a canonical assignment of a particular patch to a particular analytic sheet: relabeling changes the chosen bijection. No map varying over the \(w\)-sphere, four branch values, elliptic modulus, ramification, complex structure, metric identification, or physical attachment is supplied by the shell data. The existence of this finite \(S_3\)-set is not unique to Tri-Octagon; many configurations share it.
+0705: 
+0706: The source also distinguishes its upper/lower swap from its cyclic rotation: these alone commute and generate \(C_3\times C_2\). The noncommuting involution required for \(S_3\) is specifically the half-turn \(S\), which reverses the pair index as well as swapping heights. Omitting that step would give the wrong group.
+0707: 
+0708: This exact finite match triggers the user's comparison stop condition. No broader shell/elliptic identification is attempted.
+0709: 
+0710: ## 13. Verification, sources, and integrity
+0711: 
+0712: `verify_cubic_elliptic.py` ran successfully with SymPy 1.14.0 and mpmath 1.3.0. Its **73 exact checks** cover the birational identities, quartic/elliptic discriminants, 3-torsion and doubling, root-incidence actions, explicit 3-isogeny, \(j\)-formulas, generic recovery of \(h\) from the oriented \(j\)-pair, degeneration factors, Riemann–Hurwitz arithmetic, and the exact finite-patch action and incidence bijection.
+0713: 
+0714: Three fixed complex points at \(t=17\) were also evaluated at 100 decimal digits. Maximum absolute residuals were approximately \(2.52\times10^{-95}\) for the Weierstrass transformation and \(4.09\times10^{-96}\) for the isogeny. These are supporting numerical checks, not proofs of algebraic equivalence. The topological and moduli arguments are given in prose above, not claimed to be machine-formalized.
+0715: 
+0716: The explicit modular formulas were checked against Elkies' primary exposition, §4, equation (80), with the source/quotient orientation recorded. Montgomery conventions were checked against the Explicit-Formulas Database. Neither source is being used to claim priority for this reconstruction, and no broad novelty search was performed. The Tri-Octagon comparison reads the existing mathematical report without importing or running kernel code.
+0717: 
+0718: All new files are external, in `C:/TORMENT/TRIOCTAGON_new/research/three_way_cubic_elliptic_20261005`. `verification_results.json` contains the symbolic and numerical records. `integrity_baseline.json` and `integrity_result.json` record preserved repository HEAD/status and **1,279 protected file identities**, including all tracked repository files and the completed reconstruction, kernel, and UI files present in the specified protected directories. Source identities are recorded in `source_manifest.json`; final deliverable hashes are in `artifact_manifest.json`.
+0719: 
+0720: No completed paper, repository file, kernel, UI, or historical report was modified. No commit, publication, or physical implementation was performed.
+0721: 
+0722: ## 14. Final dictionary
+0723: 
+0724: | Object | Exact meaning |
+0725: |---|---|
+0726: | **3 sheets** | Three source points in a regular fiber of the original degree-three rational map; equivalently the three cosets for a transposition subgroup. |
+0727: | **\(S_3\)** | The Galois group of the closure, acting by permutations of three roots; geometrically \(\langle T_P,[-1]\rangle\). |
+0728: | **6-element Galois fiber** | Six ordered pairs of distinct roots, equivalently six complete root orderings. Deck and monodromy supply commuting regular actions. |
+0729: | **\(C_3\) subgroup** | The free translations \(\{1,T_P,T_{-P}\}\); its quotient is the natural degree-three isogeny \(E\to E'\). |
+0730: | **\(C_2\) subgroups** | The three subgroups generated by \([-1],T_P[-1],T_{-P}[-1]\); their sphere quotients give conjugate degree-three intermediate covers. |
+0731: | **\(E_3\)** | The smooth complex genus-one normalization of the residual equal-value correspondence, made elliptic by choosing an origin; over smaller fields it may first be a torsor. |
+0732: | **4 branch values** | Images of \(E'[2]\) under the quotient \(E'\to\mathbb P^1_w\); their ordered cross-ratio is a Legendre parameter of the 3-isogenous quotient. |
+0733: | **Cyclic loci** | Specializations where the residual correspondence splits and the smooth cubic becomes a cyclic rational cover; singular elliptic-boundary fibers are distinct from its specialized connected closure. |
+0734: | **Original reciprocal involution** | An equivariance \(z\mapsto-z,w\mapsto-w\); its simultaneous lift is translation by the distinguished nonzero \(Q\in E[2]\). |
+0735: | **\(h\)** | Hauptmodul for \((E,\langle P\rangle)\in X_0(3)\), after forgetting the reciprocal 2-torsion marking. |
+0736: | **\(t\)** | Hauptmodul for \((E,\langle P\rangle,Q)\in X_0(6)\); two continuous original coefficient parameters remain coordinate-embedding data. |
+0737: | **Tri-Octagon 3/6 match** | An explicitly verified equivalence of the six candidate-patch \(S_3\)-set and its three-pair quotient with the finite cubic sheet-incidence system; no elliptic or branched-cover identification follows. |

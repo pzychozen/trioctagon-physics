@@ -1,0 +1,179 @@
+0001: """Fixed November SRG and an explicit raw initialization handoff.
+0002: 
+0003: This linear transfer initializes, and does not reproduce, Paper-A evolution.
+0004: B is unitary/normal, so a right eigenvector supplies the required eigenbra.
+0005: Numerical cancellation in extraction is not an exact orthogonality certificate.
+0006: """
+0007: from dataclasses import dataclass
+0008: import math
+0009: import numbers
+0010: 
+0011: import numpy as np
+0012: 
+0013: from ._response_numeric import (ResponsePrecisionError, bra_dot, checked_real,
+0014:                                complex_product, complex_vector, product, scale_complex)
+0015: from .boundary_response import RESPONSE_ID, _theta, lens_area_gain
+0016: 
+0017: GAUGE_ID = "spectral_projector_maxdiag_positive_v1"
+0018: 
+0019: 
+0020: @dataclass(frozen=True, slots=True)
+0021: class NovemberParameters:
+0022:     eta: float = .423
+0023:     gamma: float = .577
+0024:     lambda_c: float = .618
+0025:     clock_fraction: float = .244
+0026: 
+0027: 
+0028: NOVEMBER = NovemberParameters()
+0029: 
+0030: 
+0031: @dataclass(frozen=True, slots=True)
+0032: class SRGOperators:
+0033:     R: np.ndarray
+0034:     Z: np.ndarray
+0035:     C: np.ndarray
+0036:     A: np.ndarray
+0037:     B: np.ndarray
+0038:     U: np.ndarray
+0039: 
+0040: 
+0041: @dataclass(frozen=True, slots=True)
+0042: class HelicityMode:
+0043:     branch: str
+0044:     eigenvalue: complex
+0045:     chi: np.ndarray
+0046:     pivot: int
+0047:     gauge: str = GAUGE_ID
+0048: 
+0049: 
+0050: def fourier_basis():
+0051:     """Columns f0,f1,f2; f1=(1,conjugate(omega),omega)/sqrt(3)."""
+0052:     w = complex(-.5, math.sqrt(3)/2)
+0053:     return np.array([[1, 1, 1], [1, w.conjugate(), w],
+0054:                      [1, w, w.conjugate()]], complex)/math.sqrt(3)
+0055: 
+0056: 
+0057: def fixed_november_srg():
+0058:     """Fresh read-only fixed operators, U=B tensor (R Z C); copy to experiment."""
+0059:     f0 = fourier_basis()[:, 0]
+0060:     p = np.outer(f0, f0.conj())
+0061:     q, r, c = math.exp(-NOVEMBER.eta), math.exp(NOVEMBER.gamma), 1-NOVEMBER.lambda_c
+0062:     R = q*np.eye(3)+(r-q)*p
+0063:     C = c*np.eye(3)+(1-c)*p
+0064:     Z = np.diag([1, complex(-.5, -math.sqrt(3)/2), complex(-.5, math.sqrt(3)/2)])
+0065:     A = R@Z@C
+0066:     alpha, beta = 2*math.pi*NOVEMBER.clock_fraction, math.pi*NOVEMBER.clock_fraction
+0067:     B = np.diag([np.exp(-1j*alpha), np.exp(1j*alpha)]) @ np.array(
+0068:         [[math.cos(beta), -1j*math.sin(beta)], [-1j*math.sin(beta), math.cos(beta)]])
+0069:     U = np.kron(B, A)
+0070:     for operator in (R, Z, C, A, B, U):
+0071:         operator.setflags(write=False)
+0072:     return SRGOperators(R, Z, C, A, B, U)
+0073: 
+0074: 
+0075: def helicity_mode(branch):
+0076:     """Named eigenvalue and spectral-projector positive-pivot gauge; no eig()."""
+0077:     if not isinstance(branch, str) or branch not in ("negative_imag", "positive_imag"):
+0078:         raise ValueError("branch must be negative_imag or positive_imag")
+0079:     alpha, beta = 2*math.pi*NOVEMBER.clock_fraction, math.pi*NOVEMBER.clock_fraction
+0080:     tau = math.cos(alpha)*math.cos(beta)
+0081:     sign = -1 if branch == "negative_imag" else 1
+0082:     eigenvalue = complex(tau, sign*math.sqrt(1-tau*tau))
+0083:     other = eigenvalue.conjugate()
+0084:     B = fixed_november_srg().B
+0085:     projector = (B-other*np.eye(2))/(eigenvalue-other)
+0086:     pivot = int(np.argmax(projector.diagonal().real))  # first index on an exact tie
+0087:     chi = projector[:, pivot]/math.sqrt(projector[pivot, pivot].real)
+0088:     # This diagonal is real analytically; canonicalize its signed imaginary zero.
+0089:     chi[pivot] = complex(chi[pivot].real, 0)
+0090:     if (np.linalg.norm(B@chi-eigenvalue*chi) > 2e-14
+0091:             or abs(np.vdot(chi, chi).real-1) > 2e-14):
+0092:         raise ResponsePrecisionError("fixed helicity construction failed residual checks")
+0093:     chi.setflags(write=False)
+0094:     return HelicityMode(branch, eigenvalue, chi, pivot)
+0095: 
+0096: 
+0097: def project_bra(psi, bra):
+0098:     """Generic (bra-dagger tensor I3) projection; NO H1 or unit-norm promise.
+0099: 
+0100:     No overlap threshold is used. Checked products and compensated sums do not
+0101:     certify relative accuracy near cancellation; a computed zero can be rounded.
+0102:     """
+0103:     state = complex_vector(psi, 6, "psi").reshape(2, 3)
+0104:     h = complex_vector(bra, 2, "bra")
+0105:     return np.array([bra_dot(h, state[:, j], "bra projection") for j in range(3)])
+0106: 
+0107: 
+0108: def extract_helicity(psi, branch):
+0109:     """H1 extraction using only a named fixed-B eigenmode, on the full input space."""
+0110:     mode = helicity_mode(branch)
+0111:     return project_bra(psi, mode.chi)
+0112: 
+0113: 
+0114: def _transfer_count(value):
+0115:     if isinstance(value, (bool, np.bool_)) or not isinstance(value, numbers.Integral):
+0116:         raise TypeError("transfer_count must be a nonnegative integer, not a boolean")
+0117:     if value < 0:
+0118:         raise ValueError("transfer_count must be nonnegative")
+0119:     return int(value)
+0120: 
+0121: 
+0122: def _cycle_gain(n):
+0123:     q, r, c = math.exp(-NOVEMBER.eta), math.exp(NOVEMBER.gamma), 1-NOVEMBER.lambda_c
+0124:     D = r*q*q*c*c
+0125:     m, j = divmod(n, 3)
+0126:     try:
+0127:         cycles = checked_real(D**m, "SRG cycle gain", nonzero=True)
+0128:     except OverflowError as exc:
+0129:         raise ResponsePrecisionError("transfer count exceeds normal cycle-gain range") from exc
+0130:     return product(cycles, (1, q, q*q*c)[j], "SRG cycle gain"), j
+0131: 
+0132: 
+0133: @dataclass(frozen=True, slots=True)
+0134: class HandoffResult:
+0135:     omega: np.ndarray
+0136:     theta: float
+0137:     xi: tuple[complex, complex]
+0138:     transfer_count: int
+0139:     branch: str
+0140: 
+0141:     def metadata(self):
+0142:         """JSON-ready initialization receipt; caller records downstream config too."""
+0143:         return {"response_id": RESPONSE_ID, "source_id": "november_fixed_srg",
+0144:                 "source_parameters": {"eta": NOVEMBER.eta, "gamma": NOVEMBER.gamma,
+0145:                                       "lambda_c": NOVEMBER.lambda_c,
+0146:                                       "clock_fraction": NOVEMBER.clock_fraction,
+0147:                                       "alpha": "2*pi*0.244", "beta": "pi*0.244"},
+0148:                 "tensor_order": "helicity_major_C2_tensor_C3", "branch": self.branch,
+0149:                 "gauge": GAUGE_ID, "theta": self.theta,
+0150:                 "xi": [[z.real, z.imag] for z in self.xi],
+0151:                 "transfer_count": self.transfer_count, "normalization": "none"}
+0152: 
+0153: 
+0154: def handoff_area_response(theta, xi, *, transfer_count, branch, response):
+0155:     """Explicit option -> raw initial triad via the reviewed scalar/cycle formula.
+0156: 
+0157:     n=0 means no SRG application. This is not a downstream recurrence counter.
+0158:     Nonzero subnormal intermediate products/gains are outside the numerical
+0159:     domain even when some differently scaled evaluation could remain finite.
+0160:     """
+0161:     if not isinstance(response, str) or response != RESPONSE_ID:
+0162:         raise ValueError(f"response must explicitly select {RESPONSE_ID}")
+0163:     t = _theta(theta)
+0164:     incident = complex_vector(xi, 2, "xi")
+0165:     n = _transfer_count(transfer_count)
+0166:     mode = helicity_mode(branch)
+0167:     result = np.zeros(3, dtype=np.complex128)
+0168:     if t != 0 and np.any(incident != 0):
+0169:         overlap = bra_dot(mode.chi, incident, "incident overlap")
+0170:         if overlap != 0:  # literal calculated zero only, never a tolerance
+0171:             gain = lens_area_gain(t)
+0172:             bn, j = _cycle_gain(n)
+0173:             amplitude = scale_complex(gain, overlap, "boundary overlap amplitude")
+0174:             amplitude = scale_complex(bn, amplitude, "transferred amplitude")
+0175:             amplitude = complex_product(amplitude, complex(mode.eigenvalue**n), "helicity phase")
+0176:             result = np.array([complex_product(amplitude, complex(z), "initial component")
+0177:                                for z in fourier_basis()[:, j]])
+0178:     result.setflags(write=False)
+0179:     return HandoffResult(result, t, tuple(complex(z) for z in incident), n, branch)

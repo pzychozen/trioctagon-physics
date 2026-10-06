@@ -51,6 +51,17 @@ Paper G has a separate [author publication disposition](papers/PAPER_G/repositor
 Its approved v0.1.1 PDF/source retain their review labels and exact bytes;
 that later disposition authorizes repository publication without changing the science.
 
+## Standalone Three-Way research
+
+**NOT IMPLEMENTED RESEARCH — standalone mathematical research; no `kernel_physics`
+authority or runtime dependency.** Three-Way is not implemented in the physics kernel.
+
+- [Paper I — reconstruction v0.1](papers/three_way_reconstruction/README.md): [PDF](papers/three_way_reconstruction/output/pdf/three_way_reconstruction_v0.1.pdf), sources, provenance and retained validation.
+- [Paper II — reciprocal hierarchy v0.1](papers/three_way_reciprocal_hierarchy/README.md): [PDF](papers/three_way_reciprocal_hierarchy/output/pdf/three_way_reciprocal_hierarchy_v0.1.pdf), sources, provenance and retained validation. **FINITE `S_3` BRIDGE ONLY.**
+
+The two research lanes remain separate. **`THREE_WAY_RESEARCH = PARKED`**
+(6 October 2026 repository checkpoint).
+
 ## Licensing and reuse
 
 **Apache-2.0 applies to the approved software scope** described by the root

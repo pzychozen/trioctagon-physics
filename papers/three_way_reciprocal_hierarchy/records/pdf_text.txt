@@ -1,0 +1,1137 @@
+The Three-Way Reciprocal Hierarchy
+From Quadratic Involutions to Elliptic Correspondences
+and Symmetric Galois Closures
+Mathematical continuation prepared for Hilmir F. Halldórsson
+with Codex assistance
+Paper II / Version 0.1 / 5 October 2026
+Abstract. We extend the reconstructed Three-Way coeﬀicient-reversal formula to
+𝐹𝑛(𝑦) = 𝑃𝑛(𝑦)/[𝑦𝑛𝑃𝑛(1/𝑦)]. For every degree 𝑛 ≥ 2, we prove that a nonempty Zariski-
+open subset has symmetric monodromy 𝑆𝑛 and Galois-closure genus 1 + 𝑛!
+2 (𝑛 − 3), over
+the unchanged target of 𝐹𝑛. The generic genera in degrees two, three, and four are there-
+fore 0, 1, 13. Degree two is exceptional because its unique other sheet is a Möbius deck
+partner. For the cubic, the two other sheets form an irreducible quadratic correspon-
+dence whose normalization is elliptic. Its 𝑆3 action consists of translations by 3-torsion
+and translated inversions, and its alternating quotient is an explicit 3-isogeny. Forget-
+ting reciprocal marking gives 𝑋0(3); retaining the distinguished nonzero 2-torsion gives
+𝑋0(6). We derive coordinates, modular invariants, and the cubic degeneration strata,
+then record a bounded quartic checkpoint. A final comparison preserves an exact finite
+𝑆3-incidence correspondence with six existing Tri-Octagon measurement patches. The
+inspected shell, scaffold, and response definitions supply no independently justified
+continuous modular identification. The comparison ends at the finite correspondence.
+Status. Novelty-neutral mathematical draft. Standard covering, elliptic, and modular theory is
+distinguished from explicit family calculations and the project-specific comparison. No physics
+interpretation, submission, or publication is implied. Attribution and publication metadata re-
+main subject to author review. Paper I and the source research reports are preserved unchanged.
+Three-Way reciprocal hierarchy Paper II / v0.1
+Contents
+1 The hierarchy and the cover being studied 1
+1.1 Reduction precedes locks and special values . . . . . . . . . . . . . . . . . . . . . . . . . 1
+1.2 Parity and the fixed-value fibers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2
+1.3 Critical pairing and Cayley oddness . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+2 Generic symmetric monodromy and closure genus 3
+2.1 A construction proving the generic locus is nonempty . . . . . . . . . . . . . . . . . . . . 4
+2.2 Monodromy , partners, and genus . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+2.3 Why the quadratic member is exceptional . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+3 The cubic equal-value correspondence 6
+3.1 Exact factorization in the original source . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+3.2 Odd coordinates and the discriminant curve . . . . . . . . . . . . . . . . . . . . . . . . . 7
+3.3 Critical points and branch values . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+3.4 Six root orderings and the elliptic action . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+4 Elliptic equations, isogeny, and marked moduli 9
+4.1 An explicit Weierstrass model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+4.2 Reciprocity selects nonzero 2-torsion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+4.3 The alternating quotient is a 3-isogeny . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+4.4 Normalization and the modular functions . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+4.5 Why the two marked modular curves classify the cubic . . . . . . . . . . . . . . . . . . . 11
+4.6 Four critical values and their cross-ratio . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+5 Exceptional cubic strata and the quartic checkpoint 13
+5.1 Complete cubic ramification classification . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+5.2 Cancellation and singular limits are different operations . . . . . . . . . . . . . . . . . . . 14
+5.3 The four modular boundary points . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+5.4 Quartic checkpoint . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+5.5 The squaring lift and real plots . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+6 Final bounded Tri-Octagon bridge test 17
+6.1 The exact finite correspondence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+6.2 What would constitute a continuous bridge? . . . . . . . . . . . . . . . . . . . . . . . . . 18
+6.3 Audit of independently defined continuous quantities . . . . . . . . . . . . . . . . . . . . 19
+6.4 Bridge classification and endpoint . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+7 Closeout 21
+A Verification, evidence classes, and reproducibility 22
+A.1 Evidence hierarchy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+A.2 Exact suites and numerical witnesses . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+A.3 Exact source map for the final bridge . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+A.4 Bundle and build contract . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+References 25
+i
+Three-Way reciprocal hierarchy Paper II / v0.1
+1 The hierarchy and the cover being studied
+Paper I reconstructs the historical quadratic Three-Way formula, its reciprocal quotient, and
+its additional squaring cover [ 1]. The present paper asks a different mathematical question:
+what survives when coeﬀicient reversal is extended to arbitrary degree? We begin with
+𝑃𝑛(𝑦) = 𝑎0𝑦𝑛 −
+𝑛−1
+∑
+𝑗=1
+𝑎𝑗𝑦𝑛−𝑗 + 1, 𝑄 𝑛(𝑦) = 𝑦𝑛𝑃𝑛(1/𝑦), 𝐹 𝑛 = 𝑃𝑛/𝑄𝑛. (1.1)
+The coeﬀicients range over ℂ; the minus signs impose no positivity condition. All covers are
+reduced rational maps between smooth projective curves, in characteristic zero. “Generic”
+means a nonempty Zariski-open subset of the indicated coeﬀicient space. A real coeﬀicient or
+real plotting statement will be identified explicitly.
+Throughout the main theorem, the base field is ℂ(𝑣), with 𝑣 = 𝐹 𝑛(𝑦). The Galois closure
+is the smooth connected curve with the splitting field of the generic fiber polynomial as its
+function field. Its degree is the order of the monodromy group. Neither target inversion nor
+the substitution 𝑦 = 𝑥2 is incorporated into that extension unless explicitly stated.
+This convention resolves a potentially misleading comparison. The degree-two cover 𝐹2
+is already Galois and has sphere source, so its own closure has genus zero. The Edwards
+genus-one curve of Paper I belongs to the larger degree-eight quotient/lift tower studied there.
+Changing the base quotient or adding a source cover changes the function-field extension. The
+two genus statements are compatible, and no identification of their elliptic curves is asserted.
+The results here assemble two external exact-analysis reports [ 2, 3]. The basic species is
+standard: after Cayley coordinates these are odd rational functions, an order-two instance
+of the normal form for maps commuting with a rotation [ 4, §2.1, Lemma 2]. A commuting
+automorphism in that dynamical usage need not fix the value of the map. We reserve deck
+transformation for a source automorphism that fixes the target pointwise. General low-genus
+Galois closures of rational maps are also established territory [ 5, §2 and Theorems 1.1–1.2].
+Our purpose is an explicit, verified account of this coeﬀicient chart, without a priority claim.
+1.1 Reduction precedes locks and special values
+Write 𝑃 = 𝑃𝑛, 𝑄 = 𝑄𝑛, 𝐺 = gcd(𝑃, 𝑄)monic, and
+𝑁 = 𝑃/𝐺, 𝐷 = 𝑄/𝐺, 𝐹 = 𝑁/𝐷. (1.2)
+Since 𝑃(0) = 1and 𝑄 is monic of degree 𝑛, no common zero occurs at zero or infinity. For a
+nonconstant map,
+deg 𝐹 = 𝑛 − deg 𝐺. (1.3)
+In particular, 𝑎0 = 0 need not lower the map degree. The displayed unreduced fraction still has
+holes at common zeros, even though its reduced rational continuation is defined projectively
+there.
+Proposition 1.1 (Reciprocal divisors) For every coeﬀicient choice, as a rational identity,
+𝐹(1/𝑦) = 1/𝐹(𝑦). (1.4)
+For a nonconstant map and 𝑅(𝑦) = 1/𝑦,
+ord𝑅(𝑎)𝐹 = − ord𝑎 𝐹. (1.5)
+Thus surviving zeros and poles pair reciprocally with equal multiplicity, including zero and infinity.
+Common factors occur in reciprocal pairs, except at the fixed points ±1.
+1
+Three-Way reciprocal hierarchy Paper II / v0.1
+Proof. Reversal twice gives𝑄∗ = 𝑃. Hence 𝑃(1/𝑦)/𝑄(1/𝑦) = 𝑄(𝑦)/𝑃(𝑦); this remains true after
+reduction. Taking local orders proves the divisor statement. A common root and its reciprocal
+have common multiplicities interchanged by reversal. □
+For 𝑎0 ≠ 0, write 𝑃 = 𝑎0 ∏𝑖(𝑦 − 𝑟𝑖). Then 𝑄 = 𝑎0 ∏𝑖(1 − 𝑟𝑖𝑦), and
+Res(𝑃, 𝑄) = 𝑎2𝑛
+0 ∏
+𝑖,𝑗
+(1 − 𝑟𝑖𝑟𝑗)
+= (−1)𝑛𝑎2𝑛−2
+0 𝑃(1)𝑃(−1)∏
+𝑖<𝑗
+(1 − 𝑟𝑖𝑟𝑗)2. (1.6)
+Cancellation is therefore equivalent to a reciprocal root pair, allowing a repeated index at
+𝑟𝑖 = ±1. At 𝑎0 = 0, use the polynomial resultant or the gcd instead of this degree- 𝑛 root pa-
+rameterization. Repeated surviving zeros are ramified points over zero; their reciprocal poles
+have the same multiplicities. A double zero alone is simple ramification and does not force a
+drop in generic monodromy.
+1.2 Parity and the fixed-value fibers
+The correct homogeneous fiber equations are
+𝐹 = 1 ∶ 𝑁 − 𝐷 = 0, 𝐹 = −1 ∶ 𝑁 + 𝐷 = 0. (1.7)
+Equivalently divide 𝑃 − 𝑄and 𝑃 + 𝑄by 𝐺 first. Projective interpretation includes infinity; at a
+finite solution the reduced denominator must be nonzero. The equation 𝐹 = 1/𝐹 is exactly the
+union of these two fibers, since neither zero nor infinity is fixed by target inversion.
+The form 𝑃 − 𝑄 is anti-reciprocal and 𝑃 + 𝑄 is reciprocal. Their forced factors are
+Parity 𝑃 − 𝑄 𝑃 + 𝑄
+Even 𝑛 (𝑦 − 1)(𝑦 + 1)no forced linear factor
+Odd 𝑛 𝑦 − 1 𝑦 + 1
+Consequently an uncanceled fraction has
+𝐹(1) = 1, 𝐹(−1) = (−1) 𝑛. (1.8)
+There is a precise correction at a canceled fixed point.
+Proposition 1.2 (Lock continuation) If 𝑃 vanishes to order 𝑚 at 𝜖 ∈ {1, −1}, its reduced continu-
+ation satisfies
+𝐹(𝜖) = 𝜖𝑛(−1)𝑚. (1.9)
+Proof. Put 𝑦 = 𝜖 +ℎ. Since 1/𝑦−𝜖 = −ℎ+𝑂(ℎ2), reversal multiplies the leading local coeﬀicient
+by 𝜖𝑛(−1)𝑚. Dividing gives the stated value. □
+Thus odd-order cancellation flips a lock. For example, at (𝐴, 𝐵) = (2, 3), 𝐹2 reduces to (2𝑦 −
+1)/(𝑦 − 2), whose value at 𝑦 = 1 is −1. The original fraction has a hole there.
+For 𝑎0 ≠ 0, 𝐹(0) = 1/𝑎0 and 𝐹(∞) = 𝑎0. If 𝑎0 = 0 and 𝑑𝑃 = deg 𝑃 < 𝑛, zero is a pole and
+infinity a zero, both of order 𝑛 − 𝑑𝑃. Finally the only constant maps are +1 and −1. They occur
+respectively when
+𝑎0 = 1, 𝑎 𝑗 = 𝑎𝑛−𝑗,
+𝑎0 = −1, 𝑎 𝑗 = −𝑎𝑛−𝑗. (1.10)
+For even 𝑛, the second condition forces the middle coeﬀicient to vanish. These statements
+follow by reversing 𝑃 = 𝑐𝑄, which forces 𝑐2 = 1.
+2
+Three-Way reciprocal hierarchy Paper II / v0.1
+1.3 Critical pairing and Cayley oddness
+The reduced critical divisor is obtained by homogenizing
+𝑊red = 𝑁 ′𝐷 − 𝑁𝐷 ′, 𝑃 ′𝑄 − 𝑃𝑄′ = 𝐺 2𝑊red (1.11)
+to degree 2deg 𝐹 − 2. This includes ramified poles and infinity. A zero of order 𝑚 in the divisor
+has local degree 𝑚 + 1. Direct differentiation of reversal gives
+𝑊(1/𝑦) = 𝑦2−2𝑛𝑊(𝑦), 𝑊 = 𝑃 ′𝑄 − 𝑃𝑄′. (1.12)
+Hence critical points and values pair as (𝑐, 𝐹(𝑐)) ↔ (1/𝑐, 1/𝐹(𝑐)).
+Let
+𝒞(𝑦) =𝑦 − 1
+𝑦 + 1, 𝑧 = 𝒞(𝑦), 𝐻 = 𝒞 ∘ 𝐹 ∘ 𝒞 −1. (1.13)
+Then 𝒞(1/𝑦) = −𝒞(𝑦), so
+𝐻(−𝑧) = −𝐻(𝑧), 𝐻(𝑧) = 𝑧Ψ(𝑧2), Ψ ∈ ℂ(𝑇). (1.14)
+Here 𝑇 is an independent variable: 𝐻(𝑧)/𝑧belongs to the fixed field ℂ(𝑧2), so Ψ is a rational
+function evaluated at 𝑧2. The generic forms in the uncanceled coeﬀicient chart are
+𝑛 = 2𝑚 + 1 ∶ 𝐻(𝑧) = 𝑧𝑈𝑚(𝑧2)/𝑉𝑚(𝑧2),
+𝑛 = 2𝑚 ∶ 𝐻(𝑧) = 𝑧𝑈 𝑚−1(𝑧2)/𝑉𝑚(𝑧2). (1.15)
+The leading and constant coeﬀicients displayed here are generically nonzero. The odd-degree
+component fixes zero and infinity; the even-degree component sends both to zero. Cancella-
+tion may change component and degree.
+At a source fixed point of reciprocity the target must also be fixed by inversion. In local
+coordinates that turn both involutions into sign change, the map is odd. Its local degree is
+therefore odd. In particular 𝑦 = ±1 cannot be simple critical points, although local degree
+three or higher is possible exceptionally.
+For real coeﬀicients, conjugation and reciprocity imply |𝐹(𝑦)| = 1on |𝑦| = 1 , wherever the
+raw fraction is defined. A surviving zero or pole cannot lie on that circle: conjugation preserves
+its divisor sign while inversion reverses it. The reduced nonconstant map therefore extends
+across raw holes on the circle with unit-modulus values. This unit-circle statement concerns a
+complex source contour, not the real plotting interval 𝑦 ≥ 0.
+2 Generic symmetric monodromy and closure genus
+Theorem 2.1 For every 𝑛 ≥ 2, the family (1.1) contains a nonempty Zariski-open subset of degree- 𝑛
+maps with 2𝑛 − 2simple critical points and distinct critical values. On this subset,
+Mon(𝐹𝑛) = 𝑆𝑛, 𝑔( ̃𝐹𝑛) = 1 + 𝑛!
+2 (𝑛 − 3). (2.1)
+For 𝑛 ≥ 3, the deck group is trivial and the residual equal-value correspondence has degree 𝑛 − 1 over
+ℂ(𝑦)and is irreducible. These statements concern the unchanged target 𝑣 = 𝐹 𝑛(𝑦).
+3
+Three-Way reciprocal hierarchy Paper II / v0.1
+2.1 A construction proving the generic locus is nonempty
+It is not enough to invoke generic rational maps: coeﬀicient reversal imposes a constraint, and
+one must show that this constraint does not force repeated branch values. The following con-
+struction does so inside the odd coordinate chart.
+Start with 𝐻1(𝑧) = 𝑧for odd degrees and 𝐻2(𝑧) = 𝑧/(𝑧2 + 1)for even degrees. The first
+has no critical points; the second has simple critical points ±1, with values ±1/2. Both are
+unramified at zero and infinity. Their finite poles, if any , are simple, and their asymptotic
+behavior is respectively 𝑐𝑧 and 𝑐/𝑧, with 𝑐 ≠ 0.
+Suppose 𝐻𝑑 has these properties, with all critical points simple and all critical values dis-
+tinct. Choose a finite 𝑏 ≠ 0 such that ±𝑏 are neither poles nor critical points and 𝐻𝑑(𝑏)is
+finite, nonzero, and different from every old critical value and its negative. Only finitely many
+choices are forbidden. For small 𝜀 ≠ 0, define
+𝐻𝑑+2(𝑧) = 𝐻𝑑(𝑧) + 𝜀 𝑧
+𝑧2 − 𝑏2 . (2.2)
+It remains odd, adds simple poles at ±𝑏, and has degree 𝑑+2. The old poles keep their nonzero
+residues. The numerator cannot cancel a new pole because its residue is 𝜀/2. The behavior at
+infinity retains its type and its nonzero leading coeﬀicient for suﬀiciently small 𝜀.
+Write 𝑎 = 𝐻 ′
+𝑑(𝑏) ≠ 0and 𝑧 = 𝑏 + 𝜉 . The new pole contributes 𝜀/(2𝜉 ) + 𝑂(𝜀). Solving the
+derivative equation by a local square-root expansion gives two new critical points and their
+values:
+𝑧 = 𝑏 ± √𝜀/(2𝑎) + 𝑂(𝜀),
+𝐻𝑑+2(𝑧) = 𝐻𝑑(𝑏) ±√2𝜀𝑎 + 𝑂(𝜀). (2.3)
+For a rigorous local parameter, put 𝜀 = 𝑡 2
+0 and 𝜉 = 𝑡 0𝜁 ; after multiplication by 𝜁 2, the limiting
+derivative equation has two simple roots 𝜁 = ±(2𝑎)−1/2. The implicit-function theorem gives
+the displayed branches. Their critical points are simple. Oddness supplies the two opposite
+branches near −𝑏. Since 𝐻𝑑(𝑏) ≠ 0, these four values are distinct for suﬀiciently small nonzero
+𝑡0 and avoid the old values.
+Old simple critical points persist by the same theorem. Nonzero local linear coeﬀicients
+at zero and infinity persist. We have exhibited (2𝑑 − 2) + 4 = 2(𝑑 + 2) − 2simple critical
+points. Riemann–Hurwitz leaves no additional ramification. Induction therefore constructs
+the required odd maps in every degree.
+T o return to the precise coeﬀicient chart, conjugate by𝒞 −1. A generic nonzero target scaling
+of 𝐻 avoids the condition that the resulting numerator vanish at 𝑦 = 0 ; it preserves oddness
+and branch simplicity. Reciprocity makes the resulting homogeneous numerator and reversed
+denominator proportional. At 𝑦 = 1, the value is +1, with no cancellation, so the proportional-
+ity sign is +1. Scaling the pair to make the numerator constant term one gives 𝑄 = 𝑃∗ exactly.
+The parity types in ( 1.15) give the required degree and value at −1. Thus these are witnesses
+in (1.1), not in an unrelated larger family.
+Coprimeness, simple critical divisor, and distinct critical values are open algebraic condi-
+tions: their failures are detected by homogeneous resultants and discriminants. The coeﬀicient
+space ℂ𝑛 is irreducible. Existence of a witness in each degree consequently proves that the de-
+sired locus is nonempty and Zariski open.
+2.2 Monodromy, partners, and genus
+At a simple branch value precisely one sheet pair is exchanged. All branch cycles are therefore
+transpositions, and they generate the monodromy group. Connectedness of the source makes
+4
+Three-Way reciprocal hierarchy Paper II / v0.1
+that action transitive. A transitive group generated by transpositions is 𝑆𝑛: form the graph
+whose edges are those transpositions; it is connected, and transpositions along a connected
+graph generate every permutation.
+Deck permutations commute with monodromy on a regular fiber. The centralizer of the
+natural 𝑆𝑛 action is trivial for 𝑛 ≥ 3. After choosing one sheet, its stabilizer is 𝑆𝑛−1, which acts
+transitively on the other 𝑛 − 1 sheets. The residual equal-value correspondence is therefore
+irreducible over the chosen source field. A rational partner 𝑀 would satisfy 𝐹𝑛 ∘ 𝑀 = 𝐹 𝑛;
+multiplicativity of degree forces deg 𝑀 = 1 , making it a Möbius deck transformation. None
+exists generically for 𝑛 ≥ 3.
+Finally the Galois closure has degree 𝑛!. It has 2𝑛 − 2branch values, each with inertia order
+two. Galois Riemann–Hurwitz yields
+2𝑔 − 2 = 𝑛![−2 + (2𝑛 − 2)(1 − 1
+2)] = 𝑛!(𝑛 − 3). (2.4)
+This proves Theorem 2.1. The construction proves all degrees; no extrapolation from the two
+numerical witnesses is used.
+2.3 Why the quadratic member is exceptional
+A separable degree-two extension is automatically Galois. Geometrically there is exactly one
+other point in a generic fiber, so the partner cannot be permuted with competing choices. It
+is a rational automorphism of the sphere and hence Möbius. For the uncanceled quadratic
+Three-Way map,
+𝑇(𝑦) =(𝐴 + 1)𝑦 − 𝐵
+𝐵𝑦 − (𝐴 + 1), 𝐹 2(𝑇(𝑦)) = 𝐹2(𝑦). (2.5)
+The degree-two condition is 𝐴 ≠ 1 and (𝐴 + 1)2 − 𝐵 2 ≠ 0 . The latter is also the nonzero
+determinant condition for 𝑇. Reciprocity 𝑅(𝑦) = 1/𝑦normalizes the unique nonidentity deck
+element, so it commutes with 𝑇. They are distinct and generate 𝑉4. Its subgroup {1, 𝑇} fixes
+𝐹2; its other two elements invert 𝐹2. Thus 𝑉4 fixes the further target quotient, for example
+𝐹2 + 1/𝐹2, while Deck (𝐹2) = 𝐶2.
+The following table always concerns 𝐹𝑛 itself, after cancellation and on its generic locus.
+The lock column assumes no cancellation at the indicated points.
+Property 𝑛 = 2 𝑛 = 3 𝑛 = 4
+Degree 2 3 4
+Reciprocity 𝐹(1/𝑦) = 1/𝐹(𝑦) same same
+Other-sheet equation linear, rational partner irreducible quadratic irreducible cubic
+Deck group 𝐶2 trivial trivial
+Monodromy 𝐶2 = 𝑆 2 𝑆3 𝑆4
+Closure degree; genus 2; 0 6; 1 24; 13
+Forced +1 locks 𝑦 = ±1 𝑦 = 1 𝑦 = ±1
+Selected exceptions cancellation / constant cyclic, nodal,
+cancellation
+decomposable, cyclic,
+𝑉4, cancellation
+Table 1: Generic hierarchy over the unchanged rational-map target. Even parity restores a lock
+at −1, but does not restore the quadratic partner mechanism.
+5
+Three-Way reciprocal hierarchy Paper II / v0.1
+n = 2
+Mon = C2
+Closure degree 2
+Genus 0
+One rational partner
+n = 3
+Mon = S3
+Closure degree 6
+Genus 1
+Quadratic correspondence
+n = 4
+Mon = S4
+Closure degree 24
+Genus 13
+Cubic correspondence
+GENERIC COVERS OVER THEIR UNCHANGED TARGETS
+Paper I: the larger quadratic quotient/lift tower is a separate extension.
+Figure 1: Degrees and closure genera refer to three distinct extensions over their own un-
+changed targets. Paper I’s elliptic curve is associated with the separate larger quadratic tower.
+The lower row records the residual other-sheet degree.
+3 The cubic equal-value correspondence
+Let
+𝐹3(𝑦) =𝐴𝑦3 − 𝐵𝑦2 − 𝐶𝑦 + 1
+𝑦3 − 𝐶𝑦2 − 𝐵𝑦 + 𝐴 = 𝑃(𝑦)
+𝑄(𝑦). (3.1)
+The elementary fiber and cancellation identities are
+𝑃 − 𝑄 = (𝑦 − 1)[(𝐴 − 1)(𝑦2 + 𝑦 + 1) + (𝐶 − 𝐵)𝑦],
+𝑃 + 𝑄 = (𝑦 + 1)[(𝐴 + 1)(𝑦2 − 𝑦 + 1) − (𝐵 + 𝐶)𝑦], (3.2)
+Res(𝑃, 𝑄) = (𝐴 − 𝐵 − 𝐶 + 1)(𝐴 + 𝐵 − 𝐶 − 1)𝐻2
+3, (3.3)
+𝐻3 = 𝐴2 + 𝐴𝐶 − 𝐵 − 1.
+The two linear factors of the resultant correspond to cancellation at±1; the square corresponds
+to reciprocal-pair cancellation, including intersections with the fixed-point strata. Zeros are the
+roots of 𝑃/𝐺, with reciprocal poles. When 𝐴 ≠ 0,
+Disc(𝑃) = 𝐵2𝐶2 + 4𝐴𝐶3 + 4𝐵3 + 18𝐴𝐵𝐶 − 27𝐴2. (3.4)
+For a real uncanceled cubic, a positive value gives three distinct real zeros and a negative value
+one real zero and a conjugate nonreal pair. A zero discriminant signals repetition. These fa-
+miliar real-cubic facts do not decide which zeros lie in 𝑦 ≥ 0.
+3.1 Exact factorization in the original source
+Put 𝑎 = 𝐵 − 𝐴𝐶, 𝑏 = 𝐶 − 𝐴𝐵, 𝑐 = 𝐴2 − 1. Direct expansion gives
+𝐹3(𝑢) − 𝐹3(𝑦) =
+(𝑢 − 𝑦)𝒬𝑦(𝑢)
+𝑄(𝑢)𝑄(𝑦), (3.5)
+6
+Three-Way reciprocal hierarchy Paper II / v0.1
+where
+𝒬𝑦(𝑢) = (𝑎𝑦2 + 𝑏𝑦 + 𝑐)𝑢2
++ [𝑏𝑦2 + (𝑐 + 𝐵2 − 𝐶2)𝑦 + 𝑏]𝑢 + 𝑐𝑦2 + 𝑏𝑦 + 𝑎. (3.6)
+The quadratic describes the two other sheets. Its leading coeﬀicient can vanish at a particular
+source point; this is a projective phenomenon, not a global rational splitting. On the degree-
+three locus, any rational root over ℂ(𝑦)would give a Möbius deck transformation. Since the
+order of a deck group divides the cover degree, one nonidentity deck element forces a cyclic
+Galois cover of degree three. The exceptional splitting criterion will therefore coincide with
+the cyclic criterion below.
+3.2 Odd coordinates and the discriminant curve
+In 𝑧 = (𝑦 − 1)/(𝑦 + 1)and 𝑤 = (𝐹3 − 1)/(𝐹3 + 1), set
+𝑝 = 𝐴 + 𝐵 − 𝐶 − 1, 𝑞 = 3(𝐴 − 1) − 𝐵 + 𝐶,
+𝑟 = 3(𝐴 + 1) + 𝐵 + 𝐶, 𝑠 = 𝐴 + 1 − 𝐵 − 𝐶. (3.7)
+Then
+𝑤 = 𝐻(𝑧) =𝑧(𝑝𝑧2 + 𝑞)
+𝑟𝑧2 + 𝑠 , 𝑟 + 𝑠 − 𝑝 − 𝑞 = 8. (3.8)
+The last relation fixes the common scalar in these coeﬀicients. The homogeneous numerator
+and denominator are 𝑝𝑍3 + 𝑞𝑍𝑇2 and 𝑟𝑍2𝑇 + 𝑠𝑇3. Consequently
+deg 𝐻 = 3 ⟺ 𝑝𝑠(𝑝𝑠 − 𝑞𝑟) ≠ 0, 𝑝𝑠 − 𝑞𝑟 = −8𝐻 3. (3.9)
+After removing 𝑣 − 𝑧 from the equality 𝐻(𝑣) = 𝐻(𝑧), the residual relation is
+𝒦𝑧(𝑣) = 𝑝(𝑟𝑧2 + 𝑠)𝑣2 + (𝑝𝑠 − 𝑞𝑟)𝑧𝑣 + 𝑠(𝑝𝑧2 + 𝑞) = 0. (3.10)
+Its discriminant is
+𝒟(𝑧) = −4𝑝2𝑟𝑠𝑧4 + (𝑞2𝑟2 − 6𝑝𝑞𝑟𝑠 − 3𝑝2𝑠2)𝑧2 − 4𝑝𝑞𝑠2. (3.11)
+Adjoining its square root recovers the second sheet via
+𝜂 = 2𝑝(𝑟𝑧2 + 𝑠)𝑣 + (𝑝𝑠 − 𝑞𝑟)𝑧. (3.12)
+The third sheet is then rational in the first two, since the fiber cubic is
+𝑝𝑇3 − 𝑤𝑟𝑇2 + 𝑞𝑇 − 𝑤𝑠 = 0, 𝑢 = 𝑟
+𝑝 𝑤 − 𝑧 − 𝑣. (3.13)
+Thus the smooth normalization of
+𝐸 ∶ 𝜂 2 = 𝒟(𝑧) (3.14)
+has the full splitting field over ℂ(𝑤)as its function field, whenever 𝒦 is irreducible. It is not
+merely a curve introduced by analogy.
+7
+Three-Way reciprocal hierarchy Paper II / v0.1
+3.3 Critical points and branch values
+Differentiation and a cubic discriminant give respectively
+𝐽𝑧 = 𝑝𝑟𝑧4 + (3𝑝𝑠 − 𝑞𝑟)𝑧2 + 𝑞𝑠, (3.15)
+ℬ(𝑤) = −4𝑟3𝑠𝑤4 + (𝑞2𝑟2 + 18𝑝𝑞𝑟𝑠 − 27𝑝2𝑠2)𝑤2 − 4𝑝𝑞3. (3.16)
+Interpret both as binary quartics, retaining roots at infinity. The first is the critical divisor; the
+second is Disc 𝑇(𝑝𝑇3 − 𝑤𝑟𝑇2 + 𝑞𝑇 − 𝑤𝑠), whose zeros are the branch values. In original target
+coordinates, the latter are (1 + 𝑤)/(1 − 𝑤). Exact discriminants are
+Disc(𝐽𝑧) = 16𝑝𝑞𝑟𝑠(𝑝𝑠 − 𝑞𝑟)2(9𝑝𝑠 − 𝑞𝑟)2,
+Disc(𝒟) = 256𝑝3𝑞𝑟𝑠3(𝑝𝑠 − 𝑞𝑟)6(9𝑝𝑠 − 𝑞𝑟)2. (3.17)
+In particular the smooth elliptic locus is
+𝑝𝑞𝑟𝑠(𝑝𝑠 − 𝑞𝑟)(9𝑝𝑠 − 𝑞𝑟) ≠ 0. (3.18)
+There the quartic 𝒟 has four distinct roots. A double cover of the sphere branched at four
+points has genus one, so 𝐸 is a genus-one curve. The map 𝐸 → ℙ 1𝑤 has degree six and group
+𝑆3, consistently with Theorem 2.1.
+3.4 Six root orderings and the elliptic action
+Over a regular 𝑤, a point of 𝐸 specifies an ordered pair (𝑧, 𝑣)of distinct roots, or equivalently
+the full ordering (𝑧, 𝑣, 𝑢). There are six such points. Compactification also includes the limiting
+configurations with coincident roots; deleting them would lose ramification.
+The field automorphisms
+𝜏(𝑧, 𝑣, 𝑢) = (𝑣, 𝑢, 𝑧), 𝜄(𝑧, 𝑣, 𝑢) = (𝑧, 𝑢, 𝑣) (3.19)
+preserve 𝑤 and satisfy 𝜏3 = 𝜄 2 = 1 , 𝜄𝜏𝜄 = 𝜏 −1. In quartic coordinates, 𝜄(𝑧, 𝜂) = (𝑧, −𝜂). An
+explicit formula for 𝜏 follows by solving (3.12) for 𝑣, using (3.13) for 𝑢, and taking (𝑣, , 2𝑝(𝑟𝑣2+
+𝑠)𝑢 + (𝑝𝑠 − 𝑞𝑟)𝑣)as the new quartic coordinates.
+Choose one branch point 𝑎 of 𝒟, and let 𝑂 = (𝑎, 0)be the elliptic origin. This choice is over
+ℂ; a real origin is not assumed. Then 𝜄 = [−1].
+Proposition 3.1 There is a nonzero point 𝑃 ∈ 𝐸[3]such that 𝜏 = 𝑇 𝑃. The six deck automorphisms
+of 𝐸 → ℙ 1𝑤 are
+1, 𝑇𝑃, 𝑇 −𝑃, [−1], 𝑇𝑃[−1], 𝑇−𝑃[−1]. (3.20)
+Proof. Every inertia group has order two, so an element of order three has no fixed point.
+Alternatively , a fixed ordering under 𝜏 would require a triple root, absent on ( 3.18). Every
+elliptic automorphism is 𝑇𝑅𝑎, with 𝑎 fixing the origin. If 𝑎 ≠ 1 , the nonzero isogeny 1 − 𝑎 is
+surjective, giving a solution of (1 − 𝑎)𝑋 = 𝑅and thus a fixed point. Hence 𝜏 is a translation; its
+exact order implies 𝑃 ≠ 𝑂 and 3𝑃 = 𝑂. The relations in ( 3.19) give the remaining elements. □
+The fixed points of the three transpositions solve 2𝑋 = 𝑘𝑃, for 𝑘 = 0, 1, −1. Each transposition
+has four fixed points. Only the selected [−1]is origin-fixing in this description. An abstract
+group count alone would not establish these translations or fixed-point sets.
+8
+Three-Way reciprocal hierarchy Paper II / v0.1
+(0, 1)
+(0, 2)
+0
+(1, 2)
+(1, 0)
+1
+(2, 0)
+(2, 1)
+2
+SIX ORDERED PAIRS OF DISTINCT SHEETS
+Projection to first entry: three sheets, each with a two-point fiber
+Figure 2: A regular cubic fiber has three sheets and six ordered pairs. Root-label permutations
+act on this six-element set; choosing the first entry gives the three-sheet quotient. Position
+permutations give the commuting regular deck action. The elliptic normalization includes the
+branch limits as well as these regular fibers.
+4 Elliptic equations, isogeny, and marked moduli
+4.1 An explicit Weierstrass model
+For compact notation put
+𝑈 = 𝑝𝑠, 𝑉 = 𝑞𝑟, 𝛼 = −4𝑝 2𝑟𝑠, 𝛽 = 𝑉 2 − 6𝑈𝑉 − 3𝑈2, 𝛾 = −4𝑝𝑞𝑠 2. (4.1)
+Then 𝒟(𝑧) = 𝑓 (𝑧) = 𝛼𝑧4 + 𝛽𝑧2 + 𝛾. Let
+𝐼 = 𝛽 2 + 12𝛼𝛾, 𝐽 = 72𝛼𝛽𝛾 − 2𝛽 3. (4.2)
+With 𝑎 and 𝑂 chosen as above, the birational transformation
+𝑋 = 𝑓 ′(𝑎)
+4(𝑧 − 𝑎)+ 𝑓 ″(𝑎)
+24 , 𝑌 = − 𝑓 ′(𝑎)𝜂
+8(𝑧 − 𝑎)2 (4.3)
+gives
+𝑌2 = 𝑋 3 − 𝐼
+48𝑋 − 𝐽
+1728. (4.4)
+The inverse is 𝑧 = 𝑎 + 𝑓′(𝑎)/[4(𝑋 − 𝑓″(𝑎)/24)], followed by 𝜂 = −8𝑌(𝑧 − 𝑎)2/𝑓 ′(𝑎). Substitution
+using 𝑓 (𝑎) = 0proves the identity; the exceptional aﬀine denominators are filled on the smooth
+projective curves. The invariants in this convention are
+𝑐4 = 𝐼, 𝑐 6 = 𝐽/2,
+Δ𝐸 = 𝛼𝛾(𝛽2 − 4𝛼𝛾)2
+16 = 𝑝 3𝑞𝑟𝑠3(𝑝𝑠 − 𝑞𝑟)6(9𝑝𝑠 − 𝑞𝑟)2,
+𝑗(𝐸) =16(𝛽2 + 12𝛼𝛾)3
+𝛼𝛾(𝛽2 − 4𝛼𝛾)2 . (4.5)
+In particular Disc(𝑓 ) = 256Δ𝐸, which reconciles the quartic and Weierstrass discriminant con-
+ventions.
+9
+Three-Way reciprocal hierarchy Paper II / v0.1
+For a consistent orientation of 𝜏, its translation point in this model is
+𝑃 = ( (𝑉 + 3𝑈)2
+12 , −𝑈(𝑉 − 𝑈)2
+2 ) . (4.6)
+It lies on ( 4.4), and the tangent doubling formula gives 2𝑃 = −𝑃. Its ordinate is nonzero on
+(3.18). Reversing the cyclic generator changes its sign. The link to the actual incidence action,
+rather than just an independently found torsion point, is made explicit below.
+4.2 Reciprocity selects nonzero 2-torsion
+Simultaneous reciprocity on the three roots lifts as
+𝜌(𝑧, 𝑣, 𝑢) = (−𝑧, −𝑣, −𝑢), 𝜌(𝑧, 𝜂) = (−𝑧, −𝜂). (4.7)
+It commutes with every root-position permutation and sends 𝑤 to −𝑤. Its only possible fixed
+source coordinates are zero and infinity. It swaps the two points above zero, since 𝛾 ≠ 0 ; at
+infinity it exchanges the points distinguished by 𝜂/𝑧2 = ± √𝛼. It is therefore fixed-point-free.
+The argument of Proposition 3.1 gives
+𝜌 = 𝑇 𝑄, 𝑄 ∈ 𝐸[2], 𝑄 ≠ 𝑂,
+𝑄 = (−𝑎, 0)on the quartic , 𝑄 = (−𝛽/6, 0) on (4.4).
+(4.8)
+The other lift (𝑧, 𝜂) ↦ (−𝑧, 𝜂)is 𝑇𝑄[−1], has fixed points, and does not commute with the
+entire 𝑆3 action. Thus the commuting lift characterizes the selected 2-torsion. The translations
+⟨𝑃, 𝑄⟩form a cyclic group of order six, and together with inversion generate 𝑆3 × 𝐶2. Only its
+𝑆3 subgroup fixes 𝑤.
+4.3 The alternating quotient is a 3-isogeny
+Quotienting by ⟨𝜄⟩ recovers the original 𝑧-sphere. Quotienting instead by the normal transla-
+tion group ⟨𝜏⟩ = 𝐶 3 gives a genus-one curve𝐸′, since that action is free. With origin 𝑂′ = 𝜙(𝑂),
+its quotient map is an isogeny of degree three.
+The model and map are explicit:
+𝐸′ ∶ 𝜒 2 = ℬ(𝑤), 𝜙(𝑧, 𝜂) = (𝐻(𝑧), 𝐽𝑧𝜂
+(𝑟𝑧2 + 𝑠)2 ) . (4.9)
+Here ℬ and 𝐽𝑧 are (3.16) and (3.15). Direct substitution proves the equation. More intrinsically ,
+𝜒 = 𝑝 2(𝑧 − 𝑣)(𝑧 − 𝑢)(𝑣 − 𝑢) (4.10)
+is invariant under 3-cycles and changes sign under transpositions. The field ℂ(𝑤, 𝜒)is there-
+fore exactly the fixed field of𝐶3. This proves degree, kernel, and quotient meaning, rather than
+just agreement of two equations. The commutative diagram is
+𝐸
+𝜙 (3)
+− − − − → 𝐸′ = 𝐸/𝐶3
+↓ 2 ↓ 2
+ℙ1𝑧
+𝐻 (3)
+− − − − → ℙ 1𝑤.
+(4.11)
+Both vertical maps are quotients by inversion with the selected origins. In particular the cubic’s
+four critical values are the images of 𝐸′[2]on the lower target. They are not the four branch
+points of the left vertical map.
+10
+Three-Way reciprocal hierarchy Paper II / v0.1
+4.4 Normalization and the modular functions
+On the smooth locus choose 𝜎 2 = 𝑠/𝑟 and set
+𝑧 = 𝜎𝑍, 𝜂 = 𝑈𝜎𝑌 0, 𝑤 = (𝑝/𝑟)𝜎𝑊, 𝑡 = 𝑞𝑟
+𝑝𝑠 . (4.12)
+The normalized map and curves become
+𝑊 = 𝑍(𝑍2 + 𝑡)
+𝑍2 + 1 ,
+𝐸𝑡 ∶ 𝑌 2
+0 = −4𝑍4 + (𝑡2 − 6𝑡 − 3)𝑍2 − 4𝑡,
+𝐸′
+𝑡 ∶ 𝜒 2
+0 = −4𝑊4 + (𝑡2 + 18𝑡 − 27)𝑊2 − 4𝑡3. (4.13)
+The generic domain is 𝑡 ∉ {0, 1, 9, ∞}. The square-root choice changes the coordinate embed-
+ding, not 𝑡. With 𝑀 = 𝑡 2 − 6𝑡 − 3,
+𝑐4 = 𝑀 2 + 192𝑡 = (𝑡 + 3)(𝑡3 − 15𝑡2 + 75𝑡 + 3),
+𝑐6 = 𝑀(576𝑡 − 𝑀2), Δ = 𝑡(𝑡 − 1) 6(𝑡 − 9)2, (4.14)
+𝑗(𝐸𝑡) = (𝑡 + 3)3(𝑡3 − 15𝑡2 + 75𝑡 + 3)3
+𝑡(𝑡 − 1)6(𝑡 − 9)2 , (4.15)
+𝑗(𝐸′
+𝑡) = (𝑡 + 3)3(𝑡3 + 225𝑡2 − 405𝑡 + 243)3
+𝑡3(𝑡 − 1)2(𝑡 − 9)6 . (4.16)
+The normalized torsion coordinates are 𝑃𝑡 = ((𝑡 + 3)2/12, −(𝑡 − 1)2/2). T o identify them with
+𝜏(𝑂), choose a critical point 𝑏 of the normalized cubic. Then
+𝑡 = 𝑏2(𝑏2 + 3)
+𝑏2 − 1 , 𝑎 = 2𝑏
+𝑏2 − 1. (4.17)
+The corresponding ordered fiber is (𝑎, 𝑏, 𝑏). Its cyclic image is (𝑏, 𝑏, 𝑎), whose quartic ordinate is
+𝑏(2𝑏2+3−𝑡). Formula (4.3) gives exactly𝑃𝑡. The exceptional denominators are excluded on the
+smooth locus or handled in the projective chart. This calculation also explains the orientation
+convention in (4.6).
+Now define
+ℎ = 𝑡(𝑡 − 9)2
+(𝑡 − 1)2 . (4.18)
+Exact substitution gives
+𝑗(𝐸) =(ℎ + 27)(ℎ + 3)3
+ℎ , 𝑗(𝐸 ′) = (ℎ + 27)(ℎ + 243)3
+ℎ3 . (4.19)
+Dualizing the isogeny exchanges these formulas by ℎ ↦ 729/ℎ. They agree with the standard
+level-three formulas in Elkies’ exposition, with this source/quotient orientation recorded [ 6,
+§4, Eq. (80)].
+4.5 Why the two marked modular curves classify the cubic
+Here equivalence means independent source and target Möbius changes, with the stated mark-
+ings preserved. It is not dynamical conjugacy , and it does not preserve the original real plotting
+coordinate.
+11
+Three-Way reciprocal hierarchy Paper II / v0.1
+Proposition 4.1 The generic cubic cover without reciprocal marking is classified by the oriented da-
+tum (𝐸, ⟨𝑃⟩), an open subset of the coarse modular curve 𝑋0(3). Retaining reciprocal marking gives
+(𝐸, ⟨𝑃⟩, 𝑄), equivalently a cyclic subgroup of order six, and an open subset of 𝑋0(6). The coordinates
+above are Hauptmoduln: ℎ on 𝑋0(3)and 𝑡 on 𝑋0(6).
+Proof. The splitting field and its normal order-three subgroup recover (𝐸, ⟨𝑃⟩)from the cover.
+Conversely any elliptic curve with a cyclic order-three subgroup gives ( 4.11) by quotienting
+its 3-isogeny through inversion. This is a degree-three sphere cover with four simple branch
+values. Choosing a conjugate transposition subgroup changes only the intermediate source
+isomorphism, not the cover class. The origin can be chosen among the fixed points of that
+involution; changing it gives an isomorphic datum.
+Reciprocity adds the uniquely specified commuting translation 𝑇𝑄. Conversely , given
+(𝐸, ⟨𝑃⟩, 𝑄), it descends to nontrivial involutions on both Kummer spheres. The fixed points on
+the source Kummer sphere are the classes of solutions of 2𝑅 = 𝑄; there are two such classes.
+The 3-isogeny is an isomorphism on 4-torsion, and therefore takes this pair bijectively to the
+corresponding target fixed pair. Normalize the matching pairs to zero and infinity. The cubic
+becomes an odd map of the form ( 3.8). Independent source and target scalings give ( 4.13).
+Reversing both matching fixed pairs replaces source and target coordinates by reciprocal co-
+ordinates and leaves 𝑞𝑟/(𝑝𝑠)unchanged. No other generic coordinate freedom remains. Thus
+𝑡 is a complete generic marked coordinate.
+There are three choices of nonzero 𝑄 for a generic (𝐸, ⟨𝑃⟩). Forgetting 𝑄 has degree three.
+The rational function ( 4.18) also has degree three, and the two rational functions in ( 4.19)
+generically determine ℎ: over ℂ(ℎ), the gcd of the cleared equations 𝑗𝐸(𝑘) = 𝑗𝐸(ℎ)and 𝑗𝐸′(𝑘) =
+𝑗𝐸′(ℎ)is 𝑘 − ℎ . This exact polynomial check is preserved in the verification suite. Since the
+ordered pair of 𝑗-invariants is invariant under forgetting 𝑄, ℂ(ℎ)is the fixed moduli field; the
+equality of degrees shows there is no intermediate missing parameter. Hence ℎ is the asserted
+Hauptmodul. The construction also identifies ⟨𝑃, 𝑄⟩as cyclic of order six, giving 𝑋0(6). □
+A generic elliptic curve has four cyclic subgroups of order three (the four lines of 𝐸[3] ≅
+𝔽2
+3). Accordingly ℎ ↦ 𝑗(𝐸)has degree four, while 𝑡 ↦ 𝑗(𝐸)has degree twelve. Bare 𝑗 forgets
+both the selected 3-isogeny and the reciprocal 2-torsion. Generators 𝑃 and −𝑃 give the same
+cyclic subgroup and are identified by inversion on coarse moduli; an additional rigid labeling
+of all group elements would be extra data.
+The original coeﬀicients satisfy
+𝑈 = (𝐴 − 𝐶)2 − (𝐵 − 1)2, 𝑉 = (3𝐴 + 𝐶) 2 − (𝐵 + 3)2, 𝑡 = 𝑉/𝑈. (4.20)
+There is no extra algebraic restriction on generic 𝑡. For instance a rational section is
+(𝐴, 𝐵, 𝐶) =( 𝑡 + 3
+1 − 𝑡, 1, 𝑡 − 5
+1 − 𝑡) . (4.21)
+It gives 𝑝 = 𝑟 = 𝑠 = 8/(1 − 𝑡) , 𝑞 = 8𝑡/(1 − 𝑡). Thus the three original coeﬀicients contain one
+intrinsic marked modulus and two generic dimensions of coordinate embedding data. This is
+a complex-cover classification, not a claim that all corresponding real plots coincide.
+4.6 Four critical values and their cross-ratio
+Write the four target branch values as 𝑐, −𝑐, 𝑑, −𝑑. With a chosen ordering,
+𝑚′ = ( 𝑑 − 𝑐
+𝑑 + 𝑐)
+2
+(4.22)
+12
+Three-Way reciprocal hierarchy Paper II / v0.1
+E E0 = E/C3
+ℙ1
+z ℙ1
+w
+3-isogeny
+degree 3
+2 2
+FORGETTING MARKINGS
+t ∈ X0(6) h ∈ X0(3) j(E) ∈ X(1)
+3 4
+Figure 3: The cubic sphere map descends from the 3-isogeny. The marked modular coordinate
+𝑡 retains a nonzero 2-torsion point; ℎ forgets that choice; 𝑗(𝐸)also forgets the selected cyclic
+3-subgroup. Degrees shown are generic coarse degrees.
+is a Legendre parameter of 𝐸′. Reordering gives its six anharmonic transforms. If 𝐿 = 𝑡 2 +
+18𝑡 − 27, one compatible algebraic expression, up to that reordering, is
+𝑚′ = 𝐿 + 8𝑡3/2
+𝐿 − 8𝑡3/2, 𝑗(𝐸 ′) = 256(1 − 𝑚′ + 𝑚′2)3
+𝑚′2(1 − 𝑚′)2 . (4.23)
+For comparison, the source double cover 𝐸 → ℙ 1
+𝑍 has a Legendre parameter 𝑚 = (𝑀 +
+8√𝑡)/(𝑀 − 8√𝑡), with the same ordering caveat. These are algebraic branch choices, not single-
+valued rational functions of 𝑡. The unordered target branch set determines 𝑗(𝐸′), but it does
+not determine the selected incoming 3-isogeny. Four labeled branch values retain additional
+level-two information.
+5 Exceptional cubic strata and the quartic checkpoint
+5.1 Complete cubic ramification classification
+Restrict first to the degree-three condition 𝑝𝑠(𝑝𝑠 − 𝑞𝑟) ≠ 0. Define
+𝐾3 = 3𝐴𝐶 + 𝐵2 − 3𝐵 − 𝐶2, 9𝑝𝑠 − 𝑞𝑟 = −8𝐾 3. (5.1)
+The critical divisor (3.15) and its discriminant give the complete table below. The ramification
+column lists the index of the unique ramified point over each distinct branch value.
+Proof. A degree-three sphere map has total ramification four and local degree at most three.
+Its critical divisor can therefore consist only of four simple points, one double point and two
+simple points, or two double points. Distinct critical points cannot share an image: even two
+simple ramification points would use degree four in one fiber. Formula (3.15) gives exactly the
+rows displayed, including infinity through its binary form. In the first two rows, transitivity
+13
+Three-Way reciprocal hierarchy Paper II / v0.1
+Condition Indices Monodromy Deck Closure genus
+𝑞𝑟 ≠ 0, 𝑞𝑟 ≠ 9𝑝𝑠 2, 2, 2, 2 𝑆3 trivial 1
+Exactly one of 𝑞, 𝑟 zero 3, 2, 2 𝑆 3 trivial 0
+𝑞 = 𝑟 = 0 3, 3 𝐶 3 𝐶3 0
+𝑞𝑟 = 9𝑝𝑠 3, 3 𝐶 3 𝐶3 0
+Table 2: All degree-three cases. Closure degrees are six for the 𝑆3 rows and three for the 𝐶3
+rows.
+and the presence of a transposition force 𝑆3; in the last two, the branch cycles generate 𝐶3.
+Galois Riemann–Hurwitz gives respectively
+6[−2 + 4(1 − 1/2)] = 0, 𝑔 = 1,
+6[−2 + (1 − 1/3) + 2(1 − 1/2)] = −2, 𝑔 = 0,
+3[−2 + 2(1 − 1/3)] = −2, 𝑔 = 0.
+(5.2)
+No critical-value collision locus has been omitted within the degree-three domain. □
+The residual quadratic splits over ℂ(𝑧)exactly on the two cyclic rows:
+𝑞 = 𝑟 = 0 or 𝑞𝑟 = 9𝑝𝑠. (5.3)
+Indeed a rational root would give a nontrivial deck transformation and hence a cyclic cover;
+conversely a cyclic cover has two rational partners. In original coeﬀicients these loci are
+𝐵 = −3, 𝐶 = −3𝐴, or 𝐾3 = 0, (5.4)
+always with (3.9). They are disjoint there. On the first, 𝑤 = (𝑝/𝑠)𝑧3, with deck maps 𝑧 ↦ 𝜔𝑧 ,
+𝜔3 = 1. On the second, choose 𝑎2 = 3𝑠/𝑟, put 𝜅 = 3𝑝𝑎/𝑟, and observe
+𝑤 − 𝜅
+𝑤 + 𝜅 = (𝑧 − 𝑎
+𝑧 + 𝑎)
+3
+. (5.5)
+Conjugating multiplication by 𝜔 gives the Möbius partners explicitly. These formulas are over
+ℂ, without a claim that all such partners are real for real coeﬀicients.
+Adding reciprocal equivariance to the cyclic deck group produces 𝐶6 on 𝑞 = 𝑟 = 0 , since
+−𝑧 commutes with multiplication by 𝜔. On 𝑞𝑟 = 9𝑝𝑠 it produces the dihedral group of order
+six, since (−𝑧 − 𝑎)/(−𝑧 + 𝑎)is the reciprocal of (𝑧 − 𝑎)/(𝑧 + 𝑎). These extended groups do not fix
+the target pointwise. Generically the only source transformations fixing or inverting the value
+are the identity and reciprocity: composing any second value-inverting map with reciprocity
+would give a deck transformation.
+5.2 Cancellation and singular limits are different operations
+The lower-degree strata follow directly from the homogeneous pair after ( 3.7). Constants are
+𝐴 = 1, 𝐵 = 𝐶 for +1, and 𝐴 = −1, 𝐶 = −𝐵 for −1. A nonconstant point has degree two exactly
+when one of 𝑝, 𝑠 is zero and 𝑝𝑠 − 𝑞𝑟 ≠ 0 . Every other nonconstant point on the resultant-zero
+locus has degree one. A factor at zero comes from 𝑠 = 0 , a factor at infinity from 𝑝 = 0 , and
+the reciprocal quadratic factor from 𝑝𝑠 = 𝑞𝑟 when 𝑝, 𝑠 ≠ 0 . Their intersections give the stated
+degree-one or constant cases. Covers of degree two and one have respectively 𝐶2 and trivial
+monodromy , with genus-zero closures.
+14
+Three-Way reciprocal hierarchy Paper II / v0.1
+Degenerating the quartic model 𝐸 is not the same operation as taking the connected Galois
+closure of the specialized rational map. On 𝑞𝑟 = 9𝑝𝑠 , for example,
+𝒟(𝑧) = −4𝑝2𝑠
+𝑟 (𝑟𝑧2 − 3𝑠)2, (5.6)
+so the compactified correspondence splits into two rational components meeting at two ordi-
+nary nodes. Meanwhile
+ℬ(𝑤) = −4𝑟3𝑠 (𝑤2 − 27𝑝2𝑠
+𝑟3 )
+2
+, (5.7)
+and the four simple critical values coalesce in pairs. The specialized cubic itself is a smooth
+cyclic cover with connected closure ℙ1; the reducible limit of the old degree-six closure is a
+different object.
+If 𝑞 = 0, 𝑟 ≠ 0 , then 𝒟 = −𝑝 2𝑠𝑧2(4𝑟𝑧2 + 3𝑠). It has an ordinary node at zero and irreducible
+rational normalization, still with 𝑆3 monodromy. If 𝑟 = 0, 𝑞 ≠ 0 , the analogous double root
+is at infinity. If 𝑞 = 𝑟 = 0 , the binary quartic is −3𝑝2𝑠2𝑍2𝑇2, giving two rational components
+with nodes at zero and infinity. The genus-zero correspondence in the one-zero cases remains
+irreducible over the source field and does not create a rational partner.
+5.3 The four modular boundary points
+In the normalized family the excluded values are 𝑡 = 0, 1, 9, ∞. The Weierstrass discriminant
+has orders 1, 6, 2, 3, respectively; the last follows by the minimal scaling 𝑋 = 𝑡 2 ̄𝑋, 𝑌 = 𝑡 3 ̄𝑌
+near infinity. In each case the correspondingly scaled 𝑐4 is nonzero. These are multiplicative,
+nodal degenerations of the elliptic model, not cuspidal cubic degenerations. For the associ-
+ated semistable elliptic surface, the minimal resolved fibers have types 𝐼1, 𝐼6, 𝐼2, 𝐼3. One should
+distinguish that resolved surface model from an uncontracted incidence model such as ( 5.6).
+The modular maps make the boundary orders transparent:
+𝑑ℎ
+𝑑𝑡 = (𝑡 − 9)(𝑡 + 3)2
+(𝑡 − 1)3 , ℎ + 27 = (𝑡 + 3)3
+(𝑡 − 1)2 . (5.8)
+The two cusps of 𝑋0(3)are ℎ = 0, ∞, with source-𝑗 pole orders one and three. Their preimages
+give the four 𝑋0(6)cusp widths listed above. At ℎ = −27 , the selected level-three datum has
+an order-three elliptic stabilizer; its threefold preimage is 𝑡 = −3. The zero at ℎ = −3 is instead
+triple in 𝑗(𝐸). Also
+𝑗(𝐸) − 1728 =(ℎ2 + 18ℎ − 27)2
+ℎ . (5.9)
+There is no order-two elliptic point on 𝑋0(3); the two roots in ( 5.9) have local degree two over
+the bare elliptic invariant. Retaining 𝑄 eliminates these extra elliptic stabilizers beyond the
+generic inversion on the coarse 𝑋0(6)datum.
+At intersections of coeﬀicient strata, the normalized chart can itself be singular. For example
+𝑞 = 𝑟 = 0 has 𝑡 = 0 , but a path along which both vanish simply makes 𝑡 vanish to order two,
+while 𝜎 2 = 𝑠/𝑟 diverges. The two-component incidence limit there does not contradict the
+simple nodal fiber of the normalized 𝑡-model at zero. The paper makes no exhaustive claim
+about all boundary paths or their chosen total-space resolutions.
+5.4 Quartic checkpoint
+For
+𝐹4(𝑦) =𝐴𝑦4 − 𝐵𝑦3 − 𝐶𝑦2 − 𝐷𝑦 + 1
+𝑦4 − 𝐷𝑦3 − 𝐶𝑦2 − 𝐵𝑦 + 𝐴 , (5.10)
+15
+Three-Way reciprocal hierarchy Paper II / v0.1
+qr ≠ 0, 9ps Smooth closure S3; genus 1
+Exactly one of q, r = 0 Nodal correspondence S3; normalization genus 0
+q = r = 0 or qr = 9ps Split correspondence C3 specialized cover
+ps(ps − qr) = 0 Cancellation Reduced degree at most 2
+CUBIC STRATA IN THE COEFFICIENT CHART
+First three rows assume ps(ps − qr) ≠ 0.
+Normalized cusps:  t = 0, 1, 9, ∞     |     j(E) pole orders:  1, 6, 2, 3
+Figure 4: The degree-three parameter strata separate smooth elliptic closure, rational 𝑆3 nor-
+malization, cyclic splitting, and degree loss. The normalized coordinate reaches the four cusps
+with the displayed source- 𝑗 pole orders. Coeﬀicient intersections can require different local
+charts.
+the exact fixed-value numerators are
+𝑃 − 𝑄 = (𝑦2 − 1)[(𝐴 − 1)(𝑦2 + 1) + (𝐷 − 𝐵)𝑦],
+𝑃 + 𝑄 = (𝐴 + 1)(𝑦4 + 1) − (𝐵 + 𝐷)(𝑦3 + 𝑦) − 2𝐶𝑦2. (5.11)
+Set
+𝐻4 = 𝐴3 + 𝐴2𝐶 − 𝐴2 + 𝐴𝐵𝐷 − 2𝐴𝐶 − 𝐴𝐷2
+− 𝐴 − 𝐵2 + 𝐵𝐷 + 𝐶 + 1. (5.12)
+Then
+Res(𝑃, 𝑄) = (𝐴 − 𝐵 − 𝐶 − 𝐷 + 1)(𝐴 + 𝐵 − 𝐶 + 𝐷 + 1)𝐻2
+4. (5.13)
+The Wronskian is
+𝑊4 = 𝑎4(𝑦6 + 1) + 𝑏4(𝑦5 + 𝑦) + 𝑐crit
+4 (𝑦4 + 𝑦2) + 𝑑4𝑦3, (5.14)
+with
+𝑎4 = 𝐵 − 𝐴𝐷, 𝑏4 = 2𝐶(1 − 𝐴),
+𝑐crit
+4 = −3𝐴𝐵 + 𝐵𝐶 − 𝐶𝐷 + 3𝐷, 𝑑 4 = 4𝐴2 + 2𝐵2 − 2𝐷2 − 4. (5.15)
+The superscript distinguishes this critical-polynomial coeﬀicient from an elliptic invariant.
+With 𝜁 = 𝑦 + 1/𝑦 , its finite nonzero roots are obtained from
+𝑎4𝜁 3 + 𝑏4𝜁 2 + (𝑐crit
+4 − 3𝑎4)𝜁 + 𝑑4 − 2𝑏4 = 0, 𝑦 2 − 𝜁 𝑦 + 1 = 0. (5.16)
+On the generic locus there are six simple, distinct branch values. The closure has group 𝑆4,
+degree 24, and
+2𝑔 − 2 = 24[−2 + 6/2] = 24, 𝑔 = 13. (5.17)
+16
+Three-Way reciprocal hierarchy Paper II / v0.1
+There is no generic deck transformation; the residual partner relation is an irreducible cubic.
+The return of a +1 lock at −1 is an even-degree effect, not a return of quadratic Galois geometry.
+Three previously established exceptional families suﬀice to demonstrate the limits of the
+generic theorem. In each example assume the displayed map remains degree four.
+1. 𝐵 = 𝐷 = 0 : 𝐹4(𝑦) = 𝐹2;𝐴,𝐶(𝑦2), a decomposable cover with deck symmetry 𝑦 ↦ −𝑦.
+2. 𝐵 = 𝐶 = 𝐷 = 0 , 𝐴2 ≠ 1: 𝐹4 is a target Möbius transform of 𝑦4, a cyclic 𝐶4 Galois cover
+with genus-zero source.
+3. 𝐴 = −1 , 𝐵 = 𝐷 = 0 , 𝐶 ≠ 0 : the deck maps are 𝑦, −𝑦, 𝑖/𝑦, −𝑖/𝑦. They form 𝑉4, and the
+cover is Galois of genus zero.
+These are selected loci, not an exhaustive quartic census.
+5.5 The squaring lift and real plots
+For a reduced degree- 𝑑 map, 𝑓𝑛(𝑥) = 𝐹𝑛(𝑥2)has degree 2𝑑and obeys
+𝑓𝑛(−𝑥) = 𝑓𝑛(𝑥), 𝑓 𝑛(1/𝑥) = 1/𝑓𝑛(𝑥), 𝑒 𝑓𝑛(𝑥) = 𝑒𝑥2(𝑥)𝑒𝐹𝑛(𝑥2). (5.18)
+The first is a deck symmetry; the second is equivariance. For generic coeﬀicients, each old sim-
+ple branch value has two simple ramification points in the lift, with partition2212𝑛−4. Zero and
+infinity of the 𝑥-sphere add branch values 1/𝑎0 and 𝑎0, each with partition 2, 12𝑛−2. These val-
+ues are generically distinct from one another and from the old branch values. Thus the cubic
+lift has degree six and six branch values; the quartic lift has degree eight and eight branch val-
+ues. T otal ramification is2(2𝑛 − 2) + 2 = 4𝑛 − 2, as required. The genus formula in Theorem 2.1
+is not a formula for these lifted covers or their further target quotients.
+For real plotting, only 𝑦 = 𝑥 2 ≥ 0 is sampled. Positive zeros or poles give paired real loca-
+tions 𝑥 = ± √𝑦; negative real locations in 𝑦 give imaginary 𝑥, and nonreal roots have complex
+square roots. Generic locks at 𝑦 = 1 give 𝑥 = ±1. The parity-controlled behavior at 𝑦 = −1 lies
+at 𝑥 = ±𝑖 , outside the real plot. General complex Möbius equivalences do not preserve this
+half-line or the original embedding.
+Even real coeﬀicients need not make the correspondence an elliptic curve with a real origin.
+At 𝑡 = 2, realized for instance by (𝐴, 𝐵, 𝐶) = (−5, 1, 3),
+𝐸2 ∶ 𝑌 2
+0 = −4𝑍4 − 11𝑍2 − 8 (5.19)
+has no real points, including at infinity. Its Jacobian has a real identity , but this genus-one
+curve is a real torsor without a real point. The complex Weierstrass transformation selected
+a complex origin. Real twists, branch ordering, and the 𝑦 ≥ 0 restriction are extra data not
+captured by complex 𝑗 or 𝑡.
+6 Final bounded Tri-Octagon bridge test
+This section is a comparison with pre-existing project definitions, not a physical interpretation
+or a proposed change to the shell. The six objects being compared are candidate measurement
+patches. The source explicitly states that the welded shell has two connected nine-edge rims,
+not six boundary components [7, §§1–2]. Their group action was derived in the external cubic
+report [3, §12]. We preserve that result and ask only whether the already defined continuous
+quantities supply a modular identification.
+17
+Three-Way reciprocal hierarchy Paper II / v0.1
+6.1 The exact finite correspondence
+Use fresh geometric notation to avoid confusing a patch parameter with the modular coordi-
+nate 𝑡. Put
+𝑠𝑔 = √2 − 1, 𝑑 = 1 − √2/2, 𝑂 = (0, √3/6, 0), ℎ 0 = 𝑠 𝑔/2, 𝑟 0 = 1/√3, (6.1)
+and 𝑢𝑗 = 𝑅𝑧(2𝜋𝑗/3)(0, 1, 0), 𝑣𝑗 = 𝑅𝑧(2𝜋𝑗/3)(−1, 0, 0). The existing finite triangles are
+𝒫 𝜖
+𝑗 ∶ 𝑋 = 𝑂 + 𝑟(ℓ)𝑢 𝑗 + 𝜔𝑣𝑗 + 𝜖ℎ(ℓ)𝑒𝑧,
+𝑟(ℓ) = 𝑟0 − √3𝑑ℓ/2, ℎ(ℓ) = ℎ 0 + 𝑑ℓ,
+0 ≤ ℓ ≤ 1, |𝜔| ≤ 𝑑ℓ/2, 𝑗 ∈ ℤ/3, 𝜖 ∈ {1, −1}.
+(6.2)
+On coordinates centered at 𝑂, define the actual rigid maps
+𝑅 = 𝑅𝑧(2𝜋/3), 𝑆 = diag(−1, 1, −1). (6.3)
+Then 𝑅3 = 𝑆 2 = 1, 𝑆𝑅𝑆 = 𝑅−1. They act on whole patches by
+𝑅 ∶ 𝒫 𝜖
+𝑗 ↦ 𝒫 𝜖
+𝑗+1, 𝑆 ∶ 𝒫 𝜖
+𝑗 ↦ 𝒫 −𝜖
+−𝑗 . (6.4)
+Indeed 𝑆𝑢𝑗 = 𝑢 −𝑗, 𝑆𝑣𝑗 = −𝑣 −𝑗, 𝑆𝑒𝑧 = −𝑒 𝑧; the change 𝜔 ↦ −𝜔 preserves the finite triangle
+inequalities. No nonidentity rotation fixes a patch label, and every involution swaps upper
+and lower. The resulting 𝑆3 action is free and transitive.
+The explicit bijection
+Φ ∶ 𝒫 𝜖
+𝑗 ⟼ (𝑗, 𝑗 + 𝜖) (6.5)
+identifies the patches with the six ordered pairs of distinct elements of ℤ/3. Under 𝑅, both
+entries increase by one; under 𝑆, both are negated. Forgetting the second entry corresponds
+to forgetting upper/lower and retaining the vertical pair 𝑗. Its three stabilizers are the three
+transposition subgroups. This is an exact equivalence of finite group actions and incidence
+projections, stronger than a match of the numbers three and six.
+It matches the left regular monodromy action on root labels. The deck action ( 3.19) per-
+mutes positions and gives the commuting right regular action on complete root orderings.
+Identifying these actions without that distinction would obscure which quotient is being used.
+The bijection also requires a seed label and orientation; it is not a canonical assignment of spa-
+tial patches to analytic branches.
+The pure upper/lower reflection at fixed𝑗 commutes with 𝑅, producing 𝐶3×𝐶2, not 𝑆3. The
+noncommuting involution in (6.3) is specifically a half-turn that reverses pair index as well as
+height. This geometric step is essential to the established finite result.
+6.2 What would constitute a continuous bridge?
+The candidate targets are not interchangeable. The coordinate 𝑡 determines a reciprocal-
+marked cubic cover; ℎ determines its oriented cyclic 3-isogeny; and an ordered four-critical-
+value cross-ratio determines a labeling of the branch divisor of the quotient elliptic curve 𝐸′.
+A structure-preserving identification must derive the relevant data from the shell definitions.
+It must not choose a convenient scalar and declare it equal to a modular coordinate.
+In particular, a cross-ratio requires four independently selected distinct points on a com-
+mon projective line, with a stated ordering or its permutation class. Forℎ one needs the selected
+3-isogeny , not merely an elliptic𝑗. For 𝑡 one additionally needs the selected nonzero 2-torsion.
+The finite regular 𝑆3-set supplies none of these continuous choices by itself.
+18
+Three-Way reciprocal hierarchy Paper II / v0.1
+There is a precise non-identifiability argument. For every 𝑡 in the smooth domain of (4.13),
+the regular fiber has exactly the same finite 𝑆3-set and the same three-sheet incidence projec-
+tion. Therefore ( 6.5) can be made at every such 𝑡. T wo generic distinct 𝑡’s define inequivalent
+reciprocal-marked covers by Proposition 4.1, yet their finite incidence data are isomorphic.
+Thus the finite bridge cannot determine 𝑡, ℎ, or the four-point branch configuration.
+6.3 Audit of independently defined continuous quantities
+The bounded test consulted the exact definitions below , preserved as numbered snapshots
+with hashes. The full source map appears in Appendix A.3 and the companion ledger. No
+kernel module was imported or executed for this comparison.
+Fixed welded-shell shape. The patch source defines normals 𝑛𝜖
+𝑗 = (2𝑢𝑗 + 𝜖√3𝑒𝑧)/√7, spatial
+side lengths (𝑠𝑔, 𝑠𝑔, 𝑑), tip angle arccos (3/4), and projected equilateral triangles of side 𝑑. It
+also defines tip, centroid, and base-midpoint radius/height ratios. For example the centroid
+has
+𝑟𝑐/ℎ𝑐 = 2√3 − √6. (6.6)
+These dimensionless values are constants for the accepted shell up to similarity. An invariant
+of this fixed similarity class cannot furnish a nonconstant modular family. A chosen constant
+could be assigned to one elliptic curve, but the definitions select neither that curve nor an
+isogeny. The parameter ℓ in (6.2) runs over points inside a fixed triangle; it is not a deformation
+modulus of the shell.
+Separate reference scaffold. The pre-existing reference scaffold [8] has independent positive
+lengths 𝑠 and 𝑔gap, alternating side lengths (𝑠, 𝑔gap), and
+𝑔gap = √3𝑝 − 𝑠/2, 𝑅 2
+𝐻 = (𝑠2 + 𝑠𝑔gap + 𝑔2gap)/3,
+𝒜𝐻 = √3(𝑠2 + 4𝑠𝑔gap + 𝑔2gap)/4.
+(6.7)
+Modulo scale, 𝑔gap/𝑠 is a genuine shape parameter, with regularity at one. The selected
+edge/connector roles are retained by its class-preserving 𝐷3 symmetry , so that ratio is invari-
+ant under that action. Paper C’s member has 𝑔gap/𝑠 = 1/√2; varying the scaffold is a separate
+family , not a hidden deformation already present in the fixed welded shell.
+Neither the defining formulas nor the documented derivation supplies a projective four-
+point branch divisor, an elliptic group law , or a selected isogeny. Both a shape ratio and𝑡 being
+invariant under a finite symmetry is compatible with many arbitrary functions between them;
+it does not single out one. Defining 𝑡 = 𝑔 gap/𝑠, or applying a rational reparameterization to
+force the cusp values, would add precisely the dictionary being tested. We do not make that
+assignment. The natural six scaffold vertices are also not already four critical values; selecting
+four would require a new rule and branch-cover interpretation.
+Orientation, readout, and conditional registration. The source harmonic is 𝐴cos 3(𝜃 − ℓ0).
+Its six extrema have three vertical pairs, while the fixed sampled clock is a different finite set.
+The source’s finite-patch registration uses an additionally assumed coordinate dictionary and
+a free relative angle 𝛿, with a linked scale
+𝑎(𝛿) = 𝐾
+cos 𝛿 + √3/2
+, 𝐾 = √3/12 +√6/4. (6.8)
+19
+Three-Way reciprocal hierarchy Paper II / v0.1
+That parameter chooses an attachment of an observer construction to the shell; it is not an
+intrinsic shell invariant. The report leaves a unique gate anchor, axis, and channel assignment
+undetermined. Rotations or a choice of readout origin do not produce four projectively defined
+branch points. Treating one of these angles as a modular coordinate would add an attachment
+convention and an analytic structure absent from the accepted definitions.
+The existing readout code also defines 𝐽read = Im(Ω1Ω2Ω3), its bounded normalization
+𝐽read/(1 + |𝐽read|), and a memory update [ 12]. The function name cubic_j does not make it an
+elliptic 𝑗-invariant. It is a state-dependent real cubic expression and is not even invariant under
+a cyclic permutation of its arguments: (1, 𝑖, 1)gives −1, while (𝑖, 1, 1)gives +1. No documented
+transformation law turns this readout into one of the cover invariants.
+Existing boundary response and transfer. The boundary-response module explicitly labels
+its choice a toy response [ 9]. Independently of the Three-Way hierarchy , it defines
+𝜃 = arccos 𝑑ℓ
+2𝑟ℓ
+, 𝐼(𝜃) = 2𝜃 − sin 2𝜃
+𝜋 , 𝒫(𝜃, 𝜉 ) = √𝐼(𝜃)(𝜉 ⊗ 𝑓0), (6.9)
+with 0 ≤ 𝜃 ≤ 𝜋/2 and 𝑓0 = (1, 1, 1)/√3. The area fraction ranges from zero to one and is strictly
+increasing on the interior, since 𝐼′(𝜃) = 4sin2 𝜃/𝜋 > 0 . It is a lens geometry scalar, and 𝜉 is
+an independent incident two-vector. Neither specifies a cubic cover or branch labeling. The
+interval is not itself an obstruction to parameterizing a real modular arc; the missing point is
+an independently defined structure-preserving rule.
+The existing SRG module fixes numerical parameters and a transfer 𝑈 = 𝐵 ⊗ (𝑅𝑍𝐶), with
+a specified two-by-two helicity matrix and chosen eigenmode gauge [ 10]. Its transfer count
+is discrete and incident state is externally supplied. Its fixed spectra and projectors supply
+no documented varying four-point branch divisor or selected elliptic isogeny. Selecting four
+among eigenvalues, or applying an arbitrary transform to an input amplitude, would be a
+new construction. The operating-region profile bounds this initialization and an existing re-
+currence; those bounds do not introduce modular structure [ 11]. These definitions were read
+for the bridge audit only , without changing or retesting the production implementation.
+6.4 Bridge classification and endpoint
+FINITE 𝑆3 BRIDGE ONLY
+The patch action and its three-pair quotient match exactly. No continuous modular
+identification is independently justified by the inspected definitions.
+The positive result is ( 6.5). The fixed shell has no varying similarity modulus. The separate
+scaffold and response systems do have continuous inputs, but their definitions do not give the
+missing elliptic or branch-cover data. Consequently this bounded test establishes no structure-
+preserving map to 𝑡, ℎ, or the four-critical-value cross-ratio.
+This is a source-limited negative result, not a theorem that no future mathematical con-
+struction could connect these subjects. The continuous part is underdetermined by the in-
+spected definitions; the overall classification is “finite bridge only” because the finite equiva-
+lence is already proved. No scalar was fitted, no new model was introduced, and no physics
+claim follows. The comparison stops at this endpoint.
+20
+Three-Way reciprocal hierarchy Paper II / v0.1
+0+
+0-
+1+
+1-
+2+
+2-
+Existing finite patches
+ε
+j ⟷ (j, j + ε)
+R : (j, ε) ↦ (j + 1, ε)
+S : (j, ε) ↦ (−j, − ε)
+Exact regular S3-set
+with its three-pair quotient
+The same finite incidence occurs
+for every smooth cubic modulus.
+No branch divisor is selected.
+Figure 5: The preserved finite correspondence intertwines actual rigid patch symmetries with
+ordered-pair label permutations. Every smooth cubic parameter has this same finite incidence
+system. The missing continuous data are a branch divisor and its covering or isogeny marking;
+the figure asserts no map from shell dimensions to a modular coordinate.
+7 Closeout
+Coeﬀicient reversal preserves equivariance, reciprocal divisors, parity-sensitive fibers, and an
+odd Cayley normal form throughout the hierarchy. It does not preserve the quadratic deck
+partner. The generic other-sheet relation becomes irreducible, symmetric monodromy controls
+the closure, and Riemann–Hurwitz gives the exact genus formula. The cubic is the first elliptic
+level of this particular extension, with an explicit translation/inversion action and a 3-isogeny.
+The quartic already has generic closure genus thirteen.
+The intrinsic cubic modulus is one-dimensional after coordinate embeddings are forgot-
+ten, with the selected marking distinguishing 𝑋0(6)from 𝑋0(3)and from bare elliptic 𝑗. This
+geometry is established independently of the Tri-Octagon comparison. The latter ends with
+an exact finite incidence match and no justified continuous extension.
+THREE-W AY RECIPROCAL HIERARCHY = P ARKED
+The paper undertakes no further degree-five study , quartic census, physical interpretation,
+kernel integration, or new shell coupling.
+21
+Three-Way reciprocal hierarchy Paper II / v0.1
+A Verification, evidence classes, and reproducibility
+A.1 Evidence hierarchy
+The general monodromy and genus result is a theorem with an existence proof in Section 2. Its
+topology is not claimed to be machine-formalized. The displayed identities, discriminants, bi-
+rational maps, torsion formulas, and isogeny formulas have exact symbolic checks. Numerical
+evaluations are additional consistency tests, not substitutes for those proofs. The final bridge
+classification is a bounded audit of specified definitions together with an exact finite-action
+equivalence; it is not a universal impossibility theorem.
+The companion provenance/claim_ledger.csv maps every theorem and major derived
+claim to a source-report section, manuscript label, verification item or prose proof, and limi-
+tation. Standard facts, explicit family derivations, and project-specific source comparisons are
+separately marked. No mathematical priority is claimed. The literature check was bounded to
+primary sources needed for normal-form and modular conventions; it was not an exhaustive
+novelty search.
+A.2 Exact suites and numerical witnesses
+The original external verification scripts were copied byte-for-byte into this paper’s indepen-
+dent verification directory and rerun there. Their original reports, results, and scripts remain
+unchanged. With SymPy 1.14.0 and mpmath 1.3.0:
+• The hierarchy suite passed 51 exact checks and four numerical checks, covering degrees
+two through four, cancellation factors, critical equations, cubic splitting, and exceptional
+examples.
+• The cubic suite passed 73 exact checks, including quartic/Weierstrass identities, 3-
+torsion, the selected 2-torsion, root-incidence actions, the 3-isogeny , modular functions
+and generic recovery of ℎ, degeneration formulas, and the finite patch action.
+• Ten additional exact checks verify the independently sourced geometric ratios, lens-area
+derivative and endpoints, and the cyclic readout counterexample used in the final audit.
+These checks introduce no fitted dictionary.
+This is 134 exact checks in total. The two older suites retain their original test names and output
+structures. The extra checks are isolated in verification/verify_bridge.py.
+T wo fixed coeﬀicient witnesses certify the nonempty simple-branch loci in the low degrees.
+For (𝐴, 𝐵, 𝐶) = (2, 3, 5),
+𝑊3 = −7𝑦4 − 2𝑦3 − 7𝑦2 − 2𝑦 − 7,
+Disc(𝑊3) = 17000000,
+Disc𝑦(𝑃 − 𝑣𝑄) = 5(353𝑣4 − 1222𝑣3 + 1763𝑣2 − 1222𝑣 + 353). (A.1)
+The last polynomial has discriminant 1228250000000000 ≠ 0. For (𝐴, 𝐵, 𝐶, 𝐷) = (2, 3, 5, 7),
+𝑊4 = −11𝑦6 − 10𝑦5 − 17𝑦4 − 68𝑦3 − 17𝑦2 − 10𝑦 − 11,
+Disc(𝑊4) = 376072090731675648,
+Disc𝑦(𝑃 − 𝑣𝑄) = −96(7151𝑣6 − 35048𝑣5 + 78095𝑣4
+− 100468𝑣3 + 78095𝑣2 − 35048𝑣 + 7151). (A.2)
+Its discriminant is the nonzero integer recorded in the hierarchy JSON. Both witnesses also
+have nonzero numerator–denominator resultants. These exact nonvanishings prove simple
+22
+Three-Way reciprocal hierarchy Paper II / v0.1
+critical divisors and distinct branch values; a numerical root plot is not needed for that infer-
+ence.
+Numerical evaluation used 100 decimal digits, with critical roots approximated at 85 digits.
+The maximum reciprocity residuals were 2.94 × 10−101 and 1.84 × 10−101 for the cubic and
+quartic, respectively. Their maximum normalized critical-polynomial residuals were 6.02 ×
+10−86 and 5.48 × 10−86. For three fixed complex probes at 𝑡 = 17 , the cubic suite obtained
+maximum absolute residuals 2.52 × 10−95 for the Weierstrass map and 4.09 × 10−96 for the
+isogeny. These are high-precision floating evaluations, not interval-certified enclosures. There
+was no parameter scan.
+A.3 Exact source map for the final bridge
+All line numbers below refer to the preserved snapshots of the pre-existing files, not to new
+definitions in this paper. The source manifest records absolute original paths and SHA-256
+hashes. A numbered UTF-8 copy beside each snapshot makes the locators independent of an
+editor’s line display.
+ID Locator Definition used and outcome
+P ATCH Report §§2–3.1; lines
+51–150
+Finite patch coordinates, normals, metric
+ratios, and rigid symmetries. These support
+the exact regular 𝑆3-set, not a branch divisor.
+P ATCH §§3.3–3.4; lines
+161–233
+Conditional registration parameter and
+frozen clock distinction. These do not select a
+shell modulus.
+P ATCH §7; lines 386–393 Attachment, gate axis, and channel meaning
+remain source-limited.
+SCAFFOLD ReferenceScaffold;
+lines 172–266
+Positive side/gap family , radius and area, role
+labels, regularity. A shape modulus exists,
+but no elliptic or isogeny datum is defined.
+SCAFFOLD paper_c_member;
+lines 339–342
+The fixed welded-member placement selects
+gap ratio 1/√2.
+SCAFFOLD_
+PROOF
+§6 Independent geometric derivation of the
+alternating-side family; distinguishes
+regularity from the fixed welded member.
+BOUNDARY Lines 1–7, 25–37,
+55–105
+Explicit toy lens-area response, domain, gain,
+and six-vector preparation. No cubic
+branched cover is specified.
+SRG Lines 21–29, 50–94,
+122 onward
+Fixed parameters, tensor transfer, eigenmode
+gauge, and discrete transfer count. No
+continuous modular correspondence is
+defined.
+OPERATING Lines 1–16, 24–31, 46
+onward
+Bounded initialization/recurrence profile;
+not a geometric branch parameter.
+Z_READOUT Lines 91–151, 226–260 State norm, harmonic, cubic state readout,
+and memory update. The function cubic_j is
+not an elliptic invariant.
+23
+Three-Way reciprocal hierarchy Paper II / v0.1
+The original paths of P ATCH and the code snapshots are relative to the recorded repository
+root; the separate scaffold proof is in the external research tree. The manuscript bibliography
+supplies their identities. These snapshots serve as evidence, not replacement production mod-
+ules.
+A.4 Bundle and build contract
+The independent paper directory is papers/three_way_reciprocal_hierarchy . It con-
+tains multi-file LaTeX source, bibliography , vector and raster figures, the verification suites
+and outputs, source snapshots, claim/source ledgers, and build/audit records. The final PDF
+is in output/pdf/. A ZIP bundle preserves the same tree without recursively including itself.
+The supplied build script uses the existing Tectonic toolchain and a dedicated external
+build/cache workspace. It does not install a TeX system or modify Paper I. Verification scripts
+use the existing mathematical Python environment. Figure generation is deterministic and
+uses exact formulas or explanatory diagrams; figures are not evidence for a theorem beyond
+the equations cited in their captions. The PDF is rendered for visual review , and internal des-
+tinations, citations, source labels, and figure inclusion are audited.
+The baseline records all tracked repository file identities, all Paper I, kernel, and UI files
+present in the protected directories, and both external report directories. Final validation com-
+pares their hashes and repository HEAD; new files are confined to the Paper II directory and
+external build/QA workspace. Existing user changes are preserved. The detailed build report
+and artifact manifest accompany the delivery.
+24
+Three-Way reciprocal hierarchy Paper II / v0.1
+References
+[1] Three-Way Reciprocal Geometry: Reconstruction of a Historical Rational Model from Belyi
+Quotients to an Edwards Elliptic Galois Closure . Reconstruction draft prepared for Hilmir
+F. Halldórsson with Codex assistance, v0.1, 5 October 2026. Project manuscript, sibling
+directory papers/three_way_reconstruction. Preserved unchanged.
+[2] Three-Way reciprocal hierarchy, n = 2–4: first extension v0.1 . External exact-analysis report,
+5 October 2026. Snapshot HIERARCHY ; original directory
+research/three_way_reciprocal_hierarchy_20261005 in the workspace research
+tree. Includes verify_hierarchy.py and exact results.
+[3] Three-Way cubic elliptic correspondence v0.1. External exact-analysis report, 5 October
+2026. Snapshot CUBIC; original directory
+research/three_way_cubic_elliptic_20261005 in the workspace research tree.
+Includes verify_cubic_elliptic.py and exact results.
+[4] N. Miasnikov , B. Stout, and P . Williams,Automorphism loci for the moduli space of rational
+maps, arXiv:1408.5655v2 (2014), §2.1, Lemma 2. https://arxiv.org/pdf/1408.5655.
+Commuting automorphisms are distinct from deck transformations.
+[5] F. Pakovich, On rational functions whose normalization has genus zero or one ,
+arXiv:1609.03482v3 (2017). https://arxiv.org/pdf/1609.03482.
+[6] N. D. Elkies, Elliptic and modular curves over finite fields and related computational issues ,
+primary exposition (1997), §4, Eq. (80).
+https://people.math.harvard.edu/~elkies/modular.pdf.
+[7] Six candidate apertures, the Z harmonic and a rotated toroidal motif . Codex research report,
+RESEARCH_GATE_TORUS_v0.1, 24 September 2026. Repository path
+research/GATE_TORUS_INVESTIGATION_v0.1/REPORT.md; snapshot P ATCH. Only the
+existing geometric and registration definitions are used here.
+[8] Tri-Octagon project, kernel_physics/reference_scaffold.py, preserved snapshot
+SCAFFOLD, and T ri-Octagon hexagon core derivation v0.1, snapshot SCAFFOLD_PROOF.
+Exact paths, hashes, and line locators appear in the source manifest and Appendix A.3.
+[9] Tri-Octagon project, kernel_physics/boundary_response.py, preserved snapshot
+BOUNDARY . Explicitlens_area_norm_v1 toy response; read only.
+[10] Tri-Octagon project, kernel_physics/srg.py, preserved snapshot SRG. Fixed
+November transfer and initialization handoff; read only.
+[11] Tri-Octagon project, kernel_physics/operating_region.py, preserved snapshot
+OPERATING. Bounded initialization and existing recurrence adapters; read only.
+[12] Tri-Octagon project, kernel_physics/z_manifold.py, preserved snapshot
+Z_READOUT. Passive harmonic and cubic state readouts; read only.
+25

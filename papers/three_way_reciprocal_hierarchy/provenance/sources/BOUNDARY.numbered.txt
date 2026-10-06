@@ -1,0 +1,103 @@
+0001: """The explicitly chosen lens_area_norm_v1 toy response, not recovered physics.
+0002: 
+0003: P(theta, xi) = sqrt((2 theta-sin(2 theta))/pi) (xi tensor f0).
+0004: Tensor order is helicity-major. No normalization, random replacement or clipping.
+0005: Nonzero subnormal results/products raise ResponsePrecisionError; exact input
+0006: zeros return canonical complex zero after ALL inputs have been validated.
+0007: """
+0008: import math
+0009: 
+0010: import numpy as np
+0011: 
+0012: from ._response_numeric import (ResponsePrecisionError, checked_real, complex_vector,
+0013:                                product, real_scalar, scale_complex)
+0014: 
+0015: RESPONSE_ID = "lens_area_norm_v1"
+0016: 
+0017: 
+0018: def _theta(value):
+0019:     theta = real_scalar(value, "theta")
+0020:     if not 0 <= theta <= math.pi/2:
+0021:         raise ValueError("theta must be in [0, pi/2]")
+0022:     return theta
+0023: 
+0024: 
+0025: def theta_from_lens(radius, separation):
+0026:     """Equal-radius lens chart; rounding of input separation is not invertible."""
+0027:     r = real_scalar(radius, "radius")
+0028:     d = real_scalar(separation, "separation")
+0029:     if r <= 0 or d < 0:
+0030:         raise ValueError("radius must be positive and separation nonnegative")
+0031:     ratio = d/r  # avoids overflow in 2*r for a valid large-radius lens
+0032:     if not 0 <= ratio <= 2:
+0033:         raise ValueError("separation must be <= 2*radius")
+0034:     if d != 0 and ratio == 0:
+0035:         raise ResponsePrecisionError("separation/radius underflow; use theta or higher precision")
+0036:     half_ratio = product(ratio, .5, "lens separation ratio")
+0037:     return math.acos(half_ratio)
+0038: 
+0039: 
+0040: def _small_factor(t):
+0041:     """I(t)/t^3 through degree ten; same degree-13 area Taylor polynomial."""
+0042:     if t < 1e-8:
+0043:         # The relative omitted correction is <= t^2/5, below binary64 rounding.
+0044:         # Do not evaluate t*t where that irrelevant correction can underflow.
+0045:         return 4/(3*math.pi)
+0046:     z = t*t
+0047:     coefficients = [(-1)**(j+1)*2**(2*j+1)/math.factorial(2*j+1)
+0048:                     for j in range(1, 7)]
+0049:     value = coefficients[-1]
+0050:     for coefficient in reversed(coefficients[:-1]):
+0051:         value = coefficient+z*value
+0052:     return value/math.pi
+0053: 
+0054: 
+0055: def lens_area_fraction(theta):
+0056:     """Area/parent-disk area; positive subnormal or lost area raises explicitly."""
+0057:     t = _theta(theta)
+0058:     if t == 0:
+0059:         return 0.0
+0060:     if t == math.pi/2:
+0061:         return 1.0
+0062:     if t < .1:
+0063:         mantissa, exponent = math.frexp(t)
+0064:         value = math.ldexp(_small_factor(t)*mantissa**3, 3*exponent)
+0065:     else:
+0066:         value = (2*t-math.sin(2*t))/math.pi
+0067:     return checked_real(value, "lens area", nonzero=True)
+0068: 
+0069: 
+0070: def lens_area_gain(theta):
+0071:     """Evaluate sqrt(I) directly: representable gain need not imply usable I."""
+0072:     t = _theta(theta)
+0073:     if t == 0:
+0074:         return 0.0
+0075:     if t == math.pi/2:
+0076:         return 1.0
+0077:     if t < .1:
+0078:         mantissa, exponent = math.frexp(t)
+0079:         power, odd = divmod(3*exponent, 2)
+0080:         value = math.ldexp(math.sqrt(_small_factor(t)*mantissa**3*2**odd), power)
+0081:     else:
+0082:         value = math.sqrt(lens_area_fraction(t))
+0083:     return checked_real(value, "lens gain", nonzero=True)
+0084: 
+0085: 
+0086: def prepare_area_response(theta, xi):
+0087:     """Return a fresh raw complex128 six-vector; arbitrary incident helicity.
+0088: 
+0089:     Numerical domain: gain and each nonzero real/imaginary product must remain
+0090:     normal binary64. Exact zero is tested componentwise, never via norm squared.
+0091:     """
+0092:     t = _theta(theta)
+0093:     incident = complex_vector(xi, 2, "xi")
+0094:     if t == 0 or np.all(incident == 0):
+0095:         return np.zeros(6, dtype=np.complex128)
+0096:     gain = lens_area_gain(t)
+0097:     result = np.empty(6, dtype=np.complex128)
+0098:     for i, value in enumerate(incident):
+0099:         scaled = scale_complex(gain, complex(value), "prepared amplitude")
+0100:         block = complex(product(scaled.real, 1/math.sqrt(3), "prepared component"),
+0101:                         product(scaled.imag, 1/math.sqrt(3), "prepared component"))
+0102:         result[3*i:3*i+3] = block
+0103:     return result

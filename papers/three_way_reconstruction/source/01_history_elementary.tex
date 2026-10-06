@@ -1,0 +1,159 @@
+\section{Purpose, scope, and the objects being reconstructed}\label{sec:intro}
+
+Three-Way began as an exploratory comparison of reciprocal expressions, with particular attention to constants such as \(\pi,e,\phi\) and to the visible geometry of their graphs. That account of the original motivation is the author's retrospective account supplied with the present work order. It is not, by itself, a dated documentary demonstration of a particular formula. The surviving documents provide the more limited, checkable provenance developed in Section~\ref{sec:history}.
+
+The construction accumulated physical language before its rational-map geometry had been classified. The present paper follows the opposite logical order: recover the formula, specify its domains, prove its properties, identify established mathematical structures, and only then delimit what a physical comparison actually establishes. Its subject is the original rational construction. A metaphor involving branes or universes is not an additional hypothesis in any theorem below.
+
+Several distinct mathematical objects occur. A plotted real function is a subset of an affine real plane with specified axes. A rational map is a morphism between complex projective lines after common factors have been canceled. A decorated cover retains additional marked fibers or branch labels. A Galois closure is a larger function-field extension and can have a different source genus. Confusing these levels changes the question rather than answering it. In particular, a quartic-looking formula in \(x\) need not have genus one.
+
+Our notation is
+\begin{equation}\label{eq:family}
+F(y)=F_{A,B}(y)=\frac{N(y)}{D(y)},\quad
+N=Ay^2-By+1,\quad D=y^2-By+A,\quad f(x)=F(x^2).
+\end{equation}
+Parameters are complex unless a real statement is explicitly made. We use
+\begin{equation}\label{eq:parameters}
+c=A+1,\qquad \Delta=c^2-B^2,\qquad \chi=B^2-4A.
+\end{equation}
+The symbol \(f^{-1}_{\rm recip}\), when used historically, means \(1/f\), not a compositional inverse. The equation \(f=1/f\) is interpreted on the common finite, nonzero domain. Statements on \(\PP^1\) use the reduced rational map and local coordinates at infinity. An uncanceled numerical expression can retain holes that the projective map fills.
+
+The reconstruction has three main classification levels. First, a nonconstant degree-two \(y\)-map sits inside a fixed degree-four \(V_4\) quotient; the marked quotient value is \(\lambda\). Second, retaining \(y=x^2\) gives a degree-eight map with additional branch value \(\nu\). Third, its generic normal closure is an elliptic curve with an order-sixteen group action. All of the named species---Belyi maps, Joukowski maps, marked spheres, Hurwitz covers, Edwards curves, and modular curves---are established mathematics. We prove their occurrence in the present family; we do not assign priority to that assembly.
+
+\section{Formula provenance and documentary conflicts}\label{sec:history}
+
+\subsection{Evidence hierarchy}
+The historical PDFs and executable archive are primary evidence for what was printed or implemented~\cite{H1,H2,H3,H4}. The five external reconstruction reports R1--R5 are later analytical evidence, not historical sources. This paper supplies proofs independently of those reports. The source manifest records exact filenames, byte counts, SHA-256 hashes, and original locations. Verbatim snapshots are retained under \texttt{provenance}; no historical file has been altered.
+
+Printed dates are reported as printed dates. Local modification times and a filename containing a date do not establish a publication date. The corpus associates H1 with Zenodo record 17240087 and H2 with record 17365334. Those associations are retained as corpus metadata; live record retrieval was not available during this draft's checks. We do not silently turn those associations into verified deposition timestamps. H3 and H4 are cited as the exact archived PDFs, without inventing a DOI.
+
+\begin{table}[htbp]\centering\small
+\begin{tabularx}{\linewidth}{L{12mm}L{26mm}Y}
+\toprule ID & Printed date & Evidence and reconstruction consequence\\\midrule
+H1 & 1 May 2025 & \emph{The Three-Way Quantum Gravitational Wave Model}, final draft. Appendix C, p.~13, prints minus-sign \((9,9)\) and \((\pi,e)\). Page 14 calls the integer example \((9,1)\) and prints \((\phi,1-\phi)\).\\
+H2 & 16 October 2025 & \emph{Bounded Infinity and Resonant Curvature}. Pages 2--3 use the minus sign with a possible constant \(C\). Archived code defaults to \(C=1\). Labels and numerical CSVs do not consistently identify the integer pair.\\
+H3 & 19 January 2026 & \emph{Experimental Geometry of a Three-Way Reciprocal Construct}. Page 3, Eq.~(1), explicitly uses \(+Bx^2\). Its numerical stability claims concern that convention.\\
+H4 & 18 March 2026 & \emph{Reciprocal Rational Maps, Self-Dual Hinges, and Toroidal Phase Lifts}. Page 1 explicitly uses the plus sign. A phase lift is an additional construction.\\\bottomrule
+\end{tabularx}
+\caption{Principal documentary witnesses. These statements identify source content, not the truth of its interpretations.}\label{tab:provenance}
+\end{table}
+
+\subsection{The integer-pair discrepancy is substantive}
+H1 prints
+\begin{equation}\label{eq:historical99}
+\frac{9x^4-9x^2+1}{x^4-9x^2+9},
+\end{equation}
+then calls an example \((9,1)\) on the following page. The archived H2 script \texttt{rrm\_tool.py}, in its preset routine, maps aliases including \texttt{9\_1} and \texttt{classic} to \((A,B,C)=(9,9,1)\), while its help text describes a classic \((9,1)\) example. Its \texttt{rrm\_asymptotes.csv} reports real poles near \(\pm1.0704662693\) and \(\pm2.8025170769\), exactly the \((9,9)\) regime. Conversely, \texttt{rtm\_key\_pairs.csv} explicitly has a row \(A=9,B=1,C=1\). These witnesses cannot all be reconciled by changing one printed digit.
+
+We therefore retain both pairs as distinct documented examples. Their difference is mathematically large: \((9,9)\) has real zeros and poles; \((9,1)\) has none on the real \(x\)-axis. A figure or numerical output must be interpreted from its actual formula or recorded coefficients, not from the word ``classic.'' The executable preset and asymptote file corroborate the printed \((9,9)\) formula, but do not establish that every historical use of \((9,1)\) was a typo.
+
+\subsection{The sign change is retained, not repaired}
+The later plus-sign convention is
+\[
+F^+_{A,B}(y)=\frac{Ay^2+By+1}{y^2+By+A}=F_{A,-B}(y)=F_{A,B}(-y).
+\]
+As a family over complex parameters it is a reparametrization. At a fixed named pair with positive \(B\), however, it is a different real plot: replacing \(y\) by \(-y\) exchanges the positive and negative halves, and its \(x\)-lift is \(x\mapsto ix\), not a real reparametrization. The coherent minus-sign evidence in H1, H2, and the code archive, together with the explicitly selected reconstruction target, justifies Eq.~\eqref{eq:family}. It does not justify calling the later sign a transcription error.
+
+H2 also writes \((Ay^2-By+C)/(y^2-By+A)\). This is a genuine extension. The numerator of the failure of reciprocity is
+\[
+N_C(y)y^2N_C(1/y)-D(y)y^2D(1/y)
+=(C-1)\{A(y^4+1)-B(y^3+y)+(C+1)y^2\}.
+\]
+Thus the identity is preserved by \(C=1\), or by the exceptional case \(A=B=0,C=-1\), which gives \(-y^{-2}\); it does not hold for an arbitrary independently varied \(C\). The two-parameter reconstruction fixes \(C=1\).
+
+\subsection{What the historical record does and does not establish}
+The exact reciprocal identity and persistent visible intersections are recoverable mathematical content. H1's assertion about poles at the lock positions is not generally correct, and its suggestion that both \(+1\) and \(-1\) intersections occur in the displayed real examples requires correction. H2's finite sampled arc-length and curvature quantities depend on the interval, sampling, and treatment of poles; they are not by themselves invariant lengths of an unbounded singular graph. H3's perturbation and detectability results are historical numerical claims; the complete pipeline has not been independently reconstructed here. They are not used as proofs.
+
+Modern exploratory files in the separate playground already derived several plus-sign identities and investigated constant choices. We record those as prior local analysis M1~\cite{M1}. Neither those notes nor the later reconstruction reports should be presented as evidence that the historical authors understood the subsequent Belyi or elliptic interpretation. The present paper is explicitly retrospective.
+
+\section{Elementary algebra, locks, zeros, and poles}\label{sec:elementary}
+
+\begin{proposition}[Reciprocity and level sets]\label{prop:levels}
+After reduction, \(F(1/y)=1/F(y)\) and \(f(-x)=f(x)\). If \(A\ne1\) and \(\Delta\ne0\), then
+\begin{align}
+F=1&\iff y=1\ \text{or}\ y=-1,\label{eq:pluslevel}\\
+F=-1&\iff c(y^2+1)-2By=0,\label{eq:minuslevel}
+\end{align}
+where the second equation is homogenized on \(\PP^1_y\). For \(c\ne0\), its roots are \((B\pm\sqrt{-\Delta})/c\); for \(c=0\), they are \(0,\infty\). The finite nonzero solutions of \(F=1/F\) are exactly these two level sets.
+\end{proposition}
+\begin{proof}
+Reversing coefficients gives \(y^2N(1/y)=D(y)\) and \(y^2D(1/y)=N(y)\), so their quotient is reciprocal. Parity follows from \(y=x^2\). Subtraction and addition give
+\begin{equation}\label{eq:sumdifference}
+N-D=(A-1)(y^2-1),\qquad N+D=c(y^2+1)-2By.
+\end{equation}
+With no common root, these equations give the stated fibers, including their projective endpoints. Finally \(F=1/F\) is equivalent to \(F^2=1\) on its specified domain.
+\end{proof}
+
+Consequently the real locks \(x=\pm1\) are exact at height \(1\), provided \(A+1-B\ne0\). The other complex \(+1\) locks are \(x=\pm i\), requiring \(A+1+B\ne0\). They are equal-value intersections of two graphs, not necessarily fixed points of iteration \(x\mapsto f(x)\). Numerator/denominator reversal fixes them independently of the choice of named constants. The \(-1\) fiber is a different quadratic problem.
+
+\begin{proposition}[Divisors and cancellations]\label{prop:divisors}
+For \(A\ne0\), away from common factors, the zero and pole multisets of \(F\) are
+\begin{equation}\label{eq:roots}
+y_{z,\pm}=\frac{B\pm\sqrt\chi}{2A},\qquad
+y_{p,\pm}=\frac{B\pm\sqrt\chi}{2}.
+\end{equation}
+The pole multiset is the reciprocal of the zero multiset, with the two displayed signs paired oppositely when square roots are coherently chosen. Common factors occur exactly on
+\begin{equation}\label{eq:resultant}
+\operatorname{Res}_y(N,D)=(A-1)^2\Delta=0.
+\end{equation}
+For \(A\ne\pm1\), the cancellation lines have reduced forms
+\begin{align}
+B=c:&\quad F(y)=\frac{Ay-1}{y-A},\label{eq:cancelplus}\\
+B=-c:&\quad F(y)=\frac{Ay+1}{y+A}.\label{eq:cancelminus}
+\end{align}
+They have degree one. At \(A=1\), the reduced function is identically \(1\); at \((A,B)=(-1,0)\), it is identically \(-1\).
+\end{proposition}
+\begin{proof}
+The quadratic formula gives \eqref{eq:roots}. A common zero for \(A\ne1\) must satisfy \(y^2=1\) by \eqref{eq:sumdifference}; substituting gives \(B=\pm c\). Expanding the resultant, or evaluating \(N-D\) at the roots of \(D\), gives \eqref{eq:resultant}. On \(B=c\), factor
+\[
+N=(y-1)(Ay-1),\qquad D=(y-1)(y-A).
+\]
+The negative line has the analogous factor \(y+1\). The two constant cases follow directly. No other degree drop is possible because the resultant is nonzero off these loci.
+\end{proof}
+
+The canceled point in \eqref{eq:cancelplus} has reduced value \(-1\), not \(+1\), when \(A\ne1\). Thus approaching a parameter cancellation and evaluating at the uncanceled lock need not commute. On \(B=-c\), the same statement holds at \(y=-1\). At \(A=1\), all apparent denominator roots are removable; the reduced map is constant, although the original expression leaves them undefined.
+
+At \(A=0,B\ne0\), the projective zeros are \(1/B,\infty\) and the poles are \(B,0\), before the cancellations \(B=\pm1\). At \(A=B=0\), \(F=y^{-2}\). In \(x\), a nonzero simple \(y\)-root produces two simple roots; a root at \(y=0\) or infinity has its order doubled by squaring. Thus \(A=0\) is an embedding and marked-branch collision, even though the generic \(y\)-map still has degree two.
+
+For a simple denominator zero \(x_0\) with nonzero numerator, the residue is
+\[
+\operatorname{Res}_{x=x_0}f=\frac{N(x_0^2)}{\left.\dfrac{d}{dx}D(x^2)\right|_{x=x_0}}.
+\]
+If numerator and denominator both vanish simply, their ratio tends to the ratio of derivatives and the singularity is removable. H1's pole argument conflated these alternatives. The ratio of derivatives is not the residue of a pole in that case.
+
+\subsection{Critical points and parameter-independent statements}
+Direct differentiation gives
+\begin{equation}\label{eq:derivative}
+F'(y)=\frac{(A-1)(-By^2+2cy-B)}{D(y)^2}.
+\end{equation}
+For a nonconstant degree-two map, the critical pair is
+\[
+y_{c,\pm}=\frac{c\pm\sqrt\Delta}{B}\quad(B\ne0),
+\]
+or \(0,\infty\) if \(B=0\). The points are reciprocal. If \(\chi=0\), one is a double zero and the other a double pole; a critical point at a pole is understood using the local target coordinate \(1/F\), not as an ordinary finite stationary graph point. For \(f\), the chain rule adds the ramification of \(x^2\) at \(0,\infty\).
+
+Several visually persistent features now have exact explanations. Where defined, \(F(0)=1/A\) and \(F(\infty)=A\) are independent of \(B\). The product of the two nonzero finite pole roots is \(A\), and the zero product is \(1/A\), also independent of \(B\). The \(\pm1\) level locks are independent of both parameters off cancellation. The boundary \(\chi=0\) controls repeated zeros and poles; \(\Delta=0\) controls a different phenomenon, their cancellation. Sensitivities are
+\begin{equation}\label{eq:sensitivity}
+\partial_A F=\frac{(y^2-1)(y^2-By+1)}{D^2},\qquad
+\partial_B F=\frac{(A-1)y(y^2-1)}{D^2}.
+\end{equation}
+Their common vanishing at the locks is algebraic. There is no distinguished integer \(9\) in these identities.
+
+\subsection{Complete real-root classification}
+For real parameters, exclude cancellation first. If \(A>0\), \(\chi<0\) gives nonreal conjugate \(y\)-roots; \(\chi>0\) gives real roots, both positive when \(B>0\), both negative when \(B<0\). At \(\chi=0\) the corresponding roots are double. If \(A<0\), each quadratic has one positive and one negative root. These claims follow from the discriminant, product, and sum. Taking both square roots of each \(y\)-root gives the full complex \(x\)-classification: positive roots give real pairs, negative roots imaginary pairs, and nonreal conjugate pairs give conjugate, parity-symmetric quartets.
+
+\begin{table}[htbp]\centering\small
+\begin{tabularx}{\linewidth}{L{49mm}Y}\toprule
+Real coefficient regime & Real \(x\)-zeros and poles of the reduced nonconstant function\\\midrule
+\(A>0,\chi<0\) & None.\\
+\(A>0,\chi>0,B>0\) & Four simple zeros and four simple poles.\\
+\(A>0,\chi>0,B<0\) & None; the corresponding roots are imaginary.\\
+\(A>0,\chi=0,B>0\) & Two double zeros and two double poles.\\
+\(A>0,\chi=0,B<0\) & None; double roots are imaginary.\\
+\(A<0\) & Two simple real zeros and two simple real poles; also imaginary pairs.\\
+\(A=0,B>0\) & Simple zeros \(\pm B^{-1/2}\), simple poles \(\pm\sqrt B\); double zero at infinity and double pole at zero.\\
+\(A=0,B<0\) & Finite nonzero roots are imaginary; the orders at zero and infinity remain.\\
+\(A=B=0\) & Pole order four at zero, zero order four at infinity.\\\bottomrule
+\end{tabularx}\caption{Real plotting classification. The cancellation lines are handled separately by Proposition~\ref{prop:divisors}.}\label{tab:realroots}
+\end{table}
+
+For \(F=-1\), the two \(y\)-roots have product one. If \(\Delta>0\), they are nonreal conjugates of unit modulus. If \(\Delta<0\) and \(c\ne0\), they are real reciprocal roots and are positive exactly when \(B/c>0\), equivalently \(B/c>1\) in this regime. Only that case gives four real \(x\)-solutions. The case \(c=0\) gives the projective endpoints. Thus all four historical examples studied below, which have \(\Delta>0\), have no real \(-1\) branch, despite their exact real \(+1\) locks.

@@ -1,0 +1,297 @@
+0001: """Opt-in Paper-E readouts; never a recurrence, geometry map or feedback law.
+0002: 
+0003: Binary64/complex128 evaluation reuses the conservative response precision
+0004: contract. Intermediate nonzero subnormals, overflow and lost nonzero products
+0005: raise ResponsePrecisionError. Successful scalar evaluation does not guarantee
+0006: that cubic, chirality or blended-vector evaluation will succeed.
+0007: """
+0008: from dataclasses import dataclass, field
+0009: import math
+0010: import numbers
+0011: 
+0012: import numpy as np
+0013: 
+0014: from . import readouts
+0015: from ._response_numeric import (
+0016:     ResponsePrecisionError, checked_real, complex_product, complex_vector,
+0017:     product, real_scalar, total,
+0018: )
+0019: 
+0020: 
+0021: def _integer(value, name):
+0022:     if isinstance(value, (bool, np.bool_)) or not isinstance(value, numbers.Integral):
+0023:         raise TypeError(f"{name} must be an integer, excluding booleans")
+0024:     return int(value)
+0025: 
+0026: 
+0027: def _require(value, cls, name):
+0028:     if not isinstance(value, cls):
+0029:         raise TypeError(f"{name} must be {cls.__name__}")
+0030:     return value
+0031: 
+0032: 
+0033: def _freeze(values):
+0034:     result = np.array(values, copy=True)
+0035:     result.setflags(write=False)
+0036:     return result
+0037: 
+0038: 
+0039: def _real_vector(values, name):
+0040:     raw = np.asarray(values, dtype=object)
+0041:     if raw.shape != (3,):
+0042:         raise ValueError(f"{name} must have shape (3,)")
+0043:     return _freeze([checked_real(real_scalar(v, name), name) for v in raw])
+0044: 
+0045: 
+0046: @dataclass(frozen=True, slots=True)
+0047: class Clock:
+0048:     """Explicit clock; q stays integer. Historical N=12, q_step=1.
+0049: 
+0050:     q is retained as supplied; angle evaluation first reduces q modulo N
+0051:     using integer arithmetic. This periodic evaluation never changes Omega.
+0052:     """
+0053:     q: int = 0
+0054:     N: int = 12
+0055:     t: float = 0.0
+0056:     q_step: int = 1
+0057: 
+0058:     def __post_init__(self):
+0059:         for name in ("q", "N", "q_step"):
+0060:             object.__setattr__(self, name, _integer(getattr(self, name), name))
+0061:         if self.N <= 0:
+0062:             raise ValueError("N must be positive")
+0063:         object.__setattr__(self, "t", real_scalar(self.t, "t"))
+0064: 
+0065: 
+0066: def clock_angle(clock):
+0067:     """2*pi*(q mod N)/N; no conversion of a huge raw q to binary64."""
+0068:     _require(clock, Clock, "clock")
+0069:     q = clock.q % clock.N
+0070:     ratio = q / clock.N
+0071:     ratio = checked_real(ratio, "clock sector fraction", nonzero=(q != 0))
+0072:     return product(2.0 * math.pi, ratio, "clock angle")
+0073: 
+0074: 
+0075: def advance_clock(clock, dt):
+0076:     """Return a new clock; dt is explicit (historical runner used 0.1)."""
+0077:     _require(clock, Clock, "clock")
+0078:     dt = real_scalar(dt, "dt")
+0079:     t = total((clock.t, dt), "clock time addition")
+0080:     if dt != 0 and t == clock.t:
+0081:         raise ResponsePrecisionError("nonzero dt lost: clock time did not advance")
+0082:     return Clock((clock.q + clock.q_step) % clock.N, clock.N, t, clock.q_step)
+0083: 
+0084: 
+0085: def _config_reals(config, names):
+0086:     for name in names:
+0087:         object.__setattr__(config, name, real_scalar(getattr(config, name), name))
+0088: 
+0089: 
+0090: @dataclass(frozen=True, slots=True)
+0091: class StagedConfig:
+0092:     """Literal K defaults; signed finite coefficients are allowed."""
+0093:     lambda_vp: float = 0.618
+0094:     gamma: float = 0.577
+0095:     theta_lock: float = 0.244
+0096:     alpha: float = 1.0
+0097:     beta: float = 0.5
+0098: 
+0099:     def __post_init__(self):
+0100:         _config_reals(self, ("lambda_vp", "gamma", "theta_lock", "alpha", "beta"))
+0101: 
+0102: 
+0103: def state_norm(omega):
+0104:     """Stable six-real-component hypot, retaining raw state scale."""
+0105:     v = complex_vector(omega, 3, "omega")
+0106:     return checked_real(math.hypot(*(float(c) for z in v for c in (z.real, z.imag))),
+0107:                         "state norm", nonzero=bool(np.any(v != 0)))
+0108: 
+0109: 
+0110: def saturated_norm(omega):
+0111:     """rho=kappa/(1+kappa); floating rho may round to 1."""
+0112:     kappa = state_norm(omega)
+0113:     denominator = total((1.0, kappa), "rho denominator")
+0114:     return checked_real(kappa / denominator, "rho", nonzero=(kappa != 0))
+0115: 
+0116: 
+0117: def _harmonic(omega, clock, config):
+0118:     rho = saturated_norm(omega)
+0119:     theta = clock_angle(clock)
+0120:     angle = product(3.0, total((theta, -config.theta_lock), "lock difference"),
+0121:                     "harmonic angle")
+0122:     cosine = checked_real(math.cos(angle), "harmonic cosine")
+0123:     return product(product(config.lambda_vp, rho, "harmonic amplitude"),
+0124:                    cosine, "harmonic scalar")
+0125: 
+0126: 
+0127: def staged_scalar(omega, clock, config):
+0128:     """K scalar, left-associated checked products and an explicit envelope.
+0129: 
+0130:     No envelope bypass is made for zero amplitude; its numerical evaluation
+0131:     still has to succeed. No finite-time underflow is labelled exact decay.
+0132:     """
+0133:     _require(config, StagedConfig, "config")
+0134:     _require(clock, Clock, "clock")
+0135:     harmonic = _harmonic(omega, clock, config)
+0136:     exponent = product(-config.gamma, clock.t, "envelope exponent")
+0137:     try:
+0138:         envelope = math.exp(exponent)
+0139:     except OverflowError as exc:
+0140:         raise ResponsePrecisionError("exponential envelope overflow") from exc
+0141:     envelope = checked_real(envelope, "exponential envelope", nonzero=True)
+0142:     return product(harmonic, envelope, "staged scalar")
+0143: 
+0144: 
+0145: def macro_vector(z, clock):
+0146:     """Fresh read-only M=z*(cos(theta),sin(theta),1), without normalization."""
+0147:     z = checked_real(real_scalar(z, "z"), "z")
+0148:     theta = clock_angle(clock)
+0149:     return _freeze([product(z, math.cos(theta), "macro x"),
+0150:                     product(z, math.sin(theta), "macro y"), z])
+0151: 
+0152: 
+0153: def blend_vectors(macro, chiral, *, alpha, beta):
+0154:     """Fresh read-only alpha*M+beta*C; validate both vectors even at zero weight."""
+0155:     alpha = real_scalar(alpha, "alpha")
+0156:     beta = real_scalar(beta, "beta")
+0157:     m = _real_vector(macro, "macro")
+0158:     c = _real_vector(chiral, "chiral")
+0159:     return _freeze([total((product(alpha, x, "macro blend"),
+0160:                            product(beta, y, "chiral blend")), "total blend")
+0161:                     for x, y in zip(m, c)])
+0162: 
+0163: 
+0164: @dataclass(frozen=True, slots=True, eq=False)
+0165: class ZReadout:
+0166:     """Detached arrays resist ordinary mutation, not a security boundary."""
+0167:     z: float
+0168:     Z_macro: np.ndarray
+0169:     Z_chiral: np.ndarray
+0170:     Z_total: np.ndarray
+0171:     variant: str
+0172:     initialization: str = "recomputed"
+0173: 
+0174:     def __post_init__(self):
+0175:         object.__setattr__(self, "z", checked_real(real_scalar(self.z, "z"), "z"))
+0176:         for name in ("Z_macro", "Z_chiral", "Z_total"):
+0177:             object.__setattr__(self, name, _real_vector(getattr(self, name), name))
+0178:         if self.variant not in ("staged", "ema"):
+0179:             raise ValueError("variant must be staged or ema")
+0180:         if self.initialization not in ("recomputed", "historical_constructor_zero"):
+0181:             raise ValueError("unknown initialization marker")
+0182: 
+0183:     @property
+0184:     def Z_vec(self):
+0185:         """Compatibility alias of Z_total, with no separate writable storage."""
+0186:         return self.Z_total
+0187: 
+0188: 
+0189: def _observe(omega, clock, config, z, variant):
+0190:     macro = macro_vector(z, clock)
+0191:     # Deliberately evaluate C even when beta=0: the full decomposition promises C.
+0192:     chiral = readouts.z_chiral(omega)
+0193:     blended = blend_vectors(macro, chiral, alpha=config.alpha, beta=config.beta)
+0194:     return ZReadout(z, macro, chiral, blended, variant)
+0195: 
+0196: 
+0197: def observe_staged(omega, clock, config):
+0198:     """Pure K observation; advances neither clock nor Omega."""
+0199:     return _observe(omega, clock, config, staged_scalar(omega, clock, config), "staged")
+0200: 
+0201: 
+0202: @dataclass(frozen=True, slots=True)
+0203: class EMAConfig:
+0204:     """H harmonic/blend configuration. There is deliberately no gamma field."""
+0205:     lambda_vp: float = 0.618
+0206:     theta_lock: float = 0.244
+0207:     alpha: float = 1.0
+0208:     beta: float = 0.5
+0209: 
+0210:     def __post_init__(self):
+0211:         _config_reals(self, ("lambda_vp", "theta_lock", "alpha", "beta"))
+0212: 
+0213: 
+0214: @dataclass(frozen=True, slots=True)
+0215: class EMAState:
+0216:     """Adopted historical bounded profile: finite |m|<=1, normally m=0."""
+0217:     m: float = 0.0
+0218: 
+0219:     def __post_init__(self):
+0220:         m = real_scalar(self.m, "m")
+0221:         if abs(m) > 1:
+0222:             raise ValueError("the bounded historical profile requires |m|<=1")
+0223:         object.__setattr__(self, "m", m)
+0224: 
+0225: 
+0226: def cubic_j(omega):
+0227:     """J=Im(O1*conj(O2)*O3), with two left-associated checked complex products."""
+0228:     v = complex_vector(omega, 3, "omega")
+0229:     pair = complex_product(complex(v[0]), complex(v[1]).conjugate(), "cubic pair")
+0230:     return complex_product(pair, complex(v[2]), "cubic triple").imag
+0231: 
+0232: 
+0233: def normalized_cubic(omega):
+0234:     """J/(1+abs(J)); rounded results may equal +/-1."""
+0235:     j = cubic_j(omega)
+0236:     denominator = total((1.0, abs(j)), "cubic normalization denominator")
+0237:     return checked_real(j / denominator, "normalized cubic", nonzero=(j != 0))
+0238: 
+0239: 
+0240: def advance_ema(omega, memory):
+0241:     """Exactly one pure H update using the newly committed Omega.
+0242: 
+0243:     The source innovation is literal 0.01, not 1-float(0.99).
+0244:     No clock or recurrence update is performed.
+0245:     """
+0246:     _require(memory, EMAState, "memory")
+0247:     innovation = normalized_cubic(omega)
+0248:     tau_meta = 0.01
+0249:     m = total((product(1.0 - tau_meta, memory.m, "EMA retention"),
+0250:                product(tau_meta, innovation, "EMA innovation")), "EMA sum")
+0251:     return EMAState(m)
+0252: 
+0253: 
+0254: def ema_scalar(omega, clock, config, memory):
+0255:     """H scalar from CURRENT memory. No cubic evaluation or memory update."""
+0256:     _require(config, EMAConfig, "config")
+0257:     _require(clock, Clock, "clock")
+0258:     _require(memory, EMAState, "memory")
+0259:     return total((_harmonic(omega, clock, config), memory.m), "EMA scalar")
+0260: 
+0261: 
+0262: def observe_ema(omega, clock, config, memory):
+0263:     """Pure H observation from current memory, without an implicit EMA update."""
+0264:     return _observe(omega, clock, config,
+0265:                     ema_scalar(omega, clock, config, memory), "ema")
+0266: 
+0267: 
+0268: @dataclass(frozen=True, slots=True, eq=False)
+0269: class ConstructorZeroRecord:
+0270:     """Historical stored row zero, explicitly distinct from recomputation.
+0271: 
+0272:     Validates raw Omega, clock and named configuration. Both source constructors
+0273:     store zero memory and zero readouts; no cubic, norm or chirality is evaluated.
+0274:     The immutable config/clock fields retain the replay inputs, not a new runner.
+0275:     """
+0276:     omega: np.ndarray
+0277:     clock: Clock
+0278:     config: StagedConfig | EMAConfig
+0279:     memory: EMAState = field(init=False)
+0280:     readout: ZReadout = field(init=False)
+0281: 
+0282:     def __post_init__(self):
+0283:         _require(self.clock, Clock, "clock")
+0284:         if not isinstance(self.config, (StagedConfig, EMAConfig)):
+0285:             raise TypeError("config must explicitly select StagedConfig or EMAConfig")
+0286:         omega = _freeze(complex_vector(self.omega, 3, "omega"))
+0287:         variant = "staged" if isinstance(self.config, StagedConfig) else "ema"
+0288:         zero = np.zeros(3)
+0289:         object.__setattr__(self, "omega", omega)
+0290:         object.__setattr__(self, "memory", EMAState())
+0291:         object.__setattr__(self, "readout", ZReadout(
+0292:             0.0, zero, zero, zero, variant, "historical_constructor_zero"))
+0293: 
+0294: 
+0295: def historical_constructor_zero(omega, clock, config):
+0296:     """Return the marked historical zero row; this is not a formula observation."""
+0297:     return ConstructorZeroRecord(omega, clock, config)

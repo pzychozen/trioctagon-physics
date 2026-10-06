@@ -1,0 +1,1759 @@
+Three-Way Reciprocal Geometry
+Reconstruction of a Historical Rational Model from Belyi
+Quotients to an Edwards Elliptic Galois Closure
+Reconstruction draft prepared for Hilmir F. Halldórsson
+with Codex assistance
+Version 0.1 5 October 2026
+Abstract. We reconstruct the minus-sign reciprocal family
+𝐹𝐴,𝐵(𝑦) =𝐴𝑦2 − 𝐵𝑦 + 1
+𝑦2 − 𝐵𝑦 + 𝐴 , 𝑦 = 𝑥 2,
+from a historical visual construction and its later, partly inconsistent documentary
+record. Exact algebra separates locks, poles, cancellations, and real plotting restric-
+tions. A coherent source normalization identifies a fixed degree-four Klein-four Belyi
+quotient with one marked-fiber parameter 𝜆. Retaining the original squaring cover
+introduces an independent parameter 𝜈; for the selected covering type, the generic
+decorated coarse moduli space is 𝑀0,5. The degree-eight sphere map has a degree-
+sixteen genus-one Galois closure with group 𝐷4 × 𝐶2. Its explicit equation is an Ed-
+wards curve, and 𝜈 is a coordinate on 𝑋0(4)for the closure with its selected cyclic
+subgroup of order four. The second marking specifies an effective fiber divisor, not
+a second elliptic modulus. We also prove the nested large-coeﬀicient limits, explain
+the two distinct intermediate-chart involutions, and delimit an exact nearest-neighbor
+spectral-quotient comparison. The original real graph, the complex sphere cover, the
+elliptic closure, and any separately proposed surface of revolution are different ob-
+jects. Historical physical claims are documented without being adopted.
+Status. This is a later mathematical reconstruction, not a revision of the historical papers.
+No mathematical novelty or priority is claimed. A dedicated prior-art audit of the assembled
+claims remains a separate stage. Author and publication metadata remain subject to author
+review; no submission or release is implied.
+Three-Way reciprocal geometry Reconstruction v0.1
+Contents
+1 Purpose, scope, and the objects being reconstructed 1
+2 Formula provenance and documentary conflicts 1
+2.1 Evidence hierarchy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+2.2 The integer-pair discrepancy is substantive . . . . . . . . . . . . . . . . . . . . . 2
+2.3 The sign change is retained, not repaired . . . . . . . . . . . . . . . . . . . . . . 2
+2.4 What the historical record does and does not establish . . . . . . . . . . . . . . . 3
+3 Elementary algebra, locks, zeros, and poles 3
+3.1 Critical points and parameter-independent statements . . . . . . . . . . . . . . . 4
+3.2 Complete real-root classification . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+4 The second involution and a coherent normal form 6
+5 The fixed Belyi quotient and the reduced modulus 6
+5.1 Exactly what equality of lambda means . . . . . . . . . . . . . . . . . . . . . . . 7
+6 Real forms and the geometry of the plots 8
+7 The diagonal large-coeﬀicient family 10
+7.1 Bulk, inner, outer, and thin-lock limits . . . . . . . . . . . . . . . . . . . . . . . . 11
+7.2 The intermediate shoulder profile, with matching . . . . . . . . . . . . . . . . . 11
+7.3 T wo involutions, two distinct finite-scale origins . . . . . . . . . . . . . . . . . . 12
+7.4 How the quotient sees the charts . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+8 Retaining the original squaring cover 14
+9 Two moduli, five marked points, and a selected Hurwitz type 15
+9.1 The generic domain and the equivalence relation . . . . . . . . . . . . . . . . . . 15
+9.2 Why five points and the passport are not suﬀicient by themselves . . . . . . . . 16
+9.3 Real presentations and fixed plotting coordinates . . . . . . . . . . . . . . . . . . 17
+10 The genus-one normal closure and its monodromy 17
+10.1 A reproducible branch-cycle description . . . . . . . . . . . . . . . . . . . . . . . 17
+11 Collision boundaries and specialized maps 19
+12 The closure as an Edwards elliptic curve 20
+12.1 Montgomery and Weierstrass equations . . . . . . . . . . . . . . . . . . . . . . . 20
+12.2 Jacobi quartic and a fully explicit Legendre map . . . . . . . . . . . . . . . . . . 21
+12.3 T wo independent computations of j . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+13 Translations, inversion, and the two Klein-four actions 22
+14 The modular meaning of nu and the natural two-isogeny 23
+i
+Three-Way reciprocal geometry Reconstruction v0.1
+15 The marking lambda upstairs 24
+16 Degeneration, enhanced automorphisms, and topology 25
+16.1 The explicit limiting elliptic fibers . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+16.2 Smooth extra automorphisms are different from boundaries . . . . . . . . . . . 25
+16.3 The original source is a sphere; the closure is a torus . . . . . . . . . . . . . . . . 26
+17 Four historical coeﬀicient pairs 27
+17.1 The pair (9,9) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+17.2 The pair (9,1) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+17.3 The pair (pi,e) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+17.4 The pair (phi,1-phi) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+18 A bounded nearest-neighbor spectral comparison 29
+18.1 Domains cannot be identified by the formula alone . . . . . . . . . . . . . . . . . 29
+18.2 Standard chain objects and the requested ratio . . . . . . . . . . . . . . . . . . . 29
+18.3 Does the additional square root have a physical meaning? . . . . . . . . . . . . . 30
+19 Historical interpretation and what the reconstruction establishes 31
+A Evidence architecture and reproducibility 32
+A.1 Independent computational checks . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+A.2 Claim ledger summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+B Limits of this edition and exact claims for a subsequent audit 35
+References 36
+ii
+Three-Way reciprocal geometry Reconstruction v0.1
+1 Purpose, scope, and the objects being reconstructed
+Three-Way began as an exploratory comparison of reciprocal expressions, with particular at-
+tention to constants such as 𝜋, 𝑒, 𝜙and to the visible geometry of their graphs. That account of
+the original motivation is the author’s retrospective account supplied with the present work
+order. It is not, by itself, a dated documentary demonstration of a particular formula. The
+surviving documents provide the more limited, checkable provenance developed in Section 2.
+The construction accumulated physical language before its rational-map geometry had
+been classified. The present paper follows the opposite logical order: recover the formula,
+specify its domains, prove its properties, identify established mathematical structures, and
+only then delimit what a physical comparison actually establishes. Its subject is the original
+rational construction. A metaphor involving branes or universes is not an additional hypoth-
+esis in any theorem below.
+Several distinct mathematical objects occur. A plotted real function is a subset of an aﬀine
+real plane with specified axes. A rational map is a morphism between complex projective
+lines after common factors have been canceled. A decorated cover retains additional marked
+fibers or branch labels. A Galois closure is a larger function-field extension and can have a
+different source genus. Confusing these levels changes the question rather than answering it.
+In particular, a quartic-looking formula in 𝑥 need not have genus one.
+Our notation is
+𝐹(𝑦) = 𝐹𝐴,𝐵(𝑦) =𝑁(𝑦)
+𝐷(𝑦), 𝑁 = 𝐴𝑦 2 − 𝐵𝑦 + 1, 𝐷 = 𝑦 2 − 𝐵𝑦 + 𝐴, 𝑓 (𝑥) = 𝐹(𝑥2). (1.1)
+Parameters are complex unless a real statement is explicitly made. We use
+𝑐 = 𝐴 + 1, Δ = 𝑐 2 − 𝐵2, 𝜒 = 𝐵 2 − 4𝐴. (1.2)
+The symbol 𝑓 −1
+recip, when used historically , means 1/𝑓, not a compositional inverse. The equa-
+tion 𝑓 = 1/𝑓 is interpreted on the common finite, nonzero domain. Statements on ℙ1 use the
+reduced rational map and local coordinates at infinity. An uncanceled numerical expression
+can retain holes that the projective map fills.
+The reconstruction has three main classification levels. First, a nonconstant degree-two 𝑦-
+map sits inside a fixed degree-four 𝑉4 quotient; the marked quotient value is 𝜆. Second, retain-
+ing 𝑦 = 𝑥2 gives a degree-eight map with additional branch value 𝜈. Third, its generic normal
+closure is an elliptic curve with an order-sixteen group action. All of the named species—
+Belyi maps, Joukowski maps, marked spheres, Hurwitz covers, Edwards curves, and modular
+curves—are established mathematics. We prove their occurrence in the present family; we do
+not assign priority to that assembly.
+2 Formula provenance and documentary conflicts
+2.1 Evidence hierarchy
+The historical PDFs and executable archive are primary evidence for what was printed or im-
+plemented [1, 2, 3, 4]. The five external reconstruction reports R1–R5 are later analytical evi-
+dence, not historical sources. This paper supplies proofs independently of those reports. The
+source manifest records exact filenames, byte counts, SHA-256 hashes, and original locations.
+Verbatim snapshots are retained under provenance; no historical file has been altered.
+Printed dates are reported as printed dates. Local modification times and a filename con-
+taining a date do not establish a publication date. The corpus associates H1 with Zenodo record
+1
+Three-Way reciprocal geometry Reconstruction v0.1
+17240087 and H2 with record 17365334. Those associations are retained as corpus metadata;
+live record retrieval was not available during this draft’s checks. We do not silently turn those
+associations into verified deposition timestamps. H3 and H4 are cited as the exact archived
+PDFs, without inventing a DOI.
+ID Printed date Evidence and reconstruction consequence
+H1 1 May 2025 The Three-Way Quantum Gravitational Wave Model, final draft. Appendix
+C, p. 13, prints minus-sign (9, 9)and (𝜋, 𝑒). Page 14 calls the integer
+example (9, 1)and prints (𝜙, 1 − 𝜙).
+H2 16 October 2025 Bounded Infinity and Resonant Curvature . Pages 2–3 use the minus sign
+with a possible constant 𝐶. Archived code defaults to 𝐶 = 1. Labels and
+numerical CSVs do not consistently identify the integer pair.
+H3 19 January 2026 Experimental Geometry of a Three-Way Reciprocal Construct . Page 3,
+Eq. (1), explicitly uses +𝐵𝑥2. Its numerical stability claims concern that
+convention.
+H4 18 March 2026 Reciprocal Rational Maps, Self-Dual Hinges, and T oroidal Phase Lifts. Page 1
+explicitly uses the plus sign. A phase lift is an additional construction.
+Table 1: Principal documentary witnesses. These statements identify source content, not the
+truth of its interpretations.
+2.2 The integer-pair discrepancy is substantive
+H1 prints
+9𝑥4 − 9𝑥2 + 1
+𝑥4 − 9𝑥2 + 9 , (2.1)
+then calls an example (9, 1)on the following page. The archived H2 script rrm_tool.py, in
+its preset routine, maps aliases including 9_1 and classic to (𝐴, 𝐵, 𝐶) = (9, 9, 1), while its
+help text describes a classic (9, 1)example. Its rrm_asymptotes.csv reports real poles near
+±1.0704662693and ±2.8025170769, exactly the (9, 9)regime. Conversely ,rtm_key_pairs.csv
+explicitly has a row 𝐴 = 9, 𝐵 = 1, 𝐶 = 1. These witnesses cannot all be reconciled by changing
+one printed digit.
+We therefore retain both pairs as distinct documented examples. Their difference is math-
+ematically large: (9, 9)has real zeros and poles; (9, 1)has none on the real 𝑥-axis. A figure
+or numerical output must be interpreted from its actual formula or recorded coeﬀicients, not
+from the word “classic.” The executable preset and asymptote file corroborate the printed
+(9, 9)formula, but do not establish that every historical use of (9, 1)was a typo.
+2.3 The sign change is retained, not repaired
+The later plus-sign convention is
+𝐹+
+𝐴,𝐵(𝑦) =𝐴𝑦2 + 𝐵𝑦 + 1
+𝑦2 + 𝐵𝑦 + 𝐴 = 𝐹 𝐴,−𝐵(𝑦) = 𝐹𝐴,𝐵(−𝑦).
+As a family over complex parameters it is a reparametrization. At a fixed named pair with
+positive 𝐵, however, it is a different real plot: replacing 𝑦 by −𝑦 exchanges the positive and
+negative halves, and its 𝑥-lift is 𝑥 ↦ 𝑖𝑥, not a real reparametrization. The coherent minus-sign
+evidence in H1, H2, and the code archive, together with the explicitly selected reconstruction
+target, justifies Eq. (1.1). It does not justify calling the later sign a transcription error.
+2
+Three-Way reciprocal geometry Reconstruction v0.1
+H2 also writes (𝐴𝑦2 − 𝐵𝑦 + 𝐶)/(𝑦2 − 𝐵𝑦 + 𝐴). This is a genuine extension. The numerator
+of the failure of reciprocity is
+𝑁𝐶(𝑦)𝑦2𝑁𝐶(1/𝑦) − 𝐷(𝑦)𝑦2𝐷(1/𝑦) = (𝐶 − 1){𝐴(𝑦4 + 1) − 𝐵(𝑦3 + 𝑦) + (𝐶 + 1)𝑦2}.
+Thus the identity is preserved by 𝐶 = 1 , or by the exceptional case 𝐴 = 𝐵 = 0, 𝐶 = −1 ,
+which gives −𝑦−2; it does not hold for an arbitrary independently varied𝐶. The two-parameter
+reconstruction fixes 𝐶 = 1.
+2.4 What the historical record does and does not establish
+The exact reciprocal identity and persistent visible intersections are recoverable mathematical
+content. H1’s assertion about poles at the lock positions is not generally correct, and its sugges-
+tion that both +1and −1intersections occur in the displayed real examples requires correction.
+H2’s finite sampled arc-length and curvature quantities depend on the interval, sampling, and
+treatment of poles; they are not by themselves invariant lengths of an unbounded singular
+graph. H3’s perturbation and detectability results are historical numerical claims; the com-
+plete pipeline has not been independently reconstructed here. They are not used as proofs.
+Modern exploratory files in the separate playground already derived several plus-sign
+identities and investigated constant choices. We record those as prior local analysis M1 [ 5].
+Neither those notes nor the later reconstruction reports should be presented as evidence that
+the historical authors understood the subsequent Belyi or elliptic interpretation. The present
+paper is explicitly retrospective.
+3 Elementary algebra, locks, zeros, and poles
+Proposition 3.1 (Reciprocity and level sets) After reduction, 𝐹(1/𝑦) = 1/𝐹(𝑦)and 𝑓 (−𝑥) =
+𝑓 (𝑥). If 𝐴 ≠ 1 and Δ ≠ 0, then
+𝐹 = 1 ⟺ 𝑦 = 1 or 𝑦 = −1, (3.1)
+𝐹 = −1 ⟺ 𝑐(𝑦 2 + 1) − 2𝐵𝑦 = 0, (3.2)
+where the second equation is homogenized on ℙ1𝑦. For 𝑐 ≠ 0, its roots are (𝐵 ±√−Δ)/𝑐; for 𝑐 = 0, they
+are 0, ∞. The finite nonzero solutions of 𝐹 = 1/𝐹 are exactly these two level sets.
+Proof. Reversing coeﬀicients gives 𝑦2𝑁(1/𝑦) = 𝐷(𝑦)and 𝑦2𝐷(1/𝑦) = 𝑁(𝑦), so their quotient
+is reciprocal. Parity follows from 𝑦 = 𝑥2. Subtraction and addition give
+𝑁 − 𝐷 = (𝐴 − 1)(𝑦2 − 1), 𝑁 + 𝐷 = 𝑐(𝑦 2 + 1) − 2𝐵𝑦. (3.3)
+With no common root, these equations give the stated fibers, including their projective end-
+points. Finally 𝐹 = 1/𝐹 is equivalent to 𝐹2 = 1 on its specified domain. □
+Consequently the real locks 𝑥 = ±1 are exact at height 1, provided 𝐴 + 1 − 𝐵 ≠ 0 . The
+other complex +1locks are 𝑥 = ±𝑖, requiring 𝐴 + 1 + 𝐵 ≠ 0. They are equal-value intersections
+of two graphs, not necessarily fixed points of iteration 𝑥 ↦ 𝑓 (𝑥). Numerator/denominator
+reversal fixes them independently of the choice of named constants. The −1 fiber is a different
+quadratic problem.
+Proposition 3.2 (Divisors and cancellations) For 𝐴 ≠ 0, away from common factors, the zero and
+pole multisets of 𝐹 are
+𝑦𝑧,± = 𝐵 ± √𝜒
+2𝐴 , 𝑦 𝑝,± = 𝐵 ± √𝜒
+2 . (3.4)
+3
+Three-Way reciprocal geometry Reconstruction v0.1
+The pole multiset is the reciprocal of the zero multiset, with the two displayed signs paired oppositely
+when square roots are coherently chosen. Common factors occur exactly on
+Res𝑦(𝑁, 𝐷) = (𝐴 − 1)2Δ = 0. (3.5)
+For 𝐴 ≠ ±1, the cancellation lines have reduced forms
+𝐵 = 𝑐 ∶ 𝐹(𝑦) = 𝐴𝑦 − 1
+𝑦 − 𝐴 , (3.6)
+𝐵 = −𝑐 ∶ 𝐹(𝑦) = 𝐴𝑦 + 1
+𝑦 + 𝐴 . (3.7)
+They have degree one. At 𝐴 = 1 , the reduced function is identically 1; at (𝐴, 𝐵) = (−1, 0), it is
+identically −1.
+Proof. The quadratic formula gives ( 3.4). A common zero for 𝐴 ≠ 1 must satisfy 𝑦2 = 1 by
+(3.3); substituting gives 𝐵 = ±𝑐. Expanding the resultant, or evaluating 𝑁 − 𝐷 at the roots of
+𝐷, gives (3.5). On 𝐵 = 𝑐, factor
+𝑁 = (𝑦 − 1)(𝐴𝑦 − 1), 𝐷 = (𝑦 − 1)(𝑦 − 𝐴).
+The negative line has the analogous factor 𝑦 + 1. The two constant cases follow directly. No
+other degree drop is possible because the resultant is nonzero off these loci. □
+The canceled point in (3.6) has reduced value −1, not +1, when 𝐴 ≠ 1. Thus approaching a
+parameter cancellation and evaluating at the uncanceled lock need not commute. On 𝐵 = −𝑐,
+the same statement holds at 𝑦 = −1. At 𝐴 = 1, all apparent denominator roots are removable;
+the reduced map is constant, although the original expression leaves them undefined.
+At 𝐴 = 0, 𝐵 ≠ 0, the projective zeros are 1/𝐵, ∞and the poles are 𝐵, 0, before the cancella-
+tions 𝐵 = ±1. At 𝐴 = 𝐵 = 0, 𝐹 = 𝑦 −2. In 𝑥, a nonzero simple 𝑦-root produces two simple roots;
+a root at 𝑦 = 0 or infinity has its order doubled by squaring. Thus 𝐴 = 0 is an embedding and
+marked-branch collision, even though the generic 𝑦-map still has degree two.
+For a simple denominator zero 𝑥0 with nonzero numerator, the residue is
+Res𝑥=𝑥0 𝑓 = 𝑁(𝑥2
+0)
+𝑑
+𝑑𝑥𝐷(𝑥2)∣
+𝑥=𝑥0
+.
+If numerator and denominator both vanish simply , their ratio tends to the ratio of derivatives
+and the singularity is removable. H1’s pole argument conflated these alternatives. The ratio
+of derivatives is not the residue of a pole in that case.
+3.1 Critical points and parameter-independent statements
+Direct differentiation gives
+𝐹′(𝑦) =(𝐴 − 1)(−𝐵𝑦2 + 2𝑐𝑦 − 𝐵)
+𝐷(𝑦)2 . (3.8)
+For a nonconstant degree-two map, the critical pair is
+𝑦𝑐,± = 𝑐 ± √Δ
+𝐵 (𝐵 ≠ 0),
+4
+Three-Way reciprocal geometry Reconstruction v0.1
+or 0, ∞if 𝐵 = 0. The points are reciprocal. If 𝜒 = 0, one is a double zero and the other a double
+pole; a critical point at a pole is understood using the local target coordinate 1/𝐹, not as an
+ordinary finite stationary graph point. For 𝑓 , the chain rule adds the ramification of 𝑥2 at 0, ∞.
+Several visually persistent features now have exact explanations. Where defined, 𝐹(0) =
+1/𝐴 and 𝐹(∞) = 𝐴 are independent of 𝐵. The product of the two nonzero finite pole roots
+is 𝐴, and the zero product is 1/𝐴, also independent of 𝐵. The ±1 level locks are independent
+of both parameters off cancellation. The boundary 𝜒 = 0 controls repeated zeros and poles;
+Δ = 0 controls a different phenomenon, their cancellation. Sensitivities are
+𝜕𝐴𝐹 = (𝑦2 − 1)(𝑦2 − 𝐵𝑦 + 1)
+𝐷2 , 𝜕 𝐵𝐹 = (𝐴 − 1)𝑦(𝑦2 − 1)
+𝐷2 . (3.9)
+Their common vanishing at the locks is algebraic. There is no distinguished integer 9 in these
+identities.
+3.2 Complete real-root classification
+For real parameters, exclude cancellation first. If 𝐴 > 0, 𝜒 < 0 gives nonreal conjugate 𝑦-roots;
+𝜒 > 0 gives real roots, both positive when 𝐵 > 0 , both negative when 𝐵 < 0 . At 𝜒 = 0 the
+corresponding roots are double. If 𝐴 < 0 , each quadratic has one positive and one negative
+root. These claims follow from the discriminant, product, and sum. Taking both square roots
+of each 𝑦-root gives the full complex 𝑥-classification: positive roots give real pairs, negative
+roots imaginary pairs, and nonreal conjugate pairs give conjugate, parity-symmetric quartets.
+Real coeﬀicient regime Real 𝑥-zeros and poles of the reduced nonconstant function
+𝐴 > 0, 𝜒 < 0 None.
+𝐴 > 0, 𝜒 > 0, 𝐵 > 0 Four simple zeros and four simple poles.
+𝐴 > 0, 𝜒 > 0, 𝐵 < 0 None; the corresponding roots are imaginary.
+𝐴 > 0, 𝜒 = 0, 𝐵 > 0 T wo double zeros and two double poles.
+𝐴 > 0, 𝜒 = 0, 𝐵 < 0 None; double roots are imaginary.
+𝐴 < 0 T wo simple real zeros and two simple real poles; also imaginary
+pairs.
+𝐴 = 0, 𝐵 > 0 Simple zeros ±𝐵−1/2, simple poles ±√𝐵; double zero at infinity
+and double pole at zero.
+𝐴 = 0, 𝐵 < 0 Finite nonzero roots are imaginary; the orders at zero and infinity
+remain.
+𝐴 = 𝐵 = 0 Pole order four at zero, zero order four at infinity.
+Table 2: Real plotting classification. The cancellation lines are handled separately by Proposi-
+tion 3.2.
+For 𝐹 = −1 , the two 𝑦-roots have product one. If Δ > 0 , they are nonreal conjugates of
+unit modulus. If Δ < 0 and 𝑐 ≠ 0, they are real reciprocal roots and are positive exactly when
+𝐵/𝑐 > 0, equivalently 𝐵/𝑐 > 1 in this regime. Only that case gives four real 𝑥-solutions. The
+case 𝑐 = 0 gives the projective endpoints. Thus all four historical examples studied below ,
+which have Δ > 0, have no real −1 branch, despite their exact real +1 locks.
+5
+Three-Way reciprocal geometry Reconstruction v0.1
+4 The second involution and a coherent normal form
+The reciprocal transformation exchanges the zero and pole fibers. A different transformation
+pairs points of equal value. It is already determined by the degree-two map, rather than being
+fitted to a graph.
+Theorem 4.1 (Klein-four normalization) Assume Δ ≠ 0. Define
+𝑅(𝑦) = 1/𝑦, 𝑇(𝑦) = 𝑐𝑦 − 𝐵
+𝐵𝑦 − 𝑐. (4.1)
+These are distinct commuting Möbius involutions and generate 𝑉4. They satisfy 𝐹 ∘ 𝑅 = 1/𝐹 and
+𝐹 ∘ 𝑇 = 𝐹 . Choose 𝑑2 = Δ and, coherently, put
+𝜌 = 𝑐 + 𝐵
+𝑑 = 𝑑
+𝑐 − 𝐵, 𝑢 = 𝜌 𝑦 − 1
+𝑦 + 1, 𝑘 = 2(𝐴 − 1)
+𝑑 , 𝑟 = 𝑢 + 𝑢 −1. (4.2)
+Then
+𝑅 ∶ 𝑢 ↦ −𝑢, 𝑇 ∶ 𝑢 ↦ 𝑢 −1, 𝐹 = 𝑟 + 𝑘
+𝑟 − 𝑘 . (4.3)
+At 𝐴 = 1 the last expression is interpreted as the constant rational map 1.
+Proof. Cross-multiplying 𝐹(𝑣) = 𝐹(𝑦)and removing the diagonal factor gives
+𝑁(𝑣)𝐷(𝑦) − 𝑁(𝑦)𝐷(𝑣) = (𝐴 − 1)(𝑣 − 𝑦){𝑐(𝑣 + 𝑦) − 𝐵(𝑣𝑦 + 1)}.
+For a nonconstant map, the other solution is 𝑣 = 𝑇(𝑦). The matrix (𝑐 −𝐵
+𝐵 −𝑐 )squares to Δ𝐼 and
+has nonzero determinant −Δ, proving the involution assertion. Direct substitution gives com-
+mutation with 𝑅. The coordinate 𝑢 is Möbius because 𝜌 ≠ 0 ; substitution gives its two stated
+actions. Finally ,
+𝑟 = 2[𝑐(𝑦2 + 1) − 2𝐵𝑦]
+𝑑(𝑦2 − 1) .
+Combining this with ( 3.3) yields (4.3). □
+The two square roots must not be chosen independently. Replacing𝑑 by −𝑑 sends (𝜌, 𝑢, 𝑘, 𝑟)
+to (−𝜌, −𝑢, −𝑘, −𝑟)and leaves 𝐹 unchanged. Writing two unrelated principal square roots for
+𝜌 and 𝑘 can introduce a false sign discrepancy in the normal form, particularly for complex
+parameters.
+A generic orbit is {𝑢, −𝑢, 𝑢−1, −𝑢−1}. The fixed pairs of 𝑅, 𝑇, 𝑅𝑇 are, respectively , {0, ∞},
+{1, −1}, and {𝑖, −𝑖}. Within the 𝐹-coordinate, 𝑇 preserves value and 𝑅, 𝑅𝑇 reciprocate it. Thus
+the critical pair in Eq. (3.8) is exactly the fixed pair of the equal-value involution. This identifies
+its geometric role independently of a derivative calculation.
+5 The fixed Belyi quotient and the reduced modulus
+Theorem 5.1 (Universal quotient) The quotient by the action in Theorem 4.1 is
+𝛽(𝑢) =(𝑢2 + 1)2
+4𝑢2 = 𝑟2
+4 . (5.1)
+It has degree four , deck group 𝑉4, and ramification partitions (2, 2)over each of 0, 1, ∞, with no other
+branch values. Moreover ,
+𝜆 = 𝑘2
+4 = (𝐴 − 1)2
+Δ , 𝛽 − 𝜆 = 4𝑁𝐷
+Δ(𝑦2 − 1)2 . (5.2)
+Thus the zero and pole sets form the marked quotient fiber 𝛽−1(𝜆).
+6
+Three-Way reciprocal geometry Reconstruction v0.1
+−2.0 −1.5 −1.0 −0.5 0.0 0.5 1.0 1.5 2.0
+Re u
+−1.0
+−0.5
+0.0
+0.5
+1.0
+1.5
+Im u
+u
+−u
+u−1
+−u−1
+R : u ↦ − u T : u ↦ u−1
+Figure 1: A generic Klein-four orbit in the normalized source plane. The orange pairing is
+reciprocity; the purple pairing is equal value. The unit circle is a coordinate guide, not the
+image of every real plot.
+Proof. The function 𝛽 is invariant under 𝑢 ↦ −𝑢, 1/𝑢 . Its degree is four, so the four auto-
+morphisms account for the whole extension and ℂ(𝑢)𝑉4 = ℂ(𝛽). It factors as the degree-two
+Joukowski map 𝑢 ↦ 𝑟 = 𝑢 + 𝑢 −1 followed by 𝑟 ↦ 𝑟 2/4. The fibers over zero and one are
+𝑢 = ±𝑖 and 𝑢 = ±1, each with multiplicity two; the poles 0, ∞also have order two. Their total
+ramification is six, which equals 2 ⋅ 4 − 2, so the list is complete. Squaring the expression for 𝑟
+in the preceding proof and using (𝑁 + 𝐷)2 − (𝑁 − 𝐷)2 = 4𝑁𝐷 proves (5.2). □
+This is a standard Belyi map: a complex cover with branch values contained in {0, 1, ∞}, in
+the terminology reviewed by Sijsling and Voight [11]. Its quotient orbifold is 𝑆2(2, 2, 2), whose
+orbifold Euler characteristic is 2 − 3(1 − 1/2) = 1/2. Multiplying by the group order gives the
+source-sphere Euler characteristic two. The Klein-four orbifold is an established object [ 12].
+The original 𝐹 has degree two in 𝑦; it is not itself this degree-four map.
+5.1 Exactly what equality of lambda means
+Retain the labeled quotient branch values 0, 1, ∞, and mark the fiber containing zeros and
+poles; allow Möbius changes of source. In the generic reduced 𝑦-construction, equality of 𝜆 is
+necessary and suﬀicient for equivalence. Necessity follows because a labeled target isomor-
+phism fixes the three normalized values and hence is the identity. For suﬀiciency , 𝑘′2 = 𝑘 2, so
+𝑘′ = 𝜎𝑘 for 𝜎 = ±1 . The source change 𝑢′ = 𝜎𝑢 sends 𝑟′ = 𝜎𝑟 and preserves the full output
+value
+𝑟′ + 𝑘′
+𝑟′ − 𝑘′ = 𝑟 + 𝑘
+𝑟 − 𝑘 .
+7
+Three-Way reciprocal geometry Reconstruction v0.1
+ℙ1
+u
+source sphere
+r = u + u−1
+Joukowski map
+β = r2/4
+quotient sphere
+degree 2 degree 2
+u = ±i
+β = 0
+u = ±1
+β = 1
+u = 0, ∞
+β = ∞
+Each exceptional orbit: two points, each of local degree 2
+Figure 2: The quotient factors through Joukowski and squaring maps. The bottom row iden-
+tifies the three exceptional orbits. Branch labels are retained throughout the classification.
+Composing with 𝑢 ↦ 1/𝑢 gives the other equivalent choice. This also proves the assertion if
+the zero and pole sets are separately named: the isomorphism carries zero to zero and pole to
+pole between the two presentations.
+The sign of 𝑘 is needed in a fixed oriented 𝑢-chart. Changing it alone sends 𝐹 to 1/𝐹; chang-
+ing (𝑢, 𝑘)simultaneously does not. Hence a signed coordinate choice is forgotten by 𝜆, but is
+not a further intrinsic modulus under the stated source equivalence. Labeling an individual
+zero, a sheet, or a fixed source coordinate is additional data not being classified here.
+The lost embedding parameter can be recovered explicitly from (𝜌, 𝑘):
+𝐴 = 𝜌 + 𝜌−1 + 𝑘
+𝜌 + 𝜌−1 − 𝑘 , 𝐵 = 2(𝜌 − 𝜌−1)
+𝜌 + 𝜌−1 − 𝑘 . (5.3)
+The denominator must be nonzero for finite coeﬀicients. These formulas follow by solving
+𝑐/𝑑 = (𝜌 + 𝜌 −1)/2, 𝐵/𝑑 = (𝜌 − 𝜌 −1)/2, and (𝐴 − 1)/𝑑 = 𝑘/2. They exhibit one marked-fiber
+coordinate and one source embedding coordinate, with a simultaneous sign ambiguity.
+If both the branch labels and the zero/pole partition are forgotten, a still coarser equivalence
+identifies the six cross-ratio transforms
+𝜆, 1 − 𝜆, 𝜆−1, (1 − 𝜆)−1, 𝜆/(𝜆 − 1), (𝜆 − 1)/𝜆.
+For example, 𝑢 ↦ 𝑖𝑢 induces 𝛽 ↦ 1 − 𝛽, and 𝑢 ↦ (𝑢 + 1)/(𝑢 − 1)induces 𝛽 ↦ 𝛽/(𝛽 − 1). This
+coarser object is not the labeled object used in this paper.
+6 Real forms and the geometry of the plots
+For real coeﬀicients with Δ > 0, 𝜌, 𝑘 may be chosen real. The real projective 𝑦-line maps to the
+real projective 𝑢-line. Since |𝑢 + 𝑢 −1| ≥ 2 for nonzero real 𝑢, its quotient image is [1, ∞]. For
+Δ < 0, the same coherent choices are imaginary. Write 𝑢 = 𝑖𝑣 , 𝑣 real. Then
+𝛽 = − (𝑣 − 𝑣−1)2
+4 ≤ 0.
+8
+Three-Way reciprocal geometry Reconstruction v0.1
+The real quotient image is the other projective arc, (−∞, 0]with its endpoint at infinity. These
+are different real forms of the same complex quotient.
+The identity
+𝜆 − 1 = 𝜒
+Δ (6.1)
+now explains the zero/pole regimes geometrically. If Δ > 0, the marked level is positive. For
+0 < 𝜆 < 1 it lies outside the real quotient image; for 𝜆 = 1 it meets a branch fiber and creates
+repeated roots; for 𝜆 > 1 it gives four real 𝑦-points. If Δ < 0 , then 𝜆 < 0 for a nonconstant
+family , and the marked fiber is real. Thus the statement “𝜆 < 1 means no real roots” would be
+wrong without specifying the real form.
+The real 𝑥-plot is stricter still: 𝑦 = 𝑥 2 ≥ 0. In a real 𝜌-chart, this half-line maps to the seg-
+ment joining −𝜌 and 𝜌, not the whole real projective line. When 𝜌 > 1, that segment contains
+𝑢 = ±1, hence the two nonzero real stationary points on the positive 𝑥-half-axis, provided they
+are finite graph values. If 0 < 𝜌 < 1 , it omits them. A real source Möbius equivalence at the
+𝑦-level need not preserve the positive half-line, and need not lift to a real 𝑥-equivalence.
+−4
+−2
+0
+2
+4
+(9,9)
+f 1/f
+(9,1)
+−3 −2 −1 0 1 2 3
+−4
+−2
+0
+2
+4
+(π, e)
+−3 −2 −1 0 1 2 3
+(ϕ, 1 − ϕ)
+x
+function value
+Figure 3: The four documented minus-sign examples, with 𝑓 solid and 1/𝑓 dashed. All share
+the exact (±1, 1)locks. Only (9, 9)has real zeros and poles. Curves are split at actual poles;
+vertical clipping is for display and does not join separate branches.
+Complex conjugation, parity , source inversion, and output reciprocity have different roles.
+Real coeﬀicients imply 𝐹(𝑦) =𝐹(𝑦); parity acts in 𝑥; 𝑥 ↦ 1/𝑥 reciprocates the value. Reflecting
+a drawn graph about height one instead sends 𝑓 to 2 − 𝑓 . That operation agrees with none of
+these globally for a nonconstant 𝑓 . Indeed, 2−𝑓 = 1/𝑓 implies (𝑓 −1)2 = 0. It may be prescribed
+as a visual operation, but it is not an additional exact algebraic symmetry of this family.
+9
+Three-Way reciprocal geometry Reconstruction v0.1
+−2 0 2 4 6 8 10
+A
+−10
+−5
+0
+5
+10
+B
+(9,9)
+(9,1)(π, e)
+(ϕ, 1 − ϕ)
+Δ > 0
+Δ < 0
+B = ±(A + 1)
+B2 = 4A
+A = 1
+Figure 4: Real coeﬀicient strata. The straight lines are cancellation, the parabola is repeated
+zeros/poles, and the dashed vertical line is the constant family. The dotted lines 𝐴 = −1 and
+𝐵 = 0 become distinguished in the full cover. The named examples occupy different marked-
+fiber and embedding regimes.
+7 The diagonal large-coeﬀicient family
+Let 𝐴 = 𝐵 = 𝐿, with 𝐿 → +∞, and write 𝑓𝐿 = 𝐹 𝐿,𝐿(𝑥2). The real transition at 𝐿 = 4 is immediate
+from 𝜒 = 𝐿(𝐿 − 4). For 0 < 𝐿 < 4 , away from the constant case 𝐿 = 1 , zeros and poles are
+nonreal; at four they are double; for 𝐿 > 4 they are real. At the threshold,
+𝐹4,4(𝑦) =(2𝑦 − 1)2
+(𝑦 − 2)2 .
+The cancellation line intersects the positive diagonal nowhere; the excluded constant value is
+a separate event.
+For 𝐿 > 4, set
+𝑞𝐿 = √ 1 + √1 − 4/𝐿
+2 .
+The four positive distinguished roots, in increasing order, are
+𝑧in = 1
+√𝐿𝑞𝐿
+< 𝑧near = 𝑞𝐿 < 1 < 𝑝near = 𝑞−1
+𝐿 < 𝑝out = √𝐿𝑞𝐿. (7.1)
+Reciprocal pairing exchanges the first and last and the two middle points. Expansion gives
+𝑞𝐿 = 1 − (2𝐿)−1 − 5/(8𝐿2) + 𝑂(𝐿−3). Thus a zero approaches the origin on scale 𝐿−1/2, a
+pole escapes on scale 𝐿1/2, and the two near-lock roots approach one on scale 𝐿−1. These are
+geometrically distinct uses of similar powers of 𝐿.
+10
+Three-Way reciprocal geometry Reconstruction v0.1
+7.1 Bulk, inner, outer, and thin-lock limits
+The bulk identity is exact:
+𝑓𝐿(𝑥) + 𝑥2 = 𝑥6 + 1
+𝑥4 + 𝐿(1 − 𝑥2). (7.2)
+Consequently 𝑓𝐿 → −𝑥 2 locally uniformly on compact sets avoiding 𝑥 = ±1 . The reciprocal
+tends to −𝑥−2 on compact sets also avoiding zero. At the locks, 𝑓𝐿(±1) = 1for every 𝐿; their
+limit cannot be read from the bulk formula. At zero the bulk absolute limit is correct, but it
+loses the leading value 𝑓𝐿(0) = 𝐿−1.
+Three substitutions recover those missing scales:
+𝜁 = 𝐿𝑦 ∶ 𝐿𝐹 𝐿,𝐿(𝜁 /𝐿) = 1 − 𝜁 + 𝜁 2/𝐿
+1 − 𝜁 /𝐿 + 𝜁2/𝐿3 ⟶ 1 − 𝜁 , (7.3)
+𝜂 = 𝑦/𝐿 ∶ 𝐹𝐿,𝐿(𝐿𝜂)
+𝐿 = 𝜂2 − 𝜂/𝐿 + 𝐿−3
+𝜂2 − 𝜂 + 𝐿−1 ⟶ 𝜂
+𝜂 − 1, (7.4)
+𝜏 = 𝐿(𝑦 − 1) ∶ 𝐹 𝐿,𝐿(1 + 𝜏/𝐿) = 1 + 𝜏 + 𝜏 2/𝐿
+1 − 𝜏 + 2𝜏/𝐿 + 𝜏2/𝐿2 ⟶ 1 + 𝜏
+1 − 𝜏. (7.5)
+Limits are locally uniform where the limiting denominators are nonzero. In ( 7.4), the unre-
+duced denominator vanishes at 𝜂 = 0 , so the stated derivation is uniform only away from
+0, 1; the simplified limiting expression’s removable value at zero is not a claim of a uniform
+outer chart through the origin. The reciprocal profiles follow by inversion away from zeros:
+𝐿−1/𝐹 → (1 − 𝜁 )−1, 𝐿/𝐹 → (𝜂 − 1)/𝜂, and 1/𝐹 → (1 − 𝜏)/(1 + 𝜏), respectively.
+The inner and bulk expansions overlap when1 ≪ |𝜁 | ≪ 𝐿, where (1−𝜁 )/𝐿 ∼ −𝑦. The outer
+and bulk expansions overlap when1 ≪ |𝑦| ≪ 𝐿, equivalently 𝐿−1 ≪ |𝜂| ≪ 1 , where 𝐿𝜂/(𝜂−1) ∼
+−𝑦. Inversion exchanges the inner variable 𝜁 and outer variable 𝜂 = 1/𝜁 . In the thin chart it
+sends 𝜏 exactly to −𝜏/(1 + 𝜏/𝐿), tending to −𝜏, and reciprocates the limiting Möbius profile.
+These comparisons state explicit overlaps; no single truncated formula is asserted to be uniform
+across a pole.
+7.2 The intermediate shoulder profile, with matching
+Put ℎ = 𝐿 −1/2, 𝑠 = (𝑦 − 1)/ℎ, and 𝑃ℎ(𝑠) = (𝑓𝐿 + 1)/ℎ. Substituting into the exact rational
+expression gives
+𝑃ℎ(𝑠) =𝑠2 + 2 + 2ℎ𝑠 + ℎ2𝑠2
+−𝑠 + ℎ(1 + ℎ𝑠)2 . (7.6)
+Theorem 7.1 (Intermediate limit and two-sided matching) On every compact subset ofℂ∖{0},
+for suﬀiciently small ℎ > 0,
+𝑃ℎ(𝑠) = 𝑊(𝑠) − ℎ(3 + 2/𝑠2) + 𝑂(ℎ2), 𝑊(𝑠) = −𝑠 − 2/𝑠. (7.7)
+The convergence holds with any fixed number of derivatives. In the overlap 𝐿−1 ≪ |𝛿| ≪ 1 , 𝛿 = 𝑦 − 1,
+𝑓𝐿 + 1 ∼ − (𝛿 + 2
+𝐿𝛿) (7.8)
+for real nonzero 𝛿. The bulk-side overlap 𝐿−1/2 ≪ |𝛿| ≪ 1 gives 𝑓𝐿 + 1 ∼ −𝛿 ; the lock-side overlap
+𝐿−1 ≪ |𝛿| ≪ 𝐿 −1/2 gives 𝑓𝐿 + 1 ∼ −2/(𝐿𝛿).
+11
+Three-Way reciprocal geometry Reconstruction v0.1
+Proof. On a compact set avoiding zero, the denominator in ( 7.6) stays bounded away from
+zero for small ℎ. Taylor expansion in ℎ, including differentiation, gives ( 7.7); alternatively the
+exact difference is
+𝑃ℎ − 𝑊 = ℎ{3𝑠2 + 2 + ℎ(3𝑠3 + 4𝑠) + ℎ2(𝑠4 + 2𝑠2)}
+𝑠[−𝑠 + ℎ(1 + ℎ𝑠)2] .
+T o prove matching without an illicit interchange of limits, use the exact identity
+𝑓𝐿 + 1 = − 𝛿 + 2/(𝐿𝛿) + (𝛿 + 2)/𝐿
+1 − (1 + 𝛿)2/(𝐿𝛿) . (7.9)
+For real 0 < |𝛿| ≤ 1/2 and 𝐿|𝛿| ≥ 5 , the relative difference from the two-term expression in
+(7.8) is at most 10/(𝐿|𝛿|). Indeed the denominator correction is at most 9/(4𝐿|𝛿|), hence its
+absolute denominator is at least 11/20; the extra numerator term relative to |𝛿 + 2/(𝐿𝛿)|is at
+most 5/(2𝐿|𝛿|). The triangle inequality gives the stated conservative bound. The two displayed
+overlap limits follow by comparing 𝛿2 with 𝐿−1.
+For explicit comparison with the thin profile, set 𝜏 = 𝐿𝛿 . Its excess over −1 is 2/(1 − 𝜏).
+Dividing the exact 𝑓𝐿 + 1 by this expression gives
+[1 + (𝜏2 + 2𝜏)/(2𝐿) + 𝜏2/(2𝐿2)](1 − 𝜏)
+1 − 𝜏 + 2𝜏/𝐿 + 𝜏2/𝐿2 = 1 + 𝑂(𝜏2/𝐿)
+when 1 ≪ |𝜏| ≪ √𝐿. Its large- |𝜏| limit is −2/𝜏, exactly the lock-side intermediate term. This
+proves both matches in actual common domains. □
+The real-relative statement avoids cancellation of the two leading terms. Over complex 𝛿,
+those terms cancel at 𝐿𝛿2 = −2 ; the local analytic limit ( 7.7) remains valid, but a uniform
+relative-error claim through those zeros would not be meaningful.
+7.3 Two involutions, two distinct finite-scale origins
+The source reciprocity 𝑦 ↦ 1/𝑦 acts on the intermediate coordinate exactly as
+𝑅ℎ(𝑠) = − 𝑠
+1 + ℎ𝑠 ⟶ −𝑠, 𝑃 ℎ(𝑅ℎ(𝑠)) = − 𝑃ℎ(𝑠)
+1 − ℎ𝑃ℎ(𝑠). (7.10)
+Thus 𝑊(−𝑠) = −𝑊(𝑠); reciprocity does not tend to 𝑠 ↦ 2/𝑠. The equal-value involution from
+Theorem 4.1, however, gives
+𝛿 ↦ 𝛿 + 2
+𝐿𝛿 − 1, 𝐽 ℎ(𝑠) =ℎ𝑠 + 2
+𝑠 − ℎ ⟶ 2
+𝑠 , 𝑃 ℎ(𝐽ℎ(𝑠)) = 𝑃ℎ(𝑠). (7.11)
+The two finite- ℎ Möbius transformations commute and square to the identity; they give an
+exact 𝑉4 action in this chart. Their limits generate 𝑠 ↦ −𝑠, 2/𝑠.
+The same limiting equal-value symmetry exchanges the two matched terms in ( 7.8): 𝛿 ↔
+2/(𝐿𝛿). It is therefore both visible as a balance symmetry of the matched expansion and inher-
+ited from the exact second involution. It is an emergent simple formula in the scaled coordi-
+nate, not a new independent symmetry of the original family , and specifically not the limit of
+reciprocal inversion.
+Differentiating (7.6) yields
+𝑃′
+ℎ(𝑠) =(1 − ℎ2)(2 + 2ℎ𝑠 − 𝑠2)
+[−𝑠 + ℎ(1 + ℎ𝑠)2]2 . (7.12)
+12
+Three-Way reciprocal geometry Reconstruction v0.1
+Its critical points are 𝑠 = ℎ ± √2 + ℎ2, exactly the fixed points of 𝐽ℎ. They tend to ±√2, the
+fixed points of 𝑠 ↦ 2/𝑠 , and 𝑊′(𝑠) = −1 + 2/𝑠 2 vanishes precisely there. The values are
+𝑊(±√2) = ∓2√2. These shoulders are the fold points of a degree-two equal-value quotient
+and the balance points of the two asymptotic contributions. This is a precise geometric inter-
+pretation of a visible feature, without an additional physical interpretation.
+101 102 103 104 105
+L
+10−5
+10−4
+10−3
+10−2
+10−1
+distance |y − 1|
+intermediate |y − 1| ∼ L−1/2
+lock |y − 1| ∼ L−1
+−4 −2 0 2 4
+s
+−8
+−6
+−4
+−2
+0
+2
+4
+6
+8
+√ L (fL + 1)
+L = 100
+L = 10000
+W(s)
+Figure 5: The lock width and intermediate width are different powers of 𝐿. On the right, the
+rescaled exact profiles approach 𝑊, with stationary points approaching the purple marked
+points. The chart excludes 𝑠 = 0; the exact lock lies in the thinner chart.
+7.4 How the quotient sees the charts
+For the diagonal family ,
+𝜆𝐿 = (𝐿 − 1)2
+2𝐿 + 1 , 𝜈 𝐿 = (𝐿 + 1)2
+2𝐿 + 1 , 𝜈 𝐿 − 𝜆𝐿 = 4𝐿
+2𝐿 + 1 ⟶ 2.
+Although both marked values diverge, their separation has a finite limit. Direct substitution
+in (5.1), or in the marked-fiber identity , gives the chart descriptions
+bulk: 𝛽/(𝐿/2) ⟶ ((𝑦 − 1)/(𝑦 + 1))2,
+thin lock: 𝛽/(𝐿/2) ⟶ 𝜏−2,
+intermediate: 𝑢 ⟶ 𝑠/ √2, 𝛽 ⟶ (𝑠 + 2/𝑠) 2/8,
+inner: 𝛽 − 𝜆𝐿 ⟶ 2(1 − 𝜁 ),
+outer: 𝛽 − 𝜆𝐿 ⟶ 2(1 − 1/𝜂).
+Each statement excludes its displayed denominator zeros and any coordinate singularities; it is
+locally uniform on the remaining compact sets. Inversion pairs the inner and outer formulas.
+The equal-value involution sends fixed inner points toward 𝜏 = −1 and fixed outer points to-
+ward 𝜏 = 1, collapsing further distinctions at leading thin-chart order. Resolving those images
+uniformly would require finer subcharts. We do not claim that this finite list is a compactifi-
+cation resolving every simultaneous limiting path. It is suﬀicient for the bulk, roots, lock, and
+shoulder regimes under discussion.
+13
+Three-Way reciprocal geometry Reconstruction v0.1
+8 Retaining the original squaring cover
+The reduced classification forgets where 𝑦 = 0, ∞ lie on the normalized source. The original
+construction does not: those are the branch values of 𝑦 = 𝑥 2. Their images under the degree-
+four quotient coincide, introducing
+𝜈 = 𝑐2
+Δ = (𝜌 + 𝜌−1)2
+4 , 𝜈 − 1 = 𝐵2
+Δ , 𝜈 − 𝜆 = 4𝐴
+Δ . (8.1)
+This is precisely the information lost when the extra cover is discarded.
+Theorem 8.1 (Degree-eight sphere cover) If 𝐵𝑐Δ ≠ 0, the composite quotient is
+𝑄𝐴,𝐵(𝑥) =[𝑐(𝑥4 + 1) − 2𝐵𝑥2]2
+Δ(𝑥4 − 1)2 . (8.2)
+It has degree eight and branch partitions 24 over 0, 1, ∞, and 2214 over 𝜈. Its deck group is exactly
+{𝑥, −𝑥, 1/𝑥, −1/𝑥} ≃ 𝑉4. In particular it is generically neither Galois nor a Belyi map after a target
+Möbius change.
+Proof. Substitute 𝑦 = 𝑥 2 into ( 5.1). Its numerator is nonzero at every root of 𝑥4 = 1 , since
+𝑐 ± 𝐵 ≠ 0, so its degree is eight. The identities
+𝑄 − 1 = [𝐵(𝑥4 + 1) − 2𝑐𝑥2]2
+Δ(𝑥4 − 1)2 , (8.3)
+𝑄 − 𝜈 = 4𝑥2(𝑐 − 𝐵𝑥2)(𝑐𝑥2 − 𝐵)
+Δ(𝑥4 − 1)2 (8.4)
+give the stated multiplicities, with order two at both zero and infinity in the second line. T otal
+ramification is 4 + 4 + 4 + 2 = 14 = 2 ⋅ 8 − 2 , proving completeness. The four stated source
+transformations preserve 𝑄.
+For completeness of the deck group, a deck transformation preserves the uniquely identi-
+fied ramified pair {0, ∞}over 𝜈. It is therefore 𝑥 ↦ 𝑏𝑥 or 𝑏/𝑥. Preserving the pole set 𝑥4 = 1
+forces 𝑏4 = 1, and preserving the nonzero mixed term of the numerator forces 𝑏2 = 1. Finally
+there are four distinct branch values, and the mixed partition at 𝜈 is incompatible with a Galois
+cover, whose ramification indices over a fixed value must all agree. □
+Writing 𝑡 = 𝐵/𝑐 gives the simpler form
+𝑄𝑡(𝑥) =(𝑥4 − 2𝑡𝑥2 + 1)2
+(1 − 𝑡2)(𝑥4 − 1)2 , 𝜈 = 1
+1 − 𝑡2 . (8.5)
+For a fixed generic 𝜈, the two signs of 𝑡 give isomorphic complex labeled covers because
+𝑄−𝑡(𝑖𝑥) = 𝑄𝑡(𝑥). Conversely the moving labeled branch value is invariant. Thus 𝜈 is a com-
+plete modulus for this selected family of covers with labeled branch values, before marking
+zeros and poles.
+The second 𝑦-involution would lift rationally only if
+𝑔(𝑥)2 = 𝑐𝑥2 − 𝐵
+𝐵𝑥2 − 𝑐.
+For 𝐵𝑐Δ ≠ 0, the right side has simple, distinct zeros and poles, so it is not a square in ℂ(𝑥).
+A rational square has even valuation at every point. The only nondegenerate exceptions are
+14
+Three-Way reciprocal geometry Reconstruction v0.1
+𝐵 = 0, where 𝑇(𝑦) = −𝑦lifts to 𝑖𝑥, and 𝑐 = 0, where 𝑇(𝑦) = −1/𝑦lifts to 𝑖/𝑥. Their specialized
+maps are
+𝑄0(𝑥) =(𝑥4 + 1)2
+(𝑥4 − 1)2 , 𝑄 ∞(𝑥) = − 4𝑥4
+(𝑥4 − 1)2 . (8.6)
+Both are invariant under 𝑖𝑥 and 1/𝑥, which generate a dihedral group of order eight, denoted
+𝐷4 here. Since the map degree is eight, these are Galois covers. Their branch partitions are
+respectively (24, 42, 24)and (42, 24, 24)over (0, 1, ∞). They differ by 𝑄0 = 1 − 𝑄 ∞, but that
+target relabeling is not allowed in the labeled problem.
+9 Two moduli, five marked points, and a selected Hurwitz type
+9.1 The generic domain and the equivalence relation
+Let
+Ω = {(𝜆, 𝜈) ∶ 𝜆, 𝜈 ∉ {0, 1, ∞}, 𝜆 ≠ 𝜈}. (9.1)
+An ordered five-pointed projective line is uniquely normalized by putting its first three labels
+at 0, 1, ∞. Its remaining coordinates give exactly Ω, the familiar coordinate presentation of
+𝑀0,5 [13, Eq. (210)]. The statement about this target configuration is elementary; the statement
+that it classifies a cover requires additional proof and a specified covering type.
+We retain the degree-two squaring tower, the three labeled quotient branches, the addi-
+tional branch label 𝜈, and the marked zero/pole fiber 𝜆. Individual sheets and individual zeros
+are not labeled. Source Möbius transformations are allowed; the target labels are preserved.
+Over the normalized fixed target, such a target transformation is the identity.
+Theorem 9.1 (Generic decorated classification) For the Three-Way covering type, the generic
+decorated coarse moduli space is Ω ≃ 𝑀0,5. Its coeﬀicient domain is
+𝒫 ∘ = {(𝐴, 𝐵) ∈ ℂ2 ∶ 𝐴(𝐴 − 1)(𝐴 + 1)𝐵Δ𝜒 ≠ 0}.
+The map (𝐴, 𝐵) ↦ (𝜆, 𝜈)is a four-sheeted finite étale cover of Ω, with fibers
+(𝐴, 𝐵), (𝐴, −𝐵), (𝐴−1, 𝐵/𝐴), (𝐴 −1, −𝐵/𝐴). (9.2)
+There is no additional algebraic constraint on (𝜆, 𝜈)in this generic open set.
+Proof. Introduce ℎ0 = (𝐴 − 1)/(𝐴 + 1), distinct from the large- 𝐿 variable ℎ. Then
+𝜆 = ℎ2
+0
+1 − 𝑡2 , 𝜈 = 1
+1 − 𝑡2 .
+Given any point of Ω, choose the two independent square roots
+ℎ2
+0 = 𝜆/𝜈, 𝑡 2 = 1 − 1/𝜈, 𝐴 = 1 + ℎ0
+1 − ℎ0
+, 𝐵 = 2𝑡
+1 − ℎ0
+. (9.3)
+Neither root vanishes, ℎ0 ≠ ±1, and 𝑡 ≠ ±1 ; all four choices give finite points in 𝒫 ∘. These
+are precisely ( 9.2). Algebraically , the two square roots are square roots of invertible regular
+functions on Ω, so they define a finite étale cover; the four choices are distinct. As a differential
+check,
+det 𝜕(𝜆, 𝜈)
+𝜕(𝐴, 𝐵)= 8𝐵(𝐴 + 1)(𝐴 − 1)
+Δ3 ≠ 0.
+15
+Three-Way reciprocal geometry Reconstruction v0.1
+The coeﬀicient transformations are realized in 𝑦 by −𝑦 and 1/𝑦, with complex 𝑥-lifts 𝑖𝑥 and
+1/𝑥. In particular 𝐹𝐴,−𝐵(−𝑦) = 𝐹𝐴,𝐵(𝑦)and 𝐹1/𝐴,𝐵/𝐴(1/𝑦) = 𝐹𝐴,𝐵(𝑦). Thus all four presenta-
+tions define the same decorated object, even if zero and pole sets are separately named. Con-
+versely equality of decorated objects preserves both target values. This proves completeness
+and surjectivity. □
+The distinction between a marked whole fiber and separate zero/pole labels affects auto-
+morphisms, although not this coarse classification. For 𝑄, or 𝑄 with its entire regular fiber at
+𝜆, the generic automorphism group is 𝑉4. Requiring the normalized 𝐹, or its zero and pole
+sets separately , leaves only {𝑥, −𝑥} ≃ 𝐶 2: inversion swaps the two sets. Five distinct labeled
+points on the target have trivial automorphism group. Therefore the covering stack is not the
+fine moduli space of five points; it retains stabilizers that the coarse space forgets.
+0 1
+∞
+λ ν
+Five labeled target points
+(0, 1, ∞, λ, ν)
+λ, ν ∉ {0, 1, ∞}
+λ ≠ ν
+Cover type must also be specified.
+Positions are schematic, not a real ordering.
+Figure 6: The target configuration defining 𝑀0,5. The three fixed branch labels, the additional
+branch label, and the regular marked-fiber label have different covering roles. Their positions
+alone do not specify those roles or the covering type.
+9.2 Why five points and the passport are not suﬀicient by themselves
+Over a regular 𝜈, the universal quotient has the fiber {𝑎, −𝑎, 𝑎−1, −𝑎−1}, where here 𝑎 is any one
+point of that fiber. A double cover of the source sphere branched at an unordered pair from
+this set again has a sphere as source. The six pairs fall into three 𝑉4-orbits:
+{𝑎, −𝑎} (𝑅 -paired), {𝑎, 𝑎 −1} (𝑇 -paired), {𝑎, −𝑎 −1} (𝑅𝑇 -paired).
+The Three-Way squaring construction selects the first type, since 𝑦 = 0, ∞ map to 𝑢 = −𝜌, 𝜌 .
+The other two types give the same generic degree-eight ramification partitions but different
+labeled covers. Section 10 proves that the degree-four Galois intermediate is intrinsic and
+unique; any isomorphism of the whole cover must therefore preserve this pair-type distinc-
+tion. Permuting target branch labels can relate the types, but our equivalence forbids that
+permutation.
+This qualification locates the role of Hurwitz theory: 𝑀0,5 describes the selected compo-
+nent’s coarse objects, not all covers sharing its target points and degree. No classification of
+unrelated monodromy types is needed here.
+16
+Three-Way reciprocal geometry Reconstruction v0.1
+9.3 Real presentations and fixed plotting coordinates
+For real coeﬀicients in 𝒫 ∘, both square roots in ( 9.3) must be real. Hence the attainable real
+target region is exactly
+(𝜈 > 1, 𝜆 > 0) or (𝜈 < 0, 𝜆 < 0), (9.4)
+with the exclusions of ( 9.1). The converse follows from the inverse formulas. In particular the
+real coeﬀicient family does not reach 0 < 𝜈 < 1.
+There are two real isomorphism classes among the four coeﬀicient presentations over each
+attainable generic pair, distinguished by the sign of𝑡. Changing the sign of ℎ0 is realized by the
+real transformation 𝑥 ↦ 1/𝑥. Changing the sign of 𝑡 requires 𝑖𝑥. T o see that no alternative real
+Möbius map accomplishes it, any such map would preserve the ramified pair {0, ∞}and the
+pole set 𝑥4 = 1; it is therefore one of ±𝑥, ±1/𝑥, all preserving 𝑡. The actual graph retains even
+more: its fixed coordinate, chosen intervals, ordinate, and the restriction 𝑦 ≥ 0 . A complex
+moduli point does not encode that graphical embedding.
+10 The genus-one normal closure and its monodromy
+Theorem 10.1 (Explicit Galois closure) For 𝑡 ∉ {0, 1, −1, ∞}, the smooth compactification inℙ1𝑥×
+ℙ1𝑧 of
+𝐸𝑡 ∶ 𝑡𝑥 2𝑧2 − 𝑥2 − 𝑧2 + 𝑡 = 0 (10.1)
+is the Galois closure of ℂ(𝑥)/ℂ(𝑄𝑡). It has genus one and the map to the 𝛽-sphere has degree sixteen
+and group 𝐷4 × 𝐶2, with |𝐷4| = 8.
+Proof. Adjoin 𝑧 by 𝑧2 = (𝑥2 − 𝑡)/(𝑡𝑥2 − 1) = 𝑇(𝑥2). The double cover of the 𝑥-sphere has four
+distinct branch points ±√𝑡, ±1/√𝑡. Riemann–Hurwitz gives 2𝑔 − 2 = 2(−2) + 4 = 0, so its
+smooth compactification has genus one. The same branch calculation verifies smoothness of
+this normalized model; the displayed bidegree- (2, 2)compactification is smooth when those
+points are distinct.
+Over ℂ(𝑦), the square classes of 𝑦 and (𝑦−𝑡)/(𝑡𝑦−1)are independent: their odd valuations
+occur respectively at 0, ∞and 𝑡, 1/𝑡, disjoint pairs. The degree over ℂ(𝑦)is four, hence sixteen
+over ℂ(𝛽). All conjugates of 𝑥 are
+±𝑥, ±1/𝑥, ±𝑧, ±1/𝑧,
+so this field is the splitting field and therefore the normal closure.
+The automorphisms
+X(𝑥, 𝑧) = (−𝑥, 𝑧),Y(𝑥, 𝑧) = (𝑥, −𝑧),S(𝑥, 𝑧) = (𝑧, 𝑥),C(𝑥, 𝑧) = (1/𝑥, 1/𝑧) (10.2)
+preserve the equation and 𝛽. The first three generate the signed coordinate permutations, a
+group of order eight with SXS = Y. The independent involution C commutes with them.
+This gives sixteen distinct automorphisms, the whole extension degree, and the claimed direct
+product. □
+10.1 A reproducible branch-cycle description
+The degree-eight permutation action is on cosets of 𝐻 = ⟨ Y⟩. One branch-cycle tuple in loop
+order 0, 1, 𝜈, ∞is
+𝜎0 = (1 4)(2 3)(5 8)(6 7), 𝜎1 = (1 3)(2 4)(5 7)(6 8),
+𝜎𝜈 = (1 7)(2 8), 𝜎∞ = (1 8)(2 7)(3 4)(5 6). (10.3)
+17
+Three-Way reciprocal geometry Reconstruction v0.1
+Et
+genus 1
+ℙ1
+x
+genus 0
+ℙ1
+y
+genus 0
+ℙ1
+β
+genus 0
+degree 2
+2 4
+Galois degree 16
+Gal(Et/β) = D4 × C2
+y = x2
+Figure 7: Degrees and genera of the reconstructed tower. The genus-one curve is an auxiliary
+normal closure of the degree-eight map. Passing to that closure changes the source; it does not
+change the genus of the original 𝑥-sphere.
+−a−1 −a a a−1
+−a−1 −a a a−1
+opposite
+banks
+opposite
+banks
+Two sheets of z2 = (x2 − t)/(tx2 − 1)
+Glue pointwise along the cuts: 2g − 2 = −4 + 4 = 0
+Figure 8: A cut-and-glue schematic for a real parameter 0 < 𝑡 < 1, with 𝑎 = √𝑡. T wo sheets of
+the 𝑥-sphere, branched at four points, produce the compact genus-one surface. The drawing
+represents a complex double cover, not a surface obtained by rotating the real function graph.
+18
+Three-Way reciprocal geometry Reconstruction v0.1
+With rightmost permutations acting first, their product is the identity. They are the coset ac-
+tions of SC, S, X, XC, respectively. They generate a transitive order-sixteen group; the cycle
+partitions agree with Theorem 8.1. Thus this tuple realizes the stated cover rather than merely
+listing arbitrary permutations with matching cycle types.
+For an intrinsic intermediate-cover argument, the normal closure of 𝐻 in the Galois group
+is 𝑁 = ⟨ X, Y⟩, of order four. Any degree-four intermediate extension that is Galois over ℂ(𝛽)
+corresponds to a normal order-four subgroup containing 𝐻, which must contain its normal
+closure and hence equal 𝑁. This proves uniqueness of the degree-four Galois intermediate
+and completes the pair-type distinction used in Section 9.
+11 Collision boundaries and specialized maps
+The identities (6.1) and (8.1) give a dictionary between coeﬀicient strata and collisions of target
+labels.
+Coeﬀicient locus Target event Meaning away from intersections
+𝐴 = 1 𝜆 = 0 The nonconstant 𝐹-decoration disappears; 𝑄 can remain
+degree eight.
+𝐵2 = 4𝐴 𝜆 = 1 Double zeros and poles; the marked fiber meets a branch
+value.
+𝐴 = 0 𝜆 = 𝜈 Zeros/poles meet the additional branching from squaring.
+𝐵 = 0 𝜈 = 1 Dihedral degree-eight Galois specialization.
+𝐴 = −1, 𝐵 ≠ 0 𝜈 = 0 The other labeled dihedral specialization.
+Δ = 0 𝜆, 𝜈 → ∞ Generically a triple target collision and cancellation of 𝐹.
+Table 3: Different exceptional loci have different geometric meanings. A marked-point collision
+need not lower the degree of the unmarked cover.
+The standard stable-target compactification is
+𝑀0,5 = Bl(0,0),(1,1),(∞,∞)(ℙ1
+𝜆 × ℙ1𝜈). (11.1)
+Its ten boundary divisors correspond to partitions of the five labels into a pair and a triple [ 14,
+§2]. Seven are the proper transforms of the six coordinate lines and the diagonal; the other
+three are exceptional divisors. A collision is represented by an additional rational target com-
+ponent carrying the colliding labels. The labels are retained, not deleted.
+For the cover, the standard limit is an admissible cover, with nodes mapping to nodes and
+equal local ramification on the two branches. The local expressions have the form 𝜉 ↦ 𝜉 𝑒,
+𝜂 ↦ 𝜂 𝑒, with the source and target smoothing parameters related accordingly [ 15, Definition
+8; §5.1]. Products of colliding branch cycles in ( 10.3) have types 42 when 𝜈 → 0 or one, and 24
+when 𝜈 → ∞ . The regular marking 𝜆 has identity monodromy , so its collisions do not add a
+permutation factor.
+At a generic point of Δ = 0,
+𝜆/𝜈 = ((𝐴 − 1)/(𝐴 + 1))2
+retains the relative position of the colliding labels ∞, 𝜆, 𝜈. The stable target lies on the excep-
+tional divisor over (∞, ∞), with partition {0, 1} ∣ {∞, 𝜆, 𝜈}. Reducing the canceled rational
+expression 𝐹 to degree one loses the other components and is not the same operation as taking
+19
+Three-Way reciprocal geometry Reconstruction v0.1
+this degree-preserving limit. At intersection points such as (1, ±2)or (−1, 0), approach direc-
+tions and rates can matter; an indeterminate coeﬀicient point alone does not choose a stable
+marked limit.
+One precise coarse statement uses the normalization of the closure of the selected Hur-
+witz component in an admissible-cover compactification, without individual sheet labels. Its
+branch map is proper with finite fibers: over a fixed stable marked target, there are finitely
+many monodromy choices and compatible node gluings. It is therefore finite, and it is bi-
+rational because the interior classification is one-to-one. A finite birational morphism to the
+normal surface 𝑀0,5 is an isomorphism. This concerns the normalized coarse component only.
+It does not identify boundary stacks or a fixed-coordinate rational formula with the stable com-
+pactification.
+Finally , the rational dihedral maps (8.6) result from merging branch labels. Their rational
+Galois closures have degree eight. A degeneration of the generic degree-sixteen genus-one
+Galois cover, with all labels retained, is a different object with additional components. The two
+descriptions are compatible, but their source genera and degrees should not be interchanged.
+12 The closure as an Edwards elliptic curve
+Choose 𝑎2𝑒 = 𝑡 and take the elliptic origin 𝑂 = (0, 𝑎𝑒)on 𝐸𝑡. The subscript distinguishes this
+square root from the source-coordinate scale 𝜌 and from the generic orbit point used earlier.
+Choosing an origin does not add a modulus of the complex genus-one curve. There is also the
+section (1, 𝑖)over ℂ(𝑡); thus the family has a point without adjoining √𝑡, although 𝑂 makes
+the group formulas simpler on each fiber.
+Set 𝑈 = 𝑥/𝑎 𝑒, 𝑉 = 𝑧/𝑎𝑒. The equation becomes
+𝑈2 + 𝑉2 = 1 + 𝑡2𝑈2𝑉2, 𝑂 = (0, 1). (12.1)
+This is exactly an untwisted Edwards form, a standard elliptic model [16, 17, 18]. The excluded
+values 𝑡 = 0, ±1, ∞are essential. We use its smooth compactification; the aﬀine real curve and
+a singular plane-quartic closure are not substitutes for that compact curve.
+12.1 Montgomery and Weierstrass equations
+Define on a dense open set
+𝑀 = 1 + 𝑉
+1 − 𝑉, 𝑁 𝑀 = 𝑀
+𝑈 .
+Substituting 𝑈2 = (1 − 𝑉2)/(1 − 𝑡2𝑉2)gives
+𝛾𝑁 2
+𝑀 = 𝑀3 + 𝛼𝑀2 + 𝑀, 𝛼 = 2(1 + 𝑡2)
+1 − 𝑡2 = 4𝜈 − 2, 𝛾 = 4
+1 − 𝑡2 = 4𝜈. (12.2)
+The inverse is 𝑈 = 𝑀/𝑁 𝑀, 𝑉 = (𝑀 − 1)/(𝑀 + 1). Rational inverse maps between smooth
+projective curves extend over the finitely many omitted coordinate points, so these are iso-
+morphisms of compact curves. The origin goes to infinity. Over ℂ, put 𝑊 = √𝛾𝑁𝑀, obtaining
+𝑊2 = 𝑀3 + (4𝜈 − 2)𝑀2 + 𝑀. (12.3)
+The square root can affect a twist over a smaller field; it does not change the complex isomor-
+phism class being classified.
+20
+Three-Way reciprocal geometry Reconstruction v0.1
+For the short Weierstrass form put 𝑀 = 𝜉 − 𝛼/3 . Then
+𝑊2 = 𝜉 3 + 𝑝𝜉 + 𝑞,
+𝑝 = − 16𝜈2 − 16𝜈 + 1
+3 , 𝑞 = 2(2𝜈 − 1)(32𝜈2 − 32𝜈 − 1)
+27 , (12.4)
+Δ𝑊 = −16(4𝑝3 + 27𝑞2) = 256𝜈(𝜈 − 1). (12.5)
+The subscript on Δ𝑊 distinguishes it from the coeﬀicient discriminant Δ. Its displayed form
+is an aﬀine model on the finite 𝜈-line; analyzing infinity requires changing coordinates and, if
+desired, choosing a minimal model.
+12.2 Jacobi quartic and a fully explicit Legendre map
+Set 𝑤 = (𝑡𝑥2 − 1)𝑧. Squaring and using ( 10.1) gives
+𝑤2 = (𝑡𝑥2 − 1)(𝑥2 − 𝑡) = 𝑡𝑥4 − (𝑡2 + 1)𝑥2 + 𝑡. (12.6)
+Thus 𝑣 = 𝑤/𝑎 𝑒 satisfies the Jacobi-quartic equation
+𝑣2 = 𝑥4 − (𝑡 + 𝑡−1)𝑥2 + 1.
+This is another established model, with Jacobi parameter − 1
+2(𝑡 + 𝑡−1)in the convention 𝑣2 =
+𝑥4 + 2𝑎𝐽𝑥2 + 1 [18]. The inverse recovers 𝑧 = 𝑤/(𝑡𝑥2 − 1).
+Define
+𝑞0 = 1 − 𝑡
+1 + 𝑡, ℓ = 𝑞 0
+𝑥 − 𝑎𝑒
+𝑥 + 𝑎𝑒
+, 𝜅 = 2𝑖𝑎𝑒(𝑡 − 1)
+(𝑡 + 1)2 , 𝜂 𝐸 = 𝜅 𝑤
+(𝑥 + 𝑎𝑒)2 . (12.7)
+Then
+𝜂2
+𝐸 = ℓ(ℓ − 1)(ℓ − 𝑚), 𝑚 = ( 𝑡 − 1
+𝑡 + 1)
+2
+. (12.8)
+T o verify the constant as well as the branch cross-ratio, the four branch points map as
+𝑎𝑒 ↦ 0, −𝑎 𝑒 ↦ ∞, −𝑎 −1𝑒 ↦ 1, 𝑎 −1𝑒 ↦ 𝑚,
+and direct multiplication yields
+ℓ(ℓ − 1)(ℓ − 𝑚) = −4𝑡(𝑡 − 1)2
+(𝑡 + 1)4
+𝑤2
+(𝑥 + 𝑎𝑒)4 .
+This is 𝜅2𝑤2/(𝑥+𝑎𝑒)4. The inverse starts with 𝑥 = 𝑎 𝑒(𝑞0+ℓ)/(𝑞0−ℓ)and then recovers 𝑤, 𝑧. This
+Legendre map uses (−𝑎𝑒, 0)as the point sent to infinity , so it changes the elliptic origin relative
+to 𝑂. It leaves the bare curve and its 𝑗-invariant unchanged. Reordering the four branch points
+gives the usual six cross-ratio transforms of 𝑚.
+12.3 Two independent computations of j
+For (12.3), the standard Weierstrass invariants computed from its coeﬀicients are
+𝑐4 = 16(𝛼2 − 3), Δ 𝑊 = 16(𝛼2 − 4), 𝑗 = 256 (𝛼2 − 3)3
+𝛼2 − 4 .
+Substitution gives the two equivalent expressions
+𝑗(𝑡) = 16(𝑡4 + 14𝑡2 + 1)3
+𝑡2(𝑡2 − 1)4 , (12.9)
+21
+Three-Way reciprocal geometry Reconstruction v0.1
+−4 −2 0 2 4
+U
+−4
+−3
+−2
+−1
+0
+1
+2
+3
+4
+V
+O
+P
+Edwards, t = 1/2
+0.0 0.5 1.0 1.5
+ℓ
+−1.0
+−0.5
+0.0
+0.5
+1.0
+η
+Legendre, m = 1/9
+Figure 9: Aﬀine real representatives for 𝑡 = 1/2 and 𝑚 = 1/9. The Edwards origin and order-
+four point are marked. These panels display real equations, not a homeomorphism between
+their plotted real loci: the displayed Legendre change uses an imaginary factor and is asserted
+over ℂ. Both compact complex curves have genus one.
+𝑗(𝜈) = 16(16𝜈2 − 16𝜈 + 1)3
+𝜈(𝜈 − 1) . (12.10)
+Independently , the Legendre expression256(1−𝑚+𝑚2)3/[𝑚2(1−𝑚)2], with 𝑚 from (12.8), re-
+duces to (12.9). These are exact algebraic identities, not numerical recognition of an elliptic in-
+variant. The standard Edwards/Montgomery invariant framework is discussed in Morain [17,
+§§2.4–2.5]; all substitutions needed here have been displayed.
+13 Translations, inversion, and the two Klein-four actions
+The abstract Galois group acquires a concrete geometric meaning on𝐸𝑡. On the Edwards equa-
+tion, addition is
+(𝑈1, 𝑉1) + (𝑈2, 𝑉2) = ( 𝑈1𝑉2 + 𝑉1𝑈2
+1 + 𝑡2𝑈1𝑈2𝑉1𝑉2
+, 𝑉1𝑉2 − 𝑈1𝑈2
+1 − 𝑡2𝑈1𝑈2𝑉1𝑉2
+) ,
+where defined, extending on the smooth compact curve [ 18]. Negation is (−𝑈, 𝑉). Let 𝑃 =
+(𝑎𝑒, 0)in the original coordinates. The formula gives
+2𝑃 = (0, −𝑎𝑒), 4𝑃 = 𝑂, 𝜏 𝑃(𝑥, 𝑧) = (𝑧, −𝑥), 𝜏 2𝑃(𝑥, 𝑧) = (−𝑥, −𝑧).
+Thus 𝑃 has exact order four and
+X = [−1], Y = 𝜏 2𝑃[−1], S = 𝜏 𝑃[−1]. (13.1)
+The remaining involution C has no fixed point on a smooth fiber. A fixed point would
+require 𝑥, 𝑧 ∈ {1, −1}, forcing 𝑡 = 1 . Every elliptic involution with linear part −1 has a fixed
+22
+Three-Way reciprocal geometry Reconstruction v0.1
+point, since [2] is surjective on a complex elliptic curve. A fixed-point-free involution must
+therefore be translation by a nonzero two-torsion point. Here it is
+𝑄2 = C(𝑂) = (∞, 𝑎−1𝑒 ), 𝑄 2 ≠ 2𝑃.
+Consequently
+𝐻tr = ⟨𝑃, 𝑄2⟩ ≃ 𝐶 4 × 𝐶2, 𝐺 = 𝐻 tr ⋊ ⟨[−1]⟩ ≃ 𝐷4 × 𝐶2. (13.2)
+Inversion negates the order-four generator and fixes the order-two generator. This identifies
+the order-four group element as a translation, rather than merely assigning it a dihedral name.
+The full two-torsion is 𝐸𝑡[2] = {𝑂, 2𝑃, 𝑄2, 2𝑃 + 𝑄2}, at the four points
+(0, ±𝑎𝑒), (∞, ±𝑎 −1𝑒 ).
+The four branch points of the 𝑥-projection form the coset 𝑃 + 𝐸𝑡[2], with coordinates (±𝑎𝑒, 0)
+and (±𝑎−1𝑒 , ∞). This connects the branch calculation directly to elliptic torsion.
+The original source sphere is the Kummer quotient
+ℙ1𝑥 = 𝐸𝑡/⟨Y⟩. (13.3)
+Since Y(𝑅) = −𝑅 + 2𝑃, it is inversion after shifting the origin to 𝑃. T wo-torsion translations
+commute with it and descend faithfully to 𝑥 ↦ ±𝑥, ±1/𝑥. This is the 𝑉4 deck action on the
+degree-eight sphere map.
+For the other sphere,
+ℙ1𝑦 = 𝐸𝑡/⟨X, Y⟩.
+Let 𝐸′ = 𝐸𝑡/⟨2𝑃⟩. Then the 𝑦-sphere is the Kummer quotient of 𝐸′, and 𝐻tr/⟨2𝑃⟩ = 𝐸′[2]. Its
+two-torsion translations induce the original normalized 𝑢-action by −𝑢, 1/𝑢. The two Klein-
+four actions are thus related through an isogeny , but they act on different spheres and arise
+from different subgroups before quotienting.
+14 The modular meaning of nu and the natural two-isogeny
+Theorem 14.1 (The selected cyclic subgroup) The coordinate 𝜈 is a Hauptmodul on 𝑋0(4)for the
+pair (𝐸𝑡, ⟨𝑃⟩). On the smooth locus,
+𝑌0(4) ≃ ℙ1𝜈 ∖ {0, 1, ∞}.
+Forgetting the cyclic subgroup gives the degree-six map (12.10) to the 𝑗-line. In particular 𝜈 retains
+more than the bare complex elliptic isomorphism class.
+Proof. In the Weierstrass model, the order-four generator and its double are
+𝑃 = (1,√𝛼 + 2), 2𝑃 = (0, 0).
+Conversely take a complex elliptic curve with a cyclic order-four subgroup⟨𝑃⟩. Put its nonzero
+double at (0, 0)in an equation 𝑌2 = 𝑋(𝑋2 + 𝑏𝑋 + 𝑐0). The duplication formula gives
+𝑋(2𝑃) = (𝑋(𝑃)2 − 𝑐0)2
+4𝑋(𝑃)(𝑋(𝑃)2 + 𝑏𝑋(𝑃) + 𝑐0) = 0,
+so 𝑋(𝑃)2 = 𝑐0. Scaling by the nonzero 𝑋(𝑃)normalizes the cubic to 𝑊2 = 𝑀(𝑀2 + 𝛼𝑀 + 1),
+with 𝑀(𝑃) = 1. A subgroup-preserving isomorphism fixes infinity , the selected two-torsion
+23
+Three-Way reciprocal geometry Reconstruction v0.1
+point at zero, and the common coordinate one of the two generators. The induced aﬀine change
+of the cubic coordinate is therefore the identity , so it fixes 𝛼. Conversely 𝛼 ≠ ±2 defines such a
+pair. Thus 𝜈 = (𝛼 + 2)/4is a complete coordinate on the noncuspidal moduli problem, which
+is precisely 𝑌0(4)[19, §19.3].
+A generic elliptic curve has twelve exact-order-four points, forming six cyclic subgroups.
+Its only origin-preserving automorphisms are ±1, which preserve each subgroup. Hence for-
+getting the subgroup is generically six-to-one, in agreement with the degree of (12.10). Adding
+the three missing parameter values compactifies to a projective line, establishing the Haupt-
+modul statement. □
+For example 𝑗(1 − 𝜈) = 𝑗(𝜈), corresponding to 𝑡 ↦ 1/𝑡 , but that identity alone does not
+describe the entire generic sixfold fiber. These are equivalences of bare complex curves, not
+equivalences of the fully labeled Three-Way cover. Neither do they identify real twists or fixed
+real plots.
+The natural quotient by 2𝑃 = (0, 0)is explicit. Put
+𝑀′ = 𝑀 + 𝛼 + 𝑀−1, 𝑊 ′ = 𝑊(1 − 𝑀−2).
+Squaring and using ( 12.3) gives
+𝐸′ ∶ 𝑊 ′2 = 𝑀′(𝑀′ − (𝛼 + 2))(𝑀′ − (𝛼 − 2)). (14.1)
+The map has degree two and kernel {𝑂, 2𝑃}. The nonzero roots are 4𝜈, 4(𝜈 − 1). Under 𝑠′ =
+𝜈 − 𝑀′/4, the three roots become 𝜈, 0, 1; a nonzero constant rescaling of the ordinate therefore
+gives a Legendre equation with parameter 𝜈. Thus
+𝑗(𝐸′) = 256(1 − 𝜈 + 𝜈2)3
+𝜈2(1 − 𝜈)2 . (14.2)
+This generally differs from (12.10). The parameter 𝜈 is Legendre for the natural two-isogenous
+curve, whereas the displayed Legendre parameter for 𝐸𝑡 itself is 𝑚.
+Let 𝐸 = 𝐸 𝑡/𝐻tr. Since 𝐻tr = [2]−1(⟨2𝑃⟩), this quotient is also isomorphic to 𝐸′. The map
+𝐸𝑡 → 𝐸is a degree-eight isogeny , realized by multiplication by two followed by the two-isogeny.
+The remaining quotient by inversion is a degree-two map 𝐸 → ℙ 1
+𝛽 branched at 0, 1, ∞, 𝜈. This
+explains geometrically why those four target points encode a Legendre curve different from
+the original closure.
+15 The marking lambda upstairs
+Let 𝜋 ∶ 𝐸𝑡 → ℙ 1
+𝛽 denote the degree-sixteen Galois map. For a regular marked value,
+𝐷𝜆 = 𝜋∗[𝜆], 𝜆 ∉ {0, 1, ∞, 𝜈}, (15.1)
+is a reduced effective divisor of degree sixteen. A Galois group acts transitively on every un-
+ramified fiber and the stabilizer is trivial, so this is one full free 𝐺-orbit. Choosing a lift 𝑅
+describes its support as
+(𝑅 + 𝐻tr) ∪ (−𝑅 + 𝐻 tr). (15.2)
+On 𝐸, this is simply an unordered pair {𝑞, −𝑞}. Neither one of the two points nor a particular
+lift is selected. Generically the points are not torsion.
+The divisor class does not vary:
+𝐷𝜆 ∼ 𝐷 ∞,
+24
+Three-Way reciprocal geometry Reconstruction v0.1
+because their difference is the principal divisor of 𝛽 − 𝜆. Hence 𝜆 specifies a particular effective
+divisor in this fiber family , not a new class in Pic16(𝐸𝑡), and not another elliptic modulus. Under
+the 𝐹-decoration the four zeros and four poles on the 𝑥-sphere each lift to two points, splitting
+𝐷𝜆 into eight zero points and eight pole points. That partition is extra labeling of the orbit,
+already accounted for in the automorphism discussion.
+The two-modulus object can therefore be described either as the selected decorated
+branched cover over five labeled target points, or as the elliptic closure with its covering
+structure and a marked quotient orbit. It should not be replaced by an arbitrary elliptic curve
+with one marked point: that would forget the cyclic subgroup, the cover labels, and the
+unordered-pair structure.
+16 Degeneration, enhanced automorphisms, and topology
+16.1 The explicit limiting elliptic fibers
+The biquadratic equation gives concrete limits, including the components at infinity. At 𝑡 = 0,
+it is 𝑥2 + 𝑧2 = 0 , two rational (1, 1)components 𝑧 = ±𝑖𝑥 , meeting at (0, 0)and (∞, ∞). At
+𝑡 = ∞ , first divide the equation by 𝑡; the limit is 𝑥2𝑧2 + 1 = 0 , two components 𝑥𝑧 = ±𝑖 ,
+meeting at (0, ∞)and (∞, 0). At 𝑡 = 1 , the factorization is (𝑥2 − 1)(𝑧2 − 1) = 0; at 𝑡 = −1 , it
+is (𝑥2 + 1)(𝑧2 + 1) = 0, up to a nonzero sign. Each consists of two vertical and two horizontal
+rational components in a four-cycle.
+The intersections are ordinary nodes. Differentiation with respect to 𝑡, or 1/𝑡 at infinity ,
+shows that the nearby total family is smooth at these nodes. Thus this explicit semistable family
+over the 𝑡-line has polygon fibers 𝐼2, 𝐼2, 𝐼4, 𝐼4. With only an elliptic origin retained, stabilization
+contracts unmarked rational components to a nodal rational stable genus-one curve. None is
+a smooth torus at the boundary.
+The invariant has asymptotics
+𝑗(𝜈) ∼ −16/𝜈 (𝜈 → 0), 𝑗(𝜈) ∼ 16/(𝜈 − 1) (𝜈 → 1), 𝑗(𝜈) ∼ 65536𝜈 4 (𝜈 → ∞).
+The pole orders 1, 1, 4are the cusp widths for this 𝑋0(4)coordinate. The double covering by 𝑡
+ramifies at zero and infinity , explaining the two order-two poles there. A 𝑗-pole alone does not
+determine the fiber type of every twisted Weierstrass model; the component assertions above
+concern the explicit biquadratic family.
+16.2 Smooth extra automorphisms are different from boundaries
+For an elliptic curve with origin, the short equation ( 12.4) shows that an automorphism has
+scaling form (𝜉 , 𝑊) ↦ (𝜔2𝜉 , 𝜔3𝑊), with 𝜔4𝑝 = 𝑝 , 𝜔6𝑞 = 𝑞 . Therefore Aut (𝐸, 𝑂)is 𝐶2 gener-
+ically ,𝐶4 at 𝑗 = 1728, and 𝐶6 at 𝑗 = 0 . Translations are additional automorphisms if no origin
+is fixed.
+The exact smooth loci in the parameter line are
+𝑗 = 0 ∶ 𝑡 2 = −7 ± 4√3, 𝜈 = (2 ± √3)/4,
+𝑗 = 1728 ∶ 𝑡 = ±𝑖 or 𝑡2 ± 6𝑡 + 1 = 0,
+𝜈 = 1/2 or 𝜈 = (4 ± 3√2)/8.
+For the second statement one can check directly
+𝑗(𝑡) − 1728 =16(𝑡2 + 1)2(𝑡2 − 6𝑡 + 1)2(𝑡2 + 6𝑡 + 1)2
+𝑡2(𝑡2 − 1)4 .
+25
+Three-Way reciprocal geometry Reconstruction v0.1
+In coeﬀicient coordinates the corresponding equations are
+𝑗 = 0 ∶ 𝐵 4 + 14𝐵2𝑐2 + 𝑐4 = 0,
+𝑗 = 1728 ∶ (𝐵2 + 𝑐2)(𝐵2 − 6𝐵𝑐 + 𝑐2)(𝐵2 + 6𝐵𝑐 + 𝑐2) = 0,
+away from the excluded singular loci. For real 𝑡, 𝑗 = 0 never occurs; the real 𝑗 = 1728 parame-
+ters are ±(3 ± 2√2).
+These are smooth complex-multiplication points, not branch collisions. Extra units do not
+preserve the selected cyclic order-four subgroup: if such a unit acted as ±1 on a generator,
+an endomorphism with norm at most three would annihilate an order-four point, impossible
+since its kernel would have to contain four points. The deck group of the labeled degree-sixteen
+cover stays of order sixteen. Most CM curves have only the generic two origin-preserving
+automorphisms, so enhanced finite symmetry and CM are also different questions.
+16.3 The original source is a sphere; the closure is a torus
+The distinction is exact:
+Original complex source = ℙ 1𝑥, 𝑔 = 0, Generic normal closure = 𝐸𝑡, 𝑔 = 1.
+(16.1)
+A smooth compact complex genus-one curve is analytically ℂ/Λ, hence topologically a torus.
+Its real locus, when defined over ℝ, consists of circles or is empty depending on the real form;
+it is not itself a real two-dimensional torus. The graph {(𝑥, 𝑓 (𝑥)) ∶ 𝑥 ∈ ℝ, 𝐷(𝑥2) ≠ 0} is a
+collection of one-dimensional real arcs. Neither that graph nor the original sphere becomes a
+torus merely because its normal closure has genus one.
+Original source
+ℙ1
+x , genus 0
+Galois closure
+Et, genus 1
+degree 2
+Real graph
+chosen affine coordinates
+Complex analytic surface
+ℂ/Λ
+restrict / plot uniformize
+A surface of revolution would require a separate profile, axis, and gluing rule.
+Figure 10: T wo different operations: restrict a rational sphere map to a real graph, or pass to its
+complex normal closure and uniformize. The right-hand torus belongs to the latter operation.
+A surface of revolution requires a specified planar profile, an axis, and choices at endpoints
+and singularities. For instance, rotating the full graph about the vertical ordinate axis produces
+the parametrized set
+(𝑟cos 𝜃, 𝐹(𝑟2), 𝑟sin 𝜃), 𝑟 ≥ 0,
+26
+Three-Way reciprocal geometry Reconstruction v0.1
+on each pole-free radial interval. The two signs of the original horizontal coordinate then de-
+scribe the same circle, so 𝑥 = ±1 become one radius-one circle at height one, not one point. A
+connected such branch is a radial graph: it has no self-intersection and, if it includes the axis
+regularly , a disk-like cap; otherwise it is annular. Its noncompact ends or pole-separated com-
+ponents do not create a compact torus. Adding the reciprocal profile can create intersections
+along common circles; reflecting about the lock line adds 2 − 𝐹(𝑟2), another prescribed profile.
+Additional cutting and gluing could define other objects, but the rational-map data alone do
+not select those operations.
+The earlier requests to identify −1and 1about a center, and to mirror across height one, are
+therefore compatible with discussing a separately prescribed construction, but are not proofs
+of its topology. The phase lift in H4 is likewise an added map with its own definitions. The ap-
+pearance of an associated elliptic torus makes the historical intuition interesting in retrospect;
+it supplies no evidence for a toroidal universe, brane, or spacetime.
+17 Four historical coeﬀicient pairs
+All four documented examples have 𝐴 > 1 , 𝑐 > 0 , and Δ > 0 . We choose 𝑑 = √Δ > 0 , so
+𝜌 = (𝑐 + 𝐵)/𝑑 > 0and 𝑘 > 0. Let 𝜙 = (1 +√5)/2, and abbreviate 𝐽(𝑡)by the rational expression
+in Eq. ( 12.9).
+Pair Δ 𝜌 𝑘 𝜆
+(9, 9) 19 √19 16/ √19 64/19
+(9, 1) 99 √11/3 16/(3 √11) 64/99
+(𝜋, 𝑒) (𝜋 + 1) 2 − 𝑒2 √ 𝜋+1+𝑒
+𝜋+1−𝑒
+2(𝜋−1)
+√Δ
+(𝜋−1)2
+Δ
+(𝜙, 1 − 𝜙) 4𝜙 𝜙−1/2 𝜙−3/2 (√5 − 2)/4
+Table 4: Exact reduced-quotient data. In the (𝜋, 𝑒)row ,Δ means that row’s exact value.
+Pair 𝑡 𝜈 𝑚
+(9, 9) 9/10 100/19 1/361
+(9, 1) 1/10 100/99 81/121
+(𝜋, 𝑒) 𝑒/(𝜋 + 1) (𝜋+1)2
+(𝜋+1)2−𝑒2
+(𝜋+1−𝑒)2
+(𝜋+1+𝑒)2
+(𝜙, 1 − 𝜙) 2 −√5 (2 + √5)/4 𝜙 2
+Table 5: Exact full-cover and elliptic data. The parameter 𝑚 refers to the displayed Legendre
+model of the closure, not its two-isogenous quotient.
+17.1 The pair (9,9)
+Here 𝜒 = 45 , 𝜆 = 64/19 > 1 , and the marked fiber lies inside the real quotient interval. Its
+roots are
+𝑦𝑧 = (3 ±√5)/6, 𝑦 𝑝 = (9 ± 3√5)/2.
+They are positive and distinct, producing four real zeros and four real poles in𝑥. This accounts
+for the archived asymptote list without an appeal to numerical symbolism. The critical 𝑦-pair
+is (10 ±√19)/9, also positive. Both −1 level points are nonreal because Δ > 0.
+27
+Three-Way reciprocal geometry Reconstruction v0.1
+The closure has
+𝑗 = 8780093172522724
+263900025 ≃ 33270528.0059095258.
+This rational number is not an integer. Every CM 𝑗-invariant is an algebraic integer [ 20, Theo-
+rem 2.1], and a rational algebraic integer is an integer. Therefore this elliptic curve is non-CM.
+A large numerical value of 𝑗 is not the proof; its exact arithmetic is.
+17.2 The pair (9,1)
+Here 𝜒 = −35 and 0 < 𝜆 = 64/99 < 1 . The marked level is outside the real quotient image,
+so neither 𝑓 nor its reciprocal has a real zero or pole. Nevertheless the exact real locks persist,
+and the positive critical pair 10 ±√99 produces a different smooth graph shape. Its −1 fiber is
+again nonreal. The full cover has 𝜈 = 100/99, close to the boundary value one but not on it.
+The exact elliptic invariant is
+𝑗 = 5927735656804
+2401490025≃ 2468.35739274161674,
+another rational noninteger, proving non-CM by the same integrality criterion. Thus the his-
+torical ambiguity between the two integer pairs changes both real geometry and elliptic cov-
+ering data, despite their shared value of 𝐴.
+17.3 The pair (pi,e)
+Elementary bounds imply 𝑒2 < 4𝜋, hence 𝜒 < 0 and 0 < 𝜆 < 1 . This pair occupies the same
+zero/pole regime as (9, 1), with different values of both moduli. Its source scale exceeds one, so
+the critical points are on the positive 𝑦-half-line. The −1 fiber is nonreal. At 100-digit working
+precision the principal invariants, rounded for display , are
+𝜌 ≃ 2.195372442666, 𝑘 ≃ 1.370752047260,
+𝜆 ≃ 0.469740293767, 𝜈 ≃ 1.75678591761901002,
+𝑡 ≃ 0.656337321369094558, 𝑚 ≃ 0.0430494062828726886,
+𝑗 ≃ 132958.437104208270.
+Its exact 𝑗 is 𝐽(𝑒/(𝜋 + 1)). The CM status remains unresolved in this analysis. Transcendental
+input constants do not by themselves prove that a rational expression in them is transcendental.
+No further arithmetic investigation of this case is undertaken in this draft, and no proximity
+to any special numerical value is used as evidence.
+17.4 The pair (phi,1-phi)
+The golden-ratio relation 𝜙2 = 𝜙 + 1simplifies the exact invariants to those in Tables 4–5. Here
+𝐵 < 0, 𝜌 < 1, and 0 < 𝜆 = (√5 − 2)/4 < 1. There are no real zeros or poles and no nonzero real
+𝑥-critical points: the real 𝑦-critical pair is negative. On 𝑦 ≥ 0, the function increases from 1/𝜙
+to 𝜙, crossing height one exactly at 𝑦 = 1. The −1 level is nonreal. This additional embedding
+difference is not captured merely by saying that the marked fiber lies below one.
+For 𝑚 = 𝜙 2, one has 𝑚2 − 3𝑚 + 1 = 0, so (𝑚 − 1)2 = 𝑚 and the Legendre formula reduces
+exactly to 𝑗 = 2048. The complete list of thirteen rational CM 𝑗-values does not contain 2048 [20,
+Introduction]; consequently this curve is non-CM. Its algebraic simplification is real, but does
+not make it an enhanced-automorphism or CM point.
+28
+Three-Way reciprocal geometry Reconstruction v0.1
+All four curves are smooth and none has 𝑗 = 0 or 1728. For the transcendental pair, the ele-
+mentary bound 0.65 < 𝑡 < 0.66, compared with the explicit exceptional 𝑡-values in Section 16,
+suﬀices to establish that statement without deciding CM.
+18 A bounded nearest-neighbor spectral comparison
+This section begins with an independently specified standard chain and derives its objects
+before making a comparison. We do not change its Hamiltonian, fit its parameters to a graph,
+or postulate a new observable.
+Let the uniform nearest-neighbor Hamiltonian on ℓ2(ℤ)be
+(𝐻𝜓)𝑛 = 𝐸0𝜓𝑛 − 𝐽(𝜓𝑛+1 + 𝜓𝑛−1), 𝐽 > 0. (18.1)
+The eigenvalue equation, with 𝜖 = (𝐸0 − 𝐸)/𝐽, becomes 𝜓𝑛+1 + 𝜓𝑛−1 = 𝜖𝜓 𝑛. Its Bloch ansatz
+𝜓𝑛 = 𝑢 𝑛 therefore yields
+𝜖 = 𝑢 + 𝑢 −1, 𝐸 = 𝐸 0 − 𝐽(𝑢 + 𝑢−1). (18.2)
+This is the familiar tight-binding dispersion derived, for example, in T ong [ 21, §2.1.1,
+Eqs. (2.1)–(2.5)]. Quotienting the two multipliers by exchange 𝑢 ↔ 𝑢 −1, and then iden-
+tifying energies relative to the band center by 𝜖 ↔ −𝜖 , gives
+𝛽 = 𝜖 2/4. (18.3)
+This is exactly the reduced quotient already derived in Section 5, for every generic coeﬀicient
+pair. The chain has not acquired new couplings depending on 𝐴, 𝐵; those coeﬀicients select a
+source coordinate and marked spectral value 𝜆 = 𝑘 2/4.
+18.1 Domains cannot be identified by the formula alone
+Propagating real-energy states have 𝑢 = 𝑒 𝑖𝑞, real 𝑞, so |𝑢| = 1 , 𝜖 = 2 cos 𝑞 ∈ [−2, 2] , and
+𝛽 ∈ [0, 1]. For real 𝜖 outside the band, the two multipliers are real and reciprocal; one grows
+and one decays. A decaying multiplier can enter a resolvent or a boundary problem, but it is
+not a propagating Bloch wave. At the band edges the multipliers coalesce.
+For the original real plotting contour with Δ > 0, 𝑢 is real, not generally on the unit circle; it
+samples this evanescent algebraic continuation. Its marked 𝑘 is real, with 0 < 𝜆 < 1, 𝜆 = 1, and
+𝜆 > 1 corresponding to a level inside the band, at an edge, or outside it. A marked level can lie
+inside the band even when the original real plotting contour does not reach it. For Δ < 0, both
+𝑢 and 𝑘 are imaginary on the chosen real source contour, and 𝜖 is generally imaginary. That is
+a complex spectral continuation, not a real-energy evanescent state. These restrictions survive
+the full two-parameter normalization.
+18.2 Standard chain objects and the requested ratio
+The transfer matrix derived from the recurrence is
+⎛⎜
+⎝
+𝜓𝑛+1
+𝜓𝑛
+⎞⎟
+⎠
+= ⎛⎜
+⎝
+𝜖 −1
+1 0
+⎞⎟
+⎠
+⎛⎜
+⎝
+𝜓𝑛
+𝜓𝑛−1
+⎞⎟
+⎠
+.
+Its eigenvalues are𝑢, 𝑢−1; the adjacent-amplitude ratio of a Bloch solution is𝑢. These quantities
+contain the characteristic square root √𝜖2 − 4. No independent level 𝑘 appears.
+29
+Three-Way reciprocal geometry Reconstruction v0.1
+T o fix resolvent signs, let 𝒜 = 𝑆 + 𝑆 ∗ be the dimensionless adjacency operator, and de-
+fine Green functions with (𝑧 − 𝒜)−1. On the semi-infinite chain, a Schur complement at the
+endpoint gives
+𝑔(𝑧) = 1
+𝑧 − 𝑔(𝑧), 𝑔(𝑧) = 𝑧 − √𝑧2 − 4
+2 ,
+where the branch is chosen so that 𝑔(𝑧) ∼ 𝑧−1 at infinity. The alternative Weyl convention
+⟨𝛿0, (𝒜 − 𝑧)−1𝛿0⟩ is −𝑔. On the full line the diagonal Green function is 1/√𝑧2 − 4, as follows
+either by Fourier integration or by joining two half-line self-energies:1/(𝑧−2𝑔(𝑧)) = 1/√𝑧2 − 4.
+A hopping self-energy is the appropriately dimensioned multiple of the half-line function.
+These independently defined functions are not the desired rational ratio.
+For a uniform full chain there is no scattering defect: reflection is zero and transmission
+is a reference-dependent propagation phase. For a hard endpoint with 𝜓0 = 0, writing 𝜓𝑛 =
+𝑒−𝑖𝑞𝑛 + 𝑟𝑒𝑖𝑞𝑛 gives 𝑟 = −1 . Moving the reference plane only multiplies by a known phase. A
+more general endpoint impedance could introduce a boundary parameter, but selecting one
+to force a desired formula would change the stated problem. These standard cases therefore
+do not independently yield (𝜖 + 𝑘)/(𝜖 − 𝑘).
+There is a precise but limited Green-function identity. Fourier diagonalization gives the
+momentum-resolved resolvent
+𝐺(𝑧; 𝑞) = 1
+𝑧 − 2cos 𝑞.
+Choose a momentum 𝑞0 and write 𝑘 = 2 cos 𝑞0. The opposite band-center level occurs at 𝜋 −𝑞0,
+so
+𝐺(𝜖; 𝑞0)
+𝐺(𝜖; 𝜋 − 𝑞0) = 𝜖 + 𝑘
+𝜖 − 𝑘 = 𝐹. (18.4)
+The Green functions are independently defined standard objects; the choice of two momenta
+and the decision to take this ratio are not selected by the uniform chain itself. Thus ( 18.4)
+is an exact constructed comparison, not an independently established observable dictionary.
+For |𝑘| > 2 , 𝑞0 is complex and even the selected momentum is outside the real Bloch band;
+imaginary 𝑘 requires complex continuation as well.
+The limited negative result is therefore that no independently selected chain observable
+equal to the full nonconstant 𝐹 has been established among these objects. It is not a theorem
+that no conceivable reformulation could ever contain this ratio. That stronger claim would
+require a defined class of all observables and boundary problems, which is not part of this
+task.
+18.3 Does the additional square root have a physical meaning?
+The chain naturally has a two-sheeted multiplier relation: solving 𝑢+𝑢 −1 = 𝜖 interchanges the
+growing and decaying, or left- and right-moving, branches. That is already the Joukowski part
+of the quotient. Spatial reflection exchanges 𝑢 and 𝑢−1; staggering 𝜓𝑛 ↦ (−1)𝑛𝜓𝑛 exchanges
+𝑢 and −𝑢 and reverses energy about the band center. These explain the reduced algebraic
+symmetries.
+They do not independently produce
+𝑦 = 𝑥2, 𝑢 = 𝜌 𝑦 − 1
+𝑦 + 1.
+The additional branching at 𝑢 = ±𝜌 , with image 𝜈, is selected by the rational construction and
+its coordinate embedding, not by a standard chain parity reduction or an amplitude-squaring
+30
+Three-Way reciprocal geometry Reconstruction v0.1
+rule. Calling 𝑥 a square root of a multiplier would ignore the intervening Möbius transforma-
+tion; calling it an amplitude would define a meaning rather than derive one. No independent
+physical meaning for the extra 𝑥-cover was found. The successful dictionary stops at the re-
+duced complex spectral quotient ( 18.3).
+19 Historical interpretation and what the reconstruction establishes
+The historical papers used toroidal, brane, inter-universal, and gravitational language to moti-
+vate or interpret exploratory geometry [1, 2, 4]. Those statements remain part of the historical
+record. They are not assumptions needed for the mathematical proofs, and the present re-
+construction supplies neither dynamics nor a metric, stress tensor, matter model, empirical
+coupling, or predictive identification that would establish them as physics. Retaining that dis-
+tinction respects the historical exploration without preserving unsupported conclusions.
+There are three kinds of results here. Exact identities and classifications follow from the
+displayed algebra and covering arguments. Numerical checks provide bounded independent
+consistency tests of those identities and limits. Graphs and topological schematics make their
+geometric interpretation visible, but do not replace the proofs. The later reconstruction is more
+precise than the early imagery because it specifies which object carries each claimed property.
+Many individual structures are explicitly identified with established mathematics. Basic
+reciprocity , parity , and intersections were also already present in historical or local analytical
+material. The manuscript’s reconstruction includes the coherent organization of those facts,
+the additional involution, the marked-fiber classification, the multiscale chart relations, and
+the exact normal-closure identification. Whether that particular assembly or any specific for-
+mulation has appeared elsewhere is deliberately left to a dedicated prior-art audit. Neither the
+use of special constants nor an unexpectedly simple invariant is evidence of novelty.
+The remaining questions have narrower scopes than the early physical claims. A future
+prior-art audit can compare the precise tower and parameter maps with existing cover and
+elliptic constructions. A separate geometrical work order could specify a complete rotation and
+gluing rule for the visual object. A physical investigation would first need an independently
+defined observable and a justified meaning for the extra source cover. The CM status of the
+(𝜋, 𝑒)curve remains recorded as unresolved, without further investigation here.
+Table 6: Historical questions and modern answers.
+Historical question Modern answer
+Is reciprocity real? Yes. Coeﬀicient reversal gives an exact rational identity ,
+with poles, zeros, and cancellation handled projectively.
+Why are 𝑥 = ±1 special? They give 𝑦 = 1, where numerator and denominator agree.
+The height is exactly one unless the expression cancels or is
+undefined; cancellation must be analyzed separately.
+Do the historical real plots
+also reach −1?
+No for all four examples studied here: Δ > 0 makes that
+fiber nonreal. The complex −1 fiber still exists.
+What controls zeros and
+poles?
+𝜒 = 𝐵 2 − 4𝐴controls repeated roots and real-root
+transitions; Δ = 0 and 𝐴 = 1 control cancellation. The
+positive 𝑦-restriction decides which roots are visible in real
+𝑥.
+31
+Three-Way reciprocal geometry Reconstruction v0.1
+Historical question Modern answer
+Was the number 9 the
+mechanism?
+No. The algebraic symmetries hold throughout the generic
+family. (9, 9)and (9, 1)occupy different strata and cannot
+be merged.
+Why do large coeﬀicients
+create nested scales?
+Distinct balances resolve an inner zero, an outer pole, a thin
+lock, and intermediate stationary shoulders. Exact overlap
+identities prove the matching.
+Where does 𝑠 ↦ 2/𝑠 come
+from?
+It is the scaled limit of the equal-value involution and
+exchanges the two matched contributions. Reciprocal
+inversion instead tends to 𝑠 ↦ −𝑠 .
+What are 𝜆 and 𝜈? 𝜆 marks the zero/pole fiber; 𝜈 is the additional branch
+value from squaring and the modular coordinate for the
+selected elliptic order-four structure.
+Is the full object a
+five-marked sphere?
+Its selected generic decorated coarse space is 𝑀0,5. The
+Hurwitz object also retains a covering type and nontrivial
+automorphisms.
+Is the construction a sphere or
+a torus?
+The original complex source is a sphere; its generic normal
+closure is genus one and analytically a torus. A revolved
+real profile is a separate construction.
+Is there established physics? There is an exact reduced nearest-neighbor
+spectral-quotient match. No full physical theory follows
+from it.
+What remains physically
+unexplained?
+No independently selected observable for 𝐹, and no
+independent physical role for the additional 𝑥-cover, has
+been established.
+A Evidence architecture and reproducibility
+This edition preserves five external analytical reports dated 5 October 2026: the large- 𝐿 report
+R1 [6], known-structure review R2 [7], full two-parameter normal form R3 [8], full-cover mod-
+uli report R4 [ 9], and elliptic closure report R5 [ 10]. Their original files remain unchanged.
+The snapshots retain their original wording, including statements subsequently refined by an-
+other report. They are evidence of the reconstruction sequence, not substitutes for the final ar-
+guments here. In particular the earlier physical-analogue review’s open follow-up is resolved
+only to the bounded negative extent stated in Section 18.
+The paper is built directly from the editable LaTeX source, with vector mathematical fig-
+ures generated by a deterministic script. The supplementary directory contains the bibliogra-
+phy in BibTeX and rendered-reference forms, a historical source index, the complete machine-
+readable claim ledger, exact source hashes, verification code and results, and a build record.
+The repository baseline is recorded before authoring. Files in the scientific kernel, UI, and his-
+torical corpus are hashed for before/after comparison. No commit or publication operation is
+part of this edition.
+A.1 Independent computational checks
+The verification script evaluates 77 exact symbolic identities with SymPy. They include
+reciprocity , the historical 𝐶-extension, level-set differences, resultants, derivatives, parameter
+32
+Three-Way reciprocal geometry Reconstruction v0.1
+transformations, the coherent normal form, the marked-fiber identity , intermediate-chart
+actions, scaling and quotient-chart limits, elliptic transformations, discriminants, the two-
+isogeny , enhanced-locus factorization, and exact historical 𝑗-values. Rational identities are
+reduced algebraically; numerical tolerance is not used to declare them true.
+The branch-cycle implementation explicitly generates the permutation group from
+Eq. ( 10.3), confirming transitivity , order sixteen, and identity product. This checks the
+finite presentation used in the proof, rather than searching for a group from approximate
+data.
+At 100-decimal-digit working precision, twelve fixed parameter pairs and four fixed non-
+real source points per pair give 48 normal-form comparisons. They include positive and neg-
+ative Δ, negative 𝐴, 𝐴 = 0 , 𝐴 = −1 , a constant-map case, both signs of 𝐵, and a case close
+to cancellation. The maximum normalized discrepancy is 2.315 × 10−100. These points are
+deliberately off the denominator zeros and do not assert numerical stability at a pole. The
+four historical examples are evaluated at the same precision; their three formulas for 𝑗 agree to
+working precision. The displayed decimals in the body are rounded, whereas the supplemen-
+tary JSON retains substantially more digits.
+For the intermediate limit we use the six fixed points 𝑠 = ±1/2, ± √2, ±3. The following
+table reports absolute profile errors, together with relative errors for two matching paths 𝛿 =
+𝐿−1/4 (bulk side) and 𝛿 = 𝐿 −3/4 (lock side). The exact uniform estimate in Theorem 7.1, not
+the table, proves matching.
+𝐿 max |𝑃ℎ − 𝑊| Bulk relative error Lock relative error
+104 1.1324 × 10−1 2.3338 × 10−2 1.1803 × 10−1
+108 1.1003 × 10−3 2.0303 × 10−4 1.0153 × 10−2
+1012 1.1000 × 10−5 2.0030 × 10−6 1.0015 × 10−3
+Table 7: Bounded high-precision consistency checks of the proved scaling formulas. Relative
+errors compare 𝑓𝐿 + 1 with −𝛿 and −2/(𝐿𝛿), respectively.
+A.2 Claim ledger summary
+The full ledger assigns each claim a proof location, an analytical report, a historical witness
+where applicable, a literature anchor where used, and an evidence status. The following sum-
+mary makes the distinction visible in the manuscript itself. A dash in the history column means
+the modern claim is not attributed to the historical document.
+Table 8: Evidence and proof map. “Exact” refers to the proof
+in this manuscript; historical statements are documentary as-
+sertions about a source.
+ID Claim Manuscript proof Evidence context
+C01 Minus-sign target;
+conflicting labels and later
+plus sign
+§2 (documentary) H1 pp. 13–14; H2 PDF,
+code and CSVs; H3 p. 3;
+H4 p. 1.
+C02 Reciprocity and lock fibers Prop. 3.1 H1, H3; R3; M1. Exact
+algebra.
+C03 Roots, cancellations, and
+real regimes
+Prop. 3.2; §3 R3; corrects H1 p. 14.
+Exact algebra.
+33
+Three-Way reciprocal geometry Reconstruction v0.1
+ID Claim Manuscript proof Evidence context
+C04 Equal-value involution and
+coherent normalization
+Thm. 4.1 R1, R3. Exact algebra.
+C05 Universal labeled 𝑉4
+quotient
+Thm. 5.1 R1–R3; standard
+Belyi/orbifold
+species [11, 12].
+C06 Completeness of reduced 𝜆 §5 R3. Equivalence relation
+explicitly fixed.
+C07 Real contour differs from
+complex equivalence
+§6 R3, R4. Exact domain
+restrictions.
+C08 Large- 𝐿 charts and
+matching
+Thm. 7.1; §7 R1. Proof plus bounded
+numeric checks.
+C09 Distinct scaled origins of
+the involutions
+Eqs. (7.10)–(7.12) R1 follow-ups. Exact
+finite-scale identities.
+C10 Degree-eight branch data
+and lift exceptions
+Thm. 8.1; §8 R3, R4. Valuation and
+ramification proofs.
+C11 Selected coarse moduli
+𝑀0,5, four presentations
+Thm. 9.1 R4; marked-target
+convention [13].
+C12 Cover type and stack
+qualification
+§9; §10 R4. Pair types and
+intrinsic intermediate.
+C13 Normal closure, genus and
+monodromy
+Thm. 10.1; Eq. ( 10.3) R4, R5. Exact
+function-field and group
+arguments.
+C14 Stable-target and
+admissible-cover
+boundaries
+§11 R4; standard
+framework [14, 15].
+C15 Edwards, Montgomery ,
+Jacobi, Legendre models
+§12 R5; named
+models [16, 17, 18].
+C16 Elliptic group action and
+two-torsion quotients
+§13 R5; addition law [ 18].
+C17 𝜈 as 𝑋0(4)coordinate;
+two-isogeny
+Thm. 14.1; Eq. ( 14.1) R5; modular
+interpretation [19, 17].
+C18 Lifted 𝜆-orbit and divisor
+class
+§15 R5. Exact quotient/divisor
+argument.
+C19 Sphere, elliptic torus, and
+revolution differ
+§16 R4, R5; historical H1/H4
+interpretation delimited.
+C20 Historical invariants and
+CM status
+§17 R3, R5; exact CM
+criteria [20]. (𝜋, 𝑒)
+unresolved.
+C21 Reduced spectral
+comparison and bounded
+negative dictionary
+§18 R2, R3; chain
+derivation [21]. No full
+observable established.
+C22 No priority claim for the
+assembled reconstruction
+§1; §19 Dedicated prior-art audit
+pending.
+34
+Three-Way reciprocal geometry Reconstruction v0.1
+B Limits of this edition and exact claims for a subsequent audit
+The documentary record leaves the intended meaning of some historical labels unresolved;
+both formulas are retained rather than harmonized. Printed dates have been checked against
+the archived PDFs, but live Zenodo deposit metadata was not verified in this edition. The
+historical stability and curvature experiments are indexed, not independently rerun. There is
+no broad novelty search, no arithmetic extension of the unresolved (𝜋, 𝑒)CM question, and no
+physical model added to the uniform chain.
+The next prior-art audit should test the following precisely delimited statements, rather
+than asking whether reciprocity or elliptic curves in general are new:
+1. The exact embedding of this reversed-quadratic family into 𝐹 = (𝑟 + 𝑘)/(𝑟 − 𝑘), with
+𝑢 = 𝜌(𝑦 − 1)/(𝑦 + 1), its equal-value involution, and the interpretation of 𝜆 under the
+specified labeled equivalence.
+2. The full squaring tower 𝑄𝑡, its 𝑅-paired Hurwitz type, the coarse 𝑀0,5 classification, and
+the four finite coeﬀicient presentations.
+3. The explicit genus-one normal closure 𝑡𝑥2𝑧2 − 𝑥2 − 𝑧2 + 𝑡 = 0 , its degree-sixteen la-
+beled quotient, and the interpretation of the two sphere-level 𝑉4 actions through two-
+isogenous Kummer quotients.
+4. The particular parameter dictionary 𝑡 = 𝐵/(𝐴 + 1), 𝜈 = (1 − 𝑡 2)−1, the selected cyclic
+order-four subgroup, the two-isogenous Legendre parameter, and the lifted regular-fiber
+divisor 𝐷𝜆.
+5. The diagonal multiscale reconstruction, especially the rigorously matched 𝑊(𝑠) = −𝑠 −
+2/𝑠 profile and the exact finite- 𝐿 origins of its limiting involutions.
+6. The historical provenance reconciliation and correction of pole/lock claims, which is a
+documentary contribution distinct from mathematical priority.
+The audit must compare the same decorations and equivalences. A known elliptic equation
+can settle a model identification while leaving a particular coordinate tower to be traced. Con-
+versely , a change of variables may show that the whole formulation is standard. The outcome
+of that audit remains open.
+35
+Three-Way reciprocal geometry Reconstruction v0.1
+References
+[1] H. F. Halldórsson and ChatGPT o4-mini-high (printed attribution), The Three-Way Quan-
+tum Gravitational Wave Model: A Refined Geometric and Quantum Field Theoretic Framework ,
+archived final draft, printed 1 May 2025, 14 pp. Historical source H1, especially Appendix
+C, pp. 13–14. Exact PDF and hash in the source manifest; corpus-associated Zenodo
+record 17240087.
+[2] H. F. Halldórsson and ChatGPT-5 (printed attribution), Bounded Infinity and Resonant
+Curvature: A Geometric Analysis of Reciprocal Rational Maps in the Three-Way Resonance
+Model (RTM) , printed 16 October 2025, 35 pp. Historical source H2, with archived
+rrm_tool.py and CSVs; corpus-associated Zenodo record 17365334. Exact files and
+hashes in the source manifest.
+[3] H. F. Halldórsson and ChatGPT 5.2 (printed attribution),Experimental Geometry of a Three-
+Way Reciprocal Construct: Numerical Evidence for Structural Stability , printed 19 January
+2026, 15 pp. Historical source H3, Three_way_test_model.pdf; Eq. (1), p. 3. No DOI
+assigned in this bibliography.
+[4] H. F. Halldórsson and ChatGPT 5.4 (printed attribution), Reciprocal Rational Maps, Self-
+Dual Hinges, and T oroidal Phase Lifts, printed 18 March 2026, 11 pp. Historical source H4;
+exact PDF and hash in the source manifest.
+[5] Three-Way Item 2A: Constant Geometry; Item 2B: Constant Survey; Item 2C: M2 Fibonacci
+Structure, local analytical notes, archived as M1 in this edition. These use the plus-sign
+convention and are not historical formula authority. Original file paths and hashes are
+retained in the source manifest.
+[6] Three-Way Large-L Scaling Analysis v0.1 , external reconstruction report and bounded
+follow-ups, 5 October 2026. Evidence R1; includes shoulder, intermediate-involution, and
+quotient verification files. Verbatim snapshot supplied with this paper.
+[7] Three-Way Known Structure and Physical Analogue Review v0.1 , external reconstruction re-
+port, 5 October 2026. Evidence R2; verbatim snapshot supplied with this paper.
+[8] Three-Way T wo-Parameter Normal Form v0.1, external reconstruction report, 5 October 2026.
+Evidence R3; verbatim snapshot supplied with this paper.
+[9] Three-Way X-Cover Moduli v0.1, external reconstruction report, 5 October 2026. Evidence
+R4; verbatim snapshot supplied with this paper.
+[10] Three-Way Genus-One Galois Closure v0.1 , external reconstruction report, 5 October 2026.
+Evidence R5; verbatim report, verification script, and results supplied with this paper.
+[11] J. Sijsling and J. Voight, On computing Belyi maps,Publications mathématiques de Besançon.
+Algèbre et théorie des nombres (2014), 73–131. doi:10.5802/pmb.5. Accessible preprint: ht
+tps://arxiv.org/pdf/1311.2529.
+[12] J. Kalliongis and R. Ohashi, Finite actions on the Klein four-orbifold and prism
+manifolds, Commentationes Mathematicae Universitatis Carolinae 58(1) (2017), 49–68.
+doi:10.14712/1213-7243.2015.193. https://cmuc.karlin.mff.cuni.cz/pdf/cmuc17
+01/kallio.pdf.
+[13] P . Mnev ,Conformal Field Theory, lecture notes, 2022, pp. 57–60, especially Eqs. (209)–(210),
+for the marked-sphere configuration spaces. https://academicweb.nd.edu/~pmnev/f
+22/CFT_2022_notes.pdf.
+36
+Three-Way reciprocal geometry Reconstruction v0.1
+[14] V . Braungardt, Covers of moduli surfaces, Compositio Mathematica 140(4) (2004), 1033–
+1036, §2. doi:10.1112/S0010437X03000642.
+[15] R. Cavalieri, H. Markwig, and D. Ranganathan, T ropicalizing the space of admissible covers,
+arXiv:1401.4626, consulted preprint, Definition 8 and §5.1. https://arxiv.org/pdf/14
+01.4626.
+[16] H. M. Edwards, A normal form for elliptic curves, Bulletin of the American Mathematical
+Society 44(3) (2007), 393–422. doi:10.1090/S0273-0979-07-01153-6. Publication informa-
+tion and accessible copy indexed by Bernstein and Lange: https://www.hyperellipti
+c.org/tanja/newelliptic/newelliptic.html.
+[17] F. Morain, Edwards curves and CM curves , 2009, arXiv:0904.2243, especially §§2.4–2.5. ht
+tps://cacr.uwaterloo.ca/techreports/2009/cacr2009-17.pdf.
+[18] D. J. Bernstein and T. Lange, Explicit-Formulas Database , genus-one models, accessed 5
+October 2026. T wisted Edwards: https://www.hyperelliptic.org/EFD/g1p/auto-twi
+sted.html; Jacobi quartic: https://www.hyperelliptic.org/EFD/g1p/auto-jquarti
+c.html; Montgomery: https://www.hyperelliptic.org/EFD/g1p/auto-montgom.htm
+l.
+[19] A. V . Sutherland,18.786 Lecture 19, MIT , 2024, §19.3 (p. 4), modular curves as moduli of
+elliptic curves with level structure. https://math.mit.edu/classes/18.786/2024/Lec
+tureNotes19.pdf.
+[20] H. B. Daniels and Á. Lozano-Robledo, On the number of isomorphism classes of CM elliptic
+curves defined over a number field , author-hosted manuscript, Introduction and Theorem
+2.1. https://alozano.clas.uconn.edu/wp-content/uploads/sites/490/2014/01/D
+aniels_and_Lozano-Robledo_2.pdf.
+[21] D. T ong,Lectures on Solid State Physics, 2017, Chapter 2, §2.1.1, pp. 27–29, Eqs. (2.1)–(2.5).
+https://davidtong.org/pdfs/teaching/solid-state-physics/solidstate2.pdf.
+37

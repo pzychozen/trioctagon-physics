@@ -1,0 +1,56 @@
+\section{Verification, evidence classes, and reproducibility}\label{app:evidence}
+\subsection{Evidence hierarchy}
+The general monodromy and genus result is a theorem with an existence proof in Section~\ref{sec:generic}. Its topology is not claimed to be machine-formalized. The displayed identities, discriminants, birational maps, torsion formulas, and isogeny formulas have exact symbolic checks. Numerical evaluations are additional consistency tests, not substitutes for those proofs. The final bridge classification is a bounded audit of specified definitions together with an exact finite-action equivalence; it is not a universal impossibility theorem.
+
+The companion \texttt{provenance/claim\_ledger.csv} maps every theorem and major derived claim to a source-report section, manuscript label, verification item or prose proof, and limitation. Standard facts, explicit family derivations, and project-specific source comparisons are separately marked. No mathematical priority is claimed. The literature check was bounded to primary sources needed for normal-form and modular conventions; it was not an exhaustive novelty search.
+
+\subsection{Exact suites and numerical witnesses}
+The original external verification scripts were copied byte-for-byte into this paper's independent verification directory and rerun there. Their original reports, results, and scripts remain unchanged. With SymPy 1.14.0 and mpmath 1.3.0:
+\begin{itemize}
+\item The hierarchy suite passed 51 exact checks and four numerical checks, covering degrees two through four, cancellation factors, critical equations, cubic splitting, and exceptional examples.
+\item The cubic suite passed 73 exact checks, including quartic/Weierstrass identities, 3-torsion, the selected 2-torsion, root-incidence actions, the 3-isogeny, modular functions and generic recovery of \(h\), degeneration formulas, and the finite patch action.
+\item Ten additional exact checks verify the independently sourced geometric ratios, lens-area derivative and endpoints, and the cyclic readout counterexample used in the final audit. These checks introduce no fitted dictionary.
+\end{itemize}
+This is 134 exact checks in total. The two older suites retain their original test names and output structures. The extra checks are isolated in \texttt{verification/verify\_bridge.py}.
+
+Two fixed coefficient witnesses certify the nonempty simple-branch loci in the low degrees. For \((A,B,C)=(2,3,5)\),
+\begin{align}\label{eq:witness3}
+ W_3&=-7y^4-2y^3-7y^2-2y-7,\notag\\
+ \Disc(W_3)&=17000000,\notag\\
+ \Disc_y(P-vQ)&=5(353v^4-1222v^3+1763v^2-1222v+353).
+\end{align}
+The last polynomial has discriminant \(1228250000000000\ne0\). For \((A,B,C,D)=(2,3,5,7)\),
+\begin{align}\label{eq:witness4}
+ W_4&=-11y^6-10y^5-17y^4-68y^3-17y^2-10y-11,\notag\\
+ \Disc(W_4)&=376072090731675648,\notag\\
+ \Disc_y(P-vQ)&=-96(7151v^6-35048v^5+78095v^4\notag\\
+ &\hspace{24mm}-100468v^3+78095v^2-35048v+7151).
+\end{align}
+Its discriminant is the nonzero integer recorded in the hierarchy JSON. Both witnesses also have nonzero numerator--denominator resultants. These exact nonvanishings prove simple critical divisors and distinct branch values; a numerical root plot is not needed for that inference.
+
+Numerical evaluation used 100 decimal digits, with critical roots approximated at 85 digits. The maximum reciprocity residuals were \(2.94\times10^{-101}\) and \(1.84\times10^{-101}\) for the cubic and quartic, respectively. Their maximum normalized critical-polynomial residuals were \(6.02\times10^{-86}\) and \(5.48\times10^{-86}\). For three fixed complex probes at \(t=17\), the cubic suite obtained maximum absolute residuals \(2.52\times10^{-95}\) for the Weierstrass map and \(4.09\times10^{-96}\) for the isogeny. These are high-precision floating evaluations, not interval-certified enclosures. There was no parameter scan.
+
+\subsection{Exact source map for the final bridge}\label{app:bridge_sources}
+All line numbers below refer to the preserved snapshots of the pre-existing files, not to new definitions in this paper. The source manifest records absolute original paths and SHA-256 hashes. A numbered UTF-8 copy beside each snapshot makes the locators independent of an editor's line display.
+\begin{longtable}{L{.18\linewidth}L{.24\linewidth}L{.49\linewidth}}
+\toprule ID & Locator & Definition used and outcome\\\midrule\endfirsthead
+\toprule ID & Locator & Definition used and outcome\\\midrule\endhead
+PATCH & Report §§2--3.1; lines 51--150 & Finite patch coordinates, normals, metric ratios, and rigid symmetries. These support the exact regular \(S_3\)-set, not a branch divisor.\\
+PATCH & §§3.3--3.4; lines 161--233 & Conditional registration parameter and frozen clock distinction. These do not select a shell modulus.\\
+PATCH & §7; lines 386--393 & Attachment, gate axis, and channel meaning remain source-limited.\\
+SCAFFOLD & \texttt{ReferenceScaffold}; lines 172--266 & Positive side/gap family, radius and area, role labels, regularity. A shape modulus exists, but no elliptic or isogeny datum is defined.\\
+SCAFFOLD & \texttt{paper\_c\_member}; lines 339--342 & The fixed welded-member placement selects gap ratio \(1/\sqrt2\).\\
+SCAFFOLD\_\allowbreak PROOF & §6 & Independent geometric derivation of the alternating-side family; distinguishes regularity from the fixed welded member.\\
+BOUNDARY & Lines 1--7, 25--37, 55--105 & Explicit toy lens-area response, domain, gain, and six-vector preparation. No cubic branched cover is specified.\\
+SRG & Lines 21--29, 50--94, 122 onward & Fixed parameters, tensor transfer, eigenmode gauge, and discrete transfer count. No continuous modular correspondence is defined.\\
+OPERATING & Lines 1--16, 24--31, 46 onward & Bounded initialization/recurrence profile; not a geometric branch parameter.\\
+Z\_READOUT & Lines 91--151, 226--260 & State norm, harmonic, cubic state readout, and memory update. The function \texttt{cubic\_j} is not an elliptic invariant.\\\bottomrule
+\end{longtable}
+The original paths of PATCH and the code snapshots are relative to the recorded repository root; the separate scaffold proof is in the external research tree. The manuscript bibliography supplies their identities. These snapshots serve as evidence, not replacement production modules.
+
+\subsection{Bundle and build contract}
+The independent paper directory is \path{papers/three_way_reciprocal_hierarchy}. It contains multi-file LaTeX source, bibliography, vector and raster figures, the verification suites and outputs, source snapshots, claim/source ledgers, and build/audit records. The final PDF is in \path{output/pdf/}. A ZIP bundle preserves the same tree without recursively including itself.
+
+The supplied build script uses the existing Tectonic toolchain and a dedicated external build/cache workspace. It does not install a TeX system or modify Paper I. Verification scripts use the existing mathematical Python environment. Figure generation is deterministic and uses exact formulas or explanatory diagrams; figures are not evidence for a theorem beyond the equations cited in their captions. The PDF is rendered for visual review, and internal destinations, citations, source labels, and figure inclusion are audited.
+
+The baseline records all tracked repository file identities, all Paper I, kernel, and UI files present in the protected directories, and both external report directories. Final validation compares their hashes and repository HEAD; new files are confined to the Paper II directory and external build/QA workspace. Existing user changes are preserved. The detailed build report and artifact manifest accompany the delivery.

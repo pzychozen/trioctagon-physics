@@ -1,0 +1,437 @@
+=== PDF PAGE 1 ===
+Experimental Geometry of a Three-Way Reciprocal Construct:
+Numerical Evidence for Structural Stability
+Hilmir Fr´ ımann Halld´ orsson & ChatGPT 5.2
+January 19, 2026
+Abstract
+We present a controlled numerical investigation of a minimal family of reciprocal rational
+functions exhibiting intrinsic three-way intersection points defined by the conditionf(x) =
+±1. These intersections arise directly from the algebraic structure of the family and do not
+depend on externally imposed symmetry. The central question addressed is whether such three-
+way structures behave as fragile algebraic coincidences or as stable geometric features under
+perturbation.
+To evaluate this, we develop a reproducible experimental pipeline combining deterministic
+perturbation scans across more than one thousand orders of magnitude, Monte Carlo ensemble
+sampling with paired contrasts, robustness tests under injected noise, and dual-backend compu-
+tation using both double precision and arbitrary precision arithmetic. We introduce diagnostic
+observables designed to probe the sensitivity of the lock geometry under controlled parameter
+perturbations.
+Across all tested regimes, the three-way intersection exhibits smooth power-law sensitivity
+scaling, reproducible detectability thresholds nearδ≈10 −12–10−13, and strong robustness un-
+der perturbations, with qualitatively identical behavior across multiple perturbation protocols.
+These findings are difficult to reconcile with numerical artifact explanations and instead support
+the interpretation that the three-way intersection represents a genuine structural feature of the
+construct.
+The study does not propose a closed-form analytical theory, but establishes a rigorous nu-
+merical foundation for further mathematical investigation. More broadly, it demonstrates how
+carefully designed numerical experimentation can serve as a legitimate exploratory tool in the
+study of novel geometric structures.
+1
+
+=== PDF PAGE 2 ===
+1 Introduction
+Geometric structures defined by reciprocal transformations arise naturally across mathematics,
+from projective dualities to rational maps and fixed-point theory. In certain families of such trans-
+formations, one encounters distinguished intersection conditions where a map, its reciprocal, and
+associated level sets coincide. These intersections are not imposed externally but emerge from the
+algebraic structure of the family itself.
+In this work we investigate a minimal example of this phenomenon: a family of reciprocal
+rational functions exhibiting three-way intersection points characterized by the conditionf(x) =
+±1. These points act as intrinsic fixed structures of the construct, independent of interpretation.
+Our focus is not on proposing a physical theory, but on addressing a narrower and well-defined
+question:
+Does this three-way reciprocal structure behave as a stable geometric object under perturbation,
+or is it merely a fragile algebraic coincidence?
+To answer this, we adopt a numerical experimental approach. We define a controlled perturba-
+tion protocol on the defining constants of the construct, introduce quantitative observables designed
+to probe structural sensitivity, and evaluate behavior across several regimes:
+•deterministic perturbation scans across more than 1000 orders of magnitude,
+•Monte Carlo ensembles with paired contrasts,
+•robustness tests under injected noise,
+•and dual numerical backends (double precision and arbitrary precision).
+The goal of this methodology is not to confirm a preconceived outcome, but to distinguish
+between three possibilities:
+1. the structure is numerically unstable and collapses under perturbation,
+2. the structure survives but only as a numerical artifact of limited precision,
+3. the structure exhibits smooth, reproducible behavior indicative of intrinsic stability.
+Our results consistently support the third case. Across all tested regimes, the three-way in-
+tersection exhibits smooth sensitivity scaling, clear detectability thresholds, and strong robustness
+under perturbation. These findings suggest that the behavior observed is not accidental, but reflects
+genuine structural properties of the underlying construct.
+The remainder of the paper introduces the minimal rational family under study, details the
+experimental pipeline, presents quantitative results, and discusses both the implications and limi-
+tations of this numerical investigation.
+2
+
+=== PDF PAGE 3 ===
+2 Minimal Geometric Construct
+We consider a minimal family of reciprocal rational functions of the form
+f(x;A, B) = Ax4 +Bx 2 + 1
+x4 +Bx 2 +A ,(1)
+whereAandBare real constants andx∈Rorx∈C. This family is constructed such that the
+reciprocal transformation
+f(x;A, B)← → 1
+f(x;A, B)
+is naturally paired within the same functional form. No external symmetry is imposed; the recip-
+rocal relationship follows directly from the algebraic structure of the numerator and denominator.
+“While reciprocal rational functions are well known in the literature, the particular
+family and geometric framing considered here, together with the associated experi-
+mental methodology, appear not to have been previously explored.”
+2.1 Three-Way Intersection Condition
+A distinguished set of points arises when the forward map and its reciprocal coincide:
+f(x) = 1
+f(x) .(2)
+This condition implies
+f(x) 2 = 1,
+and therefore
+f(x) =±1.(3)
+These values define intrinsic three-way intersection points: the forward map, its reciprocal, and
+the corresponding constant level sets coincide. Importantly, this condition is not imposed externally
+but emerges from the internal structure of the rational family.
+For the specific family considered here, the equationsf(x) =±1 admit solutions nearx=±1
+across a wide range of parameter choices (A, B), including integer pairs, transcendental pairs such
+as (π, e), and algebraic constants such as the golden ratio. This persistence motivates treating the
+f(x) =±1 condition as defining an intrinsic structural feature of the construct rather than an
+artifact of special parameter choices.
+2.2 Interpretation as Structural Lock Points
+We refer to the solutions off(x) =±1 aslock points. These are not fixed points of iteration in
+the dynamical systems sense, but rather algebraic intersection points of three coupled geometric
+objects:
+•the graph off(x),
+•the graph of its reciprocal 1/f(x),
+•the constant level setsf(x) =±1.
+3
+
+=== PDF PAGE 4 ===
+The terminology is purely descriptive: the lock points represent locations where the reciprocal
+structure constrains the geometry in a way that is invariant under the reciprocal transformation.
+The central question of this work is whether these lock points behave as fragile algebraic coinci-
+dences, or whether they exhibit measurable stability under controlled perturbations of the defining
+constantsAandB.
+2.3 Choice of Constants
+Throughout this study we use the pair (A, B) = (π, e) as a representative transcendental example.
+This choice is not essential to the construction; exploratory tests with integer constants, algebraic
+constants, and other transcendental pairs produce qualitatively similar behavior. The emphasis of
+this paper is therefore on the structural properties of the family itself rather than on any special
+status of particular numerical constants.
+3 Experimental Methodology
+To evaluate whether the three-way lock points defined in Section 2 represent structurally stable
+features or fragile numerical coincidences, we constructed a controlled numerical experiment. The
+methodology is designed to distinguish genuine geometric behavior from artifacts of finite precision,
+noise, or implementation choices.
+3.1 Perturbation Design
+Let the baseline parameters be denoted
+(A0, B0) = (π, e),
+and letδ >0 be a small perturbation scale.
+We define two parameter pairs for each trial:
+•thespecialconfiguration: (A sp, Bsp),
+•thecontrolconfiguration: (A ct, Bct),
+and evaluate contrasts between observables computed from these two closely related systems.
+Two perturbation protocols were implemented:
+1.Single-parameter perturbation(b only):
+(Act, Bct) = (A0, B0 +δ).
+2.Antisymmetric perturbation(antisym):
+(Act, Bct) = (A0 +δ, B 0 −δ).
+These protocols are not modifications of the underlying construct; they are experimental probes
+used to explore sensitivity along different directions in parameter space.
+4
+
+=== PDF PAGE 5 ===
+3.2 Lock Identification and Observables
+For each parameter pair, numerical solutions to the equations
+f(x;A, B) =±1
+are computed, yielding two branches of lock points (denoted “plus” and “minus”) with solutions
+nearx≈ ±1.
+From these solutions we define two diagnostic observables:
+•Astiffness contrast, denoted ∆ logS, defined as the difference in a logarithmic stability proxy
+between the special and control systems.
+•Adrift contrast, denoted ∆D, defined as the difference in deviation from unit modulus between
+the corresponding lock points.
+The precise algebraic definitions of these quantities are implementation-dependent and are pro-
+vided in the accompanying code. Their purpose is not to define fundamental invariants, but to
+serve as sensitive numerical probes of how the lock geometry responds to small parameter changes.
+3.3 Deterministic Scans
+To characterize the intrinsic scaling behavior of the construct, we perform deterministic scans over
+perturbation magnitudes of the form
+δ= 10 −k, k= 1,2, . . . ,1000.
+For each value ofk, observables are computed once (without random noise) and the resulting
+sensitivity curves are analyzed. This provides a direct view of the analytic behavior of the system
+across more than one thousand orders of magnitude.
+3.4 Monte Carlo Ensembles
+To assess robustness and statistical distinguishability, we perform ensemble experiments withR
+independent replicates (typicallyR= 4096). For each replicate, small Gaussian perturbations are
+added to both special and control parameters using paired noise:
+A→A+η A, B→B+η B, η A, ηB ∼ N(0, σ 2),
+with the same noise realization applied to both special and control systems. This paired design
+suppresses spurious noise while preserving true structural differences.
+For eachδ, we compute:
+•the ensemble mean of each contrast,
+•95% confidence intervals,
+•a detectability score measuring the fraction of replicates in which the sign of the contrast is
+preserved.
+5
+
+=== PDF PAGE 6 ===
+3.5 Numerical Precision and Dual Backend
+Because the experiments probe extremely small perturbations, a dual numerical backend was em-
+ployed:
+•standard double precision (float64) for moderateδ,
+•arbitrary precision arithmetic (mpmath) for ultra-smallδ.
+The backend is selected automatically based on perturbation magnitude, ensuring that the
+observed scaling behavior is not an artifact of floating-point underflow.
+3.6 Design Principle
+The overall experimental pipeline is constructed around a single guiding principle:
+If the three-way lock is a genuine structural feature of the construct, it should manifest
+smooth scaling, reproducibility, and robustness across numerical regimes and perturba-
+tion protocols.
+The following sections present the results of these experiments.
+4 Results
+This section summarizes the empirical behavior of the construct under the experimental pipeline
+described in Section 3. All results refer to the constant pair (A, B) = (π, e), with additional
+exploratory tests confirming that the qualitative behavior is not specific to this choice.
+4.1 Deterministic Sensitivity Scaling
+We first examine deterministic scans in which a single perturbation magnitude
+δ= 10 −k, k= 1, . . . ,1000
+is applied without stochastic noise. Figure 1 (and Appendix Fig. A1 for the antisymmetric protocol)
+shows the quantity
+log10
+ 
+|∆ logS|
+
+as a function of the exponentk.
+Across the full range of scales, the response exhibits smooth, approximately linear behavior in
+this representation. This indicates that the stiffness contrast scales approximately as a power law
+inδ,
+|∆ logS| ∝δ p
+for some exponentpclose to unity. Importantly, the curve does not exhibit irregular oscillations,
+discontinuities, or chaotic structure, suggesting that the observable reflects intrinsic analytic sensi-
+tivity rather than numerical instability.
+6
+
+=== PDF PAGE 7 ===
+4.2 Detectability Threshold
+Monte Carlo ensemble experiments (withR= 4096) provide a statistical perspective on when the
+contrast becomes reliably distinguishable from noise. Figure 2 (and Appendix Fig. A2) shows the
+detectability score as a function ofδ, defined as the fraction of replicates in which the sign of the
+contrast is preserved and the confidence interval excludes zero.
+A clear transition is observed around
+δ≈10 −12 to 10−13.
+Above this threshold, the contrast is consistently detectable across replicates; below it, the signal
+becomes numerically indistinguishable from zero. This sharp transition is consistent with the
+deterministic scaling observed in Section 4.1 and reflects the finite resolution of the observable
+rather than a breakdown of the construct itself.
+4.3 Robustness Under Noise
+To test whether the observed behavior is fragile under perturbations, we repeat the Monte Carlo
+experiments with additional Gaussian noise (σ= 10 −6) injected into the parametersAandB.
+Figure 3 (and Appendix Fig. A3) overlays the mean contrasts and confidence intervals for the
+noise-free and noisy ensembles.
+The two curves are nearly indistinguishable across the tested range ofδ. This indicates that the
+measured stiffness contrast is not an artifact of fine-tuned numerical precision but reflects a robust
+property of the construct under modest perturbations.
+4.4 Perturbation Direction
+Both perturbation protocols (b onlyandantisym) exhibit the same qualitative scaling behavior
+and detectability structure. While the sign and prefactor of the contrast may differ between proto-
+cols, the persistence of smooth scaling and robustness suggests that the observed stiffness behavior
+is intrinsic to the underlying three-way geometry rather than an artifact of a particular perturbation
+direction in parameter space.
+4.5 Drift Observable
+The drift contrast defined in Section 3.2 remains close to zero across all tested regimes, including
+antisymmetric perturbations and complex continuation. This indicates that the modulus of the
+lock locations is strongly constrained by the reciprocal structure under the present definition.
+This result does not undermine the stability findings above; rather, it suggests that the cur-
+rent drift observable is insufficiently sensitive to capture additional degrees of freedom (e.g. phase
+variation in the complex plane). Refining this observable is a natural direction for future work.
+4.6 Summary of Empirical Findings
+Across deterministic scans, Monte Carlo ensembles, and robustness tests, the three-way lock struc-
+ture consistently exhibits:
+•smooth, power-law sensitivity under perturbation,
+•reproducible detectability thresholds,
+7
+
+=== PDF PAGE 8 ===
+•stability under injected noise,
+•independence from perturbation direction.
+Taken together, these results support the interpretation that the three-way intersection behaves
+as a genuine structural feature of the construct rather than as a fragile numerical coincidence.
+8
+
+=== PDF PAGE 9 ===
+5 Interpretation and Discussion
+The numerical experiments reported in Section 4 provide a consistent picture of the behavior of
+the three-way reciprocal construct. This section interprets those findings in the context of the
+underlying geometry, while remaining explicit about what is and is not established.
+5.1 Evidence for Structural Stiffness
+The most robust empirical feature of the construct is the behavior of the stiffness contrast ∆ logS.
+Across deterministic scans spanning more than one thousand orders of magnitude, as well as Monte
+Carlo ensembles with and without injected noise, this observable exhibits:
+•smooth power-law scaling in the perturbation magnitude,
+•reproducible detectability thresholds,
+•stability across numerical precision regimes,
+•insensitivity to perturbation direction in parameter space.
+Taken together, these properties are difficult to reconcile with the hypothesis that the observed
+behavior is merely a numerical artifact. Instead, they suggest that the three-way intersection
+conditionf(x) =±1 imposes a genuine structural constraint on the geometry of the rational
+family, giving rise to a form of intrinsic stiffness.
+Importantly, this stiffness does not imply rigidity in an absolute sense. The lock locations do
+respond continuously to parameter perturbations, but they do so in a controlled, analytic manner
+rather than exhibiting chaotic or unstable behavior.
+5.2 Structure Versus Choice of Constants
+Although the experiments are presented primarily for the constant pair (π, e), the qualitative
+behavior does not appear to depend on this specific choice. Exploratory tests with integer constants,
+algebraic constants, and other transcendental pairs show similar scaling and robustness.
+This supports an interpretation in which the defining feature is not the arithmetic nature of the
+constants themselves, but rather the structural properties of the reciprocal rational family. The
+constants serve to parametrize the family, but do not appear to determine whether the three-way
+lock exists or whether it exhibits stability.
+5.3 Interpretation of the Three-Way Lock
+The three-way intersection condition arises purely from the reciprocal structure:
+f(x) = 1
+f(x) ⇐ ⇒f(x) =±1.
+This condition does not correspond to a fixed point of iteration, nor does it rely on any external
+dynamical interpretation. Instead, it identifies points in the domain where the forward map, its
+reciprocal, and the associated level sets coincide.
+The empirical results suggest that these points behave more like intrinsic geometric features
+than like accidental algebraic coincidences. In this sense, the three-way lock may be interpreted as
+a structural invariant of the family under small perturbations, even though its precise numerical
+location depends continuously on the parameters.
+9
+
+=== PDF PAGE 10 ===
+5.4 Limitations of the Drift Observable
+One of the original motivations for this investigation was to explore whether the three-way structure
+might exhibit multiple independent modes of response under perturbation. While the stiffness
+observable clearly reveals meaningful structure, the current drift observable (based on deviation
+from unit modulus) remains near zero across all tested regimes.
+This should not be interpreted as a failure of the construct. Rather, it indicates that the
+modulus of the lock locations is itself strongly constrained by the reciprocal geometry. More
+sensitive observables — for example those based on phase variation in the complex plane or on
+geometric distance inC— may be required to probe additional degrees of freedom.
+5.5 What Is (and Is Not) Claimed
+It is important to clarify the scope of these findings. The present work demonstrates that:
+•the three-way reciprocal construct exhibits reproducible numerical stability,
+•this behavior persists across precision regimes and perturbation schemes,
+•the observed scaling is consistent with smooth analytic dependence.
+The results donotestablish a closed-form analytical theory, do not assert physical interpre-
+tation, and do not claim universality across all possible rational families. Instead, they provide
+evidence that the construct studied here is mathematically nontrivial and warrants further analyt-
+ical investigation.
+5.6 Implications
+From a methodological perspective, the work demonstrates that carefully designed numerical ex-
+periments — incorporating controls, contrasts, ensemble statistics, and precision checks — can
+serve as a meaningful exploratory tool in the study of novel geometric structures.
+From a conceptual perspective, the results suggest that reciprocal three-way intersections may
+represent a class of geometric features that are structurally stable rather than accidental. Whether
+this phenomenon admits a deeper theoretical characterization remains an open question, and one
+that motivates further work.
+6 Conclusion
+We have presented a controlled numerical investigation of a minimal reciprocal rational construct
+exhibiting intrinsic three-way intersection points defined by the conditionf(x) =±1. Rather than
+treating these points as abstract algebraic curiosities, we probed their behavior under systematic
+perturbation using a rigorous experimental pipeline including deterministic scans, Monte Carlo
+ensembles, robustness tests under noise, and dual-precision computation.
+Across all tested regimes, the three-way lock points exhibit smooth sensitivity scaling, repro-
+ducible detectability thresholds, and strong robustness to perturbation. These features are difficult
+to reconcile with the interpretation of the construct as a fragile numerical coincidence. Instead, the
+results support the view that the three-way intersection behaves as a genuine structural feature of
+the rational family, with stability properties that persist across scales and perturbation protocols.
+At the same time, the present work remains exploratory. No closed-form analytical theory is
+claimed, and the observed scaling behavior invites further mathematical explanation. The drift
+10
+
+=== PDF PAGE 11 ===
+observable explored here did not reveal additional independent modes of variation, suggesting that
+more refined geometric observables may be required to probe the full structure of the construct.
+The broader contribution of this work is therefore twofold: it identifies a simple class of re-
+ciprocal structures with unexpectedly stable behavior, and it demonstrates how carefully designed
+numerical experimentation can be used as a legitimate tool for exploring novel geometric phenom-
+ena. We hope that this study provides both a foundation and a motivation for further analytical
+investigation of three-way reciprocal geometries and their potential generalizations.
+7 Limitations and Future Work
+While the results presented here demonstrate consistent and reproducible behavior, the scope of this
+study is intentionally limited. Several important directions remain open for further investigation.
+7.1 Scope of the Construct
+This work focuses on a specific quartic-over-quartic reciprocal rational family. Although exploratory
+tests with alternative constants and minor structural variations suggest that the observed behavior
+is not unique to the particular parameter choices used here, no claim is made regarding universality
+across broader classes of rational maps. A natural extension would be to study whether similar
+three-way stability properties arise in higher-degree families or in structurally distinct reciprocal
+constructions.
+7.2 Observables and Sensitivity
+The primary observable used in this work, the stiffness contrast ∆ logS, proved highly informative
+and robust. By contrast, the drift observable based on deviation from unit modulus did not exhibit
+meaningful variation under the tested protocols. This suggests that the current drift definition may
+be insufficiently sensitive to capture additional geometric degrees of freedom.
+Future work may benefit from introducing alternative observables, such as:
+•phase-based measures in the complex plane (e.g. differences in arg(x)),
+•complex-plane distance metrics between corresponding lock points,
+•curvature or higher-order geometric descriptors of the local lock neighborhood.
+Such extensions may reveal structure that is not accessible through modulus-based diagnostics
+alone.
+7.3 Analytical Characterization
+The present study is deliberately numerical and exploratory. Although the observed power-law scal-
+ing and stability properties strongly suggest underlying analytic structure, no theoretical derivation
+of these properties has yet been established. A rigorous analytical treatment of the scaling exponent,
+the stability of the lock solutions, and the geometry of the reciprocal constraint would significantly
+deepen understanding of the construct.
+11
+
+=== PDF PAGE 12 ===
+7.4 Broader Experimental Exploration
+Only a limited subset of constant pairs and perturbation protocols were explored in detail. While
+the qualitative behavior appears stable across tested cases, a more systematic survey of parameter
+space may reveal regimes with qualitatively different behavior. Automated scanning across families
+of constants or across generalized functional forms represents a natural continuation of this work.
+7.5 Summary
+These limitations do not undermine the current findings; rather, they clarify that the present study
+should be understood as an initial, structured exploration of a novel geometric construct. The
+numerical evidence establishes that the system is nontrivial, stable, and worthy of deeper math-
+ematical investigation. Future work will determine how far these properties extend and whether
+they admit a comprehensive theoretical framework.
+Why 1/
+√
+2 Appears: Symmetry and Normalization in Quantum and Wave Systems.
+Hilmir Fr´ ımann Halld´ orsson, ChatGPT 5.2, & Roary (cat). (2026).
+Zenodo. https://doi.org/10.5281/zenodo.18295335
+8 Images
+Figure 1:Deterministic sensitivity scaling of the stiffness contrastThe quantity
+log10(|∆ logS|) is shown as a function of the perturbation exponentk, whereδ= 10 −k, for the
+plus-branch lock under the single-parameter perturbation protocol. The approximately linear trend
+over more than 10 3 orders of magnitude indicates smooth power-law dependence onδ, consistent
+with analytic sensitivity rather than numerical instability.
+12
+
+=== PDF PAGE 13 ===
+Figure 2:stiffness contrast under Monte Carlo samplingDetectability phase line for the
+stiffness contrast under Monte Carlo sampling (R= 4096). The detectability score measures the
+fraction of replicates for which the contrast is statistically distinguishable from zero with consistent
+sign. A sharp transition is observed aroundδ≈10 −12–10−13, indicating the effective numerical
+resolution limit of the observable rather than a breakdown of the underlying construct.
+Figure 3:Robustness of the stiffness contrast under injected noiseMean contrasts and
+95% confidence intervals are shown for Monte Carlo ensembles (R= 4096) without noise and
+with Gaussian noise of standard deviationσ= 10 −6 applied to the parameters. The near-complete
+overlap between the two curves demonstrates that the observed behavior reflects structural stability
+rather than fine-tuned numerical coincidence.
+13
+
+=== PDF PAGE 14 ===
+Figure 4:Deterministic sensitivity scaling under antisymmetric perturbationThe same
+quantity as in Fig. 1 is shown for the antisymmetric perturbation protocol. The persistence of
+smooth power-law scaling indicates that the qualitative stiffness behavior is intrinsic to the construct
+and not dependent on perturbation direction in parameter space.
+Figure 5:Detectability phase line under antisymmetric perturbationAs in Fig. 2, the
+detectability score exhibits a sharp transition aroundδ≈10 −12–10−13. The similarity between
+the single-parameter and antisymmetric protocols supports the interpretation that the observed
+behavior is structural rather than protocol-dependent.
+14
+
+=== PDF PAGE 15 ===
+Figure 6:Robustness of the stiffness contrast under antisymmetric perturbationMean
+contrasts and 95% confidence intervals are shown for noise-free and noisy ensembles (σ= 10 −6).
+As in the single-parameter case, the overlap between the curves demonstrates that the measured
+stability is not sensitive to modest perturbations.
+Figure 7:Detectability phase line for the drift observable under antisymmetric pertur-
+bationAcross all tested perturbation magnitudes, the drift contrast remains statistically indistin-
+guishable from zero. This indicates that the modulus of the lock locations is strongly constrained
+by the reciprocal structure under the present definition of drift, motivating the exploration of al-
+ternative observables in future work.
+15

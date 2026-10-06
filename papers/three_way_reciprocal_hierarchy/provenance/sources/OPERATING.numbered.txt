@@ -1,0 +1,90 @@
+0001: """Opt-in radius-three checks and adapters; the existing step3 law is reused.
+0002: 
+0003: The invariant-domain proof is exact arithmetic, not a machine safety theorem.
+0004: No incident budget is imposed on an individually valid prepared initial triad.
+0005: """
+0006: import math
+0007: 
+0008: import numpy as np
+0009: 
+0010: from ._response_numeric import (ResponsePrecisionError, checked_array, complex_vector,
+0011:                                real_scalar)
+0012: from .dynamics import DynamicsConfig, step3
+0013: from .srg import handoff_area_response
+0014: 
+0015: PROFILE_ID = "triad_eps005_g02_k0to8_radius3_v1"
+0016: UNIFORM_INCIDENT_BUDGET = 3*math.sqrt(3)
+0017: 
+0018: 
+0019: def _profile(profile):
+0020:     if not isinstance(profile, str) or profile != PROFILE_ID:
+0021:         raise ValueError(f"profile must explicitly select {PROFILE_ID}")
+0022: 
+0023: 
+0024: def _config(config):
+0025:     if not isinstance(config, DynamicsConfig):
+0026:         raise TypeError("config must be an existing DynamicsConfig")
+0027:     if real_scalar(config.eps, "eps") != 1/20 or real_scalar(config.g, "g") != 1/5:
+0028:         raise ValueError("the bounded profile requires eps=1/20 and g=1/5")
+0029:     real_scalar(config.phase_strength, "phase_strength")
+0030:     if len(config.k) != 3 or any(not 0 <= real_scalar(k, "k") <= 8 for k in config.k):
+0031:         raise ValueError("the bounded profile requires actual k components in [0,8]")
+0032: 
+0033: 
+0034: def bounded_config(*, k, phase_strength):
+0035:     """Strict parameter entry before DynamicsConfig's general-purpose coercion."""
+0036:     raw = np.asarray(k, dtype=object)
+0037:     if raw.shape != (3,):
+0038:         raise ValueError("k must be a real triple")
+0039:     values = tuple(real_scalar(v, "k") for v in raw)
+0040:     strength = real_scalar(phase_strength, "phase_strength")
+0041:     config = DynamicsConfig(1/20, 1/5, strength, values)
+0042:     _config(config)
+0043:     return config
+0044: 
+0045: 
+0046: def validate_bounded_triad(state, config, *, profile):
+0047:     """Validate the actual state and parameters; return a fresh raw state copy."""
+0048:     _profile(profile)
+0049:     _config(config)
+0050:     vector = complex_vector(state, 3, "state")
+0051:     if any(math.hypot(z.real, z.imag) > 3 for z in vector):
+0052:         raise ValueError("the bounded profile requires max component modulus <= 3")
+0053:     return vector
+0054: 
+0055: 
+0056: def validate_uniform_incident_budget(xi):
+0057:     """Optional sufficient ||xi||<=3sqrt(3) check, never an individual-state gate."""
+0058:     vector = complex_vector(xi, 2, "xi")
+0059:     norm = math.hypot(*(v for z in vector for v in (z.real, z.imag)))
+0060:     if norm > UNIFORM_INCIDENT_BUDGET:
+0061:         raise ValueError("incident norm exceeds the uniform sufficient budget")
+0062:     return vector
+0063: 
+0064: 
+0065: def initialize_bounded_area(theta, xi, *, config, profile, transfer_count, branch, response):
+0066:     """Prepare then validate actual Omega; large valid incident inputs are allowed."""
+0067:     _profile(profile)
+0068:     _config(config)
+0069:     handoff = handoff_area_response(theta, xi, transfer_count=transfer_count,
+0070:                                     branch=branch, response=response)
+0071:     validate_bounded_triad(handoff.omega, config, profile=profile)
+0072:     return handoff
+0073: 
+0074: 
+0075: def step_bounded_triad(state, config, *, profile):
+0076:     """One EXISTING step3 call, with explicit numerical-failure checks around it.
+0077: 
+0078:     No clipping, normalization, extra state, forcing, noise or second recurrence.
+0079:     Errors can be conservative; no certification for all finite machine inputs.
+0080:     """
+0081:     vector = validate_bounded_triad(state, config, profile=profile)
+0082:     try:
+0083:         with np.errstate(over="raise", invalid="raise", divide="raise", under="raise"):
+0084:             result = step3(vector, config)
+0085:     except (FloatingPointError, OverflowError) as exc:
+0086:         raise ResponsePrecisionError(f"existing step3 numerical failure: {exc}") from exc
+0087:     result = checked_array(result, "bounded step output")
+0088:     if any(math.hypot(z.real, z.imag) > 3 for z in result):
+0089:         raise ResponsePrecisionError("computed step escaped the profile; no clipping applied")
+0090:     return result
