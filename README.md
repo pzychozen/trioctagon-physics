@@ -57,6 +57,12 @@ that later disposition authorizes repository publication without changing the sc
 v0.1 is an author-authorized repository research publication with project-internal review, not external peer review.
 [Final PDF](papers/STRENGTH_PATTERN_IDENTIFIABILITY/v0.1/publication/SPR01_STRENGTH_PATTERN_IDENTIFIABILITY_v0.1.pdf) | [Publication disposition](papers/STRENGTH_PATTERN_IDENTIFIABILITY/v0.1/PUBLICATION_DISPOSITION.md). No runtime changes.
 
+## Geometry-attached observation retention
+
+[Information Retention Across Geometry-Attached Observations in the Tri-Octagon Kernel](papers/GEOMETRY_ATTACHED_OBSERVATION_RETENTION/README.md) by **Hilmir Frímann Halldórsson**.
+v0.1 is an author-authorized repository research publication with project-internal review, not external peer review.
+[Final PDF](papers/GEOMETRY_ATTACHED_OBSERVATION_RETENTION/v0.1/publication/SGO01_GEOMETRY_ATTACHED_OBSERVATION_RETENTION_v0.1.pdf) | [Publication disposition](papers/GEOMETRY_ATTACHED_OBSERVATION_RETENTION/v0.1/PUBLICATION_DISPOSITION.md). No runtime change.
+
 ## Standalone Three-Way research
 
 **NOT IMPLEMENTED RESEARCH — standalone mathematical research; no `kernel_physics`
