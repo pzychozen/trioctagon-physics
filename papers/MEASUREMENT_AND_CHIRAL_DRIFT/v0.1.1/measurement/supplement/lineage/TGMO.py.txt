@@ -1,0 +1,30 @@
+# tgmo_orbit.py
+import numpy as np
+import matplotlib.pyplot as plt
+
+def generate_tgmo_lattice(radius=1.0, rotations=3, resolution=200):
+    theta = np.linspace(0, 2 * np.pi * rotations, resolution)
+    R = 2.0  # Major radius
+    r = radius
+    phi_fixed = np.pi / 4
+
+    x = (R + r * np.cos(theta)) * np.cos(phi_fixed)
+    y = (R + r * np.cos(theta)) * np.sin(phi_fixed)
+    z = r * np.sin(theta)
+    return x, y, z
+
+x, y, z = generate_tgmo_lattice()
+
+fig = plt.figure(figsize=(8, 6))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(x, y, z, color='purple', label='TGMO Orbit')
+ax.set_title("TGMO – Toroidal Geometry Memory Orbit")
+ax.set_xlabel("X")
+ax.set_ylabel("Y")
+ax.set_zlabel("Z")
+ax.legend()
+plt.tight_layout()
+plt.show()
+
+# Save to txt
+np.savetxt("tgmo_orbit_values.txt", np.column_stack((x, y, z)), header="X Y Z", fmt="%.5f")

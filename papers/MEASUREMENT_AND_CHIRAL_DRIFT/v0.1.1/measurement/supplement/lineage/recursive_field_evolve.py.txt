@@ -1,0 +1,93 @@
+import numpy as np
+import pandas as pd
+
+# ------------------------------
+# Tunable Parameters (defaults)
+# ------------------------------
+ALPHA = 0.05          # diffusion strength
+BETA = 0.15           # feedback gain
+LAMBDA_VP = 0.618     # Vesica compression (golden ratio)
+GAMMA = 0.577         # resonance modulation (Euler–Mascheroni)
+THETA_LOCK = 0.244    # lock frequency constant (Hz)
+
+# ------------------------------
+# Helper dynamics
+# ------------------------------
+def breathing_amp(step, base_amp=1.0):
+    """Breathing amplitude oscillation."""
+    return base_amp * (1.0 + 0.1 * np.sin(step * 0.3))
+
+def fusion_field(glyph_vector, cluster_center):
+    """Field bias pulling glyph toward cluster center."""
+    return (cluster_center - glyph_vector) * 0.05
+
+def tunneling(glyph_vector):
+    """Small random tunneling perturbation."""
+    return np.random.normal(0, 0.02, size=glyph_vector.shape)
+
+# ------------------------------
+# Laplacian-like neighbor influence
+# ------------------------------
+def compute_laplacian(glyph_positions, adjacency):
+    """Compute discrete Laplacian per glyph given adjacency matrix."""
+    laplacian = np.zeros_like(glyph_positions)
+    for i in range(len(glyph_positions)):
+        neighbors = np.where(adjacency[i] > 0)[0]
+        if len(neighbors) == 0:
+            continue
+        diff_sum = np.sum(glyph_positions[neighbors] - glyph_positions[i], axis=0)
+        laplacian[i] = diff_sum / len(neighbors)
+    return laplacian
+
+# ------------------------------
+# Main evolution loop
+# ------------------------------
+def evolve_field(glyph_positions, steps=50):
+    """
+    glyph_positions: (N,3) array
+    returns trajectory: list of (N,3) arrays per step
+    """
+    N = glyph_positions.shape[0]
+
+    # Create synthetic adjacency (nearest neighbors)
+    adjacency = np.zeros((N, N))
+    for i in range(N):
+        dists = np.linalg.norm(glyph_positions - glyph_positions[i], axis=1)
+        nearest = np.argsort(dists)[1:6]  # 5 nearest
+        adjacency[i, nearest] = 1
+
+    trajectories = []
+
+    for step in range(steps):
+        lap = compute_laplacian(glyph_positions, adjacency)
+        amp = breathing_amp(step)
+        glyph_positions = glyph_positions + ALPHA * lap + BETA * np.tanh(lap)
+
+        # apply fusion bias
+        cluster_center = np.mean(glyph_positions, axis=0)
+        glyph_positions += fusion_field(glyph_positions, cluster_center)
+
+        # apply tunneling noise
+        glyph_positions += tunneling(glyph_positions)
+
+        # vesica compression on Z axis
+        glyph_positions[:,2] *= (1.0 - 0.001 * np.sin(step * THETA_LOCK * 2*np.pi))
+
+        trajectories.append(glyph_positions.copy())
+
+    return trajectories
+
+# ------------------------------
+# Example driver
+# ------------------------------
+if __name__ == "__main__":
+    # Initialize glyphs
+    N = 50
+    positions = np.random.uniform(-1,1,(N,3))
+
+    traj = evolve_field(positions, steps=60)
+
+    # Save final embedding
+    final_df = pd.DataFrame(traj[-1], columns=['X','Y','Z'])
+    final_df.to_csv("ProtoSRG_1_Recursive_Embedding.csv", index=False)
+    print("✅ Evolved field saved.")

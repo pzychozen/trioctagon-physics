@@ -1,0 +1,323 @@
+P21: Recursive Engines in Folded Tri-Octagon Geometry: From Symbolic Qubits to the Dual-Tetrahedral SRG Core
+Printed date: November 24, 2025
+Project-relative archival locator: pdfs_old/Recursive_Engines_Across_Scales__From_Vesica_Thermodynamics_to_QGS.pdf
+Original PDF SHA-256: 36922c0283b1450cfe6e25937764d1ebfecbff384ed9b8f179806a3a3c04993d
+PDF page numbers: [1, 4, 5, 16, 17, 18]
+Extracted with pypdf; extraction is not a facsimile. Historical claims are quoted source material, not adopted results.
+
+=== PDF PAGE 1 ===
+Recursive Engines in Folded Tri–Octagon Geometry:
+From Symbolic Qubits to the Dual–Tetrahedral SRG
+Core
+A Unified Multi–Scale Framework for Geometric and Symbolic Recursion
+pzychozen & GPT–5
+Recursive Geometry Research Unit
+(Unified Symbolic–Geometric Recursion Project)
+November 24, 2025
+
+=== PDF PAGE 4 ===
+Recursive Engines in Tri–Octagon Geometry 4
+2 Recursive Operators in the Tri–Octagon Chamber
+With the 3D folded tri–octagon chamber in place, we now embed the recursive dynamical
+operators that drive its internal evolution. We focus on three core operators:
+•RPCO: a radial/normalcompressionoperator,
+•TGMO: a tangentialtoroidal–gradientoperator,
+• REFU: awrapped–universerecursion operator, combining diffusion, drift, and memory
+feedback.
+Together they define a symbolic–geometric engine that acts on fields inside the chamber and
+steers the system towards stable attractors.
+2.1 B.1 State Representation Inside the Chamber
+We treat the interior of the folded tri–octagon chamber as a bounded domainΩ⊂R3 with
+coordinates( x,y,z )adapted to the geometry. A generic internal state is represented by a scalar
+field
+u(r,t)≡u(x,y,z,t),r∈Ω,(4)
+which may encode (depending on interpretation) density, phase, symbolic weight or some
+coarse–grained energy amplitude.
+In addition tou, we define asymbolic memory fieldH(t)and a compressed descriptor of the
+state in terms of constants or glyph weights, denotedC(t) = (C1(t),C 2(t),C 3(t)). The recursive
+operators act jointly on(u,H,C)and the geometry of the chamber.
+2.2 B.2 RPCO: Radial–Normal Compression
+The Recursive Phase Compression Operator (RPCO) captures the tendency of the system
+tocollapsedistributed structure into a narrower region along the chamber’s inward normal
+directions. At a coarse level we write
+C(n+1) =R
+(
+C(n))
+,R(C 1,C 2,C 3) =
+(
+f1(C),f 2(C),f 3(C)
+)
+,(5)
+where n is the recursion index andfi are nonlinear maps that compress the triple(C1,C 2,C 3)
+toward a lower–dimensional manifold (e.g. towards a fixed attractor triple).
+Geometrically, RPCO induces a normal–direction update of the field,
+un+1(r) =u n
+(
+r−λc n(r)
+)
+,(6)
+where n(r)is the local inward unit normal determined by the three tilted panels andλc> 0is a
+compression length scale. Iterating(6) focuses amplitude toward the central triangular aperture
+described in Section 1, effectivelyfunnelingthe state into the throat region.
+At the symbolic level, repeated application of(5) tends to alignC(n) with a small number of
+preferred triples, which later appear assymbolic qubitsor stable recursion codes when combined
+with the other operators.
+2.3 B.3 TGMO: Toroidal Gradient and Memory
+The Tri–Geometric Modulation Operator (TGMO) acts along the tangential directions of the
+tri–octagon ring, encoding a toroidal–like circulation or phase gradient. Letφdenote the angular
+coordinate around the ring ands an arclength parameter along the effective toroidal path
+induced by the three panels. TGMO acts as
+un+1(r) =u n(r)−λt∂sun(r) +βM(r,n),(7)
+
+=== PDF PAGE 5 ===
+Recursive Engines in Tri–Octagon Geometry 5
+whereλt setsthestrengthoftangentialtransportand M(r,n )isamemory–dependentmodulation
+term that biases flow towards previously reinforced directions (“echo corridors”).
+At the symbolic level, TGMO modifies the recursion triple via a phase–like update,
+C(n+1) =C (n) + ∆C (TGMO)(C(n),Hn),∆C (TGMO)∝∇φΦ(C,H),(8)
+whereΦis an effective phase functional andHn the memory field at stepn. This encodes the
+idea that the system “remembers” previously traversed symbolic configurations and preferentially
+revisits them, forming closed loops in symbolic space that mirror the toroidal circulation in
+physical space.
+2.4 B.4 REFU: Wrapped–Universe Recursion with Memory Feedback
+The Recursive Feedback Unit (REFU) operator combines diffusion, nonlinear drift, and mem-
+ory–dependent feedback in a single wrapped–domain evolution law. In continuous time, its
+action onu(r,t)can be written as
+∂tu=D∇2u−∇·
+(
+v(u)u
+)
++γF
+(
+u,H(t)
+)
+,(9)
+where:
+•Dis an effective diffusion coefficient,
+•v(u)is a nonlinear drift field,
+•F(u,H)encodes memory–driven amplification or suppression,
+•γis a feedback strength parameter.
+The “wrapped–universe” aspect of REFU is enforced by identifying opposite faces or edges
+of the computational domain, effectively imposing periodic or twisted boundary conditions
+matching the tri–octagon symmetries. This ensures that trajectories in state space recur, rather
+than escaping.
+Coupled to the memory field,
+dH
+dt =η
+∫
+Ω
+u(r,t)w(r)d 3r−κH(t),(10)
+REFU implements a balance between reinforcement (through the weighted integral ofu) and
+decay (throughκH). The weightw(r)can be chosen to emphasize the throat region of the
+chamber, so that patterns concentrating in the triangular aperture leave a stronger imprint in
+H(t).
+2.5 B.5 Combined Action in the Chamber
+The full recursive dynamics in the folded tri–octagon chamber arise from the interleaving of
+RPCO, TGMO and REFU:
+(u,H,C) n+1 =F REFU◦FTGMO◦FRPCO
+[
+(u,H,C) n
+]
+,(11)
+where eachF denotes the action of the corresponding operator in either discrete or continuous
+time.
+Qualitatively:
+• RPCO draws the state radially inward along the panel normals, focusing activity into the
+triangular aperture.
+• TGMO shears and circulates the state tangentially around the tri–octagon ring, imprinting
+a toroidal–like gradient and establishing angular phase structure.
+
+=== PDF PAGE 16 ===
+Recursive Engines in Tri–Octagon Geometry 16
+Appendix E: Extended Operator Derivations
+In this appendix we provide more detailed derivations for the three recursive operators introduced
+in Section 2: RPCO (radial/normal compression), TGMO (toroidal gradient and modulation),
+and REFU (wrapped–universe recursion with memory feedback). We focus on their fixed points,
+stability properties, and their combined action as a contraction on the state space of fields in
+the tri–octagon chamber.
+E.1 RPCO as a Contraction Along Inward Normals
+Recall the RPCO update on the spatial field,
+un+1(r) =u n
+(
+r−λc n(r)
+)
+,(17)
+where n(r)is the inward unit normal andλc> 0is a compression length. To study its contraction
+properties, we introduce a norm on fields overΩ,
+∥u∥= sup
+r∈Ω
+|u(r)|(orL2 as needed).
+Assume thatnis Lipschitz–continuous and thatλc is small enough that the map
+Φ(r) =r−λc n(r)
+is a diffeomorphism fromΩto itself. Then
+∥un+1−vn+1∥= sup
+r
+⏐⏐un(Φ(r))−vn(Φ(r))
+⏐⏐ =∥un−vn∥,(18)
+so RPCO is norm–preserving at the level of amplitudes. The compression isgeometric: trajecto-
+ries inΩare driven along normals towards the triangular aperture.
+To see this contraction in position space, consider the forward iteration of a point:
+rn+1 = Φ(rn) =r n−λc n(rn).
+Linearizing around a pointr∗in the aperture, the Jacobian is
+DΦ(r∗) =I−λcDn(r∗).
+If the eigenvalues ofDn(r∗)lie in(0 ,µ)for some µ>0and λc is chosen such thatλcµ<1, then
+∥DΦ(r∗)∥<1,
+and the aperture region is ageometric attractorof RPCO. This formalizes the intuition that
+RPCO funnels trajectories into the throat.
+On the symbolic tripleC(n) = (C(n)
+1 ,C (n)
+2 ,C (n)
+3 ),
+C(n+1) =R(C (n)),
+a similar contraction condition can be imposed by requiring all eigenvalues ofDR(C∗)to lie
+strictly inside the unit circle for some fixed pointC∗.
+
+=== PDF PAGE 17 ===
+Recursive Engines in Tri–Octagon Geometry 17
+E.2 TGMO as a Tangential Advection Generator
+TGMO acts along a toroidal–like directions(arclength) with optional memory modulation:
+un+1(r) =u n(r)−λt∂sun(r) +βM(r,n),(19)
+where∂s is the directional derivative along the effective toroidal path.
+In the continuum limit (λt→0, small step size∆t) one obtains an advection–like equation,
+∂tu+v t∂su=βM(r,t), v t = λt
+∆t .(20)
+If M = 0, the solution is transported along the flow liness↦→s−vtt, preserving the shape ofu
+alongs. With nonzeroM, the memory modifies the amplitude along these lines.
+On the symbolic tripleCwe can write TGMO as
+C(n+1) =C (n) + ΛTG(C(n),Hn),(21)
+whereΛ TG encodes a discrete analog of∇φΦ(C,H )from the main text. The condition for a
+symbolic qubit is that the combined RPCO+TGMO map has a fixed point or a low–period limit
+cycle,
+C(n+m) =C (n), m≪∞,
+which aligns with the notion of closed echo corridors in angular space.
+E.3 REFU as a Wrapped–Domain Drift–Diffusion–Memory System
+The REFU operator in continuous time is given by
+∂tu=D∇2u−∇·
+(
+v(u)u
+)
++γF
+(
+u,H(t)
+)
+,(22)
+with boundary conditions identifying opposite faces or edges of the domain, making the system
+topologically equivalent to a wrapped (e.g. toroidal) space.
+Mass balance.Assuming F has zero spatial average and the domain is wrapped so that the
+divergence terms integrate to zero, the total mass
+M(t) =
+∫
+Ω
+u(r,t)d 3r
+is conserved:
+dM
+dt =
+∫
+Ω
+∂tud 3r(23)
+=D
+∫
+Ω
+∇2ud 3r−
+∫
+Ω
+∇·
+(
+v(u)u
+)
+d3r+γ
+∫
+Ω
+F(u,H)d 3r.(24)
+The first two terms vanish under periodic or wrapped conditions; the last term vanishes by the
+zero–mean assumption onF.
+Memory feedback.The memory field satisfies
+dH
+dt =η
+∫
+Ω
+u(r,t)w(r)d 3r−κH(t),(25)
+with solution
+H(t) =e−κtH(0) +η
+∫ t
+0
+e−κ(t−τ)
+(∫
+Ω
+u(r,τ)w(r)d3r
+)
+dτ.
+The exponential kernel shows that memory is a weighted accumulation of past values ofu, with
+decay rateκ. For patterns localized in the triangular aperture, choosingw(r)to be peaked in
+that region ensures that only flows visiting the aperture contribute significantly toH.
+
+=== PDF PAGE 18 ===
+Recursive Engines in Tri–Octagon Geometry 18
+Linear stability around a localized pattern.Let u(r,t ) =u∗(r) +δu(r,t )and H(t) =
+H∗+δH(t), where(u∗,H∗)is a stationary solution. Linearizing (22) and (25) yields
+∂tδu=D∇2δu−∇·
+(
+v′(u∗)δuu∗+v(u∗)δu
+)
++γ
+(∂F
+∂u
+⏐⏐⏐
+∗
+δu+∂F
+∂H
+⏐⏐⏐
+∗
+δH
+)
+,(26)
+dδH
+dt =η
+∫
+Ω
+δu(r,t)w(r)d3r−κδH.(27)
+Under suitable conditions on the spectra of the linear operators involved, the coupled system
+can be made stable, ensuring that small perturbations decay and that the pattern(u∗,H∗)is an
+attractor. This aligns with the interpretation that REFU selects and stabilizes recurrent echo
+patterns in the chamber.
+E.4 Composition and Effective Contraction of the Full Map
+The full recursive update can be written abstractly as
+(u,H,C) n+1 =F
+[
+(u,H,C) n
+]
+=F REFU◦FTGMO◦FRPCO
+[
+(u,H,C) n
+]
+.(28)
+To argue thatF admits a small family of attractors (such as the dual–tetrahedral SRG core), we
+look for an effective contraction property in an appropriate norm on the combined state space.
+Let
+X=
+{
+(u,H,C) :u∈U, H∈R, C∈R3}
+,
+with norm
+∥(u,H,C)∥=α∥u∥+β|H|+γ∥C∥,
+for some positive weightsα,β,γ.
+If we can choose parameters such that:
+•RPCO is geometrically contracting towards the aperture,
+•TGMO produces bounded advection without amplifying∥u∥,
+•REFU damps deviations from reinforced patterns through memory feedback,
+then there exists a constantρ<1such that
+∥(un+1,Hn+1,Cn+1)−(vn+1,Kn+1,Dn+1)∥≤ρ∥(un,Hn,Cn)−(vn,Kn,Dn)∥
+for all pairs of states in a neighborhood of the attractor. By Banach’s fixed–point theorem,F
+has a unique fixed point (or a small set of limit cycles) in that neighborhood, corresponding to
+the stable SRG patterns.
+E.5 Summary of Appendix E
+We have:
+1. Shown that RPCO acts as a geometric contraction along inward normals toward the
+aperture, with fixed points in the throat.
+2. Derived TGMO as a tangential advection generator with memory modulation, capable of
+forming closed angular loops.
+3. Presented REFU as a wrapped–domain drift–diffusion–memory system, including mass
+balance and linear stability conditions.
+4. Argued that the composition of these operators yields an effective contraction on the
+combined state space, supporting the existence of stable SRG attractors.
+

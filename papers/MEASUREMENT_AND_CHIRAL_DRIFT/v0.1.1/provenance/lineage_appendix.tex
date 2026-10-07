@@ -1,0 +1,62 @@
+% BEGIN V0.1.1 LINEAGE APPENDIX
+\clearpage
+\section{Recursive lineage: names, state spaces, and the adopted handoff}
+\label{app:lineage}
+
+The historical names identify changing constructions, not one operator carried unchanged through time. This appendix explains the provenance of the adopted initializer; it does not adopt older physical claims or rerun their simulations. Source identifiers and PDF page numbers refer to the primary excerpts and unchanged script snapshots in \href{\detokenize{supplement/lineage/LINEAGE_LEDGER.md}}{the lineage supplement}.
+
+\textbf{Early illustrations and glyph recursion.}
+The undated archive members \texttt{RPCO.py}, \texttt{TGMO.py} and \texttt{REFU.py} are distinct examples \cite{earlyScripts}. RPCO constructs an angular sinusoidal field with radial Gaussian decay, without a recursive update. TGMO traces a fixed-azimuth parametric curve, under the name \textquotedblleft{}Toroidal Geometry Memory Orbit.\textquotedblright{} REFU evaluates a prescribed sum of damped trigonometric and exponential terms. That time envelope is not an independently updated memory variable. Their shared archive location does not establish a chronological or algebraic chain between them.
+
+The July 14--15, 2025 glyph papers use SRG for \emph{Symbolic Resonance Geometry}: persistent glyph identifiers, positions, resonance amplitudes, echo sets and repeated passes \cite{glyphSRG}. J2 explicitly presents itself as an expansion of the earlier account; J3's envelope and feedback vocabulary connect the ideas narratively, without identifying its glyph tuple with a six-component complex vector. The archived \texttt{recursive\_field\_evolve.py} instead updates position arrays using neighbor differences, feedback, a mean-position bias and random perturbations. These are historical variants, not implementations of the present fixed matrix.
+
+\textbf{Field-memory and six-state versions.}
+In the November 24 field model P21, RPCO denotes normal compression, TGMO tangential modulation, and REFU a drift--diffusion rule coupled to a separate memory variable \cite{fieldRecursion}. For that version specifically, pp.~5 and 18 prescribe
+\[
+(u,H,C)_{n+1}=
+ \mathcal F_{\rm REFU}\circ\mathcal F_{\rm TGMO}\circ
+ \mathcal F_{\rm RPCO}\bigl[(u,H,C)_n\bigr].
+\tag{L1}\label{eq:L1}
+\]
+Some functions and the integration schedule remain unspecified. This source formula is a version-specific prescription, not a timeless definition of SRG.
+
+P23, also dated November 24, uses those names for fixed matrices on three corridor labels and two helicity labels \cite{sixStateSRG}. Its introduction calls SRG \emph{Structured Recursive Geometry}. Here RPCO is partial projection toward the symmetric corridor state, TGMO applies corridor/helicity phases, and REFU is a constant projector exponential. The latter has no auxiliary evolving memory. P23 pp.~5--6 specifies \emph{four} factors:
+\[
+ U_{\rm SRG}=U_{\rm REFU}U_{\rm TGMO}U_{\rm flip}U_{\rm RPCO}.
+\tag{L2}\label{eq:L2}
+\]
+The common printed date does not order P21 and P23; no exact field-to-six-state reduction is supplied in the inspected passages.
+
+\textbf{The exact inheritance and the changed role.}
+In the helicity-major basis of Appendix D, write the helicity phase and flip factors as \(D_h\) and \(X_h\). P23's definitions give
+\[
+\begin{aligned}
+ U_{\rm RPCO}&=I_2\otimes C_s,&U_{\rm REFU}&=I_2\otimes R_s,\\
+ U_{\rm TGMO}&=D_h\otimes Z_s,&U_{\rm flip}&=X_h\otimes I_3,\\
+ U_{\rm SRG}&=(D_hX_h)\otimes(R_sZ_sC_s)=B_s\otimes A_s .
+\end{aligned}
+\tag{L3}\label{eq:L3}
+\]
+This is the exact Kronecker-product identity behind \texttt{fixed\_november\_srg}; it preserves the order of the noncommuting factors. It concerns P23's defining operators and constants, not endorsement of its later spectra, attractor statements or physical analogies.
+
+The current \texttt{handoff\_area\_response} uses this transfer and the named eigenbra to prepare \(\Omega_0\), as specified in M22--M23. Its subsequent role is an adopted initialization interface. The later \texttt{dynamics.step3} acts on three complex amplitudes by the amplitude/coupling stage followed by phase synchronization. It is nonlinear and does not repeatedly apply the six-state matrix. No derivation equating these evolution laws is recovered.
+
+\begingroup\small\setlength{\LTpre}{5pt}\setlength{\LTpost}{7pt}
+\begin{longtable}{@{}p{.27\textwidth}p{.27\textwidth}p{.40\textwidth}@{}}
+\toprule
+\textbf{Proposed arrow} & \textbf{Classification} & \textbf{Precise scope}\\ \midrule
+\endfirsthead
+\textbf{Proposed arrow} & \textbf{Classification} & \textbf{Precise scope}\\ \midrule
+\endhead
+\bottomrule\endfoot
+Earlier glyph-SRG account to J2 expansion & DOCUMENTED LINEAGE & J2 abstract names \texttt{SRG\_recursion.pdf}; its identity with J1 is not assumed.\\[5pt]
+Early named illustrations to later field/matrix roles & STRUCTURAL REINTERPRETATION & Shared motifs and names; different definitions. A direct code genealogy is NOT RECOVERED.\\[5pt]
+P21 field-memory rule to P23 six-state rule & STRUCTURAL REINTERPRETATION & Comparison of roles only. Exact reduction and chronological ordering are NOT RECOVERED.\\[5pt]
+P23 defining product to native fixed transfer & EXACT DESCENDANT & Equation (L3), identical fixed constants and explicit tensor ordering.\\[5pt]
+Six-state evolution proposal to lens preparation & STRUCTURAL REINTERPRETATION & The adopted role is initialization, not a derived replacement for historical dynamics.\\[5pt]
+Native handoff to initial canonical triad & EXACT DESCENDANT & The existing eigenbra extraction defines the initial state, M22--M23.\\[5pt]
+SRG iteration to native nonlinear recurrence & NOT RECOVERED & No equality, conjugacy or reduction is established; the two stages have separate definitions.\\[5pt]
+\end{longtable}\endgroup
+
+\textquotedblleft{}Exact descendant\textquotedblright{} means an explicitly verified formula or interface inheritance; \textquotedblleft{}documented lineage\textquotedblright{} means a source states the connection. \textquotedblleft{}Structural reinterpretation\textquotedblright{} records reused roles with changed mathematical objects. \textquotedblleft{}Not recovered\textquotedblright{} is limited to the inspected sources. None of these labels supplies a physical interpretation.
+% END V0.1.1 LINEAGE APPENDIX

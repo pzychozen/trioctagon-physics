@@ -1,0 +1,258 @@
+{
+  "status": "TL1 COMPLETE",
+  "head_before": "82cab10cbe550f58c43163fb8b05fabdad1b05ae",
+  "checks": [
+    {
+      "name": "common scale cancels from d/(2r)",
+      "pass": true,
+      "evidence": "DERIVED IDENTITY",
+      "detail": null
+    },
+    {
+      "name": "area derivative is 4 sin(theta)^2/pi",
+      "pass": true,
+      "evidence": "DERIVED IDENTITY",
+      "detail": null
+    },
+    {
+      "name": "area endpoints are zero and one",
+      "pass": true,
+      "evidence": "DERIVED IDENTITY",
+      "detail": null
+    },
+    {
+      "name": "ratio derivative is -sqrt(4-x^2)/pi in the interior",
+      "pass": true,
+      "evidence": "DERIVED IDENTITY",
+      "detail": null
+    },
+    {
+      "name": "explicit nonzero orthogonal incident construction has zero overlap",
+      "pass": true,
+      "evidence": "DERIVED IDENTITY",
+      "detail": null
+    },
+    {
+      "name": "orthogonal construction preserves incident norm",
+      "pass": true,
+      "evidence": "DERIVED IDENTITY",
+      "detail": null
+    },
+    {
+      "name": "fixed transfer cycle simplifies to a strictly positive expression",
+      "pass": true,
+      "evidence": "DERIVED IDENTITY",
+      "detail": null
+    },
+    {
+      "name": "four scale-related dyadic-ratio native cases agree bitwise",
+      "pass": true,
+      "evidence": "NUMERICAL EVIDENCE",
+      "detail": [
+        {
+          "r": 1,
+          "d": 0.75,
+          "bitwise_equal_to_base": true
+        },
+        {
+          "r": 8,
+          "d": 6,
+          "bitwise_equal_to_base": true
+        },
+        {
+          "r": 0.125,
+          "d": 0.09375,
+          "bitwise_equal_to_base": true
+        },
+        {
+          "r": 17,
+          "d": 12.75,
+          "bitwise_equal_to_base": true
+        }
+      ]
+    },
+    {
+      "name": "three additional high-precision common scales give the same output",
+      "pass": true,
+      "evidence": "NUMERICAL EVIDENCE",
+      "detail": "0.0"
+    },
+    {
+      "name": "three interior ratio inversions recover the input at 100 digits",
+      "pass": true,
+      "evidence": "NUMERICAL EVIDENCE",
+      "detail": [
+        {
+          "d_over_r": "0.25",
+          "recovered_d_over_r": "0.25",
+          "ratio_absolute_error": "8.92958899439e-102",
+          "api_absolute_error": 1.7482234731686756e-17
+        },
+        {
+          "d_over_r": "0.75",
+          "recovered_d_over_r": "0.75",
+          "ratio_absolute_error": "1.4287342391e-101",
+          "api_absolute_error": 1.3444106938820255e-17
+        },
+        {
+          "d_over_r": "1.5",
+          "recovered_d_over_r": "1.5",
+          "ratio_absolute_error": "0.0",
+          "api_absolute_error": 6.523258043322126e-18
+        }
+      ]
+    },
+    {
+      "name": "three interior native outputs agree with independent high precision",
+      "pass": true,
+      "evidence": "NUMERICAL EVIDENCE",
+      "detail": null
+    },
+    {
+      "name": "coincidence endpoint has gain one and is scale invariant",
+      "pass": true,
+      "evidence": "NUMERICAL EVIDENCE",
+      "detail": null
+    },
+    {
+      "name": "tangency endpoint gives the exact zero vector at both scales",
+      "pass": true,
+      "evidence": "NUMERICAL EVIDENCE",
+      "detail": null
+    },
+    {
+      "name": "zero incident vector gives zero at an interior lens",
+      "pass": true,
+      "evidence": "NUMERICAL EVIDENCE",
+      "detail": null
+    },
+    {
+      "name": "nonzero eigenbra-orthogonal incident is admitted and extracts zero",
+      "pass": true,
+      "evidence": "NUMERICAL EVIDENCE",
+      "detail": {
+        "high_precision_overlap": "0.0",
+        "native_output": [
+          "0j",
+          "0j",
+          "0j"
+        ],
+        "qualification": "Exact orthogonality follows from symbolic construction, not this floating zero."
+      }
+    },
+    {
+      "name": "protected path/content inventory unchanged: project-source/trioctagon-physics",
+      "pass": true,
+      "evidence": "SOURCE FACT",
+      "detail": null
+    },
+    {
+      "name": "protected path/content inventory unchanged: project-source/kernel_TO",
+      "pass": true,
+      "evidence": "SOURCE FACT",
+      "detail": null
+    },
+    {
+      "name": "protected path/content inventory unchanged: project-source/kernel_torment",
+      "pass": true,
+      "evidence": "SOURCE FACT",
+      "detail": null
+    },
+    {
+      "name": "protected path/content inventory unchanged: project-source/kernel_physics",
+      "pass": true,
+      "evidence": "SOURCE FACT",
+      "detail": null
+    },
+    {
+      "name": "protected path/content inventory unchanged: project-source/research",
+      "pass": true,
+      "evidence": "SOURCE FACT",
+      "detail": null
+    },
+    {
+      "name": "protected path/content inventory unchanged: project-source/reconstruction",
+      "pass": true,
+      "evidence": "SOURCE FACT",
+      "detail": null
+    },
+    {
+      "name": "HEAD unchanged",
+      "pass": true,
+      "evidence": "SOURCE FACT",
+      "detail": null
+    },
+    {
+      "name": "working-tree status unchanged",
+      "pass": true,
+      "evidence": "SOURCE FACT",
+      "detail": null
+    },
+    {
+      "name": "index unchanged",
+      "pass": true,
+      "evidence": "SOURCE FACT",
+      "detail": null
+    }
+  ],
+  "measurements": {
+    "precision_digits": 100,
+    "branch": "negative_imag",
+    "transfer_count": 5,
+    "incident": [
+      "1+2i",
+      "-1+i"
+    ],
+    "abs_incident_overlap": "2.5858259046236364885602240231",
+    "h_n": "0.0182789708984108403678606498519",
+    "fixed_vector_norm": "0.0472662364589723366832024173323",
+    "largest_api_absolute_error": 1.7482234731686756e-17,
+    "largest_ratio_recovery_error": "1.4287342391e-101"
+  },
+  "sources": {
+    "kernel_physics/boundary_response.py": {
+      "path": "project-source/trioctagon-physics/kernel_physics/boundary_response.py",
+      "bytes": 3847,
+      "sha256": "febcd7d4dd8c51104dd0b75c7d2fbf14779895099897525aaf892e1833f8116c"
+    },
+    "kernel_physics/srg.py": {
+      "path": "project-source/trioctagon-physics/kernel_physics/srg.py",
+      "bytes": 7282,
+      "sha256": "90a563d8ef0a18ef769c76d4884e94badbaa38771d4dd192610a4cc74d709d34"
+    },
+    "kernel_physics/_response_numeric.py": {
+      "path": "project-source/trioctagon-physics/kernel_physics/_response_numeric.py",
+      "bytes": 3941,
+      "sha256": "cc33f797e76f7dbeff6fbd58ab52003fde2acbadf35ae299d827b4b55ba29655"
+    },
+    "research/mathematical_atlas/entry_08_boundary_srg_handoff/TRIOCTAGON_ATLAS_08_BOUNDARY_SRG_HANDOFF_SOURCE_PACKET_v0.1.md": {
+      "path": "project-source/trioctagon-physics/research/mathematical_atlas/entry_08_boundary_srg_handoff/TRIOCTAGON_ATLAS_08_BOUNDARY_SRG_HANDOFF_SOURCE_PACKET_v0.1.md",
+      "bytes": 60250,
+      "sha256": "2452317ab711a5bd4a8724c475ed9b1a45b29aa6844b765e82d4503d2733179a"
+    }
+  },
+  "head_after": "82cab10cbe550f58c43163fb8b05fabdad1b05ae",
+  "script_sha256": "56088e8208437102f63512d16a4ed5eae19063defb64fb9ab669a7d0216cbf5c",
+  "counts": {
+    "total": 24,
+    "pass": 24,
+    "by_evidence": {
+      "DERIVED IDENTITY": 7,
+      "NUMERICAL EVIDENCE": 8,
+      "SOURCE FACT": 9
+    }
+  },
+  "report_sha256": "5cbf9257b7477b3750d4dcaf359cd0047a3c024fdd770531871858cf3a169d70",
+  "top_circle_status": "OPEN / NOT_FORMALIZED",
+  "output_files": [
+    "TL1_LENS_SRG_INITIALIZER_IDENTIFIABILITY.md",
+    "TL1_RESULTS.json",
+    "verify_tl1.py"
+  ],
+  "_public_export": {
+    "status": "Public derivative; not byte-identical to raw original",
+    "original_raw_sha256": "63f3fddf4f70a6f61bc06809fa2a49110a34a000591dc88b53378c97081eed40",
+    "map": "provenance/public_export_map.json",
+    "note": "Exact operational omissions and locator substitutions only. Original historical counts are retained, not replayed."
+  }
+}

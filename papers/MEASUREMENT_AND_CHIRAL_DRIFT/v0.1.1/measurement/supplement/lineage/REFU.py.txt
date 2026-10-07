@@ -1,0 +1,29 @@
+# refu_memory_curve.py
+import numpy as np
+import matplotlib.pyplot as plt
+
+def H(t):
+    a1, b1 = 2.0, 0.5
+    alpha2, b2 = 1.0, 0.3
+    lambda1, omega1 = 1.5, 0.7
+    lambda2, omega2 = 1.0, 0.4
+    return (a1 * np.exp(-b1 * t) * np.cos(t) +
+            alpha2 * np.exp(-b2 * t) * np.sin(t) +
+            lambda1 * np.exp(-omega1 * t) +
+            lambda2 * np.exp(-omega2 * t))
+
+t_vals = np.linspace(0, 20, 1000)
+h_vals = H(t_vals)
+
+plt.figure(figsize=(8, 4))
+plt.plot(t_vals, h_vals, color='teal', label='H(t)')
+plt.title("REFU – Recursive Memory Curve")
+plt.xlabel("Time (t)")
+plt.ylabel("H(t)")
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+# Save to txt
+np.savetxt("refu_memory_curve.txt", np.column_stack((t_vals, h_vals)), header="t H(t)", fmt="%.5f")
