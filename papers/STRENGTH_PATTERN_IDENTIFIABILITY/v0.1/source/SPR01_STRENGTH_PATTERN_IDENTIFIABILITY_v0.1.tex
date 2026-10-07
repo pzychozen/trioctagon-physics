@@ -1,0 +1,348 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=25mm,headheight=14pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\definecolor{draftblue}{RGB}{35,65,91}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Strength-to-pattern conversion}
+\fancyhead[R]{\small Repository publication v0.1}
+\fancyfoot[L]{\small Author-authorized repository research publication}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{2em}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}[proposition]{Theorem}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Iout}{I_{\mathrm{out}}}
+\newcommand{\Iin}{I_{\mathrm{in}}}
+\newcommand{\rout}{\rho^{\mathrm{out}}}
+\newcommand{\Argz}{\operatorname{Arg}_0}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\ac}{a_{\mathrm c}}
+\title{\vspace{-12mm}\textbf{Strength-to-Pattern Conversion and Readout Identifiability\\in the Tri-Octagon Native Kernel}}
+\author{Hilmir Fr\'imann Halld\'orsson}
+\date{7 October 2026\\\small v0.1 --- Author-authorized repository research publication}
+\hypersetup{unicode=true,
+pdftitle={Strength-to-Pattern Conversion and Readout Identifiability in the Tri-Octagon Native Kernel},
+pdfauthor={Hilmir Frímann Halldórsson},
+pdfsubject={v0.1 - Author-authorized repository research publication; project-internal review, not external peer review},
+pdfkeywords={SPR-01, strength-to-pattern conversion, readout identifiability, repository research publication}}
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+\begin{abstract}
+We derive the exact one-update response of the Tri-Octagon native triad map on the positive real input ray $z(a)=a(1,2,1)^T$, at one fixed coefficient set. The amplitude prestage combines linear and cubic terms, converting input strength into relative output populations. The middle population is a rational function of $a^2$ with two extrema and nonunique inverse branches. Nevertheless, the signed raw output admits a linear left inverse, and the full normalized output coherence identifies $a$ uniquely, including a separately handled chart exception. An explicit pair has identical populations but opposite off-diagonal coherence. We distinguish these exact statements from previously executed finite native/API comparisons and from a two-class discrimination certificate under adopted scalar gain and population-error assumptions. Direct entrance intensity and direct scalar formula evaluation remain comparators. Neither generic invertibility, normalized-coherence dynamical closure, physical realization nor computational advantage is established.
+\end{abstract}
+
+\section{Question, foundations and scope}\label{sec:scope}
+How much of an input strength survives a chosen output readout? The answer can depend on what is retained: raw signed amplitudes, a normalized coherence matrix, or only its diagonal populations. This paper gives an explicit calculation for one known input family under one native update. Here ``strength'' means the amplitude parameter $a$, with entrance intensity $6a^2$; no physical energy interpretation is assigned.
+
+Paper A supplies the recurrence and zero-amplitude convention \cite{paperA}. RFO-02 supplies the fixed-coefficient same-input-coherence witness and a separate negative classification result \cite{rfo02}. The accepted SPR-01 study supplies the complete scalar response and bounded execution evidence \cite{spr01}. The signed and coherence inverse deductions proposed in its scientific review \cite{review} are independently derived and proved below, rather than inferred from acceptance.
+
+Throughout, channels remain ordered $(A,B,C)$, $a>0$, and precisely one update is applied. We make no literature-wide novelty or priority claim. This is a focused model calculation: exact identifiability along a known ray is different from generic invertibility, noise-robust reconstruction, or an advantageous implementation.
+
+\clearpage
+\section{Native equation and the exact one-update state}\label{sec:state}
+The three-state map acts on $z\in\C^3$ in the following order:
+\begin{align}
+u&=z+\varepsilon z\odot(k-|z|^2)+gL_3z,
+&L_3&=\begin{pmatrix}-2&1&1\\1&-2&1\\1&1&-2\end{pmatrix},\label{eq:prestage}\\
+F_i(z)&=|u_i|\exp\!\left(\mathrm i[\Argz u_i+\delta_i]\right),
+&\delta_i&=\lambda\sum_{j\ne i}\sin\!\left(3[\Argz u_j-\Argz u_i]\right).\label{eq:sync}
+\end{align}
+Here $\odot$ and squared moduli are componentwise, $\Argz(0)=0$, and a zero prestage component yields a zero output component. The coefficients recovered from RFO-02 are
+\begin{equation}
+\varepsilon=\frac1{20},\qquad g=\frac15,\qquad
+\lambda=\frac1{30},\qquad k=(1,1,1).\label{eq:coefficients}
+\end{equation}
+The native field \texttt{phase\_strength} represents $\lambda$. There is no normalization, feedback or physical time parameter in this update.
+
+\begin{proposition}[State and stage mechanism]\label{prop:state}
+For $v=(1,2,1)^T$ and $a>0$, the exact output is
+\begin{equation}
+w(a):=F(av)=\frac a{20}(25-a^2,\ 34-8a^2,\ 25-a^2)^T.\label{eq:state}
+\end{equation}
+The population response is produced by the amplitude prestage. Synchronization preserves each prestage magnitude; on this real family its phase increments vanish.
+\end{proposition}
+\begin{proof}
+Since $L_3v=(1,-2,1)^T$, substitution in \eqref{eq:prestage} gives
+\begin{equation}
+u=a(5/4,17/10,5/4)^T-a^3(1/20,2/5,1/20)^T.\label{eq:powers}
+\end{equation}
+The cubic suppression in channel B has eight times the coefficient of either side channel. The resulting competition with the component-dependent linear terms changes their relative moduli. For any finite real phase increment, the exponential in \eqref{eq:sync} has modulus one. In this family, every phase is $0$ or $\pi$, with zero assigned phase $0$; every phase difference is an integer multiple of $\pi$. All sine increments therefore vanish, and synchronization reconstructs precisely the real prestage, with its signs and zeros intact.
+\end{proof}
+
+For a nonzero state define the external readouts $H=zz^\dagger$, $I=z^\dagger z$, $\rho=H/I$ and $p_B=\rho_{BB}$. They do not alter the evolving state. Put
+\begin{equation}
+x=a^2,\quad s=25-x,\quad r=17-4x,\quad
+D(x)=s^2+2r^2=33x^2-322x+1203.\label{eq:coordinates}
+\end{equation}
+Then
+\begin{align}
+\Iout(a)&=\frac{a^2D(a^2)}{200},&
+(p_A,p_B,p_C)&=\left(\frac{s^2}{2D},\frac{2r^2}{D},\frac{s^2}{2D}\right),\label{eq:readouts}\\
+\rout(a)&=\frac1{2D}\begin{pmatrix}s^2&2sr&s^2\\2sr&4r^2&2sr\\s^2&2sr&s^2\end{pmatrix}.\label{eq:rho}
+\end{align}
+Since $D=33(x-161/33)^2+13778/33>0$, the total output is nonzero for every positive $a$. The entrance has $\Iin=6a^2$, $p_B^{\mathrm{in}}=2/3$ and $\rho^{\mathrm{in}}=vv^T/6$.
+
+\clearpage
+\section{Population response: domain, branches and sensitivity}\label{sec:population}
+The requested scalar response is
+\begin{equation}
+\boxed{f(a)=p_B(w(a))=\frac{2(17-4a^2)^2}{(25-a^2)^2+2(17-4a^2)^2}},\qquad a>0.\label{eq:f}
+\end{equation}
+At $a=0$, $w=0$ and the original normalized readout is undefined. Individual cancellations at $\ac=\sqrt{17}/2$ and $a=5$ do not make the total output zero:
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+$a$ & Exact output $w$ & $\Iout$ & $f(a)$\\\midrule
+$\sqrt{17}/2$ & $(83\sqrt{17}/160,0,83\sqrt{17}/160)$ & $117113/12800$ & $0$\\[3pt]
+$5$ & $(0,-83/2,0)$ & $6889/4$ & $1$\\\bottomrule
+\end{tabular}
+\end{center}
+These points are outside the nonzero-prestage domain used for the general coherence-closure statement in RFO-02. Their well-defined family readouts do not extend that theorem. The polynomial restriction \eqref{eq:state} is smooth, although the ambient complex map with its assigned zero phases is generally discontinuous on zero prestage strata \cite{paperA}.
+
+Differentiation of \eqref{eq:f} gives
+\begin{align}
+\frac{df}{dx}&=-\frac{332(17-4x)(25-x)}{D(x)^2},\label{eq:dx}\\
+f'(a)&=-\frac{664a(17-4a^2)(25-a^2)}{D(a^2)^2},&
+\frac{df}{d\Iin}&=-\frac{166(17-4x)(25-x)}{3D(x)^2}.\label{eq:sensitivity}
+\end{align}
+The denominator is positive. Hence $f$ strictly decreases on $(0,\ac)$, increases on $(\ac,5)$, and decreases on $(5,\infty)$. Its unique global minimum and maximum are $0$ and $1$, at the two cancellations. At $a=1,2$, respectively, $df/da$ equals $-51792/208849$ and $-27888/196249$; $df/d\Iin$ equals $-4316/208849$ and $-1162/196249$.
+
+For $0\le y<1$, set $q=\sqrt{y/[2(1-y)]}$. The sign of $r/s$, which the population readout discards, yields the branch inverses:
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Amplitude branch & Population image & Recovered $a^2$\\\midrule
+$(0,\ac]$ & $[0,578/1203)$ & $(17-25q)/(4-q)$\\[3pt]
+$[\ac,5]$ & $[0,1]$ & $(17+25q)/(4+q)$\\[3pt]
+$[5,\infty)$ & $(32/33,1]$ & $(25q-17)/(q-4)$\\\bottomrule
+\end{tabular}
+\end{center}
+At $y=1$ use $a=5$ separately; otherwise take the positive square root. The extrema have zero first-order sensitivity, so local linear inversion there is insufficient. There are two positive amplitudes for $0<y<578/1203$ and for $32/33<y<1$, and one for the remaining attained values. The small-amplitude limit is $578/1203$, not a value at zero; the large-amplitude limit is $32/33$. Also $\Iout\sim1203a^2/200$ as $a\to0^+$ and $\Iout\sim33a^6/200$ as $a\to\infty$. These mathematical limits do not certify an unbounded floating-point operating range.
+
+\clearpage
+\section{Exact identifiability from stronger readouts}\label{sec:inverse}
+\begin{proposition}[Signed raw-output left inverse]\label{prop:raw}
+On the family \eqref{eq:state}, the signed raw output recovers the input amplitude by
+\begin{equation}
+\boxed{a=\frac{10}{83}(8w_A-w_B)}.\label{eq:rawinverse}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The cubic terms cancel:
+$8w_A-w_B=a[8(25-a^2)-(34-8a^2)]/20=83a/10$.
+\end{proof}
+This left inverse includes both individual cancellations. It presumes labelled, signed amplitudes in the declared real representation. It is not an inverse on arbitrary complex input states and is not supplied by a population-only detector.
+
+\begin{theorem}[Normalized-output-coherence identification]\label{thm:rho}
+At the fixed coefficients \eqref{eq:coefficients}, the mapping $a\mapsto\rout(a)$ is injective for $a>0$. If $a\ne5$, define the signed ratio
+\begin{equation}
+t=\frac{\rout_{BA}}{2\rout_{AA}},
+\qquad\Longrightarrow\qquad
+\boxed{a=\sqrt{\frac{17-25t}{4-t}}}.\label{eq:rhoinverse}
+\end{equation}
+The unique omitted chart point is $a=5$, recognized by $p_B=1$.
+\end{theorem}
+\begin{proof}
+For $a\ne5$, \eqref{eq:rho} gives
+\begin{equation}
+t=\frac{r}{s}=\frac{17-4x}{25-x},\qquad
+t(25-x)=17-4x.
+\end{equation}
+Solving gives $x=(17-25t)/(4-t)$. A finite $x$ cannot give $t=4$, since $17-4x=4(25-x)$ would require $17=100$. Positivity selects the positive root.
+
+To prove injectivity without excluding chart points, write
+$d(x)=(25-x,2(17-4x),25-x)^T$. Its two distinct linear factors cannot vanish together, so $d(x)\ne0$. Equality of normalized rank-one matrices implies equality of their one-dimensional ranges: $d(x)$ and $d(y)$ are proportional over $\C$. Because these vectors are real and nonzero, the proportionality factor is real, possibly negative. Proportionality forces their two-coordinate determinant to vanish. After removing a factor of two, that determinant is
+\begin{equation}
+(25-x)(17-4y)-(17-4x)(25-y)=83(x-y).\label{eq:determinant}
+\end{equation}
+Thus $x=y$, and positive amplitudes give $a=b$. This proof includes $x=25$. Explicitly, $p_B=1$ iff $s^2=0$, hence iff $a=5$, where $\rout=\diag(0,1,0)$.
+\end{proof}
+
+The signed chart has image $(-\infty,17/25)\cup(4,\infty)$; its two components correspond to $0<a<5$ and $a>5$. The middle-channel cancellation has $t=0$ and is regular in this chart. Near $a=5$ the side population tends to zero, so division by that population is not a noise certificate. An arbitrary measured matrix need not lie on the exact family image. The theorem concerns exact identifiability, without a preparation, phase-error or coherence-measurement error guarantee.
+
+\clearpage
+\section{What population readout loses}\label{sec:ambiguity}
+Consider the exact pair
+\begin{equation}
+a=2,\qquad b=\sqrt{382/85},\qquad f(a)=f(b)=\frac2{443}.\label{eq:pair}
+\end{equation}
+Both amplitudes lie in the original study window $[1/2,5/2]$; this pair is an algebraic example, not a newly searched classification task. At $a=2$, $(s,r)=(21,1)$. At $b$,
+\begin{equation}
+(s,r)=\left(\frac{1743}{85},-\frac{83}{85}\right)
+=\frac{83}{85}(21,-1).
+\end{equation}
+Consequently their normalized coherences are
+\begin{equation}
+\rout(2)=\frac1{886}\begin{pmatrix}441&42&441\\42&4&42\\441&42&441\end{pmatrix},\qquad
+\rout(b)=\frac1{886}\begin{pmatrix}441&-42&441\\-42&4&-42\\441&-42&441\end{pmatrix}.\label{eq:pairrho}
+\end{equation}
+All three diagonal populations agree, since $p_A=p_C=(1-p_B)/2$ throughout the family. In contrast,
+\begin{equation}
+\rout_{AB}(2)=+\frac{21}{443},\qquad
+\rout_{AB}(b)=-\frac{21}{443}.\label{eq:opposite}
+\end{equation}
+The cross terms involving B retain the relative sign that squared magnitudes discard. Measuring additional diagonal populations therefore cannot resolve this collision. Exact access to the indicated off-diagonal coherence can resolve it, without measuring total output intensity. No claim about a phase-sensitive physical apparatus or its error budget is implied.
+
+\subsection{Output identification does not imply input-coherence closure}
+Every entrance on the ray has the same normalized coherence,
+\begin{equation}
+\rho^{\mathrm{in}}(a)=\frac16
+\begin{pmatrix}1&2&1\\2&4&2\\1&2&1\end{pmatrix},\qquad \Iin(a)=6a^2.\label{eq:inputrho}
+\end{equation}
+The update depends on the discarded intensity, and its output coherence separates amplitudes. Thus no single-valued autonomous map of this input $\rho$ alone can produce all of these outputs. Theorem~\ref{thm:rho} is compatible with the RFO-02 closure counterexample; it does not overturn it. Likewise, the regular-domain raw-coherence closure statement is not extended to generic zero strata by the exceptional point calculation.
+
+\begin{center}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.26\linewidth}>{\raggedright\arraybackslash}p{0.65\linewidth}@{}}
+\toprule
+Retained output & Exact conclusion on this family\\\midrule
+Signed raw amplitudes & Linear left inverse \eqref{eq:rawinverse}; representation and channel labels retained.\\[3pt]
+Full normalized coherence & Unique positive amplitude by Theorem~\ref{thm:rho}; ratio chart plus exceptional point.\\[3pt]
+All populations & Same information as $p_B$ here; two-branch ambiguities remain.\\\bottomrule
+\end{tabular}
+\end{center}
+This hierarchy describes information retained by particular readouts. Deterministic processing has not created additional input information. It has placed amplitude dependence in relative moduli and signs, whose accessibility depends on the chosen observation.
+
+\clearpage
+\section{A declared two-class discrimination certificate}\label{sec:task}
+The accepted SPR-01 task adopts intended amplitudes $1$ and $2$ with scalar multiplicative preparation uncertainty $1\%$:
+\begin{equation}
+A_1=[99/100,101/100],\qquad A_2=[99/50,101/50].
+\end{equation}
+The adopted measurement model is
+\begin{equation}
+\widehat p_B=f(a)+e_p,\qquad |e_p|\le\delta_p=1/1000,\label{eq:error}
+\end{equation}
+without clipping. These are illustrative assumptions, not measured apparatus specifications. Only scalar gain and additive population error are covered. They are distinct from RFO-02's normalized-coherence error contract.
+
+Both classes lie below $\ac$, where \eqref{eq:dx} proves strict decrease. Their exact ranges are therefore attained at the reversed endpoints:
+\begin{align}
+f(A_1)&=\left[\frac{33383212832}{90886773233},\frac{34215187232}{91910746833}\right],\label{eq:range1}\\
+f(A_2)&=\left[\frac{5752832}{2740938233},\frac{21727232}{2798911833}\right].\label{eq:range2}
+\end{align}
+This is an exact extrema argument, not certification by samples. Decimal values below are approximations of these rational endpoints and of their error-expanded sets:
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Class & Exact-output range, approximately & Measured range, approximately\\\midrule
+$A_1$ & $[0.367305513,0.372265360]$ & $[0.366305513,0.373265360]$\\
+$A_2$ & $[0.002098855,0.007762743]$ & $[0.001098855,0.008762743]$\\\bottomrule
+\end{tabular}
+\end{center}
+Let $G=\inf f(A_1)-\sup f(A_2)$. Then
+\begin{align}
+G&=\frac{91461951411277460000}{254384065065031366089}
+\approx0.359542770055,\\
+G-2\delta_p&\approx0.357542770055>0.\label{eq:gap}
+\end{align}
+Every possible measured class-2 output is below every possible measured class-1 output. One valid threshold is the midpoint
+\begin{equation}
+\tau=\frac{47705693713403511056}{254384065065031366089}
+\approx0.187534127585.\label{eq:threshold}
+\end{equation}
+Outputs below $\tau$ indicate class 2 and outputs above $\tau$ indicate class 1, under precisely these assumptions. At fixed gain uncertainty, the common additive error must satisfy
+\begin{equation}
+0\le\delta_p<\frac G2=
+\frac{45730975705638730000}{254384065065031366089}
+\approx0.179771385027.\label{eq:ceiling}
+\end{equation}
+The ceiling is a strict supremum: at equality the closed measured sets touch, and a shared output cannot identify the class. The success of this restricted task is consistent with the global ambiguity in \eqref{eq:pair}, because that partner amplitude is outside $A_2$. No relative-phase, componentwise preparation, coefficient, or coherence-inverse robustness follows from this certificate.
+
+\clearpage
+\section{Bounded implementation evidence}\label{sec:evidence}
+The following numerical results are retained from the accepted SPR-01 execution \cite{spr01}; manuscript preparation performed exact reciprocal algebra and did not run a new native experiment. The scientific checkout at the recorded source revision used complex128 arrays, with B at index 1. The native route was \texttt{dynamics.step3}; the existing public route was \texttt{api.step} with raw \texttt{State} at update index 0, explicit coefficients \eqref{eq:coefficients}, and \texttt{topology="triad"}. Its runner dispatches to the native callable and returns index 1. No normalization or phase alignment was applied to the comparison.
+
+The protocol preceded comparison. It declared 100-digit reference arithmetic and the criterion
+\begin{equation}
+\|y_{\rm native}-y_{\rm reference}\|\le10^{-12}+10^{-10}\|y_{\rm reference}\|,\label{eq:tolerance}
+\end{equation}
+with Euclidean norm on raw complex states and absolute error on scalar readouts. The independent reference reconstructed the source equation with exact arithmetic and a separate high-precision prestage/synchronizer, without invoking the native step.
+
+The main grid was $a_j=1/2+j/100$, $j=0,\ldots,200$. It already contains both anchors and all four class endpoints. Adding $\ac$ gives 202 main-window points. Two separately flagged domain diagnostics, $a=0$ and $a=5$, bring the one-update inputs to 204. No coefficient sweep or long trajectory is part of this evidence.
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Main-window quantity & Largest absolute or norm error & Amplitude\\\midrule
+Raw native state & $1.7281369135\times10^{-15}$ & $49/20$\\
+Output intensity & $9.2304158688\times10^{-15}$ & $249/100$\\
+Middle population & $3.4215051077\times10^{-16}$ & $247/100$\\\bottomrule
+\end{tabular}
+\end{center}
+All declared comparisons passed. The saved native and public raw arrays are exactly equal on the executed set. This public-path check tests the facade's dispatch and representation, not an independent mathematical implementation. It also does not verify a separately installed UI kernel.
+
+The inherited witness anchors were rederived exactly and replayed:
+\begin{align}
+w(1)&=(6/5,13/10,6/5),& \Iout(1)&=457/100,& f(1)&=169/457,\\
+w(2)&=(21/10,1/5,21/10),& \Iout(2)&=443/50,& f(2)&=2/443.
+\end{align}
+The irrational cancellation input is rounded in binary64; the original evidence distinguishes it from the exact algebraic input and from a separate literal-zero synchronization test. Undefined normalized values at zero remain undefined. Tiny imaginary reconstruction residuals at negative real components are retained. The finite checks certify neither extreme-amplitude floating-point behavior nor all perturbations near cancellations.
+
+An independent scientific review replayed the same 204 inputs against a source-hash-matched native snapshot and reported exact agreement with the saved native arrays \cite{review}. It did not execute the public facade or reenact the original workspace audit. This separate evidence is narrower than an installed-system certificate. The additional inverse claims in Section~\ref{sec:inverse} rest on the displayed proofs, not on numerical sample counts.
+
+\clearpage
+\section{Comparators, retained negative evidence and limits}\label{sec:comparators}
+\subsection{Direct entrance intensity}
+For the same classes, $\Iin=6a^2$ is strictly increasing and gives
+\begin{equation}
+\Iin(A_1)=[5.8806,6.1206],\qquad
+\Iin(A_2)=[23.5224,24.4824].
+\end{equation}
+With $\widehat I=6a^2+e_I$, $|e_I|\le\delta_I$, the unexpanded gap is $17.4018$. The closed measured sets are disjoint exactly when
+\begin{equation}
+0\le\delta_I<8.7009,\qquad \tau_I=14.8215\ \text{is a valid threshold}.\label{eq:entrance}
+\end{equation}
+No calibrated entrance sensor error was supplied. The absolute intensity budget and the dimensionless population budget have different units and scales; their numerical ceilings are not an advantage comparison. Unlike the population response, entrance intensity is globally injective for positive $a$.
+
+\subsection{Direct formula and end-to-end resources}
+When $a$ is already known numerically, evaluating \eqref{eq:f} directly gives the same scalar output without propagating a complex state. This does not obtain $a$ from a specimen. The original study checked direct scalar evaluation against the reference, but did not benchmark this comparator.
+
+A native readout task must account for preparing and calibrating the family, performing one update, obtaining B intensity and total intensity or an equivalent calibrated fraction, and forming a decision. A coherence-based inverse additionally requires the relevant cross-channel coherence information. Entrance readout requires its own preparation, intensity measurement and thresholding. Direct formula evaluation requires an acquired or supplied amplitude and its uncertainty. Counting the native step alone omits these resources. No common measured cost/noise contract presently establishes a benefit.
+
+\subsection{Preserved negative result and open questions}
+RFO-02's different, fixed-pattern classification task already separated its selected inputs at the entrance. Its nonlinear path lost that distinction by step 12 under its own declared readout errors; it did not establish a recursion benefit \cite[Sections 5 and 8]{rfo02}. The present one-update strength task and its illustrative error model do not revise or overturn that negative result.
+
+The model converts strength into a relative pattern, which can encode an intended signal or create sensitivity to unknown gain. The exact inverse requires the stated family and coefficients. Generic complex-input inversion, phase-error robustness, uniform noisy coherence reconstruction, and floating-point reliability beyond the explicitly executed tests remain unestablished. The exact formulas and branch analysis remain valid on the stated mathematical domain $a>0$. Physical realization, phase-sensitive instrumentation, deployment and computational advantage require separate evidence. No such claim is made here, and no new robustness experiment is included.
+
+\clearpage
+\section{Conclusions}\label{sec:conclusion}
+For this fixed ray and one update, the strength-to-pattern mechanism is exactly understood. Population-only observation is globally ambiguous, while signed raw output and full normalized coherence identify the positive amplitude exactly. The declared two-class population task is robust only under its adopted scalar error assumptions. These statements concern distinct readouts and evidence levels; none supplies autonomous input-coherence closure or a general computational advantage. This edition is an author-authorized repository research publication; its recorded review is project-internal, not external peer review.
+
+\section*{Evidence and source notes}
+The recurrence was checked against Paper A, Section 1 and Section 6.1, equations (6.0), (6.1a,b), and against the scientific native source. RFO-02 Sections 1 and 3 supply the recovered coefficients and same-coherence witness; Sections 5 and 8 support the retained negative result. SPR-01 Sections 2--5 supply the accepted derivation, bounded comparisons and declared task. The review's Section 4 supplies the proposed inverse deductions, which are independently proved in this paper.
+
+The scientific source revision for the retained native/API evidence is
+\begin{center}\small\texttt{6794a72e934a5383547c2507d8c4891346cddf7a}.\end{center}
+Its native dynamics snapshot has SHA-256
+\begin{center}\small\texttt{ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4}.\end{center}
+The original execution used Python 3.11.15, NumPy 2.4.4, SymPy 1.14.0 and mpmath 1.3.0 on Windows; the independent snapshot review used Python 3.13.5, NumPy 2.3.5, SymPy 1.14.0 and mpmath 1.3.0 on Linux. The new reciprocal derivation uses exact rational and algebraic arithmetic. Software versions describe retained finite evidence, not physical apparatus or mathematical assumptions.
+
+The accompanying claim-to-proof/evidence crosswalk distinguishes exact proofs, adopted error assumptions, bounded execution evidence and open operational questions. The separate reciprocal-review note records agreement and scope qualifications for the four added deductions. Private execution, build and workspace-preservation records are not part of the publication-facing manuscript or crosswalk. No original evidence is silently replaced by this edition. The full internal reports, protocol, results and execution records are not distributed here; the accompanying response data and historical reciprocal note are a limited supporting subset.
+
+\begin{thebibliography}{9}
+\bibitem{paperA}
+Tri-Octagon project. \emph{Cycle-Covering Dynamics of a Three-State Nonlinear Kernel} (Paper A). Repository manuscript, scientific source revision identified above. Section 1; Section 6.1, equations (6.0), (6.1a,b). Cited for the defining recurrence and zero convention, not for a generic inversion result. \href{https://github.com/pzychozen/trioctagon-physics/blob/6794a72e934a5383547c2507d8c4891346cddf7a/papers/PAPER_A/publication/paper_A_publication.md}{Commit-pinned repository source}.
+
+\bibitem{rfo02}
+Tri-Octagon project. \emph{RFO-02: Native processing and readout}. Unpublished project-internal research report, 7 October 2026; not distributed with this edition. Sections 1 and 3 (coefficients, readouts and closure witness); Sections 5 and 8 (negative fixed-pattern classification result).
+
+\bibitem{spr01}
+Tri-Octagon project. \emph{SPR-01: Native strength-to-pattern response}. Project-internal accepted scoped study, 7 October 2026. Report Sections 2--5; frozen protocol, exact and numerical results, external verifier, and response data. The original report, protocol, results and machine-bound verifier are not distributed here; selected response data accompany this edition. Acceptance refers to project-internal review within the declared scope.
+
+\bibitem{review}
+GPT. \emph{SPR-01 scientific review}. Unpublished project-internal scientific review, 7 October 2026; not external peer review. The original review bundle is not distributed here. Section 2 (independent snapshot-native evidence); Section 4 (additional algebraic deductions). The deductions are independently proved in the present manuscript.
+\end{thebibliography}
+
+\vfill
+\noindent\textbf{Publication status and AI assistance.} AI assistance from GPT and Codex was used in mathematical derivation, verification, manuscript preparation, and project-internal review. The recorded reviews and reciprocal checks were conducted within the project; they do not constitute external peer review. Hilmir Fr\'imann Halld\'orsson approved this repository edition and is responsible for its content and publication.
+\end{document}

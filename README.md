@@ -51,6 +51,12 @@ Paper G has a separate [author publication disposition](papers/PAPER_G/repositor
 Its approved v0.1.1 PDF/source retain their review labels and exact bytes;
 that later disposition authorizes repository publication without changing the science.
 
+## Strength-to-pattern identifiability
+
+[Strength-to-Pattern Conversion and Readout Identifiability in the Tri-Octagon Native Kernel](papers/STRENGTH_PATTERN_IDENTIFIABILITY/README.md) by **Hilmir Frímann Halldórsson**.
+v0.1 is an author-authorized repository research publication with project-internal review, not external peer review.
+[Final PDF](papers/STRENGTH_PATTERN_IDENTIFIABILITY/v0.1/publication/SPR01_STRENGTH_PATTERN_IDENTIFIABILITY_v0.1.pdf) | [Publication disposition](papers/STRENGTH_PATTERN_IDENTIFIABILITY/v0.1/PUBLICATION_DISPOSITION.md). No runtime changes.
+
 ## Standalone Three-Way research
 
 **NOT IMPLEMENTED RESEARCH — standalone mathematical research; no `kernel_physics`
