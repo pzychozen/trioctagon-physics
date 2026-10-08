@@ -1,0 +1,585 @@
+% v0.1 — Author-authorized repository research publication
+% SCC-01 manuscript v0.1, 8 October 2026. Standalone source; bibliography embedded.
+% Original scientific execution: deb5de81fdaf3f39ca5347980859cc6c57266dbd.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm,headheight=14pt]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{unicode-math}
+\usepackage{lmodern}
+\setmainfont[BoldFont=texgyrepagella-bold.otf,ItalicFont=texgyrepagella-italic.otf,BoldItalicFont=texgyrepagella-bolditalic.otf]{texgyrepagella-regular.otf}
+\setmathfont{texgyrepagella-math.otf}
+\setmonofont{lmmono10-regular.otf}
+\usepackage{booktabs,longtable,array,fancyhdr,xurl}
+\usepackage[unicode,hidelinks]{hyperref}
+\hypersetup{pdftitle={SU(3), CP, and Chirality in Tri-Octagon Models: A Mathematical Reassessment},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={v0.1 — Author-authorized repository research publication}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[C]{\scriptsize v0.1 — Author-authorized repository research publication}
+\fancyfoot[L]{\scriptsize SCC-01 • v0.1 • 8 October 2026}\fancyfoot[R]{\thepage}
+\fancypagestyle{plain}{\fancyhf{}\fancyhead[C]{\scriptsize v0.1 — Author-authorized repository research publication}\fancyfoot[L]{\scriptsize SCC-01 • v0.1 • 8 October 2026}\fancyfoot[R]{\thepage}}
+\setlength{\parindent}{1.1em}\setlength{\parskip}{3pt}
+\setlength{\emergencystretch}{2em}
+\clubpenalty=10000\widowpenalty=10000\displaywidowpenalty=10000
+\numberwithin{equation}{section}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}[proposition]{Corollary}
+\newenvironment{proof}{\par\noindent\textit{Proof.}\ }{\hfill$\square$\par}
+\newcommand{\C}{\mathbb C}\newcommand{\R}{\mathbb R}
+\newcommand{\tr}{\operatorname{tr}}\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\spec}{\operatorname{spec}}\newcommand{\im}{\operatorname{Im}}
+\newcommand{\re}{\operatorname{Re}}\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\I}{\mathbb I}\newcommand{\Argz}{\operatorname{Arg}_0}
+\newcommand{\secref}[1]{Section~\ref{#1}}
+\title{SU(3), CP, and Chirality in Tri-Octagon Models:\\ A Mathematical Reassessment}
+\author{Hilmir Frímann Halldórsson}
+\date{8 October 2026 • Repository edition v0.1}
+\begin{document}
+\maketitle
+\begin{center}\textbf{v0.1 — Author-authorized repository research publication}\end{center}
+\begin{abstract}
+We reassess specified SU(3), mixing, CP and chirality constructions in historical Tri-Octagon papers against the current nonlinear scientific map. The shared democratic/transverse frame is valid: it supports an intensity chart, standard representation algebra and a unitary two-parameter TM2 family. These facts do not establish an SU(3)-equivariant nonlinear law or a physical mass dictionary. For the two distinct printed D24 mixing constructions, a Hermitian Gram calculation gives the exact obstruction $|\nu_1^\dagger\nu_2|^2+|\nu_3^\dagger\nu_2|^2=\sin^2\varepsilon$ under the stated orthonormal-frame assumption. No source-confirmed tilted transport was recovered. Independent zero-tilt counterexamples, typed reflection/conjugation identities and clock counts delimit other printed implications. We give the native stage defects and real derivative, preserve their parameter and zero-stratum qualifications, and distinguish the historical cubic observer from signed-area and coherence geometry. A fixed six-state SRG preparation is treated separately. Retained evidence comprises 16 prescribed witness tuples and 64 one-update implementation/reference comparisons; all comparisons pass, including those deliberately exhibiting nonzero symmetry defects. This manuscript presents a completed, project-internally accepted study, with no new scientific execution or selected completion of missing premises.
+\end{abstract}
+
+\section{Models, sources and evidential scope}\label{sec:scope}
+The question is which historical constructions are mathematically valid, what they establish, and which stated relationships survive comparison with the current nonlinear model. A fixed matrix belonging to SU(3), a representation of SU(3), and equivariance of a dynamical law under SU(3) are three different assertions. Similarly, a named CP operation, an external clock mask and complete positivity do not identify the same object.
+
+The underlying SCC-01 report, claim ledger and saved evidence were completed on 8 October 2026 and accepted through project-internal mathematical, reciprocal and saved-evidence review \cite{scc,review,response,addendum}. We retain the following distinctions throughout. A \emph{source claim} is what a historical equation or passage states. An \emph{inherited result} comes from earlier project analysis. An \emph{SCC-01 deduction} is an exact derivation or counterexample supplied by the completed study, without a claim of literature-wide novelty. A \emph{gap} is a missing premise or unrecovered source. The Cartan-coordinate corollary below is separately attributed to the reviewer. These categories are not votes on entire papers.
+
+\subsection{Source and notation keys}
+Historical keys HG, HD and HV below replace the report's G, D and V. In particular HG is not the later Paper G, and HD is not current Paper D. Historical page locators refer to PDF pages, which coincide with the printed numbering for HG, HD and HV.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.10\linewidth}>{\raggedright\arraybackslash}p{.53\linewidth}>{\raggedright\arraybackslash}p{.31\linewidth}@{}}
+\toprule Key & Source identity & Scope retained here\\\midrule\endfirsthead
+\toprule Key & Source identity & Scope retained here\\\midrule\endhead
+HG & \emph{Tri-Octagon Geometry and SU(3) $\times$ SU(2) Symmetry Closure}, 29 October 2025; \texttt{TriOctagon\_E8-SU3-Geometry.pdf} \cite{hg}. & 41-page text read in SCC-01; decisive pages 20, 26, 28, 38, 40 visually checked.\\
+HD-M / HD-A & \emph{Tri-Octagon D24 Geometry and the CP-Octant Ridge}, 5 November 2025; \texttt{TriOctagon\_D24-CP-Octant-Ridge.pdf} \cite{hd}. & Main text and Appendix A kept separate. All 27 pages read; nine selected source renders checked.\\
+HV & \emph{The 9-Form / 12-Phase Structure of Collapse Dynamics}, 5 November 2025; \texttt{TriOcta\_violations.pdf} \cite{hv}. & Relevant pp. 1--10; pp. 5, 9 visually checked.\\
+PL & \texttt{phaselocking.pdf}, 30 November 2025 \cite{pl}. & Pinned extraction: cubic observer on p. 6 and interpretation on p. 7 only.\\
+PA / PB & Current Paper A v0.5.1; Paper B v0.1.2 \cite{pa,pb}. & Native law and geometric state/observable actions.\\
+PF / PG & Current Paper F v0.2; Paper G v0.1.1 \cite{pf,pg}. & Local transverse analysis; attached axial observables.\\
+NRG / SGO & Native Response Geometry; SGO-01 v0.1 \cite{nrg,sgo}. & Inherited preparation, regular coherence and static information results.\\
+\bottomrule
+\end{longtable}}
+
+The source registry binds 106 inputs; a supplement follows four production implementation owners through compatibility imports. The broader historical catalogue contained 46 files with 45 distinct hashes; catalogue inclusion was not a scientific audit of those papers. The three principal PDF hashes are given in Appendix~\ref{app:identity}. The pinned PDG 2025 comparators supply only generator and mixing conventions \cite{pdgsu3,pdg}; no experimental values or fits are refreshed.
+
+We write $\varepsilon$ for HD's tilt and $\eta$ for the native onsite coefficient (called $\epsilon$ or \texttt{eps} in native sources). $A_p$ is the amplitude prestage, whereas $A_{\rm pair}$ is a real antisymmetric area matrix. The internal HG phase is $\delta$ and the derived Dirac phase is $\delta_D$; HD uses $\vartheta$. The symbol $h$ below combines HD's transverse mixing angles and is not a state variation, which is denoted $v$. The intensity is $I=z^\dagger z$ and $\I$ is an identity matrix. Matrix transpose, complex conjugation and Hermitian transpose are $T$, a bar and $\dagger$, respectively.
+
+\subsection{Historical code, production, reference and native model}\label{sec:lineage}
+The historical PDFs are not one executable specification. Archived \texttt{kernel\_TO} (H-CODE), production TORMENT (T-PROD), the independent clean Historical reference (H-REF), the present map $F$, and fixed SRG preparation must remain distinct. The principal comparison is between the original constructions and $F$. Source/AST correspondences with production establish narrow lineage facts, not production runtime parity.
+
+H-REF is distribution version 0.1.0, accepted at the recorded H6B revision \nolinkurl{31109632fb1bb179a0f35f367f26f7472865a7b2}. It is an independent clean implementation under \nolinkurl{historical_kernel/src/trioctagon_historical_kernel}, not production TORMENT. The deterministic historical core has the amplitude law
+\begin{equation}
+ a=z+\eta\,z\odot(k-|z|^2)+gLz+\delta_{\rm add},\qquad L=ee^T-3\I,\quad e=(1,1,1)^T,
+\end{equation}
+followed by harmonic-three phase synchronization, with optional historical noise and clock bookkeeping. With matched coefficients, no additive term or noise, and the declared zero convention, its recurrence agrees with the native equation in \secref{sec:native}. This is \emph{same equation on a declared domain}, not a newly executed comparison of implementations. Fixed historical default profiles and service wrappers are not substituted for native parameters.
+
+The earlier Lane-2 decision on M10 was \emph{reconstructed valid mathematics}, then \emph{passive analysis candidate}, not ported. The 29--30 September 2026 records deferred application rather than discarding the mathematics \cite{lane}. M10 maps normalized intensities to frame coordinates; PF applies the same frame to raw complex perturbations. Their relationship is \emph{related basis only}. Some historical consumers used $(c_u,c_x)$ rather than $(c_x,c_y)$; the reason for every consumer choice was not recovered. No eight-generator legacy implementation was found. M12's valid positive-integer clock mask was likewise retained as a passive candidate. Its occupancy is not a dynamical attractor.
+
+The original scientific execution revision was
+\begin{center}\small\texttt{deb5de81fdaf3f39ca5347980859cc6c57266dbd}.\end{center}
+The manuscript preparation date does not rename that execution. Actual local repository identity and preservation are recorded separately in the build notes. No scientific or production code was executed during manuscript preparation.
+
+\section{The shared frame and valid representation algebra}\label{sec:frame}
+Set
+\begin{equation}\label{eq:frame}
+ u=\frac{(1,1,1)^T}{\sqrt3},\qquad x=\frac{(1,-1,0)^T}{\sqrt2},\qquad
+ y=\frac{(1,1,-2)^T}{\sqrt6},\qquad B=[u\ x\ y].
+\end{equation}
+The dot products give $B^TB=\I$, and $x\times y=u$ gives $\det B=1$. Thus this fixed matrix lies in $\mathrm{SO}(3)\subset\mathrm{SU}(3)$. It defines an oriented frame; membership alone is not a dynamical symmetry.
+
+\subsection{Intensity coordinates and a reviewed Cartan reformulation}
+For $I>0$ define $w_i=|z_i|^2/I$ and $c=B^Tw$. Then
+\begin{equation}\label{eq:intensity}
+ c_u=\frac1{\sqrt3},\qquad c_x=\frac{w_1-w_2}{\sqrt2},\qquad
+ c_y=\frac{w_1+w_2-2w_3}{\sqrt6}.
+\end{equation}
+The exact historical routine extends $w=0$ and $c=0$ at $z=0$. Its sampler variant instead uses $w_i^{\rm reg}=|z_i|^2/(I+10^{-12})$. For $I>0$, all three coordinates are multiplied by $I/(I+10^{-12})$; the weights sum to that factor, not one. Regularization therefore changes both exact normalization and scale invariance. The exact chart forgets all component phases and nonzero overall scale.
+
+\begin{corollary}[Reviewer reformulation, reciprocally checked]\label{prop:cartan}
+On the nonzero, exact-sum normalization domain, let
+\begin{equation}
+ \rho=\frac{zz^\dagger}{z^\dagger z},\quad
+ T_3=\tfrac12\diag(1,-1,0),\quad T_8=\tfrac1{2\sqrt3}\diag(1,1,-2).
+\end{equation}
+Then $c_u=1/\sqrt3$, $c_x=\sqrt2\tr(\rho T_3)$ and $c_y=\sqrt2\tr(\rho T_8)$.
+\end{corollary}
+\begin{proof}
+The diagonal entries of $\rho$ are $w_i$. Thus the two traces are $(w_1-w_2)/2$ and $(w_1+w_2-2w_3)/(2\sqrt3)$, respectively. Multiplication by $\sqrt2$ gives \eqref{eq:intensity}.
+\end{proof}
+This is the explanatory reformulation proposed in review \S3 and checked in the reciprocal response \cite{review,response}. It is not recovered authorial intent and was not inserted into the original report. The normalized $\rho$ is undefined at zero; the regularized sampler is a different case. These two traces contain no off-diagonal phase information and imply no dynamical SU(3) symmetry.
+
+\subsection{A finite cycle is not the center or a singlet test}\label{sec:cycle}
+HG p. 26 prints
+\begin{equation}\label{eq:cycle}
+ \Pi=\begin{pmatrix}0&1&0\\0&0&1\\1&0&0\end{pmatrix},\qquad
+ \omega=e^{2\pi i/3}.
+\end{equation}
+Direct multiplication gives $\Pi^3=\I$, $\det\Pi=1$, $\tr\Pi=0$ and $\spec\Pi=\{1,\omega,\omega^2\}$; $u$ is fixed. In ordered column kets $(r,g,b)$ this matrix cycles $r\mapsto b\mapsto g\mapsto r$, inverse to the printed prose. Both orientations have the listed invariants, but a component-level statement must choose one. Also $P_{12}\Pi P_{12}=\Pi^{-1}$: the generated permutation group is noncommutative. The central element $\omega\I$ has three equal eigenvalues and cannot be conjugate to $\Pi$. A noncentral diagonal phase with matching spectrum may be Fourier-conjugate to $\Pi$; that does not identify them in the original ordered basis.
+
+For the adopted fundamental representation, the $(T_3,T_8)$ weights are
+\begin{equation}
+ (1/2,1/(2\sqrt3)),\quad(-1/2,1/(2\sqrt3)),\quad(0,-1/\sqrt3).
+\end{equation}
+They sum to zero and their pairwise differences give the six-root hexagon. A two-dimensional weight diagram is not the eight-dimensional adjoint carrier: the latter includes six nonzero root spaces and two zero-weight directions. Color and flavor interpretations require their own dictionary.
+
+Under the matrix action $M\mapsto UMU^\dagger$,
+\begin{equation}\label{eq:projectors}
+ P_1M=\tfrac13\tr(M)\I,\qquad P_8M=M-P_1M
+\end{equation}
+are equivariant projectors of ranks one and eight. Indeed trace is invariant, the scalar and traceless subspaces are complementary, and both projectors square to themselves. Invariance under the full group selects the scalar subspace: commuting with all diagonal unitary matrices removes off-diagonal entries, and commuting with channel-mixing elements forces equal diagonal entries. The normalized invariant matrix is $\I/\sqrt3$.
+
+The converse of HG's finite-cycle neutrality assertion fails. Take $M=\Pi$. It is traceless and fixed by conjugation with both $\Pi$ and $\omega\I$, yet
+\begin{equation}\label{eq:singletcounter}
+ D\Pi D^\dagger\ne\Pi,\qquad D=\diag(i,-i,1)\in\mathrm{SU}(3).
+\end{equation}
+For example the $(1,2)$ entry changes from $1$ to $-1$. Finite-cycle and center invariance therefore do not imply a singlet, much less a confinement mechanism. The valid $3\otimes\bar3=1\oplus8$ statement survives under its correctly typed action. Tensor, mass-ansatz and helicity details appear in Appendix~\ref{app:rep}; the inherited E8 certificate limitation is separated there from the independently defined frame.
+
+\section{TM2 and the two literal D24 constructions}\label{sec:mixing}
+\subsection{The valid HG family and its convention-dependent quartet}\label{sec:tm2}
+With $c=\cos\phi$ and $s=\sin\phi$, HG p. 20 defines the ordered columns
+\begin{equation}\label{eq:tm2}
+ V=[c x+e^{i\delta}s y,\ u,\ -s x+e^{i\delta}c y].
+\end{equation}
+Their Hermitian inner products immediately give $V^\dagger V=\I$. In the transverse $(x,y)$ basis the block has determinant $e^{i\delta}$, so it is a U(2) block, generically not an SU(2) block. Moving the middle column $u$ to the first position introduces one sign, yielding $\det V=-e^{i\delta}$. No rephasing or permutation is applied to the printed family in these statements.
+
+Write $r_{13}=|V_{e3}|^2$. Direct entry moduli give
+\begin{align}
+ r_{13}&=\frac{s^2}{2}+\frac{c^2}{6}-\frac{\sin2\phi\cos\delta}{\sqrt{12}},\label{eq:reactor}\\
+ |V_{\mu3}|^2&=\frac{s^2}{2}+\frac{c^2}{6}+\frac{\sin2\phi\cos\delta}{\sqrt{12}},\qquad
+ |V_{\tau3}|^2=\frac{2c^2}{3},\nonumber\\
+ \sin^2\theta_{12}&=\frac1{3(1-r_{13})},\qquad
+ \tan^2\theta_{23}=\frac{|V_{\mu3}|^2}{|V_{\tau3}|^2}.\label{eq:angles}
+\end{align}
+Angle formulas are used where their denominators are nonzero. The fixed democratic second column supplies the exact solar relation. It does not explain why a physical mass eigenvector should equal $u$.
+
+In the stated ordering the quartet is
+\begin{equation}\label{eq:quartet}
+ J=\im(V_{e1}V_{\mu2}\bar V_{e2}\bar V_{\mu1})
+   =-\frac{\sin2\phi\sin\delta}{6\sqrt3}.
+\end{equation}
+To check the sign without a convention change, $V_{e2}=V_{\mu2}=1/\sqrt3$, while $V_{e1}=c/\sqrt2+e^{i\delta}s/\sqrt6$ and $V_{\mu1}=-c/\sqrt2+e^{i\delta}s/\sqrt6$. Their product with the second factor conjugated has imaginary part $-cs\sin\delta/\sqrt3$; division by three gives \eqref{eq:quartet}. The printed positive sign in HG \S12.2 is thus refuted in this exact convention.
+
+The printed atmospheric formula is
+\begin{equation}\label{eq:printedatmos}
+ \tan(2\theta_{23})\ \overset{\text{HG claim}}{=}\
+ \frac{4\cos\theta_{12}\sin\theta_{12}\sin\theta_{13}\cos\delta}
+ {\cos^2\theta_{12}-\sin^2\theta_{12}\sin^2\theta_{13}}.
+\end{equation}
+At $(\phi,\delta)=(0,\pi/2)$ the actual $\tan(2\theta_{23})=4/3$, while \eqref{eq:printedatmos} gives zero. At $\phi=0$, $r_{13}=1/6$, so this is not the claimed tri-bimaximal (TBM) limit. A valid TBM-moduli control is $(\phi,\delta)=(\pi/6,0)$:
+\begin{equation}\label{eq:tbm}
+ |V|^2=\begin{pmatrix}2/3&1/3&0\\1/6&1/3&1/2\\1/6&1/3&1/2\end{pmatrix}.
+\end{equation}
+The largest $|J|$ in this family requires \emph{both} $|\sin2\phi|=1$ and $|\sin\delta|=1$, not either condition alone.
+
+The PDG convention gives $J=c_{12}s_{12}c_{23}s_{23}c_{13}^2s_{13}\sin\delta_D$ \cite[Eq. 14.34 and \S14.7.3]{pdg}. Away from degenerate angle factors, moduli and a quartet can determine a Dirac phase; the quartet alone supplies neither cosine nor quadrant. Internal $\delta$ is not automatically $\delta_D$. Majorana column phases cancel in this quartet and were set aside by HG, so no full Majorana-sensitive CP statement follows. HG \S13's proposed $\theta_{23}=45^\circ$, $\delta_{\rm CP}=-\pi/2$ selection is not derived from the free family or inversion alone.
+
+\subsection{HD-M and HD-A: the shared Gram obstruction}\label{sec:gram}
+HD pp. 5 and 21 describe $(u,x,y)$ as orthonormal but also print $x\mathbin{\cdot}y=1$. These assumptions conflict. The following result conditions explicitly on the stated orthonormal-frame assumption, with \eqref{eq:frame} an admissible instance; it does not adopt the conflicting dot product or silently correct that passage.
+
+Define $e_\pm=(x\pm iy)/\sqrt2$. HD-M, Eqs. (3)--(5), uses
+\begin{align}
+ \nu_2&=\cos\varepsilon\,u+\sin\varepsilon(\cos\psi\,x+\sin\psi\,y),\label{eq:tilt}\\
+ \nu_1&=\cos h\,e_++\sin h\,e^{-i\vartheta}e_-,\qquad
+ \nu_3=-\sin h\,e_++\cos h\,e^{-i\vartheta}e_-,\label{eq:hdcolumns}
+\end{align}
+with $h=\phi$. HD-A first sets
+\begin{equation}
+ h_+=\cos\psi\,e_++\sin\psi\,e^{-i\vartheta}e_-,\qquad
+ h_-=-\sin\psi\,e_++\cos\psi\,e^{-i\vartheta}e_-,
+\end{equation}
+then rotates $(h_+,h_-)$ by $\phi$. Angle addition gives \eqref{eq:hdcolumns} with $h=\phi+\psi$. This is the Appendix's distinct literal construction, with the same \eqref{eq:tilt}; its two transverse columns still lie in $u^\perp$.
+
+\begin{proposition}[Literal-column obstruction]\label{prop:gram}
+For $V_\nu=[\nu_1,\nu_2,\nu_3]$ in either variant,
+\begin{equation}\label{eq:obstruction}
+ |\nu_1^\dagger\nu_2|^2+|\nu_3^\dagger\nu_2|^2=\sin^2\varepsilon.
+\end{equation}
+Its Gram matrix has spectrum $\{1,1+|\sin\varepsilon|,1-|\sin\varepsilon|\}$, determinant $\cos^2\varepsilon$ and squared Frobenius defect $2\sin^2\varepsilon$. It is unitary exactly when $\sin\varepsilon=0$.
+\end{proposition}
+\begin{proof}
+The pair $(\nu_1,\nu_3)$ is an orthonormal basis of the complexified transverse plane. Parseval applied to the transverse component of $\nu_2$ proves \eqref{eq:obstruction}. Explicitly, put $a=\nu_1^\dagger\nu_2$ and $b=\nu_3^\dagger\nu_2$. Then
+\begin{align}
+ a&=\frac{\sin\varepsilon}{\sqrt2}\bigl(\cos h\,e^{-i\psi}+\sin h\,e^{i(\vartheta+\psi)}\bigr),\nonumber\\
+ b&=\frac{\sin\varepsilon}{\sqrt2}\bigl(-\sin h\,e^{-i\psi}+\cos h\,e^{i(\vartheta+\psi)}\bigr),\label{eq:overlaps}\\
+ |a|^2&=\tfrac12\sin^2\varepsilon[1+\sin(2h)\cos(\vartheta+2\psi)],\nonumber\\
+ |b|^2&=\tfrac12\sin^2\varepsilon[1-\sin(2h)\cos(\vartheta+2\psi)].\nonumber
+\end{align}
+All columns have unit norm and $\nu_1^\dagger\nu_3=0$, whence
+\begin{equation}\label{eq:gram}
+ G_\nu=V_\nu^\dagger V_\nu=\begin{pmatrix}1&a&0\\\bar a&1&\bar b\\0&b&1\end{pmatrix},\qquad
+ \det(t\I-G_\nu)=(t-1)\bigl((t-1)^2-\sin^2\varepsilon\bigr).
+\end{equation}
+This gives the eigenvalues and determinant. The four off-diagonal entries of $G_\nu-\I$ have total squared modulus $2(|a|^2+|b|^2)$, proving the defect. Its vanishing is equivalent to unitarity.
+\end{proof}
+At $\varepsilon=\pi/12$ and $\phi=\psi=\vartheta=0$, both variants give $a=b=(\sqrt3-1)/4$ and $\|G_\nu-\I\|_F^2=1-\sqrt3/2$. A unitary left correction $U_e^\dagger$ cannot remove the obstruction: $(U_e^\dagger V_\nu)^\dagger(U_e^\dagger V_\nu)=G_\nu$. In the small-tilt regime the exceptional unitary sector is $\varepsilon=0$; globally it is $\varepsilon\in\pi\mathbb Z$.
+
+Three findings must be kept separate. Literal nonzero-tilt unitarity is refuted whenever $\sin\varepsilon\ne0$. An intended transport or corrected source was not recovered; authorial intent is unconfirmed, and Hilmir did not confirm that no rotation was intended. Physical predictions relying on the printed derivation are consequently unestablished, rather than disproved for every possible alternative model. No Gram--Schmidt, polar factor, minimum rotation or other transport is selected here.
+
+\subsection{Independent checks in the unitary zero-tilt sector}\label{sec:untilted}
+At $\varepsilon=0$, direct substitution in the same quartet convention gives
+\begin{equation}\label{eq:hdquartet}
+ J_{\rm M}=-\frac{\cos2\phi}{6\sqrt3},\qquad
+ J_{\rm A}=-\frac{\cos2(\phi+\psi)}{6\sqrt3}.
+\end{equation}
+For example, using \eqref{eq:hdcolumns}, the imaginary part of $\nu_{1e}\bar\nu_{1\mu}$ is $-\cos(2h)/(2\sqrt3)$; the two democratic-column entries supply the additional factor $1/3$. The result is independent of $\vartheta$. At all angles zero, $J=-1/(6\sqrt3)$, whereas HD p. 23's expression proportional to $\sin\vartheta\sin2\phi\sin2\psi+O(\varepsilon)$ vanishes. The same unitary control has $|V_{e3}|^2=1/3$, whereas the reactor expression $\sin^2\phi\cos^2\varepsilon+O(\sin\varepsilon)$ on pp. 7, 22 gives zero. These counterexamples do not depend on a missing tilted transport.
+
+The charged-lepton row algebra on HD pp. 11--12 is itself valid. Its convention is
+\begin{equation}
+ U_e=\begin{pmatrix}\cos\alpha&\sin\alpha\,e^{-i\chi}&0\\-\sin\alpha\,e^{i\chi}&\cos\alpha&0\\0&0&1\end{pmatrix},\qquad U=U_e^\dagger V_\nu.
+\end{equation}
+At the all-zero HD control choose $\chi=\pi/2$. Both off-diagonal entries of $U_e^\dagger$ equal $i\sin\alpha$. Here $V_{e3}=1/2-i/\sqrt{12}$ and $V_{\mu3}=-1/2-i/\sqrt{12}$, so $d|U_{e3}|^2/d\alpha=1/\sqrt3$ and $d|U_{\mu3}|^2/d\alpha=-1/\sqrt3$ at zero. Differentiating $\sin^2\theta_{23}=|U_{\mu3}|^2/(1-|U_{e3}|^2)$ yields
+\begin{equation}\label{eq:charged}
+ \left.\frac{d\sin^2\theta_{23}}{d\alpha}\right|_0=-\frac{\sqrt3}{4}.
+\end{equation}
+Thus the blanket atmospheric $O(\alpha^2)$ claim fails. The quartet derivative is zero at this particular extremal control; it is not claimed as a nonzero-$J$ derivative example. Finally, a tilt sign alone supplies no mass eigenvalues. HD's normal/inverted ordering assignment requires an unrecovered mass operator and an eigenstate/ordering dictionary.
+
+\section{Typed CP actions, discrete groups and clock masks}\label{sec:cp}
+Let $Kz=\bar z$ in the original real channel basis and define
+\begin{equation}\label{eq:rotref}
+ R(\theta)=uu^T+\cos\theta(xx^T+yy^T)+\sin\theta(xy^T-yx^T),\qquad Q_y=\I-2yy^T.
+\end{equation}
+The real proper rotation $R$ fixes $u$ and has eigenvalues $1,e^{i\theta},e^{-i\theta}$, with $R(\theta)e_\pm=e^{\pm i\theta}e_\pm$. The real reflection $Q_y$ has determinant $-1$ and spectrum $(1,1,-1)$. Both $Q_y$ and $K$ swap the named helicity vectors, but on a general combination they act as
+\begin{equation}
+ Q_y(ae_++be_-)=ae_-+be_+,\qquad K(ae_++be_-)=\bar a e_-+\bar b e_+.
+\end{equation}
+The first is complex-linear and the second anti-linear. In particular HD-A's assertion $h_+\leftrightarrow h_-$ under conjugation does not hold for arbitrary $\psi,\vartheta$.
+
+Substitution in \eqref{eq:rotref}, using that $R$ is real, gives
+\begin{equation}\label{eq:cprelations}
+ Q_yR(\theta)Q_y=R(-\theta),\quad KR(\theta)K=R(\theta),\quad
+ (R(\theta)K)^2=R(2\theta),\quad(Q_yK)^2=\I.
+\end{equation}
+Thus ordinary conjugation cannot implement the inverse-rotation relation for this real $R$. At $\theta=\pi/2$, $(RK)^2=2uu^T-\I$ is $-\I$ on $u^\perp$. There is no nonzero transverse projective fixed ray: if $RKv=\xi v$, anti-linearity implies $(RK)^2v=|\xi|^2v$, incompatible with $-v$. A fixed vector on the $u$ axis does not supply a transverse fixed phase. Independently, HD p. 13's scalar equation
+\begin{equation}
+ e^{-i\vartheta}=e^{i\vartheta}e^{-2i\theta}
+ \quad\Longrightarrow\quad \vartheta=\theta\pmod\pi
+\end{equation}
+does not yield the next printed line $2\vartheta=\pi-2\theta$, nor the asserted identity $\mathrm{CP}\circ R(\pi/2)=\mathrm{id}$.
+
+HD p. 3 specifies a rotation of order 24 and an involution reversing it. The representation generated by $R(\pi/12),Q_y$ has 24 rotations and 24 reflections, hence order 48; p. 13's ``order 24'' wording conflicts with it. HV p. 5 uses a dodecagon with 12 rotations through $30^\circ$, a consistent dihedral group of total order 24. Its additional assertion of twelve distinct $15^\circ$ half-step positions instead needs an extra quotient: there are 24 such positions on the oriented $2\pi$ circle. No quotient is selected here.
+
+A finite group provides transformations, not a restoring law, attraction width or uncertainty interval. HD p. 4 labels its plot \emph{Illustrative CP-Octant Ridge (Synthetic)}. This source illustration is not authenticated evidence of a derived stable ridge. Both $30^\circ$ and $45^\circ$ grids contain $90^\circ$; that phase alone does not select a unique $15^\circ$ grid. The proposed unique stable $\pm15^\circ$ physical band remains unestablished by the printed derivation.
+
+M12 is a different, external discrete clock. With positive integer $N=12$, centers 3 and 9 and cyclic half-width one, its mask is $\{2,3,4,8,9,10\}$. These are windows of $\pm30^\circ$ about $\pm90^\circ$, not HD's $\pm15^\circ$. For $q_t=q_0+st\pmod N$, the least positive return time is $N/\gcd(s,N)$ because it is the least $t>0$ with $N\mid st$. Occupancy is a mask count along that orbit. A complete unit-step orbit has occupancy $6/12$ by construction, with no recovered feedback into the amplitude law. An exposure comparison would be needed before inferring even a statistical preference from window-conditioned events. Additional literal HD counts and HV's stationary-phase counterexample are in Appendix~\ref{app:counts}.
+
+None of these statements supplies physical charge conjugation, parity of an interacting field theory, or a Standard Model identification. A state that fails reflection invariance is also different from a governing equation that fails equivariance. These distinctions remain necessary even where a source uses the single label ``CP.''
+
+\section{Exact comparison with the native nonlinear map}\label{sec:native}
+For real parameters $p=(\eta,g,\lambda,k)$, the native amplitude stage and synchronization are
+\begin{align}
+ A_p(z)&=D_pz-\eta n(z),& D_p&=\I+\eta\diag k+gL,& n_i(z)&=|z_i|^2z_i,\label{eq:nativeamp}\\
+ F_p(z)&=S_\lambda(A_p(z)),& S_\lambda(w)_i&=|w_i|e^{i(\varphi_i+d_i)},&
+ d_i&=\lambda\sum_{j\ne i}\sin3(\varphi_j-\varphi_i),\label{eq:nativesync}
+\end{align}
+where $\varphi_i=\Argz(w_i)$, $\Argz(0)=0$. At $\lambda=0$, $S_0$ is the identity. The \emph{regular prestage domain} means every component of $A_p(z)$ is nonzero. Branch changes in a nonzero argument do not alter \eqref{eq:nativesync}; the pinned value at a zero component is a genuine boundary convention \cite{pa}.
+
+\subsection{Stage defects, covariance and real differentiation}\label{sec:defects}
+For a fixed complex-linear action $G$ and fixed parameters, define
+\begin{align}
+ \Delta_A(G,z)&=A_p(Gz)-GA_p(z)\nonumber\\
+ &=\bigl(\eta[\diag k,G]+g[L,G]\bigr)z-\eta\bigl(n(Gz)-Gn(z)\bigr),\label{eq:ampdef}\\
+ \Delta_F(G,z)&=S_\lambda(GA_p(z)+\Delta_A(G,z))-GS_\lambda(A_p(z)).\label{eq:fulldef}
+\end{align}
+These identities follow by adding and subtracting $GA_p(z)$ and separating the linear and cubic terms. They locate a failure in the graph/coefficients, the onsite cubic, or synchronization; a numerical defect alone need not do so.
+
+For a permutation $P$, $PL=LP$, $n(Pz)=Pn(z)$, and the synchronization sum permutes exactly, including zero components. Consequently
+\begin{equation}\label{eq:covariance}
+ F_{\eta,g,\lambda,Pk}(Pz)=P F_{\eta,g,\lambda,k}(z).
+\end{equation}
+This is coefficient covariance. At fixed $k$ it supplies symmetry when $Pk=k$; in the amplitude comparison with $\eta\ne0$, that is precisely the coefficient condition. If $\eta=0$, $k$ has no effect. For real parameters $A_p(\bar z)=\overline{A_p(z)}$, and conjugation reverses the phase increments in \eqref{eq:nativesync}. Hence $F_pK=KF_p$ on all strata. For an anti-linear $GK$, its defect is the $G$ defect at $\bar z$; the map is an involution only if $G\bar G=\I$. A coordinate rewrite $GF_pG^{-1}$, by contrast, always defines a conjugate system and is not an assertion that $G$ commutes with $F_p$.
+
+Differentiation is over six real state coordinates. For a complex notation for the real direction $v$,
+\begin{equation}\label{eq:ampderivative}
+ DA_p(z)[v]=D_pv-\eta\bigl(2|z|^2\odot v+z^2\odot\bar v\bigr).
+\end{equation}
+Indeed $d(|z_i|^2z_i)=2|z_i|^2v_i+z_i^2\bar v_i$; dropping the conjugate-direction term would incorrectly make the map complex-linear. On the regular synchronization domain, with $r_i=|w_i|$,
+\begin{align}
+ dr_i&=\re(\bar w_i v_i)/r_i,& d\varphi_i&=\im(v_i/w_i),\nonumber\\
+ DS_\lambda(w)[v]_i
+ &=e^{i(\varphi_i+d_i)}\left[dr_i+i r_i\left(d\varphi_i+
+ 3\lambda\sum_{j\ne i}\cos3(\varphi_j-\varphi_i)(d\varphi_j-d\varphi_i)\right)\right].\label{eq:syncderivative}
+\end{align}
+The real derivative of $F$ is the composition of these stages. A smooth one-parameter symmetry generated by $X$ must satisfy $DF_p(z)[Xz]=XF_p(z)$ on its differentiability domain, by differentiating $F_p(e^{tX}z)=e^{tX}F_p(z)$ at $t=0$. This is a symmetry test, not a statement of holomorphicity.
+
+\subsection{Restricted symmetry statements and exceptions}\label{sec:classification}
+\begin{proposition}[Amplitude classification only]\label{prop:monomial}
+Let $\lambda=0$ and $\eta\ne0$. Any unitary complex-linear symmetry of $A_p$ is monomial. If also $g\ne0$, it is a common phase times a permutation stabilizing $k$. This does not classify the general synchronized map.
+\end{proposition}
+\begin{proof}
+Separating cubic and linear degrees in $A_p(Gz)=GA_p(z)$ gives $n(Gz)=Gn(z)$ and $D_pG=GD_p$. For a unit coordinate vector $e_j$, let $a=Ge_j$. Cubic equivariance requires $|a_i|^2a_i=a_i$, so every nonzero entry has modulus one. Since this column has unit norm, exactly one entry is nonzero. Orthogonality of columns makes $G$ a diagonal phase times a permutation. Such matrices commute with the cubic. For $g\ne0$, all off-diagonal entries of $D_p$ equal $g$; the linear commutation condition forces the diagonal phases to be equal. Its diagonal entries then force the permutation to stabilize $k$. Conversely these actions commute with both terms.
+\end{proof}
+When $g=\lambda=0$, independent channel phases form a U(1)$^3$ symmetry, with coefficient-stabilizing permutations when $\eta\ne0$. When $\eta=g=\lambda=0$, $F$ is the identity and full SU(3) equivariance is automatic. These exceptions prevent an unqualified rejection of SU(3) in every parameter regime. The standard eight-generator comparator is explicit in Appendix~\ref{app:rep}; it was not recovered as legacy implemented dynamics.
+
+For the full map, a common phase commutes with the amplitude stage. On a regular prestage all arguments shift together, so phase differences remain unchanged and common U(1) equivariance holds. At a zero component the pinned phase does not shift. Shifts by $2\pi m/3$ nevertheless leave every harmonic-three sine unchanged, even against pinned zeros. Thus the common cube-root subgroup $\{\omega^m\I\}$ is a symmetry on all strata. The distinction is exact: at $\eta=g=0$, $\lambda=1/32$,
+\begin{equation}\label{eq:zeroboundary}
+ F(1,0,1)=(1,0,1),\qquad F(i,0,i)=(ie^{i/32},0,ie^{i/32})\ne iF(1,0,1).
+\end{equation}
+The sole nonzero phase-difference contribution from the pinned middle component is $\sin(-3\pi/2)=1$. This refutes all-strata U(1) equivariance at this nonzero synchronization strength without perturbing the zero.
+
+\subsection{Linear transverse degeneracy and an exact nonlinear defect}\label{sec:counter}
+The eigenspaces of $L$ are $\C u$ with eigenvalue zero and $u^\perp$ with eigenvalue $-3$. A commuting matrix preserves these two eigenspaces. Its complex centralizer therefore has dimension $1+4=5$, and its unitary centralizer is U(1)$\times$U(2), intersecting SU(3) in $\mathrm{S}(\mathrm{U}(1)\times\mathrm{U}(2))$. This is a statement about $L$, not $F$.
+
+With equal coefficients, the equal-channel line is invariant. The transverse plane generally is not: for $z=(1,1,-2)$, $k=e$, $\eta=1/16$, $g=1/8$, $\lambda=0$, the sum of output components is $3/8$, although the input sum is zero. The linear terms have zero sum, whereas $\sum n_i=1+1-8=-6$.
+
+At a real equal-channel state $z=re$, with $r>0$, common $k$ and positive amplitude prestage, the real and imaginary blocks are
+\begin{align}
+ J_r&=[1+\eta(k-3r^2)]\I+gL,\nonumber\\
+ J_i&=(\I+3\lambda L)\bigl([1+\eta(k-r^2)]\I+gL\bigr).\label{eq:localblocks}
+\end{align}
+Equation~\eqref{eq:ampderivative} gives the first factorization into radial and phase directions; at equal positive phases, differentiating the sine sum gives $3\lambda L$. Repeated transverse eigenvalues follow. PF's inherited local directional/harmonic analysis, including a fourth-order $\sin6\varphi$ angular dependence, concerns a restricted perturbation problem. It does not establish six global attractors or a nonlinear SU(3) action. The historical \texttt{eigen\_analysis} scalar-reference Jacobian estimate is likewise a stated approximation, not the full six-real derivative.
+
+For a decisive regular counterexample, take
+\begin{equation}\label{eq:qmatrix}
+ Q_y=\tfrac13\begin{pmatrix}2&-1&2\\-1&2&2\\2&2&-1\end{pmatrix},\quad
+ z=(1,2,4)^T,\quad \eta=\tfrac1{16},\quad g=\tfrac18,\quad\lambda=0,\quad k=e.
+\end{equation}
+Then
+\begin{align}
+ Q_yz&=(8/3,11/3,2/3)^T,\qquad A_p(z)=(3/2,7/4,-3/8)^T,\nonumber\\
+ A_p(Q_yz)&=(329/216,17/54,71/54)^T,\nonumber\\
+ A_p(Q_yz)-Q_yA_p(z)&=(293/216,-11/108,-211/216)^T.\label{eq:rationaldefect}
+\end{align}
+All relevant prestage components are nonzero. $Q_y$ commutes with the equal-coefficient linear part; the nonzero difference is the cubic obstruction. Moreover $-Q_y$ has determinant one and lies in SU(3). Since this amplitude map is odd, its defect is the negative of \eqref{eq:rationaldefect}, giving an explicit SU(3) counterexample in this regime. The finite witnesses in Appendix~\ref{app:witness} also isolate synchronization and graph-coupling defects. The exact calculation, rather than a tolerance test, carries the universal rejection for the stated proposed symmetry.
+
+\section{Cubic, area and coherence observables}\label{sec:observables}
+The historical PL/code observer is the cubic
+\begin{equation}\label{eq:cubic}
+ t=z_1\bar z_2z_3,\qquad J_{\rm eff}=\im t.
+\end{equation}
+It is not a mixing-matrix quartet. To compare information content, write $z=a+ib$, $a,b\in\R^3$, and define the inherited geometric quantities \cite{pb,pg,nrg,sgo}
+\begin{align}
+ C&=a\times b=(\im\bar z_2z_3,\im\bar z_3z_1,\im\bar z_1z_2)^T,\nonumber\\
+ A_{\rm pair}&=ab^T-ba^T=-[C]_\times,\qquad S=aa^T+bb^T,\nonumber\\
+ H&=zz^\dagger=S-iA_{\rm pair},\qquad \Gamma=e^TC,\qquad W=TC,\label{eq:observables}\\
+ T&=\begin{pmatrix}-1/2&1&-1/2\\-\sqrt3/2&0&\sqrt3/2\\0&0&0\end{pmatrix},\qquad
+ \beta=z^Tz.\nonumber
+\end{align}
+Here $[C]_\times v=C\times v$ and $T$ specifies the inherited shell attachment; $C$ is an internal area vector, while $W$ is an attached ambient axial readout. Since $T^TT=\frac32(\I-ee^T/3)$,
+\begin{equation}\label{eq:arearecovery}
+ C=\tfrac23 T^TW+\tfrac13\Gamma e,\qquad I^2-|\beta|^2=4\|C\|^2.
+\end{equation}
+For the second identity, $I=\|a\|^2+\|b\|^2$ and $\beta=\|a\|^2-\|b\|^2+2ia\mathbin{\cdot}b$. Subtraction gives four times $\|a\|^2\|b\|^2-(a\mathbin{\cdot}b)^2=\|a\times b\|^2$.
+
+Under a common phase, the pair $(a,b)$ undergoes an oriented plane rotation. Consequently $C,A_{\rm pair},S,H,\Gamma,W$ are invariant, whereas
+\begin{equation}\label{eq:phaseobserver}
+ \beta' =e^{2i\chi}\beta,\qquad
+ J_{\rm eff}'=\cos\chi\,J_{\rm eff}+\sin\chi\,\re t.
+\end{equation}
+The cubic is therefore not a common-phase invariant. Under $K$, $b$ changes sign, giving $(C,A_{\rm pair},\Gamma,W)\mapsto-(C,A_{\rm pair},\Gamma,W)$, $S\mapsto S$, $H\mapsto\bar H$, $\beta\mapsto\bar\beta$, and $J_{\rm eff}\mapsto-J_{\rm eff}$. Under real orthogonal $Q$,
+\begin{equation}\label{eq:orthobserver}
+ C'=\det(Q)QC,\quad A_{\rm pair}'=QA_{\rm pair}Q^T,\quad S'=QSQ^T,\quad H'=QHQ^T,\quad\beta'=\beta.
+\end{equation}
+These follow from the determinant law for the cross product and direct congruence. There is no universal corresponding parity law for the cubic. For a channel permutation $P$, $\Gamma'=\det(P)\Gamma$ since $P^Te=e$, but the odd swap $P_{13}$ leaves $J_{\rm eff}$ unchanged. These are state-transformation identities; dynamical covariance still needs \eqref{eq:covariance} and its domain qualifications.
+
+The actual PB shell reflections are inherited attachment-specific actions, not arbitrary channel reflections. The ambient horizontal mirror $H_s=\diag(1,1,-1)$ induces $z'=Kz$. Thus $C'=-C$, $\Gamma'=-\Gamma$ and $W'=-W=\det(H_s)H_sW$. The vertical mirror $V_s=\diag(-1,1,1)$ induces $z'=-P_{13}Kz$, yielding $C'=P_{13}C$, $\Gamma'=\Gamma$, $W'=-V_sW$ and $J_{\rm eff}'=J_{\rm eff}$. Hence $W$ has its stated ambient axial law and $\Gamma e_z$ the corresponding polar law; the cubic is not a general orientation pseudoscalar.
+
+The following exact controls make the information differences concrete. All are retained SCC-01 examples, not new witnesses.
+\begin{center}\small
+\begin{tabular}{@{}lllll@{}}\toprule
+$z$ & $J_{\rm eff}$ & $C$ & $\Gamma\ ;\ W$ & $\beta$\\\midrule
+$(1,1,1)$ & $0$ & $0$ & $0\ ;\ 0$ & $3$\\
+$(i,i,i)$ & $1$ & $0$ & $0\ ;\ 0$ & $-3$\\
+$(1,i,0)$ & $0$ & $(0,0,1)$ & $1\ ;\ (-1/2,\sqrt3/2,0)$ & $0$\\
+$(1,i,1)$ & $-1$ & $(-1,0,1)$ & $0\ ;\ (0,\sqrt3,0)$ & $1$\\
+$(1,-1+i,-i)$ & $1$ & $(1,1,1)$ & $3\ ;\ 0$ & $-2i$\\\bottomrule
+\end{tabular}
+\end{center}
+The first two have equal $H$ and intensity weights but different cubic values. Nonzero area may coexist with a zero cubic, and $W$ may vanish with nonzero area. M10's intensity chart cannot reconstruct these phase-sensitive distinctions.
+
+The inherited SGO static full snapshot has the information content of $(H,\beta)$. For nonzero $z$, equality of rank-one $H$ fixes $z$ up to a common phase. Matching $\beta$ then requires $e^{2i\chi}=1$ if $\beta\ne0$, leaving the fibre $\{z,-z\}$; if $\beta=0$, the entire common-phase circle remains. Zero is a singleton. This explains the inherited fibre statement without asserting a new dynamical closure theorem. NRG's regular coherence results retain their own domain; closure of $J_{\rm eff}$ or $W$ alone is not established here.
+
+\section{Fixed SRG preparation is a separate operator}\label{sec:srg}
+For the fixed November parameters retained in \texttt{srg.py}, put
+\begin{gather}
+ q=e^{-.423},\qquad r=e^{.577},\qquad c=.382,\qquad P_0=uu^T,\nonumber\\
+ R_s=q\I+(r-q)P_0,\quad C_s=c\I+(1-c)P_0,\quad
+ Z=\diag(1,\bar\omega,\omega),\quad A_s=R_sZC_s.\label{eq:srg}
+\end{gather}
+The factors $R_s,C_s$ preserve the symmetric/transverse splitting with eigenvalues $(r,q,q)$ and $(1,c,c)$. Although $Z\in\mathrm{SU}(3)$, their product need not be unitary. In the ordered Fourier basis $f_0=u$, $f_1=(1,\bar\omega,\omega)^T/\sqrt3$, $f_2=\bar f_1$, direct action gives
+\begin{equation}\label{eq:weightedcycle}
+ (A_s)_F=\begin{pmatrix}0&0&cr\\q&0&0\\0&cq&0\end{pmatrix},\qquad
+ A_s^3=d\I,\quad d=q^2rc^2,\quad \det A_s=d,\quad\tr A_s=0.
+\end{equation}
+Its eigenvalues are $\rho_s,\rho_s\omega,\rho_s\omega^2$ with $\rho_s=d^{1/3}$, and its singular values are $q,cq,cr$. The three are distinct and below one for these fixed constants. Thus $A_s$ is a nonunitary strict contraction.
+
+Since the three eigenvalues are distinct, a commuting complex matrix is diagonal in an eigenbasis and interpolates a polynomial in $A_s$ of degree at most two; the complex centralizer has dimension three. A commuting unitary also commutes with $A_s^\dagger$ (use $UA_sU^\dagger=A_s$ and take adjoints), hence with $A_s^\dagger A_s$. Its distinct diagonal singular squares in the Fourier basis force that unitary to be diagonal there. The three nonzero cycle entries then force all phases equal. The unitary centralizer is scalar U(1), with SU(3) intersection the center $\mathbb Z_3$.
+
+The other fixed factor is
+\begin{equation}
+ B_s=e^{-i\alpha\sigma_z}e^{-i\beta_s\sigma_x},\qquad
+ \alpha=2\pi(.244),\qquad\beta_s=\pi(.244),\qquad U_s=B_s\otimes A_s,
+\end{equation}
+with $\sigma_z=\diag(1,-1)$ and $\sigma_x=\left(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\right)$. The factor $B_s$ is unitary of determinant one and trace $2\cos\alpha\cos\beta_s$; its eigenvalues are $e^{\pm i\chi}$ where $\cos\chi=\cos\alpha\cos\beta_s$. The six-state product acts on $\C^2\otimes\C^3$, has determinant $d^2$ and eigenvalues $e^{\pm i\chi}\rho_s\omega^j$ ($j=0,1,2$). The helicity eigenspaces tensored with $\C^3$ are invariant. The inherited NRG eigenbra extraction satisfies
+\begin{equation}
+ (\langle b_\pm|\otimes\I)U_s=e^{\pm i\chi}A_s(\langle b_\pm|\otimes\I).
+\end{equation}
+It describes preparation and sector extraction, not the nonlinear recurrence $F$.
+
+As a separate mathematical interpretation, $\rho\mapsto U_s\rho U_s^\dagger$ is a one-Kraus completely positive map: after adjoining any identity ancilla it is still a congruence and preserves positive semidefiniteness. Since $U_s^\dagger U_s<\I$, its trace strictly decreases on nonzero positive inputs. There is no renormalization here. This meaning of ``CP'' is distinct from physical charge-parity, and $F$ is not identified with this linear quantum operation.
+
+\section{Retained finite evidence and limits}\label{sec:evidence}
+The unchanged frozen SCC-01 protocol records 16 tuples, each evaluated at original and transformed inputs through the existing direct \texttt{dynamics.step3} and public \texttt{api.step} routes. There were 32 direct and 32 public one-update evaluations. The public route invokes the same implementation: the total was 64 native step calls, including those 32 public calls, not 96 and not 64 independent symmetries. The retained record reports zero ring steps and no legacy, H-REF or production runtime imports. These facts are historical saved records, not events reenacted for this manuscript.
+
+The protocol was frozen at 03:45:18 UTC on 8 October 2026, before the recorded native start at 03:54:58. Its SHA-256 is
+\begin{center}\footnotesize\nolinkurl{f35a6d72ccf8fa457c4a3dd7b3b361bde00c321dbed04e67b9b2ee2a671ba0eb}.\end{center}
+The original independently coded reference used 110 decimal digits. Supplied binary64 inputs and coefficients were lifted by exact integer ratios; transformed implementation inputs used rounded action matrices. Ideal-expression symmetry defects were retained separately. The unchanged comparison criterion was
+\begin{equation}\label{eq:tolerance}
+ \|F_{\rm impl}-F_{\rm ref}\|_2\le10^{-12}+10^{-10}\|F_{\rm ref}\|_2.
+\end{equation}
+All 64 comparisons passed. The maximum reference error was $1.4252094717686798\times10^{-16}$, and the maximum error/allowed-limit ratio was $2.0583118813806457\times10^{-6}$ (displayed at the later audit's precision); both occur on W13's transformed side. The complete witness table is Appendix~\ref{app:witness}. Nine tuples test expected symmetry/covariance and seven deliberately test nonzero defects. W15 is the only ideal zero-prestage boundary tuple; all other ideal tuples are regular on both sides. Actual binary64 regularity was separately recorded. Outputs were not normalized, phase-aligned, clipped or perturbed away from zero, and small residuals were not replaced by zero.
+
+The original exact run records 190 passing predicates and the general-Gram supplement 11. These are check counts, not theorem counts. Static comparison in the accepted review found only an added \texttt{gram\_supplement} function and a changed dispatcher between the first-exact and final verifiers; the exact, action, reference and native functions were unchanged. No scientific or reviewer checker was rerun during manuscript preparation.
+
+The subsequent accepted saved-data audit used an independent 120-digit reconstruction \cite{addendum}. It imported neither the submitted verifier nor a kernel and evaluated synchronization by complex unit directions, assigning direction one at zero to represent $\Argz(0)=0$. It reconciled 16 tuples, 64 unique witness/side/route keys, all references and prestages, all original inequalities and all 16 ideal defects. The 32 direct/API output pairs were byte-identical. Route agreement is useful consistency evidence, but two routes sharing an implementation are not two independent implementations.
+
+The accepted transfer ZIP contained 41 unique members and 40 entries in its package manifest. Of the 49 files named in the original artifact manifest, 36 were transferred; including the original manifest itself gives 37 directly checked originals. The other 13 entries were outside the requested selection. The local 50-file packaging record was consistent, but absent bytes were not independently authenticated by that reviewer. All 16 supplied source-page PNGs were individually inspected; that was review of saved renders, not fresh PDF rendering or an all-page corpus audit. The equality of two saved preservation snapshots covering 682 source files and both repositories established saved-record consistency, not a newly observed historical filesystem, profiler or running production service.
+
+The mathematical proofs and decisive examples in this paper are self-contained. Private raw journals, machine-bound verifiers, source-tree inventories and reviewer bundles remain in the retained project evidence and are not distributed with this manuscript. This repository edition is therefore not a turnkey public replay package. It reports finite implementation corroboration without expanding it into universal testing, empirical validation or an externally authenticated execution history.
+
+\section{Discussion and disposition}\label{sec:discussion}
+The strongest surviving relationship is the shared oriented democratic/transverse frame. It supports exact historical intensity coordinates, valid representation constructions and the unitary HG TM2 family. The same frame diagonalizes the current graph operator and organizes a restricted local response. The deterministic historical core also agrees with the native recurrence on an explicitly matched parameter and zero-convention slice. These are positive mathematical connections with specified objects and domains.
+
+Other implications fail for precise reasons. Finite-cycle closure does not characterize singlets. Printed mixing signs and special limits have exact counterexamples. The literal D24 tilted columns have a quantified Gram obstruction, and the independently valid zero-tilt sector refutes separate printed quartet, reactor and charged-lepton assertions. Linear reflection and anti-linear conjugation obey different rotation relations. A clock mask does not derive phase attraction, and the current onsite cubic prevents extending transverse linear symmetry to the general nonlinear law. None of these conclusions invalidates every statement in a historical paper.
+
+Missing transport, mass and physical dictionaries remain missing. They are not supplied by adopting a convenient completion. A source-authenticated transported model, or an explicitly new construction with selected premises, would require a separate study. This manuscript does not initiate it. The M10 and M12 historical dispositions remain reconstructed/deferred passive candidates, rather than blanket scientific rejection or automatic admission to the current kernel.
+
+The underlying SCC-01 study and manuscript received project-internal review within the stated scope. Hilmir Frímann Halldórsson authorized this v0.1 repository research publication. No external peer review is claimed.
+
+\paragraph{AI assistance and review status.}
+AI assistance from GPT and Codex was used in source analysis, mathematical derivation and checking, manuscript preparation, and project-internal review. The recorded reviews and reciprocal checks were conducted within the project; they do not constitute external peer review. Hilmir Frímann Halldórsson approved this repository edition and is responsible for its content and publication.
+
+\appendix
+\section{Representation, tensor and helicity details}\label{app:rep}
+\subsection{Declared eight-generator comparator}
+Let $E_{ij}$ be the matrix unit with its only nonzero entry, one, at $(i,j)$. A standard Hermitian basis is
+\begin{align}
+ T_1&=(E_{12}+E_{21})/2,&T_2&=(-iE_{12}+iE_{21})/2,&T_3&=(E_{11}-E_{22})/2,\nonumber\\
+ T_4&=(E_{13}+E_{31})/2,&T_5&=(-iE_{13}+iE_{31})/2,&T_6&=(E_{23}+E_{32})/2,\label{eq:generators}\\
+ T_7&=(-iE_{23}+iE_{32})/2,&T_8&=(E_{11}+E_{22}-2E_{33})/(2\sqrt3).\nonumber
+\end{align}
+This is the PDG-normalized comparator \cite[p. 3]{pdgsu3}, not a legacy implementation attributed to M10. Since $E_{ij}E_{kl}=\delta_{jk}E_{il}$, direct traces give $2\tr(T_aT_b)=\delta_{ab}$, proving real independence. The eight traceless Hermitian matrices span that real vector space. The commutator of two is traceless skew-Hermitian, so
+\begin{equation}
+ [T_a,T_b]=i\sum_c f_{abc}T_c,\qquad f_{abc}=-2i\tr([T_a,T_b]T_c)\in\R.
+\end{equation}
+For example $[T_1,T_2]=iT_3$. In the skew basis $X_a=iT_a$, $[X_a,X_b]=-\sum_c f_{abc}X_c$. This written spanning/closure proof complements the retained exact commutator certificate; it does not infer eight dynamical generators from a three-coordinate intensity routine.
+
+\subsection{Tensor typing, constituent cycles and the mass ansatz}
+For kets in $\C^3\otimes\overline{\C^3}$, the action is $U\otimes\bar U$, equivalent to $M\mapsto UMU^\dagger$. An inverse acts on the right in the dual convention, but it is not interchangeable with a second conjugate-ket matrix. Thus HG p. 28's $P\otimes P^{-1}$ requires a typing convention and cannot silently replace $P\otimes\bar P$ (for real $P$, $\bar P=P$). The trace projectors in \eqref{eq:projectors} remain valid under the correctly typed matrix action.
+
+On three fundamental factors, the fully antisymmetric tensor obeys
+\begin{equation}
+ U_{ia}U_{jb}U_{kc}\epsilon_{abc}=(\det U)\epsilon_{ijk}=\epsilon_{ijk}
+ \quad(U\in\mathrm{SU}(3)).
+\end{equation}
+The normalized antisymmetric ket is therefore a singlet. The symmetric subspace has dimension $\binom{5}{3}=10$, the antisymmetric one dimension one, and the whole tensor cube dimension 27. The complementary projector has rank $27-10-1=16$, containing both octets in the standard $10\oplus8\oplus8\oplus1$ decomposition, not a single octet as a literal reading of HG p. 32 would suggest.
+
+Constituent labels also need consistent action. Under the prose cycle $r\mapsto g\mapsto b\mapsto r$, the sequence is $r\bar b\mapsto g\bar r\mapsto b\bar g$, not the printed named kaon sequence. Under the later flavor cycle, $uuu\mapsto ddd\mapsto sss\mapsto uuu$; the $sss$ corner associated with $\Omega$ is not fixed. Color and flavor representations are not identified by naming their constituent slots alike.
+
+HG p. 30 adopts
+\begin{equation}\label{eq:gmoansatz}
+ M=M_0+\alpha Y+\beta_M\bigl[I_f(I_f+1)-Y^2/4\bigr],
+\end{equation}
+where $I_f$ denotes isospin, distinct from state intensity; $\beta_M$ is the source mass coefficient, distinct from $z^Tz$. For $N,\Xi,\Lambda,\Sigma$, the $(Y,I_f)$ pairs are $(1,1/2),(-1,1/2),(0,0),(0,1)$. Substitution gives $M_N=M_0+\alpha+\beta_M/2$, $M_\Xi=M_0-\alpha+\beta_M/2$, $M_\Lambda=M_0$, $M_\Sigma=M_0+2\beta_M$, hence
+\begin{equation}\label{eq:gmo}
+ 2(M_N+M_\Xi)=3M_\Lambda+M_\Sigma.
+\end{equation}
+This proves the conditional Gell-Mann--Okubo algebra. It does not derive \eqref{eq:gmoansatz}, its coefficients or physical masses from the frame. Historical residuals are neither refitted nor refreshed.
+
+\subsection{Inherited E8 certificate limitations and independent helicity}
+Earlier exact host analysis \cite{host}, carried into SCC-01, found seven minus signs in HG p. 40's seventh printed half-root. This violates the even-parity condition for the standard half-integral E8 roots; the overall negative has one minus sign and also fails. The previously examined minimal last-sign repair had Gram determinant nine and the specified reflection-product order nine, not 30. These are inherited results, not a repair selected here. A valid benchmark E8 basis does not recover historical intent. The projection/lift and selected-root dictionary remain missing; an unsigned height square root does not supply both antipodal lifts.
+
+There is also an elementary independent orbit bound. If a proposed Coxeter element $C_0$ has order 30, then $C_0^{10}$ has order three. Each individual-root orbit under it has at most three members, not a single 24-root orbit as worded on HG p. 6. Cycling three sets of eight is a different assertion. A nonzero vector in a genuine Coxeter plane rotated by $2\pi/30$ has orbit size 30, not eight. Neither fact rules out a selected octagonal picture under a separately specified projection; the needed map was not recovered. None invalidates the frame defined directly in \eqref{eq:frame}.
+
+For HG p. 38's circular vectors, bilinear and Hermitian contractions differ:
+\begin{equation}
+ e_\pm^Te_\pm=0,\qquad e_+^Te_-=1,\qquad e_\pm^\dagger e_\pm=1.
+\end{equation}
+The tensors $E_\pm=e_\pm\otimes e_\pm$ are symmetric, transverse to $u$ in both slots, and traceless by the first contraction. Equation~\eqref{eq:rotref} gives $R E_\pm R^T=e^{\pm2i\theta}E_\pm$, while $Q_y$ exchanges them. Their Hermitian Frobenius norm squared is $(e_\pm^\dagger e_\pm)^2=1$, not the printed two. No $\sqrt2$ rescaling is silently introduced. These are valid helicity-two kinematics under the assumed transverse frame and linearized setting, not a derivation of an E8/E6 physical origin or native-kernel gravity.
+
+\section{Literal phase counts and stationary-phase control}\label{app:counts}
+HD Appendix C (p. 24) writes each arm as
+\begin{equation}
+ \mathcal A_j=\{\vartheta_0+\tfrac\pi{12}(k+8j)\pmod{2\pi}:k\in\mathbb Z\},\qquad j=0,1,2.
+\end{equation}
+Since $k$ ranges over all integers, each arm is already the full 24-node circle. For integer $r\ge0$, its separate window definition is
+\begin{equation}
+ \mathcal W(r)=\bigcup_{j=0}^2\{\vartheta_0+\tfrac\pi{12}(s+8j)\pmod{2\pi}:s=-r,\ldots,r\}.
+\end{equation}
+For $r=0,1,2,3$ the three windows are disjoint, so their sizes are $3(2r+1)=3,9,15,21$. At $r=4$, all nodes are covered, giving 24. This refutes the printed $1,3,6,9,\ldots$ sequence and the figure's $N(1)=3$ under the literal set definition. Its adopted coherence weight, written with $\eta_{\rm w}$ to distinguish the source's $\eta$ from the native coefficient, is
+\begin{equation}
+ \mathcal R(r)=\eta_{\rm w}+(1-\eta_{\rm w})\frac{\min(3,r)}3,\qquad\eta_{\rm w}=0.1.
+\end{equation}
+The values at $r=0,1,2,3$ are $0.1,0.4,0.7,1$, not the claimed $1,0.9,0.6,0.3$. The weighting formula is itself an adopted model, not a dynamically derived law.
+
+HV p. 9's displayed growth factor supplies another exact check:
+\begin{equation}
+ \frac{d}{d\varphi}\cos(12\varphi)=-12\sin(12\varphi).
+\end{equation}
+Stationarity requires $12\varphi=k\pi$, whereas the printed $\pm\pi/2$ phase condition gives maximal slope. At $\varphi=-\pi/24$ the derivative is 12. The separately supplied phase equation $\dot\varphi=\Omega(\kappa)$ is not phase-gradient relaxation, so extrema of that growth factor alone cannot establish phase attraction. This statement requires no collapse simulation.
+
+\section{Complete retained witness population}\label{app:witness}
+The base state and parameters were
+\begin{equation}
+ z_0=\tfrac14(1+i,2-i,-1+2i)^T,\quad\eta=1/16,\quad g=1/8,\quad\lambda=1/32.
+\end{equation}
+Below, E means $k=(1,1,1)$ and U means $k=(1,5/4,3/2)$. Every row uses $z_0$ and these base coefficients unless an override is printed. Parameters remain fixed on the transformed side unless $k'$ is specified. The actions are \eqref{eq:cycle}, \eqref{eq:rotref}, $K$, channel swap $P_{12}$, $D=\diag(i,-i,1)$ and common phases. Thus every prescribed tuple is specified without relying on a private path. The last column is the stored raw implementation defect norm, rounded for display, \emph{not} the implementation/reference error. For an action $G$ it measures the difference between the transformed-input output (with any stated $k'$) and $G$ applied to the original output.
+
+{\small
+\begin{longtable}{@{}p{.07\linewidth}p{.13\linewidth}p{.51\linewidth}r@{}}
+\toprule ID & Action & Coefficients, overrides and purpose & Raw defect\\\midrule\endfirsthead
+\toprule ID & Action & Coefficients, overrides and purpose & Raw defect\\\midrule\endhead
+W01 & $\Pi$ & E; fixed symmetry & $0$\\
+W02 & $\Pi$ & U fixed; expected failure & $0.0165397567400$\\
+W03 & $\Pi$ & U, $k'=(5/4,3/2,1)$; covariance & $0$\\
+W04 & $K$ & U; anti-linear fixed symmetry & $0$\\
+W05 & $P_{12}$ & E; fixed symmetry & $0$\\
+W06 & $P_{12}$ & U, $k'=(5/4,1,3/2)$; covariance & $0$\\
+W07 & $Q_y$ & E, $\lambda=0$; cubic obstruction & $0.00694670463798$\\
+W08 & $Q_y$ & E, $\eta=\lambda=0$; linear symmetry & $8.77708367144\!\times\!10^{-17}$\\
+W09 & $R(\pi/12)$ & E, $\lambda=0$; cubic obstruction & $0.00493068557960$\\
+W10 & $R(\pi/12)$ & E, $\eta=g=0$; synchronization alone & $0.0261806070491$\\
+W11 & $D$ & E, $\eta=\lambda=0$; coupling obstruction & $0.246062746063$\\
+W12 & $D$ & U, $g=\lambda=0$; onsite phase symmetry & $0$\\
+W13 & $\omega\I$ & U; center symmetry & $2.03960993327\!\times\!10^{-16}$\\
+W14 & $i\I$ & U; regular common-phase symmetry & $3.92523114671\!\times\!10^{-17}$\\
+W15 & $i\I$ & E, $\eta=g=0$, $z=(1,0,1)$; zero boundary & $0.0441923755806$\\
+W16 & $Q_yK$ & E, $\lambda=0$; anti-linear cubic defect & $0.00694670463798$\\\bottomrule
+\end{longtable}}
+
+The original and transformed sides each passed \eqref{eq:tolerance} through each route. This means four reference comparisons per tuple, not four symmetry claims. The W08 residual is roundoff-sized in a proved linear symmetry; W07 restores a nonzero cubic defect. W10 isolates a nonzero synchronization defect. W15 is the sole ideal boundary tuple; a global symmetry claim cannot discard it by replacing zero with a small positive value. The written proofs and exact controls, not a finite population alone, determine the general claims.
+
+\section{Source identities and deferred scope}\label{app:identity}
+The following full SHA-256 values identify the historical PDFs used by the accepted study:
+\begin{description}
+\item[HG] \hfill\break\footnotesize\nolinkurl{851d69441a227fc9015e5581c395fa5743d6ced3125ba956a7c61689bf6a3ba4}
+\item[HD] \hfill\break\footnotesize\nolinkurl{b340663e298eb6932a1be35ea1b7ced69edc29e6a72991c3df4c49e9d7b3edae}
+\item[HV] \hfill\break\footnotesize\nolinkurl{f3c5e0030edc82b233585d40c7dd42ae4046a4c5a81576e798511b4eeee5af87}
+\end{description}
+The accepted transfer archive is identified by SHA-256
+\begin{center}\footnotesize\nolinkurl{7205d5011d589a7553e93dcd4f515a869b812ec117e92bead5a1beb2b1e5d79f}.\end{center}
+Its review boundary is stated in \secref{sec:evidence}; the archive is retained separately and is not attached to this repository edition.
+
+The companion claim/source crosswalk maps all 51 report-ledger entries to the manuscript, including partial treatment. Peripheral full E8 certificates, benchmark root lists, detailed historical default profiles/consumer inventories, all individual commutator outputs, and wider SGO/NRG proofs remain in their cited sources. All other catalogue-only historical papers, a physical color/flavor/mass model, experimental oscillation fits, long trajectories, production runtime parity, malformed historical inputs, new closure results and a tilted-frame completion are outside this manuscript's scientific scope. An omission for readability or scope does not mean acceptance, refutation, or historical rejection.
+
+\begin{thebibliography}{99}\small
+\bibitem{hg} H. F. Halldórsson and GPT-5 (as credited in source), \emph{Tri-Octagon Geometry and SU(3) $\times$ SU(2) Symmetry Closure}, historical project PDF, 29 October 2025, 41 pp. File: \texttt{TriOctagon\_E8-SU3-Geometry.pdf}. HG in this paper.
+\bibitem{hd} \emph{Tri-Octagon D24 Geometry and the CP-Octant Ridge}, historical project PDF, 5 November 2025, 27 pp. File: \texttt{TriOctagon\_D24-CP-Octant-Ridge.pdf}. HD-M and HD-A refer to the main text and Appendix A.
+\bibitem{hv} \emph{The 9-Form / 12-Phase Structure of Collapse Dynamics}, historical project PDF, 5 November 2025, 18 pp. File: \texttt{TriOcta\_violations.pdf}; cited scope pp. 1--10.
+\bibitem{pl} \texttt{phaselocking.pdf}, historical project PDF dated 30 November 2025; hash-pinned extraction P07, pp. 6--7, cubic definition and interpretation. The extraction ID belongs to the earlier geometry audit, not the distinct P0 source-map numbering.
+\bibitem{scc} SCC-01 project record, \emph{SCC01\_REPORT.md}, \emph{SCC01\_SOURCE\_CLAIM\_LEDGER.md}, reproduction README, frozen protocol, exact results, Gram supplement and bounded native journal, 8 October 2026. Completed project-internal study; retained evidence, not a published paper.
+\bibitem{review} GPT, \emph{SCC01\_SCIENTIFIC\_REVIEW.md}, project-internal mathematical review for H. F. Halldórsson, 8 October 2026; \S3 proposes the Cartan-coordinate reformulation. Associated receipts are retained; no external peer-review status is claimed.
+\bibitem{response} \emph{SCC01\_REVIEW\_RESPONSE.md}, separate reciprocal assessment, 8 October 2026. Checks the Cartan reformulation on the nonzero exact-normalization domain; original report preserved.
+\bibitem{addendum} GPT, \emph{SCC01\_EVIDENCE\_REVIEW\_ADDENDUM.md}, final project-internal saved-evidence and source-page review for H. F. Halldórsson, 8 October 2026. Accepted within the declared SCC-01 scope.
+\bibitem{lane} Lane-2 source packets Entry01, Entry03 and Entry10 v0.1, 29--30 September 2026, with the \emph{Final Scientific Closeout} and \emph{Future Application Handoff}, 30 September 2026. Retained project records for M09/M10/M12 and their disposition.
+\bibitem{host} \emph{Historical Tri-Octagon Geometry Lineage v0.1} and \emph{E8 Antipodal Sign and Host Reconstruction v0.1}, with the existing exact host certificate. Inherited project records, source-pinned in SCC-01; not recomputed for this manuscript.
+\bibitem{pa} H. F. Halldórsson, \emph{Cycle-Covering Dynamics of a Three-State Nonlinear Kernel}, Paper A v0.5.1, project publication source, \S\S1, 6. Source edition pinned by SCC-01.
+\bibitem{pb} H. F. Halldórsson, \emph{Triadic Chirality and Orientation Geometry}, Paper B v0.1.2, project publication source, \S\S1--9 and limitations. Source edition pinned by SCC-01.
+\bibitem{pf} H. F. Halldórsson, \emph{Transverse Chirality, Dihedral Harmonic Selection, and Local Linearization in a Three-Channel Nonlinear Map}, Paper F v0.2, 25 September 2026, project publication source. Restricted local relationship only.
+\bibitem{pg} H. F. Halldórsson, \emph{Geometry-Attached Axial Observables, Period-Doubling, and Certified Entrance Capture in the Tri-Octagon Map}, Paper G v0.1.1, \S\S1--3. This is distinct from historical HG.
+\bibitem{nrg} Native Response Geometry project manuscript, \texttt{observables\_closure.tex}, ``Equivariant spatial observables'' and associated state-action, preparation, fibre and coherence sections, source edition pinned by SCC-01. Inherited results only.
+\bibitem{sgo} H. F. Halldórsson, \emph{Information Retention Across Geometry-Attached Observations in the Tri-Octagon Kernel}, SGO-01 v0.1, 7 October 2026, project repository edition. The present SCC-01 repository edition has separate author authorization.
+\bibitem{pdg} M. C. Gonzalez-Garcia and R. Wendell, ``Neutrino Masses, Mixing, and Oscillations,'' Particle Data Group, 2025 review, \S14.3, Eqs. (14.33)--(14.34), and \S14.7.3, Eq. (14.84). \url{https://pdg.lbl.gov/2025/reviews/rpp2025-rev-neutrino-mixing.pdf}. Convention comparator only; link checked 8 October 2026.
+\bibitem{pdgsu3} Particle Data Group, ``SU(3) Isoscalar Factors and Representation Matrices,'' 2025 review, p. 3, generator conventions. \url{https://pdg.lbl.gov/2025/reviews/rpp2025-rev-su3-isoscalar-factors.pdf}. Declared comparator only; link checked 8 October 2026.
+\end{thebibliography}
+\end{document}
