@@ -69,6 +69,16 @@ v0.1 is an author-authorized repository research publication with project-intern
 v0.1 is an author-authorized repository research publication with project-internal review, not external peer review.
 [Final PDF](papers/SU3_CP_CHIRALITY_REASSESSMENT/v0.1/publication/SCC01_SU3_CP_CHIRALITY_REASSESSMENT_v0.1.pdf) | [Publication disposition](papers/SU3_CP_CHIRALITY_REASSESSMENT/v0.1/PUBLICATION_DISPOSITION.md). No runtime change.
 
+## Lens and toroidal geometry
+
+- [Equal-Circle Lens Geometry - v0.1.1](papers/EQUAL_CIRCLE_LENS_GEOMETRY/README.md): accepted manuscript bytes retained, with the later acceptance receipt.
+- [Homothetic Toroidal Models - v0.1.1](papers/HOMOTHETIC_TOROIDAL_MODELS/README.md): bounded minor revision and corrected reviewer attribution.
+
+These mathematical repository-research candidates have project-internal review;
+the edition notes state their exact status. Final toroidal revision verification
+and owner confirmation of this public payload remain pending. No external peer
+review, physical field validation or runtime change is claimed.
+
 ## Standalone Three-Way research
 
 **NOT IMPLEMENTED RESEARCH — standalone mathematical research; no `kernel_physics`

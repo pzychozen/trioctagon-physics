@@ -1,0 +1,532 @@
+{
+  "status": "PASS",
+  "origin": "Retained accepted lens v0.1.1 run; not rerun for this candidate",
+  "scope": "Named support assertions, not theorem totals, runtime certification or an independent review.",
+  "records": [
+    {
+      "id": "L01.arc_speed_squared",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L01.P_endpoint_0",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L01.A_endpoint_0",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L01.P_endpoint_pi/2",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L01.A_endpoint_pi/2",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L01.independent_area_integral_0.02",
+      "kind": "numerical illustration",
+      "passed": true,
+      "detail": {
+        "value": "0.000030824200627279182139714141006981548190622933954489521942341363996302542042",
+        "expected": "0.000030824200627279182139714141006981548190622933954489521942341363996302542042",
+        "absolute_residual": "1.8022581295e-92",
+        "tolerance": "1e-65"
+      }
+    },
+    {
+      "id": "L01.independent_area_integral_0.6",
+      "kind": "numerical illustration",
+      "passed": true,
+      "detail": {
+        "value": "0.774407041554715849453311481419952873250446000076768174790532085038799632843",
+        "expected": "0.774407041554715849453311481419952873250446000076768174790532085038799632843",
+        "absolute_residual": "1.22727336632e-91",
+        "tolerance": "1e-65"
+      }
+    },
+    {
+      "id": "L01.independent_area_integral_1.2",
+      "kind": "numerical illustration",
+      "passed": true,
+      "detail": {
+        "value": "4.98391140820717382222492029176369104840777527168771031584287284815755888488",
+        "expected": "4.98391140820717382222492029176369104840777527168771031584287284815755888488",
+        "absolute_residual": "0.0",
+        "tolerance": "1e-65"
+      }
+    },
+    {
+      "id": "L02.normalization",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L02.derivative",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L02.cubic_series",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L02.inverse_absolute",
+      "kind": "limit",
+      "passed": true,
+      "detail": {
+        "evaluated": "2/pi**2",
+        "expected": "2/pi**2"
+      }
+    },
+    {
+      "id": "L03.J_derivative",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L03.h_derivative",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L03.J_tangent",
+      "kind": "limit",
+      "passed": true,
+      "detail": {
+        "evaluated": "0",
+        "expected": "0"
+      }
+    },
+    {
+      "id": "L03.J_disk",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L03.equal_P",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L03.unequal_A",
+      "kind": "exact witness",
+      "passed": true,
+      "detail": {
+        "A1": "-sqrt(3)/8 + pi/6",
+        "A2": "pi/9",
+        "difference": "-pi/18 + sqrt(3)/8",
+        "proof_note": "Strict positivity also follows from J monotonicity at pi/3<pi/2 and equal positive P."
+      }
+    },
+    {
+      "id": "L04.jacobian",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L04.det_tangent",
+      "kind": "limit",
+      "passed": true,
+      "detail": {
+        "evaluated": "16*r**2/3",
+        "expected": "16*r**2/3"
+      }
+    },
+    {
+      "id": "L04.det_disk",
+      "kind": "limit",
+      "passed": true,
+      "detail": {
+        "evaluated": "16*r**2",
+        "expected": "16*r**2"
+      }
+    },
+    {
+      "id": "L04.J_series",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L04.JA_tangent",
+      "kind": "limit",
+      "passed": true,
+      "detail": {
+        "evaluated": "1/(16*r**2)",
+        "expected": "1/(16*r**2)"
+      }
+    },
+    {
+      "id": "L04.JP_tangent",
+      "kind": "limit",
+      "passed": true,
+      "detail": {
+        "evaluated": "-1/(24*r)",
+        "expected": "-1/(24*r)"
+      }
+    },
+    {
+      "id": "L04.thetaA_tangent",
+      "kind": "limit",
+      "passed": true,
+      "detail": {
+        "evaluated": "3/(4*r**2)",
+        "expected": "3/(4*r**2)"
+      }
+    },
+    {
+      "id": "L04.thetaP_tangent",
+      "kind": "limit",
+      "passed": true,
+      "detail": {
+        "evaluated": "-1/(2*r)",
+        "expected": "-1/(2*r)"
+      }
+    },
+    {
+      "id": "L04.K_tangent",
+      "kind": "limit",
+      "passed": true,
+      "detail": {
+        "evaluated": "1",
+        "expected": "1"
+      }
+    },
+    {
+      "id": "L04.disk_quadratic",
+      "kind": "limit",
+      "passed": true,
+      "detail": {
+        "evaluated": "pi**(-3)",
+        "expected": "pi**(-3)"
+      }
+    },
+    {
+      "id": "L04.disk_Jp",
+      "kind": "limit",
+      "passed": true,
+      "detail": {
+        "evaluated": "2/pi**3",
+        "expected": "2/pi**3"
+      }
+    },
+    {
+      "id": "L04.K_disk",
+      "kind": "limit",
+      "passed": true,
+      "detail": {
+        "evaluated": "pi/4",
+        "expected": "pi/4"
+      }
+    },
+    {
+      "id": "L04.absolute_area_partial",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L04.absolute_perimeter_partial",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L04.relative_area_coefficient",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L04.relative_perimeter_coefficient",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L03.inverse_0_theta",
+      "kind": "numerical illustration",
+      "passed": true,
+      "detail": {
+        "value": "1.04719755119659774615421446109316762806572313312503527365831486410260546876",
+        "expected": "1.04719755119659774615421446109316762806572313312503527365831486410260546876",
+        "absolute_residual": "1.34762715627e-85",
+        "tolerance": "1e-60"
+      }
+    },
+    {
+      "id": "L03.inverse_0_r",
+      "kind": "numerical illustration",
+      "passed": true,
+      "detail": {
+        "value": "0.5",
+        "expected": "0.5",
+        "absolute_residual": "6.43444698684e-86",
+        "tolerance": "1e-60"
+      }
+    },
+    {
+      "id": "L03.inverse_0_d",
+      "kind": "numerical illustration",
+      "passed": true,
+      "detail": {
+        "value": "0.5",
+        "expected": "0.5",
+        "absolute_residual": "1.81052398821e-85",
+        "tolerance": "1e-60"
+      }
+    },
+    {
+      "id": "L03.inverse_1_theta",
+      "kind": "numerical illustration",
+      "passed": true,
+      "detail": {
+        "value": "0.00000001",
+        "expected": "0.00000001",
+        "absolute_residual": "1.77470305123e-83",
+        "tolerance": "1e-60"
+      }
+    },
+    {
+      "id": "L03.inverse_1_r",
+      "kind": "numerical illustration",
+      "passed": true,
+      "detail": {
+        "value": "3.99999999999999999999999999999999999999999999999999999999999999999999999999",
+        "expected": "4.0",
+        "absolute_residual": "7.09881220492e-75",
+        "tolerance": "1e-60"
+      }
+    },
+    {
+      "id": "L03.inverse_1_d",
+      "kind": "numerical illustration",
+      "passed": true,
+      "detail": {
+        "value": "7.99999999999999960000000000000000333333333333333332222222222222222224206348",
+        "expected": "7.99999999999999960000000000000000333333333333333332222222222222222224206349",
+        "absolute_residual": "1.41976244098e-74",
+        "tolerance": "1e-60"
+      }
+    },
+    {
+      "id": "L03.inverse_2_theta",
+      "kind": "numerical illustration",
+      "passed": true,
+      "detail": {
+        "value": "1.57079532679489661923132169163975144209858469968755291048747229615390820314",
+        "expected": "1.57079532679489661923132169163975144209858469968755291048747229615390820314",
+        "absolute_residual": "5.26556974183e-85",
+        "tolerance": "1e-60"
+      }
+    },
+    {
+      "id": "L03.inverse_2_r",
+      "kind": "numerical illustration",
+      "passed": true,
+      "detail": {
+        "value": "1.3",
+        "expected": "1.3",
+        "absolute_residual": "4.35781945097e-85",
+        "tolerance": "1e-60"
+      }
+    },
+    {
+      "id": "L03.inverse_2_d",
+      "kind": "numerical illustration",
+      "passed": true,
+      "detail": {
+        "value": "0.00000259999999999956666666666668833333333333281746031746032462522045855372675164",
+        "expected": "0.00000259999999999956666666666668833333333333281746031746032462522045855372675164",
+        "absolute_residual": "1.36904900444e-84",
+        "tolerance": "1e-60"
+      }
+    },
+    {
+      "id": "L03.inverse_disk_theta",
+      "kind": "numerical illustration",
+      "passed": true,
+      "detail": {
+        "value": "1.57079632679489661923132169163975144209858469968755291048747229615390820314",
+        "expected": "1.57079632679489661923132169163975144209858469968755291048747229615390820314",
+        "absolute_residual": "0.0",
+        "tolerance": "1e-65"
+      }
+    },
+    {
+      "id": "L03.inverse_disk_radius",
+      "kind": "numerical illustration",
+      "passed": true,
+      "detail": {
+        "value": "1.11408460164326735038218634360760053424121752018319514123367140841227758344",
+        "expected": "1.11408460164326735038218634360760053424121752018319514123367140841227758344",
+        "absolute_residual": "0.0",
+        "tolerance": "1e-65"
+      }
+    },
+    {
+      "id": "L03.inverse_disk_separation",
+      "kind": "numerical illustration",
+      "passed": true,
+      "detail": {
+        "value": "0.0",
+        "expected": "0.0",
+        "absolute_residual": "0.0",
+        "tolerance": "1e-65"
+      }
+    },
+    {
+      "id": "L03.tangent_branch",
+      "kind": "exact witness",
+      "passed": true,
+      "detail": {
+        "branch": "tangent_nonidentifiable"
+      }
+    },
+    {
+      "id": "L03.domain_rejection",
+      "kind": "numerical illustration",
+      "passed": true,
+      "detail": {
+        "rejected": [
+          [
+            "-1",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ],
+          [
+            "+inf",
+            "1"
+          ],
+          [
+            "1",
+            "nan"
+          ]
+        ],
+        "expected_cases": 7
+      }
+    },
+    {
+      "id": "L05.tensor_norm",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L05.linear_intensity",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L05.nonzero_multiplier",
+      "kind": "exact witness",
+      "passed": true,
+      "detail": {
+        "m": "37"
+      }
+    },
+    {
+      "id": "L05.unknown_multiplier_witness",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L05.zero_multiplier",
+      "kind": "symbolic identity",
+      "passed": true,
+      "detail": {
+        "residual": "0"
+      }
+    },
+    {
+      "id": "L06.gaussian_not_area",
+      "kind": "exact witness",
+      "passed": true,
+      "detail": {
+        "Gaussian_at_tangency": "exp(-1)",
+        "area_fraction_at_tangency": "0"
+      }
+    }
+  ],
+  "original_script_sha256": "028248f98b122cf296c67bd62953491ea3dbfd7db60e5c58ca9a3bb0c81106cb",
+  "public_script_sha256": "3b081f36532b4a895a6fab32557e81cb43a6b0af4d4c6aa09b3a23fec42c2175"
+}
