@@ -90,6 +90,12 @@ authority or runtime dependency.** Three-Way is not implemented in the physics k
 The two research lanes remain separate. **`THREE_WAY_RESEARCH = PARKED`**
 (6 October 2026 repository checkpoint).
 
+## Standalone SRG research
+
+[Symbolic Resonance Geometry](SRG_REDISCOVERY/README.md) has a dedicated standalone research area. [SRG-I v0.1.1](SRG_REDISCOVERY/PAPERS/SRG_I_FOUNDATIONAL_RECONSTRUCTION/publication/v0.1.1/README.md) is accepted within internal manuscript scope; this curated publication candidate awaits owner approval of the exact payload. The accepted manuscript bytes and its historical/model boundaries are retained.
+
+This research area adds no kernel authority or runtime dependency. The existing fixed November SRG initialization helper has a separate documented scope; it does not implement the complete historical programme reconstructed in SRG-I. The edition's source index and draft publication disposition describe access, attribution and reuse boundaries.
+
 ## Licensing and reuse
 
 **Apache-2.0 applies to the approved software scope** described by the root

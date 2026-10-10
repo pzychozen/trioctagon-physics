@@ -1,0 +1,67 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.metrics.pairwise import euclidean_distances
+
+# 1) Load the trail cluster dataset
+df = pd.read_csv("resonance_trail_clusters.csv")
+
+# 2) Filter for our target glyph
+glyph_id = "Glyph_8b2038"
+glyph_trail = (
+    df[df["Symbolic_ID"] == glyph_id]
+    .sort_values(by="Step")
+    .reset_index(drop=True)
+)
+
+# 3) Extract positions and steps
+positions = glyph_trail[["X", "Y", "Z"]].values
+steps = glyph_trail["Step"].values
+
+# 4) Compute the echo map (pairwise Euclidean distances)
+echo_matrix = euclidean_distances(positions)
+
+# 5) Normalize for contrast
+min_d, max_d = echo_matrix.min(), echo_matrix.max()
+norm_echo = (echo_matrix - min_d) / (max_d - min_d)
+
+# 6) Identify minimal corridors below threshold
+threshold = 0.1  # tweak to taste
+corridor_mask = norm_echo < threshold
+
+# 7) Harvest the step‐pairs that fall into a “corridor”
+corridor_pairs = []
+n = len(steps)
+for i in range(n):
+    for j in range(i + 1, n):
+        if corridor_mask[i, j]:
+            corridor_pairs.append((steps[i], steps[j], echo_matrix[i, j]))
+
+# 8) Turn into a DataFrame
+corridor_df = pd.DataFrame(
+    corridor_pairs, columns=["Step_A", "Step_B", "Raw_Distance"]
+)
+
+# 9) Print to console
+print("\nMinimal Echo Corridor Pairs:")
+print(corridor_df.to_string(index=False))
+
+# 10) (Optional) Save to CSV for later inspection
+corridor_df.to_csv("minimal_echo_corridors.csv", index=False)
+print("\nSaved corridor pairs to minimal_echo_corridors.csv")
+
+# 11) Plot the normalized echo matrix with corridors highlighted
+plt.figure(figsize=(10, 8))
+sns.heatmap(
+    norm_echo,
+    cmap="magma",
+    square=True,
+    cbar_kws={"label": "Normalized Distance"},
+    mask=~corridor_mask  # fade out non-corridor cells
+)
+plt.title(f"Symbolic Echo Map for {glyph_id}")
+plt.xlabel("Step Index")
+plt.ylabel("Step Index")
+plt.tight_layout()
+plt.show()

@@ -1,0 +1,1894 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=25mm,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,tabularx}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={SRG-I: Foundational Reconstruction v0.1.1},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={Minor revision v0.1.1 for GPT closure review; source-grounded mathematical reconstruction}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small SRG-I \;|\; Foundational reconstruction}
+\fancyhead[R]{\small v0.1.1 closure review}
+\fancyfoot[L]{\small Revision: 10 October 2026 \;|\; Not for publication}
+\fancyfoot[R]{\small \thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4em}
+\setlength{\emergencystretch}{1.5em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\phig}{\phi}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\clip}{clip}
+\DeclareMathOperator{\Rea}{Re}
+\numberwithin{equation}{section}
+\renewcommand{\labelitemi}{$\bullet$}
+
+\begin{document}
+\pagestyle{fancy}
+\thispagestyle{fancy}
+{\small\textbf{SRG-I \quad Mathematical source reconstruction}}
+\vspace{0.4em}
+\begin{center}
+{\LARGE\bfseries Symbolic Resonance Geometry\par}
+\vspace{0.45em}
+{\Large Historical Reconstruction, Recursive Well-Posedness,\par
+and Dual-Sector Symmetries\par}
+\vspace{0.7em}
+{\large Hilmir Fr\'imann Halld\'orsson\par}
+\vspace{0.3em}
+{\small Revision date: 10 October 2026}
+\end{center}
+\vspace{0.2em}
+\noindent\textit{Revised manuscript, v0.1.1, returned for closure review. Date above is not a publication date.}
+
+\begin{abstract}
+The surviving Symbolic Resonance Geometry sources define several state
+schemas, operator families and sector relations. We reconstruct their
+mathematical content without selecting a replacement evolution. Literal
+substitution of a July 2025 temporal second difference into its accompanying
+update reduces the scalar problem to $y=C_\lambda(y+b)$. For the printed
+golden-ratio threshold scaling we prove the complete solution set for every
+real threshold. At positive threshold, some offsets have no successor,
+zero offset has a continuum of successors, and a restricted positive branch
+has exactly one. The result addresses algebraic existence and uniqueness
+for fixed current data, not full well-posedness of the symbolic state.
+We distinguish compression maps by carrier, sign, zero and branch behavior,
+and separate temporal differences, spatial graph coupling and alternative
+toroidal metrics. The June phase pair defines a quarter-turn and real
+quadrature; July time shift, geometric reflection and later sector exchange
+require different domains and symmetry conditions. Prescribed clock
+modulation, trail embeddings and a later driven memory equation likewise
+encode different kinds of memory. Proofs and counterexamples identify
+recoverable structure while leaving missing state updates, fusion rules,
+operator composition and physical interpretations explicit. Later models
+serve as dated comparisons, not retrospective completions.
+\end{abstract}
+
+\section{Introduction: reconstruction before completion}\label{sec:introduction}
+
+A recursion must specify more than a recurring pattern or a relationship
+between quantities. To obtain a next-state map, the state carrier, required
+history, external inputs, and update operations must be defined sufficiently
+to determine a successor on a stated domain. An implicit relation may instead
+have no successor or several. An observer can describe a completed trajectory
+without generating one. These distinctions guide the reconstruction below.
+
+The historical corpus uses shared names for constructions that are not the
+same mathematical object. The formation manuscript P03 describes persistent
+glyph identities, scalar resonance, positions, memory, and echo sets; it also
+prints more than one expression for resonance evolution. The numerical
+operator manuscript P07 and the later reconstruction P05 use additional,
+distinct operator definitions. The June phase constructions P09 and P10
+supply a relation between two phase-labelled fields. Their coexistence does
+not by itself establish a single composed dynamics
+\cite[physical pp.~2--8]{P03} \cite[physical pp.~3--6]{P07}
+\cite[physical pp.~1--3]{P05} \cite[physical p.~2]{P09}
+\cite[physical p.~2]{P10}.
+
+The question addressed here is therefore not which missing rule should now
+be invented, but what the surviving definitions already determine. The
+principal result is an exact scalar branch classification for the implicit
+relation obtained from P03. The distinction between supported phase identities
+and unspecified dynamical symmetries supplies a second part of the analysis.
+The present text follows the accepted source reconstruction and branch
+appendix, with proof details included rather than replaced by numerical
+examples \cite{F01,Branch}.
+
+\subsection{Source and evidence conventions}
+
+Identifiers P01--P19 are stable identifiers within the retained archive, not
+publication identifiers. Citations specify physical PDF pages, counted from
+one. The formation paper P03 carries a cover date of 14 July 2025; P07 carries
+11 July 2025; P09 and P10 carry 29 June 2025. A cover date, a PDF metadata date,
+and a date on which a file was copied are different kinds of evidence. The
+source catalog retains that distinction \cite{Catalog}.
+
+We separate three roles throughout. A \emph{historical definition} records what
+a manuscript or program states. A \emph{deduction} follows from explicitly
+stated mathematical assumptions. A \emph{completion choice} supplies additional
+structure that the bounded source chain does not determine. A completion
+choice can be mathematically useful without being recovered historical intent.
+In particular, a scalar interpretation of a symbolic tuple must be declared,
+not inferred from notation alone.
+
+The existing Tower II mechanism studies concern a later, specified executable
+model. Their completed trajectories do not determine the meaning of an
+incomplete 2025 formula. This paper is not a new simulation study and does not
+claim that every historical SRG implementation is described by the relation
+examined here \cite{F01}.
+
+
+\subsection{Chronology and limits of the comparison}
+
+The central source chain comprises the June modules and tensor memo,
+the 11 July numerical operators, the 13 July signal-sector discussion,
+the 14 July formation paper and the 15 July fusion/reconstruction papers.
+P11 and P13 have 29 June PDF creation metadata but no established cover
+date; this is not evidence of publication priority.
+The November geometric and finite-core manuscripts and the March 2026
+real coupled-field program are dated comparisons. Their carriers and
+operators are not inserted into the July recursion
+\cite{P01,P05,P06,P08,P11,P13,P14,P15,Infinity}.
+The working title uses \emph{Symbolic Resonance Geometry}; the bibliography
+retains each source's actual title rather than asserting a uniform
+historical expansion of SRG.
+
+Elementary identities, differentiation, term tests and the contraction
+principle are standard tools. The contribution here is their source-specific
+application, particularly the exact successor classification and the
+separation of incompatible definitions. Priority beyond the bounded corpus
+has not been assessed.
+
+\section{State schemas and distinct historical formulas}\label{sec:state}
+
+\subsection{A glyph schema is not yet a closed state space}
+
+P03 defines a glyph by the schema
+\begin{equation}
+ Q_i=\bigl(\mathrm{ID}_i,R_i(t),\mathbf X_i(t),H_i(t),\mathcal E_i\bigr),
+ \label{eq:glyph}
+\end{equation}
+Here glyph subscripts and the short label $\mathrm{ID}_i$ are presentational
+renamings of the source tuple, not extra state laws. The entries describe
+persistent identity, resonance, position, memory,
+and an echo set. The same manuscript later uses $\Theta_i$ for a symbolic
+state that retains resonance, trail direction, and identity
+\cite[physical pp.~2,18]{P03}.
+
+Equation~\eqref{eq:glyph} is a useful schema. It does not declare an algebra
+in which a scalar can be added to an ID or a set, a norm of the complete tuple,
+or updates for all its components. A scalar compressor can act on a selected
+numeric component; applying it to the entire tuple requires additional
+structure. Consequently, identifying $\Theta_i$ with $R_i$ is a modeling
+interpretation, not an equality established by the printed schema.
+
+\subsection{An explicit expression, a consistency expression, and an implicit one}
+
+Three source formulas must be kept distinct. P03 first writes
+\begin{equation}
+ R_i(t+\Delta t)=C\!\left[R_i(t)+
+ \sum_{j\in\mathcal E_i}f\bigl(R_j(t),d_{ij},H_i(t)\bigr)\right]
+ \label{eq:explicit}
+\end{equation}
+and elsewhere gives
+\begin{equation}
+ R_i(t)=H_i(t)\sum_{j\in\mathcal E_i}f\bigl(R_j(t),d_{ij}\bigr).
+ \label{eq:consistent}
+\end{equation}
+Its trail-based update is
+\begin{equation}
+ \Theta_i(t+1)=C\!\left[
+ \Theta_i(t)+\nabla_T^2\Theta_i(t)+F_i(t)\right].
+ \label{eq:implicit-source}
+\end{equation}
+These appear respectively on physical pages 2, 5, and 7
+\cite[\S\S1.1,2.2,3.1]{P03}.
+
+Equation~\eqref{eq:explicit} is first order once its right-hand data and
+compressor are supplied. Equation~\eqref{eq:consistent} is an instantaneous
+consistency expression. For example, with an empty echo set it forces zero
+resonance, while \eqref{eq:explicit} can preserve a nonzero value in an
+identity branch of the compressor. Thus they cannot both be imposed on
+arbitrary initial amplitudes without a further interpretation. Selecting the
+explicit expression as the intended replacement for
+\eqref{eq:implicit-source} would be an editorial decision, not a consequence
+of the shared notation \cite[\S\S2.1,3.4]{F01}.
+
+We write $F_i$ for the sum of the source's individual feedback terms;
+this is shorthand, not an additional force law. Using its printed summand,
+the feedback in \eqref{eq:implicit-source} is
+\begin{equation}
+ F_i(t)=H_i(t)\sum_{j\in\mathcal E_i(t)}
+ \frac{R_j(t)\cos\varphi_{ij}(t)}{1+d_{ij}(t)^2}.
+ \label{eq:feedback}
+\end{equation}
+It becomes a scalar expression when its arguments are specified. A complete
+model must still state the echo-set selection/update, the distance convention,
+the phase or angular-alignment rule, and the memory input. A dimensional
+distance also requires a scale in the denominator; choosing a dimensionless
+distance is one possible convention, not a derived physical calibration
+\cite[physical p.~7, \S3.2]{P03} \cite[\S2.2]{F01}.
+
+Reciprocal echo membership identifies a two-way graph connection. It does not,
+without a specified evolution and a state-return condition, prove a periodic
+orbit. Similarly, a predicate that two glyphs are close and have similar
+resonance does not specify the amplitude, ID, memory, or echo set of a merged
+glyph \cite[physical pp.~3,10,12]{P03} \cite[\S\S2.3--2.4]{F01}.
+
+\subsection{Feedback reciprocity, fusion and initialization}
+\label{sec:feedback-domain}
+
+The source feedback has useful conditional structure. If distance is
+symmetric, $\varphi_{ji}=-\varphi_{ij}$, and echo membership is reciprocal,
+then $a_{ij}=\cos\varphi_{ij}/(1+d_{ij}^2)$ is symmetric on the active edges.
+The actual coefficient in \eqref{eq:feedback} is $H_i a_{ij}$. Under the
+stated symmetry of $a_{ij}$, equality of the two directional coefficients is
+equivalent to $(H_i-H_j)a_{ij}=0$. Thus the memory values must agree on
+nonzero-weight edges; a zero-weight edge imposes no such condition.
+Even when the coefficients are symmetric, there is no compensating term
+proportional to $-R_i$. For a mutually coupled pair with positive resonances, aligned phases
+and positive memory, both contributions are positive. Symmetric coupling
+therefore does not establish total-resonance conservation.
+This is a deduction about the printed feedback, not a conservation test on
+an executed trajectory \cite[physical p.~7, \S3.2]{P03}.
+
+The corridor criteria include
+\begin{equation}
+ A\in\mathcal E_B,\quad B\in\mathcal E_A,\quad
+ |R_A-R_B|<\epsilon_R,\quad d_{AB}<\lambda_{\rm VP},\quad
+ |\varphi_{AB}|<\theta_{\rm lock}.
+ \label{eq:corridor}
+\end{equation}
+The nearby merge statement has the form
+\begin{equation}
+ d_{AB}<\lambda_{\rm VP},\quad R_A\approx R_B
+ \quad\Longrightarrow\quad Q^{\rm fused}_{AB}=\mathrm{ProtoSRG}
+ \label{eq:fusion-predicate}
+\end{equation}
+\cite[physical p.~10, \S\S4.1--4.3]{P03}.
+This records a proposed recognition condition. The right side supplies a
+name, but not the entries of the tuple \eqref{eq:glyph}, an ID assignment,
+a deletion rule for the parents, or an update order. Identifying the
+approximation in \eqref{eq:fusion-predicate} with the $\epsilon_R$ tolerance
+is plausible but still a declared convention. The cluster condition on
+physical p.~12 similarly specifies proximity and amplitude thresholds; it
+does not define an invariant set with a basin of attraction.
+
+The fusion paper instead describes an observer pipeline: resonance peaks
+are normalized, events $(X,Y,Z,R_{\rm norm})$ are clustered, and events with
+the same ID are linked in pass order. Its clustering radius is related to
+$\lambda_{\rm VP}$, but the relative scale of spatial coordinates and
+normalized amplitude in that distance remains a choice
+\cite[physical pp.~5--7, \S\S3.2--3.5]{P01}.
+The narrative that several trails reach a common glyph identity is not
+an algorithm for merging different IDs. An observer applied to recorded
+events and a rule generating those events have different mathematical roles.
+
+P03 calls a pass a computational index rather than continuous physical
+time \cite[physical p.~7, \S3.1]{P03}.
+The centered temporal expression below requires both a current and a
+previous numeric state. A seed at a single pass does not provide the
+second time level. No convention for that initialization, nor for the
+direction of a stationary trail used in phase alignment, is recovered.
+These are explicit domain questions, independent of whether a later
+scalar branch equation happens to have a root.
+
+
+\section{The implicit scalar relation and its complete branches}\label{sec:implicit}
+
+\subsection{Literal reduction}
+
+P03 defines its trail Laplacian by the centered temporal difference
+\begin{equation}
+ \nabla_T^2\Theta_i(t)=
+ \Theta_i(t+1)-2\Theta_i(t)+\Theta_i(t-1).
+ \label{eq:temporal}
+\end{equation}
+No additional coefficient or time-step denominator is printed in this
+definition or before the term in \eqref{eq:implicit-source}
+\cite[physical p.~8, \S3.3]{P03}.
+
+For the following theorem, interpret the evolving quantity as a finite real
+scalar and freeze the current-pass feedback data. Set
+\begin{equation}
+ y=\Theta_i(t+1),\qquad
+ b=\Theta_i(t-1)-\Theta_i(t)+F_i(t).
+ \label{eq:offset}
+\end{equation}
+Substitution, without changing any source coefficient, gives
+\begin{equation}
+ \boxed{y=C_\lambda(y+b).}
+ \label{eq:root}
+\end{equation}
+The appearance of the future state on both sides is not by itself an error:
+an implicit equation can define a valid update. The question is whether this
+particular relation has a root and whether that root is unique.
+
+\subsection{Threshold definition and classification}
+
+Write $\phig=(1+\sqrt5)/2$ and $q=\phig^{-1}$. To distinguish the threshold
+from other historical parameters, denote it by $\lambda$ throughout this
+section. P03's printed threshold compressor is
+\begin{equation}
+ C_\lambda(x)=
+ \begin{cases}
+ x,&x<\lambda,\\
+ qx,&x\geq\lambda.
+ \end{cases}
+ \label{eq:compressor}
+\end{equation}
+Equality belongs to the compressed branch
+\cite[physical p.~8, \S3.4]{P03}.
+
+\begin{theorem}[Complete real scalar solution set]
+\label{thm:branches}
+Let $b,\lambda\in\R$ and let $C_\lambda$ be defined by
+\eqref{eq:compressor}. Define
+\begin{align}
+ \mathcal L(b,\lambda)&=
+ \begin{cases}(-\infty,\lambda),&b=0,\\ \varnothing,&b\ne0,\end{cases}
+ \\
+ \mathcal U(b,\lambda)&=
+ \begin{cases}\{\phig b\},&\phig^2b\geq\lambda,\\
+ \varnothing,&\phig^2b<\lambda.\end{cases}
+\end{align}
+Then the complete solution set of \eqref{eq:root} is
+\begin{equation}
+ \mathcal S(b,\lambda)=\mathcal L(b,\lambda)\cup\mathcal U(b,\lambda).
+ \label{eq:solution-set}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The input $y+b$ lies in exactly one of the two source branches. If
+$y+b<\lambda$, the equation is $y=y+b$. It requires $b=0$, and then every
+$y<\lambda$ satisfies both the equation and its branch condition.
+
+If $y+b\geq\lambda$, then $(1-q)y=qb$. The golden-ratio identity
+$\phig^2=\phig+1$ gives $q/(1-q)=\phig$, so the only candidate is
+$y=\phig b$. Its input is $(\phig+1)b=\phig^2b$; hence this candidate is
+admissible exactly when $\phig^2b\geq\lambda$. Both branches have been
+exhausted, and each listed value satisfies its own branch condition. This
+establishes necessity and sufficiency.
+\end{proof}
+
+\begin{corollary}[Positive threshold]
+\label{cor:positive}
+For $\lambda>0$, the number and form of real scalar successors are as follows.
+\end{corollary}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Offset & Complete real solution set \\
+\midrule
+$b<0$ & $\varnothing$ \\
+$b=0$ & $(-\infty,\lambda)$ \\
+$0<b<\lambda/\phig^2$ & $\varnothing$ \\
+$b\geq\lambda/\phig^2$ & $\{\phig b\}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{proof}
+For a positive threshold, the upper-branch condition forces
+$b\geq\lambda/\phig^2>0$. The lower branch exists only at $b=0$.
+Equation~\eqref{eq:solution-set} therefore yields the table.
+\end{proof}
+
+At the boundary $b=\lambda/\phig^2$, the successor is
+$y=\lambda/\phig$ and its input equals $\lambda$, as required by the
+source's upper-branch convention. If nonnegative amplitudes are required,
+intersect the solution set with $[0,\infty)$. For $\lambda>0$ this changes the
+$b=0$ continuum to $[0,\lambda)$ and leaves the other rows unchanged.
+At $\lambda=0,b=0$, the real solution set is $(-\infty,0]$, whose nonnegative
+part is $\{0\}$. Theorem~\ref{thm:branches} also covers negative thresholds
+without extending the positive-threshold table outside its domain
+\cite[\S3.2]{F01}.
+
+\subsection{Examples, typing, and what the theorem does not say}
+
+\begin{example}[Failure of universal existence and uniqueness]
+Take $\lambda=1$ and set the previous and current scalar states to zero.
+Then $b=F$. For $F=0$, both $y=0.2$ and $y=0.7$ are roots, and the entire
+interval $(-\infty,1)$ consists of roots. For $F=0.1$, the uncompressed branch
+requires $b=0$, while the compressed candidate has input
+$0.1\phig^2\approx0.2618<1$ and is inadmissible. There is no root. For $F=1$,
+the unique root is $y=\phig$.
+\end{example}
+
+Thus the printed relation is not a total, single-valued scalar update over
+all finite inputs. Zero feedback defeats universal uniqueness; a small
+positive feedback can defeat existence even under a nonnegative-state
+restriction. A choice of initial guess or solver tolerance cannot supply a root when
+the exact solution set is empty. Conversely, choosing one member of a
+continuum of roots requires a stated selection rule.
+
+For finitely many scalar components with all current-pass feedback fixed,
+the solution set is the Cartesian product of the componentwise sets.
+Existence requires that every factor be nonempty, and uniqueness requires
+that every factor be a singleton. If feedback, phase, or echo membership
+depends on the unknown successor, this product classification does not solve
+the newly coupled problem. Nor does a componentwise interpretation define an
+algebra on the tuple \eqref{eq:glyph} \cite[\S3.2]{F01}.
+
+These conclusions concern algebraic existence and uniqueness. They do not
+establish continuous dependence, a complete multistep trajectory, stability,
+or an attractor. The bounded source investigation did not identify an
+implicit solver or branch selector for this relation. The fusion paper's
+listing is expressly pseudocode: its resonance-update stub copies and
+returns the input, and the text acknowledges the placeholders
+\cite[physical pp.~22--24]{P01}. The formation manuscript P03 also contains
+the explicit expression \eqref{eq:explicit} \cite[physical p.~2, \S1.1]{P03};
+choosing it as a correction to \eqref{eq:root} remains a separate decision
+\cite[\S3.4]{F01}.
+
+\subsection{Why the word compression does not settle solvability}
+
+For $\lambda>0$, the one-sided limits of \eqref{eq:compressor} at the threshold
+are $\lambda$ and $q\lambda$, so the map has a downward jump. It is not a
+globally Lipschitz contraction. Its range is also unbounded above, because
+$C_\lambda(x)=qx\to\infty$. Finally, every
+$z\in[q\lambda,\lambda)$ has two distinct preimages, $z$ and $z/q$.
+These properties follow from the specific printed map; they are not claims
+about every operator bearing the name RPCO \cite[\S3.3]{F01}.
+
+\section{Compression and operator identity}\label{sec:compression}
+
+The earlier partner-dependent expression in P03 is
+$C(x)=\min(x,qR_{\mathrm{partner}})$. With a fixed partner value and cap
+$m$, its substitution into the same implicit structure gives
+\begin{equation}
+ y=\min(y+b,m),\qquad
+ \mathcal S_{\min}(b)=
+ \begin{cases}
+ \varnothing,&b<0,\\
+ (-\infty,m],&b=0,\\
+ \{m\},&b>0.
+ \end{cases}
+\end{equation}
+Indeed $y<m$ requires $b=0$, whereas $y=m$ requires $b\geq0$.
+This is a different branch classification. If the partner is itself an
+unknown next-state value, the fixed-cap argument no longer settles the
+coupled system \cite[physical p.~6, \S2.5]{P03} \cite[\S1]{Branch}.
+
+For $L>0$ and $\epsilon>0$, the numerical-operator manuscript P07 supplies
+another map:
+\begin{equation}
+ C_+(x)=\exp\!\left(
+ \clip\bigl(\sgn(x)\log(|x|+\epsilon),-L,L\bigr)\right).
+ \label{eq:positive-rpco}
+\end{equation}
+Here the sign is \emph{inside} the exponential. The later signed map places
+it outside:
+\begin{equation}
+ C_s(x)=\sgn(x)\exp\!\left(
+ \clip\bigl(\log(|x|+\epsilon),-L,L\bigr)\right).
+ \label{eq:signed-rpco}
+\end{equation}
+The literal expressions imply $C_+(0)=1$ and $C_s(0)=0$. For negative
+inputs, the first has positive output while the second preserves the negative
+sign. The accepted source comparison records that P07's formula and its
+listing agree, despite adjacent sign-preservation prose; changing the
+formula to match the prose would be a correction rather than transcription
+\cite[physical p.~3]{P07} \cite[\S4.1]{F01}.
+
+Neither logarithmic map should be substituted for
+\eqref{eq:compressor} without declaring a different model. Such substitution
+also does not automatically restore unique implicit solvability: for the
+later defaults, $y=C_s(y)$ has precisely the three roots
+$0,\pm e^L$. Appendix~\ref{app:branches} supplies the exhaustive alternate
+branch candidates and qualifications \cite[\S\S2--3]{Branch}.
+
+\subsection{Exact sign and zero behavior}
+\label{sec:compression-details}
+
+Use $a_-=e^{-L}$ and $a_+=e^L$ for the lower and upper plateaus, and define
+$\clip(u,a_-,a_+)=\min(a_+,\max(a_-,u))$. The positive-output expression
+\eqref{eq:positive-rpco} is exactly
+\begin{equation}
+ C_+(x)=
+ \begin{cases}
+ \clip(x+\epsilon,a_-,a_+),&x>0,\\
+ 1,&x=0,\\
+ \clip((|x|+\epsilon)^{-1},a_-,a_+),&x<0.
+ \end{cases}
+ \label{eq:positive-branches}
+\end{equation}
+This follows by monotonicity of the exponential and the identity
+$e^{-\log u}=1/u$. At the printed defaults $L=10$ and
+$\epsilon=10^{-6}$, for instance, $C_+(-2)=(2+\epsilon)^{-1}>0$.
+The adjacent prose says that sign is retained, while the equation and code
+both give \eqref{eq:positive-branches}
+\cite[physical p.~3, \S2.1]{P07}. Neither version may be silently substituted
+for the other on the basis of that prose.
+
+For the later program's $L=9$ and $\epsilon=10^{-9}$,
+\begin{equation}
+ C_s(x)=
+ \begin{cases}
+ \sgn(x)\clip(|x|+\epsilon,a_-,a_+),&x\ne0,\\
+ 0,&x=0.
+ \end{cases}
+ \label{eq:signed-branches}
+\end{equation}
+The definition is odd and preserves nonzero signs, but is discontinuous at
+zero because the one-sided limits have magnitude
+$\max(a_-,\epsilon)>0$. Its plateaus lose magnitude information
+\cite[lines 49--53]{Infinity}.
+At $b=0$, the relation $y=C_s(y+b)$ has exactly the three roots
+$0,\pm a_+$ for these defaults. Appendix~\ref{app:branches} proves this
+and lists all sign and plateau candidates without choosing an operator
+for the original implicit recurrence.
+
+\subsection{A name does not fix an operator or its carrier}
+
+Other surviving constructions make the distinction especially clear.
+The original spatial RPCO helper samples
+\begin{equation}
+ \rho_{\rm RPCO}(x,y)=
+ \sin\!\bigl(5\operatorname{atan2}(y,x)\bigr)
+ e^{-0.05(x^2+y^2)}.
+ \label{eq:spatial-rpco}
+\end{equation}
+It generates a field value from position; it is not an update of an incoming
+resonance \cite[lines 5--13]{RPCO}.
+The velocity-based program instead applies componentwise damping
+\begin{equation}
+ D_v(v)=\frac{v}{1+\log(1+|v|)}.
+ \label{eq:velocity-damping}
+\end{equation}
+For $v>0$ its derivative is
+\[
+ \frac{1+\log(1+v)-v/(1+v)}
+      {(1+\log(1+v))^2}>0.
+\]
+The map is odd, strictly increasing, reduces the magnitude of each nonzero
+input, and is unbounded as $|v|\to\infty$. Thus damping need not be a cap
+\cite[lines 29--31]{Attractor}.
+A separate early vector-field program leaves vectors below magnitude 5
+unchanged and multiplies the others by 0.2; that threshold filter is also
+unbounded \cite[lines 28--32]{Helicity}.
+
+The November finite-core model uses a linear partial projection
+$(1-\lambda_c)I+\lambda_c P_{\rm core}$ on a complex vector space
+\cite[physical p.~5, \S3.1]{P15}. It neither thresholds a real scalar nor
+evaluates \eqref{eq:spatial-rpco}. The neutral organizing principle is the
+carrier, domain and literal map. RPCO, TGMO and REFU remain historical names,
+but their reuse supplies no equality of operators.
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}p{0.24\textwidth}YY@{}}
+\toprule
+Source family & Input and operation & Information needed for use\\
+\midrule
+P03 partner cap & Scalar, partner-dependent minimum & Partner identity and timing\\
+P03 threshold & Scalar, identity/scaled branches & Threshold and admissible data\\
+P07 logarithmic & Real input, positive output & Regularizer, clamp and composition\\
+Original helper & Position to sampled field & Coordinate domain and sampling\\
+Velocity program & Velocity to damped velocity & Force and time-step convention\\
+Later signed code & Real amplitude to signed clamp & Stage order and parameters\\
+P15 finite core & Complex vector, partial projection & Basis, projector and factor order\\
+\bottomrule
+\end{tabularx}
+\end{center}
+This table compares definitions; it is not a lineage asserting that one
+operation corrected or completed another.
+
+
+\section{Temporal curvature, spatial graphs and toroidal geometry}
+\label{sec:geometry}
+
+\subsection{The index differentiated is part of the definition}
+
+The centered difference \eqref{eq:temporal} acts along pass index and
+annihilates affine temporal sequences. A graph difference acts across
+simultaneous positions. They may both encode a form of variation, but their
+domains and required data differ. The source notation $\nabla_T^2$ does
+not erase that distinction.
+
+The reconstruction patch gives an explicit spatial engine
+\cite[physical pp.~1--2, \S\S2--3]{P05}. In its surviving code, positions
+form an array $X\in\R^{N\times3}$, with one row per glyph. Let
+$P\in\R^{N\times N}$ average the initially selected neighbors on each
+nonempty row and use the identity row for an empty neighbor set. Write
+$\Delta X=(P-I)X$. The operative stages are
+\begin{align}
+ Y&=X+0.05\Delta X+0.15\tanh(\Delta X),\label{eq:patch-a}\\
+ Z&=0.95Y+0.05\overline Y+\xi,\label{eq:patch-b}\\
+ X^+&=Z\,\operatorname{diag}
+ (1,1,1-0.001\sin(2\pi\,0.244\,s)).
+ \label{eq:patch-c}
+\end{align}
+The mean is broadcast to each position, the hyperbolic tangent acts
+componentwise, and $\xi$ denotes the program's Gaussian perturbation.
+In \eqref{eq:patch-c}, right multiplication scales coordinate columns, so
+only each glyph's third coordinate changes in that stage.
+The initial graph is built once. The variables named GAMMA, LAMBDA\_VP
+and a computed breathing amplitude do not enter these operative updates
+\cite[lines 31--40,45--78]{Position}.
+Equations~\eqref{eq:patch-a}--\eqref{eq:patch-c} are a static transcription
+of that program, not an execution here.
+
+For a row-stochastic $P$, $(P-I)\mathbf1=0$; constant positions have zero
+graph difference. On the other hand,
+\[
+ \mathbf1^T(P-I)X=0\quad\hbox{for every }X
+ \quad\Longleftrightarrow\quad \mathbf1^TP=\mathbf1^T.
+\]
+Thus unweighted-sum conservation additionally needs column balance. A
+directed nearest-neighbor graph need not have it, and subsequent nonlinear
+or forcing stages require their own analysis. This conditional identity
+does not turn the graph operator into the printed temporal one.
+
+The patch carries positions but not the complete resonance/echo schema
+\eqref{eq:glyph}. It supplies a surviving explicit alternative, not a
+source-identified solver for \eqref{eq:root}. Choosing temporal curvature
+as an observer, a spatial term, or a second-order state equation remains
+undecided by their coexistence.
+
+\subsection{What the Laplacian failure analysis establishes}
+
+The June failure note distinguishes a constant radius from a spatial
+radius field \cite[physical p.~1, \S\S1--3]{P11}.
+A constant has zero spatial derivatives; promoting it to
+$r(x,y)=\sqrt{x^2+y^2}$ changes its type and its mathematical behavior.
+Off the origin,
+\begin{equation}
+ r_{xx}=\frac{y^2}{r^3},\qquad
+ r_{yy}=\frac{x^2}{r^3},\qquad
+ \Delta r=\frac1r.
+ \label{eq:radius-laplacian}
+\end{equation}
+These identities follow by differentiation. At the origin $r$ is not
+classically differentiable, so they do not supply a smooth global repair.
+The note's reported array-gradient failure is a historical account; no
+failure case or old program was rerun for this paper.
+
+There are also distinct spatial formulas. P08's code differentiates the
+array named theta twice along two axes, with coefficients $a^{-2}$ and
+$r^{-2}$, while its phi argument is unused. It supplies no spacing or
+periodic endpoint convention \cite[physical p.~2, \S2.3]{P08}.
+P07 prints
+\begin{equation}
+ \mathcal L f
+ =a^{-2}\nabla_\theta^2f+
+ b^{-2}\nabla_\varphi^2f+\nabla_r^2f,
+ \label{eq:p07-spatial}
+\end{equation}
+but its listing applies a function named laplacian to theta, phi and r
+without a field argument or a definition of that function
+\cite[physical p.~4, \S2.2]{P07}.
+Differentiating coordinate arrays and differentiating a field with respect
+to coordinates are not the same operation. Calling an array gradient
+twice also does not impose toroidal boundary conditions.
+
+\subsection{A conditional embedded-torus diagnostic}
+\label{sec:torus}
+
+The following calculation specifies its geometry; it is not a recovered
+replacement. For an embedded ring torus with major radius $R>r>0$, let
+\begin{equation}
+ \mathbf x(u,v)=
+ ((R+r\cos u)\cos v,(R+r\cos u)\sin v,r\sin u).
+ \label{eq:torus-embedding}
+\end{equation}
+The coordinate tangents are orthogonal with squared lengths
+$r^2$ and $(R+r\cos u)^2$. Hence
+$g=\operatorname{diag}(r^2,(R+r\cos u)^2)$.
+For a smooth scalar field the standard Laplace--Beltrami formula gives
+\begin{align}
+ \Delta_g f
+ &=\frac1{\sqrt{\det g}}\,
+   \partial_a\!\left(\sqrt{\det g}\,g^{ab}\partial_bf\right)\nonumber\\
+ &=\frac{f_{uu}}{r^2}
+   -\frac{\sin u}{r(R+r\cos u)}f_u
+   +\frac{f_{vv}}{(R+r\cos u)^2}.
+ \label{eq:torus-lb}
+\end{align}
+The first-order term follows by differentiating the volume factor
+$r(R+r\cos u)$; it cannot be discarded while retaining this induced metric.
+
+For $f(u,v)=\cos u$ at $u=\pi/2$,
+$\Delta_g f=1/(rR)$, whereas a flat constant-coefficient two-angle
+second-derivative operator gives zero there. A flat product torus can
+legitimately have the latter type of operator, but it is a different metric.
+The comparison distinguishes possible geometries without choosing between
+them.
+
+The original TGMO helper samples
+\begin{equation}
+ ((2+r\cos\theta)\cos(\pi/4),
+ (2+r\cos\theta)\sin(\pi/4),r\sin\theta)
+ \label{eq:minor-circle}
+\end{equation}
+\cite[lines 5--14]{TGMO}.
+Its fixed azimuth traces one minor circle, repeated by the parameter range.
+It specifies neither a full surface field nor a Laplacian.
+Wrapped coordinates, a torus-shaped drawing, a flat product metric and
+the induced metric of \eqref{eq:torus-embedding} therefore cannot be
+identified from nomenclature alone.
+
+
+\section{Dual-sector relations and meanings of reversal}\label{sec:sectors}
+\subsection{The June complex phase pair}
+
+P09 and P10 define
+\begin{equation}
+ \Phi_Q=e^{i\theta}T,\qquad
+ \Phi_D=e^{i(\theta+\pi/2)}T=i\Phi_Q.
+ \label{eq:phase-pair}
+\end{equation}
+This fixes a phase relationship independently of whether a complete update
+for $T$ and $\theta$ has been specified
+\cite[physical p.~2, \S2.3]{P09} \cite[physical p.~2, \S2.3]{P10}.
+
+\begin{proposition}[Order and orthogonality of the phase relation]
+Let $z$ belong to a complex vector space and define $Jz=iz$. Then
+$J^2=-I$ and $J^4=I$. If the space has a Hermitian inner product linear in
+its second argument, then
+\begin{equation}
+ \langle z,Jz\rangle=i\lVert z\rVert^2.
+\end{equation}
+Thus a nonzero pair $(z,Jz)$ is not orthogonal over the complex Hilbert
+space. It is orthogonal in the underlying real space equipped with
+$(u,v)_{\R}=\Rea\langle u,v\rangle$.
+\end{proposition}
+
+\begin{proof}
+Successive multiplication by $i$ gives $i^2=-1$ and $i^4=1$.
+Linearity in the second inner-product argument gives the displayed identity,
+whose real part is zero.
+\end{proof}
+
+The resulting sequence
+\begin{equation}
+ z\ \longmapsto\ iz\ \longmapsto\ -z\ \longmapsto\ -iz
+ \ \longmapsto\ z
+ \label{eq:quarter-cycle}
+\end{equation}
+is an algebraic orbit of $J$. It is not evidence that the source dynamics
+moves through these four values in consecutive time steps. Likewise, if one
+separately adopts a projective-state convention that quotients common phase,
+$z$ and $iz$ describe the same ray. The source relation does not supply a
+measurement theory identifying distinct particles \cite[\S6.1]{F01}.
+
+Plain exchange of the constrained pair is different. Writing
+$E(A,B)=(B,A)$ gives $E^2=I$, but
+$E(z,iz)=(iz,z)$ is not of the form $(w,iw)$ unless $z=0$.
+Advancing the common phase by $\pi/2$ instead produces $(iz,-z)$, a signed
+exchange. Complex conjugation, spatial reflection, and reversal of a
+specified evolution are further distinct operations. Their use as a common
+word such as ``mirror'' cannot replace a declaration of their actions and
+domains \cite[\S6.1]{F01} \cite[\S6]{Branch}.
+
+The July relation $D(t)=Q(t+\tau)$, with $\tau=\pi/(2\omega)$, gives
+multiplication by $i$ for the specified mode $Q(t)=e^{i\omega t}$. It does
+not do so for an arbitrary signal. A constant is unchanged, while a
+$2\omega$ mode acquires a phase of $\pi$. A time shift therefore requires
+its own function-space and sampling conventions; it is not automatically a
+time-reversal operation \cite[physical pp.~3,8]{P06} \cite[\S6.3]{F01}.
+
+\subsection{Time shift, reflection and reversal}
+\label{sec:shift-reversal}
+
+For functions on a two-sided time domain, define
+$(S_\tau f)(t)=f(t+\tau)$ and $(Tf)(t)=f(-t)$.
+Then
+\begin{equation}
+ S_\tau^{-1}=S_{-\tau},\qquad T^2=I,\qquad
+ TS_\tau T=S_{-\tau}.
+ \label{eq:shift-reversal}
+\end{equation}
+For example, the last identity follows from
+$f(-(-t+\tau))=f(t-\tau)$. A shift is invertible but
+$S_\tau^2=S_{2\tau}$ is not generally the identity. The July source's
+$D(t)=Q(t+\pi/(2\omega))$ therefore relates complete signals; it does not
+by itself specify an involution or a causal update on integer passes
+\cite[physical pp.~3,8, Eq.~(1) and equation-index entry (1)]{P06}.
+For a real monochromatic sinusoid and nonzero $\omega$, quadrature gives
+zero inner product when integrated over a full period. The constant-signal
+counterexample shows why that orthogonality is not a general property of
+the displayed time shift. Its use in a sampled recursion also requires
+interpolation, continuation and clock conventions.
+
+A spatial mirror across a plane through $\mathbf x_0$, with specified
+unit normal $\mathbf n$, is instead
+\begin{equation}
+ \mathcal P\mathbf x=
+ \mathbf x-2\mathbf n\bigl[\mathbf n\cdot(\mathbf x-\mathbf x_0)\bigr].
+ \label{eq:reflection}
+\end{equation}
+Decomposing $\mathbf x-\mathbf x_0$ into tangential and normal components
+proves $\mathcal P^2=I$. The later geometric manuscript also writes
+$Q^*=(g(C),H)$, but does not specify the component functions of $g$
+\cite[physical p.~10, \S4.2]{P14}.
+Neither the star notation nor a reflected tetrahedron establishes
+complex conjugation or an action on the original full glyph state.
+
+For an autonomous bijective map $F$, a precise reversal condition is an
+involution $\mathcal T$ satisfying
+\begin{equation}
+ \mathcal T F\mathcal T=F^{-1}.
+ \label{eq:reversor}
+\end{equation}
+This is a definition of reversibility, not a property asserted of the
+incomplete source recursion. A nonautonomous map additionally needs the
+clock and prescribed forcing reversed; a stochastic model needs a
+specified transformation of its noise. Oddness, reciprocity, invertibility
+or a spatial reflection alone does not prove \eqref{eq:reversor}.
+
+\subsection{The later real coupled-field formulation}
+\label{sec:rd}
+
+The March 2026 program initializes two independent real arrays $R,D$,
+with the second draw scaled by 0.01
+\cite[lines 70--91]{Infinity}. Its historical labels do not impose
+$D=iR$, $D=-R$, or the July time-shift constraint.
+These arrays constitute a different state carrier from the June constrained
+complex pair.
+
+Freeze the current geometry and let $W$ be its inverse-distance,
+row-normalized neighbor matrix. On nonempty rows the simultaneous amplitude
+substage is
+\begin{equation}
+ \begin{pmatrix}R'\\D'\end{pmatrix}
+ =B_p\begin{pmatrix}R\\D\end{pmatrix},\qquad
+ B_p=
+ \begin{pmatrix}
+  A_R&K_p\\K_p&A_D
+ \end{pmatrix},
+ \label{eq:rd-block}
+\end{equation}
+where
+\begin{equation}
+ A_R=0.85I+0.15W,\quad A_D=0.925I+0.075W,\quad
+ c_p=0.0008699\sin(0.244p+\pi/2).
+ \label{eq:rd-parameters}
+\end{equation}
+Here $K_p=c_pI$ when every row has neighbors. To include empty rows,
+set their rows of $W$ to identity rows and the corresponding diagonal
+entries of $K_p$ to zero: the program keeps both amplitudes and skips
+cross terms there \cite[lines 114--135]{Infinity}.
+
+\begin{proposition}[Exchange and quarter-turn conditions]
+\label{prop:rd}
+For the fixed-geometry linear substage, sector exchange
+$S(R,D)=(D,R)$ commutes with $B_p$ exactly when $A_R=A_D$.
+The real quarter-turn $J(R,D)=(-D,R)$ commutes exactly when
+$A_R=A_D$ and $K_p=0$.
+\end{proposition}
+\begin{proof}
+Block multiplication gives
+\[
+ SB_pS=\begin{pmatrix}A_D&K_p\\K_p&A_R\end{pmatrix}.
+\]
+Equality to $B_p$ is equivalent to equality of the diagonal blocks.
+Likewise, comparing
+\[
+ JB_p=\begin{pmatrix}-K_p&-A_D\\A_R&K_p\end{pmatrix},
+ \qquad
+ B_pJ=\begin{pmatrix}K_p&-A_R\\A_D&-K_p\end{pmatrix}
+\]
+gives both asserted conditions.
+\end{proof}
+For the printed coefficients, equality requires $0.075(W-I)=0$ as
+an operator on the chosen domain. On a restricted invariant subspace it
+may hold, for example on spatially constant arrays when $W\mathbf1=\mathbf1$.
+It does not hold for general nonuniform inputs.
+
+Subsequent program stages use $H(p)$ and $H(p+\pi/2)$ for the two
+amplitudes, position fusion weighted by $R$ only, and a sine multiplier
+on $R$ only, followed by the signed compressor and position noise
+\cite[lines 162--202]{Infinity}.
+Consequently, conditional exchange in one substage does not establish
+exchange symmetry of the whole update. The cross term in
+\eqref{eq:rd-parameters} uses $0.244p$, while the later multiplier uses
+$2\pi\,0.244p$; these are different numerical frequencies.
+
+For fixed geometry and fixed clock, the amplitude-only map is odd:
+its precompression stages are linear and $C_s$ is odd.
+Simultaneous sign inversion is therefore an equivariance of that
+conditional map. It fails for the full position/amplitude update:
+the center is weighted by $|R|$, but the fusion displacement is multiplied
+by signed $R$. Holding positions fixed while reversing amplitudes changes
+that displacement.
+
+There is a different supported covariance. Negate all positions, retain
+$R,D$, and negate the position-noise realization. Distances and graph
+weights stay fixed; componentwise tanh, centers and displacements transform
+with the position sign. The full formula therefore transforms by spatial
+inversion. A symmetric Gaussian noise law gives invariance in distribution;
+using the same nonzero noise realization does not give pathwise equality.
+General rotations do not follow, because componentwise tanh is not
+equivariant under arbitrary rotations.
+
+Nor does the coupling preserve the whole nonnegative cone. If $c_p<0$,
+choose a nonempty row with $R=0$, zero neighboring $R$ and $D>0$.
+Its new $R$ is negative. This is an algebraic counterexample for arbitrary
+inputs, not a claim about the signs of previously accepted trajectories.
+The later program thus supports particular conditional symmetries, not
+a general identification of the two sectors.
+
+\subsection{The June tensor expression remains separately typed}
+\label{sec:tensor}
+
+The collected June model uses
+\begin{equation}
+ \kappa(T)=\nabla(\nabla\cdot T)-\Delta T.
+ \label{eq:curvature-tensor}
+\end{equation}
+For a smooth three-dimensional vector field with Euclidean derivatives,
+this equals $\nabla\times(\nabla\times T)$ by the standard component
+identity. For a scalar in several dimensions the divergence is not
+defined by those conventions; higher tensors require specified
+contractions. The source does not thereby determine a unique tensor type
+\cite[physical pp.~3,5,8--9]{P13}.
+
+For spatially constant phase, linearity gives
+$\kappa(e^{i\theta}T)=e^{i\theta}\kappa(T)$.
+A spatially varying phase introduces product-rule terms.
+The master expression on physical p.~5 places generally complex curvature
+inside a floor while projecting only a separate coupling term to its real
+part. There is no canonical ordered-real floor on complex numbers.
+A real projection or componentwise convention would be additional structure,
+not an automatic consequence of the quarter-turn relation.
+
+The same source supplies both a prescribed phase schedule
+$\theta_n=n\pi/(2N_{\rm iter})$ and a feedback rule
+\begin{equation}
+ \theta_{n+1}=\theta_n+
+ \epsilon_\theta\,\operatorname{mean}|Q_{\rm RDPTF}|.
+ \label{eq:phase-feedback}
+\end{equation}
+We use $\epsilon_\theta$ to distinguish this coefficient from a logarithmic
+regularizer. No rule chooses one schedule as an approximation to the other
+\cite[physical pp.~8--9]{P13}.
+For $\epsilon_\theta\geq0$ the unwrapped phase is nondecreasing; constant
+nonzero input magnitude makes it grow linearly. Reducing phase modulo
+$2\pi$ bounds a coordinate, not the tensor amplitude.
+These observations retain a well-defined phase identity while leaving the
+larger recursion's typing and composition open.
+
+
+\section{Memory and stability statements with explicit domains}
+\label{sec:memory}
+
+\subsection{A prescribed schedule and a stored trail}
+
+Persistent IDs and recorded trails supply one meaning of memory
+\cite[physical pp.~2,6]{P01} \cite[physical p.~2]{P03}.
+The numerical REFU expression supplies another:
+\begin{equation}
+ H(t)=2e^{-t/2}\cos t+e^{-0.3t}\sin t+
+       1.5e^{-0.7t}+e^{-0.4t}.
+ \label{eq:H}
+\end{equation}
+It depends on the clock and fixed coefficients, with no glyph-history
+input \cite[physical p.~6, \S3.1]{P07} \cite[lines 5--13]{REFU}.
+Calling it memory does not turn it into an accumulated field record.
+The associated factor $1+\lambda H/\max(H)$ needs a normalization domain
+and stage placement, which the incomplete composition does not settle
+\cite[physical pp.~5--6]{P07}.
+
+For $t\geq0$,
+\begin{equation}
+ |H(t)|\leq
+ 2e^{-t/2}+e^{-0.3t}+1.5e^{-0.7t}+e^{-0.4t}\longrightarrow0.
+ \label{eq:H-bound}
+\end{equation}
+The triangle inequality proves the bound. The schedule is not globally
+nonnegative: at $t_n=3\pi/2+2\pi n$,
+\begin{equation}
+ e^{0.3t_n}H(t_n)
+ =-1+1.5e^{-0.4t_n}+e^{-0.1t_n}\longrightarrow-1.
+ \label{eq:H-sign}
+\end{equation}
+At integer multiples of $2\pi$ all its nonzero terms are positive.
+Thus the clock function has positive and negative values arbitrarily late,
+even though both are small. These continuous-clock statements do not
+assert signs on every particular discrete sampling schedule.
+
+The later program's shifted factor $H(t+\pi/2)$ changes the decay
+coefficients as well as the trigonometric phases: a term $e^{-at}$
+acquires the factor $e^{-a\pi/2}$. Different decay rates receive different
+factors and the nonoscillating terms remain. It is not a pure quadrature
+pair merely because the clock shift is $\pi/2$
+\cite[lines 176--182]{Infinity}.
+
+\subsection{Weighted embeddings are observers}
+
+P01's weights and embedding can be written, with $S_j$ denoting the
+summed normalized amplitude of trail $j$, as
+\begin{equation}
+ S_j=\sum_{t\in j}R_{{\rm norm},t},\qquad
+ w_j=\frac{S_j}{\sum_kS_k},\qquad E=\sum_jw_jv_j,
+ \label{eq:embedding}
+\end{equation}
+where $v_j$ represents trail information
+\cite[physical p.~7, \S3.5]{P01}.
+The denominator must be nonzero. If every $S_j\geq0$, these are convex
+weights. Likewise, nonnegative $R$ with a positive maximum ensures
+$R_{\rm norm}=R/\max R\in[0,1]$; unrestricted signed inputs do not
+guarantee this range. These are sufficient sign conditions, not necessary
+ones: uniformly negative sums can also normalize to positive weights.
+
+Summation is not injective. With equal weights, the pairs $(-1,1)$ and
+$(0,0)$ give the same scalar embedding, and reordering samples does not
+change a sum. An embedding can be useful while discarding information;
+lossless retention of all ancestral memory does not follow.
+The surviving echo observer likewise measures distances between different
+positions along one selected glyph's trail, then min--max normalizes the
+distance matrix. It is a readout of one trajectory, not a two-glyph feedback
+rule; its normalization also needs nonzero range
+\cite[lines 10--43]{Echo}.
+
+\subsection{A later state-driven memory equation}
+
+The November geometric model explicitly introduces history through
+\begin{equation}
+ \dot H(t)=\eta I(t)-\kappa H(t),\qquad
+ I(t)=\int_\Omega u(\mathbf r,t)w(\mathbf r)\,d^3r
+ \label{eq:memory-ode}
+\end{equation}
+\cite[physical pp.~5,17, Eqs.~(10),(25)]{P14}.
+Suppose $I$ is locally integrable, $\eta,\kappa$ are fixed finite
+coefficients and $H(0)$ is specified. Multiplying by $e^{\kappa t}$ and
+integrating yields the unique absolutely continuous solution
+\begin{equation}
+ H(t)=e^{-\kappa t}H(0)
+       +\eta\int_0^t e^{-\kappa(t-s)}I(s)\,ds.
+ \label{eq:memory-solution}
+\end{equation}
+Uniqueness follows because the difference of two solutions solves
+$\dot h=-\kappa h$, $h(0)=0$.
+This is a precise field-history meaning of memory, conditional on the
+specified input $u$. It does not solve the coupled field equation or
+identify this later $H$ with July's \eqref{eq:H}.
+
+The same source states a wrapped drift--diffusion balance. Integrating its
+divergence terms gives zero when the boundary fluxes cancel; total mass is
+then conserved if the remaining source has zero spatial integral
+\cite[physical p.~17, Eq.~(24)]{P14}.
+Boundary cancellation and zero source integral are hypotheses, not
+consequences of the word recursion.
+
+\subsection{Positive local results and their limits}
+
+One June scalar module has a complete standard stability argument:
+\begin{equation}
+ G(x)=\frac{\phig}{\sqrt3}\tanh x,\qquad x\in\R.
+ \label{eq:golden-tanh}
+\end{equation}
+This is the printed $\phig\sqrt3/3$ coefficient
+\cite[physical p.~1, \S2.1]{P08}.
+Since $|G'(x)|\leq\phig/\sqrt3<1$, the mean-value theorem makes
+$G$ a global contraction on the complete real line. Its fixed point
+is uniquely zero, which is directly a fixed point. The standard contraction
+principle concerns this map, not every composition in the collected model.
+
+A separate drift increment is
+$\Delta\Theta_i=\alpha(\Theta_{\rm ref}-\Theta_i)$
+\cite[physical p.~13, \S5.4]{P03}.
+If this is added to a numeric state with a fixed reference and fixed
+$0<\alpha<2$, the new error is $(1-\alpha)$ times the old error, a
+strict contraction in any norm. The source does not specify the
+reference rule, bounds on its memory-modulated coefficient, or placement
+relative to the implicit update. This conditional result is useful
+without electing a complete dynamics.
+
+\subsection{A literal series and a geometric contraction claim}
+
+The June collected manuscript prints
+\begin{equation}
+ \operatorname{Revolution}(X)=
+ \sum_{n=1}^{\infty}\Omega_X
+ \left(1+\frac{\beta_n}{\alpha_n}\Omega_X\right)
+ \label{eq:revolution}
+\end{equation}
+\cite[physical pp.~4,6]{P13}.
+For a fixed finite nonzero $\Omega_X$, every term needs $\alpha_n\ne0$.
+Convergence requires its terms to vanish, hence
+$\beta_n/\alpha_n\to-1/\Omega_X$. This necessary condition is not
+sufficient: writing $\beta_n/\alpha_n=-1/\Omega_X+a_n$ reduces the series
+to $\Omega_X^2\sum_n a_n$, which diverges for $a_n=1/n$.
+If the ratio tends to zero instead, the terms tend to $\Omega_X\ne0$.
+The prose description of a self-modifying constant does not supply an
+indexed update for $\Omega_X$ or a convergence prescription. Treating it
+as $\Omega_n$ would create an additional definition.
+
+The November field pullback takes the form
+\begin{equation}
+ u^+=u\circ\Phi,\qquad
+ \Phi(\mathbf r)=\mathbf r-\lambda_c\mathbf n(\mathbf r),
+ \quad \lambda_c>0.
+ \label{eq:normal-map}
+\end{equation}
+Under its stated assumption that $\Phi$ maps $\Omega$ onto itself,
+\[
+ \|u\circ\Phi-v\circ\Phi\|_\infty=\|u-v\|_\infty.
+\]
+This is norm preservation, not strict contraction of fields.
+An $L^2$ change of variables instead involves the Jacobian
+\cite[physical p.~16, Eqs.~(17)--(18)]{P14}.
+
+There is a separate obstruction to the printed position-space argument.
+For a differentiable unit normal,
+$\mathbf n^TD\mathbf n=0$, obtained by differentiating
+$\mathbf n^T\mathbf n=1$. Therefore $D\mathbf n$ is singular and
+$D\Phi=I-\lambda_cD\mathbf n$ has eigenvalue 1. Its induced operator
+norm cannot be strictly less than one. A fixed point of the printed
+Euclidean-coordinate map would moreover require $\mathbf n=0$,
+inconsistent with a unit normal and $\lambda_c>0$.
+A vector field vanishing at the target might avoid this obstruction,
+but is not the given map.
+
+Even in a different map, eigenvalues inside the unit circle do not alone
+imply a contraction in an already specified norm for a nonnormal matrix.
+And a contraction on a complete invariant space has one fixed point,
+not a nontrivial cycle: if $F^mx=x$ and its contraction factor is $\rho<1$,
+then $d(x,Fx)\leq\rho^m d(x,Fx)$, so $Fx=x$.
+Thus the source's accompanying alternative of a small set of limit cycles
+does not follow from its contraction argument
+\cite[physical pp.~16--18]{P14}.
+The exact memory solution and conditional mass balance survive these
+limitations; a complete attractor theory still needs a defined field map,
+domain, boundary conditions and proof.
+
+
+\section{Later geometric and finite-core comparisons}
+\label{sec:later}
+
+Later sources can clarify the range of mathematical meanings attached to
+recurring names without completing the earlier model retrospectively.
+The November geometric manuscript's elementary identity is
+\begin{equation}
+ |\sin(3\theta+\delta)+\sin(3\theta-\delta)|
+ =2|\sin(3\theta)\cos\delta|.
+ \label{eq:sixfold}
+\end{equation}
+For $\cos\delta\ne0$ the magnitude has period $\pi/3$; for
+$\delta=\pi/2$ modulo $\pi$ it vanishes
+\cite[physical p.~11, \S4.4]{P14}.
+This establishes a sixfold magnitude pattern, not a sixth-harmonic field
+or the dynamical emergence of tetrahedra.
+
+Reflection also does not force a Star-of-David projection. Take the
+regular tetrahedron with base
+\[
+ (\cos(2\pi k/3),\sin(2\pi k/3),-1/\sqrt8),\quad k=0,1,2,
+\]
+and apex $(0,0,3/\sqrt8)$. All six edges have length $\sqrt3$.
+Reflecting in $z=0$ reverses its orientation but gives the same XY
+projection: a triangle and its center, not two rotated triangles.
+This counterexample limits a universal reading of the mirror-projection
+claim without ruling out a differently specified geometry
+\cite[physical pp.~10--11]{P14}.
+
+The other November manuscript defines a six-component complex model in
+the ordered basis $(0+,1+,2+,0-,1-,2-)$
+\cite[physical pp.~3--6]{P15}. Following its stated per-corridor
+helicity mixing, the order is sector-major and its four factors reduce to
+\begin{equation}
+ U=A\otimes B,\qquad
+ A=e^{-i\alpha\sigma_z}e^{-i\beta\sigma_x},\qquad B=MDC.
+ \label{eq:finite-factorization}
+\end{equation}
+Appendix~\ref{app:finite} specifies the factors and the basis qualification.
+A product operator cannot create corridor/helicity entanglement from a
+product input. A formula written for a differently ordered basis must
+permute all operators consistently before it can be compared.
+
+The same appendix proves the conditional norm identity, parameter
+conjugacy and generator-sign comparisons. In particular, explicit
+normalization in the source explains normalized reported vectors without
+making the underlying linear map unitary
+\cite[physical pp.~24,44--45]{P15}.
+The source's identification of three spin-half tensor factors with six
+dimensions is a separate representation issue: the tensor product has
+dimension eight and no total magnetic weight zero. A six-dimensional
+direct sum is a different construction
+\cite[physical p.~49, Appendix O]{P15}.
+
+These later comparisons are deliberately limited. They do not certify all
+later spectral tables, reopen the completed Tower II experiments, or change
+the corrected basis and factor-order conventions used by the accepted
+QSM/Bridge audits. In particular, a conditional factorization of one
+stated per-corridor action is not a claim that every later implementation
+uses that action.
+
+\section{Definition requirements and conclusions}
+\label{sec:conclusion}
+
+\subsection{What the reconstruction establishes}
+
+The historical materials determine several useful structures. The glyph
+schema identifies the intended ingredients of a state. The printed
+feedback, compression maps and observer formulas can be compared once
+their domains are explicit. The exact branch theorem determines scalar
+existence and uniqueness for the implicit temporal relation without
+changing its coefficient. The June quarter-turn, July shift, geometric
+reflection and later sector matrices support distinct, precisely
+conditional identities. The later driven memory equation has an explicit
+history representation.
+
+These results support a mathematical reconstruction rather than a selected
+replacement dynamics. In particular, Theorem~\ref{thm:branches} concerns
+fixed-data scalar solvability, not complete well-posedness of the glyph
+system. On its unique positive-threshold branch the root is a linear
+function of $b$, but that local formula does not supply roots in the
+missing region, choose a member of the $b=0$ continuum, or define updates
+for the rest of the tuple.
+
+\subsection{The definitions still needed for a complete dynamics}
+
+A future complete model would have to specify the following mutually
+related items. This is a definition checklist, not an implementation plan.
+
+\begin{enumerate}
+\item A numeric state carrier, its constraints and norm, and the distinction
+between evolving state, persistent labels and readouts.
+\item Required time levels and initialization, including whether the
+temporal difference generates motion, constrains it, or observes it.
+\item A spatial metric, dimensional scales, boundary conventions and any
+graph construction or refresh rule.
+\item Phase, memory and echo-set laws, including exceptional cases such as
+stationary trails, empty neighborhoods and zero normalization denominators.
+\item A selected compressor and its stage order, with sign, zero, threshold,
+and any partner-timing conventions.
+\item A fusion operation if fusion changes state, rather than merely a
+predicate applied to observations.
+\item For an implicit equation, an admissible domain with existence and
+uniqueness conditions, or an explicit multivalued/selection interpretation.
+\item A stated symmetry or reversor acting on every relevant state,
+parameter, clock and noise component.
+\end{enumerate}
+
+None of these can be replaced by the recurrence of an operator name.
+Nor can the later source's real $R/D$ arrays supply the missing typing of
+the June tensor or July tuple by assumption.
+
+\subsection{Completion comparisons are not recovered intent}
+
+There are several mathematically distinct future choices. One could
+formalize the surviving explicit formula \eqref{eq:explicit}; one could
+introduce a new implicit model with a globally Lipschitz compressor; or
+one could separate temporal curvature from the update and supply a
+velocity state. Each needs a declaration and subsequent analysis.
+None is selected here.
+
+For example, the standard sufficient condition for a newly specified
+equation
+\begin{equation}
+ y=\widetilde C(\chi y+d),\qquad
+ |\chi|\operatorname{Lip}(\widetilde C)<1,
+ \label{eq:new-contraction}
+\end{equation}
+on a complete invariant domain ensures a unique fixed point.
+Appendix~\ref{app:new-model} supplies the short proof and the domain
+qualification. The original threshold compressor does not satisfy that
+global Lipschitz hypothesis. Even introducing $|\chi|<1$ alone leaves
+no-root examples because its jump persists. This comparison establishes
+what one possible completion would need; it does not approve that completion.
+
+\subsection{Scope of the manuscript}
+
+The analysis is bounded by the retained manuscripts and operative code.
+Source equations and counterexamples establish the claims stated here;
+they do not authenticate every historical experiment or infer the
+author's missing intent. Earlier finite arithmetic checks are reused as
+supporting examples, without suite replay. No field update or new
+trajectory was computed for the manuscript.
+
+Physical particle labels, horizon narratives and the constant lock are
+historical motivations. They need independently defined observables,
+units and evidence before they can serve as physical conclusions.
+The distinct completed Tower II investigation concerns a specified later
+program and remains outside this paper's numerical scope.
+
+The conclusion is therefore constructive but limited: the original
+mathematics already supports exact source-specific statements, including
+the scalar branch theorem and several conditional symmetry and memory
+identities. It does not determine a unique combined evolution. Preserving
+that boundary makes those statements available for research without
+silently replacing the model whose foundations are being reconstructed.
+
+\appendix
+\section{Complete scalar branches for alternative operators}
+\label{app:branches}
+
+This appendix compares source-defined operators under substitution into
+$y=C(y+b)$. It does not assert that the original paper requested those
+substitutions. All variables are finite real numbers unless stated
+otherwise. To avoid a collision of roles, the plateau values are denoted
+$a_-=e^{-L}$ and $a_+=e^L$, a fixed partner cap is $m$, and a newly
+introduced temporal coefficient is $\chi$. These are presentational
+renamings, not changes in the source equations.
+
+\subsection{Fixed partner cap}
+
+With the partner held fixed, P03's minimum map gives
+$y=\min(y+b,m)$ \cite[physical p.~6, \S2.5]{P03}.
+Every root satisfies $y\leq m$.
+If $y<m$, equality requires $b=0$; if $y=m$, it requires $b\geq0$.
+Consequently the complete set is
+\begin{equation}
+ \mathcal S_{\min}(b;m)=
+ \begin{cases}
+ \varnothing,&b<0,\\
+ (-\infty,m],&b=0,\\
+ \{m\},&b>0.
+ \end{cases}
+ \label{eq:min-branches}
+\end{equation}
+Each listed candidate satisfies the original minimum expression, proving
+sufficiency. Nonnegative amplitudes require intersection with
+$[0,\infty)$; a negative cap then admits no root.
+If the partner is an unknown successor, its coupling must be analyzed
+separately and this fixed-cap classification is insufficient.
+
+\subsection{Positive-output logarithmic map}
+\label{app:positive-log}
+
+Let $L>0$, $\epsilon>0$, $x=y+b$, and use
+\eqref{eq:positive-branches}. Every root is positive.
+The following exhaustive table includes clamp boundaries in adjacent
+branches intentionally; duplicate candidates are removed from the union.
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.28}
+\begin{tabularx}{\textwidth}{@{}p{0.20\textwidth}p{0.27\textwidth}Y@{}}
+\toprule
+Input branch & Candidate or family & Necessary and sufficient tests\\
+\midrule
+$x=0$ & $y=1$ & $b=-1$\\
+$x>0$, lower & $y=a_-$ & $a_-+b>0$ and $a_-+b+\epsilon\leq a_-$\\
+$x>0$, interior & Eligible $y$, only if $b=-\epsilon$ &
+ $y-\epsilon>0$ and $a_-\leq y\leq a_+$\\
+$x>0$, upper & $y=a_+$ & $a_++b>0$ and $a_++b+\epsilon\geq a_+$\\
+$x<0$, lower & $y=a_-$ & $a_-+b<0$ and $(\epsilon-a_--b)^{-1}\leq a_-$\\
+$x<0$, interior & $y_\pm$ in \eqref{eq:log-roots} &
+ Real discriminant; $y_\pm>0$; $y_\pm+b<0$; $a_-\leq y_\pm\leq a_+$\\
+$x<0$, upper & $y=a_+$ & $a_++b<0$ and $(\epsilon-a_+-b)^{-1}\geq a_+$\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+On the negative-input interior, equality is
+\[
+ y=\frac1{\epsilon-y-b}
+ \quad\Longleftrightarrow\quad y^2+(b-\epsilon)y+1=0,
+\]
+so the candidates are
+\begin{equation}
+ y_\pm=\frac{\epsilon-b\pm\sqrt{(b-\epsilon)^2-4}}2.
+ \label{eq:log-roots}
+\end{equation}
+The table's sign and clamp conditions exclude extraneous polynomial
+roots. On the positive-input interior, equality is
+$y=y+b+\epsilon$, requiring $b=-\epsilon$.
+On each plateau the only possible output is its endpoint.
+Zero input has the separate value one. These cases exhaust all real
+inputs and prove the table.
+
+At the historical values $L=10$, $\epsilon=10^{-6}$ and offset $b=-3$,
+both roots of \eqref{eq:log-roots}, approximately $0.381966$ and
+$2.618035$, have negative input and lie between the plateaus.
+Both solve the substituted relation.
+At $b=-\epsilon$, every eligible positive-input interior value is a root.
+Thus this alternate compressor does not generally restore unique
+solvability. If $L=0$ instead, the map is constant one and $y=1$ is
+the unique root for every offset; that degenerate case is outside the
+table's assumption.
+
+\subsection{Signed magnitude clamp}
+
+For \eqref{eq:signed-branches}, the complete candidate union is:
+\begin{enumerate}
+\item $y=0$, admissible exactly when $b=0$.
+\item For each $s\in\{-1,+1\}$, the lower plateau $y=sa_-$,
+admissible exactly when $s(y+b)>0$ and $|y+b|+\epsilon\leq a_-$.
+\item For each $s$, the upper plateau $y=sa_+$, admissible exactly
+when $s(y+b)>0$ and $|y+b|+\epsilon\geq a_+$.
+\item On the interior with sign $s$, all $y$ satisfying
+\[
+ b=-s\epsilon,\quad sy>0,\quad s(y+b)>0,\quad
+ a_-\leq|y|\leq a_+.
+\]
+\end{enumerate}
+To prove completeness, separate zero and the two input signs.
+On a sign-$s$ interior, the equation is $y=y+b+s\epsilon$;
+on a plateau the output is its signed endpoint. The listed conditions
+are exactly those branch equations and their domains.
+
+For the later defaults $a_->\epsilon>0$ and $b=0$, neither interior
+is possible. The lower plateau would require
+$a_-+\epsilon\leq a_-$ and fails. Both upper plateaus succeed, as does
+zero. There are exactly three roots, $0,\pm a_+$.
+
+\subsection{A newly introduced temporal coefficient}
+\label{app:coefficient}
+
+If, as a new comparison only, a coefficient $\chi$ multiplies the
+centered temporal term, known current $x$, previous $z$ and feedback $F$
+give
+\begin{equation}
+ y=C_\lambda(\chi y+d),\qquad
+ d=(1-2\chi)x+\chi z+F.
+ \label{eq:chi}
+\end{equation}
+The full branch classification, including singular coefficients, is:
+\begin{itemize}
+\item If $\chi\ne1$, the lower candidate is $d/(1-\chi)$,
+valid exactly when that value is less than $\lambda$.
+If $\chi=1$, the lower branch exists exactly for $d=0$ and
+then contains all $y<\lambda$.
+\item If $\chi\ne1/q$, the upper candidate is $qd/(1-q\chi)$,
+valid exactly when $d/(1-q\chi)\geq\lambda$.
+If $\chi=1/q$, the upper branch exists exactly for $d=0$ and
+then contains all $y\geq q\lambda$.
+\end{itemize}
+Indeed the two branch equations are $y=\chi y+d$ and
+$y=q(\chi y+d)$. Solving them and retaining their input inequalities,
+with zero denominators handled separately, proves necessity and sufficiency.
+
+For $\chi=1/2,\lambda=1,d=0.4$, only the lower candidate $y=0.8$
+is admissible; the upper candidate has input below the threshold.
+For $d=0.6$, the lower candidate $1.2$ is inadmissible and the
+upper candidate's input is approximately $0.8683<1$, also inadmissible.
+There is no root despite $|\chi|<1$. The threshold jump, rather than
+merely the coefficient of the implicit term, is consequential.
+
+\subsection{A standard sufficient theorem for a new model}
+\label{app:new-model}
+
+Let $E$ be a Banach space and let $\widetilde C:E\to E$ be globally
+Lipschitz with constant $K$. For fixed $d\in E$, define
+$T(y)=\widetilde C(\chi y+d)$ and suppose $\rho=|\chi|K<1$.
+Then
+\[
+ \|T(y)-T(z)\|\leq\rho\|y-z\|.
+\]
+The successive differences of the abstract iteration $y_{m+1}=T(y_m)$
+are at most $\rho^m\|y_1-y_0\|$. Their geometric-series bound makes
+$(y_m)$ Cauchy; completeness gives a limit $y_*$ and continuity gives
+$T(y_*)=y_*$. Two fixed points satisfy
+$\|y_*-z_*\|\leq\rho\|y_*-z_*\|$ and hence coincide.
+This is the standard contraction proof, included to state all needed
+assumptions. The same argument works on a closed invariant subset.
+Without invariance a local Lipschitz estimate does not establish existence
+in the intended domain.
+
+This is a sufficient comparison theorem for a newly specified compressor
+and state carrier. It is neither an adopted SRG law nor an executed
+iteration. It cannot be applied to the discontinuous threshold map by
+omitting that map's branch conditions.
+
+
+\section{The later finite-core carrier and operator conventions}
+\label{app:finite}
+
+\subsection{Basis, action and factorization}
+
+This appendix is conditional on the per-corridor helicity action stated
+in the November manuscript. It is not a re-audit of all its tables or of
+any corrected kernel. Write the ordered basis as
+\[
+ (|0,+\rangle,|1,+\rangle,|2,+\rangle,
+  |0,-\rangle,|1,-\rangle,|2,-\rangle).
+\]
+For matrix construction this order identifies the carrier with
+$\C^2_{\rm sector}\otimes\C^3_{\rm corridor}$, with the sector index
+outermost. Let
+\begin{equation}
+ s=\frac1{\sqrt3}(1,1,1)^T,\quad P=ss^\dagger,\quad
+ C=(1-\lambda_c)I_3+\lambda_cP,
+ \label{eq:finite-C}
+\end{equation}
+\begin{equation}
+ M=e^\gamma P+e^{-\eta}(I_3-P),\qquad
+ D=\operatorname{diag}(1,e^{-i\varphi},e^{-2i\varphi}).
+ \label{eq:finite-MD}
+\end{equation}
+The full projector is $I_2\otimes P$. In this ordering the four
+per-corridor factors are
+\begin{align}
+ U_{\rm RPCO}&=I_2\otimes C,&
+ U_{\rm flip}&=e^{-i\beta\sigma_x}\otimes I_3,\nonumber\\
+ U_{\rm TGMO}&=e^{-i\alpha\sigma_z}\otimes D,&
+ U_{\rm REFU}&=I_2\otimes M.
+ \label{eq:finite-factors}
+\end{align}
+These express the literal projector, phase and amplification definitions
+\cite[physical pp.~3--6, \S\S2--3]{P15}.
+With the printed factor order
+$U=U_{\rm REFU}U_{\rm TGMO}U_{\rm flip}U_{\rm RPCO}$,
+the elementary identity
+$(A\otimes B)(C\otimes D)=AC\otimes BD$
+proves \eqref{eq:finite-factorization}.
+It follows directly that
+$U(h\otimes v)=Ah\otimes Bv$, so product inputs remain products.
+
+The explicit index mapping matters:
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Convention & Ordered labels & Same-corridor pairs\\
+\midrule
+Printed sector-major & $0+,1+,2+,0-,1-,2-$ & $(0,3),(1,4),(2,5)$\\
+Corridor-major & $0+,0-,1+,1-,2+,2-$ & $(0,1),(2,3),(4,5)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Appendix C writes $I_3\otimes e^{-i\beta\sigma_x}$ beside the
+sector-major diagonals \cite[physical p.~24]{P15}.
+That Kronecker product mixes adjacent entries, hence implements the
+stated per-corridor action in corridor-major order, not the printed order.
+The two complete representations are related by a permutation matrix
+$\Pi$, with every operator transformed as $\Pi U\Pi^{-1}$.
+Changing the flip alone while retaining the other diagonals is not such
+a basis change. The factorization above follows the stated action and
+declared order; it does not silently certify the inconsistent literal
+combination.
+
+\subsection{Norm, normalization and sector conjugacy}
+
+At $\varphi=2\pi/3$, $s^\dagger Ds=(1+e^{-2\pi i/3}
++e^{-4\pi i/3})/3=0$, while $Cs=s$.
+For real $\alpha,\beta$, $A$ is unitary. Therefore
+\begin{equation}
+ \|U(h\otimes s)\|^2=e^{-2\eta}\|h\|^2.
+ \label{eq:finite-norm}
+\end{equation}
+At the source value $\eta=0.423$, the factor is approximately 0.4291.
+The raw map does not preserve norm. The source explicitly renormalizes
+after each update in Appendix C and again in its implementation discussion
+\cite[physical pp.~24,44--45]{P15}.
+The map $\psi\mapsto U\psi/\|U\psi\|$ is a nonlinear normalized map
+defined where $U\psi\ne0$, rather than a linear unitary operator.
+
+For exchange $S=\sigma_x\otimes I_3$, use
+$\sigma_x\sigma_z\sigma_x=-\sigma_z$ and $\sigma_x^2=I$ to obtain
+\begin{equation}
+ SU(\alpha,\beta)S=U(-\alpha,\beta).
+ \label{eq:finite-exchange}
+\end{equation}
+This is conjugacy between parameter values, not exchange invariance at
+the source's fixed $\alpha=2\pi(0.244)$.
+Also $e^{-i\beta\sigma_x}=\cos\beta\,I-i\sin\beta\,\sigma_x$
+is a complete swap up to a global phase only when
+$\beta=\pi/2$ modulo $\pi$. At $\beta=\pi(0.244)$ it is partial mixing
+\cite[physical pp.~5--6]{P15}.
+
+For $0\leq\lambda_c<1$, the eigenvalues of $C$ are 1 and
+$1-\lambda_c$, so all factors are invertible; at $\lambda_c=1$,
+$C$ is singular. Even in the invertible case, reversing the factor order
+and inverting amplification/damping does not establish a physical
+reversor of the form \eqref{eq:reversor}.
+
+\subsection{Generator convention and finite-step limitations}
+
+Under the convention $U=e^{-iH}$, choosing the memory generator
+continuously from zero strength gives
+\begin{equation}
+ H_{\rm mem}=i[\gamma P_{\rm core}-\eta(I-P_{\rm core})],
+ \qquad
+ e^{-iH_{\rm mem}}=
+ e^{\gamma P_{\rm core}-\eta(I-P_{\rm core})}.
+ \label{eq:generator-memory}
+\end{equation}
+The opposite sign printed on physical pp.~8 and 31 instead inverts
+the stated amplification and damping \cite[Appendix E.5]{P15}.
+Other logarithm branches require separate choices; the exponential alone
+does not give a unique generator.
+
+If $\lambda_c=\kappa_c\Delta t$, expansion of
+$I+\kappa_c\Delta t(P_{\rm core}-I)$ gives
+$H_{\rm comp}=i\kappa_c(P_{\rm core}-I)$ to first order under
+the same convention. This differs both in sign and in its identity term
+from the printed $-i\kappa_c(P_{\rm core}-I/3)$
+\cite[physical pp.~7,31]{P15}.
+For the complete finite operator, $H_{\rm eff}=i\log U$ with a
+specified branch; the pseudocode's $-i\log U$ has the opposite sign
+\cite[physical p.~34, Appendix H.6]{P15}.
+Noncommuting finite factors do not generally have a generator equal to
+the sum of their separate generators. A small-step approximation needs
+scaled strengths and control of the commutator terms.
+
+\subsection{The representation claim}
+
+The later spin-network identification asserts a tensor product of three
+spin-half edge spaces while counting three edges times two helicities as
+six states \cite[physical p.~49, Appendix O]{P15}.
+A tensor product has dimension $2^3=8$, whereas three doublets in direct
+sum have dimension six. In the tensor product the total magnetic weights
+are $\pm3/2$ and $\pm1/2$; none is zero. An invariant singlet would be
+annihilated by total $J_z$, so no such singlet exists here.
+This elementary obstruction concerns that identification, not the
+existence of the separate six-component carrier or all possible
+representations that one might subsequently define.
+
+\section{Source dictionary, parameter roles and physical interpretations}
+\label{app:sources}
+
+The references below give complete source titles and date evidence.
+All P-number page locators refer to physical PDF pages. Code locators
+refer to retained original lines; the review ledger disambiguates paths,
+records hashes, and connects manuscript claims to the page/line evidence.
+An archive ID is not a DOI, and no local path is offered as a public link.
+
+\subsection{Several state carriers}
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{@{}p{0.22\textwidth}YY@{}}
+\toprule
+Source and date & Carrier actually stated & Boundary of the identification\\
+\midrule
+June P09--P13 & Phase-labelled tensor/field expressions &
+Tensor type and composite floor need definition\\
+July P03 & Glyph tuple and symbolic trail state &
+Tuple schema is not a scalar algebra\\
+July P05/code & Positions on a fixed neighbor graph &
+No full resonance/echo-state update\\
+July P06 & Two signals related by a time shift &
+Not arbitrary independent sectors\\
+November P14 & Field, geometry and driven memory &
+Domains and nonlinear field terms remain required\\
+November P15 & Six complex components &
+Basis action and factor order must be fixed\\
+March Infinity & Two real amplitude arrays and positions &
+Not constrained by the June complex relation\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Constants require a role and an independent estimator}
+
+The fusion and dark-sector manuscripts print
+\begin{equation}
+ \pi e\phig=\gamma^{-1}\zeta(3)
+ \quad\Longleftrightarrow\quad
+ \gamma=\frac{\zeta(3)}{\pi e\phig}
+ \approx0.0869947475
+ \label{eq:constant-lock}
+\end{equation}
+\cite[physical p.~3, Eq.~(1)]{P01}
+\cite[physical p.~4, Eq.~(2)]{P06}.
+The latter's symbol appendix also identifies gamma as the
+Euler--Mascheroni constant, approximately 0.577
+\cite[physical p.~6]{P06}. These are incompatible values under the same
+literal identity, not a numerical uncertainty.
+The position program's unused GAMMA=0.577, the later finite-core
+reinforcement 0.577 and the Infinity coupling parameter 0.08699
+play different roles. A shared letter does not derive a relation among them.
+
+The later URF text describes a run-dependent coupling inferred from
+spectra, while its algorithm leaves GammaEstimate unspecified
+\cite[physical pp.~8--9,13]{P19}.
+Solving \eqref{eq:constant-lock} for gamma is not an independent empirical
+test of that identity. An estimator would need a definition independent of
+the target equality and a declared observable.
+Similarly, the source uses of $\lambda_{\rm VP}$ as an overlap length,
+clustering radius or numerical 0.618 require different parameter dictionaries.
+The number 0.244 cannot silently be radians per pass, cycles per pass and
+hertz without a conversion and physical clock.
+
+\subsection{Horizon equations do not specify a reversal map}
+
+The July manuscript's horizon expression is
+\begin{equation}
+ \Psi_H(t,r)=A_He^{-\Gamma t}\cos(\omega_r r-\varphi_0)
+ \label{eq:horizon}
+\end{equation}
+\cite[physical p.~4, Eq.~(3)]{P06}.
+At fixed $r$ it has decay but no temporal cosine. The coefficient
+multiplying radius is labeled in hertz in the symbol discussion; a
+spatial scale and dimensional convention are missing. The expression
+does not supply a scattering boundary condition or a time-reversal action.
+
+For one mode the printed threshold integral evaluates to
+\begin{equation}
+ \Lambda_{\rm VP}=\int_0^{R_c}\lambda_n e^{-\alpha_n r}\,dr
+ =
+ \begin{cases}
+ \lambda_n(1-e^{-\alpha_nR_c})/\alpha_n,&\alpha_n\ne0,\\
+ \lambda_nR_c,&\alpha_n=0 .
+ \end{cases}
+ \label{eq:threshold-integral}
+\end{equation}
+No sum over $n$ is printed, so adding one would be a further definition
+\cite[physical p.~4, Eq.~(5)]{P06}.
+The stated entropy balance similarly implies only
+\begin{equation}
+ \frac{d}{dt}(S_{\rm child}+S_{\rm parent})=\epsilon_f.
+ \label{eq:entropy}
+\end{equation}
+Conservation needs $\epsilon_f=0$
+\cite[physical p.~5, Eq.~(7)]{P06}.
+These integral and balance identities can be retained without inferring
+microscopic reversed time, or identifying the historical sector labels
+with established particles.
+
+\section{Evidence roles and assistance}
+\label{app:evidence}
+
+The central statements are supported by the proofs and source locators
+in this paper. FOUNDATIONS-01 supplied twenty finite arithmetic
+certificates illustrating branch, sign, matrix and constant comparisons
+\cite{F01,Branch}. They were retained as prior evidence, not rerun for
+a new receipt, and do not substitute for proofs of general claims.
+The drafting supplement supplies a claim/source ledger, a cited-page
+and code-line review, mathematical notes, build and page-review records,
+and consumed-input integrity hashes. It does not reproduce earlier
+trajectory archives or certify every numerical claim in the historical
+manuscripts.
+
+The proposed human author is Hilmir Fr\'imann Halld\'orsson.
+GPT supplied mathematical review of the preceding reconstruction and the
+opening draft, then reviewed v0.1 and requested the minor revisions
+E01--E03. Codex carried out source investigation, the recorded
+FOUNDATIONS-01 algebra checks, manuscript drafting, and the present
+revision with citation verification and typesetting review. The prior
+algebra checks were not rerun for this revision.
+These are assistance roles rather than coauthorship, external peer review,
+or publication approval. This v0.1.1 manuscript addresses E01--E03 and is
+returned for GPT closure review; acceptance of the revision is not
+claimed before that review.
+No affiliation, release license or publication venue is assigned.
+
+
+\begin{thebibliography}{Infinity}
+\small
+\bibitem[P01]{P01}
+Archived manuscript P01.
+\emph{Symbolic Recursion and SRG Fusion: Emergent Lattice Fields from Glyph Memory Dynamics}.
+Cover date: 15 July 2025. 24 physical PDF pages.
+Stable local archive identifier; public publication status not established.
+
+\bibitem[P03]{P03}
+Archived manuscript P03.
+\emph{Symbolic Recursion and SRG Formation: Full Method and Emergence}.
+Cover date: 14 July 2025. 19 physical PDF pages.
+Stable local archive identifier; public publication status not established.
+
+\bibitem[P05]{P05}
+Archived manuscript P05.
+\emph{Patch Research: Detailed Reconstruction of Missing Components in Symbolic Recursion and SRG Framework}.
+Cover date: 15 July 2025. 3 physical PDF pages.
+Stable local archive identifier; public publication status not established.
+
+\bibitem[P06]{P06}
+Archived manuscript P06.
+\emph{Recursive Dark Energy and Vacuum Feedback: A Vesica-Phase Cosmological Framework}.
+Cover date: 13 July 2025. 9 physical PDF pages.
+Stable local archive identifier; public publication status not established.
+
+\bibitem[P07]{P07}
+Archived manuscript P07.
+\emph{Recursive Numerical Operators for Symbolic Dynamics}.
+Cover date: 11 July 2025. 10 physical PDF pages.
+Stable local archive identifier; public publication status not established.
+
+\bibitem[P08]{P08}
+Archived manuscript P08.
+\emph{Recursive Symbolic Evolution and Feedback Dynamics in Python}.
+Cover date: 29 June 2025. 3 physical PDF pages.
+Stable local archive identifier; public publication status not established.
+
+\bibitem[P09]{P09}
+Archived manuscript P09.
+\emph{Recursive Symbolic Evolution and Feedback Dynamics in Python}.
+Cover date: 29 June 2025. 7 physical PDF pages.
+Stable local archive identifier; public publication status not established.
+
+\bibitem[P10]{P10}
+Archived manuscript P10.
+\emph{Recursive Symbolic Evolution and Its Application in Quantum and Cosmological Systems}.
+Cover date: 29 June 2025. 4 physical PDF pages.
+Stable local archive identifier; public publication status not established.
+
+\bibitem[P11]{P11}
+Archived manuscript P11.
+\emph{Why the Toroidal Laplacian Failed: A Structural Explanation}.
+No established cover date; PDF creation metadata: 29 June 2025. 2 physical PDF pages.
+Stable local archive identifier; public publication status not established.
+
+\bibitem[P13]{P13}
+Archived manuscript P13.
+\emph{Unified Recursive Cosmological Model Memo}.
+No established cover date; PDF creation metadata: 29 June 2025. 17 physical PDF pages.
+Stable local archive identifier; public publication status not established.
+
+\bibitem[P14]{P14}
+Archived manuscript P14.
+\emph{Recursive Engines in Folded Tri-Octagon Geometry: From Symbolic Qubits to the Dual-Tetrahedral SRG Core}.
+Cover date: 24 November 2025. 25 physical PDF pages.
+Stable local archive identifier; public publication status not established.
+
+\bibitem[P15]{P15}
+Archived manuscript P15.
+\emph{Recursive SRG Evolution: A Qutrit-Qubit Operator, Dual-Core Geometry, and Computational Interpretation}.
+Cover date: 24 November 2025. 51 physical PDF pages.
+Stable local archive identifier; public publication status not established.
+
+\bibitem[P19]{P19}
+Archived manuscript P19.
+\emph{Unified Recursive Fields: Geometry, Recursion, and Consciousness}.
+Cover date: 6 September 2025. 15 physical PDF pages.
+Stable local archive identifier; public publication status not established.
+
+\bibitem[Infinity]{Infinity}
+Archived source code \texttt{srg\_infinity.py}.
+Retained March archive source; internal date 14 March 2026. Principal lines: 49--53,70--91,114--135,162--202.
+The review ledger records the exact retained path and source identity.
+
+\bibitem[Position]{Position}
+Archived source code \texttt{recursive\_field\_evolve.py}.
+Original reconstruction engine; no separate composition date established. Principal lines: 31--40,45--78.
+The review ledger records the exact retained path and source identity.
+
+\bibitem[RPCO]{RPCO}
+Archived source code \texttt{RPCO.py}.
+Original Reading material spatial helper. Principal lines: 5--13.
+The review ledger records the exact retained path and source identity.
+
+\bibitem[TGMO]{TGMO}
+Archived source code \texttt{TGMO.py}.
+Original Reading material toroidal sampler. Principal lines: 5--14.
+The review ledger records the exact retained path and source identity.
+
+\bibitem[REFU]{REFU}
+Archived source code \texttt{REFU.py}.
+Original Reading material clock-function helper. Principal lines: 5--13.
+The review ledger records the exact retained path and source identity.
+
+\bibitem[Attractor]{Attractor}
+Archived source code \texttt{recursive\_attractor.py}.
+Original velocity/position program. Principal lines: 29--56.
+The review ledger records the exact retained path and source identity.
+
+\bibitem[Helicity]{Helicity}
+Archived source code \texttt{helicity\_REFU\_TGMO\_RPCO\_field\_evolution.py}.
+Original prescribed vector-field program. Principal lines: 23--40,57--63.
+The review ledger records the exact retained path and source identity.
+
+\bibitem[Echo]{Echo}
+Archived source code \texttt{echo\_map\_2.py}.
+Original \texttt{Simulations\_Trash/Simulations\_part\_4} trail observer. Principal lines: 10--43.
+The review ledger records the exact retained path and source identity.
+
+\bibitem[F01]{F01}
+\emph{SRG FOUNDATIONS-01 Original Recursion and Dual-Sector Mathematics}.
+Codex source-reconstruction report, 10 October 2026, with subsequent GPT review.
+Acceptance is limited to the recorded reconstruction scope.
+
+\bibitem[B]{Branch}
+\emph{Exact scalar branches and conditional completion theorem}.
+Codex, FOUNDATIONS-01 appendix, 10 October 2026.
+Analytical comparisons, not an adopted replacement model.
+
+\bibitem[C]{Catalog}
+\emph{Source catalog and coverage}.
+FOUNDATIONS-01, 10 October 2026. Titles, date evidence, identities and bounded coverage.
+
+\end{thebibliography}
+\end{document}

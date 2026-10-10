@@ -1,0 +1,222 @@
+{
+  "scope": "Finite algebraic checks only. No historical programs or simulations executed.",
+  "python": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+  "numpy": "2.4.4",
+  "mpmath": "1.3.0",
+  "checks": [
+    {
+      "id": "A01",
+      "claim": "Two distinct next states at b=0, lambda=1",
+      "passed": true,
+      "evidence": {
+        "states": [
+          0.2,
+          0.7
+        ]
+      }
+    },
+    {
+      "id": "A02",
+      "claim": "No branch for b=.1, lambda=1",
+      "passed": true,
+      "evidence": {
+        "lower_requires_b_zero": true,
+        "compressed_candidate": 0.1618033988749895,
+        "compressed_input": 0.2618033988749895
+      }
+    },
+    {
+      "id": "A03",
+      "claim": "Unique compressed candidate for b=1",
+      "passed": true,
+      "evidence": {
+        "next_state": 1.618033988749895,
+        "residual": 2.220446049250313e-16
+      }
+    },
+    {
+      "id": "A04",
+      "claim": "Threshold branch boundary equals phi^-2",
+      "passed": true,
+      "evidence": {
+        "boundary": 0.3819660112501051
+      }
+    },
+    {
+      "id": "A05",
+      "claim": "Threshold compressor is not injective",
+      "passed": true,
+      "evidence": {
+        "inputs": [
+          0.8,
+          1.294427190999916
+        ],
+        "outputs": [
+          0.8,
+          0.8
+        ]
+      }
+    },
+    {
+      "id": "A06",
+      "claim": "P07 compressor is positive on negative input and sends zero to one",
+      "passed": true,
+      "evidence": {
+        "negative_input_output": 0.499999750000125,
+        "zero_output": 1.0
+      }
+    },
+    {
+      "id": "A07",
+      "claim": "P07 substituted into implicit relation has two reciprocal-branch solutions at b=-3",
+      "passed": true,
+      "evidence": {
+        "roots": [
+          0.3819658404298014,
+          2.6180351595701987
+        ],
+        "residuals": [
+          5.551115123125783e-17,
+          -4.440892098500626e-16
+        ],
+        "status": "Alternative-operator comparison, not the P03 recurrence"
+      }
+    },
+    {
+      "id": "A08",
+      "claim": "Later signed RPCO has fixed points 0 and plus/minus upper cap",
+      "passed": true,
+      "evidence": {
+        "fixed_points": [
+          -8103.083927575384,
+          0,
+          8103.083927575384
+        ],
+        "status": "Operator algebra only"
+      }
+    },
+    {
+      "id": "A09",
+      "claim": "H is not a globally nonnegative memory envelope",
+      "passed": true,
+      "evidence": {
+        "t": 67.54424205218055,
+        "value": -1.582216687335581e-09,
+        "scaled": -0.9988342891458876
+      }
+    },
+    {
+      "id": "A10",
+      "claim": "A quarter phase rotation is complex-collinear, not Hermitian-orthogonal",
+      "passed": true,
+      "evidence": {
+        "inner_product": "5j",
+        "J_squared_z": "(-1-2j)"
+      }
+    },
+    {
+      "id": "A11",
+      "claim": "Fixed-geometry R/D mixing fails sector-swap and quarter-turn commutation",
+      "passed": true,
+      "evidence": {
+        "swap_commutator": 0.21213203435596434,
+        "quarter_turn_commutator": 0.212160543986922
+      }
+    },
+    {
+      "id": "A12",
+      "claim": "R/D linear coupling does not preserve all nonnegative amplitudes",
+      "passed": true,
+      "evidence": {
+        "pass_index": 13,
+        "R_before": 0,
+        "D_before": 1,
+        "R_after_coupling": -0.0008694978732945219
+      }
+    },
+    {
+      "id": "A13",
+      "claim": "P15 per-corridor operator action factorizes in sector-major order",
+      "passed": true,
+      "evidence": {
+        "factorization_residual": 2.2134310644582012e-16
+      }
+    },
+    {
+      "id": "A14",
+      "claim": "Raw P15 map does not preserve norm",
+      "passed": true,
+      "evidence": {
+        "norm_squared": 0.42912801555963265,
+        "expected": 0.42912801555963254
+      }
+    },
+    {
+      "id": "A15",
+      "claim": "Sector exchange conjugates alpha to minus alpha but is not a symmetry at fixed parameters",
+      "passed": true,
+      "evidence": {
+        "parameter_conjugacy_residual": 0.0,
+        "fixed_parameter_commutator": 2.761297528123301
+      }
+    },
+    {
+      "id": "A16",
+      "claim": "Printed P15 memory generator has the opposite sign",
+      "passed": true,
+      "evidence": {
+        "correct_generator_residual": 0.0,
+        "printed_generator_residual": 1.6622719392445988
+      }
+    },
+    {
+      "id": "A17",
+      "claim": "Embedded torus Laplace-Beltrami differs from a flat two-angle stencil",
+      "passed": true,
+      "evidence": {
+        "field": "cos(u)",
+        "R": 2.0,
+        "r": 1.0,
+        "u": 1.5707963267948966,
+        "flat_value": -6.123233995736766e-17,
+        "embedded_torus_value": 0.49999999999999994,
+        "status": "Geometry-conditional derivation; not recovered geometry"
+      }
+    },
+    {
+      "id": "A18",
+      "claim": "P14 six-lobe magnitude identity holds",
+      "passed": true,
+      "evidence": {
+        "degenerate_delta": "pi/2 gives identically zero"
+      }
+    },
+    {
+      "id": "A19",
+      "claim": "Lock gamma differs from Euler-Mascheroni and .577",
+      "passed": true,
+      "evidence": {
+        "gamma_lock": "0.0869947475170350024975236574826236636378643695",
+        "euler_mascheroni": "0.577215664901532860606512090082402431042159336",
+        "product_with_dot577": "7.9727437910808372917281083281",
+        "zeta3": "1.20205690315959428539973816151"
+      }
+    },
+    {
+      "id": "A20",
+      "claim": "Three spin-half factors have dimension eight and no zero total magnetic weight",
+      "passed": true,
+      "evidence": {
+        "dimension": 8,
+        "distinct_total_m": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "status": "Algebraic counterexample to P15 Appendix O identification"
+      }
+    }
+  ],
+  "all_passed": true
+}

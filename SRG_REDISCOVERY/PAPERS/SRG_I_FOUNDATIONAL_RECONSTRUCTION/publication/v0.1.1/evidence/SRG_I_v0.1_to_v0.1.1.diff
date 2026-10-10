@@ -1,0 +1,124 @@
+--- frozen_v0.1/manuscript/SRG_I_v0.1.tex
++++ revision_v0.1.1/manuscript/SRG_I_v0.1.1.tex
+@@ -7,14 +7,14 @@
+ \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+ \usepackage{microtype}
+ \usepackage{fancyhdr}
+ \usepackage[hidelinks]{hyperref}
+-\hypersetup{pdftitle={SRG-I: Foundational Reconstruction v0.1},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={Complete first review manuscript; source-grounded mathematical reconstruction}}
++\hypersetup{pdftitle={SRG-I: Foundational Reconstruction v0.1.1},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={Minor revision v0.1.1 for GPT closure review; source-grounded mathematical reconstruction}}
+ \pagestyle{fancy}
+ \fancyhf{}
+ \fancyhead[L]{\small SRG-I \;|\; Foundational reconstruction}
+-\fancyhead[R]{\small v0.1 review}
+-\fancyfoot[L]{\small 10 October 2026 \;|\; Not for publication}
++\fancyhead[R]{\small v0.1.1 closure review}
++\fancyfoot[L]{\small Revision: 10 October 2026 \;|\; Not for publication}
+ \fancyfoot[R]{\small \thepage}
+ \renewcommand{\headrulewidth}{0.3pt}
+ \renewcommand{\footrulewidth}{0pt}
+ \setlength{\parindent}{0pt}
+@@ -48,12 +48,12 @@
+ and Dual-Sector Symmetries\par}
+ \vspace{0.7em}
+ {\large Hilmir Fr\'imann Halld\'orsson\par}
+ \vspace{0.3em}
+-{\small 10 October 2026}
++{\small Revision date: 10 October 2026}
+ \end{center}
+ \vspace{0.2em}
+-\noindent\textit{Complete first review manuscript, v0.1. Drafting date above; not a publication date.}
++\noindent\textit{Revised manuscript, v0.1.1, returned for closure review. Date above is not a publication date.}
+ 
+ \begin{abstract}
+ The surviving Symbolic Resonance Geometry sources define several state
+ schemas, operator families and sector relations. We reconstruct their
+@@ -233,12 +233,14 @@
+ 
+ The source feedback has useful conditional structure. If distance is
+ symmetric, $\varphi_{ji}=-\varphi_{ij}$, and echo membership is reciprocal,
+ then $a_{ij}=\cos\varphi_{ij}/(1+d_{ij}^2)$ is symmetric on the active edges.
+-The actual coefficient in \eqref{eq:feedback} is $H_i a_{ij}$; equality with
+-its reverse-edge coefficient additionally requires the corresponding memory
+-values to agree. Even then there is no compensating term proportional to
+-$-R_i$. For a mutually coupled pair with positive resonances, aligned phases
++The actual coefficient in \eqref{eq:feedback} is $H_i a_{ij}$. Under the
++stated symmetry of $a_{ij}$, equality of the two directional coefficients is
++equivalent to $(H_i-H_j)a_{ij}=0$. Thus the memory values must agree on
++nonzero-weight edges; a zero-weight edge imposes no such condition.
++Even when the coefficients are symmetric, there is no compensating term
++proportional to $-R_i$. For a mutually coupled pair with positive resonances, aligned phases
+ and positive memory, both contributions are positive. Symmetric coupling
+ therefore does not establish total-resonance conservation.
+ This is a deduction about the printed feedback, not a conservation test on
+ an executed trajectory \cite[physical p.~7, \S3.2]{P03}.
+@@ -429,11 +431,12 @@
+ or an attractor. The bounded source investigation did not identify an
+ implicit solver or branch selector for this relation. The fusion paper's
+ listing is expressly pseudocode: its resonance-update stub copies and
+ returns the input, and the text acknowledges the placeholders
+-\cite[physical pp.~22--24]{P01}. A different explicit
+-formula survives in the same paper, but choosing it as a correction remains
+-a separate decision \cite[\S3.4]{F01}.
++\cite[physical pp.~22--24]{P01}. The formation manuscript P03 also contains
++the explicit expression \eqref{eq:explicit} \cite[physical p.~2, \S1.1]{P03};
++choosing it as a correction to \eqref{eq:root} remains a separate decision
++\cite[\S3.4]{F01}.
+ 
+ \subsection{Why the word compression does not settle solvability}
+ 
+ For $\lambda>0$, the one-sided limits of \eqref{eq:compressor} at the threshold
+@@ -600,21 +603,24 @@
+ domains and required data differ. The source notation $\nabla_T^2$ does
+ not erase that distinction.
+ 
+ The reconstruction patch gives an explicit spatial engine
+-\cite[physical pp.~1--2, \S\S2--3]{P05}. In its surviving code, let $P$
+-average the initially selected neighbors on each nonempty row and use the
+-identity row for an empty neighbor set. With positions stored as vectors,
+-write $\Delta X=(P-I)X$. The operative stages are
++\cite[physical pp.~1--2, \S\S2--3]{P05}. In its surviving code, positions
++form an array $X\in\R^{N\times3}$, with one row per glyph. Let
++$P\in\R^{N\times N}$ average the initially selected neighbors on each
++nonempty row and use the identity row for an empty neighbor set. Write
++$\Delta X=(P-I)X$. The operative stages are
+ \begin{align}
+  Y&=X+0.05\Delta X+0.15\tanh(\Delta X),\label{eq:patch-a}\\
+  Z&=0.95Y+0.05\overline Y+\xi,\label{eq:patch-b}\\
+- X^+&=\operatorname{diag}
+- (1,1,1-0.001\sin(2\pi\,0.244\,s))Z.
++ X^+&=Z\,\operatorname{diag}
++ (1,1,1-0.001\sin(2\pi\,0.244\,s)).
+  \label{eq:patch-c}
+ \end{align}
+ The mean is broadcast to each position, the hyperbolic tangent acts
+ componentwise, and $\xi$ denotes the program's Gaussian perturbation.
++In \eqref{eq:patch-c}, right multiplication scales coordinate columns, so
++only each glyph's third coordinate changes in that stage.
+ The initial graph is built once. The variables named GAMMA, LAMBDA\_VP
+ and a computed breathing amplitude do not enter these operative updates
+ \cite[lines 31--40,45--78]{Position}.
+ Equations~\eqref{eq:patch-a}--\eqref{eq:patch-c} are a static transcription
+@@ -1737,14 +1743,17 @@
+ manuscripts.
+ 
+ The proposed human author is Hilmir Fr\'imann Halld\'orsson.
+ GPT supplied mathematical review of the preceding reconstruction and the
+-opening draft. Codex carried out source investigation, the recorded
+-FOUNDATIONS-01 algebra checks, and subsequent manuscript drafting,
+-citation verification and typesetting review.
++opening draft, then reviewed v0.1 and requested the minor revisions
++E01--E03. Codex carried out source investigation, the recorded
++FOUNDATIONS-01 algebra checks, manuscript drafting, and the present
++revision with citation verification and typesetting review. The prior
++algebra checks were not rerun for this revision.
+ These are assistance roles rather than coauthorship, external peer review,
+-or publication approval. The complete v0.1 manuscript is submitted for
+-future GPT review; that review is not represented as already completed.
++or publication approval. This v0.1.1 manuscript addresses E01--E03 and is
++returned for GPT closure review; acceptance of the revision is not
++claimed before that review.
+ No affiliation, release license or publication venue is assigned.
+ 
+ 
+ \begin{thebibliography}{Infinity}

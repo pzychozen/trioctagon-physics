@@ -1,0 +1,66 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+# Grid setup
+x, y = np.meshgrid(np.linspace(-3, 3, 40), np.linspace(-3, 3, 40))
+t = 0.0
+
+# REFU symbolic memory curve
+def H(t):
+    a1, b1 = 2.0, 0.5
+    alpha2, b2 = 1.0, 0.3
+    lambda1, omega1 = 1.5, 0.7
+    lambda2, omega2 = 1.0, 0.4
+    return (
+        a1 * np.exp(-b1 * t) * np.cos(t)
+        + alpha2 * np.exp(-b2 * t) * np.sin(t)
+        + lambda1 * np.exp(-omega1 * t)
+        + lambda2 * np.exp(-omega2 * t)
+    )
+
+# TGMO toroidal angular memory
+def TGMO(x, y, t):
+    r2 = x**2 + y**2 + 1e-5
+    omega = 2 * np.pi * 0.1
+    return -y / r2 + 0.2 * np.sin(omega * t), x / r2 + 0.2 * np.cos(omega * t)
+
+# RPCO stability filter
+def RPCO(U, V):
+    magnitude = np.sqrt(U**2 + V**2)
+    safe = magnitude < 5.0
+    return np.where(safe, U, U * 0.2), np.where(safe, V, V * 0.2)
+
+# Full vector field at time t
+def field(t):
+    U, V = TGMO(x, y, t)
+    decay = H(t)
+    U *= decay
+    V *= decay
+    return RPCO(U, V)
+
+# First frame data (avoid zero-length startup)
+U0, V0 = field(0.0)
+
+# Set up figure + quiver, with an explicit scale
+fig, ax = plt.subplots(figsize=(6, 6))
+quiver = ax.quiver(
+    x, y, U0, V0,
+    color='purple',
+    scale=50,
+    pivot='middle',
+)
+ax.set_xlim(-3, 3)
+ax.set_ylim(-3, 3)
+ax.set_title("Helicity + REFU + TGMO + RPCO Field Evolution")
+
+def update(frame):
+    global t
+    t += 0.1
+    U, V = field(t)
+    quiver.set_UVC(U, V)   # update arrow vectors
+    ax.set_title(f"t = {t:.2f}")
+    return quiver,
+
+ani = FuncAnimation(fig, update, frames=100, interval=100, blit=False)
+plt.show()
