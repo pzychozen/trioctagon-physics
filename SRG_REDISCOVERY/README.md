@@ -19,3 +19,7 @@ The completed Tower II audit, future SRG-II writing, any newly specified standal
 This is a curated public candidate, not an upload of the local research workspace. OLD_MATERIAL, the R0–R3 investigation directories, local drafts, full review packages and closure-filing records remain preserved outside this subset.
 
 The [repository license scope](../LICENSE_SCOPE.md) excludes scientific research from automatic Apache-2.0 coverage. This preparation grants no new license to the manuscript. Existing source-specific notices, including CC BY 4.0 for identified deposited originals, are retained and attributed.
+
+## SRG Origins
+
+[SRG Origins — From Geometry to Recursive Operators](PAPERS/SRG_ORIGINS_FROM_GEOMETRY_TO_RECURSION/publication/v0.1/README.md) explains the geometry, constants and operator history in an accessible walkthrough followed by full proofs. See its [publication disposition](PAPERS/SRG_ORIGINS_FROM_GEOMETRY_TO_RECURSION/publication/v0.1/PUBLICATION_DISPOSITION.md) for this edition’s review status and reuse terms.
