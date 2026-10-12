@@ -1,0 +1,904 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=24mm,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,tabularx}
+\usepackage{microtype,fancyhdr,xcolor}
+\usepackage[unicode]{hyperref}
+\definecolor{ink}{RGB}{28,61,79}
+\hypersetup{colorlinks=true,linkcolor=ink,citecolor=ink,urlcolor=ink,
+pdftitle={SRG Geometry: Local Response, Neighbor Exchange, and Compression},
+pdfauthor={Hilmir Frímann Halldórsson},
+pdfsubject={v0.1 manuscript for GPT review; one-pass exact-real mathematical analysis},
+pdfkeywords={SRG, geometry, directed neighbors, compression, local response},
+pdfcreator={LaTeX}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small SRG Geometry}
+\fancyhead[R]{\small v0.1 \enspace|\enspace Manuscript for review}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt minus 1pt}
+\setlength{\emergencystretch}{2em}
+\clubpenalty=10000 \widowpenalty=10000
+\allowdisplaybreaks[1]
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\clip}{clip}
+\newcommand{\R}{\mathbb R}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\Rbar}{\overline R}
+\numberwithin{equation}{section}
+
+\begin{document}
+\begin{center}
+{\color{ink}\LARGE\bfseries SRG Geometry\par}
+\vspace{5pt}
+{\Large Local Response, Neighbor Exchange,\par}
+{\Large and Compression\par}
+\vspace{10pt}
+{\large Hilmir Fr\'imann Halld\'orsson\par}
+\vspace{4pt}
+{\small v0.1 \enspace$\cdot$\enspace 12 October 2026\par}
+{\small Manuscript for GPT review\par}
+\end{center}
+
+\begin{abstract}
+Moving points can change both the strength and the identity of their selected
+neighbors. We analyze these two effects on the next amplitudes of the existing
+Tower II model at a single fixed pass. A three-particle example gives an exact
+response while the selected neighbors remain unchanged. We derive the
+normalized-weight differential and a sufficient geometric margin preserving
+selection. A seven-particle example isolates one fifth/sixth-neighbor exchange,
+and a general jump formula retains the change in the selected enhanced-addition
+term. The existing signed compressor preserves differences on a common
+unclipped branch and identifies distinct nonzero limits exactly on common
+signed plateaus. A fixed rescaling of the seven incoming amplitudes makes
+the entire amplitude output constant despite a nonzero precompression jump.
+This is not equality of complete moving-particle states. January's accepted
+fixed-grid capture cells provide a separate comparison. All claims are
+one-pass, conditional, exact-real deductions from unchanged source expressions;
+no trajectories, new simulations or claims of physical validation are supplied.
+\end{abstract}
+
+\section{What changes when the points move?}\label{sec:question}
+
+Imagine that each point receives values from its nearest neighbors.
+Moving the points slightly can change the strength of those influences even
+when the same neighbors remain selected. A further small movement can exchange
+one selected neighbor for another. If the two candidates carry different
+values, an arbitrarily small geometric change can then create a finite
+amplitude difference. A final compression may preserve that difference or
+map the two results to the same value.
+
+We compare \emph{incoming configurations at the same incremented pass number}.
+The configurations are not successive states produced by the model.
+Their incoming amplitudes, frequencies and other parameters are held fixed
+while geometry is compared, except in the one explicitly rescaled input
+family of Section~\ref{sec:erasure}. Geometry comparison is not physical time.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}p{24mm}YY@{}}
+\toprule
+Model & Carrier and interaction & Meaning of equal output\\
+\midrule
+January & A finite periodic field; fixed index neighbors; selected signed mode.
+& Equality of the complete field carrier.\\
+Tower II & Moving particles with positions, amplitudes and velocities;
+directed distance-selected neighbors.
+& Equality of amplitudes alone leaves geometric state information separate.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+These models are not composed into a replacement evolution. This paper presents
+the accepted OC03 and OC04 deductions in a single exposition
+\cite{OC03,OC04}. Their source is the frozen \emph{Golden Frequency Tower---Part II}
+program \cite{T}; the January comparison reuses accepted OC02 results \cite{G}.
+The historical reconstruction in SRG-I and SRG Origins remains distinct
+\cite{SRGI,Origins}. The separate proposed SRG-II mechanism paper is not
+renamed or replaced by this chapter.
+
+\section{Three points: response with the same neighbors}\label{sec:three}
+
+Place three particles on a line, with zero second and third coordinates:
+
+\begin{center}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Particle & Left & Middle & Right\\
+\midrule
+Position & $-1$ & $s$, \quad $-1<s<1$ & $+1$\\
+Incoming amplitude & $1/10$ & $1/5$ & $3/10$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+There is one frequency band, with frequency $\omega=0.244$, no horizon and
+no breathing of the compression bound. All other parameters keep their
+defaults. The actual selector requests five neighbors; here it selects
+\emph{both available other particles} in every row. It is not replaced by
+a two-neighbor rule. These are specified input data, not the output of an
+initializer \cite[lines 34, 62--103, 111--127]{T}.
+
+At $s=0$ the middle particle receives equal influence from the two sides.
+At $s=1/4$ the right particle is closer, so its larger amplitude receives
+more weight. With the source regularizer $\delta=10^{-8}$, the two raw
+influences on the middle particle are
+\[
+u_L=\frac{1}{1+s+\delta},\qquad
+u_R=\frac{1}{1-s+\delta}.
+\]
+Their normalized right share and the resulting average are
+\begin{align}
+w_R&=\frac{u_R}{u_L+u_R}
+=\frac{1+s+\delta}{2(1+\delta)}
+=\frac12+\frac{s}{2(1+\delta)},\label{eq:three-weight}\\
+\Rbar_M&=(1-w_R)\frac1{10}+w_R\frac3{10}
+=\frac15+\frac{s}{10(1+\delta)}.\label{eq:three-mean}
+\end{align}
+Normalization changes the whole denominator; it cannot be held fixed while
+the distances change.
+
+Every off-diagonal distance is positive and at most two. Thus each row's
+raw weight sum is at least $2/(2+\delta)>10^{-10}$ and the amplitude update
+is active. Equal frequencies make the frequency factors one and fail the
+strict enhanced-mixing guard $|\omega_i-\omega_j|>0.01$.
+The enhanced coupling remains at its default value; the guard makes its
+additions zero \cite[lines 156--188]{T}.
+
+For the moment collect the sine and later H multipliers into $A_t$:
+\begin{align}
+H(t)&=2e^{-t/2}\cos t+e^{-3t/10}\sin t
+       +\tfrac32e^{-7t/10}+e^{-2t/5},\label{eq:H}\\
+a(t)&=1+0.01\sin(2\pi\omega t),\qquad
+b_t=1+0.05H(t)/H_{\max},\qquad A_t=a(t)b_t.\label{eq:gains}
+\end{align}
+Here $t\ge1$ is the incremented integer pass. The retained exact bound
+$|H(t)|\le9/2$ for $t\ge0$, with any fixed finite $H_{\max}\ge9/2$, gives
+\begin{equation}
+0.99\le a(t)\le1.01,\quad 0.95\le b_t\le1.05,\quad
+0.9405\le A_t\le1.0605.\label{eq:gain-bounds}
+\end{equation}
+The source uses a sampled normalizer whose grid includes zero and then adds
+$10^{-12}$. Its retained exact-real interpretation is $9/2+10^{-12}$.
+We have not executed the normalizer or freshly certified its binary arithmetic.
+Appendix~\ref{app:H} recalls the accepted bound without sampling.
+
+Let $q$ mean the amplitude immediately before compression. With
+$\beta=0.15$, the source's own-amplitude/neighbor combination gives
+\begin{equation}
+q_M(s)=A_t\left[(1-\beta)\frac15+\beta\Rbar_M(s)\right]
+=A_t\left[\frac15+\frac{0.015s}{1+\delta}\right].
+\label{eq:three-q}
+\end{equation}
+The full update order, and why positional stages leave this readout
+unchanged, are given in Section~\ref{sec:contract}.
+
+\begin{lemma}[Uniform branch bound]\label{lem:convex}
+In this equal-frequency example, every precompression amplitude belongs to
+$[0.09405,0.31815]$, throughout $-1<s<1$. Every output lies on the positive
+unclipped branch of the source compressor.
+\end{lemma}
+\begin{proof}
+Each normalized received average is a convex combination of amplitudes
+between $0.1$ and $0.3$. Since $0<\beta<1$, combining it with the own
+amplitude preserves this interval. Multiplying by
+\eqref{eq:gain-bounds} gives
+\begin{equation}
+\frac{1881}{20000}=0.09405\le q_j
+\le0.31815=\frac{6363}{20000}.\label{eq:uniform-q}
+\end{equation}
+The compressor has $L=9$ and $\varepsilon_T=10^{-9}$. Since $e>2$,
+\[
+e^{-9}<\frac1{512}<0.09405,\qquad
+0.31815+\varepsilon_T<512<e^9.
+\]
+Therefore its logarithmic clip is inactive and its output is
+$q_j+\varepsilon_T$. This includes epsilon in the branch check.
+\end{proof}
+
+Subtracting the two middle outputs cancels the same epsilon:
+\begin{equation}
+\boxed{R_M^{\rm next}(s)-R_M^{\rm next}(0)
+       =\frac{0.015A_t}{1+\delta}s.}\label{eq:three-output}
+\end{equation}
+The coefficient is positive. This is a geometric response with no selected
+neighbor exchange, established on the whole interval.
+
+\begin{center}
+\begin{tabular}{@{}rcc@{}}
+\toprule
+$s$ & $q_M(s)$ & $R_M^{\rm next}(s)-R_M^{\rm next}(0)$\\
+\midrule
+$-1/4$ & $0.204144213419495$ & $-0.003900844802657$\\
+$0$ & $0.208045058222152$ & $0$\\
+$1/4$ & $0.211945903024809$ & $+0.003900844802657$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+These rounded illustrations are transcribed from the saved OC03 scalar
+results at the single common clock $t=1$, using $H_{\max}=9/2+10^{-12}$.
+They were evaluated there at 80 decimal digits, without interval arithmetic,
+and were not recomputed for this manuscript. The proof does not depend on
+the number of saved examples.
+
+\section{The source contract}\label{sec:contract}
+
+For the local question, write the incoming positions as $x_i\in\R^3$ and
+amplitudes as $R_i\in\R$. Assigned frequencies $\omega_i>0$, band identities,
+the tower-frequency list and parameters are fixed. Positions and velocities
+also belong to the particle state; the present readout is only its next
+amplitude vector.
+
+Without a horizon and without collisions, the source sorts distances in
+each row, drops the zero self-entry and retains up to five other particles.
+Selection is directed, not symmetrized. With a horizon $r_H$, eligible
+particles satisfy the strict test $d_{ij}<r_H$. We write the selected
+set as $\mathcal N_i$ and $d_{ij}=\|x_j-x_i\|$.
+
+The pass order matters \cite[lines 129--215]{T}:
+\begin{enumerate}
+\item Increment the pass number and, if enabled, set the breathing bound from
+incoming amplitudes. Breathing is false throughout the present analysis.
+\item Store the incoming adjacency and distances, then move positions using
+the selected neighbors.
+\item Couple amplitudes using those stored distances and incidences.
+Apply the sine multiplier, then the enhanced additive mixing.
+\item Multiply amplitudes by the H factor.
+\item Fuse positions within bands using the precompression amplitudes.
+\item Compress amplitudes, then add positional noise and record velocities.
+\end{enumerate}
+In particular, within-pass spatial movement does not refresh the weights
+used by that same amplitude calculation. Fusion changes positions only, and
+noise is added only to positions. Neither modifies the amplitude readout
+after its indicated stage.
+
+For selected neighbors, the actual raw weights and normalization are
+\begin{align}
+\chi_{ij}&=\exp[-c(\log(\omega_j/\omega_i))^2],\qquad
+u_{ij}=\frac{\chi_{ij}}{d_{ij}+\delta},\label{eq:raw-weights}\\
+S_i&=\sum_{j\in\mathcal N_i}u_{ij},\qquad
+w_{ij}=\frac{u_{ij}}{S_i},\qquad
+\Rbar_i=\sum_{j\in\mathcal N_i}w_{ij}R_j.\label{eq:normalized}
+\end{align}
+The defaults are $c=3$, $\delta=10^{-8}$, $\beta=0.15$,
+$L=9$ and $\varepsilon_T=10^{-9}$.
+A row with no neighbors or with $S_i<10^{-10}$ is skipped at the mixing
+stage: its sine and enhanced additions are both skipped.
+Equality $S_i=10^{-10}$ is active in the code, but provides no open active
+margin. Our local theorems require strict margins above that threshold
+\cite[lines 151--163]{T}; see also \cite[A03]{A}.
+
+For an active row define $a_i(t)=1+0.01\sin(2\pi\omega_i t)$ and use $b_t$
+from \eqref{eq:gains}. The source order gives
+\begin{equation}
+q_i=b_t\left\{
+a_i(t)\big[(1-\beta)R_i+\beta\Rbar_i\big]
++\sum_{j\in\mathcal N_i}\eta_{ij}R_j
+\right\}.\label{eq:active}
+\end{equation}
+The coefficients $\eta_{ij}$ are determined by the source frequency tests,
+not fitted coefficients. Appendix~\ref{app:eta} gives their full expression,
+including every strict guard and loop multiplicity.
+The sine does \emph{not} multiply the later additive sum.
+For a skipped row, the corresponding precompression amplitude is instead
+$b_tR_i$; we do not extend \eqref{eq:active} through such a boundary.
+
+\section{Smooth response inside a neighbor region}\label{sec:smooth}
+
+Let positions depend differentiably on a geometry parameter $\tau$.
+A dot denotes differentiation with respect to $\tau$, not time.
+Hold all incoming amplitudes, assigned frequencies, bands, tower list,
+clock and parameters fixed. Work on an open region with nonzero pair
+distances, fixed selected incidences and $S_i>10^{-10}$.
+
+\begin{theorem}[Normalized geometry response, OC03]\label{thm:smooth}
+For any active finite selected row,
+\begin{align}
+\dot{\Rbar}_i
+&=-\sum_{j\in\mathcal N_i}w_{ij}(R_j-\Rbar_i)
+          \frac{\dot d_{ij}}{d_{ij}+\delta},\label{eq:derivative}\\
+\dot d_{ij}
+&=\frac{x_j-x_i}{d_{ij}}\cdot(\dot x_j-\dot x_i),\label{eq:distance-diff}\\
+\dot q_i&=b_ta_i(t)\beta\,\dot{\Rbar}_i.\label{eq:q-diff}
+\end{align}
+These are statements about the conditional precompression map. The final
+amplitude derivative additionally requires a smooth compressor branch.
+\end{theorem}
+\begin{proof}
+Put $\ell_{ij}=\dot d_{ij}/(d_{ij}+\delta)$. The fixed frequencies give
+$\dot u_{ij}=-u_{ij}\ell_{ij}$ and
+$\dot S_i=-S_i\sum_k w_{ik}\ell_{ik}$. Differentiating the shared denominator,
+\begin{equation}
+\dot w_{ij}
+=\frac{\dot u_{ij}S_i-u_{ij}\dot S_i}{S_i^2}
+=-w_{ij}\left(\ell_{ij}-\sum_k w_{ik}\ell_{ik}\right).
+\label{eq:weight-diff}
+\end{equation}
+Multiplying by $R_j$ and summing yields \eqref{eq:derivative}, since the
+amplitudes are fixed. Differentiating
+$d_{ij}^2=(x_j-x_i)\cdot(x_j-x_i)$ gives \eqref{eq:distance-diff}.
+All $\eta_{ij}$ and their selected incidences are fixed in this region.
+Differentiation of \eqref{eq:active} therefore gives \eqref{eq:q-diff}.
+\end{proof}
+
+If every selected neighbor has the same amplitude, every contrast
+$R_j-\Rbar_i$ vanishes. Unequal amplitudes permit a response but do not
+guarantee one. For example, when all selected $\ell_{ij}$ equal one common
+value, the response vanishes because
+$\sum_jw_{ij}(R_j-\Rbar_i)=0$. Common translation is a special case with
+all distance changes zero.
+
+\begin{proposition}[A sufficient selection margin, OC03]\label{prop:margin}
+Suppose a row has at least six other eligible candidates, fixed horizon
+membership and fifth/sixth distance gap
+$\Delta_i=d_{i,(6)}-d_{i,(5)}>0$.
+If each particle displacement has norm at most $\rho$, then
+\begin{equation}
+4\rho<\Delta_i\label{eq:margin}
+\end{equation}
+preserves its selected set, provided collisions and horizon/active-guard
+crossings are independently excluded.
+\end{proposition}
+\begin{proof}
+For perturbations $e_i$, the reverse triangle inequality gives
+\[
+|d'_{ij}-d_{ij}|\le\|e_j-e_i\|\le2\rho.
+\]
+For any originally selected $j$ and excluded eligible $k$,
+\[
+d'_{ik}-d'_{ij}
+\ge(d_{i,(6)}-2\rho)-(d_{i,(5)}+2\rho)
+=\Delta_i-4\rho>0.
+\]
+Thus no excluded candidate can overtake a selected one.
+\end{proof}
+
+Useful independent sufficient margins are
+\begin{align}
+2\rho&<\min_{i\ne j}d_{ij}
+&&\text{(no collisions)},\label{eq:collision}\\
+2\rho&<\min_{i\ne j}|d_{ij}-r_H|
+&&\text{(fixed strict horizon membership)},\label{eq:horizon}\\
+\sum_{j\in\mathcal N_i}
+\frac{\chi_{ij}}{d_{ij}+\delta+2\rho}&>10^{-10}
+&&\text{(active row)}.\label{eq:guard}
+\end{align}
+The horizon condition is needed only when a horizon exists.
+The last expression is a lower bound on the perturbed raw weight sum
+once incidences are preserved. A geometric cutoff gap alone does not
+ensure activity.
+The condition $4\rho<\Delta_i$ is sufficient, not necessary or claimed sharp.
+With at most five eligible other particles, all are selected; no sixth
+distance exists and no cutoff gap is needed. Ties within a selected set
+are harmless to its incidence set, unlike a tie across its cutoff.
+
+\section{Seven points: an isolated neighbor exchange}\label{sec:seven}
+
+Keep a focal particle at zero and four common neighbors to its right at
+$1/2,1,3/2,2$. Two farther particles compete for the last selected place.
+The right candidate A, near $+3$, has amplitude $0.1$; the left candidate B,
+near $-3$, has amplitude $0.3$. Move both candidates slightly left: A is
+closer to the focal point. Move both slightly right: B is closer.
+Equal distances at the boundary do not make their incoming amplitudes equal.
+
+\begin{center}
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+Particle & B & i & c1 & c2 & c3 & c4 & A\\
+\midrule
+Position & $-3+s$ & $0$ & $1/2$ & $1$ & $3/2$ & $2$ & $3+s$\\
+Amplitude & $3/10$ & $1/5$ & $1/5$ & $1/5$ & $1/5$ & $1/5$ & $1/10$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+All second and third coordinates are zero, $-1/4<s<1/4$, and the seven
+particles have one band at frequency $0.244$, no horizon, no breathing,
+and unchanged default parameters. This is a specified incoming family.
+
+\begin{proposition}[Isolation in the full directed graph, OC04]\label{prop:isolation}
+For $s<0$ the focal row selects A and excludes B; for $s>0$ it selects B
+and excludes A. At zero these candidates tie for fifth/sixth place.
+Every other row retains its selected set throughout the interval.
+Every row has a strict active-weight margin.
+\end{proposition}
+\begin{proof}
+The focal common distances are $1/2,1,3/2,2$. The candidate distances
+$3+s$ and $3-s$ are both greater than $11/4>2$; their difference is $2s$,
+with slope 2. They exchange order transversely without a collision.
+
+At any common coordinate $x\in\{1/2,1,3/2,2\}$, B is farther than every
+focal/common particle, since $x+3-s>13/4$ while those distances are at most
+2. B is also farther than A, because
+\[
+(x+3-s)-(3+s-x)=2(x-s)>0.
+\]
+Hence every common row uniquely excludes B. The A--B distance is 6.
+All other distances from A are at most $3+s<13/4$, so A excludes B;
+all other distances from B are at most $5-s<21/4$, so B excludes A.
+All positions are distinct and all pair distances are at most 6.
+Each row selects five equal-frequency inverse-distance weights, giving
+\begin{equation}
+S_i\ge\frac5{6+\delta}
+=\frac{500000000}{600000001}>10^{-10}.\label{eq:seven-guard}
+\end{equation}
+This proves isolation of the focal exchange and strict activity on the
+whole interval.
+\end{proof}
+
+At the switch define
+\begin{equation}
+S=\sum_{k=1}^4\frac1{k/2+\delta},\qquad
+u_*=\frac1{3+\delta},\qquad w_*=\frac{u_*}{S+u_*}.
+\label{eq:fifth-share}
+\end{equation}
+The last quantity is the normalized share of the fifth neighbor. Equal
+frequencies again turn off the guarded enhanced additions without changing
+their parameters. The limiting received averages are
+$1/5-w_*/10$ and $1/5+w_*/10$. With $A_t$ from \eqref{eq:gains},
+\begin{align}
+q_-&=A_t\left(\frac15-\frac{3}{200}w_*\right),&
+q_+&=A_t\left(\frac15+\frac{3}{200}w_*\right),\label{eq:focal-limits}\\
+\Delta q_i&=q_+-q_-=\frac3{100}A_tw_*>0.\label{eq:focal-jump}
+\end{align}
+All seven incoming amplitudes lie in $[0.1,0.3]$, so the convex argument
+of Lemma~\ref{lem:convex} applies unchanged. All outputs are positive and
+unclipped. The same epsilon cancels and the compressed jump equals
+\eqref{eq:focal-jump}.
+
+The regularized share is approximately $0.0740740747828074933$.
+Only the formal $\delta\to0$ comparison gives $S=25/6$, $u_*=1/3$ and
+$w_*=2/27$. We do not substitute that comparison for the actual source weight.
+The retained $t=1$ scalar results give
+\[
+q_-\approx0.206889252332082,\qquad
+q_+\approx0.209200864112223,\qquad
+\Delta q_i\approx0.002311611780141188.
+\]
+
+The source specifies a sorting call, not a separately defined portable
+exact-tie rule. No tie-sorting experiment is needed or supplied.
+The two one-sided limits are independent of the tie choice. Because they
+differ, no choice of the single tie value can make this amplitude map
+continuous there.
+
+\subsection{The general exchange law}\label{sec:exchange}
+
+Let the focal selected sets on two sides of a boundary be
+$C\cup\{A\}$ and $C\cup\{B\}$, where $C$ contains four unchanged neighbors.
+Assume $d_{iA}=d_{iB}=d_*>0$ at the boundary and common limits for other
+distances. Keep the frequencies, incoming amplitudes, bands, tower list,
+parameters and clock fixed. Assume a transverse candidate-order exchange,
+no further simultaneous focal cutoff, horizon or guard event, and both
+limiting raw weight sums strictly above $10^{-10}$.
+These margins allow \eqref{eq:active} on both sides.
+
+At the boundary put $u_j=\chi_{ij}/(d_{ij}+\delta)$,
+$S=\sum_{j\in C}u_j>0$ and $V=\sum_{j\in C}u_jR_j$.
+Normalize separately:
+\begin{equation}
+\Rbar_-=\frac{V+u_AR_A}{S+u_A},\qquad
+\Rbar_+=\frac{V+u_BR_B}{S+u_B}.\label{eq:exchange-means}
+\end{equation}
+
+\begin{theorem}[Active-row exchange, OC04]\label{thm:exchange}
+Under these assumptions the one-sided differences satisfy
+\begin{align}
+\Delta\Rbar_i
+&=\frac{u_B}{S+u_B}\left(R_B-\frac VS\right)
+-\frac{u_A}{S+u_A}\left(R_A-\frac VS\right),\label{eq:contrast}\\
+\Delta q_i
+&=b_t\left[a_i(t)\beta\,\Delta\Rbar_i
+           +\eta_{iB}R_B-\eta_{iA}R_A\right].\label{eq:exchange-jump}
+\end{align}
+Since $b_t>0$ under the retained defaults, the exact zero-jump condition is
+\begin{equation}
+a_i(t)\beta\left[
+\frac{V+u_BR_B}{S+u_B}-\frac{V+u_AR_A}{S+u_A}
+\right]+\eta_{iB}R_B-\eta_{iA}R_A=0.\label{eq:zero-jump}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Subtract $V/S$ from each fraction in \eqref{eq:exchange-means}; this gives
+\eqref{eq:contrast}. Subtract the two source-ordered expressions
+\eqref{eq:active}. The own-amplitude baseline and every common-neighbor
+additive term cancel, leaving \eqref{eq:exchange-jump}. The lower bound
+$b_t\ge0.95$ then gives \eqref{eq:zero-jump}.
+\end{proof}
+
+An additive coefficient is independent of distance but its \emph{selected
+identity} changes here. Its zero positional derivative inside a fixed
+neighbor region does not justify discarding the selected term at a switch.
+This is the boundary distinction between Theorems~\ref{thm:smooth}
+and~\ref{thm:exchange}.
+
+Equal candidate distances need not give $u_A=u_B$, because the frequency
+matches may differ. Thus the two denominators generally differ.
+If $R_A=R_B=r$, the received-average contrast is
+\[
+\left(\frac{u_B}{S+u_B}-\frac{u_A}{S+u_A}\right)
+\left(r-\frac VS\right),
+\]
+which need not vanish. Even when all selected incoming amplitudes equal
+$r>0$, the remaining jump can be
+$b_tr(\eta_{iB}-\eta_{iA})$. A same-frequency A has coefficient zero,
+while an available adjacent $\varphi$-band B has a strictly positive
+coefficient under the source guard.
+
+Conversely, unequal amplitudes do not guarantee a jump. For example,
+when $V=0$, define
+$K_A=a_i\beta u_A/(S+u_A)+\eta_{iA}>0$ and similarly $K_B>0$.
+Whenever $K_A\ne K_B$, choosing $R_B=K_AR_A/K_B$ with $R_A>0$ makes
+\eqref{eq:zero-jump} zero despite unequal candidates. This is a conditional
+algebraic illustration, not an extra numerical fixture.
+In the equal-frequency example, $\eta=0$ and $u_A=u_B$, so the law reduces to
+$\Delta q_i=A_t\beta w_*(R_B-R_A)$ and gives \eqref{eq:focal-jump}.
+
+\section{What the existing compressor identifies}\label{sec:compression}
+
+The frozen source applies
+\begin{equation}
+C_T(q)=\sgn(q)\exp\!\left[
+\clip\big(\log(|q|+\varepsilon_T),-9,9\big)\right],
+\qquad \varepsilon_T=10^{-9}.\label{eq:compressor}
+\end{equation}
+Set $u_T=e^{-9}$, $v_T=e^9$, $f_T=u_T-\varepsilon_T>0$ and
+$h_T=v_T-\varepsilon_T$. Monotonicity of logarithm and exponential gives
+the complete exact-real branches:
+\begin{equation}
+C_T(q)=
+\begin{cases}
+0,&q=0,\\
+\sgn(q)u_T,&0<|q|\le f_T,\\
+q+\varepsilon_T\sgn(q),&f_T<|q|<h_T,\\
+\sgn(q)v_T,&|q|\ge h_T.
+\end{cases}\label{eq:branches}
+\end{equation}
+The floor upper edge and ceiling lower edge are included; zero is a
+separate case \cite[lines 42--44, 208--209]{T}.
+
+\begin{theorem}[Nonzero limiting inputs, OC04]\label{thm:compression}
+For finite nonzero one-sided precompression limits $q_-,q_+$, the compressed
+jump is $C_T(q_+)-C_T(q_-)$. A common signed unclipped branch preserves the
+input difference exactly. Distinct such limits have equal outputs if and
+only if both lie on one common signed floor or ceiling plateau.
+Opposite nonzero signs cannot have the same output.
+\end{theorem}
+\begin{proof}
+The branches are continuous at every nonzero input. At the positive floor
+edge the middle expression gives $f_T+\varepsilon_T=u_T$; at the positive
+ceiling edge it gives $h_T+\varepsilon_T=v_T$. Odd reflection gives the
+negative edges. Hence continuity passes each nonzero limit through $C_T$.
+The clipping edges are nondifferentiable, not discontinuous.
+
+On either fixed signed unclipped branch the same signed epsilon cancels
+under subtraction. On the positive side, the fibers of $u_T$ and $v_T$
+are exactly $(0,f_T]$ and $[h_T,\infty)$; between them the function is
+strictly increasing and has singleton fibers. The negative plateau fibers
+are $[-f_T,0)$ and $(-\infty,-h_T]$, with singleton fibers in between.
+The output signs separate the two sides. These exhaust the possibilities.
+\end{proof}
+
+For smooth incoming comparisons, the final amplitude derivative is
+$\dot q_i$ on a nonzero unclipped branch and zero on the interior of a
+fixed signed plateau. This statement does not extend a derivative through
+the clipping edges or zero.
+
+\subsection{Zero requires an approach condition}
+
+If precompression values tend to zero and are eventually strictly positive,
+they eventually belong to $(0,f_T]$, so their compressed limit is $+u_T$.
+Eventually strictly negative approach gives $-u_T$. Values identically
+zero on a side near the boundary remain zero.
+Thus $C_T(0)=0$ cannot be substituted for an unqualified limit.
+If none of these approach conditions is established, a zero precompression
+limit alone does not establish a compressed limit. We make no general
+oscillatory-boundary classification.
+
+\subsection{A whole amplitude vector on one floor}\label{sec:erasure}
+
+The unscaled seven-point family has the positive jump
+\eqref{eq:focal-jump}, preserved by its unclipped branch. Now keep the same
+positions, selected rule, frequency, clock and model parameters but multiply
+every incoming amplitude by the single fixed data scale $\kappa=10^{-4}$.
+This is a second specified input family, not a parameter sweep or a
+modified operator.
+
+The equal-frequency additions still vanish and the remaining amplitude
+expression is linear in incoming amplitudes. Because $L$ does not breathe,
+precompression amplitudes scale by $\kappa$ without changing the compressor.
+The uniform bound \eqref{eq:uniform-q} therefore gives
+\begin{equation}
+0<q_j^{(\kappa)}(s)\le\kappa\,\frac{6363}{20000},\qquad
+\kappa\,\frac{6363}{20000}+10^{-9}
+=\frac{3977}{125000000}<\frac1{19683}<e^{-9}.
+\label{eq:scaled-bound}
+\end{equation}
+The first strict difference is the positive rational number
+$46720709/2460375000000$; the last inequality follows from $e<3$.
+For completeness, $e=\sum_{n\ge0}1/n!>2$, and
+$n!\ge2^{n-1}$ for $n\ge2$, strictly for $n\ge3$, gives
+$e<2+\sum_{n\ge2}2^{-(n-1)}=3$.
+
+Every row is therefore strictly on the positive floor throughout the
+whole interval, including either focal choice at the tie:
+\begin{equation}
+\boxed{(R_1^{\rm next},\ldots,R_7^{\rm next})
+       =(e^{-9},\ldots,e^{-9}).}\label{eq:whole-vector}
+\end{equation}
+The focal precompression jump remains the strictly positive
+$\kappa(3/100)A_tw_*$, but the compressed jump is zero.
+The saved $t=1$ values are
+$q_-^{(\kappa)}\approx0.0000206889252332082$ and
+$q_+^{(\kappa)}\approx0.0000209200864112223$; their difference is approximately
+$2.311611780141188\times10^{-7}$ before compression and zero afterward.
+These retained values illustrate the uniform proof; they are not a
+seven-particle update.
+
+Equation~\eqref{eq:whole-vector} is \emph{not full particle-state capture}.
+Band fusion has already used the precompression amplitudes through both
+its weighted center and its positional movement factor.
+Positions and velocities carry separate information.
+No equality or inequality of complete final particle states, and no later
+trajectory consequence, follows automatically from this amplitude theorem.
+
+\section{January: a separate fixed-grid reference}\label{sec:january}
+
+January's accepted signed-mode analysis has a finite periodic field
+$X\in\R^{NM}$ as its carrier. This signed mode is selected for the analysis;
+the source app initially selects paper mode. Its fixed index stencil is
+\begin{align}
+(\mathcal LX)_{ij}
+&=X_{i+1,j}-2X_{ij}+X_{i-1,j}\notag\\
+&\quad+\frac{25}{9}(X_{i,j+1}-2X_{ij}+X_{i,j-1}),\label{eq:grid-stencil}\\
+T_G&=I+\frac1{20}\mathcal L,\qquad
+P(X)=T_GX+\frac1{10}\tanh X,\qquad F_m(X)=C_s(mP(X)).
+\label{eq:grid-P}
+\end{align}
+Here $T_G$ denotes the operator called $T$ in OC02; the subscript avoids
+confusion with the Tower II source key. The tanh and compressor act sitewise.
+Duplicate incidences for axes of length two are counted twice; on an axis
+of length one the corresponding neighbor is the site itself. This is the
+original periodic index stencil, not an embedded-surface Laplacian.
+The constants are $L=10$ and $\varepsilon_G=10^{-6}$:
+\[
+C_s(q)=\sgn(q)\clip(|q|+\varepsilon_G,e^{-10},e^{10})
+\quad(q\ne0),\qquad C_s(0)=0.
+\]
+These definitions are retained from OC02 \cite[equations (1)--(2)]{G}
+and its source correspondence \cite{January}.
+
+For a sign field $\sigma_{ij}\in\{-1,1\}$ and a fixed gain $m>0$, the
+accepted one-step capture condition is
+\begin{equation}
+F_m(X)=e^{-10}\sigma
+\quad\Longleftrightarrow\quad
+0<\sigma_{ij}mP(X)_{ij}\le e^{-10}-10^{-6}
+\quad\text{for every site}.\label{eq:grid-capture}
+\end{equation}
+Indeed, the signed floor has exactly that nonzero half-open scalar
+preimage at each site. The zero face is excluded; the upper face is included.
+
+OC02's retained Theorem 2 states that $P$ is a global smooth diffeomorphism.
+Its mechanism is that the symmetric stencil has lower quadratic-form bound
+$11/45$, so $DP=T_G+\operatorname{diag}(\operatorname{sech}^2X)/10$ is
+uniformly positive definite. The strictly convex, coercive potential
+$X^TT_GX/2+\sum_{ij}\log\cosh(X_{ij})/10$ supplies a unique solution of
+$P(X)=z$ for every $z$, and the inverse function theorem supplies the smooth
+inverse. This recalls the accepted argument, not a new classification.
+
+Writing $b=(e^{-10}-10^{-6})/m$, the capture set is consequently
+\[
+P^{-1}\{z:0<\sigma_{ij}z_{ij}\le b\text{ at every site}\},
+\]
+the inverse image of a half-open rectangular cell. The interior uses strict
+inequalities on both faces; the closure includes zero.
+A field may reach an arbitrary signed floor target in one step without that
+target persisting. Persistence under subsequent gains requires the accepted
+common-fixed-pattern conditions. We do not recount that classification or
+compute multistep preimages \cite[lines 224--269]{G}.
+
+Both models can erase a distinction at compression. Equality of January's
+complete field carrier and equality of Tower II's amplitude vector are,
+however, different mathematical statements. The latter leaves moving
+geometry outside the equality. No January basin or fixed-pattern theorem
+has been transferred to particle states.
+
+\section{Scope, evidence and interpretation}\label{sec:limits}
+
+The results concern exact-real algebra of the unchanged source expressions
+at one fixed pass. Smooth response is conditional on an active region with
+unchanged incidences and nonzero distances; the exchange theorem concerns
+one isolated focal event with strict limiting margins. Final readout
+statements retain the compressor's sign and branch conditions.
+Not every exchange jumps, and compression does not erase every difference.
+
+The H bound and January results are inherited mathematics. The geometry
+response, selection margin, exchange law and constructive compressor examples
+are OC03/OC04 deductions in this research program. Their proofs are reproduced
+here. No literature survey has established global novelty or priority over
+general results on normalized weights, nearest-neighbor maps or clipping.
+No physical validation is claimed.
+
+OC03 and OC04 each retain eight mathematical or scalar groups and two
+groups for input identity and preservation. Their saved exact rational and symbolic
+identities and 80-digit, non-interval scalar corroborations support examples;
+they do not replace the proofs. Neither checker was rerun for this paper.
+GPT's separate OC04 review reports independent symbolic and 100-digit
+scalar corroboration, without executing either checker or historical program.
+That review is not external peer review, a binary execution certificate or
+a replacement for the saved evidence.
+
+No source normalizer, initializer, particle update, trajectory or stochastic
+step was executed in preparing this edition. New QA concerns transcription,
+source mapping, typography and the review artifacts only.
+There are no arrival statistics, autonomous-attractor results, general
+recursion theorem or full-state capture theorem here.
+Later-pass questions remain future work; they do not weaken the stated
+one-pass conclusions.
+
+\subsection*{Conclusion}
+
+Incoming geometry affects the next amplitude in two distinct ways:
+smooth variation of normalized influences within a selected-neighbor region,
+and a possible finite jump when the selected identity changes.
+The jump law keeps both the normalized average and the switched enhanced
+addition. The existing compressor then preserves a common signed unclipped
+difference or identifies a common signed plateau.
+The two explicit geometric examples make these alternatives checkable.
+They establish a local amplitude account while keeping the complete
+moving-particle state, later dynamics and January's separate field carrier
+in their proper scopes.
+
+\subsection*{Assistance, status and reuse}
+
+Hilmir Fr\'imann Halld\'orsson is the named human author.
+GPT supplied mathematical review of OC03/OC04 and the manuscript work order.
+Codex performed the recorded OC03/OC04 analysis and finite checks, then
+assembled this manuscript, checked its source correspondence and completed
+artifact QA. Those assistance roles are not coauthorship or external peer
+review. The underlying analyses are internally accepted; this new v0.1
+manuscript and its proposed public payload await GPT review.
+No institutional affiliation, DOI or series number is assigned.
+
+This edition grants no new blanket reuse licence. The software repository's
+Apache licence does not automatically cover scientific research.
+Linked deposited sources retain their source-specific notices, including
+the identified CC BY 4.0 notices. Those notices are not reassigned to the
+derived manuscript or its reconstruction records.
+
+\appendix
+\section{The complete enhanced-addition coefficient}\label{app:eta}
+
+Let $\nu=0.001$, $\varphi=(1+\sqrt5)/2$,
+$D_{ij}=|\omega_i-\omega_j|$, $U_{ij}=\omega_i+\omega_j$, and let
+$\mathcal W$ be the fixed source tower-frequency list.
+The coefficient in \eqref{eq:active} is exactly
+\begin{equation}
+\begin{aligned}
+\eta_{ij}={}&\nu\ind_{\{D_{ij}>0.01\}}
+\Bigg[
+\sum_{p\in\{-2,-1,1,2\}}
+e^{-5[\log(\omega_i/\omega_j)-p\log\varphi]^2}\\
+&\quad+\frac12\sum_{\Omega\in\mathcal W}
+\left(
+\ind_{\{|U_{ij}-\Omega|/\Omega<0.2\}}
++\ind_{\{D_{ij}>0.01\}}
+ \ind_{\{|D_{ij}-\Omega|/\Omega<0.2\}}
+\right)
+\Bigg].
+\end{aligned}\label{eq:eta}
+\end{equation}
+This transcribes lines 169--188 of the frozen source \cite{T}.
+Each ratio test and each matching tower entry contributes separately.
+The repeated difference guard records the inner test; it is redundant
+once the outer guard holds. The whole coefficient is added after sine
+multiplication, as in \eqref{eq:active}.
+For identical frequencies the outer guard fails and $\eta_{ij}=0$.
+Within fixed incidences the coefficient has no positional derivative,
+but a changed selected identity contributes the last two terms of
+\eqref{eq:exchange-jump}.
+
+\section{The retained H bound}\label{app:H}
+
+For the same expression \eqref{eq:H}, the accepted argument
+\cite[lines 185--195]{G} uses $|\sin t|\le t$ to bound
+\[
+|H(t)|\le B(t)+\tfrac32e^{-7t/10}+e^{-2t/5},
+\qquad B(t)=2e^{-t/2}+te^{-3t/10}.
+\]
+Its derivative is
+$B'(t)=-e^{-t/2}+(1-3t/10)e^{-3t/10}$.
+For $t\ge10/3$ both summands are nonpositive.
+For $0\le t<10/3$,
+$1-3t/10\le1-t/5\le e^{-t/5}$, so again $B'(t)\le0$.
+Thus $B(t)\le2$ and $|H(t)|\le2+3/2+1=9/2$, attained at zero.
+The source's 50,000-point grid on $[0,100]$ includes zero; its exact-real
+maximum is therefore $9/2$, and its added guard gives $H_{\max}=9/2+10^{-12}$.
+This inherited mathematical argument makes no claim of a fresh
+floating-point audit of that helper.
+
+\begin{thebibliography}{9}
+\raggedright
+
+\bibitem{T}
+\emph{The Golden Frequency Tower---Part II}.
+Historical source, 14 March 2026, file
+\texttt{srg\_golden\_tower\_II.py}.
+Header credit: Claude (collaborating with pzychozen).
+Frozen 34,980-byte version; relevant physical lines 34, 37--46,
+62--103, 111--127 and 129--215.
+Recorded public route:
+\href{https://zenodo.org/records/19023429/files/simulations.zip}{Zenodo 19023429, simulations archive}.
+Source-specific CC BY 4.0 notice retained from the existing public source index.
+
+\bibitem{OC03}
+SRG research records.
+\emph{OC03: Geometry Response with Unchanged Neighbors}.
+12 October 2026. Accepted internal mathematical analysis,
+Sections 1--5, equations B1--B5, C1--C6, D1--D3 and E1--E2.
+The full internal report is not redistributed in this edition.
+
+\bibitem{OC04}
+SRG research records.
+\emph{OC04: A Neighbor Exchange Can Survive or Disappear under Compression}.
+12 October 2026. Accepted internal mathematical analysis,
+Sections 1--5, equations (1)--(20).
+GPT acceptance: 12 October 2026, within its one-pass exact-real scope.
+The full internal report and review are not public payload files.
+
+\bibitem{G}
+SRG research records.
+\emph{Signed Floor Patterns and Exact One Step Capture} (OC02).
+11 October 2026. Accepted internal report.
+Definitions at physical lines 27--63; H bound at 185--195;
+Theorem 2 and capture cells at 224--269, equations (12)--(13).
+
+\bibitem{A}
+SRG research records.
+\emph{Source and Notation Addendum}.
+11 October 2026. A03, physical lines 33--47:
+inactive-row branches and sine-before-additive order.
+Internal retained source correspondence.
+
+\bibitem{January}
+Hilmir Fr\'imann Halld\'orsson.
+\emph{An Experimental Framework for Exploring Recursive Numerical Operators:
+TGMO, RPCO, and REFU as a Reproducible Computational Laboratory}.
+25 January 2026, physical pp.\ 2--3; accompanying
+\texttt{app.py}, \texttt{tgmo.py} and \texttt{refu.py}.
+Recorded exact-version route:
+\href{https://zenodo.org/records/18285147}{Zenodo 18285147}.
+The paper's cover title differs from the deposit title.
+Source-specific CC BY 4.0 notices remain with these works.
+
+\bibitem{SRGI}
+Hilmir Fr\'imann Halld\'orsson.
+\emph{SRG-I: Foundational Reconstruction}, v0.1.1, 10 October 2026.
+Historical reconstruction, recursive well-posedness and dual-sector symmetries.
+\href{https://github.com/pzychozen/trioctagon-physics/tree/3e5972be2f233b6c8ec3c2ebe0687ee1f8f2ff1f/SRG_REDISCOVERY/PAPERS/SRG_I_FOUNDATIONAL_RECONSTRUCTION/publication/v0.1.1}{Repository edition at the supplied publication checkpoint}.
+
+\bibitem{Origins}
+Hilmir Fr\'imann Halld\'orsson.
+\emph{SRG Origins---From Geometry to Recursive Operators}, v0.1,
+11 October 2026.
+\href{https://github.com/pzychozen/trioctagon-physics/tree/3e5972be2f233b6c8ec3c2ebe0687ee1f8f2ff1f/SRG_REDISCOVERY/PAPERS/SRG_ORIGINS_FROM_GEOMETRY_TO_RECURSION/publication/v0.1}{Repository edition at the supplied publication checkpoint}.
+Source access, exact versions and source-specific rights are recorded
+in its source index.
+
+\end{thebibliography}
+
+\small
+Source routes above are carried from locally inspected public indexes,
+not newly checked online. This edition reproduces the definitions and proofs
+needed for its central claims. Its companion source index records exact
+identities and the access limits of retained internal reports.
+\end{document}

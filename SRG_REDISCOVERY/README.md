@@ -23,3 +23,7 @@ The [repository license scope](../LICENSE_SCOPE.md) excludes scientific research
 ## SRG Origins
 
 [SRG Origins — From Geometry to Recursive Operators](PAPERS/SRG_ORIGINS_FROM_GEOMETRY_TO_RECURSION/publication/v0.1/README.md) explains the geometry, constants and operator history in an accessible walkthrough followed by full proofs. See its [publication disposition](PAPERS/SRG_ORIGINS_FROM_GEOMETRY_TO_RECURSION/publication/v0.1/PUBLICATION_DISPOSITION.md) for this edition’s review status and reuse terms.
+
+## SRG Geometry
+
+[SRG Geometry: Local Response, Neighbor Exchange, and Compression](PAPERS/SRG_GEOMETRY_LOCAL_RESPONSE/publication/v0.1/README.md) explains local geometry response, an isolated neighbor exchange and the existing compressor at one fixed pass. January's fixed-grid field remains separate from Tower II's moving-particle state; equal output amplitudes do not imply full particle-state capture. See its [publication disposition](PAPERS/SRG_GEOMETRY_LOCAL_RESPONSE/publication/v0.1/PUBLICATION_DISPOSITION.md) for the edition's review status and retained preparation-time wording.
