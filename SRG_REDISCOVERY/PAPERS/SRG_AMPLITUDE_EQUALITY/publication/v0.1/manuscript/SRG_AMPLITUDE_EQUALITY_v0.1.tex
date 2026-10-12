@@ -1,0 +1,563 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=24mm,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array,tabularx}
+\usepackage{microtype,fancyhdr,xcolor}
+\usepackage[unicode]{hyperref}
+\definecolor{ink}{RGB}{28,61,79}
+\hypersetup{colorlinks=true,linkcolor=ink,urlcolor=ink,citecolor=ink,
+ pdftitle={SRG Amplitude Equality: Conditional Persistence and Minimal Splitting in Tower II},
+ pdfauthor={Hilmir Frímann Halldórsson}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small SRG Amplitude Equality}
+\fancyhead[R]{\small v0.1 | Manuscript for review}
+\fancyfoot[C]{\thepage}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt minus 1pt}
+\setlength{\emergencystretch}{2em}
+\clubpenalty=10000 \widowpenalty=10000
+\allowdisplaybreaks[1]
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\R}{\mathbb R}
+\newcommand{\ind}{\mathbf 1}
+\numberwithin{equation}{section}
+\title{\textbf{SRG Amplitude Equality}\\[4pt]
+\large Conditional Persistence and Minimal Splitting in Tower II}
+\author{Hilmir Frímann Halldórsson}
+\date{Version v0.1 --- 12 October 2026\\[3pt]\small Manuscript and proposed publication payload awaiting review}
+\begin{document}
+\maketitle
+\begin{abstract}
+When equal particle amplitudes enter the historical Tower II composition, do they leave equal?
+The answer depends on the processing branches and frequencies, as well as on compression.
+We reproduce the accepted exact-real analysis of the unchanged source.
+Equal frequencies and active rows preserve amplitude equality at each pass, even when
+the normalized distance weights differ; persistence through several passes is conditional
+on the hypotheses continuing to hold. Three collinear particles give a minimal
+common-frequency geometric counterexample: a close pair receives the sine stage,
+while an isolated particle skips it. A different minimal example uses the source's actual
+two-band assignment: two active particles split because their sine factors differ,
+although their complete enhancement increments agree. We give the branch proofs,
+strict guard bounds and compressor qualifications, including signed and zero states.
+These are amplitude results for specified incoming states, not trajectory, full-state
+capture or physical-validation results.
+\end{abstract}
+
+\section{Three particles, one amplitude, two processing branches}\label{sec:opening}
+Place three particles on a line, at coordinates $0$, $1/2$ and $3$.
+Give every particle amplitude $1/5$, frequency $0.244$ and a common neighbor horizon
+of radius $1$. Evaluate the next pass at its incremented clock $t=1$.
+The source's horizon is strict: a neighbor must be closer than $1$.
+
+\begin{center}
+\begin{tabular}{@{}cccl@{}}
+\toprule Particle & Position & Selected neighbors & Amplitude processing\\
+\midrule
+1 & $(0,0,0)$ & 2 & average, sine, enhancement\\
+2 & $(1/2,0,0)$ & 1 & average, sine, enhancement\\
+3 & $(3,0,0)$ & none & these three stages skipped\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The close pair averages two copies of the same number, so averaging itself changes
+nothing. Both pair members then receive the same sine multiplier. The isolated
+particle does not. A later common multiplier involving $H(t)$ applies to all three.
+The compressor is on the same positive, unclipped branch for this example, so it
+does not erase the difference. The pair ends approximately
+$0.002058402961068474$ above the isolated particle; this decimal is a rounded
+transcription of the corrected, accepted OC05 result, not a new evaluation.
+
+This elementary picture separates two questions. Changing distances can change which
+rows are processed; yet, while every row is processed and the frequencies agree,
+changing normalized weights alone cannot separate equal amplitudes. A second example,
+with two different source frequencies and no skipped row, separates amplitudes for
+a different reason. We prove both statements below.
+
+\section{The historical source contract}\label{sec:source}
+We use the frozen Tower II text \cite{T}, not a replacement update.
+The accepted analyses OC05 and OC07 \cite{OC05,OC07}, the earlier OC02 framework
+\cite{G}, and the source-order addendum \cite{A} supply the mathematical provenance.
+The line map in Appendix~\ref{app:sources} identifies the physically inspected source
+definitions. Tower II is a historical model name; this paper is not the reserved
+SRG-II/R0--R3 mechanism manuscript.
+
+\subsection{Incoming data, selection and order}
+Write $R_i\in\R$ for the incoming amplitude, $x_i\in\R^3$ for position and
+$\omega_i>0$ for frequency. The source increments its clock before the stages
+studied here. Thus $t$ below is that incremented clock, not the incoming clock; we restrict to $t\geq0$.
+All statements assume finite source-valid data and well-defined finite intermediate
+quantities. They concern the exact-real interpretation of the formulas, not an
+assertion of bitwise equality in a floating-point execution.
+
+The source selects up to five directed neighbors. With a horizon $\rho$, it explicitly
+excludes self, retains $d_{ij}=\|x_i-x_j\|<\rho$, and takes up to the nearest five.
+Without a horizon it uses the sorted-distance slice \texttt{[1:6]}.
+For distinct positions this removes self; coincident ties must not be silently
+identified with a universal explicit-self-exclusion rule.
+Neighbor sets and distances are stored from the incoming positions. The spatial
+motion stage occurs before the amplitude loop, but the amplitude loop uses those
+stored sets and distances.
+
+For selected neighbors $N_i$, define
+\begin{equation}\label{eq:weights}
+ u_{ij}=\frac{\exp[-c\log^2(\omega_i/\omega_j)]}{d_{ij}+10^{-8}},
+ \qquad S_i=\sum_{j\in N_i}u_{ij},\qquad
+ w_{ij}=\frac{u_{ij}}{S_i}.
+\end{equation}
+Here $c=3$ is the retained default. A row is skipped if $N_i$ is empty or
+$S_i<10^{-10}$. Otherwise it is active; equality at the threshold is processed.
+The fixtures below have $S_i>10^{-10}$ strictly, avoiding the boundary.
+
+Let $\beta_T=0.15$ be the Tower amplitude mixing coefficient, distinct from any
+position coefficient. Define
+\begin{equation}\label{eq:gains}
+ a_i(t)=1+0.01\sin(2\pi\omega_i t),\qquad
+ b_t=1+0.05\,\frac{H(t)}{H_{\max}}.
+\end{equation}
+The precompression amplitude, after the common $H$ stage, is
+\begin{equation}\label{eq:full}
+ q_i=b_t
+ \begin{cases}
+ a_i(t)\left[(1-\beta_T)R_i+\beta_T\sum_{j\in N_i}w_{ij}R_j\right]
+       +\displaystyle\sum_{j\in N_i}\eta_{ij}R_j,&i\text{ active},\\
+ R_i,&i\text{ skipped}.
+ \end{cases}
+\end{equation}
+The sine multiplies the mixed baseline \emph{before} enhancement is added.
+The full $\eta_{ij}$, including every strict guard and tower-list term, is given
+in Appendix~\ref{app:eta}. It is not a normalized distance weight.
+
+Following the common $H$ multiplication, the source performs positional fusion
+using the precompression amplitudes, with weights $|q_i|+10^{-8}$ and only
+bands containing at least two particles. RPCO then compresses amplitudes.
+Subsequent noise and velocity updates affect positions or velocities.
+These positional stages do not change this same-pass amplitude formula;
+they may affect the neighbor geometry of later passes.
+
+\subsection{The retained H and its bound}\label{sec:H}
+The source uses
+\begin{equation}\label{eq:H}
+ H(t)=2e^{-t/2}\cos t+e^{-3t/10}\sin t
+               +\tfrac32 e^{-7t/10}+e^{-2t/5}.
+\end{equation}
+Its normalization samples $50{,}000$ points on $[0,100]$, including zero, takes
+the largest absolute value, and adds $10^{-12}$. The following accepted exact-real
+bound \cite{G,OC05} explains the mathematical normalization without rerunning that
+sampling calculation.
+
+For $t\geq0$, $|\sin t|\leq t$ gives
+\[
+ |H(t)|\leq B(t)+\tfrac32e^{-7t/10}+e^{-2t/5},
+ \qquad B(t)=2e^{-t/2}+t e^{-3t/10}.
+\]
+This envelope bounds the sine term. Its derivative is
+$B'(t)=-e^{-t/2}+(1-3t/10)e^{-3t/10}$.
+For $t\geq10/3$ it is negative. For $0\leq t<10/3$,
+$1-3t/10\leq1-t/5\leq e^{-t/5}$, so it is nonpositive.
+Consequently $|H(t)|\leq B(0)+3/2+1=9/2$, attained at $t=0$.
+In the exact-real interpretation the sample includes this maximum, hence
+$H_{\max}=9/2+10^{-12}$ and
+\begin{equation}\label{eq:gainbounds}
+ \frac{99}{100}\leq a_i(t)\leq\frac{101}{100},
+ \qquad \frac{19}{20}\leq b_t\leq\frac{21}{20}\quad(t\geq0).
+\end{equation}
+This is a reused proof about real formulas. It is not fresh floating-point
+certification of the historical sampled normalizer.
+
+\subsection{The common signed compressor}\label{sec:compression}
+For $\epsilon=10^{-9}$ and common $L$, the amplitude compressor is
+\begin{equation}\label{eq:compressor}
+ C_L(q)=
+ \begin{cases}
+ 0,&q=0,\\
+ \sgn(q)\min\{e^L,\max\{e^{-L},|q|+\epsilon\}\},&q\ne0.
+ \end{cases}
+\end{equation}
+Ordinarily $L=9$. With the optional common breathing enabled, the source instead uses
+\begin{equation}\label{eq:breathing}
+ L=9\left(1+\frac12\,\operatorname{mean}_i|R_i|\right),
+\end{equation}
+computed from the incoming amplitudes, once for the whole pass.
+It does not create a different compressor for each particle.
+
+For nonzero input of fixed sign, the floor fiber is
+$0<|q|\leq e^{-L}-\epsilon$, provided this upper bound is positive.
+It is empty if $e^{-L}\leq\epsilon$. The ceiling fiber is
+$|q|\geq e^L-\epsilon$, and between these boundaries the map adds
+$\epsilon\sgn(q)$. Endpoints belong to the plateaus.
+In particular, a large breathing value must not be assumed to leave a positive-width
+floor fiber. Zero is a separate branch and has output zero, not a signed floor.
+
+\section{Equality is conditional, and compression matters}\label{sec:equality}
+\begin{proposition}[Exact criterion]\label{prop:criterion}
+Suppose $R_i=r$ for every particle. With the common $L$ chosen by the source,
+\begin{equation}\label{eq:coeff}
+ q_i=b_t r c_i,\qquad
+ c_i=
+ \begin{cases}
+ a_i(t)+\sum_{j\in N_i}\eta_{ij},&i\text{ active},\\
+ 1,&i\text{ skipped}.
+ \end{cases}
+\end{equation}
+The next amplitude vector is homogeneous if and only if all numbers
+$C_L(b_t r c_i)$ agree.
+\end{proposition}
+\begin{proof}
+On each active row, normalization gives $\sum_j w_{ij}r=r$.
+Its mixed baseline is therefore $(1-\beta_T)r+\beta_T r=r$.
+Equation~\eqref{eq:full} gives \eqref{eq:coeff}; the source's final amplitude
+readout is exactly $C_L(q_i)$. This proves both directions of the criterion.
+\end{proof}
+Equal $c_i$ are sufficient, but not necessary: distinct inputs of the same sign
+can occupy one floor or ceiling plateau. On a common unclipped branch, the compressor
+is injective. This distinction prevents a raw-amplitude difference from being
+mistaken for an output difference without a branch proof.
+
+\begin{theorem}[Equal-frequency active rows]\label{thm:equal}
+Let every incoming amplitude be $r$ and every frequency be the same positive $\omega$.
+If every row is active, then
+\begin{equation}\label{eq:equal}
+ R_i^{\rm next}=C_L\!\left(b_t a_\omega(t)r\right)
+ \quad\hbox{for every }i.
+\end{equation}
+This holds for arbitrary finite incoming distances and normalized weights for which
+the processing hypotheses hold, including the common breathing choice.
+\end{theorem}
+\begin{proof}
+For equal frequencies, $|\omega_i-\omega_j|=0$ closes the outer strict
+enhancement guard, so every $\eta_{ij}=0$; the ratio terms do not survive that
+guard. Also $a_i=a_\omega$. Proposition~\ref{prop:criterion} then gives a common
+precompression value and a common output.
+If $r=0$, all terms vanish and $C_L(0)=0$.
+If $r>0$, the bounds \eqref{eq:gainbounds} make $b_ta_\omega r>0$ and the output
+is positive; if $r<0$ both the precompression and final values are negative.
+Thus neither a lost sign nor a zero-to-floor convention is hidden in the conclusion.
+\end{proof}
+
+\begin{proposition}[Conditional induction]\label{prop:induction}
+Begin with homogeneous amplitudes and common positive frequencies.
+For any finite sequence of passes on which the source remains valid and every row
+is active, amplitudes remain homogeneous after each pass.
+\end{proposition}
+\begin{proof}
+Apply Theorem~\ref{thm:equal} to the first pass. Its common output is the common
+incoming amplitude for the second. The same theorem applies again because
+frequency equality and active processing are assumed at every pass. Induction
+proves the assertion, with the common breathing value recomputed if enabled.
+\end{proof}
+No assertion here proves that a moving particle system keeps all rows active forever.
+The common scalar may vary with the clock. Equality of amplitudes is not constancy
+of that scalar and says nothing about equality of positions or velocities.
+
+\section{The minimal geometric active/skip split}\label{sec:geometric}
+Return to the three particles in Section~\ref{sec:opening}. Fix $L=9$ with breathing
+off, $r=1/5$, $\omega=61/250$, $\rho=1$ and $t=1$.
+The distances are $1/2$, $5/2$ and $3$, so
+\begin{equation}\label{eq:threegraph}
+ N_1=\{2\},\qquad N_2=\{1\},\qquad N_3=\varnothing.
+\end{equation}
+The sole raw weight of each active row is
+$1/(1/2+10^{-8})=100000000/50000001>10^{-10}$.
+All enhancement vanishes by frequency equality. The active and skipped
+precompression values are respectively
+$q_{\rm pair}=b_1r a_\omega(1)$ and $q_{\rm iso}=b_1r$.
+
+The eligibility, separation and activity statements are strict. Each position
+can be perturbed by norm less than $1/4$: pairwise distances change by less
+than $1/2$, the close pair stays distinct and within the horizon, and the other
+distances remain outside it. The close-pair raw sum remains greater than
+$1/(1+10^{-8})$. This is a local geometric margin, not a claim about a future trajectory.
+
+Both precompression values satisfy
+\begin{equation}\label{eq:threebounds}
+ \frac{1881}{10000}\leq q\leq\frac{2121}{10000}.
+\end{equation}
+Indeed these are $r(19/20)(99/100)$ and $r(21/20)(101/100)$,
+and also bound the skipped value. Since $e>2$,
+$e^{-9}<1/512<1881/10000$, while
+$2121/10000+10^{-9}<512<e^9$.
+Thus both outputs are $q+\epsilon$, strictly inside the positive unclipped branch.
+Their difference is exactly
+\begin{equation}\label{eq:threegap}
+ \Delta_{\rm geom}=b_1\,\frac15\,\frac1{100}
+                   \sin\!\left(\frac{61\pi}{125}\right)>0.
+\end{equation}
+The sine argument lies in $(0,\pi)$ and $b_1>0$. In particular, $H$ multiplies
+the isolated particle too; omitting that stage would give the wrong difference.
+
+\begin{proposition}[Minimality for the common-frequency mixed-processing mechanism]
+\label{prop:threeminimal}
+One or two particles cannot realize a common-frequency active/skip split under
+the common selection parameters of the source. Three suffice.
+\end{proposition}
+\begin{proof}
+One particle provides no internal pair to compare. For two distinct particles,
+their mutual distance and equal-frequency raw weight agree in both directions.
+With a common horizon they are either both eligible or both ineligible.
+If eligible, the same raw sum makes both active or both skipped. Without a horizon,
+each selects the other and their processing agrees. At a coincident tie, a sorted
+slice may instead select self; with common amplitudes and frequencies the same
+zero distance, baseline and guard give no active/skip distinction.
+Hence two cannot realize this mechanism. Equation~\eqref{eq:threegraph} supplies
+the three-particle witness.
+\end{proof}
+
+The accepted corrected OC05 value is
+\begin{equation}\label{eq:threenumeric}
+ \Delta_{\rm geom}\approx0.002058402961068474
+ \quad\hbox{(rounded to 18 decimal places).}
+\end{equation}
+The initially supplied shorter decimal failed a comparison and was corrected in
+OC05. That initial failure and the accepted correction are preserved, not replaced
+by a retrospective all-pass account; Section~\ref{sec:evidence} records the provenance.
+
+\section{Two active particles with the actual two-band assignment}\label{sec:bands}
+The second mechanism changes frequency, not eligibility. Specify an incoming state
+of two particles at $0$ and $1/2$, with amplitudes $r=1/5$, no horizon,
+no breathing, $L=9$ and incremented clock $1$. This is a prescribed incoming
+state, not a claim that a randomized initializer samples it.
+
+\begin{center}
+\begin{tabular}{@{}ccccc@{}}
+\toprule Role & Position & Source band index & Frequency & Neighbor\\
+\midrule
+low & $(0,0,0)$ & $-1$ & $\Omega/\phi$ & high\\
+high & $(1/2,0,0)$ & $0$ & $\Omega$ & low\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The source truncates its centered index list to the requested band count.
+For two bands the list is exactly $[-1,0]$, not a guessed symmetric pair:
+\begin{equation}\label{eq:bandfreq}
+ \phi=\frac{1+\sqrt5}{2},\qquad \Omega=\frac{61}{250},
+ \qquad \omega_{\rm low}=\Omega/\phi,\quad\omega_{\rm high}=\Omega.
+\end{equation}
+Shuffling labels exchanges roles but does not change the argument.
+
+\subsection{Strict activity and the complete enhancement}
+Put $\ell=\log\phi$. Since $3/2<\phi<2$, we have $0<\ell<1$.
+Each row has exactly one neighbor and
+\begin{equation}\label{eq:bandactive}
+ S_i=\frac{e^{-3\ell^2}}{1/2+10^{-8}}
+        >e^{-3}>\frac1{27}>10^{-10},
+\end{equation}
+using $e<3$. Thus normalization yields the incoming amplitude $r$ in each row.
+The frequency difference and sum are
+\begin{equation}\label{eq:bandguard}
+ D=\Omega(1-\phi^{-1})=\Omega\phi^{-2}
+   >\frac{61}{750}>\frac1{100},
+ \qquad U=\Omega(1+\phi^{-1})=\Omega\phi.
+\end{equation}
+The strict outer guard is open, with lower margin
+$61/750-1/100=107/1500$.
+
+The tower list has just the two frequencies in \eqref{eq:bandfreq}.
+Every sum/difference indicator in Appendix~\ref{app:eta} fails:
+\begin{center}
+\begin{tabular}{@{}ccc@{}}
+\toprule Tower entry $\tau$ & $|U-\tau|/\tau$ & $|D-\tau|/\tau$\\
+\midrule
+$\Omega/\phi$ & $\phi$ & $\phi^{-2}$\\
+$\Omega$ & $\phi^{-1}$ & $\phi^{-1}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+All four values exceed $1/5$: $\phi>3/2$, $\phi^{-1}>1/2$ and
+$\phi^{-2}>1/4$. No equality-at-tolerance convention is being used.
+For ratio powers $p=-2,-1,1,2$, the squared multiples of $\ell$ in the Gaussian
+are $(1,0,4,9)$ for low receiving high and $(9,4,0,1)$ for high receiving low.
+Therefore both complete coefficients equal
+\begin{equation}\label{eq:etastar}
+ \eta_*=\frac{1+e^{-5\ell^2}+e^{-20\ell^2}+e^{-45\ell^2}}{1000},
+ \qquad \frac1{1000}<\eta_*<\frac4{1000}.
+\end{equation}
+Enhancement is present and positive. It has not been discarded to obtain a
+sine-only model.
+
+\subsection{A strict output difference with enhancement retained}
+The precompression values are
+\begin{equation}\label{eq:bandq}
+ q_{\rm low}=b_1r(a_{\rm low}+\eta_*),\qquad
+ q_{\rm high}=b_1r(a_{\rm high}+\eta_*).
+\end{equation}
+Equations~\eqref{eq:gainbounds} and \eqref{eq:etastar} give the common enclosure
+\begin{equation}\label{eq:bandbranch}
+ \frac{1881}{10000}<q_i<\frac{10647}{50000}.
+\end{equation}
+As in the geometric example, $e^{-9}<1/512$ is below the lower bound, and
+$10647/50000+10^{-9}<512<e^9$ is above the shifted upper bound.
+Both outputs are positive and unclipped.
+
+Moreover $0<\omega_{\rm low}<\omega_{\rm high}<1/4$, with
+$1/4-\Omega=3/500$. Sine is strictly increasing between the corresponding
+arguments in $(0,\pi/2)$. Subtracting the two compressed values gives
+\begin{equation}\label{eq:bandgap}
+ \Delta_{\rm band}=\frac{b_1r}{100}
+ \left[\sin(2\pi\Omega)-\sin(2\pi\Omega/\phi)\right]>0.
+\end{equation}
+The identical enhancement terms and identical positive-branch $\epsilon$ additions
+cancel in this difference. Their cancellation is specific to the proven fixture.
+In particular, $b_1r\eta_*>0$ raises both output levels.
+
+\begin{center}
+\begin{tabular}{@{}lr@{}}
+\toprule Accepted OC07 quantity & Saved value, rounded to 18 decimal places\\
+\midrule
+$\eta_*$ & $0.001323940975761039$\\
+$b_1r\eta_*$ & $0.000272714173360112$\\
+$R_{\rm low}^{\rm next}$ & $0.207931904558321191$\\
+$R_{\rm high}^{\rm next}$ & $0.208317773395512482$\\
+$\Delta_{\rm band}$ & $0.000385868837191291$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+One particle cannot exhibit an inter-particle difference, while these two do;
+this proves minimality for the established all-active frequency mechanism.
+It does not contradict Proposition~\ref{prop:threeminimal}, whose frequencies
+are equal and whose proposed mechanism is mixed processing.
+With a sole neighbor per row, normalized averaging has weight one. Varying their
+distance while both rows stay active does not change this calculation.
+The example is not evidence for distance-induced memory recovery.
+
+\section{What equality does and does not establish}\label{sec:limits}
+Common positive amplitude need not remain at the positive floor. For example, take
+the common value $r=e^{-9}$, fixed $L=9$, equal frequencies and all rows active.
+With $A_t=b_ta_\omega(t)>0$, staying at that floor is equivalent to
+\begin{equation}\label{eq:floorstay}
+ A_t e^{-9}+\epsilon\leq e^{-9}
+ \quad\Longleftrightarrow\quad A_t\leq1-\epsilon e^9 .
+\end{equation}
+Failure of this inequality may raise every amplitude together.
+Conversely, plateaus can make different precompression values agree.
+These are different statements from full-state capture or divergence.
+
+The spatial update, fusion and positional noise remain part of the historical
+composition. They can alter later geometry without altering a same-pass amplitude
+readout already determined by stored incoming neighborhoods. Nothing proved here
+identifies positions, velocities or all later neighbor choices.
+The specified fixtures are not later passes of the accepted OC04 geometry witness. The whole-state qualification is also retained in Geometry~\cite{Geometry}.
+
+The accepted scope comprises exact-real one-pass identities, conditional induction,
+strict local branch proofs and minimal examples for two stated mechanisms.
+It does not establish stochastic arrival, autonomous heartbeat, entropy production,
+cosmology, physical validation or general long-time behavior.
+The separate January fixed-grid question concerns access to signed floor targets;
+its states, gains and constants are not premises of these Tower proofs.
+
+\section{Evidence, authorship and review status}\label{sec:evidence}
+OC05 and OC07 are accepted within their declared analysis scopes. This new v0.1
+manuscript and its six-file proposed public payload await manuscript-and-payload
+review. No external peer review or publication acceptance is asserted.
+The human author is Hilmir Frímann Halldórsson. GPT supplied the work orders,
+scientific review and candidate deductions in the accepted analyses; Codex prepared
+this exposition, performed static source and proof correspondence checks, transcribed
+saved decimals, and built and inspected the manuscript. These AI activities are
+assistance, not independent human peer review.
+
+The decimal in \eqref{eq:threenumeric} comes from OC05's accepted corrected saved value:
+\[
+ 0.002058402961068473853043\ldots .
+\]
+The initial comparison against $0.002058402961068466$ failed.
+The retained initial record has five passing groups and one failed group.
+
+The final accepted OC05 record has nine passing groups.
+OC07 has eight passing groups. Those are historical result counts, not checks
+rerun for this manuscript. No accepted checker, supplied review script, historical
+program or rollout was executed during preparation.
+
+The rounded examples use 18 decimal places with decimal round-half-even.
+The correction-history digits above are retained as quoted provenance; no transcendental
+value was reevaluated.
+The exact formulas and inequalities carry the proofs. The accompanying source index
+and claim ledger record versions, physical line references and accepted-report
+attribution, including private-source access limitations.
+
+The main conclusion is conditional and concrete: common active processing with
+equal frequencies preserves amplitude equality; an isolated row can remove the sine
+stage, and different frequencies can split active rows even when their enhancement
+increments agree. Compression must be checked in either example.
+No new blanket reuse licence is assigned to this manuscript or reconstruction
+records. Existing source-specific CC BY 4.0 notices remain specific to those original
+materials; a software licence is not presumed to license this research.
+
+\appendix
+\section{The complete source enhancement coefficient}\label{app:eta}
+Let $\mathcal T$ be the actual tower-frequency list, with multiplicities retained,
+and set
+$U_{ij}=\omega_i+\omega_j$, $D_{ij}=|\omega_i-\omega_j|$.
+For a selected directed pair the source coefficient is
+\begin{equation}\label{eq:eta}
+\begin{split}
+ \eta_{ij}={}&\nu\,\ind_{\{D_{ij}>0.01\}}
+ \Bigg[
+ \sum_{p\in\{-2,-1,1,2\}}
+ \exp\!\left(-5[\log(\omega_i/\omega_j)-p\log\phi]^2\right)\\
+ &\quad+\frac12\sum_{\tau\in\mathcal T}
+ \left(
+ \ind_{\{|U_{ij}-\tau|/\tau<0.2\}}
+ +\ind_{\{D_{ij}>0.01\}}
+  \ind_{\{|D_{ij}-\tau|/\tau<0.2\}}
+ \right)
+ \Bigg],\qquad \nu=0.001.
+\end{split}
+\end{equation}
+The repeated difference guard reflects the nested source test, even though the
+outer guard already implies it. Each successful tower-list test contributes;
+the list is not a set of distinct values. Every tolerance is strict.
+The coefficient multiplies the incoming neighbor amplitude $R_j$ and is summed
+after the sine stage. No distance denominator or normalization by $S_i$ belongs
+in \eqref{eq:eta}. The shared coefficient in \eqref{eq:etastar} was obtained by
+checking all these terms for the actual two-entry tower.
+
+\section{Source line map and references}\label{app:sources}
+Line numbers are one-based in the frozen, complete Tower text T; byte identity
+and archive locators are supplied in \texttt{SOURCE\_INDEX.md}.
+\begin{center}\small
+\begin{tabularx}{\textwidth}{@{}lY@{}}
+\toprule T lines & Definition used\\
+\midrule
+31--46 & $\phi$, $\Omega$, $H$, RPCO and sampled $H$ normalization\\
+62--84 & defaults, actual band-index construction and shuffled labels\\
+93--103 & $L$, spatial and amplitude coefficients, $H$ coefficient, neighbor count\\
+111--140 & selector, clock increment, common breathing, incoming distances\\
+142--167 & spatial motion, row guards, normalized mixing and sine\\
+169--194 & complete enhancement followed by common $H$\\
+197--215 & precompression positional fusion, RPCO, noise and velocity\\
+\bottomrule
+\end{tabularx}
+\end{center}
+The accepted source-order addendum A, lines 33--47, qualifies the skip and order
+statements. G, lines 185--214, supplies the inherited $H$ bound. Central arguments
+are reproduced here so that private-report access is not required to follow them.
+
+\begin{thebibliography}{9}
+\bibitem{T} Historical source, \emph{srg\_golden\_tower\_II.py},
+14 March 2026. Frozen text T, 34,980 bytes. Header credits Claude collaborating
+with pzychozen. Original public archive locator:
+\url{https://zenodo.org/records/19023429}, \texttt{simulations.zip}.
+Exact member and SHA-256 are in the companion source index.
+\bibitem{OC05} \emph{OC05 Tower State Persistence}, accepted REPORT.md and
+CHECK\_RESULTS.json, 12 October 2026. Retained private research records,
+including initial failed-decimal comparison and accepted correction.
+\bibitem{OC07} \emph{OC07 Tower Two-Band Split}, accepted REPORT.md and
+CHECK\_RESULTS.json, 12 October 2026. Retained private research records.
+\bibitem{G} \emph{OC02 Signed Plateaus}, accepted report G, 11 October 2026.
+Retained final handoff, \path{updates/OC02_SIGNED_PLATEAUS_REPORT.md}.
+\bibitem{A} \emph{Required Source and Notation Addendum}, retained final handoff,
+\path{updates/REQUIRED_SOURCE_AND_NOTATION_ADDENDUM.md}.
+\bibitem{Geometry} Hilmir Frímann Halldórsson, \emph{SRG Geometry: Local Response, Neighbor Exchange, and Compression}, v0.1,
+12 October 2026, published local edition, Section 6.2, background on floor and
+whole-state qualifications. Source access routes are inherited from that edition;
+no new remote query was made.
+\end{thebibliography}
+\end{document}

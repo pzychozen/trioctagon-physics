@@ -1,0 +1,610 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=24mm,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array,tabularx}
+\usepackage{microtype,fancyhdr,xcolor}
+\usepackage[unicode]{hyperref}
+\definecolor{ink}{RGB}{28,61,79}
+\hypersetup{colorlinks=true,linkcolor=ink,urlcolor=ink,citecolor=ink,
+ pdftitle={SRG Signed-Grid Reachability: Exact Two-Step Access and Sharp Small-Grid Thresholds},
+ pdfauthor={Hilmir Frímann Halldórsson}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small SRG Signed-Grid Reachability}
+\fancyhead[R]{\small v0.1 | Manuscript for review}
+\fancyfoot[C]{\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt plus 1pt minus 1pt}
+\setlength{\emergencystretch}{2em}
+\clubpenalty=10000 \widowpenalty=10000
+\allowdisplaybreaks[1]
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\R}{\mathbb R}
+\numberwithin{equation}{section}
+\title{\textbf{SRG Signed-Grid Reachability}\\[4pt]
+\large Exact Two-Step Access and Sharp Small-Grid Thresholds}
+\author{Hilmir Frímann Halldórsson}
+\date{Version v0.1 --- 12 October 2026\\[3pt]\small Manuscript and proposed publication payload awaiting review}
+\begin{document}
+\maketitle
+\begin{abstract}
+For January's finite periodic field, signed compression leaves a gap between zero
+and the smallest nonzero output magnitude. We reproduce the accepted analysis of
+how this gap constrains access to signed floor targets at the second pass.
+The uncompressed map has an ordinary global smooth inverse, while the compressed
+map has set-valued preimages. Their distinction yields an exact intersection
+criterion and a complete precursor formula for specified positive gains.
+On a singleton the second-gain threshold is approximately $0.889066849332978844$.
+For the source's actual anisotropic $1\times2$ stencil, sharp same-sign and
+opposite-sign thresholds are approximately $1.189427271430029358$ and
+$1.796277920195400199$. Complete sign-sector proofs include unequal magnitudes,
+ceiling values and boundary cases. At unit gain, a zero-valued site can receive its
+neighbor's contribution and reach a same-sign floor target even though that target
+does not remain fixed. These are exact-real existential access results, not
+claims about source-schedule realization, probabilities or later dynamics.
+\end{abstract}
+
+\section{A zero site can receive its neighbor}\label{sec:opening}
+Consider two sites on the periodic second axis of the January grid. Write
+$u=e^{-10}$ for its positive compression floor, and temporarily take the second
+gain to be one. A zero at one site does not prevent a contribution from the other:
+the source stencil has a positive off-diagonal coefficient $5/18$.
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule Intermediate field & Before compression & After signed compression\\
+\midrule
+$(u,0)$ & $(A,B)$, with $0<B<A<u-10^{-6}$ & $(u,u)$\\
+$(u,u)$ & $(u+\tfrac1{10}\tanh u)(1,1)$ & strictly above $(u,u)$\\
+$(u,-u)$ & $(D,-D)$, with $0<D<u-10^{-6}$ & $(u,-u)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Here $A=(13/18)u+\tanh(u)/10$, $B=(5/18)u$ and
+$D=(4/9)u+\tanh(u)/10$. We prove every inequality in the table below.
+The first row demonstrates access to a target; the second shows that reaching
+the target and remaining there are different questions. Neither row is a simulated
+trajectory. It specifies the field entering the second pass.
+
+To call this \emph{two-step} access, one must also ask whether the intermediate
+field can emerge from a first pass. This is where the signed compressor's complete
+range and the uncompressed map's inverse matter. The first pass can reach every
+field whose coordinates lie in its scalar range, but cannot put a nonzero coordinate
+strictly between $-u$ and $u$. That gap yields a genuine obstruction on a singleton.
+Coupling changes the sharp obstruction on the actual $1\times2$ grid.
+
+\section{The January finite periodic field}\label{sec:source}
+We use the historical January operators, at the specified retained parameters,
+in their exact-real interpretation. This is not Tower II's moving-particle model.
+The frozen source files J1--J3 \cite{J1,J2,J3}, the accepted OC02 inverse framework
+\cite{G}, the source/notation addendum \cite{A}, and the accepted OC06 and OC08
+reports \cite{OC06,OC08} determine the account.
+Line references appear in Appendix~\ref{app:sources}; full identities and access
+limitations are in the companion source index.
+
+For an $N\times M$ real array $X$, with indices taken modulo $N,M$, the original
+anisotropic periodic-index operator at $a=1$, $b=3/5$ is
+\begin{equation}\label{eq:L}
+\begin{split}
+ (LX)_{ij}={}&X_{i+1,j}+X_{i-1,j}-2X_{ij}\\
+ &+\frac{25}{9}\bigl(X_{i,j+1}+X_{i,j-1}-2X_{ij}\bigr).
+\end{split}
+\end{equation}
+Repeated neighbors are repeated \emph{incidences}. For an axis of length one its
+two self-incidences cancel its $-2X$ term; for length two the same other site is
+counted twice. The first axis is the source's $\theta$ axis and the second its
+$\varphi$ axis. The displayed embedding does not turn this index stencil into a
+surface Laplace--Beltrami operator. In particular, transposing $1\times2$ into
+$2\times1$ would change the coefficients used here.
+
+With $h=1/20$, nonlinear coefficient $1/10$ and scale one, flatten the array to
+$\R^d$, $d=NM$, and set
+\begin{equation}\label{eq:P}
+ T=I+\frac1{20}L,\qquad
+ P(X)=TX+\frac1{10}\tanh(X),\qquad F_m(X)=C_s(mP(X)),\quad m>0.
+\end{equation}
+The hyperbolic tangent is coordinatewise and uses the incoming field. It is
+\emph{not} multiplied by another factor $h$.
+The gain $m$ is specified as a positive parameter. No claim is made that arbitrary
+successive values $m_1,m_2$ occur in the historical schedule.
+
+This analysis explicitly selects signed compression. The unchanged application's
+initial menu selection is paper mode, not signed mode. The app offers sizes
+$64,128,256$; the small arrays studied here are mathematically admissible under
+the periodic functions, not claims about those menu choices.
+The relevant app defaults are $L_c=10$, $\epsilon=10^{-6}$; the generic compressor
+function has different defaults, which are not substituted into this paper.
+Define
+\begin{equation}\label{eq:Cs}
+\begin{gathered}
+ u=e^{-10},\qquad v=e^{10},\qquad f=u-\epsilon>0,\\
+ C_s(q)=
+ \begin{cases}
+ 0,&q=0,\\
+ \sgn(q)\min\{v,\max\{u,|q|+\epsilon\}\},&q\ne0.
+ \end{cases}
+\end{gathered}
+\end{equation}
+The positivity of $f$ follows, for example, from $e<3$:
+$u>1/59049>10^{-6}$. Exact zero is a separate branch.
+Statements about real inputs and exact endpoint inclusions do not imply that all
+these real values are exactly representable by the historical floating-point code.
+
+\section{The ordinary inverse belongs to P}\label{sec:inverse}
+The following is the accepted OC02 inverse theorem, reproduced with the reasoning
+needed here. It is neither a new theorem-suite execution nor a novelty claim.
+
+\begin{theorem}[Global smooth inverse of the retained $P$]\label{thm:inverse}
+For every finite positive pair of grid dimensions $N,M$, the map $P$ in
+\eqref{eq:P} is a smooth bijection $\R^d\to\R^d$ with smooth inverse.
+\end{theorem}
+\begin{proof}
+Periodic shifts and their inverses occur in pairs, so $L$ and $T$ are symmetric.
+The discrete Fourier modes have $T$ eigenvalues
+\begin{equation}\label{eq:eigen}
+ \lambda_{pq}=1-\frac15\sin^2\!\frac{\pi p}{N}
+                 -\frac59\sin^2\!\frac{\pi q}{M}
+ \ \geq\ 1-\frac15-\frac59=\frac{11}{45}>0.
+\end{equation}
+This formula includes lengths one and two, with their actual repeated incidences.
+Thus $T$ is positive definite. Furthermore,
+\begin{equation}\label{eq:DP}
+ DP(X)=T+\frac1{10}\operatorname{diag}(\operatorname{sech}^2 X_i)
+ \succeq\frac{11}{45}I.
+\end{equation}
+Write
+\begin{equation}\label{eq:potential}
+ \Psi(X)=\frac12 X^{\top}TX+\frac1{10}\sum_{i=1}^d\log\cosh X_i .
+\end{equation}
+Then $\nabla\Psi=P$. For each $z\in\R^d$, the function
+$\Psi(X)-z^{\top}X$ is strictly convex and coercive, because
+$\log\cosh X_i\geq0$ and its quadratic term bounds it below by
+$(11/90)\|X\|^2-\|z\|\|X\|$. It has a unique minimizer, whose gradient equation
+is $P(X)=z$. This proves both surjectivity and injectivity.
+The Jacobian is invertible everywhere by \eqref{eq:DP}. The inverse function
+theorem supplies local smooth inverses, which agree as the single global inverse
+because of bijectivity.
+\end{proof}
+
+Compression changes this conclusion. Entire intervals map to a floor or ceiling,
+so $F_m$ is not injective. We write $P^{-1}$ for an ordinary inverse and use
+explicit sets for compressed preimages. Confusing them would lose entire families
+of precursors.
+
+\section{The complete signed range and scalar fibers}\label{sec:range}
+Let
+\begin{equation}\label{eq:S}
+ S=\{0\}\cup[-v,-u]\cup[u,v],\qquad J(y)=\{q\in\R:C_s(q)=y\}.
+\end{equation}
+
+\begin{proposition}[Scalar range and all preimages]\label{prop:fibers}
+The image of $C_s$ is exactly $S$. Its full scalar fibers are:
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule Output $y$ & $J(y)$\\
+\midrule
+$0$ & $\{0\}$\\
+$u$ & $(0,f]$\\
+$-u$ & $[-f,0)$\\
+$u<|y|<v$ & $\{\,y-\epsilon\sgn(y)\,\}$\\
+$v$ & $[v-\epsilon,\infty)$\\
+$-v$ & $(-\infty,-(v-\epsilon)]$\\
+$y\notin S$ & $\varnothing$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{proposition}
+\begin{proof}
+Every nonzero input keeps its sign and has compressed magnitude in $[u,v]$,
+while zero maps to zero. This proves the forward range inclusion.
+Conversely, for $u\leq|y|\leq v$, choose
+$q=\sgn(y)(|y|-\epsilon)$. Since $u>\epsilon$, this input is nonzero, has the
+correct sign, and satisfies $|q|+\epsilon=|y|$; hence $C_s(q)=y$.
+Together with $q=0$ this proves surjectivity onto $S$, including all endpoints.
+
+For positive nonzero input, output $u$ occurs exactly when
+$q+\epsilon\leq u$, or $0<q\leq f$. A strictly interior output requires
+$q+\epsilon=y$ uniquely, and output $v$ requires $q+\epsilon\geq v$.
+The analogous negative cases follow from oddness. No nonzero input produces
+zero, and the range proof excludes all remaining outputs. These observations
+give each row of the table with its stated endpoint inclusion.
+\end{proof}
+
+\begin{proposition}[First-pass range]\label{prop:range}
+For every $m>0$,
+\begin{equation}\label{eq:range}
+ F_m(\R^d)=S^d.
+\end{equation}
+\end{proposition}
+\begin{proof}
+The scalar range gives $F_m(\R^d)\subseteq S^d$. If $Y\in S^d$, choose any
+$z\in\prod_i J(Y_i)$; every factor is nonempty by Proposition~\ref{prop:fibers}.
+Theorem~\ref{thm:inverse} supplies $X=P^{-1}(z/m)$, for which
+$C_s(mP(X))=C_s(z)=Y$. This proves the reverse inclusion.
+\end{proof}
+This is an existence statement over unrestricted real incoming fields. It neither
+samples a precursor nor proves its probability under an initializer.
+
+\section{An exact two-step criterion and every precursor}\label{sec:twostep}
+Fix positive gains $m_1,m_2$ and a sign field $\sigma\in\{-1,1\}^d$.
+The target is the signed floor vector $\sigma u$.
+Define its second-pass capture cell
+\begin{equation}\label{eq:B}
+ B_{m_2,\sigma}
+ =\{Y\in\R^d:0<\sigma_i m_2P_i(Y)\leq f\text{ for every }i\}.
+\end{equation}
+The lower face is excluded: exact zero is not a signed floor.
+The upper face is included: a magnitude of $f$ becomes $u$ after adding
+$\epsilon$.
+
+\begin{theorem}[Two-step access and full precursor set]\label{thm:twostep}
+There exists $X$ with $F_{m_2}(F_{m_1}(X))=\sigma u$ if and only if
+\begin{equation}\label{eq:intersection}
+ S^d\cap B_{m_2,\sigma}\ne\varnothing.
+\end{equation}
+The complete set of such initial fields is
+\begin{equation}\label{eq:all}
+\begin{split}
+ \mathcal A_{m_1,m_2,\sigma}
+ =\bigcup_{Y\in S^d\cap B_{m_2,\sigma}}
+ \left\{P^{-1}(z/m_1):
+             z\in\prod_{i=1}^d J(Y_i)\right\}.
+\end{split}
+\end{equation}
+\end{theorem}
+\begin{proof}
+If $X$ succeeds, set $Y=F_{m_1}(X)$. Proposition~\ref{prop:range} gives $Y\in S^d$,
+and the signed floor fibers give $Y\in B_{m_2,\sigma}$.
+Moreover $z=m_1P(X)$ lies in $\prod_iJ(Y_i)$, so $X$ belongs to the stated union.
+Conversely, any member of the union has first image $Y$, by its scalar fiber
+conditions, and second image $\sigma u$, by \eqref{eq:B}. If the intersection
+is nonempty, its scalar fibers are nonempty and the ordinary inverse $P^{-1}$
+constructs a member. This proves both the equivalence and completeness.
+\end{proof}
+
+Nonemptiness is independent of the first positive gain. The actual precursor
+fields and their geometry can depend on $m_1$, as \eqref{eq:all} shows.
+The theorem concerns being at the target at pass two, not necessarily arriving
+there for the first time. It asserts neither that the target is fixed nor that
+the intersection has any specified volume or initialization probability.
+
+For comparison, one-pass access to any signed floor target exists from an unrestricted
+real input: choose $z_i=\sigma_i f/2$ and $X=P^{-1}(z/m)$.
+The nontrivial second-pass obstruction arises because an intermediate must also
+belong to $S^d$. That restriction cannot be dropped by invoking surjectivity of $P$.
+
+\section{A singleton: a sharp gap obstruction}\label{sec:singleton}
+For a $1\times1$ array, both periodic self-incidences cancel on both axes.
+Thus $L=0$ and
+\begin{equation}\label{eq:singleP}
+ P(y)=y+\frac1{10}\tanh y.
+\end{equation}
+This is odd and strictly increasing, with derivative
+$1+\operatorname{sech}^2(y)/10>0$. For positive $y$ it exceeds $y$.
+
+\begin{theorem}[Singleton threshold]\label{thm:singleton}
+For every specified $m_1>0$, either singleton signed floor target is accessible at
+pass two exactly when
+\begin{equation}\label{eq:singlethreshold}
+ 0<m_2\leq m_{\rm single}
+ :=\frac{f}{u+\tanh(u)/10}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+An intermediate in $S$ is either zero or has magnitude at least $u$.
+Zero remains zero and cannot reach a signed target. For any other intermediate,
+oddness and strict increase imply $|P(y)|\geq P(u)>0$.
+The signed floor condition therefore requires $m_2P(u)\leq f$.
+Conversely, if this inequality holds, use $y=u$ for the positive target or
+$y=-u$ for the negative target. The first-pass range reaches that $y$ for
+every $m_1>0$. At equality the second precompression magnitude is exactly $f$,
+which is included in the floor fiber.
+\end{proof}
+
+At gain one access is impossible, since $P(u)>u>f$.
+Gain $1/2$ does permit access: $\tanh u<u$ gives
+$0<P(u)/2<11u/20$, while
+\begin{equation}\label{eq:halfbound}
+ f-\frac{11u}{20}
+ =\frac9{20}u-\epsilon
+ >\frac9{20\cdot59049}-10^{-6}
+ =\frac{43439}{6561000000}>0.
+\end{equation}
+Here $e<3$ supplies $u>1/59049$; no decimal evaluation is needed.
+The saved accepted OC06 threshold, rounded to 18 places, is
+$m_{\rm single}\approx0.889066849332978844$.
+No initial-field inverse was numerically solved to obtain a witness.
+
+\section{The actual coupled $1\times2$ reduction}\label{sec:twosite}
+Let the first axis have length one and the second length two.
+The first-axis stencil cancels. On the second axis, forward and backward neighbors
+coincide but count twice. Consequently
+\begin{equation}\label{eq:Ttwo}
+ L=\frac{50}{9}
+ \begin{pmatrix}-1&1\\1&-1\end{pmatrix},
+ \qquad
+ T=\begin{pmatrix}13/18&5/18\\5/18&13/18\end{pmatrix}.
+\end{equation}
+Define, only for this January matrix,
+\begin{equation}\label{eq:alphabeta}
+ \alpha=\frac{13}{18},\quad\beta=\frac5{18},\quad
+ \delta=\alpha-\beta=\frac49,\quad h(y)=\frac1{10}\tanh y.
+\end{equation}
+Then $\alpha+\beta=1$, and
+\begin{equation}\label{eq:Ptwo}
+ P_1(Y)=\alpha Y_1+\beta Y_2+h(Y_1),\qquad
+ P_2(Y)=\beta Y_1+\alpha Y_2+h(Y_2).
+\end{equation}
+The symbol $h(y)$ here names the scalar nonlinearity; the fixed time-step coefficient
+in \eqref{eq:P} remains $1/20$.
+
+\begin{lemma}[Two symmetries]\label{lem:symmetry}
+Global sign reversal and exchange of the two sites preserve $S^2$ and commute
+with $P$, coordinatewise $C_s$, and therefore $F_m$.
+\end{lemma}
+\begin{proof}
+The set $S$ is sign symmetric, so global negation preserves $S^2$;
+coordinate exchange also preserves a Cartesian square.
+The nonlinearity is odd and the linear map changes sign under global negation,
+so $P(-Y)=-P(Y)$. Equation~\eqref{eq:Ptwo} exchanges its two components when
+$Y_1,Y_2$ are exchanged. The same operations commute with a common odd scalar
+compressor applied to both coordinates. This proves each assertion.
+\end{proof}
+It is thus enough to prove the same-sign case $(u,u)$ and the opposite-sign
+case $(u,-u)$. The other two targets follow analytically, not from additional
+sampled fixtures.
+
+\section{Same-sign access: exhaustive necessity}\label{sec:same}
+Put
+\begin{equation}\label{eq:AB}
+ A=\alpha u+h(u),\qquad B=\beta u.
+\end{equation}
+Both are positive and $B<A$, since
+$A-B=\delta u+h(u)>0$.
+
+\begin{theorem}[Sharp same-sign threshold]\label{thm:same}
+For every $m_1>0$, a same-sign two-site floor target is accessible at pass two
+if and only if
+\begin{equation}\label{eq:msame}
+ 0<m_2\leq m_{\rm same}:=\frac fA.
+\end{equation}
+\end{theorem}
+\begin{proof}
+By Lemma~\ref{lem:symmetry} it suffices to consider the positive target.
+Any admissible intermediate $Y\in S^2$ must have both $P_i(Y)>0$ and
+$\max_iP_i(Y)\leq f/m_2$. We exhaust all sectors.
+
+If both coordinates are nonpositive, the nonnegative matrix coefficients and
+odd increasing $h$ make both $P_i$ nonpositive, so this sector is excluded.
+If exactly one coordinate is positive and the other zero, write it, up to
+exchange, as $(a,0)$ with $u\leq a\leq v$. Then
+$P(Y)=(\alpha a+h(a),\beta a)$; the first is the larger and is at least $A$.
+The smallest value is attained at $a=u$.
+If both coordinates are positive, each is at least $u$, so each output is at least
+$(\alpha+\beta)u+h(u)=u+h(u)>A$.
+
+It remains to examine opposite signs without assuming equal magnitudes.
+By exchange write $Y=(a,-b)$ with $u\leq a,b\leq v$.
+If $P_2\leq0$, this field cannot reach the positive target.
+If $P_2>0$, eliminating $a$ from \eqref{eq:Ptwo} gives the exact identity
+\begin{equation}\label{eq:eliminate}
+ P_1=\frac{\alpha}{\beta}P_2+
+       \frac{\alpha^2-\beta^2}{\beta}b+
+       h(a)+\frac{\alpha}{\beta}h(b).
+\end{equation}
+All terms except the displayed multiple of $b$ are strictly positive, and
+$(\alpha^2-\beta^2)/\beta=8/5$. Hence
+$P_1>(8/5)u>A$: indeed $\tanh u<u$ implies
+$A<(13/18+1/10)u=(37/45)u<(8/5)u$.
+This includes unequal magnitudes and the ceiling $v$. All sectors have now
+been covered. Any successful intermediate therefore satisfies $\max_iP_i\geq A$,
+which forces $m_2A\leq f$.
+
+Conversely take $Y=(u,0)\in S^2$. Its outputs are $(A,B)$ with $0<B<A$.
+If $m_2A\leq f$, both lie in the positive capture interval after multiplication
+by $m_2$. At $m_2=f/A$, the first equals $f$ and the second equals $fB/A\in(0,f)$.
+The first-stage range theorem supplies this intermediate for every $m_1>0$.
+The negative target follows by global sign reversal.
+\end{proof}
+
+The zero in this optimal witness is not an absence of coupling. It is exactly
+the positive term $\beta u$ entering that site that makes the target accessible.
+The proof establishes a sharp bound over \emph{all} intermediates in $S^2$,
+not merely over a chosen family.
+
+\section{Opposite-sign access without an antisymmetry assumption}\label{sec:opposite}
+Define
+\begin{equation}\label{eq:D}
+ D=\delta u+h(u)>0 .
+\end{equation}
+\begin{theorem}[Sharp opposite-sign threshold]\label{thm:opposite}
+For every $m_1>0$, an opposite-sign floor target is accessible at pass two
+if and only if
+\begin{equation}\label{eq:mopp}
+ 0<m_2\leq m_{\rm opposite}:=\frac fD.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Consider $(u,-u)$; its required signed outputs are $P_1>0$ and $-P_2>0$.
+If both coordinates are zero, both outputs are zero.
+With just one nonzero coordinate, the positive off-diagonal coefficient and the
+same-sign diagonal/nonlinear terms make both outputs have that coordinate's sign.
+With both coordinates of the same sign, both outputs again have that sign.
+These sectors cannot give the required opposite signs.
+
+A reversed-sign intermediate has $Y=(-a,b)$, $a,b\in[u,v]$. It obeys
+$P_1-P_2=-\delta(a+b)-h(a)-h(b)<0$, contradicting $P_1>0>P_2$.
+The only remaining possibility is the aligned sector $Y=(a,-b)$.
+For it set
+\[
+ p_1=P_1=\alpha a-\beta b+h(a),\qquad
+ p_2=-P_2=\alpha b-\beta a+h(b).
+\]
+If either is nonpositive, capture fails. Otherwise,
+\begin{equation}\label{eq:average}
+ \max(p_1,p_2)\geq\frac{p_1+p_2}{2}
+ =\frac{\delta(a+b)+h(a)+h(b)}2
+ \geq\delta u+h(u)=D.
+\end{equation}
+The last inequality uses $a,b\geq u$ and monotonicity of $h$.
+It makes no assumption that $a=b$, and includes the ceiling endpoints.
+Necessity of $m_2D\leq f$ follows.
+
+For sufficiency use $Y=(u,-u)\in S^2$, for which $P(Y)=(D,-D)$.
+If $m_2D\leq f$, both signed capture inequalities hold.
+At the upper endpoint both required magnitudes equal $f$, which is allowed.
+The first-stage range theorem supplies this intermediate for every $m_1>0$.
+Global reversal or site exchange yields the other target.
+\end{proof}
+Antisymmetry supplies a witness attaining the bound; it was not imposed on the
+necessity argument. This distinction is essential to sharpness over the complete
+admissible range.
+
+\section{Reaching, remaining and complete witness precursors}\label{sec:interpretation}
+\subsection{Unit gain and the exact margin}
+The inequality $\tanh u<u$ gives $A<(37/45)u$, and therefore
+\begin{equation}\label{eq:unitmargin}
+ f-A>\frac8{45}u-\epsilon
+ >\frac8{45\cdot59049}-10^{-6}
+ =\frac{1068559}{531441000000}>0.
+\end{equation}
+Thus $0<B<A<f$, proving $F_1(u,0)=(u,u)$.
+Since $0<D<A$, the same bound proves $F_1(u,-u)=(u,-u)$.
+But $P(u,u)=(u+h(u))(1,1)$ is strictly above $u$ in each coordinate.
+After adding $\epsilon$ the compressed magnitude is still above $u$:
+if clipping at the ceiling occurred it would be $v>u$, so either branch suffices.
+Consequently $(u,u)$ is not fixed at gain one.
+The positive value received at the initially zero site is $B=\beta u$,
+not a compression convention that changes zero directly to $u$.
+
+\subsection{All first-stage precursors of the witnesses}
+For arbitrary specified $m_1>0$, all initial fields whose first image is $(u,0)$ are
+\begin{equation}\label{eq:precsame}
+ \left\{P^{-1}\bigl((z/m_1,0)\bigr):0<z\leq f\right\}.
+\end{equation}
+This is the complete preimage of that intermediate by the scalar fiber table.
+The zero is a coordinate of the intermediate and of its precompression vector.
+Applying the coupled inverse $P^{-1}$ does not imply that the corresponding
+coordinate of the initial field is zero.
+All initial fields whose first image is $(u,-u)$ are
+\begin{equation}\label{eq:precopp}
+ \left\{P^{-1}\bigl((z_1/m_1,z_2/m_1)\bigr):
+               0<z_1\leq f,\ -f\leq z_2<0\right\}.
+\end{equation}
+These families give successful two-step precursors whenever the respective
+second-gain threshold holds. They need not exhaust the other successful intermediate
+fields. The exhaustive description for the target is the union \eqref{eq:all}.
+No inverse equation was solved numerically and no basin volume follows from
+writing these sets.
+
+\subsection{What the three thresholds compare}
+Exact denominator inequalities give
+\begin{equation}\label{eq:thresholdorder}
+ 0<D<A<u+h(u),\qquad
+ m_{\rm single}<m_{\rm same}<m_{\rm opposite},\qquad
+ m_{\rm single}<1<m_{\rm same}.
+\end{equation}
+Here $A-D=\beta u>0$, $u+h(u)-A=(1-\alpha)u>0$;
+$m_{\rm single}<1$ follows from $f<u<u+h(u)$, and $m_{\rm same}>1$
+from \eqref{eq:unitmargin}.
+
+\begin{center}
+\begin{tabular}{@{}llr@{}}
+\toprule Grid and target & Exact upper second gain & Saved value, 18 places\\
+\midrule
+$1\times1$, either sign & $f/[u+h(u)]$ & $0.889066849332978844$\\
+$1\times2$, same signs & $f/[\alpha u+h(u)]$ & $1.189427271430029358$\\
+$1\times2$, opposite signs & $f/[\delta u+h(u)]$ & $1.796277920195400199$\\
+\bottomrule
+\end{tabular}
+\end{center}
+These are thresholds for the stated grids and target classes, not for arbitrary
+arrays. In particular, the opposite-sign number exceeding $3/2$ is a result about
+specified positive gains, not about values attained by the source's historical
+gain schedule.
+
+\section{Evidence and limits}\label{sec:evidence}
+The central distinction is between unrestricted one-pass capture, two-pass access
+through $S^d$, and fixedness of a target. Later persistence, first arrival,
+initialization probability and finite-precision behavior are further questions
+not resolved by these theorems. No full-grid classification, long-time dynamics,
+new recursion, source-schedule matching, entropy, cosmology or physical validation
+is established. No Tower amplitude theorem is used as a January premise.
+This manuscript is not the reserved SRG-II/R0--R3 mechanism paper.
+
+The mathematical inputs OC06, OC08 and the inherited OC02 framework are accepted
+within their declared scopes. The new v0.1 manuscript and six-file candidate
+await manuscript-and-payload review. The human author is Hilmir Frímann Halldórsson.
+GPT supplied work orders and scientific review of the accepted analyses;
+Codex prepared this manuscript, checked static source/proof correspondence,
+transcribed saved decimals, compiled it and inspected the pages. AI assistance
+is not external human peer review.
+
+The historical final OC06 record contains eight passing check groups and OC08
+contains seven. No accepted checker or supplied GPT review script was rerun,
+and no new scalar calculation, inverse solve, grid enumeration, simulation or
+source execution was performed for this manuscript.
+The three numerical thresholds in the abstract and comparison table were
+transcribed from saved JSON strings and rounded to 18 decimal places by decimal
+round-half-even. The exact inequalities, not those decimals, prove the conclusions.
+The companion evidence summary and private review records identify the saved fields.
+
+The source index distinguishes original public source routes from retained private
+reports. Complete definitions and proofs are given here so that the argument
+does not require access to private chat or reports. No new blanket reuse licence
+is assigned to this manuscript or reconstruction records. Existing source-specific
+CC BY 4.0 notices remain attached to their originals; the software licence is
+not presumed to cover this research.
+
+\appendix
+\section{Native source correspondence}\label{app:sources}
+Line numbers below are one-based in the frozen complete source texts.
+The byte-order mark in J2 is included in its complete-file identity, even though
+it is removed when decoding for reading. The private review bundle includes
+only a narrow derivative excerpt of the consumed lines; it is neither a complete
+source nor a substitute for whole-file verification.
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{@{}llY@{}}
+\toprule Source & Lines & Definition used\\
+\midrule
+J1 & 4--5, 19--40 & periodic rolls; axes; $1/a^2,1/b^2$ stencil weights\\
+J1 & 62--76 & display embedding and axis interpretation\\
+J2 & 37--67 & generic compressor defaults and signed branch\\
+J2 & 109--138 & incoming field, TGMO step, separate nonlinearity, gain, compression\\
+J3 & 44--66 & offered sizes and app defaults, including initial paper mode\\
+J3 & 234--238 & incoming-field nonlinear callback\\
+G & 238--252 & accepted global inverse proof for $P$\\
+A & 13--31 & January notation and source distinctions\\
+\bottomrule
+\end{tabularx}
+\end{center}
+The exact source equations, rather than an assumed embedded-surface geometry,
+fix the distinction between the $1\times2$ and $2\times1$ reductions.
+OC06 supplies the range, fiber, two-step and singleton arguments; OC08 supplies
+the complete two-site sign-sector proofs and attaining witnesses.
+
+\begin{thebibliography}{9}
+\bibitem{J1} Historical January source, \emph{tgmo.py}, frozen J1, 3,208 bytes.
+Public source route: \url{https://zenodo.org/records/18285147}, file
+\texttt{tgmo.py}. Exact SHA-256 in the companion source index.
+\bibitem{J2} Historical January source, \emph{refu.py}, frozen J2, 6,495 bytes
+including UTF-8 BOM. Same public record, file \texttt{refu.py}.
+\bibitem{J3} Historical January source, \emph{app.py}, frozen J3, 14,800 bytes.
+Same public record, file \texttt{app.py}. This is the retained version, not a
+substitution from record 18366687.
+\bibitem{G} \emph{OC02 Signed Plateaus}, accepted report G, 11 October 2026.
+Retained final handoff, \path{updates/OC02_SIGNED_PLATEAUS_REPORT.md}.
+\bibitem{A} \emph{Required Source and Notation Addendum}, retained final handoff,
+\path{updates/REQUIRED_SOURCE_AND_NOTATION_ADDENDUM.md}.
+\bibitem{OC06} \emph{OC06 January Two-Step Access}, accepted REPORT.md and
+CHECK\_RESULTS.json, 12 October 2026. Retained private research records.
+\bibitem{OC08} \emph{OC08 January Two-Site Access}, accepted REPORT.md and
+CHECK\_RESULTS.json, 12 October 2026. Retained private research records.
+\end{thebibliography}
+\end{document}
