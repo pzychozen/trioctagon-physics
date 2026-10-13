@@ -43,3 +43,7 @@ The v0.1 chapter gives the exact two-step access criterion and sharp singleton a
 ## SRG Contribution Geometry
 
 [SRG Contribution Geometry: Exact Prefixes, Carry Lattices, and Neighboring-Pair Transformations](PAPERS/SRG_CONTRIBUTION_GEOMETRY/publication/v0.1/README.md) develops neighboring raw contributions, permanent prefixes, legal carry lattices, scale-plus-reciprocal transitions, proved bounds and precisely scoped finite rankings. The edition includes its exact-data guide and seven-file data supplement. Its [publication disposition](PAPERS/SRG_CONTRIBUTION_GEOMETRY/publication/v0.1/PUBLICATION_DISPOSITION.md) records acceptance and explains retained preparation-time review notices.
+
+## SRG Quantum Ring Spectra
+
+[Symbolic Resonance Geometry and Quantum Ring Spectra: An Exact Discrete-to-Continuum Spectral Correspondence](PAPERS/SRG_QUANTUM_RING_SPECTRAL_CORRESPONDENCE/publication/v0.1/README.md) proves the positive periodic-Laplacian trace limit involving zeta(3), finite-size bounds and finite-band phase estimates for the adopted standard quantum-ring Hamiltonian. Historical SRG calibration and the later spectral diagnostic remain distinct from the adopted quantum kinetic scale. The [publication disposition](PAPERS/SRG_QUANTUM_RING_SPECTRAL_CORRESPONDENCE/publication/v0.1/PUBLICATION_DISPOSITION.md) records internal GPT acceptance, owner authorization and the unchanged research-rights boundary.

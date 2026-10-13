@@ -1,0 +1,8 @@
+# Preparation and build history
+
+- Initial intake found no PyMuPDF in torment. No baseline was written by that failed attempt. Extraction switched to the existing bundled pypdf, still using torment Python; no package installation.
+- During checker construction, a direct limit in an integer refinement variable did not return the intended generic result. It was replaced by the equivalent real-variable sinc limit in the proof. A separate characteristic-polynomial assertion initially compared distinct symbolic indeterminates; these were explicitly aligned. Final result: 65 passing exact checks. These preparation failures are not counted as successful checks.
+- The app preview compiler failed to initialize: helper_unknown_error, setup refresh had errors. Local installed Tectonic was used for PDF export, with cache/build writes inside this draft.
+- BUILD_01 lacked cached inputenc.sty; the unnecessary package was removed for XeTeX. BUILD_02 lacked a sans-serif math font; harmonic-number notation changed to upright roman. BUILD_03 reached PDF conversion but lacked the legacy circle font; the diagram was redrawn using quadratic curves, rules and existing math arrows.
+- BUILD_04 compiled cleanly. Its first post-processing attempt lacked a separate pdffonts executable. Font embedding was instead inspected directly with pypdf, and the successful PDF inspection resumed without recompilation.
+- BUILD_05 adds widow/orphan control and verified MIT date/page locators. It is the final 14-page edition, compiling without warnings. All pages were visually reviewed. Typography repairs did not change the scientific formulas.

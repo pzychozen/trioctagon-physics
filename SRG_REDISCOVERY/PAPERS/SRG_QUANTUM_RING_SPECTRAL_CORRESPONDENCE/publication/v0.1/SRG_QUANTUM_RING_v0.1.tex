@@ -1,0 +1,1047 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[a4paper,margin=26mm,headheight=14pt]{geometry}
+\usepackage{microtype,booktabs,tabularx,array,graphicx,xcolor,fancyhdr}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\hypersetup{pdftitle={Symbolic Resonance Geometry and Quantum Ring Spectra},
+pdfauthor={Hilmir Frimann Halldorsson},
+pdfsubject={Review draft v0.1, 13 October 2026: exact discrete-to-continuum spectral correspondence}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small SRG and quantum ring spectra}
+\fancyhead[R]{\small Review draft v0.1}
+\fancyfoot[C]{\thepage}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{1.1em}
+\setlength{\emergencystretch}{1.5em}
+\clubpenalty=10000\widowpenalty=10000
+\renewcommand{\arraystretch}{1.15}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\C}{\mathbb C}\newcommand{\R}{\mathbb R}\newcommand{\Z}{\mathbb Z}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\ee}{\mathrm e}\newcommand{\ii}{\mathrm i}
+\newcommand{\phig}{\varphi}\newcommand{\AN}{A_{N,L}}
+\newcommand{\ip}[2]{\langle #1,#2\rangle_h}
+\numberwithin{equation}{section}
+\title{\vspace{-12mm}\textbf{Symbolic Resonance Geometry\\and Quantum Ring Spectra}\\[5pt]
+\large An Exact Discrete-to-Continuum Spectral Correspondence}
+\author{Hilmir Fr\'imann Halld\'orsson}
+\date{13 October 2026\\[3pt]\small Complete review edition v0.1; submitted to GPT for scientific review}
+\begin{document}
+\maketitle
+\begin{abstract}
+The periodic-loop diagnostic developed in the October 2026 reconstruction of
+Symbolic Resonance Geometry (SRG) admits a direct spectral correspondence with
+the kinetic Hamiltonian of a free quantum particle on a circle. For circumference
+\(L>0\) and \(N\geq3\) equally spaced sites, the positive nearest-neighbor
+Laplacian has eigenvalues
+\(4N^2L^{-2}\sin^2(\pi k/N)\).
+We derive this spectrum and prove that its nonzero inverse-power trace at
+exponent \(3/2\) converges to \(L^3\zeta(3)/(4\pi^3)\).
+The proof counts both Fourier directions, handles the even-\(N\) midpoint,
+and supplies a finite-size error bound. Adopting the conventional kinetic
+scale \(\hbar^2/(2m)\) gives an exact finite-dimensional quantum Hamiltonian
+and the same limiting spectral-zeta trace as the continuum ring.
+We also establish a quantitative correspondence of the low-frequency modes
+and their standard unitary evolution. At unit circumference, an explicitly
+calibrated multiple of the geometric trace equals SRG's historically selected
+reference \(\gamma_*=\zeta(3)/(\pi e\varphi)\).
+This relates an SRG-specific diagnostic to established spectral and quantum
+mathematics without changing the historical recursion. Positive inverse traces,
+negative finite parts and physical Hamiltonian interpretation are distinguished
+by their definitions. The contribution is a source-traced correspondence with
+self-contained proofs, rather than a new origin of quantum mechanics or a
+first-principles selection of the historical calibration.
+\end{abstract}
+\noindent\textbf{Keywords:} Symbolic Resonance Geometry; periodic Laplacian;
+quantum ring; discrete Fourier modes; spectral zeta; continuum limit.
+
+\section{A geometric route to the quantum ring}\label{sec:intro}
+A circle permits a wave to close after an integer number of turns. Sampling
+that circle at equally spaced sites preserves periodicity but changes the
+response to short wavelengths. These two facts provide the connection developed
+here: the same Fourier labels diagonalize a periodic nearest-neighbor
+difference operator and the free-particle kinetic operator on a continuous
+ring. Their spectra agree in the refinement limit, with a computable
+difference at every finite resolution.
+
+In the SRG research program, geometry, local response and recursive
+composition have been studied through several historically distinct
+definitions. The completed \emph{SRG Origins} reconstruction introduced a
+normalized periodic-loop diagnostic as one precise way to examine the
+appearance of \(\zeta(3)\) in the source record
+\cite[section 5]{origins}. That diagnostic supplies this paper's geometric
+starting point. It is a spatial operator on a fixed loop. No assertion about
+a unique historical temporal recursion is needed to analyze it.
+
+The key result is
+\begin{equation}
+ \lim_{N\to\infty}\Tr{}'(\AN^{-3/2})
+   =\Tr{}'\!\left[\left(-\frac{d^2}{dx^2}\right)^{-3/2}\right]
+   =\frac{L^3}{4\pi^3}\zeta(3).
+ \label{eq:headline}
+\end{equation}
+Here the prime means that the constant, zero-eigenvalue mode is removed and
+the continuum operator has periodic boundary conditions on \([0,L]\).
+The inverse power is defined on the orthogonal complement of constants.
+The equality concerns complete spectral traces, not only the convergence of
+one eigenvalue at a time.
+
+Why does the zeta value have argument three? On a continuous circle the
+nonzero Laplace eigenvalues grow as \(k^2\). Taking their inverse power
+\(3/2\) yields a weight proportional to \(k^{-3}\). Each positive integer
+frequency has two independent directions, so both signs of \(k\) must be
+counted. The circumference fixes the remaining scale. Thus the number,
+multiplicity and dimensions of the result can all be read from the geometry
+once the observable has been declared.
+
+The physical comparison is equally explicit. Standard quantum mechanics
+uses \(H=(\hbar^2/2m)(-d^2/dx^2)\) on the periodic circle
+\cite{zwiebach}. Multiplying the discrete diagnostic by this same positive
+constant produces a conventional discrete kinetic Hamiltonian. Its spectral
+trace is then related exactly to the geometric one, and its low-frequency
+energies converge to the ring energies. Section~\ref{sec:quantum} develops
+this correspondence, including the time law that follows when the
+Schr\"odinger equation is adopted.
+
+These ingredients have established mathematical precedents. Friedli and
+Karlsson give spectral zeta functions for cyclic graphs, their relation to
+continuous tori and the continuum circle zeta function
+\cite[pp.~2--3, Eqs.~(1)--(2)]{friedli}.
+Karlsson also presents the circle through its heat kernel and Mellin
+transform \cite[section 2.1]{karlsson}.
+We give direct proofs in the present normalization, then connect them to the
+specific SRG reference and its documented history.
+The Fourier spectrum, ring Hamiltonian and spectral-zeta framework are not
+claimed as SRG inventions.
+
+The paper proceeds from the finite loop and its quadratic form to the trace
+limit, then to the quantum operator and calibration. A final comparison of
+spectral observables explains why the positive number in
+\eqref{eq:headline} and the negative finite part \(-1/12\) are compatible
+without being interchangeable.
+
+\section{The periodic geometric diagnostic}\label{sec:discrete}
+\subsection{Spacing, state space and sign}
+Fix a circumference \(L>0\), an integer \(N\geq3\), and spacing \(h=L/N\).
+The sites are \(x_j=jh\), with \(j\) interpreted modulo \(N\).
+A state is a vector \(u=(u_0,\ldots,u_{N-1})\in\C^N\), and the natural
+quadrature inner product is
+\begin{equation}
+ \ip{u}{v}=h\sum_{j=0}^{N-1}\overline{u_j}v_j.
+ \label{eq:inner}
+\end{equation}
+The real state space \(\R^N\) is an invariant subspace of the operator below.
+Complex coordinates provide the most economical Fourier basis; their use
+at this stage is algebraic.
+
+\begin{definition}[Positive periodic Laplacian]\label{def:lap}
+The adopted diagnostic is
+\begin{equation}
+ (\AN u)_j=\frac{2u_j-u_{j-1}-u_{j+1}}{h^2}
+          =\frac{N^2}{L^2}(2u_j-u_{j-1}-u_{j+1}).
+ \label{eq:lap}
+\end{equation}
+This is the positive sign convention, approximating \(-d^2/dx^2\).
+\end{definition}
+The spacing is arc length along the circle, not the straight chord between
+neighboring sites in a drawing. In particular \(L\) is the circumference,
+not the radius. The geometry specifies a closed one-dimensional chain;
+no embedding-dependent curvature potential is included.
+
+\begin{proposition}[Positivity and the zero mode]\label{prop:positive}
+The operator \(\AN\) is self-adjoint for \eqref{eq:inner}, and
+\begin{equation}
+ \ip{u}{\AN u}=\frac1h\sum_{j=0}^{N-1}|u_{j+1}-u_j|^2\geq0.
+ \label{eq:form}
+\end{equation}
+Its kernel consists exactly of constant vectors.
+\end{proposition}
+\begin{proof}
+Expanding the right side gives
+\(h^{-1}\sum_j(2|u_j|^2-\overline{u_{j+1}}u_j-
+\overline{u_j}u_{j+1})\). Shifting periodic indices identifies this
+with the left side. The same index shift proves
+\(\ip{u}{\AN v}=\ip{\AN u}{v}\), or equivalently the matrix is real
+symmetric. The form vanishes exactly when every adjacent difference
+vanishes. The cycle is connected, so all entries are then equal.
+\end{proof}
+The restriction \(N\geq3\) ensures two distinct neighbors at each site.
+For \(N=3\) each site is adjacent to the other two and the formula is
+unchanged. With two sites the two offsets coincide and the same written
+stencil would count that neighbor twice, describing a different graph
+convention. We do not use that extension.
+
+The inverse in \eqref{eq:headline} is therefore taken on
+\begin{equation}
+ \mathcal H_N^0=\left\{u\in\C^N:\sum_j u_j=0\right\}.
+ \label{eq:meanfree}
+\end{equation}
+Removing the zero mode is essential to a finite inverse trace. It is a
+definition of the observable, not a deletion of a quantum state from the
+full Hamiltonian.
+
+\subsection{Fourier modes and their multiplicities}
+\begin{proposition}[Complete finite spectrum]\label{prop:fourier}
+The vectors
+\begin{equation}
+ v_{N,k}(j)=L^{-1/2}\exp(2\pi\ii kj/N),\qquad 0\leq k<N,
+ \label{eq:fourier}
+\end{equation}
+form an orthonormal basis for \eqref{eq:inner}. Their eigenvalues are
+\begin{equation}
+ \lambda_{N,k}(L)=\frac{4N^2}{L^2}\sin^2\frac{\pi k}{N}.
+ \label{eq:spectrum}
+\end{equation}
+The zero mode is simple. Nonzero eigenvalues are paired at \(k,N-k\);
+when \(N\) is even, \(k=N/2\) is an unpaired eigenmode with eigenvalue
+\(4N^2/L^2\).
+\end{proposition}
+\begin{proof}
+For integers \(k,\ell\) in the given range,
+\[
+ \ip{v_{N,k}}{v_{N,\ell}}
+ =\frac1N\sum_{j=0}^{N-1}\exp(2\pi\ii(\ell-k)j/N).
+\]
+This is one if \(k=\ell\); otherwise the geometric sum has numerator
+\(1-\exp(2\pi\ii(\ell-k))=0\) and a nonzero denominator. There are \(N\)
+orthonormal vectors, hence a basis. Substitution into \eqref{eq:lap} gives
+\[
+ \AN v_{N,k}
+ =h^{-2}\left(2-\ee^{-2\pi\ii k/N}-\ee^{2\pi\ii k/N}\right)v_{N,k}.
+\]
+Using \(2-2\cos(2q)=4\sin^2q\) proves \eqref{eq:spectrum}.
+Only \(k=0\) gives zero in the selected range.
+The identity \(\sin(\pi-\pi k/N)=\sin(\pi k/N)\) gives the pairing.
+On \(0\leq k\leq N/2\) sine squared is strictly increasing, so there
+are no further coincidences. At even \(N\) the midpoint pairs with itself.
+\end{proof}
+
+The equality \(v_{N,N-k}=\overline{v_{N,k}}\) explains the two directions.
+The corresponding real eigenspace has the cosine and sine basis
+\(\sqrt{2/L}\cos(2\pi kj/N)\),
+\(\sqrt{2/L}\sin(2\pi kj/N)\). It has dimension two over \(\R\), just
+as the two traveling-wave vectors have dimension two over \(\C\) in the
+complexified space. The even midpoint instead has real entries
+\(L^{-1/2}(-1)^j\) and multiplicity one.
+
+\begin{figure}[ht]
+\centering
+\setlength{\unitlength}{1pt}
+\begin{picture}(410,128)
+\qbezier(133,60)(133,75.74)(121.87,86.87)
+\qbezier(121.87,86.87)(110.74,98)(95,98)
+\qbezier(95,98)(79.26,98)(68.13,86.87)
+\qbezier(68.13,86.87)(57,75.74)(57,60)
+\qbezier(57,60)(57,44.26)(68.13,33.13)
+\qbezier(68.13,33.13)(79.26,22)(95,22)
+\qbezier(95,22)(110.74,22)(121.87,33.13)
+\qbezier(121.87,33.13)(133,44.26)(133,60)
+\qbezier(348,60)(348,75.74)(336.87,86.87)
+\qbezier(336.87,86.87)(325.74,98)(310,98)
+\qbezier(310,98)(294.26,98)(283.13,86.87)
+\qbezier(283.13,86.87)(272,75.74)(272,60)
+\qbezier(272,60)(272,44.26)(283.13,33.13)
+\qbezier(283.13,33.13)(294.26,22)(310,22)
+\qbezier(310,22)(325.74,22)(336.87,33.13)
+\qbezier(336.87,33.13)(348,44.26)(348,60)
+\put(133,60){\makebox(0,0){\rule{3pt}{3pt}}}\put(122,87){\makebox(0,0){\rule{3pt}{3pt}}}\put(95,98){\makebox(0,0){\rule{3pt}{3pt}}}
+\put(68,87){\makebox(0,0){\rule{3pt}{3pt}}}\put(57,60){\makebox(0,0){\rule{3pt}{3pt}}}\put(68,33){\makebox(0,0){\rule{3pt}{3pt}}}
+\put(95,22){\makebox(0,0){\rule{3pt}{3pt}}}\put(122,33){\makebox(0,0){\rule{3pt}{3pt}}}
+\put(348,60){\makebox(0,0){\rule{3pt}{3pt}}}\put(337,87){\makebox(0,0){\rule{3pt}{3pt}}}\put(310,98){\makebox(0,0){\rule{3pt}{3pt}}}
+\put(283,87){\makebox(0,0){\rule{3pt}{3pt}}}\put(272,60){\makebox(0,0){\rule{3pt}{3pt}}}\put(283,33){\makebox(0,0){\rule{3pt}{3pt}}}
+\put(310,22){\makebox(0,0){\rule{3pt}{3pt}}}\put(337,33){\makebox(0,0){\rule{3pt}{3pt}}}
+\put(78,103){\makebox(34,12){\(\longleftarrow\)}}\put(293,103){\makebox(34,12){\(\longrightarrow\)}}
+\put(55,4){\makebox(80,12){\(k=1\)}}
+\put(261,4){\makebox(98,12){\(k=N-1\equiv-1\)}}
+\put(62,53){\makebox(66,14){\(\ee^{\,2\pi\ii j/N}\)}}
+\put(277,53){\makebox(66,14){\(\ee^{-2\pi\ii j/N}\)}}
+\put(169,75){\makebox(67,14){conjugate modes}}
+\put(169,55){\makebox(67,14){same eigenvalue}}
+\put(177,33){\makebox(50,12){\(\longleftrightarrow\)}}
+\end{picture}
+\caption{Two opposite Fourier phase windings on the same discretized circle
+(\(N=8\) drawn schematically). Arrows indicate the sign of phase winding
+as the site index increases, not a postulated motion in time.
+These are two modes, not two particles or two separate rings.}
+\label{fig:pair}
+\end{figure}
+
+\section{The exact trace correspondence}\label{sec:trace}
+\subsection{A convergent positive spectral observable}
+For real \(p>0\) define
+\begin{equation}
+ Z_N(p;L)=\Tr_{\mathcal H_N^0}(\AN^{-p})
+  =\sum_{k=1}^{N-1}\lambda_{N,k}(L)^{-p},
+ \qquad T_N(L)=Z_N(3/2;L).
+ \label{eq:trace}
+\end{equation}
+Functional calculus here simply means raising each positive eigenvalue
+to \(-p\) in the Fourier basis. Although different inner-product
+normalizations change the normalized vectors, they do not change these
+eigenvalues or the trace.
+
+\begin{theorem}[Paired-mode continuum limit]\label{thm:limit}
+For every fixed \(L>0\) and real \(p>1/2\),
+\begin{equation}
+ \lim_{N\to\infty}Z_N(p;L)
+  =2\left(\frac{L}{2\pi}\right)^{2p}\zeta(2p).
+ \label{eq:general}
+\end{equation}
+In particular,
+\begin{equation}
+ \boxed{\displaystyle \lim_{N\to\infty}T_N(L)
+             =\frac{L^3}{4\pi^3}\zeta(3).}
+ \label{eq:limit}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Set \(M_N=\lfloor(N-1)/2\rfloor\), and let \(\delta_N\) be one for even
+\(N\) and zero for odd \(N\). The complete sum is
+\begin{equation}
+ Z_N(p;L)=2\sum_{k=1}^{M_N}\lambda_{N,k}(L)^{-p}
+          +\delta_N\left(\frac{L}{2N}\right)^{2p}.
+ \label{eq:paired}
+\end{equation}
+For \(1\leq k\leq N/2\), concavity of sine on \([0,\pi/2]\) places it
+above its endpoint chord:
+\(\sin(\pi k/N)\geq2k/N\). Consequently
+\[
+ \lambda_{N,k}(L)\geq16k^2/L^2,\qquad
+ 0\leq2\lambda_{N,k}(L)^{-p}
+       \leq2(L/4)^{2p}k^{-2p}.
+\]
+Extend the paired summand by zero for \(k>M_N\). Its majorant is a
+summable sequence independent of \(N\), because \(2p>1\).
+For every fixed positive \(k\),
+\[
+ \lambda_{N,k}(L)
+ =\left(\frac{2\pi k}{L}\right)^2
+   \left(\frac{\sin(\pi k/N)}{\pi k/N}\right)^2
+ \longrightarrow (2\pi k/L)^2.
+\]
+Dominated convergence for the series therefore gives twice the positive
+integer sum of \((2\pi k/L)^{-2p}\).
+The midpoint term in \eqref{eq:paired} is bounded by
+\((L/2N)^{2p}\) and tends to zero. This proves \eqref{eq:general};
+substitution \(p=3/2\) proves \eqref{eq:limit}.
+\end{proof}
+
+The pairing is necessary, not a cosmetic convention. A mode whose index is
+\(N-k\), with \(k\) fixed, remains a low-frequency mode as \(N\) grows: on
+the lattice it is exactly the mode with signed frequency \(-k\).
+Looking only at each fixed positive index misses this second end of the
+finite spectrum. Summing those one-sided limits yields half of
+\eqref{eq:limit}. Equation~\eqref{eq:paired} handles the moving endpoint
+before taking the limit.
+
+The range \(p>1/2\) is also substantive. Since
+\(\sin q\leq q\), the first \(M_N\) positive modes obey
+\(\lambda_{N,k}^{-p}\geq(L/2\pi)^{2p}k^{-2p}\).
+Thus the trace diverges for \(0<p\leq1/2\) as \(N\to\infty\).
+No analytic continuation is involved in the positive convergent trace
+used here.
+
+\subsection{A quantitative finite-size control}
+The convergence proof can be supplemented by a bound a reader can evaluate
+at any resolution. Let \(\mathrm H_M=\sum_{k=1}^M k^{-1}\) be the harmonic
+number, not a Hamiltonian.
+
+\begin{proposition}[An explicit trace error bound]\label{prop:error}
+With \(M=M_N\geq1\) and \(\delta_N\) as above,
+\begin{equation}
+ \left|T_N(L)-\frac{L^3\zeta(3)}{4\pi^3}\right|
+ \leq L^3\left[
+ \frac{\pi^2\mathrm H_M}{64N^2}
+ +\frac{1}{8\pi^3M^2}+\frac{\delta_N}{8N^3}\right].
+ \label{eq:error}
+\end{equation}
+In particular the error is \(O(L^3\log N/N^2)\).
+\end{proposition}
+\begin{proof}
+For \(0<q\leq\pi/2\), integration of \(1-\cos q\leq q^2/2\)
+gives \(0\leq q-\sin q\leq q^3/6\). Also \(\sin q\geq2q/\pi\).
+It follows that
+\begin{equation}
+ 0\leq\left(\frac q{\sin q}\right)^3-1
+ =\frac{(q-\sin q)(q^2+q\sin q+\sin^2q)}{\sin^3q}
+ \leq\frac{\pi^3q^2}{16}.
+ \label{eq:sinbound}
+\end{equation}
+Using \(q=\pi k/N\), the excess of the paired finite sum over its
+paired continuum truncation is therefore between zero and
+\[
+ \frac{L^3}{4\pi^3}
+ \sum_{k=1}^M k^{-3}\frac{\pi^3}{16}
+                         \left(\frac{\pi k}{N}\right)^2
+ =\frac{L^3\pi^2}{64N^2}\mathrm H_M.
+\]
+The omitted continuum tail is at most
+\((L^3/4\pi^3)\int_M^\infty x^{-3}dx=L^3/(8\pi^3M^2)\).
+The remaining even midpoint is \(\delta_N L^3/(8N^3)\).
+The triangle inequality proves \eqref{eq:error}, and
+\(\mathrm H_M\leq1+\log M\) proves the stated order.
+\end{proof}
+
+This is a bound for the whole trace. It does not require uniform
+convergence of every finite eigenvalue to a continuum eigenvalue.
+Indeed, the most oscillatory modes remain far from the parabolic
+continuum dispersion in relative terms. Their inverse-power contribution
+is small enough for the complete trace to converge.
+
+\subsection{Exact small cycles and finite illustrations}
+The first three examples already test both parity cases:
+\begin{align}
+ T_3(L)&=\frac{2L^3}{81\sqrt3}, \label{eq:t3}\\
+ T_4(L)&=\frac{L^3}{512}(1+4\sqrt2), \label{eq:t4}\\
+ T_5(L)&=\frac{2L^3}{125}
+ \left[\left(\frac{5-\sqrt5}{2}\right)^{-3/2}
+      +\left(\frac{5+\sqrt5}{2}\right)^{-3/2}\right].
+ \label{eq:t5}
+\end{align}
+For \(N=3\) the nonzero eigenvalue is \(27/L^2\) twice.
+For \(N=4\) the eigenvalues are \(32/L^2,64/L^2,32/L^2\);
+the midpoint \(64/L^2\) must be counted once.
+For \(N=5\) each of \(25(5-\sqrt5)/(2L^2)\) and
+\(25(5+\sqrt5)/(2L^2)\) occurs twice.
+These statements follow directly from \eqref{eq:spectrum} and can also be
+checked by characteristic polynomials.
+
+Table~\ref{tab:finite} illustrates the approach to the limit at unit
+circumference. All entries are evaluations of a fixed finite formula, not
+evolving-state simulations. The proof is Theorem~\ref{thm:limit}.
+\begin{table}[ht]
+\centering
+\begin{tabular}{rcc}
+\toprule
+\(N\)& \(T_N(1)\) & \(T_N(1)/[\zeta(3)/(4\pi^3)]\)\\
+\midrule
+3 & \(0.0142555622022\) & \(1.47085185\)\\
+4 & \(0.013001668456\) & \(1.34147836\)\\
+5 & \(0.0121735234086\) & \(1.2560325\)\\
+6 & \(0.0116199082382\) & \(1.19891193\)\\
+16 & \(0.0101164547892\) & \(1.04378951\)\\
+32 & \(0.00982510692991\) & \(1.01372899\)\\
+\(\infty\)& \(0.00969204490073\) & \(1\)\\
+\bottomrule
+\end{tabular}
+\caption{Bounded finite-value illustrations, rounded from 60-digit
+arithmetic. Values and rounding are reproduced by the supplied checker.
+The selected rows do not assert monotonicity for arbitrary \(N\).}
+\label{tab:finite}
+\end{table}
+
+\section{Correspondence with standard quantum ring theory}\label{sec:quantum}
+\subsection{The continuum operator and its domain}
+For a spinless free particle of mass \(m>0\), let
+\(\mathcal H=L^2([0,L],dx)\). Take \(\hbar>0\) and the standard Hamiltonian
+\begin{equation}
+ H=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2},\qquad
+ D(H)=\{\psi\in H^2(0,L):
+ \psi(0)=\psi(L),\ \psi'(0)=\psi'(L)\}.
+ \label{eq:ham}
+\end{equation}
+Both periodic boundary conditions are part of the operator domain;
+a value condition alone is not a full self-adjoint specification for a
+second derivative. We consider the untwisted, zero-flux circle, with no
+potential or internal spin multiplicity. The familiar ring calculation is
+presented in standard teaching treatments \cite{zwiebach,mitring}.
+
+The normalized waves
+\begin{equation}
+ \phi_k(x)=L^{-1/2}\ee^{2\pi\ii kx/L},\qquad k\in\Z,
+ \label{eq:plane}
+\end{equation}
+satisfy both boundary conditions. Substitution into \eqref{eq:ham} gives
+\begin{equation}
+ E_k=\frac{\hbar^2}{2m}\left(\frac{2\pi k}{L}\right)^2.
+ \label{eq:energy}
+\end{equation}
+Conversely, positivity of the integration-by-parts form excludes negative
+eigenvalues. At zero the solution is affine and periodicity makes it
+constant. At positive energy write the differential equation's solution
+as \(a\ee^{\ii qx}+b\ee^{-\ii qx}\). Imposing both boundary conditions
+allows a nonzero solution exactly when \(qL=2\pi n\), \(n\) a positive
+integer. These are the two waves \(k=\pm n\).
+
+Completeness is the Fourier-series theorem on the circle. More explicitly,
+the Fourier transform identifies \(H\) with the diagonal real operator
+\((c_k)\mapsto(E_kc_k)\) on
+\(\{c:\sum_k E_k^2|c_k|^2<\infty\}\).
+A diagonal real multiplication operator on its maximal domain is
+self-adjoint; its domain here is precisely the periodic \(H^2\) domain.
+The constant ground state has \(E_0=0\), while every \(E_k>0\) is doubly
+degenerate. Momentum \(p_k=2\pi\hbar k/L\) has a sign, whereas the kinetic
+energy depends on its square. The twofold degeneracy is directional,
+not an additional particle count.
+
+\begin{proposition}[Continuum inverse-energy trace]\label{prop:qtrace}
+On the positive spectral subspace of \(H\), for real \(p>1/2\),
+\begin{equation}
+ \zeta_H(p):=\sum_{k\in\Z\setminus\{0\}}E_k^{-p}
+ =\left(\frac{2m}{\hbar^2}\right)^p
+     2\left(\frac{L}{2\pi}\right)^{2p}\zeta(2p).
+ \label{eq:qtrace}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Substitute \eqref{eq:energy}, pair \(k\) and \(-k\), and factor out
+the constant. Absolute convergence follows from \(2p>1\).
+\end{proof}
+The trace is a property of the operator's spectrum; it is not a choice of
+a prepared wavefunction or its detection probabilities.
+
+\subsection{The discrete Hamiltonian and the exact finite dictionary}
+We now make a declared adoption:
+\begin{equation}
+ H_N=\frac{\hbar^2}{2m}\AN.
+ \label{eq:adopt}
+\end{equation}
+It has the same Fourier eigenvectors as \(\AN\), and exactly
+\begin{equation}
+ E_{N,k}=\frac{\hbar^2}{2m}\lambda_{N,k}(L),\qquad
+ \zeta_{H_N}(p)=\left(\frac{2m}{\hbar^2}\right)^p Z_N(p;L).
+ \label{eq:qfinite}
+\end{equation}
+The finite zeta sum excludes the single zero mode but includes every
+nonzero multiplicity. Thus Theorem~\ref{thm:limit} immediately gives
+\begin{corollary}[Quantum spectral correspondence]\label{cor:quantum}
+For \(p>1/2\), \(\zeta_{H_N}(p)\to\zeta_H(p)\). In particular
+\begin{equation}
+ \boxed{\displaystyle
+ \lim_{N\to\infty}\zeta_{H_N}(3/2)
+ =\left(\frac{2m}{\hbar^2}\right)^{3/2}
+   \frac{L^3\zeta(3)}{4\pi^3}.}
+ \label{eq:qmain}
+\end{equation}
+\end{corollary}
+
+This identifies precisely what is exact at finite \(N\) and what is a
+limit. Equation~\eqref{eq:qfinite} is exact by the adoption
+\eqref{eq:adopt}. The finite sine spectrum is not the continuum
+parabolic spectrum. The signed lattice labels lie in a finite frequency
+band and identify \(k\) modulo \(N\). In particular the even midpoint
+cannot carry two independent opposite modes.
+
+For a fixed nonzero integer \(k\) with \(|k|<N/2\), let its lattice index
+be \(k\bmod N\). Its relative kinetic energy is
+\begin{equation}
+ \frac{E_{N,k\bmod N}}{E_k}
+ =\left(\frac{\sin(\pi |k|/N)}{\pi |k|/N}\right)^2
+ =1-\frac{\pi^2k^2}{3N^2}+O(k^4/N^4).
+ \label{eq:dispersion}
+\end{equation}
+The expansion is for fixed \(k\), or for \(|k|/N\to0\) with the remainder
+controlled accordingly. At the even midpoint the analogous ratio is
+\(4/\pi^2\), independent of \(N\); refinement does not make the relative
+error vanish for those moving high-frequency labels.
+
+The units track the correspondence. If \(L\) is a length,
+\([\lambda]=\mathrm{length}^{-2}\) and
+\([T_N]=\mathrm{length}^3\).
+Since \([\hbar]=\mathrm{mass}\,\mathrm{length}^2/\mathrm{time}\),
+\([\hbar^2/(2m)]=\mathrm{energy}\,\mathrm{length}^2\).
+Thus \(E_{N,k}\) has energy units and \(\zeta_{H_N}(3/2)\) has
+units \(\mathrm{energy}^{-3/2}\). None of these traces is itself a
+dimensionless probability.
+
+\subsection{What the standard quantum time law adds}
+Self-adjointness permits the conventional Schr\"odinger evolution
+\begin{equation}
+ U_N(t)=\exp(-\ii tH_N/\hbar),\qquad
+ U_N(t)v_{N,k}=\ee^{-\ii tE_{N,k}/\hbar}v_{N,k}.
+ \label{eq:unitary}
+\end{equation}
+Because every \(E_{N,k}\) is real, every spectral factor has modulus one.
+Consequently \(U_N(t)^*U_N(t)=I\),
+\(U_N(t+s)=U_N(t)U_N(s)\), and
+\(\|U_N(t)u\|_h=\|u\|_h\).
+Differentiating the finite exponential shows
+\(\ii\hbar\,\partial_t U_N(t)u=H_NU_N(t)u\).
+This is a proof of unitarity and of the time equation under its explicit
+Hamiltonian adoption.
+
+For \(u=\sum_k a_kv_{N,k}\), the coefficients evolve as
+\(a_k(t)=a_k(0)\ee^{-\ii E_{N,k}t/\hbar}\).
+The relative phase of two components changes by
+\(-(E_{N,k}-E_{N,\ell})t/\hbar\).
+The degenerate pair \(k,N-k\) acquires the same time phase, so its relative
+phase is constant. A superposition of different energies can change its
+spatial profile even though the norm is conserved.
+These temporal statements follow from \eqref{eq:unitary}, not from
+periodicity or a spatial trace alone.
+
+There is also a controlled relation to continuum time evolution.
+Let \(\mathcal B_K=\operatorname{span}\{\phi_k:|k|\leq K\}\), with \(K\)
+a fixed nonnegative integer. If \(N>2K\), sampling at the sites defines an
+isometry \(J_{N,K}:\mathcal B_K\to\C^N\),
+\(J_{N,K}\phi_k=v_{N,k\bmod N}\), by Fourier orthogonality.
+
+\begin{proposition}[Finite-band dynamical correspondence]\label{prop:band}
+For \(N>2K\), \(t\in\R\), and \(\psi\in\mathcal B_K\),
+\begin{equation}
+ \|U_N(t)J_{N,K}\psi-J_{N,K}U(t)\psi\|_h
+ \leq\frac{2\hbar\pi^4K^4|t|}{3mL^2N^2}\|\psi\|_{L^2},
+ \qquad U(t)=\ee^{-\ii tH/\hbar}.
+ \label{eq:band}
+\end{equation}
+\end{proposition}
+\begin{proof}
+For \(0\leq q\leq\pi/2\), \(\sin q\geq q-q^3/6\) implies
+\(0\leq1-(\sin q/q)^2\leq q^2/3\), with the ratio defined by its
+limit at zero. Equations~\eqref{eq:energy}--\eqref{eq:dispersion} give
+\[
+ 0\leq E_k-E_{N,k\bmod N}
+ \leq\frac{2\hbar^2\pi^4K^4}{3mL^2N^2}
+ \quad (|k|\leq K).
+\]
+For real \(a,b\), integration of the derivative of \(\ee^{-\ii x}\)
+gives \(|\ee^{-\ii a}-\ee^{-\ii b}|\leq|a-b|\).
+Apply this to each time phase, square and sum in the orthonormal
+sampled basis. Taking the square root proves \eqref{eq:band}.
+\end{proof}
+
+The estimate is uniform on a fixed frequency band and bounded time
+interval. It is not a statement that all lattice modes approximate the
+continuum uniformly, or that the historical SRG recursion evolves
+unitarily. The latter would require an independently specified SRG
+temporal operator with the necessary properties. Here \(t\), \(m\),
+\(\hbar\), the energy interpretation and the Schr\"odinger law all enter
+through the conventional quantum comparison.
+
+\section{The historically selected SRG coupling}\label{sec:coupling}
+The historical relation relevant here is
+\begin{equation}
+ \pi e\phig=\gamma^{-1}\zeta(3),\qquad
+ \gamma_*=\frac{\zeta(3)}{\pi e\phig},\qquad
+ \phig=\frac{1+\sqrt5}{2}.
+ \label{eq:lock}
+\end{equation}
+It is printed in the July 2025 SRG sources
+\cite[physical p.~3, Eq.~(1)]{p01}
+\cite[physical p.~4, Eq.~(2)]{p06}.
+We use the notation \(\gamma_*\) for the solved reference value, as in the
+completed reconstruction. The historical record precedes the October
+loop diagnostic: the circle trace did not cause the original printed
+formula.
+
+\begin{corollary}[Exact calibrated SRG identity]\label{cor:calibration}
+With unit dimensionless circumference,
+\begin{equation}
+ \boxed{\displaystyle
+ \gamma_*=\frac{4\pi^2}{e\phig}\lim_{N\to\infty}T_N(1).}
+ \label{eq:calibration}
+\end{equation}
+For a dimensionful circumference the equivalent identity is
+\begin{equation}
+ \gamma_*=\frac{4\pi^2}{e\phig}
+           \lim_{N\to\infty}\frac{T_N(L)}{L^3}.
+ \label{eq:dimensionless}
+\end{equation}
+\end{corollary}
+\begin{proof}
+Insert \eqref{eq:limit}; the product
+\((4\pi^2/(e\phig))(\zeta(3)/(4\pi^3))\)
+is exactly \(\zeta(3)/(\pi e\phig)\).
+The scaling \(T_N(L)=L^3T_N(1)\) follows directly from
+\eqref{eq:spectrum}.
+\end{proof}
+
+The multiplier \(4\pi^2/(e\phig)\) is a calibration introduced to match
+the historical constant. It is not independently selected by the
+Laplacian or by a physical measurement. The equality is exact; the
+normalization is not derived from first principles.
+The loop contributes an intrinsic positive spectral number after its
+circumference and exponent have been specified. The additional \(e\) and
+\(\phig\) enter through the historical reference, not through new
+eigenvalues of the circle.
+
+If \(\ell_0\) is a physical reference length and \(\widehat L=L/\ell_0\),
+then \(\widehat\lambda=\ell_0^2\lambda\) is dimensionless and its
+inverse-power trace is \(T_N(L)/\ell_0^3\). Saying simply \(L=1\)
+means either dimensionless coordinates from the outset or this explicit
+choice of unit circumference. Dividing by \(L^3\) in
+\eqref{eq:dimensionless} makes the comparison independent of the unit
+chosen for length.
+
+The quantum version can be written with no remaining mass dependence:
+\begin{equation}
+ \gamma_*=\frac{4\pi^2}{e\phig L^3}
+ \left(\frac{\hbar^2}{2m}\right)^{3/2}
+       \zeta_H(3/2).
+ \label{eq:qcalibration}
+\end{equation}
+The factor involving \(m,\hbar\) exactly undoes the adopted kinetic scale.
+Thus this identity supplies no selected particle mass; every \(m>0\)
+satisfies it with its own standard ring Hamiltonian.
+Its scientific content is the relation between a documented SRG
+reference and a precisely identified spectral observable, with all
+scales visible.
+
+\section{Three spectral observables, three different questions}\label{sec:observables}
+The Origins paper discusses a positive inverse trace, the inverse
+\(3/2\) trace and a negative finite part \cite[section 5]{origins}.
+They can be defined on the same spectrum without representing the same
+measurement. This section records their distinctions through short
+derivations.
+
+\subsection{The inverse trace and the positive value \(1/12\)}
+\begin{proposition}[Exact finite inverse trace]\label{prop:inverse}
+For \(N\geq3\),
+\begin{equation}
+ Z_N(1;L)=\frac{L^2}{12}(1-N^{-2}).
+ \label{eq:inverse}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Factorization of \(z^N-1\), with \(z=\ee^{2\ii x}\), gives
+\(\prod_{k=0}^{N-1}\sin(x+k\pi/N)=c_N\sin(Nx)\)
+for a nonzero constant \(c_N\). Taking a logarithmic derivative away
+from zeros, and differentiating once more, yields
+\[
+ \sum_{k=0}^{N-1}\csc^2(x+k\pi/N)=N^2\csc^2(Nx).
+\]
+Subtract \(\csc^2x\) and let \(x\to0\).
+The expansion \(\csc^2x=x^{-2}+1/3+O(x^2)\) leaves
+\(\sum_{k=1}^{N-1}\csc^2(\pi k/N)=(N^2-1)/3\).
+Multiplication by \(L^2/(4N^2)\) proves \eqref{eq:inverse}.
+\end{proof}
+
+The dimensionless limit \(1/12\) is an inverse-square-frequency sum.
+By contrast \(T_N(L)/L^3\) is the inverse-cube-frequency sum giving
+\(\zeta(3)/(4\pi^3)\). Changing the exponent changes the observable
+even while leaving the geometry untouched.
+
+\subsection{The negative finite part}
+Define the dimensionless half-total frequency statistic
+\begin{equation}
+ S_N=\frac{L}{4\pi}\sum_{k=1}^{N-1}\sqrt{\lambda_{N,k}(L)}
+     =\frac N{2\pi}\sum_{k=1}^{N-1}\sin(\pi k/N).
+ \label{eq:freq}
+\end{equation}
+The square roots here are wave-number magnitudes. They become physical
+oscillation frequencies only after an additional dispersion or time law
+has been specified. In particular the free quantum particle has time
+frequencies \(E_k/\hbar\), quadratic rather than linear in \(|k|\).
+
+\begin{proposition}[A specified bulk subtraction]\label{prop:finitepart}
+With \(B_N=N^2/\pi^2\),
+\begin{equation}
+ S_N=\frac N{2\pi}\cot\frac{\pi}{2N},\qquad
+ S_N-B_N=-\frac1{12}-\frac{\pi^2}{720N^2}+O(N^{-4}).
+ \label{eq:finitepart}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The imaginary part of a finite geometric sum gives
+\[
+ \sum_{k=1}^{N-1}\sin(kq)
+ =\frac{\sin((N-1)q/2)\sin(Nq/2)}{\sin(q/2)}.
+\]
+Set \(q=\pi/N\) to obtain the cotangent.
+The continuous bulk for the same sine dispersion is
+\[
+ \frac N{2\pi}\int_0^N\sin(\pi x/N)\,dx=N^2/\pi^2.
+\]
+Finally \(\cot y=y^{-1}-y/3-y^3/45+O(y^5)\) gives
+\eqref{eq:finitepart}.
+\end{proof}
+
+Every summand in \(S_N\) is positive. Its negative remainder has a simple
+geometric sign: the composite trapezoidal sum for the strictly concave
+sine arch lies below the integral, and both endpoint values are zero.
+Thus \(S_N<B_N\) for every \(N\geq3\).
+The limit of this difference equals the analytically continued value
+\(\zeta(-1)=-1/12\), as recorded by the standard integer-value formula
+for the zeta function \cite[Eq.~25.6.3]{dlmf}.
+The ordinary sum \(\sum_{n\geq1}n\) still diverges to \(+\infty\).
+
+This distinction also has an operator interpretation. The positive
+inverse traces are ordinary convergent sums on the mean-zero space.
+The statistic in \eqref{eq:freq} grows with the high-frequency modes and
+requires its stated bulk subtraction to have the displayed limit.
+It is not the inverse-energy trace of the quantum particle, nor an
+energy expectation in a normalized state.
+In particular no vacuum energy, oscillator zero-point factor or
+regularization prescription is silently added to the SRG coupling.
+
+\subsection{A heat-trace reading of the positive moment}
+A useful connection to spectral geometry is obtained without any
+subtraction beyond removing the zero mode. For \(\sigma>0\), let
+\[
+ K_N^0(\sigma)=\sum_{k=1}^{N-1}\ee^{-\sigma\lambda_{N,k}(L)}.
+\]
+The elementary gamma integral, after \(y=\sigma\lambda\), gives
+\begin{equation}
+ Z_N(p;L)=\frac1{\Gamma(p)}
+     \int_0^\infty \sigma^{p-1}K_N^0(\sigma)\,d\sigma,\qquad p>0.
+ \label{eq:mellin}
+\end{equation}
+The finite sum can be integrated term by term.
+For the continuum circle, the identical statement holds with
+\(K^0(\sigma)=2\sum_{k\geq1}\exp[-\sigma(2\pi k/L)^2]\)
+when \(p>1/2\): nonnegativity permits interchange by Tonelli's theorem,
+and the resulting sum is finite by Theorem~\ref{thm:limit}'s
+continuum expression. This is the standard heat-trace interpretation
+of a spectral zeta function \cite[section 2.1]{karlsson}.
+
+Here \(\sigma\) has units of length squared. It is an integration
+parameter, not a recovered SRG clock or the real time \(t\) of
+\eqref{eq:unitary}. The Mellin form explains why an inverse moment
+aggregates response across geometric scales. It also makes the
+zero-mode removal transparent: retaining the constant term would make
+the large-\(\sigma\) integral divergent.
+
+\section{Provenance and status of the construction}\label{sec:provenance}
+This paper uses the contemporary expansion \emph{Symbolic Resonance
+Geometry}, consistent with SRG-I, while retaining actual historical
+titles in the bibliography. The source corpus contains more than one
+operator family and more than one interpretation of its symbols
+\cite{srgi}. Our construction takes the normalized loop from the
+October reconstruction; it does not replace any of those sources.
+
+The inspected editions are \emph{SRG Origins} v0.1, dated 11 October
+2026; \emph{SRG-I: Foundational Reconstruction} v0.1.1, dated
+10 October 2026; and \emph{SRG Multiplication Geometry: Factor Data,
+Circle Construction, and Mass-Shell Correspondence}, v0.1, dated 13 October 2026
+\cite{origins,srgi,massshell}.
+The last provides methodological context for a conditional physical
+dictionary; its mass-shell geometry is not used to infer the ring
+Hamiltonian or its mass.
+
+The July 15 fusion source calls the lock empirically calibrated and
+explicitly says it was not obtained from first principles
+\cite[physical pp.~3--4]{p01}. This is a recovered historical claim,
+not new measurement evidence supplied here.
+The July 13 source prints the same lock but also calls its gamma the
+Euler--Mascheroni constant in its glossary
+\cite[physical pp.~4,6]{p06}. The solved value in \eqref{eq:lock},
+approximately \(0.0869947475\), is different from that constant.
+We retain the source discrepancy and use \(\gamma_*\) only for the
+solved reference.
+
+\begin{table}[ht]
+\small
+\centering
+\begin{tabularx}{\textwidth}{@{}p{11mm}>{\raggedright\arraybackslash}p{40mm}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Status & Item & Role in this paper\\
+\midrule
+H & Historical lock and source terminology &
+July 2025 printed definitions and attributed calibration claims;
+not a result of the October loop construction.\\
+A & Normalized loop diagnostic &
+Fixed \(L\), refinement by \(N\), positive sign, zero-mode exclusion
+and exponent \(3/2\), adopted in the October reconstruction.\\
+D & Spectrum and trace limits &
+Consequences of that declared diagnostic; rederived here with
+multiplicity, finite-size bounds and units explicit.\\
+A & Historical calibration &
+The factor \(4\pi^2/(e\varphi)\) matches the preexisting reference.\\
+A & Quantum Hamiltonian and time law &
+The conventional choices \(H_N=(\hbar^2/2m)\AN\) and
+\(U_N(t)=\exp(-\ii tH_N/\hbar)\).\\
+D & Quantum correspondence &
+Exact energy scaling, trace convergence and finite-band estimate
+after the declared adoption.\\
+U & Native physical selection &
+An independent SRG statistic selecting the calibration,
+physical mass, clock and measurement correspondence remains
+unspecified by these inputs.\\
+\bottomrule
+\end{tabularx}
+\caption{H: recovered history; D: deduction; A: later diagnostic or
+adoption; U: unresolved source or physical identification.
+An adoption can have exact mathematical consequences.}
+\label{tab:status}
+\end{table}
+
+The inspected repository HEAD is
+\texttt{5f08666798f1c7a6b6a60bbf681d7367088f7e7a}.
+Source identities are bound to the actual local editions by the
+accompanying source map and SHA-256 records, rather than inferred from
+HEAD alone. Existing tracked UI/workflow differences were recorded
+before drafting; the manuscript does not use them as scientific inputs.
+Prior review or publication status is not transferred to this new draft.
+
+The main inverse-trace theorem and calibrated identity restate completed
+Origins mathematics in a self-contained form. The explicit error bound,
+finite-band time estimate and organized kinetic correspondence are
+supporting derivations of this edition. They are applications of standard
+spectral tools, without a claim of priority over the broader literature.
+No Tri-Octagon or QI01--QI03 recurrence, synchronizer or result is an
+input to the paper.
+
+\section{Scientific significance and physical interpretation}\label{sec:discussion}
+The correspondence identifies a common mathematical structure at three
+levels. First, periodicity organizes both the discrete and continuous
+state spaces into signed Fourier modes. Second, local differences and
+spatial differentiation assign compatible low-frequency quadratic
+responses. Third, a summable inverse spectral moment carries this
+compatibility to an exact scalar limit. The last point is stronger than
+a resemblance between two formulas: it includes all modes, their
+multiplicity, a zero-mode convention and a controlled limiting argument.
+
+From the SRG side, this gives a precise spectral meaning to the zeta
+factor already present in the historical reference. A finite periodic
+diagnostic can approach that reference after its stated calibration.
+From the quantum side, it is the positive inverse-energy moment of the
+standard free ring Hamiltonian after a transparent change of units.
+The geometric result can be studied on its own, and the quantum
+comparison can be tested mathematically without inserting a quantum
+time law into the SRG historical record.
+
+Several features make the comparison useful for modeling. The circumference
+is a measurable geometric scale in the conventional ring model; changing it
+rescales energies by \(L^{-2}\) and the geometric inverse \(3/2\) trace
+by \(L^3\). The finite lattice exposes where a continuum approximation
+is accurate and where its dispersion fails. The two directions explain
+degeneracy without adding degrees of freedom by hand, and the
+finite-band estimate quantifies how energy error accumulates as phase
+error over time. These are usable structural constraints for any later
+model that deliberately adopts this diagnostic.
+
+A physical realization needs further identifications. One must specify
+what physical system is confined to the ring, how its mass and
+circumference are obtained, why potential and flux terms can be
+neglected, and how the chosen states and observables relate to
+preparation and measurement. The Born interpretation belongs to
+standard quantum theory when that theory is adopted; it is not
+deduced by computing a positive spectral trace.
+The trace itself is neither a normalized state nor a detector rule.
+
+This single-particle construction does not establish entanglement,
+Bell correlations, computational advantage or superluminal
+communication. Those claims require different state spaces, observables
+and evidence. Keeping the present correspondence at its actual strength
+preserves SRG as an independent mathematical research program: its
+historical definitions remain intact, while a well-defined modern
+diagnostic is placed in contact with a substantial body of established
+physics.
+
+\section{Conclusion}\label{sec:conclusion}
+The normalized periodic-loop diagnostic used in the SRG reconstruction
+has an exact inverse spectral-moment limit,
+\(L^3\zeta(3)/(4\pi^3)\), with both Fourier directions included.
+It is the same moment of the positive continuum circle Laplacian.
+Adopting the conventional kinetic factor \(\hbar^2/(2m)\) turns this
+geometric identity into a precise correspondence of discrete and
+continuum quantum-ring spectral zeta functions. The finite spectra,
+their low-frequency error and the resulting standard unitary phases
+have all been derived explicitly.
+
+The historical SRG reference is an exactly calibrated multiple of this
+limit. Its prefactor remains a documented matching choice rather than
+a new spectral selection principle. The inverse traces and the
+negative finite part answer different questions about the same
+spectrum, and their signs and dimensions follow from their definitions.
+
+The result supplies a rigorous point of contact between SRG's
+reconstructed spectral geometry and quantum ring mathematics.
+A subsequent physical model could deliberately use the derived
+Hamiltonian dictionary and its finite-size controls; doing so would be
+a separately specified modeling step. The present paper completes the
+mathematical correspondence and leaves the historical research unchanged.
+
+\appendix
+\section{Verification and reproducibility}\label{app:verification}
+The review bundle contains the complete LaTeX source, compiled PDF,
+a reading guide, a source/provenance map, a theorem-to-proof ledger,
+an isolated exact checker and machine-readable results.
+The checker imports symbolic mathematics and evaluates only declared
+finite formulas. It imports no historical program or production kernel
+and runs no trajectory or parameter search.
+
+Exact checks cover representative characteristic polynomials,
+Fourier eigenvalue algebra, odd/even multiplicity, the closed small-cycle
+traces, scale transformations, the elementary inequalities' algebraic
+steps, the low-frequency expansion, the quantum scale factors,
+the finite-band coefficient, the inverse-trace identity and the
+finite-part expansion. A separate category records 60-digit finite
+evaluations for the fixed values \(N=3,4,5,6,16,32\).
+The proof of an infinite limit is the summable-majorant argument in
+Section~\ref{sec:trace}, not an extrapolation from those numbers.
+
+The artifact QA record covers compilation, equation and citation
+resolution, extracted text, font embedding and visual inspection of
+the rendered pages. Source-state records compare the inspected editions,
+historical originals and production files before and after preparation.
+The evidence distinguishes exact identities, numerical illustrations
+and document checks instead of treating them as interchangeable
+validation.
+
+\subsection*{Assistance and review status}
+Hilmir Fr\'imann Halld\'orsson is the human author.
+GPT supplied the scientific work order and is the designated reviewer.
+Codex assisted with source inspection, proof development, literature
+verification, manuscript preparation and artifact QA.
+These assistance roles do not constitute coauthorship, external peer
+review or institutional endorsement. This is a review draft; no publication
+or release has been performed. Existing source-specific rights remain
+with their sources; no new blanket license is assigned here.
+
+\begin{thebibliography}{10}
+\bibitem{origins}
+H.~F.~Halld\'orsson,
+\emph{SRG Origins---From Geometry to Recursive Operators},
+v0.1, 11 October 2026, sections 2, 5 and 6; local preserved edition.
+\href{https://github.com/pzychozen/trioctagon-physics/tree/main/SRG_REDISCOVERY/PAPERS/SRG_ORIGINS_FROM_GEOMETRY_TO_RECURSION/publication/v0.1}{Repository edition}.
+Exact inspected identities are in the accompanying source map.
+\bibitem{srgi}
+H.~F.~Halld\'orsson,
+\emph{SRG-I: Foundational Reconstruction}, v0.1.1,
+10 October 2026; source index and historical-definition discussion.
+\href{https://github.com/pzychozen/trioctagon-physics/tree/main/SRG_REDISCOVERY/PAPERS/SRG_I_FOUNDATIONAL_RECONSTRUCTION/publication/v0.1.1}{Repository edition}.
+\bibitem{massshell}
+H.~F.~Halld\'orsson,
+\emph{SRG Multiplication Geometry: Factor Data, Circle Construction,
+and Mass-Shell Correspondence},
+v0.1, 13 October 2026, section 8 (conditional physical dictionary).
+\href{https://github.com/pzychozen/trioctagon-physics/tree/main/SRG_REDISCOVERY/PAPERS/SRG_MULTIPLICATION_MASS_SHELL/publication/v0.1}{Repository edition}.
+\bibitem{p01}
+H.~F.~Halld\'orsson,
+\emph{Symbolic Recursion and SRG Fusion: Emergent Lattice Fields from
+Glyph Memory Dynamics}, 15 July 2025; physical pp.~3--4,
+Eq.~(1), and pp.~19--20.
+\href{https://zenodo.org/records/17253999}{Historical source deposit},
+file \texttt{1.Symbolic Recursion and SRG Fusion.pdf}.
+\bibitem{p06}
+H.~F.~Halld\'orsson,
+\emph{Recursive Dark Energy and Vacuum Feedback: A Vesica-Phase
+Cosmological Framework}, 13 July 2025; physical p.~4, Eq.~(2),
+and p.~6 glossary.
+\href{https://zenodo.org/records/15872156}{Historical source deposit},
+file \texttt{dark\_energy.pdf}.
+\bibitem{friedli}
+F.~Friedli and A.~Karlsson,
+\emph{Spectral zeta functions of graphs and the Riemann zeta function
+in the critical strip}, arXiv:1410.8010v2 (2015),
+pp.~2--3, Eqs.~(1)--(2), and section 2.
+\href{https://arxiv.org/abs/1410.8010v2}{Verified preprint edition}.
+\bibitem{karlsson}
+A.~Karlsson, \emph{Spectral zeta functions},
+arXiv:1907.01832v1 (2019), section 2.1.
+\href{https://arxiv.org/abs/1907.01832v1}{Verified preprint edition}.
+\bibitem{zwiebach}
+B.~Zwiebach, \emph{Quantum Physics I}, MIT OpenCourseWare,
+8.04, Spring 2016, Lecture Note 10, 14 March 2016, section 3,
+physical pp.~6--8 (and section 1 for time phases):
+Solving the Time-Independent Schr\"odinger Equation;
+Free Particle on a Circle.
+\href{https://ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2016/resources/mit8_04s16_lecnotes10/}{Official lecture notes}.
+\bibitem{mitring}
+MIT Physics 8.06, \emph{Midterm 2007 solutions},
+problem 4(a), physical p.~5: Particle on a Ring.
+\href{https://stuff.mit.edu/afs/athena/course/8/8.06/spring08/handouts/midterm2007_sol.pdf}{Official solution PDF}.
+The angular-coordinate normalization is converted here to arc length.
+\bibitem{dlmf}
+NIST Digital Library of Mathematical Functions,
+section 25.6, Integer Arguments, Eq.~25.6.3.
+\href{https://dlmf.nist.gov/25.6.E3}{Official formula}.
+External references checked 13 October 2026.
+\end{thebibliography}
+\end{document}
