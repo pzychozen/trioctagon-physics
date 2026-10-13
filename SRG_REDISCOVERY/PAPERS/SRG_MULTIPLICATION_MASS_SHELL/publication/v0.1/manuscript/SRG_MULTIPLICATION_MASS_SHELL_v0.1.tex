@@ -1,0 +1,576 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=26mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage[unicode,colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black,citecolor=blue!45!black]{hyperref}
+\hypersetup{pdftitle={SRG Multiplication Geometry: Factor Data, Circle Construction, and Mass-Shell Correspondence},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={v0.1 manuscript for GPT review; PH02 and PH03 mathematical correspondence}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\tr}{\mathrm T}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\emergencystretch}{2em}
+\title{\Large SRG Multiplication Geometry:\\Factor Data, Circle Construction,\\and Mass-Shell Correspondence}
+\author{Hilmir Frímann Halldórsson}
+\date{v0.1 \quad 13 October 2026\\\small Manuscript and publication candidate awaiting GPT review}
+\begin{document}
+\maketitle
+\begin{abstract}
+Place two positive lengths end to end and draw the semicircle on their combined diameter. The height above their junction is the square root of their product. This elementary construction connects a positive factor pair to a future hyperbola through an exact, invertible change of coordinates. Applied to the SRG relation $\pi e\varphi\gamma=\zeta(3)$, it gives a constructive correspondence while retaining a distinction between the original four labelled factors and their two-group projection. We prove the inverse, the reciprocal scaling law, the nonlinear open-semicircle map, and the two-dimensional family of internal factor changes invisible to the coarse geometry. We also give self-contained proofs for the inherited raw positional profile, including moment additivity and fixed-convention convergence, and exhibit the information changed by carrying. With an additional energy scale and reference speed, the pair maps bijectively to a positive massive energy--momentum shell and intertwines its collinear transformation. This last statement is a conditional mathematical dictionary, not an independent physical identification of SRG mass, energy or propagation.
+\end{abstract}
+
+\section{Two lengths, one semicircle}
+\label{sec:circle}
+Take two adjoining line segments of lengths $a$ and $b$, both strictly positive. Their total length is the diameter of a circle. Mark their junction, then draw the vertical line from that mark to the upper semicircle. The resulting height is the geometric mean $\sqrt{ab}$. Thus multiplication has a concrete geometric representation before any physical interpretation is introduced.
+
+Our question is: how does the complete factor-labelled multiplication underlying $\pi e\varphi\gamma=\zeta(3)$ project to this construction and to positive mass-shell coordinates, and which information and transformations survive? A \emph{mass shell}, in the external physical interpretation used later, is the set of energy--momentum pairs with a fixed invariant mass. For now all the lengths are positive dimensionless numbers expressed in one arbitrary common drawing unit.
+
+Put the left endpoint at $u=0$, the right endpoint at $u=a+b$, and the junction at $u=a$. The centre is at $u=R$, where
+\begin{equation}
+ R=\frac{a+b}{2},\qquad X=a-R=\frac{a-b}{2}.
+ \label{eq:RX}
+\end{equation}
+The junction and centre need not coincide. The signed displacement $X$ is positive if $a>b$, zero at balance, and negative if $a<b$.
+
+\begin{figure}[ht]
+\centering
+\setlength{\unitlength}{0.86mm}
+\begin{picture}(151,91)(-3,-5)
+ \linethickness{0.65pt}
+ \qbezier(5,15)(65,15)(125,15)
+ \qbezier(125,15)(125,39.85)(107.43,57.43)
+ \qbezier(107.43,57.43)(89.85,75)(65,75)
+ \qbezier(65,75)(40.15,75)(22.57,57.43)
+ \qbezier(22.57,57.43)(5,39.85)(5,15)
+ \qbezier(65,15)(83,39)(101,63)
+ \qbezier(101,15)(101,39)(101,63)
+ \qbezier(97,15)(97,17)(97,19)
+ \qbezier(97,19)(99,19)(101,19)
+ \put(65,15){\makebox(0,0){\rule{1.8pt}{1.8pt}}}
+ \put(101,15){\makebox(0,0){\rule{1.8pt}{1.8pt}}}
+ \put(101,63){\makebox(0,0){\rule{1.8pt}{1.8pt}}}
+ \put(0,14){\makebox(0,0){$0$}}
+ \put(137,14){\makebox(0,0){$a+b$}}
+ \put(65,9){\makebox(0,0){$R$ (centre)}}
+ \put(105,9){\makebox(0,0){$a$ (split)}}
+ \put(107,39){\makebox(0,0){$H$}}
+ \put(79,43){\makebox(0,0){$R$}}
+ \qbezier(65,25)(83,25)(101,25)
+ \qbezier(98,26.4)(99.5,25.7)(101,25)
+ \qbezier(98,23.6)(99.5,24.3)(101,25)
+ \put(86,30){\makebox(0,0){$X$}}
+ \qbezier(5,0)(53,0)(101,0)
+ \qbezier(5,-1.5)(5,0)(5,1.5)
+ \qbezier(101,-1.5)(101,0)(101,1.5)
+ \put(53,-4){\makebox(0,0){$a$}}
+ \qbezier(101,0)(113,0)(125,0)
+ \qbezier(125,-1.5)(125,0)(125,1.5)
+ \put(113,-4){\makebox(0,0){$b$}}
+\end{picture}
+\caption{A schematic generic unequal split with $a>b$. The radius is measured from the centre; the height is measured above the split. The vector arc is drawn schematically; this drawing is not numerically to scale for the SRG constants.}
+\label{fig:split}
+\end{figure}
+
+\begin{proposition}[Product as squared height]
+The unique positive upper height in Figure~\ref{fig:split} satisfies
+\begin{equation}
+ H^2=R^2-X^2=ab,\qquad H=\sqrt{ab}>0.
+ \label{eq:height}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The circle is $(u-R)^2+v^2=R^2$. At $u=a$ its equation gives $v^2=R^2-X^2$. Expanding $(a+b)^2-(a-b)^2=4ab$ proves the identity. Since $0<a<a+b$, the vertical through the split intersects the upper semicircle strictly above the diameter. This selects the positive square root.
+\end{proof}
+
+Two coordinate pairs will remain distinct throughout. The point on one Euclidean circle has centred coordinates $(X,H)$. The pair $(R,X)$ instead includes the radius, which varies as the diameter split changes. Its difference of squares is the product. Confusing these two planes would turn a valid correspondence into an incorrect claim about their metrics.
+
+\section{The SRG base point and the meaning of normalization}
+\label{sec:source}
+The historical relation studied here is precisely
+\begin{equation}
+ P=\pi e\varphi,\qquad \varphi=\frac{1+\sqrt5}{2},\qquad
+ \gamma=\frac{\zeta(3)}{P},\qquad Q=P\gamma=\zeta(3),
+ \label{eq:master}
+\end{equation}
+where $\zeta(3)=\sum_{n\ge1}n^{-3}$. In this paper $\gamma$ always means the solved lock value, not Euler--Mascheroni's constant. The equality is exact by the displayed definition; it is not an independent measurement of a coupling.
+
+The fusion manuscript P01 prints the lock at physical p.3, Eq.(1), and discusses calibration and the absence of a first-principles derivation at pp.3--4 \cite{fusion}. Its Appendix A, pp.19--20, associates the constants with circle geometry, growth, packing and lattice sums. Those historical design interpretations do not assign a spatial direction to each constant. P06 prints the lock at p.4, Eq.(2), but its p.6 glossary calls $\gamma$ Euler--Mascheroni's constant \cite{dark}. That identification conflicts with the solved value used here and remains a recorded source discrepancy. Euler's number $e$ and Euler--Mascheroni's constant are different constants.
+
+The March paper P18, p.4, Eqs.(4)--(5), solves the relation for $\gamma$ \cite{march}. The surviving inert March source assigns the constants at lines 25--28, computes \texttt{lock\_product = pi * e * phi} at line 31, and assigns \texttt{gamma\_derived = zeta3 / lock\_product} at line 42. These narrow locators and the July discrepancy were already documented in \emph{SRG Origins}, sections 6.1--6.4 \cite{origins}. We reuse that accepted provenance rather than reopening its reconstruction. Exact identities and public retrieval links are in the companion source index.
+
+We choose the historically supported grouping $a=P$, $b=\gamma$, and apply the newly specified circle representation. It gives
+\begin{equation}
+ R_* =\frac{P+\gamma}{2},\quad X_* =\frac{P-\gamma}{2},\quad
+ H_* =\sqrt{\zeta(3)},\quad R_*^2-X_*^2=\zeta(3).
+ \label{eq:basepoint}
+\end{equation}
+The circle and subsequent auxiliary transformations are representation choices investigated in PH02 and PH03 \cite{ph02,ph03}; they are not recovered native recursions. The construction works for every positive product. The constants supply a distinguished base point and arithmetic provenance, not a theorem selecting $\zeta(3)$ from all positive values.
+
+\subsection{The integer record is part of the number}
+The accepted PH02 bounds place $P$ between 13 and 14. Write $P=13+f$ with $0<f<1$. Dropping 13 while holding $\gamma$ fixed gives
+\begin{equation}
+ f\gamma=\zeta(3)-13\gamma.
+ \label{eq:integer}
+\end{equation}
+This changes the product and therefore the height. We retain both parts. Extracting a fractional part is not the normalization used below, and the integer record is not discarded by the worked example.
+
+\subsection{Normalize the radius of the whole construction}
+Define
+\begin{equation}
+ x=X/R,\qquad y=H/R>0,\qquad x^2+y^2=1.
+ \label{eq:normalize}
+\end{equation}
+Neither factor is separately set to one. Given this normalized point and the radius, reconstruction is exact:
+\begin{equation}
+ a=R(1+x),\qquad b=R(1-x),\qquad H=Ry.
+ \label{eq:radiusinverse}
+\end{equation}
+If instead a fixed positive product $Q$ is retained, then $H=\sqrt Q$ and $R=\sqrt Q/y$ recover the same data. Since $y>0$, this division is permitted.
+
+With neither $R$ nor $Q$, a common positive multiplier of $a,b$ cannot be recovered: it multiplies $R,X,H$ by the same amount and leaves $(x,y)$ fixed. Conversely, equal normalized points have the same ratio $a/b=(1+x)/(1-x)$ and hence differ only by common positive scale. This identifies precisely what this normalization forgets. It does not identify a unique physical radius or a unique realization of the user's full digit construction.
+
+\section{The positive pair, its inverse and its reciprocal action}
+\label{sec:pair}
+For fixed $Q>0$, set
+\begin{equation}
+ \mathcal H_Q=\{(a,b):a,b>0,\ ab=Q\},\qquad
+ \mathcal M_Q=\{(R,X):R>0,\ R^2-X^2=Q\}.
+ \label{eq:domains}
+\end{equation}
+The latter is the future branch of a hyperbola. ``Future'' here names its positive first coordinate, before a physical time orientation is assigned.
+
+\begin{theorem}[Exact positive-pair correspondence]
+The map
+\begin{equation}
+ T(a,b)=\left(\frac{a+b}{2},\frac{a-b}{2}\right),\qquad
+ T^{-1}(R,X)=(R+X,R-X)
+ \label{eq:inverse}
+\end{equation}
+is a bijection $\mathcal H_Q\to\mathcal M_Q$.
+\end{theorem}
+\begin{proof}
+For positive $a,b$, equation~\eqref{eq:height} gives the required invariant and $R>0$. Also $R+X=a>0$ and $R-X=b>0$, so $R>|X|$. Conversely, a point in $\mathcal M_Q$ satisfies $R=\sqrt{X^2+Q}>|X|$; therefore $R\pm X$ are positive and their product is $Q$. Substitution proves both compositions are identities. In particular,
+\[
+ R-|X|=\frac{Q}{R+|X|}>0,
+\]
+so the inverse does not reach a zero factor anywhere on the stated branch.
+\end{proof}
+The theorem excludes zero factors, $Q=0$, negative factors and the past branch. It does not assert a continuation to these different domains. The positive upper height $H=\sqrt Q$ is redundant once the pair and product are known, but remains useful in the diagram.
+
+\subsection{Reciprocal scaling becomes a hyperbolic matrix}
+Introduce the auxiliary action, for $\lambda>0$,
+\begin{equation}
+ a'=\lambda a,\qquad b'=\lambda^{-1}b.
+ \label{eq:reciprocal}
+\end{equation}
+It preserves $Q$ and $H$, and substitution of the inverse~\eqref{eq:inverse} gives
+\begin{equation}
+ \binom{R'}{X'}=B(\lambda)\binom RX,\qquad
+ B(\lambda)=\frac12
+ \begin{pmatrix}
+ \lambda+\lambda^{-1}&\lambda-\lambda^{-1}\\
+ \lambda-\lambda^{-1}&\lambda+\lambda^{-1}
+ \end{pmatrix}.
+ \label{eq:boost}
+\end{equation}
+This action moves the representation's pair. It does not assert that the original constants change in time or that a later SRG operator implements the action.
+
+\begin{proposition}[Group law and bilinear invariant]
+For positive $\lambda,\nu$, the matrices obey
+\begin{equation}
+ B(\nu)B(\lambda)=B(\nu\lambda),\qquad B(1)=I,\qquad
+ B(\lambda)^{-1}=B(\lambda^{-1}),
+ \label{eq:grouplaw}
+\end{equation}
+and, with $J=\diag(1,-1)$,
+\begin{equation}
+ B(\lambda)^\tr J B(\lambda)=J,\qquad \det B(\lambda)=1.
+ \label{eq:bilinear}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Let $A=\tfrac12\begin{pmatrix}1&1\\1&-1\end{pmatrix}$. The definition of $T$ gives $B(\lambda)=A\diag(\lambda,\lambda^{-1})A^{-1}$. Multiplication of the diagonal matrices proves~\eqref{eq:grouplaw}. Write $C=(\lambda+\lambda^{-1})/2$, $S=(\lambda-\lambda^{-1})/2$. Then $C^2-S^2=1$, and direct matrix multiplication gives~\eqref{eq:bilinear}. For any two column vectors $v,w$, it follows that $(Bv)^\tr J(Bw)=v^\tr Jw$. This preserves the entire bilinear form, not just one point's squared norm. Positivity of the transformed factors preserves the future branch.
+\end{proof}
+
+Set $\eta=\log\lambda$. Our convention is the \emph{active plus-sinh} action
+\begin{equation}
+ B_\eta=\begin{pmatrix}\cosh\eta&\sinh\eta\\\sinh\eta&\cosh\eta\end{pmatrix},
+ \qquad B_\xi B_\eta=B_{\xi+\eta}.
+ \label{eq:rapidity}
+\end{equation}
+A passive frame transformation of positive rapidity uses the opposite off-diagonal signs; section~\ref{sec:physical} makes that comparison explicit. The exponential's base does not give the historical factor $e$ a temporal role.
+
+\subsection{Balance and transitivity}
+Every point has the representation
+\begin{equation}
+ \rho=\tfrac12\log(a/b),\quad
+ a=H e^\rho,\quad b=H e^{-\rho},\quad
+ R=H\cosh\rho,\quad X=H\sinh\rho.
+ \label{eq:rho}
+\end{equation}
+Indeed $a/H=\sqrt{a/b}$ and $b/H=\sqrt{b/a}$, and the two sums give $R,X$. Reciprocal scaling adds $\eta$ to $\rho$. Balance means $X'=0$, equivalently $\lambda a=b/\lambda$. Thus the unique positive solution is
+\begin{equation}
+ \lambda_{\rm bal}=\sqrt{b/a}=e^{-\rho},\qquad
+ a'=b'=H,\quad R'=H.
+ \label{eq:balance}
+\end{equation}
+For the exact SRG point this is $\sqrt{\gamma/P}=\sqrt{\zeta(3)}/P$. The accepted bounds $P>13$ and $\gamma<0.087$ show the original point is not balanced.
+
+Given any other positive pair $(a',b')$ with product $Q$, the unique choice $\lambda=a'/a$ gives $b/\lambda=Q/a'=b'$. Hence the action is transitive on each fixed-product family. Exchanging the groups instead sends $(R,X)$ to $(R,-X)$. One chosen pair can be exchanged using $\lambda=b/a$, but this ratio varies across the shell. Group exchange is therefore not one universal fixed boost.
+
+\section{An open semicircle and a future hyperbola}
+\label{sec:semicircle}
+\begin{theorem}[Normalized nonlinear correspondence]
+Let $\mathcal S_+=\{(x,y):x^2+y^2=1,\ y>0\}$. Then
+\begin{equation}
+ F(x,y)=(1/y,x/y),\qquad
+ F^{-1}(r,s)=(s/r,1/r)
+ \label{eq:F}
+\end{equation}
+give a smooth bijection between $\mathcal S_+$ and $\mathcal M_1$.
+\end{theorem}
+\begin{proof}
+For $(x,y)\in\mathcal S_+$, $(1/y)^2-(x/y)^2=1$ and $1/y>0$. For $(r,s)\in\mathcal M_1$, $r^2=1+s^2$ and $r>0$ imply $r\ge1$, so $(s/r)^2+(1/r)^2=1$ and $1/r>0$. The two compositions are identities. The denominators do not vanish on these domains, establishing smoothness there.
+\end{proof}
+In the circle construction, $(r,s)=(R/H,X/H)$, and equation~\eqref{eq:rho} gives
+\begin{equation}
+ x=\tanh\rho,\qquad y=\sech\rho.
+ \label{eq:sech}
+\end{equation}
+As $x\to1$ along the upper semicircle, $y\to0^+$ and $(r,s)$ tends to infinity in both coordinates. As $x\to-1$, $r\to+\infty$ and $s\to-\infty$. The two endpoints are excluded and have no finite images. Every finite future-hyperbola point is nonetheless represented.
+
+Transporting~\eqref{eq:rapidity} through $F$ gives, with $C=\cosh\eta$, $S=\sinh\eta$,
+\begin{equation}
+ x'=\frac{S+Cx}{C+Sx},\qquad y'=\frac{y}{C+Sx}.
+ \label{eq:fractional}
+\end{equation}
+The denominator satisfies $C+Sx\ge C-|S|>0$ for $|x|<1$. Expanding the numerator of $x'^2+y'^2$ and using $y^2=1-x^2$, $C^2-S^2=1$, proves that it equals $(C+Sx)^2$. Thus the action stays on the open upper semicircle. The group law also follows from conjugating the already proved matrix action. It is generally not a Euclidean rotation.
+
+These results preserve PH02's earlier limitations. The full circle is compact; the future unit hyperbola is unbounded and noncompact. They cannot be homeomorphic. Our domain is an \emph{open} semicircle. Nor is there an invertible real linear isometry converting the positive Euclidean form to $J$: if $L^\tr J L=I$, determinants give $-(\det L)^2=1$, a contradiction. Here $T$ changes the product form $ab$ to $R^2-X^2$, and $F$ is nonlinear. Neither performs that forbidden Euclidean isometry.
+
+\section{Retaining the simultaneous multiplication data}
+\label{sec:digits}
+The coarse pair is not the entire user's proposed construction. A multiplication can retain the identity of each factor, each place, and each simultaneous contribution before any terms are combined or carried. We state that data explicitly, then prove what is independent of a drawing convention.
+
+\subsection{Labelled expansions and positive regrouping}
+Fix an integer radix $\beta\ge2$ and a digit convention: at numbers with two positional expansions, choose the terminating expansion with trailing zeros. For the four source factors, whose integer parts are single digits in decimal, write
+\begin{equation}
+ x_j=\sum_{i\ge0}d_{j,i}\beta^{-i},\qquad 0\le d_{j,i}\le\beta-1,
+ \qquad j=1,\ldots,m,
+ \label{eq:expansions}
+\end{equation}
+with $m=4$ and labels $(x_1,x_2,x_3,x_4)=(\pi,e,\varphi,\gamma)$. More generally an input with several integer digits has a finite negative starting index. Shifting those starts to zero gives the same arguments below with fixed depth offsets. No direction in space is assigned to an individual constant.
+
+For a multi-index $\iota=(i_1,\ldots,i_m)$ define its depth $k=\sum_j i_j$, its raw coefficient and evaluated weight by
+\begin{equation}
+ C_{\iota}=\prod_{j=1}^m d_{j,i_j},\qquad
+ w_{\iota}=C_{\iota}\beta^{-\sum_j i_j},\qquad
+ c_k=\sum_{\sum i_j=k}C_{\iota}.
+ \label{eq:multi}
+\end{equation}
+Let $D$ consist of the labelled expansions and these full multi-index records. The record includes zero contributions when a finite array is stored. Depth aggregation retains the weights' sum but forgets which tuple supplied it; the original labelled record need not be discarded.
+
+\begin{proposition}[Exact simultaneous product]
+For positive factors with the stated nonnegative expansions,
+\begin{equation}
+ T_0:=\prod_{j=1}^m x_j=\sum_{\iota}w_{\iota}
+      =\sum_{k\ge0}c_k\beta^{-k}.
+ \label{eq:sumproduct}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Truncate every input at depth $d$. Finite distributivity gives the product as a sum over $0\le i_j\le d$. These sums increase with $d$, and each factor tends to its full value, so their finite product tends to $T_0$. Every multi-index eventually appears. Nonnegativity permits grouping the limiting sum by depth without cancellation or an ordering ambiguity. This proves both equalities.
+\end{proof}
+Multiplication is simultaneous in this accounting sense: every combination is represented in the sum. The written factor order is not a temporal update sequence. Carrying, by contrast, changes the coefficient representation using $\beta\beta^{-k}=\beta^{-(k-1)}$. It preserves the evaluated number, but raw coefficients need not be digits and their depth distribution need not survive.
+
+\subsection{Normalized profiles and additive moments}
+Put $w_k=c_k\beta^{-k}$ and, since $T_0>0$, define
+\begin{equation}
+ p_k=w_k/T_0,\qquad
+ \mu=\sum_k kp_k,\qquad
+ \sigma^2=\sum_k k^2p_k-\mu^2.
+ \label{eq:profile}
+\end{equation}
+These are descriptors of a chosen raw representation. Their measure-theoretic notation is convenient arithmetic bookkeeping, not a claim that physical quantities have been sampled independently.
+
+\begin{theorem}[Moment additivity]
+For each factor define $q_{j,i}=d_{j,i}\beta^{-i}/x_j$, its depth mean $\mu_j$ and variance $\sigma_j^2$. Then
+\begin{equation}
+ \mu=\sum_{j=1}^m\mu_j,\qquad
+ \sigma^2=\sum_{j=1}^m\sigma_j^2.
+ \label{eq:moments}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Each marginal $q_{j,i}$ is nonnegative and sums to one, and the normalized weight of a tuple is $\prod_jq_{j,i_j}$. Thus $p_k$ is the distribution of the sum of indices under this algebraically defined product measure. Expanding the first moment, every summand $i_j$ leaves the other marginal sums equal to one, giving $\sum_j\mu_j$. Expanding the square of the sum gives
+\[
+ \sum_k k^2p_k
+ =\sum_j\sum_i i^2q_{j,i}+2\sum_{j<\ell}\mu_j\mu_\ell.
+\]
+Subtracting $(\sum_j\mu_j)^2$ cancels the cross terms and leaves the sum of variances. The convergence proof below ensures finiteness and justifies these expansions; finite truncations also establish them directly.
+\end{proof}
+In the SRG relation $\gamma$ is defined using the other constants. This dependence does not invalidate the product-measure identity just constructed from four fixed positive numbers. It also gives no evidence of independent random physical fields. Commutativity shows that permutation of the factors preserves $c_k,p_k,\mu,\sigma^2$, with the factor labels and tuple axes correspondingly permuted. Splitting or combining contributions at the same depth likewise preserves these aggregate descriptors.
+
+\subsection{A genuine fixed-convention precision limit}
+Let $c_{k,d}$ be the coefficients from truncating each factor at depth $d$, let $T_d=\sum_kc_{k,d}\beta^{-k}$, and define $p_{k,d}$ only when $T_d>0$. Since the full factors are positive, this condition holds for all sufficiently large $d$. It need not hold at every small precision.
+
+\begin{theorem}[Convergence of the raw profile and its moments]
+For fixed radix, finite factor count, labelled factor values and digit convention, the profiles tend in $\ell^1$ to $p_k$, and their means and variances tend to those in~\eqref{eq:profile}.
+\end{theorem}
+\begin{proof}
+For indices starting at zero, the number of $m$-tuples with depth $k$ is $\binom{k+m-1}{m-1}$. Every digit product is at most $(\beta-1)^m$, so
+\begin{equation}
+ 0\le c_{k,d}\le c_k\le(\beta-1)^m\binom{k+m-1}{m-1}.
+ \label{eq:bound}
+\end{equation}
+For every fixed nonnegative integer $r$, the bound multiplied by $k^r\beta^{-k}$ is summable: its polynomial growth is dominated by the geometric decay. Further, $c_{k,d}\uparrow c_k$. Hence the weighted sums for $r=0,1,2$ converge by domination. Since $T_d\to T_0>0$, division by $T_d$ gives convergence of the first two normalized moments, and then of the variance.
+
+For the profile itself, insert $c_{k,d}\beta^{-k}/T_0$ between the two normalized weights. Summing the triangle inequality gives
+\begin{equation}
+ \sum_k|p_{k,d}-p_k|\le2\frac{T_0-T_d}{T_0}.
+ \label{eq:l1}
+\end{equation}
+The normalization-change term equals $(T_0-T_d)/T_0$, as does the missing-weight term. For unbounded moments, this $\ell^1$ estimate alone would not suffice. Every omitted tuple has some index exceeding $d$, hence total depth $k>d$, so the missing $r$th-moment numerator is at most
+\begin{equation}
+ (\beta-1)^m\sum_{k>d}k^r\binom{k+m-1}{m-1}\beta^{-k},
+ \label{eq:tail}
+\end{equation}
+which tends to zero. Fixed negative starting indices merely translate depths and multiply bounds by fixed constants; they do not change the argument.
+\end{proof}
+This is convergence as digit precision increases within one convention. It is neither dynamical stability nor robustness under a different factorization, radix or spatial placement. A finite decimal display of a moment is not a certified value of its infinite-precision limit.
+
+\subsection{A precise limitation on assigning additive directions}
+One might try to give each coefficient depth a spatial direction independently. The following inherited PH02 result specifies when that attempt must reduce to a line.
+
+\begin{proposition}[Linear carry invariance]
+Suppose a vector coordinate is a fixed linear depth-only accumulation $V(c)=\sum_kc_kv_k$ and is invariant under every elementary carry in radix $\beta$. Then
+\begin{equation}
+ \beta v_k=v_{k-1},\qquad v_k=\beta^{-k}v_0,\qquad
+ V(c)=T_0v_0.
+ \label{eq:carrylinear}
+\end{equation}
+Conversely these coefficients make every carry invariant.
+\end{proposition}
+\begin{proof}
+Compare the representation of $\beta$ coefficient units at depth $k$ with one unit at depth $k-1$. Invariance requires the first equality. Iteration gives the second, and substitution gives the third. The same equalities prove sufficiency for each carry and hence every finite sequence of carries. For an infinite positive representation, convergence to $T_0v_0$ follows from~\eqref{eq:sumproduct}.
+\end{proof}
+The hypotheses are fixed coefficients, linearity, dependence only on depth, and invariance under all carries. The proposition does not forbid nonlinear maps, extra factor labels or separately specified geometry. Optional PH02 angle and radius placements are such additional choices; they are not selected by multiplication itself. No particular placement, physical cylinder or direction for a constant is required by the circle construction in this paper.
+
+\section{Two retained exact illustrations}
+\label{sec:examples}
+These are the two previously accepted PH03 illustrations, using the saved PH02 arithmetic. The numbers below are transcribed evidence, not new precision calculations. Symbolic square roots are deliberately left as roots.
+
+\subsection{Four-place master multiplication}
+The input truncations, not roundings, are
+\begin{equation}
+ (\pi_4,e_4,\varphi_4,\gamma_4)=(3.1415,2.7182,1.6180,0.0869).
+ \label{eq:fourinputs}
+\end{equation}
+Writing $t=1/10$, their complete polynomials are
+\begin{equation}
+\begin{aligned}
+ A(t)&=3+t+4t^2+t^3+5t^4,\\
+ B(t)&=2+7t+t^2+8t^3+2t^4,\\
+ F(t)&=1+6t+t^2+8t^3+0t^4,\\
+ G(t)&=0+0t+8t^2+6t^3+9t^4.
+\end{aligned}
+\label{eq:polynomials}
+\end{equation}
+For instance the first three units digits and the fourth factor's hundredths digit contribute $3\cdot2\cdot1\cdot8\cdot10^{-2}=0.48$. At depth three the four possibilities have coefficients $16,168,288,36$, summing to 508 and contributing $0.508$. These terms coexist in the sum; none is an arrow assigned to a constant.
+
+The saved raw coefficient lists, from depth zero upward, are
+\begin{equation}
+\begin{aligned}
+ c(P_4)={}&(6,59,162,234,567,479,916,518,843,\\
+          &\hspace{1em}270,346,80,0),\\
+ c(Q_4)={}&(0,0,48,508,1704,3375,7398,9340,15305,\\
+          &\hspace{1em}13951,18096,11880,11975,5146,3594,720,0).
+\end{aligned}
+\label{eq:rawlists}
+\end{equation}
+They are coefficients before carrying, not ordinary decimal digits. Evaluation gives the exact finite pair and circle data
+\begin{equation}
+\begin{aligned}
+ a_4&=P_4=13.816466535400,& b_4&=0.0869,\\
+ Q_4&=1.2006509419262600,& H_4&=\sqrt{Q_4},\\
+ R_4&=6.9516832677,& X_4&=6.8647832677.
+\end{aligned}
+\label{eq:fourcircle}
+\end{equation}
+The integer record is $13+0.816466535400$. The normalized point is exactly
+\begin{equation}
+ x_4=\frac{68647832677}{69516832677},\qquad
+ y_4=\frac{\sqrt{Q_4}}{6.9516832677}.
+ \label{eq:fournormal}
+\end{equation}
+In particular $Q_4$ is not the exact $\zeta(3)$ of~\eqref{eq:master}. The truncated $\gamma_4$ is not refitted to force that equality. PH02's full saved record contains 3,602 multi-index rows across its original three precisions, including zeros. Its four-place portion contains 125 triple and 625 quadruple terms. That data remains preserved in the accepted investigation; equation~\eqref{eq:multi} specifies the full factor-labelled object without transporting thousands of rows into this paper.
+
+\subsection{Same product, different raw profile and circle point}
+The exact equality $1.2\cdot1.5=1.8\cdot1=1.8$ exhibits two different issues. First, the raw coefficients for $1.2\cdot1.5$ are $(1,7,10)$, with weighted contributions $(1,0.7,0.1)$. After carrying they are $(1,8,0)$; the latter is also the raw profile of $1.8\cdot1$. The saved exact moments are
+\begin{equation}
+ (\mu_{\rm raw},\sigma^2_{\rm raw})=(1/2,13/36),\qquad
+ (\mu_{\rm carried},\sigma^2_{\rm carried})=(4/9,20/81).
+ \label{eq:countermoments}
+\end{equation}
+Thus the profile contains information not determined by the scalar product. Exact carrying and product-preserving refactorization need not preserve it. A carry of $\beta q$ units from depth $k$ to $k-1$ decreases the first moment numerator by $q\beta^{-(k-1)}$, while preserving total weight; there is no universal variance monotonicity assertion.
+
+Second, treating the two factors as the diameter groups changes the point on the same shell. The accepted exact coordinates are
+\begin{center}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Quantity & $(a,b)=(6/5,3/2)$ & $(a',b')=(9/5,1)$\\
+\midrule
+$Q$ & $9/5$ & $9/5$\\
+$R$ & $27/20$ & $7/5$\\
+$X$ & $-3/20$ & $2/5$\\
+$H$ & $\sqrt{9/5}$ & $\sqrt{9/5}$\\
+$x$ & $-1/9$ & $2/7$\\
+$y^2$ & $80/81$ & $45/49$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Their unique reciprocal transformation is
+\begin{equation}
+ \lambda=\frac32,\qquad
+ B(\lambda)=\begin{pmatrix}13/12&5/12\\5/12&13/12\end{pmatrix}.
+ \label{eq:rationalboost}
+\end{equation}
+The invariant height agrees; the signed displacement changes, and so does the circle radius. In contrast, carrying within an evaluated group leaves the two grouped values fixed and therefore leaves their whole circle construction fixed. These are distinct operations even when illustrated by the same elementary multiplication.
+
+\section{Where information is lost, and the factor-labelled lift}
+\label{sec:loss}
+Define the grouping projection for four labelled positive factors by
+\begin{equation}
+ \Pi(D)=(a,b)=(x_1x_2x_3,x_4).
+ \label{eq:projection}
+\end{equation}
+The full construction factors as $D\xrightarrow{\Pi}(a,b)\xrightarrow{T}(R,X)$, with $H=\sqrt{ab}$ appended. The second map is invertible on the positive domain; the first is not. For any $t>0$, replacing $(x_1,x_2,x_3,x_4)$ by $(t x_1,x_2/t,x_3,x_4)$ leaves the grouped pair unchanged. With $t\ne1$ it changes labelled factor values. Hence $\Pi$ cannot reconstruct them.
+
+This is a statement about the general labelled-data space. At the particular historical base point, naming the constants separately supplies extra information beyond the pair. Retaining $D$ alongside the pair preserves that extra record; the pair alone does not encode it.
+
+\subsection{Different invariances belong to different levels}
+Exact carrying of already grouped numbers and exact conversion to a different radix preserve $a,b$ and therefore $R,X,H$. They generally change raw depth labels or distributions. Exact radix conversion is not truncating the new expansion again: re-truncation changes numbers and need not preserve even the pair. Once a radix and canonical expansion convention are specified, the exact pair does determine the canonical digits of $a$ and $b$. It does not determine the first three individual factors' digits, their internal contribution allocation or a history of carries.
+
+Permuting the first three factors leaves the grouped pair unchanged and permutes the relevant axes of the labelled record. Permuting all four preserves the total raw product profile but may change which factor is alone in the second group. Exchanging the two groups reflects $X$ as shown in section~\ref{sec:pair}. A different positive split at fixed product preserves $H$ and the shell but generally changes $R,X$. Keeping only $H$ discards the ratio as well. Keeping only $(x,y)$ discards common size unless $R$ or $Q$ is also kept.
+
+More generally, a function on positive $m$-tuples invariant under \emph{all} product-preserving refactorizations can depend only on the product. To prove this, for two tuples with equal product take the positive ratios of corresponding entries. Their product is one, so the ratios give an allowed refactorization from the first tuple to the second. Invariance makes the function constant on each product fibre. This stronger invariance is not possessed by the raw profile in~\eqref{eq:countermoments}.
+
+\subsection{A three-parameter lift and its invisible two-parameter part}
+Retain the four factor labels and define an auxiliary representation family
+\begin{equation}
+ x_j'=e^{s_j}x_j,\qquad s_j\in\RR,\qquad
+ s_1+s_2+s_3+s_4=0.
+ \label{eq:lift}
+\end{equation}
+This positive rescaling keeps the total product fixed. It is not a change to the native constants or a proposed dynamical operator.
+
+\begin{theorem}[Factor lift and exact coarse fibres]
+The three-dimensional additive parameter space in~\eqref{eq:lift} maps surjectively onto the reciprocal action by
+\begin{equation}
+ \eta=s_1+s_2+s_3=-s_4,
+ \qquad a'=e^\eta a,\quad b'=e^{-\eta}b.
+ \label{eq:liftmap}
+\end{equation}
+Its invisible kernel is exactly
+\begin{equation}
+ (s_1,s_2,s_3,s_4)=(h,k,-h-k,0),\qquad h,k\in\RR.
+ \label{eq:kernel}
+\end{equation}
+The kernel acts transitively on every fibre of positive labelled factors having the same coarse pair.
+\end{theorem}
+\begin{proof}
+Multiplying the first three transformed factors gives the first equality in~\eqref{eq:liftmap}; the fourth gives the second. Addition of parameter vectors adds $\eta$, so this is an additive homomorphism. Any real $\eta$ is reached by $(\eta,0,0,-\eta)$, proving surjectivity. Vanishing $\eta$ requires $s_4=0$ and $s_3=-s_1-s_2$, exactly~\eqref{eq:kernel}. The free real parameters $h,k$ prove the kernel is two-dimensional, rather than just establishing a dimension by counting symbols.
+
+For global transitivity, take positive tuples $u,v$ with $u_4=v_4$ and $u_1u_2u_3=v_1v_2v_3$. Set $s_j=\log(v_j/u_j)$. Then $s_4=0$ and $s_1+s_2+s_3=0$. This is a kernel vector and $e^{s_j}u_j=v_j$ for every $j$. Conversely a kernel vector preserves exactly those grouped values. Thus the whole positive fibre, not just an infinitesimal neighbourhood, is described.
+\end{proof}
+After a digit convention is fixed, factor values determine their own expansions, but the kernel generally changes those expansions and their raw depth profiles. The proof is about positive values and logarithms; it differentiates no digit sequence. It introduces no physical gauge field and gives no Lorentz-invariant status to retained raw data. The loss of two factor-value degrees within a fixed coarse pair is a precise consequence of the chosen three-plus-one grouping.
+
+\section{A conditional energy--momentum dictionary}
+\label{sec:physical}
+The external comparison is the collinear massive energy--momentum relation. The Particle Data Group's 2025 \emph{Kinematics} review, physical p.1, section 49.1, states the invariant immediately before Eq.(49.1), using $\hbar=c=1$, and gives the passive frame transformation in that equation \cite{pdg}. Restoring $c$ and taking a single signed momentum component with zero transverse momentum yields
+\begin{equation}
+ E^2-c^2p^2=m^2c^4,\qquad E>0,\quad m>0,
+ \qquad (E+cp)(E-cp)=(mc^2)^2.
+ \label{eq:physicalinvariant}
+\end{equation}
+This is established external physics, not a result derived from SRG. We now prove a correspondence to its positive massive shell.
+
+\begin{theorem}[Conditional dimensional dictionary]
+Assign an energy scale $K>0$ and a reference speed $c>0$, held fixed under transformations. For fixed $Q>0$, define candidate physical coordinates by
+\begin{equation}
+ E=KR,\qquad p=\frac{KX}{c},\qquad m=\frac{KH}{c^2},\qquad H=\sqrt Q.
+ \label{eq:dictionary}
+\end{equation}
+This is a bijection from $\mathcal H_Q$, through $T$, onto the positive collinear shell with fixed $m=K\sqrt Q/c^2$. Its inverse and transformation are
+\begin{equation}
+ a=\frac{E+cp}{K},\qquad b=\frac{E-cp}{K},\qquad H=\frac{mc^2}{K},
+ \label{eq:physicalinverse}
+\end{equation}
+\begin{equation}
+ \binom{E'}{p'}=
+ \begin{pmatrix}C&cS\\S/c&C\end{pmatrix}\binom Ep,
+ \qquad m'=m,\qquad C=\cosh\eta,\quad S=\sinh\eta.
+ \label{eq:physicalboost}
+\end{equation}
+At the unique balanced point, $p=0$ and $E=mc^2$.
+\end{theorem}
+\begin{proof}
+All the geometric coordinates are dimensionless in this use. Thus $[K]=ML^2T^{-2}$ and $[c]=LT^{-1}$ give $[E]=ML^2T^{-2}$, $[p]=MLT^{-1}$ and $[m]=M$. Substitution yields
+\[
+ E^2-c^2p^2=K^2(R^2-X^2)=K^2H^2=m^2c^4.
+\]
+Since $R>|X|$, $E>|cp|$ and both reconstructed factors in~\eqref{eq:physicalinverse} are positive. Conversely a positive-energy point on the massive shell has $E^2>c^2p^2$ and hence $E>|cp|$; the inverse factors are positive, multiply to $m^2c^4/K^2=Q$, and reconstruct the original point. This proves bijectivity with the stated mass held fixed.
+
+Multiplying~\eqref{eq:boost} by the diagonal scale matrix $\diag(K,K/c)$ gives~\eqref{eq:physicalboost}. This conjugation proves covariance of the dictionary, including its inverse, under the entire reciprocal group. The height is invariant, so $m'=m$. Finally $X=0$ implies $R=H$, and hence $p=0$, $E=KH=mc^2$.
+\end{proof}
+
+Our plus-sinh convention agrees with PDG's passive matrix for frame parameter $\beta_f=-\tanh\eta$. Indeed the passive off-diagonal entries in $(E,cp)$ coordinates are $-\gamma_f\beta_f$, with $\gamma_f=1/\sqrt{1-\beta_f^2}=\cosh\eta$; the indicated sign makes them $+\sinh\eta$. Equivalently a passive transformation with rapidity $+\eta$ uses $B_{-\eta}$. This comparison fixes the sign convention without identifying the auxiliary parameter with a measured frame change.
+
+\subsection{What is mathematical, and what would be physical}
+The positive result includes a domain, inverse, preserved bilinear form, group law and a dimensionally consistent covariance statement. It is stronger than observing that two independently normalized equations equal one. It holds for every positive pair, and the exact SRG product is one distinguished instance. It neither singles out transcendental constants as the origin of relativity nor supplies a new physical mass prediction.
+
+The inspected source assignments of $P$ and $\gamma$ provide the base values, not an inertial-frame rule on those factors. Identifying the candidate $E,p,m$ with measured energy, momentum and inertial mass, identifying the reciprocal action with frame changes, and assigning the physical role of $c$ require justification outside the scalar lock. The issue is not only the numerical value of $K$: such observable and transformation identifications remain necessary even in natural units. Choosing scales does not establish them. No propagation law or physical clock follows from this construction; $\eta$ is a group parameter, $H$ is the diagram's height and $R$ its radius. They are not a source memory curve, physical time or a Tower amplitude. This precise boundary leaves the mathematical correspondence intact without promoting it to established SRG dynamics.
+
+\section{Provenance, evidence and scope of this edition}
+\label{sec:evidence}
+This manuscript develops the accepted PH02 and PH03 analyses into a self-contained exposition. The historical relation and its conflicting source terminology are attributed; the split-diameter representation, grouping, normalization and auxiliary action are declared choices; their identities and information-loss statements are deductions. The physical dictionary is conditional, while its physical realization remains unestablished. January's fixed-grid model, Tower II, PH01's separate phase audit and the reserved SRG-II mechanism paper are not altered or used as substitute formulas here.
+
+PH02's retained checker records 156 finite assertions: 90 permutation comparisons, 12 input-truncation checks, six each for target rounding, truncation error, explicit convolution, raw evaluation, carry preservation, canonical bounds and moment additivity, and 12 other finite checks. It also retains 3,602 term rows. Its initial invocation failed at parsing, before mathematical checks ran; the corrected script and final successful result coexist with that preserved failure evidence. PH03 records 67 passing checks: 63 symbolic/domain/exact-finite checks, three source/copy/preservation checks and one retained-PH02-evidence check. These categories are not 67 independent experiments.
+
+GPT's separate acceptance reviews report 22 grouped corroboration checks for PH02 and 46 for PH03. The analyses are accepted within their declared mathematical scopes, with no required scientific revisions. Those decisions are internal assisted scientific reviews, not external peer review or journal acceptance. This new manuscript and six-file publication candidate await GPT manuscript-and-payload review. Preparation used the saved results and written proofs; it did not rerun accepted checkers or the supplied review script. New QA concerns transcription, sources, labels, compilation, rendered pages and artifact identities only.
+
+Hilmir Frímann Halldórsson is the human author. GPT assisted with the proposed mathematical correspondence and scientific review; Codex prepared this manuscript, organized the proofs and source records, and performed artifact QA under the author's direction. These tools are not coauthors. This preparation grants no new blanket reuse licence and does not extend software licensing to the research. Existing source-specific notices remain with their respective sources.
+
+The scope of the paper is the exact positive-pair correspondence together with the richer arithmetic data it projects. It supplies complete proofs for that subject and retains both its constructive content and its limits, without choosing new dynamics or claiming a physical derivation of mass--energy.
+
+\begin{thebibliography}{9}
+\bibitem{fusion}
+H. F. Halldórsson, \emph{Symbolic Recursion and SRG Fusion}, July 2025 source P01, physical pp.3--4, Eq.(1), and Appendix A, pp.19--20.
+\href{https://zenodo.org/records/17253999}{Zenodo record 17253999} (file \emph{1.Symbolic Recursion and SRG Fusion.pdf}).
+\bibitem{dark}
+H. F. Halldórsson, historical source P06, \emph{dark\_energy.pdf}, physical p.4, Eq.(2), and p.6 glossary.
+\href{https://zenodo.org/records/15872156}{Zenodo record 15872156}.
+\bibitem{march}
+H. F. Halldórsson, March SRG paper, source P18, \emph{SRG\_paper.pdf}, physical p.4, section 3.1, Eqs.(4)--(5).
+\href{https://zenodo.org/records/19023429}{Zenodo record 19023429}.
+Associated inert source: \texttt{srg\_\allowbreak resonance\_\allowbreak lock\_\allowbreak analysis.py}, lines 25--31 and 42, preserved in the accepted lineage archive.
+\bibitem{origins}
+H. F. Halldórsson, \emph{SRG Origins---From Geometry to Recursive Operators}, v0.1, sections 6.1--6.4, 2026.
+Public edition in \href{https://github.com/pzychozen/trioctagon-physics/tree/main/SRG_REDISCOVERY/PAPERS/SRG_ORIGINS_FROM_GEOMETRY_TO_RECURSION/publication/v0.1}{pzychozen/trioctagon-physics}; exact frozen TeX identity in the companion source index.
+\bibitem{ph02}
+H. F. Halldórsson, with GPT/Codex assistance, \emph{SRG-PH02: Multiplication geometry}, accepted private report, 13 October 2026, sections 1--6; claim ledger and saved \texttt{CHECK\_RESULTS.json}. Original GPT acceptance review dated 13 October 2026. These are retained research records, not public literature; the relevant proofs are supplied in this paper.
+\bibitem{ph03}
+H. F. Halldórsson, with GPT/Codex assistance, \emph{SRG-PH03: From a split-diameter circle to a positive mass shell}, accepted private report, 13 October 2026, sections 1--6; claim ledger and saved \texttt{CHECK\_RESULTS.json}. GPT acceptance review dated 13 October 2026.
+\bibitem{pdg}
+Particle Data Group, \emph{Kinematics}, 2025 update, physical p.1, section 49.1 and Eq.(49.1).
+\href{https://pdg.lbl.gov/2025/reviews/rpp2025-rev-kinematics.pdf}{Official PDG review PDF}. Cited for the established invariant and passive transformation; the local reference cache was already inspected in PH03.
+\end{thebibliography}
+\end{document}
