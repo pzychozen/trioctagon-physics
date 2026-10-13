@@ -39,3 +39,7 @@ The v0.1 chapter gives the exact two-step access criterion and sharp singleton a
 ## SRG Multiplication Geometry
 
 [SRG Multiplication Geometry: Factor Data, Circle Construction, and Mass-Shell Correspondence](PAPERS/SRG_MULTIPLICATION_MASS_SHELL/publication/v0.1/README.md) develops the split-diameter circle, the exact positive-pair inverse and reciprocal action, and the information lost by grouping labelled multiplication data. Its energy–momentum dictionary is explicitly conditional. The [publication disposition](PAPERS/SRG_MULTIPLICATION_MASS_SHELL/publication/v0.1/PUBLICATION_DISPOSITION.md) records acceptance and explains the retained preparation-time review notices.
+
+## SRG Contribution Geometry
+
+[SRG Contribution Geometry: Exact Prefixes, Carry Lattices, and Neighboring-Pair Transformations](PAPERS/SRG_CONTRIBUTION_GEOMETRY/publication/v0.1/README.md) develops neighboring raw contributions, permanent prefixes, legal carry lattices, scale-plus-reciprocal transitions, proved bounds and precisely scoped finite rankings. The edition includes its exact-data guide and seven-file data supplement. Its [publication disposition](PAPERS/SRG_CONTRIBUTION_GEOMETRY/publication/v0.1/PUBLICATION_DISPOSITION.md) records acceptance and explains retained preparation-time review notices.
