@@ -1,0 +1,790 @@
+{
+  "edition_title": "Early SRG Recursive Motion: Source Reconstruction, Stateful Feedback, and Finite Replays",
+  "version": "0.1",
+  "date": "2026-10-14",
+  "status": "CANDIDATE_AWAITING_GPT_AND_OWNER_REVIEW",
+  "scientific_status": "ACCEPTED_WITHIN_BOUNDED_SOURCE_REPLAY_SCOPE",
+  "manifest_scope": "Every edition payload except PUBLICATION_MANIFEST.json itself.",
+  "files": {
+    "ACCESS_AND_EVIDENCE_MAP.md": {
+      "bytes": 7152,
+      "sha256": "a272a627979d4a0ffa3b391c218041da84ce680fed0d0724a97aec3668314cc9"
+    },
+    "PUBLICATION_DISPOSITION.md": {
+      "bytes": 5451,
+      "sha256": "9156288ef722114faa15b7f72827b2bd9d73c33858943dd18c7a0674aa56bd97"
+    },
+    "README.md": {
+      "bytes": 4560,
+      "sha256": "dd93303d0c9cedf5e6af6843078493b8ef680378baa1a79bcca78c6aeef13a3d"
+    },
+    "SIM01_REPORT.md": {
+      "bytes": 14878,
+      "sha256": "0a3f19ff7c0bc45c6665f4a780653dd9681e288bfe0b9016e2cda25d11ed9e48"
+    },
+    "analyze_replays.py": {
+      "bytes": 10453,
+      "sha256": "b108e08685a2b6cf1c03c58141616512da9bffcc46eef537a27ed25b2ab7ec0e"
+    },
+    "check_saved_records.py": {
+      "bytes": 2622,
+      "sha256": "5fd5fe60369f115e95a0b31dd50359946b2647c2119bf75a3b7100b25f4bfdb0"
+    },
+    "data/PLOT_1_tetrahedral_states_20250712_015421.csv": {
+      "bytes": 1451175,
+      "sha256": "6e6fc49be7dbb5ecf77aa1fbeaf5106df12c04ef3c63c29ee84c693f2ed70e74"
+    },
+    "data/tetrahedral_states_20250712_015647.csv": {
+      "bytes": 581988,
+      "sha256": "051f8ad8be54794fcf54171a316d9931cc65b43349634799f446c53eb1b9afe8"
+    },
+    "detached/engine_A.py": {
+      "bytes": 1486,
+      "sha256": "cc3d23594ee5e959fce5c016e716c40ca089f389adb2ed6b1c7e8f71cb2510e9"
+    },
+    "detached/engine_B.py": {
+      "bytes": 1926,
+      "sha256": "be985e48017407d441aec3e3eb45015b332e240abfb38abf960db8a093f55f7c"
+    },
+    "detached/engine_C.py": {
+      "bytes": 2875,
+      "sha256": "05866296f874c5ec462426cf39bfd3518d8d9b3ea9274cb0f4915811532d395b"
+    },
+    "engine_api.py": {
+      "bytes": 2441,
+      "sha256": "05b0fc0ca4fef819b779b948696b6271070f9443c76ce6a5c3259d8c0d823e0a"
+    },
+    "evidence/EXTRACTION_MAP.json": {
+      "bytes": 4043,
+      "sha256": "8a421731574e94cc8e51880d04e6ed0fe580d742c3926a1eb52b01e2b6e6ef5c"
+    },
+    "evidence/FINAL_QA.json": {
+      "bytes": 13655,
+      "sha256": "929be1a1908b6762cfe5fbab4f5e85caf312b4b939be0e42509914c5c7d4a5bc"
+    },
+    "evidence/INPUTS_BEFORE.json": {
+      "bytes": 3321,
+      "sha256": "3ddcf194945a25216d2436b713b2521b96b51182f721018bd2c9e9d2884bcf77"
+    },
+    "evidence/PREFLIGHT_CALL_LEDGER.json": {
+      "bytes": 1772,
+      "sha256": "226209adad46b29530dff3e524014653df981b989f8d4b4de266dad9c33a67b3"
+    },
+    "evidence/PREFLIGHT_RESULTS.json": {
+      "bytes": 22873,
+      "sha256": "ea8390e2400cd4524ddedd43ca037c677178a8f11a1fcf8f6a973a24fc39b180"
+    },
+    "evidence/REPLAY_OBSERVATIONS.json": {
+      "bytes": 8420,
+      "sha256": "2310c8624ab6d83d1fea1c42933cf93bf52619bfa57d433cfa43d2ed30f6d37a"
+    },
+    "evidence/REPLAY_SUPERVISION.json": {
+      "bytes": 3073,
+      "sha256": "5139bfab8d078d17969a0032c129b3ebbf4d891de5e83301465d2e780077ef8c"
+    },
+    "evidence/SAVED_RECORD_LOCAL_VERIFICATION.json": {
+      "bytes": 4169,
+      "sha256": "1e2331cb9dd8d6a3765586e9e606b719cf4dd82635b4a04b8274b79811b92e08"
+    },
+    "evidence/SUBMISSION_REVIEW_MANIFEST.json": {
+      "bytes": 10305,
+      "sha256": "2c5da931a5537fd7a4917d2bf09c8984e781765ce15265ba3b21cb22cc90a321"
+    },
+    "plots/A_trajectories.png": {
+      "bytes": 99220,
+      "sha256": "49b55a2c8793037bd060aef8bdd27fe2036b1284918baba6bdac172b9917d30d"
+    },
+    "plots/B_trajectories.png": {
+      "bytes": 202394,
+      "sha256": "d6f79cbaaac65e891f865fa4e58e448db13d142308e66c45be4011ccead2abb1"
+    },
+    "plots/C_trajectories.png": {
+      "bytes": 190345,
+      "sha256": "b89ef44f8b6aeacde9016216b86ee0d1d2320cdd162ca26c0fa57306958d2dbe"
+    },
+    "plots/forcing_and_feedback.png": {
+      "bytes": 208401,
+      "sha256": "ae80a0d203f118dca95113c28fbcf29469c0e8192318a30aa7eeb1eb50c5a21d"
+    },
+    "plots/motion_metrics.png": {
+      "bytes": 298849,
+      "sha256": "9ea3e28553f7c49cb31fcca24daa96c6443467197f2871328228e872585e7eab"
+    },
+    "preflight.py": {
+      "bytes": 5658,
+      "sha256": "ab00a55dd23b15dd837cb75ee5b629fc273993975e09ee43bb08cd86f129c8ba"
+    },
+    "prepare_detached.py": {
+      "bytes": 5681,
+      "sha256": "d0c5f099ad8f3aa3befbc08b1844d398e9aec529bd3e759e869d2523ea8ade3c"
+    },
+    "received/SAVED_RECORD_INSPECTION.json": {
+      "bytes": 2733,
+      "sha256": "bd66219620f46cff9f329324029581542aa51cc9b2f9dbc5902d687d6d624e75"
+    },
+    "received/SELECTED_INPUT_IDENTITIES.json": {
+      "bytes": 1831,
+      "sha256": "9ccadcc2463b2f6564bec0c5757e8621b306382b2f21832bd74ba5c831747c75"
+    },
+    "received/inspect_saved_records.py": {
+      "bytes": 5731,
+      "sha256": "f3ec1069eb9a17b96efc7b5389a3216ac930f692c50cc41baaa079f8dfe0c23a"
+    },
+    "review/ARCHIVE_REVIEW.json": {
+      "bytes": 933,
+      "sha256": "0bad382d46d3a3060f5d9f450e022735c703d6986f8485431c950b074615d924"
+    },
+    "review/INDEPENDENT_REVIEW_RESULTS.json": {
+      "bytes": 4820,
+      "sha256": "41e1a2f78abfa7f5484a1e320ed8600b4f9f666186187ddffa6660519a2141af"
+    },
+    "review/REVIEW_MANIFEST.json": {
+      "bytes": 734,
+      "sha256": "9e5bb6df0beec3b36ae9697893f14fdaccbdd0c046904868d33225f69cb33424"
+    },
+    "review/SIM01_GPT_SCIENTIFIC_REVIEW.md": {
+      "bytes": 13456,
+      "sha256": "6c8cd8cd27d6a01f675d3bc545782bc90173a70a61893982a5405e32533d350b"
+    },
+    "review/review_saved_evidence.py": {
+      "bytes": 13112,
+      "sha256": "d1a5da449169593d62c11d1313cdd29472b444931e09b4dc928be00d5ec6be49"
+    },
+    "runs/A/OBSERVATIONS.json": {
+      "bytes": 1370,
+      "sha256": "8fb64c81d8e8a4dc89f4f67e667f32be1968cd6205bb0540c99cd90cd1c2357f"
+    },
+    "runs/A/RNG_FINAL.json": {
+      "bytes": 10576,
+      "sha256": "7253aa56203cde40572ac3202cdea6531d15cba278e436a72723fd5899d2a107"
+    },
+    "runs/A/RNG_INITIAL.json": {
+      "bytes": 23813,
+      "sha256": "f6d9df3717a152dc058e3f73246bbdcd936740bfce362b13f22241f8afa2abfe"
+    },
+    "runs/A/RUN_RESULT.json": {
+      "bytes": 635,
+      "sha256": "2b4f1d960a1bd5f0bdf7b685ba6f0a550ebaba20d9ec65266569abf3de6f9270"
+    },
+    "runs/A/initial_state.npz": {
+      "bytes": 643,
+      "sha256": "ed4602d3721ff3d2ad6c8a6affd7af319238c2f26a5e1d555019fc2ca0657960"
+    },
+    "runs/A/observations.csv": {
+      "bytes": 63435,
+      "sha256": "b2e11d54768c8da0020c081e194b2e61e487c2b003fc05d5d88d0c57491bc575"
+    },
+    "runs/A/states.npz": {
+      "bytes": 116202,
+      "sha256": "20f967ab032d37d6ca6cc059e132008ea4c35495755d5e8e4f77bb819cf58876"
+    },
+    "runs/B/OBSERVATIONS.json": {
+      "bytes": 1802,
+      "sha256": "dd0cbd478602002c31bdfa6a792da695ddd7a4b6aca8189af7179236abb4c3e3"
+    },
+    "runs/B/RNG_FINAL.json": {
+      "bytes": 10576,
+      "sha256": "5b315fae4167663dfd332bf8d47e0a92879e3c9e1e5afaa8831a173e495d3309"
+    },
+    "runs/B/RNG_INITIAL.json": {
+      "bytes": 23813,
+      "sha256": "ed90eba6db2350034b7aa5e5eb7829d01c3da747f5593e79c5c80a40bd26af03"
+    },
+    "runs/B/RUN_RESULT.json": {
+      "bytes": 623,
+      "sha256": "9063aa7b9f410a4535d78acdf447b8cfda2b10575fd39cab8c765e0b58fde712"
+    },
+    "runs/B/initial_state.npz": {
+      "bytes": 994,
+      "sha256": "cf94037871e6cf50447eb72a5fbe5514d4685ef2e92a0bf810833333ff0f3116"
+    },
+    "runs/B/observations.csv": {
+      "bytes": 294056,
+      "sha256": "1c20555a389909e3df5bb186f56c0b537eb8efa83946d5e32bf500522b025ffc"
+    },
+    "runs/B/states.npz": {
+      "bytes": 1582497,
+      "sha256": "abf32c0a8f87cb2f3291106832658fdd4cdeb915b0f91f4b133c92350f313ec4"
+    },
+    "runs/C/OBSERVATIONS.json": {
+      "bytes": 4185,
+      "sha256": "e74f1306878af339be50c407b6c6e1aef63dcc71bfe26ca5be2701f4755317f4"
+    },
+    "runs/C/RNG_FINAL.json": {
+      "bytes": 10595,
+      "sha256": "4a93dd4c6999db4e47e96c5c1032e85e0c042a81ae86dc8adecd223d25cecc3e"
+    },
+    "runs/C/RNG_INITIAL.json": {
+      "bytes": 23813,
+      "sha256": "ed90eba6db2350034b7aa5e5eb7829d01c3da747f5593e79c5c80a40bd26af03"
+    },
+    "runs/C/RUN_RESULT.json": {
+      "bytes": 635,
+      "sha256": "7c0d1859770641096fae4e02b9b4e0b3fcdfa376f14e517a0b6fb5a0f2f9572b"
+    },
+    "runs/C/initial_state.npz": {
+      "bytes": 997,
+      "sha256": "67a6010d9e805d51096fff4f4ef7401836c53dc9835e55286e7a85d9a92adfc2"
+    },
+    "runs/C/observations.csv": {
+      "bytes": 32673,
+      "sha256": "7450def967399abc32f9986222b9a343ba557e508faadffa2056eb77c89ba5d3"
+    },
+    "runs/C/states.npz": {
+      "bytes": 205984,
+      "sha256": "693dd94699259b8d9d855c8a513b692d3f4616f6df481ec05eb0be7502134685"
+    },
+    "runs/C/switch_events.csv": {
+      "bytes": 507,
+      "sha256": "8791834827d41e6f682c3c4ce62ac6b022b9fb6d4faef3aa4dbede48309f4e3a"
+    },
+    "sources/source_A.py": {
+      "bytes": 2074,
+      "sha256": "847819ec381e200d9008395175342ec138e52ab3180a4f599b4db1cb91ae42d3"
+    },
+    "sources/source_B.py": {
+      "bytes": 3970,
+      "sha256": "4c53678eefd803e93a910b74e7a8096bfd5095e0d09d09c9df0e7cf514b312f1"
+    },
+    "sources/source_C.py": {
+      "bytes": 5711,
+      "sha256": "e13b92df8ac6df78cfee75b95dacea3b106e96bd5be9bf798cdcf39ccc5bc75c"
+    },
+    "supervise_replays.py": {
+      "bytes": 2311,
+      "sha256": "b8920160c52e8e165449e579cab05c15c2f664298b95aacfb6e02adff07b040e"
+    },
+    "worker_replay.py": {
+      "bytes": 4687,
+      "sha256": "2d47fb3de7956694120407691f6819736dc1adcd243162714b0818a5254728c3"
+    }
+  },
+  "source_to_publication_identity_mapping": [
+    {
+      "edition_path": "SIM01_REPORT.md",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "SIM01_REPORT.md",
+      "bytes": 14878,
+      "sha256": "0a3f19ff7c0bc45c6665f4a780653dd9681e288bfe0b9016e2cda25d11ed9e48"
+    },
+    {
+      "edition_path": "analyze_replays.py",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "analyze_replays.py",
+      "bytes": 10453,
+      "sha256": "b108e08685a2b6cf1c03c58141616512da9bffcc46eef537a27ed25b2ab7ec0e"
+    },
+    {
+      "edition_path": "check_saved_records.py",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "check_saved_records.py",
+      "bytes": 2622,
+      "sha256": "5fd5fe60369f115e95a0b31dd50359946b2647c2119bf75a3b7100b25f4bfdb0"
+    },
+    {
+      "edition_path": "engine_api.py",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "engine_api.py",
+      "bytes": 2441,
+      "sha256": "05b0fc0ca4fef819b779b948696b6271070f9443c76ce6a5c3259d8c0d823e0a"
+    },
+    {
+      "edition_path": "preflight.py",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "preflight.py",
+      "bytes": 5658,
+      "sha256": "ab00a55dd23b15dd837cb75ee5b629fc273993975e09ee43bb08cd86f129c8ba"
+    },
+    {
+      "edition_path": "prepare_detached.py",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "prepare_detached.py",
+      "bytes": 5681,
+      "sha256": "d0c5f099ad8f3aa3befbc08b1844d398e9aec529bd3e759e869d2523ea8ade3c"
+    },
+    {
+      "edition_path": "supervise_replays.py",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "supervise_replays.py",
+      "bytes": 2311,
+      "sha256": "b8920160c52e8e165449e579cab05c15c2f664298b95aacfb6e02adff07b040e"
+    },
+    {
+      "edition_path": "worker_replay.py",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "worker_replay.py",
+      "bytes": 4687,
+      "sha256": "2d47fb3de7956694120407691f6819736dc1adcd243162714b0818a5254728c3"
+    },
+    {
+      "edition_path": "sources/source_A.py",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "sources/source_A.py",
+      "bytes": 2074,
+      "sha256": "847819ec381e200d9008395175342ec138e52ab3180a4f599b4db1cb91ae42d3"
+    },
+    {
+      "edition_path": "sources/source_B.py",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "sources/source_B.py",
+      "bytes": 3970,
+      "sha256": "4c53678eefd803e93a910b74e7a8096bfd5095e0d09d09c9df0e7cf514b312f1"
+    },
+    {
+      "edition_path": "sources/source_C.py",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "sources/source_C.py",
+      "bytes": 5711,
+      "sha256": "e13b92df8ac6df78cfee75b95dacea3b106e96bd5be9bf798cdcf39ccc5bc75c"
+    },
+    {
+      "edition_path": "detached/engine_A.py",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "detached/engine_A.py",
+      "bytes": 1486,
+      "sha256": "cc3d23594ee5e959fce5c016e716c40ca089f389adb2ed6b1c7e8f71cb2510e9"
+    },
+    {
+      "edition_path": "detached/engine_B.py",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "detached/engine_B.py",
+      "bytes": 1926,
+      "sha256": "be985e48017407d441aec3e3eb45015b332e240abfb38abf960db8a093f55f7c"
+    },
+    {
+      "edition_path": "detached/engine_C.py",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "detached/engine_C.py",
+      "bytes": 2875,
+      "sha256": "05866296f874c5ec462426cf39bfd3518d8d9b3ea9274cb0f4915811532d395b"
+    },
+    {
+      "edition_path": "data/PLOT_1_tetrahedral_states_20250712_015421.csv",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "data/PLOT_1_tetrahedral_states_20250712_015421.csv",
+      "bytes": 1451175,
+      "sha256": "6e6fc49be7dbb5ecf77aa1fbeaf5106df12c04ef3c63c29ee84c693f2ed70e74"
+    },
+    {
+      "edition_path": "data/tetrahedral_states_20250712_015647.csv",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "data/tetrahedral_states_20250712_015647.csv",
+      "bytes": 581988,
+      "sha256": "051f8ad8be54794fcf54171a316d9931cc65b43349634799f446c53eb1b9afe8"
+    },
+    {
+      "edition_path": "plots/A_trajectories.png",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "plots/A_trajectories.png",
+      "bytes": 99220,
+      "sha256": "49b55a2c8793037bd060aef8bdd27fe2036b1284918baba6bdac172b9917d30d"
+    },
+    {
+      "edition_path": "plots/B_trajectories.png",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "plots/B_trajectories.png",
+      "bytes": 202394,
+      "sha256": "d6f79cbaaac65e891f865fa4e58e448db13d142308e66c45be4011ccead2abb1"
+    },
+    {
+      "edition_path": "plots/C_trajectories.png",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "plots/C_trajectories.png",
+      "bytes": 190345,
+      "sha256": "b89ef44f8b6aeacde9016216b86ee0d1d2320cdd162ca26c0fa57306958d2dbe"
+    },
+    {
+      "edition_path": "plots/forcing_and_feedback.png",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "plots/forcing_and_feedback.png",
+      "bytes": 208401,
+      "sha256": "ae80a0d203f118dca95113c28fbcf29469c0e8192318a30aa7eeb1eb50c5a21d"
+    },
+    {
+      "edition_path": "plots/motion_metrics.png",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "plots/motion_metrics.png",
+      "bytes": 298849,
+      "sha256": "9ea3e28553f7c49cb31fcca24daa96c6443467197f2871328228e872585e7eab"
+    },
+    {
+      "edition_path": "evidence/EXTRACTION_MAP.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "evidence/EXTRACTION_MAP.json",
+      "bytes": 4043,
+      "sha256": "8a421731574e94cc8e51880d04e6ed0fe580d742c3926a1eb52b01e2b6e6ef5c"
+    },
+    {
+      "edition_path": "evidence/FINAL_QA.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "evidence/FINAL_QA.json",
+      "bytes": 13655,
+      "sha256": "929be1a1908b6762cfe5fbab4f5e85caf312b4b939be0e42509914c5c7d4a5bc"
+    },
+    {
+      "edition_path": "evidence/INPUTS_BEFORE.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "evidence/INPUTS_BEFORE.json",
+      "bytes": 3321,
+      "sha256": "3ddcf194945a25216d2436b713b2521b96b51182f721018bd2c9e9d2884bcf77"
+    },
+    {
+      "edition_path": "evidence/PREFLIGHT_CALL_LEDGER.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "evidence/PREFLIGHT_CALL_LEDGER.json",
+      "bytes": 1772,
+      "sha256": "226209adad46b29530dff3e524014653df981b989f8d4b4de266dad9c33a67b3"
+    },
+    {
+      "edition_path": "evidence/PREFLIGHT_RESULTS.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "evidence/PREFLIGHT_RESULTS.json",
+      "bytes": 22873,
+      "sha256": "ea8390e2400cd4524ddedd43ca037c677178a8f11a1fcf8f6a973a24fc39b180"
+    },
+    {
+      "edition_path": "evidence/REPLAY_OBSERVATIONS.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "evidence/REPLAY_OBSERVATIONS.json",
+      "bytes": 8420,
+      "sha256": "2310c8624ab6d83d1fea1c42933cf93bf52619bfa57d433cfa43d2ed30f6d37a"
+    },
+    {
+      "edition_path": "evidence/REPLAY_SUPERVISION.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "evidence/REPLAY_SUPERVISION.json",
+      "bytes": 3073,
+      "sha256": "5139bfab8d078d17969a0032c129b3ebbf4d891de5e83301465d2e780077ef8c"
+    },
+    {
+      "edition_path": "evidence/SAVED_RECORD_LOCAL_VERIFICATION.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "evidence/SAVED_RECORD_LOCAL_VERIFICATION.json",
+      "bytes": 4169,
+      "sha256": "1e2331cb9dd8d6a3765586e9e606b719cf4dd82635b4a04b8274b79811b92e08"
+    },
+    {
+      "edition_path": "received/SAVED_RECORD_INSPECTION.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "received/SAVED_RECORD_INSPECTION.json",
+      "bytes": 2733,
+      "sha256": "bd66219620f46cff9f329324029581542aa51cc9b2f9dbc5902d687d6d624e75"
+    },
+    {
+      "edition_path": "received/SELECTED_INPUT_IDENTITIES.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "received/SELECTED_INPUT_IDENTITIES.json",
+      "bytes": 1831,
+      "sha256": "9ccadcc2463b2f6564bec0c5757e8621b306382b2f21832bd74ba5c831747c75"
+    },
+    {
+      "edition_path": "received/inspect_saved_records.py",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "received/inspect_saved_records.py",
+      "bytes": 5731,
+      "sha256": "f3ec1069eb9a17b96efc7b5389a3216ac930f692c50cc41baaa079f8dfe0c23a"
+    },
+    {
+      "edition_path": "runs/A/OBSERVATIONS.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/A/OBSERVATIONS.json",
+      "bytes": 1370,
+      "sha256": "8fb64c81d8e8a4dc89f4f67e667f32be1968cd6205bb0540c99cd90cd1c2357f"
+    },
+    {
+      "edition_path": "runs/A/RNG_FINAL.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/A/RNG_FINAL.json",
+      "bytes": 10576,
+      "sha256": "7253aa56203cde40572ac3202cdea6531d15cba278e436a72723fd5899d2a107"
+    },
+    {
+      "edition_path": "runs/A/RNG_INITIAL.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/A/RNG_INITIAL.json",
+      "bytes": 23813,
+      "sha256": "f6d9df3717a152dc058e3f73246bbdcd936740bfce362b13f22241f8afa2abfe"
+    },
+    {
+      "edition_path": "runs/A/RUN_RESULT.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/A/RUN_RESULT.json",
+      "bytes": 635,
+      "sha256": "2b4f1d960a1bd5f0bdf7b685ba6f0a550ebaba20d9ec65266569abf3de6f9270"
+    },
+    {
+      "edition_path": "runs/A/initial_state.npz",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/A/initial_state.npz",
+      "bytes": 643,
+      "sha256": "ed4602d3721ff3d2ad6c8a6affd7af319238c2f26a5e1d555019fc2ca0657960"
+    },
+    {
+      "edition_path": "runs/A/observations.csv",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/A/observations.csv",
+      "bytes": 63435,
+      "sha256": "b2e11d54768c8da0020c081e194b2e61e487c2b003fc05d5d88d0c57491bc575"
+    },
+    {
+      "edition_path": "runs/A/states.npz",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/A/states.npz",
+      "bytes": 116202,
+      "sha256": "20f967ab032d37d6ca6cc059e132008ea4c35495755d5e8e4f77bb819cf58876"
+    },
+    {
+      "edition_path": "runs/B/OBSERVATIONS.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/B/OBSERVATIONS.json",
+      "bytes": 1802,
+      "sha256": "dd0cbd478602002c31bdfa6a792da695ddd7a4b6aca8189af7179236abb4c3e3"
+    },
+    {
+      "edition_path": "runs/B/RNG_FINAL.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/B/RNG_FINAL.json",
+      "bytes": 10576,
+      "sha256": "5b315fae4167663dfd332bf8d47e0a92879e3c9e1e5afaa8831a173e495d3309"
+    },
+    {
+      "edition_path": "runs/B/RNG_INITIAL.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/B/RNG_INITIAL.json",
+      "bytes": 23813,
+      "sha256": "ed90eba6db2350034b7aa5e5eb7829d01c3da747f5593e79c5c80a40bd26af03"
+    },
+    {
+      "edition_path": "runs/B/RUN_RESULT.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/B/RUN_RESULT.json",
+      "bytes": 623,
+      "sha256": "9063aa7b9f410a4535d78acdf447b8cfda2b10575fd39cab8c765e0b58fde712"
+    },
+    {
+      "edition_path": "runs/B/initial_state.npz",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/B/initial_state.npz",
+      "bytes": 994,
+      "sha256": "cf94037871e6cf50447eb72a5fbe5514d4685ef2e92a0bf810833333ff0f3116"
+    },
+    {
+      "edition_path": "runs/B/observations.csv",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/B/observations.csv",
+      "bytes": 294056,
+      "sha256": "1c20555a389909e3df5bb186f56c0b537eb8efa83946d5e32bf500522b025ffc"
+    },
+    {
+      "edition_path": "runs/B/states.npz",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/B/states.npz",
+      "bytes": 1582497,
+      "sha256": "abf32c0a8f87cb2f3291106832658fdd4cdeb915b0f91f4b133c92350f313ec4"
+    },
+    {
+      "edition_path": "runs/C/OBSERVATIONS.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/C/OBSERVATIONS.json",
+      "bytes": 4185,
+      "sha256": "e74f1306878af339be50c407b6c6e1aef63dcc71bfe26ca5be2701f4755317f4"
+    },
+    {
+      "edition_path": "runs/C/RNG_FINAL.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/C/RNG_FINAL.json",
+      "bytes": 10595,
+      "sha256": "4a93dd4c6999db4e47e96c5c1032e85e0c042a81ae86dc8adecd223d25cecc3e"
+    },
+    {
+      "edition_path": "runs/C/RNG_INITIAL.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/C/RNG_INITIAL.json",
+      "bytes": 23813,
+      "sha256": "ed90eba6db2350034b7aa5e5eb7829d01c3da747f5593e79c5c80a40bd26af03"
+    },
+    {
+      "edition_path": "runs/C/RUN_RESULT.json",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/C/RUN_RESULT.json",
+      "bytes": 635,
+      "sha256": "7c0d1859770641096fae4e02b9b4e0b3fcdfa376f14e517a0b6fb5a0f2f9572b"
+    },
+    {
+      "edition_path": "runs/C/initial_state.npz",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/C/initial_state.npz",
+      "bytes": 997,
+      "sha256": "67a6010d9e805d51096fff4f4ef7401836c53dc9835e55286e7a85d9a92adfc2"
+    },
+    {
+      "edition_path": "runs/C/observations.csv",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/C/observations.csv",
+      "bytes": 32673,
+      "sha256": "7450def967399abc32f9986222b9a343ba557e508faadffa2056eb77c89ba5d3"
+    },
+    {
+      "edition_path": "runs/C/states.npz",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/C/states.npz",
+      "bytes": 205984,
+      "sha256": "693dd94699259b8d9d855c8a513b692d3f4616f6df481ec05eb0be7502134685"
+    },
+    {
+      "edition_path": "runs/C/switch_events.csv",
+      "source_kind": "accepted_submission",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "runs/C/switch_events.csv",
+      "bytes": 507,
+      "sha256": "8791834827d41e6f682c3c4ce62ac6b022b9fb6d4faef3aa4dbede48309f4e3a"
+    },
+    {
+      "edition_path": "evidence/SUBMISSION_REVIEW_MANIFEST.json",
+      "source_kind": "accepted_submission_manifest",
+      "source_archive": "SIM01_GPT_REVIEW.zip",
+      "source_member": "REVIEW_MANIFEST.json",
+      "bytes": 10305,
+      "sha256": "2c5da931a5537fd7a4917d2bf09c8984e781765ce15265ba3b21cb22cc90a321"
+    },
+    {
+      "edition_path": "review/ARCHIVE_REVIEW.json",
+      "source_kind": "accepted_GPT_review",
+      "source_archive": "SIM01_GPT_SCIENTIFIC_REVIEW_AND_EVIDENCE.zip",
+      "source_member": "ARCHIVE_REVIEW.json",
+      "bytes": 933,
+      "sha256": "0bad382d46d3a3060f5d9f450e022735c703d6986f8485431c950b074615d924"
+    },
+    {
+      "edition_path": "review/INDEPENDENT_REVIEW_RESULTS.json",
+      "source_kind": "accepted_GPT_review",
+      "source_archive": "SIM01_GPT_SCIENTIFIC_REVIEW_AND_EVIDENCE.zip",
+      "source_member": "INDEPENDENT_REVIEW_RESULTS.json",
+      "bytes": 4820,
+      "sha256": "41e1a2f78abfa7f5484a1e320ed8600b4f9f666186187ddffa6660519a2141af"
+    },
+    {
+      "edition_path": "review/REVIEW_MANIFEST.json",
+      "source_kind": "accepted_GPT_review",
+      "source_archive": "SIM01_GPT_SCIENTIFIC_REVIEW_AND_EVIDENCE.zip",
+      "source_member": "REVIEW_MANIFEST.json",
+      "bytes": 734,
+      "sha256": "9e5bb6df0beec3b36ae9697893f14fdaccbdd0c046904868d33225f69cb33424"
+    },
+    {
+      "edition_path": "review/SIM01_GPT_SCIENTIFIC_REVIEW.md",
+      "source_kind": "accepted_GPT_review",
+      "source_archive": "SIM01_GPT_SCIENTIFIC_REVIEW_AND_EVIDENCE.zip",
+      "source_member": "SIM01_GPT_SCIENTIFIC_REVIEW.md",
+      "bytes": 13456,
+      "sha256": "6c8cd8cd27d6a01f675d3bc545782bc90173a70a61893982a5405e32533d350b"
+    },
+    {
+      "edition_path": "review/review_saved_evidence.py",
+      "source_kind": "accepted_GPT_review",
+      "source_archive": "SIM01_GPT_SCIENTIFIC_REVIEW_AND_EVIDENCE.zip",
+      "source_member": "review_saved_evidence.py",
+      "bytes": 13112,
+      "sha256": "d1a5da449169593d62c11d1313cdd29472b444931e09b4dc928be00d5ec6be49"
+    }
+  ],
+  "historical_relative_source_map": {
+    "Simulations_Trash/Simulations_part_2/recursive_attractor.py": {
+      "edition_path": "sources/source_A.py",
+      "bytes": 2074,
+      "sha256": "847819ec381e200d9008395175342ec138e52ab3180a4f599b4db1cb91ae42d3"
+    },
+    "Simulations_Trash/Simulations_part_2/3Dtriangles.py": {
+      "edition_path": "sources/source_B.py",
+      "bytes": 3970,
+      "sha256": "4c53678eefd803e93a910b74e7a8096bfd5095e0d09d09c9df0e7cf514b312f1"
+    },
+    "Simulations_Trash/Simulations_part_1/plot_1.py": {
+      "edition_path": "sources/source_C.py",
+      "bytes": 5711,
+      "sha256": "e13b92df8ac6df78cfee75b95dacea3b106e96bd5be9bf798cdcf39ccc5bc75c"
+    },
+    "Simulations/CSV/PLOT_1_tetrahedral_states_20250712_015421.csv": {
+      "edition_path": "data/PLOT_1_tetrahedral_states_20250712_015421.csv",
+      "bytes": 1451175,
+      "sha256": "6e6fc49be7dbb5ecf77aa1fbeaf5106df12c04ef3c63c29ee84c693f2ed70e74"
+    },
+    "Simulations/CSV/tetrahedral_states_20250712_015647.csv": {
+      "edition_path": "data/tetrahedral_states_20250712_015647.csv",
+      "bytes": 581988,
+      "sha256": "051f8ad8be54794fcf54171a316d9931cc65b43349634799f446c53eb1b9afe8"
+    }
+  },
+  "accepted_input_archives": {
+    "SIM01_GPT_REVIEW.zip": {
+      "bytes": 3859173,
+      "sha256": "a3daf4e915b73a6ec4987647732d322623c5a155b8dab436883e30dacbf6a31f",
+      "manifested_payloads": 67
+    },
+    "SIM01_GPT_SCIENTIFIC_REVIEW_AND_EVIDENCE.zip": {
+      "bytes": 13487,
+      "sha256": "18067dbee723cddff009869e1bc8c915bca8e54f5a7a07975c39fe2b55802c81",
+      "manifested_payloads": 4
+    }
+  },
+  "new_editorial_files": [
+    "README.md",
+    "PUBLICATION_DISPOSITION.md",
+    "ACCESS_AND_EVIDENCE_MAP.md"
+  ],
+  "new_scientific_checker_calls": 0,
+  "new_rollout_updates": 0
+}

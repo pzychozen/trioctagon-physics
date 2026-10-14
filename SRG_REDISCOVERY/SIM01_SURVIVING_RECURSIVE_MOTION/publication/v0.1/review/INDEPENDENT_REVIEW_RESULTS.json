@@ -1,0 +1,135 @@
+{
+  "status": "PASS",
+  "environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5"
+  },
+  "method": "Independently written saved-input residuals, static AST comparison, saved-array readouts and isolated RNG replay. No motion rollout or engine import.",
+  "new_rollout_updates": 0,
+  "payloads_verified": 67,
+  "static_source_checks": {
+    "A": {
+      "helpers_constants_initialization_update_AST_equal": true
+    },
+    "B": {
+      "helpers_constants_initialization_update_AST_equal": true
+    },
+    "C": {
+      "helpers_constants_initialization_update_AST_equal": true
+    }
+  },
+  "replay_records": {
+    "A": {
+      "stored_updates_checked": 500,
+      "position_residual_max": 0.0,
+      "velocity_residual_max": 5.551115123125783e-17,
+      "H_residual_max": 4.440892098500626e-16,
+      "G_residual_max": 0.0,
+      "energy_residual_max": 0.0,
+      "initial_state_and_full_RNG_checkpoints_match": true,
+      "mean_speed_peak": 0.5067429364625389,
+      "mean_speed_final": 0.002291661053687994,
+      "mean_pair_distance_initial": 1.0293409508086142,
+      "mean_pair_distance_final": 0.6709137899751205,
+      "coordinate_crossing_body_updates": 1,
+      "maximum_minimal_image_step": 0.030021600233728726,
+      "unwrapping_velocity_residual": 1.7994367931470356e-16
+    },
+    "B": {
+      "stored_updates_checked": 2000,
+      "position_residual_max": 0.0,
+      "velocity_residual_max": 1.1102230246251565e-16,
+      "H_residual_max": 4.440892098500626e-16,
+      "G_residual_max": 0.0,
+      "energy_residual_max": 0.0,
+      "initial_state_and_full_RNG_checkpoints_match": true,
+      "mean_speed_peak": 0.5625339631910212,
+      "mean_speed_final": 0.000911196317345489,
+      "mean_pair_distance_initial": 4.931293064971952,
+      "mean_pair_distance_final": 3.2366457645259743,
+      "coordinate_crossing_body_updates": 0,
+      "maximum_minimal_image_step": 0.059998543820904304,
+      "unwrapping_velocity_residual": 8.881784197001252e-16
+    },
+    "C": {
+      "stored_updates_checked": 200,
+      "position_residual_max": 2.220446049250313e-16,
+      "velocity_residual_max": 1.1102230246251565e-16,
+      "H_residual_max": 4.440892098500626e-16,
+      "G_residual_max": 0.0,
+      "energy_residual_max": 0.0,
+      "initial_state_and_full_RNG_checkpoints_match": true,
+      "mean_speed_peak": 0.5456447096272605,
+      "mean_speed_final": 0.01488668623461,
+      "mean_pair_distance_initial": 4.931293064971952,
+      "mean_pair_distance_final": 4.769510580506586,
+      "coordinate_crossing_body_updates": 7,
+      "maximum_minimal_image_step": 0.06099754487765804,
+      "unwrapping_velocity_residual": 8.881784197001252e-16,
+      "switch_count": 14,
+      "draw_count": 1600,
+      "gate_open_updates": 200,
+      "legacy_detector_events": 1509,
+      "minimal_image_events_gt1": 0,
+      "final_bits": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    }
+  },
+  "historical_records": {
+    "PLOT_1_tetrahedral_states_20250712_015421.csv": {
+      "adjacent_transitions_checked": 1091,
+      "rows": 8736,
+      "position_residual_max": 8.881784197001252e-16,
+      "velocity_residual_max": 1.1102230246251565e-16,
+      "G_residual_max": 0.0,
+      "energy_residual_max": 0.0,
+      "legacy_detector_events": 8151,
+      "minimal_image_events_gt1": 0,
+      "maximum_minimal_image_step": 0.06153194162680668,
+      "repeated_frame_successions": 6,
+      "decreasing_frame_successions": 5,
+      "bit_changes": 79
+    },
+    "tetrahedral_states_20250712_015647.csv": {
+      "adjacent_transitions_checked": 439,
+      "rows": 3520,
+      "position_residual_max": 4.440892098500626e-16,
+      "velocity_residual_max": 1.1102230246251565e-16,
+      "G_residual_max": 0.0,
+      "energy_residual_max": 0.0,
+      "legacy_detector_events": 3129,
+      "minimal_image_events_gt1": 0,
+      "maximum_minimal_image_step": 0.060380826469925035,
+      "repeated_frame_successions": 3,
+      "decreasing_frame_successions": 2,
+      "bit_changes": 33
+    }
+  },
+  "reviewer_only_common_200_update_comparison": {
+    "method": "Align existing B prefix and C by stored update count; not a new randomized intervention.",
+    "initial_positions_equal": true,
+    "initial_velocities_equal": true,
+    "H_inputs_equal": true,
+    "first_different_state_index": 2,
+    "first_switch_update_index": 1,
+    "B_mean_pair_distance_after_200": 3.740445322698693,
+    "C_mean_pair_distance_after_200": 4.769510580506586,
+    "mean_periodic_bodywise_separation_B_vs_C_after_200": 1.4971661268032403,
+    "B_mean_speed_after_200": 0.01616503715401496,
+    "C_mean_speed_after_200": 0.01488668623461
+  },
+  "preflight_ledger": {
+    "recorded_calls": 12,
+    "reexecuted_calls": 0
+  },
+  "input_bundle_unchanged": true,
+  "passive_transition_total": 4230
+}

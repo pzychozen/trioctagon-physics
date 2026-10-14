@@ -47,3 +47,7 @@ The v0.1 chapter gives the exact two-step access criterion and sharp singleton a
 ## SRG Quantum Ring Spectra
 
 [Symbolic Resonance Geometry and Quantum Ring Spectra: An Exact Discrete-to-Continuum Spectral Correspondence](PAPERS/SRG_QUANTUM_RING_SPECTRAL_CORRESPONDENCE/publication/v0.1/README.md) proves the positive periodic-Laplacian trace limit involving zeta(3), finite-size bounds and finite-band phase estimates for the adopted standard quantum-ring Hamiltonian. Historical SRG calibration and the later spectral diagnostic remain distinct from the adopted quantum kinetic scale. The [publication disposition](PAPERS/SRG_QUANTUM_RING_SPECTRAL_CORRESPONDENCE/publication/v0.1/PUBLICATION_DISPOSITION.md) records internal GPT acceptance, owner authorization and the unchanged research-rights boundary.
+
+## SRG Early Recursive Motion — SIM01
+
+[Early SRG Recursive Motion: Source Reconstruction, Stateful Feedback, and Finite Replays](SIM01_SURVIVING_RECURSIVE_MOTION/publication/v0.1/README.md) preserves the accepted SIM01 research note, the three historical motion programs, finite replay records, figures and complete GPT scientific review. C is selected within this surviving motion family; the June topology producer remains unresolved. See the [publication disposition](SIM01_SURVIVING_RECURSIVE_MOTION/publication/v0.1/PUBLICATION_DISPOSITION.md) for bounded acceptance, assistance attribution, rights and the edition’s publication status.
