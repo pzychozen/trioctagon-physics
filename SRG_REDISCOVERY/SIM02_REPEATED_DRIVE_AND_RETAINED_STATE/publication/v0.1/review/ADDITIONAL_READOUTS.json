@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "accounting": {
+    "transition_evaluations": 0,
+    "RNG_draws": 0,
+    "new_rollout_updates": 0
+  },
+  "additional_observation": "Schedule divergence at S_201 precedes first new toggle at update 202 / successor S_203.",
+  "first_new_toggle": {
+    "CONTINUOUS": {
+      "first_new_toggle_update": 202,
+      "first_new_toggle_successor": 203,
+      "first_new_toggle_centers": [
+        1
+      ],
+      "no_toggle_at_update_200": true,
+      "no_toggle_at_update_201": true
+    },
+    "REPEATED": {
+      "first_new_toggle_update": 202,
+      "first_new_toggle_successor": 203,
+      "first_new_toggle_centers": [
+        1
+      ],
+      "no_toggle_at_update_200": true,
+      "no_toggle_at_update_201": true
+    }
+  },
+  "additional_CSV_checks": {
+    "repeated_cycle_summary.csv": 5,
+    "repeated_cycle_boundaries.csv": 6,
+    "same_phase_summary.csv": 8,
+    "same_phase_labeled_differences.csv_exact_near_flags": 1600
+  }
+}

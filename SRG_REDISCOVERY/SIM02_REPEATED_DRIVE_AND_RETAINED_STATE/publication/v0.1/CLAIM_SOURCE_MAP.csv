@@ -1,0 +1,30 @@
+manuscript_locator,claim,source_path,source_key_or_table,status
+Abstract; Sections 5-7; Conclusion,Renewed speed and changing state with matched cross-arm randomness,review/INDEPENDENT_REVIEW_RESULTS.json,arms; comparisons,accepted observation
+Section 1; reference 1,Historical frame-label resets and selection of C; accepted prefix,inputs/SIM01_REPORT.md,C selection and clock discussion; pinned SIM01 edition,source definition
+Section 2.1; equation 1,Eight labeled centers; p/v/bits and complete RNG state; display shapes,inputs/sources/source_C.py; inputs/engine_api.py,source globals and display; rng_json,source definition
+Section 2; equations 2-11,Wrapping; H; G; damping; sequential centroid; bit toggle; force; position update,inputs/detached/engine_C.py,lines 3-33 and 52-73,source definition
+Section 3; table 1,"Schedules, counts, branch restoration, bit widening and isolated preflight",SIM02_REPORT.md; evidence/PREFLIGHT_GATE.json,accepted compatibility and execution paragraphs; pairs,accepted observation
+Section 4; equations 12-16,"Readout definitions, phase indexing and near-repeat convention",SIM02_REPORT.md,passive measurements and same-phase convention,source definition
+"Section 5, paragraph 1",First H values and common incoming G,review/SIM02_GPT_SCIENTIFIC_REVIEW.md,section 3,accepted observation
+Table 2; Abstract,Four new block-average speeds,review/INDEPENDENT_REVIEW_RESULTS.json,comparisons.cycles[1:5],accepted observation
+Section 5; figure 2 discussion,Inherited and new speed peaks; exactly repeated H,review/INDEPENDENT_REVIEW_RESULTS.json,comparisons.cycles; repeated_H_exactly_equal_all_five_cycles,accepted observation
+"Section 5, final paragraph",Final speeds at S1000,review/INDEPENDENT_REVIEW_RESULTS.json,arms.CONTINUOUS.final_mean_speed; arms.REPEATED.final_mean_speed,accepted observation
+Table 3; Section 6,"Cycle separation, incoming G and last speed",analysis/repeated_cycle_summary.csv,cycles 0-4; mean/last columns,accepted observation
+Section 6 G paragraph,New G ranges; all gates open,review/INDEPENDENT_REVIEW_RESULTS.json,arms.*.G_min; G_max; gate_open_updates,accepted observation
+Table 4; Section 6 endpoint,Labeled cross-arm residuals and Hamming counts,analysis/cross_arm_boundaries.csv,"state indices 200,400,600,800,1000",accepted observation
+"Section 7, paragraphs 1-2",6400 draws; 75 toggles; equal histories and full RNG boundaries,review/INDEPENDENT_REVIEW_RESULTS.json; SIM02_REPORT.md,arms; comparisons.all_cross_arm_draw_assignments_equal; all_cross_arm_bits_equal; RNG alignment,accepted observation
+"Section 7, paragraph 3; Abstract; Conclusion","Divergence S201 precedes first new toggle n202, center1, S203",review/ADDITIONAL_READOUTS.json,additional_observation; first_new_toggle,reviewer observation
+Section 7; equations 17-18; table 5,Eight requested rows; seven unique pairs; 1400 unique phases,review/INDEPENDENT_REVIEW_RESULTS.json,comparisons.unique_cycle_pair_comparisons; unique_same_phase_pairs,reviewer observation
+Table 5; Section 7,Same-phase minima/maxima and Hamming ranges; no passing phase,analysis/same_phase_summary.csv,seven unique cycle/reference pairs,accepted observation
+Section 8; equations 19-20,Norm of pre-damping increment independent of selected sign at fixed d/G/H,review/SIM02_GPT_SCIENTIFIC_REVIEW.md,section 5; real-valued derivation,derived identity
+Section 8,Large-distance conditional explanation; no assertion it was measured throughout,review/SIM02_GPT_SCIENTIFIC_REVIEW.md,section 5,limitation
+Section 9; equation 21,Legacy displacement detector and passive kinetic-like diagnostic,inputs/detached/engine_C.py,compute_energy; detect_teleport,source definition
+Table 6; Section 9,"Flag counts, minimal-image counts, wraps and lift checks",review/INDEPENDENT_REVIEW_RESULTS.json,arms.* legacy_flags; minimal_image_steps_above_1; wrapped_body_crossings; increment/lift maxima,accepted observation
+Section 10,"Saved-transition counts, RNG verification counts, residuals, review versions",review/INDEPENDENT_REVIEW_RESULTS.json,accounting; environment; passive_transition_absolute_tolerance; arms.*.max_transition_residuals,reviewer observation
+"Sections 1, 7-11","Finite scope; no independent samples, learning claim, physical calibration or asymptotic theorem",review/SIM02_GPT_SCIENTIFIC_REVIEW.md; SIM02_REPORT.md,"review sections 1,5-8; report conclusion",limitation
+Figure 1; Section 5,Unchanged accepted image; inherited/new and incoming/post-update caption conventions,plots/01_mean_speed.png,original PNG byte stream,accepted observation
+Figure 2; Section 5,Unchanged accepted image; inherited/new and incoming/post-update caption conventions,plots/04_repeated_speed.png,original PNG byte stream,accepted observation
+Figure 3; Section 6,Unchanged accepted image; inherited/new and incoming/post-update caption conventions,plots/02_pair_separation.png,original PNG byte stream,accepted observation
+Figure 4; Section 6,Unchanged accepted image; inherited/new and incoming/post-update caption conventions,plots/05_repeated_separation.png,original PNG byte stream,accepted observation
+Figure 5; Appendix A,Unchanged accepted image; inherited/new and incoming/post-update caption conventions,plots/03_incoming_G.png,original PNG byte stream,accepted observation
+Figure 6; Appendix A,Unchanged accepted image; inherited/new and incoming/post-update caption conventions,plots/06_repeated_G.png,original PNG byte stream,accepted observation

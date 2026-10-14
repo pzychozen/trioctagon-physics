@@ -51,3 +51,7 @@ The v0.1 chapter gives the exact two-step access criterion and sharp singleton a
 ## SRG Early Recursive Motion — SIM01
 
 [Early SRG Recursive Motion: Source Reconstruction, Stateful Feedback, and Finite Replays](SIM01_SURVIVING_RECURSIVE_MOTION/publication/v0.1/README.md) preserves the accepted SIM01 research note, the three historical motion programs, finite replay records, figures and complete GPT scientific review. C is selected within this surviving motion family; the June topology producer remains unresolved. See the [publication disposition](SIM01_SURVIVING_RECURSIVE_MOTION/publication/v0.1/PUBLICATION_DISPOSITION.md) for bounded acceptance, assistance attribution, rights and the edition’s publication status.
+## SRG Repeated Driving and Retained State — SIM02
+
+[Repeated Driving and Retained State in Early SRG Motion: A Bounded Paired Continuation of Historical Engine C](SIM02_REPEATED_DRIVE_AND_RETAINED_STATE/publication/v0.1/README.md) explains the accepted two-arm continuation: repeated driving renews motion while tested same-phase labeled states change, and distinct cross-arm trajectories retain equal realized draws and bit histories. The edition includes the paper, editable source, six unchanged figures, selected numerical/source evidence and complete GPT scientific review. See its [publication disposition](SIM02_REPEATED_DRIVE_AND_RETAINED_STATE/publication/v0.1/PUBLICATION_DISPOSITION.md) for scope, attribution, rights and the separate manuscript/publication gate.
+
