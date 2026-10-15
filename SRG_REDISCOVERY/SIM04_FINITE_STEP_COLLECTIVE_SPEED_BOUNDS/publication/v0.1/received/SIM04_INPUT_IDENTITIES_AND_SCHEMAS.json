@@ -1,0 +1,785 @@
+{
+  "schema": "SRG-SIM04 selected source identity map v0.1",
+  "date": "2026-10-14",
+  "scientific_source_commit": "e1f5115402a05965834493c1254b03118a531c92",
+  "edition_root": "SRG_REDISCOVERY/SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT/publication/v0.1",
+  "required_file_count": 13,
+  "files": {
+    "PUBLICATION_MANIFEST.json": {
+      "repository_path": "SRG_REDISCOVERY/SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT/publication/v0.1/PUBLICATION_MANIFEST.json",
+      "bytes": 14362,
+      "sha256": "99a748d6da10d4f76b634ea45f75e72cecc0e1b24c7f302b9133e682d03717c6",
+      "git_blob_sha1": "be52ea11ec9398360da8c0cef6e628ec04285ec8",
+      "role": "Exact published edition inventory; retained preparation wording is historical."
+    },
+    "ACCESS_AND_EVIDENCE_MAP.md": {
+      "repository_path": "SRG_REDISCOVERY/SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT/publication/v0.1/ACCESS_AND_EVIDENCE_MAP.md",
+      "bytes": 10743,
+      "sha256": "0f39c84b7406818af93c555fdb8e30bd4bb207d5b873c4e11425341190e7c542",
+      "git_blob_sha1": "72155b1c66de01f16fe5c50737c1e5522a4a4adf",
+      "role": "Field semantics, dataset IDs, source and access boundaries."
+    },
+    "SIM03_REPORT.md": {
+      "repository_path": "SRG_REDISCOVERY/SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT/publication/v0.1/SIM03_REPORT.md",
+      "bytes": 25121,
+      "sha256": "8e298578571d8d5267afb54fc9d28a7c12d805484c4480459ff6a302063fd553",
+      "git_blob_sha1": "0b446d1a29de51389e15bee782289f4fdd451041",
+      "role": "Accepted source definitions, observations and limitations."
+    },
+    "review/SIM03_GPT_SCIENTIFIC_REVIEW.md": {
+      "repository_path": "SRG_REDISCOVERY/SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT/publication/v0.1/review/SIM03_GPT_SCIENTIFIC_REVIEW.md",
+      "bytes": 17989,
+      "sha256": "b5c98805ce86ec996f34f050080c23da2d41e6bac156d38153347304d3e239a0",
+      "git_blob_sha1": "171a0c823227374fb479dcebd75a86bfaf64a8cf",
+      "role": "Accepted derivative bound, distinction between scalar and vector dispersion, indexing caveat."
+    },
+    "SRG_SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT_v0.1.tex": {
+      "repository_path": "SRG_REDISCOVERY/SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT/publication/v0.1/SRG_SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT_v0.1.tex",
+      "bytes": 34123,
+      "sha256": "324fdb98539f63f7b71a940b9aee3eed1ddfd43fb9fbd96f347288fd62966e23",
+      "git_blob_sha1": "b8cd8430efb0eac7925269319b97bc961d080cd1",
+      "role": "Corrected published manuscript; inspect as text, no build."
+    },
+    "analysis/center_decomposition.npz": {
+      "repository_path": "SRG_REDISCOVERY/SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT/publication/v0.1/analysis/center_decomposition.npz",
+      "bytes": 5030162,
+      "sha256": "28d312bfcd2941b87c8d51710f9b5fa1619ec7f1df325d7257083b462aba6b1a",
+      "git_blob_sha1": "47482337a9e57cef5d61d10d2c762190e7f311b0",
+      "role": "Sole primary numerical source; use PREFIX and REPEATED rows only."
+    },
+    "analysis/repeated_phase_curves.csv": {
+      "repository_path": "SRG_REDISCOVERY/SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT/publication/v0.1/analysis/repeated_phase_curves.csv",
+      "bytes": 1087584,
+      "sha256": "f9c92ce0a91a90df669f78e7ff68d715ff8545d41f655ed09e9bfd227314be1e",
+      "git_blob_sha1": "4a861da4b6511a8c03de0e8805dcc276d6bf6c2f",
+      "role": "Accepted phase/mean-speed reference values and indexing, not bound inputs containing outputs."
+    },
+    "analysis/phase_spread.csv": {
+      "repository_path": "SRG_REDISCOVERY/SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT/publication/v0.1/analysis/phase_spread.csv",
+      "bytes": 950494,
+      "sha256": "5a61f26d261321e9a5bae2866b237637699c1cb623dd261ef0d3417f074331db",
+      "git_blob_sha1": "5d70f5bfa62d30560a261aec6c2d8eb2ce8f0eef",
+      "role": "Accepted scalar dispersion reference, kept on outcome side only."
+    },
+    "evidence/OUTPUT_SCHEMAS.json": {
+      "repository_path": "SRG_REDISCOVERY/SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT/publication/v0.1/evidence/OUTPUT_SCHEMAS.json",
+      "bytes": 7421,
+      "sha256": "0da830ca03539d2e31511aae8180e1460e729a18ef7615a0e62204a361fa504b",
+      "git_blob_sha1": "eedb432a5cfdb4920a50053d78396af315f896a8",
+      "role": "Complete accepted NPZ schema."
+    },
+    "evidence/TABLE_SCHEMAS.json": {
+      "repository_path": "SRG_REDISCOVERY/SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT/publication/v0.1/evidence/TABLE_SCHEMAS.json",
+      "bytes": 19328,
+      "sha256": "e9777672bf632deec418b5bc20c69f1e93047c9a5b8895fa4a154b1f76865e73",
+      "git_blob_sha1": "bea95cbb0842923bdab774d23e9fe6204f82ca87",
+      "role": "Accepted CSV schema."
+    },
+    "analyst/analyze.py": {
+      "repository_path": "SRG_REDISCOVERY/SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT/publication/v0.1/analyst/analyze.py",
+      "bytes": 30969,
+      "sha256": "d09534c2b0d52653630ce379749830f256656589ca3e58039183adb2e4ec4166",
+      "git_blob_sha1": "e537edfa9a9984cea9b1fd555e8d9303b27bcce2",
+      "role": "Read-only semantic reference for fields/reductions; do not import or run."
+    },
+    "inputs/accepted_sim02/inputs/detached/engine_C.py": {
+      "repository_path": "SRG_REDISCOVERY/SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT/publication/v0.1/inputs/accepted_sim02/inputs/detached/engine_C.py",
+      "bytes": 2875,
+      "sha256": "05866296f874c5ec462426cf39bfd3518d8d9b3ea9274cb0f4915811532d395b",
+      "git_blob_sha1": "0ca12c3006cdb0609df6f3a41324de01bf477590",
+      "role": "Read-only source operator definition; do not import or run."
+    },
+    "inputs/accepted_sim02/inputs/sources/source_C.py": {
+      "repository_path": "SRG_REDISCOVERY/SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT/publication/v0.1/inputs/accepted_sim02/inputs/sources/source_C.py",
+      "bytes": 5711,
+      "sha256": "e13b92df8ac6df78cfee75b95dacea3b106e96bd5be9bf798cdcf39ccc5bc75c",
+      "git_blob_sha1": "c29263ef55fff61a7c3432cf1210ac543b556e19",
+      "role": "Original historical source as text; do not import or run."
+    }
+  },
+  "identity_basis": {
+    "kind": "byte inspection of previously approved, uploaded corrected repository candidate",
+    "candidate_zip_bytes": 15276872,
+    "candidate_zip_sha256": "0e8ddc5b78e014f2511b1da19283ef27a2d348da7c63548d84290c9de2189117",
+    "live_GitHub_read_this_preparation": false,
+    "scope": "Selected hashes, metadata, source text and schemas only; no empirical bound evaluation, source-state reconstruction or old script execution."
+  },
+  "dataset_ids": {
+    "PREFIX": 0,
+    "CONTINUOUS": 1,
+    "REPEATED": 2
+  },
+  "numerical_selection": {
+    "PREFIX": {
+      "dataset_id": 0,
+      "n_inclusive": [
+        0,
+        199
+      ]
+    },
+    "REPEATED": {
+      "dataset_id": 2,
+      "n_inclusive": [
+        200,
+        999
+      ]
+    },
+    "excluded": [
+      "CONTINUOUS"
+    ],
+    "selected_updates": 1000,
+    "selected_center_rows": 8000
+  },
+  "npz_field_schema": {
+    "record_id": {
+      "shape": [
+        14400
+      ],
+      "dtype": "int32"
+    },
+    "update_row": {
+      "shape": [
+        14400
+      ],
+      "dtype": "int32"
+    },
+    "dataset_id": {
+      "shape": [
+        14400
+      ],
+      "dtype": "int8"
+    },
+    "update_index": {
+      "shape": [
+        14400
+      ],
+      "dtype": "int32"
+    },
+    "source_frame": {
+      "shape": [
+        14400
+      ],
+      "dtype": "int32"
+    },
+    "center": {
+      "shape": [
+        14400
+      ],
+      "dtype": "int8"
+    },
+    "block": {
+      "shape": [
+        14400
+      ],
+      "dtype": "int8"
+    },
+    "phase": {
+      "shape": [
+        14400
+      ],
+      "dtype": "int16"
+    },
+    "bit_minus": {
+      "shape": [
+        14400
+      ],
+      "dtype": "int8"
+    },
+    "bit_plus": {
+      "shape": [
+        14400
+      ],
+      "dtype": "int8"
+    },
+    "bit_changed": {
+      "shape": [
+        14400
+      ],
+      "dtype": "bool"
+    },
+    "H_sign": {
+      "shape": [
+        14400
+      ],
+      "dtype": "int8"
+    },
+    "complete": {
+      "shape": [
+        14400
+      ],
+      "dtype": "bool"
+    },
+    "r": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "m": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "t": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "v2": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "w2": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "z2": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "impulse_norm": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "I": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "A": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "L": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "L_direct": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "L_stable_minus_direct": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "B": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "C": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "R": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "R_stable": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "R_stable_minus_direct": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "cosine": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "retention": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "chi": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "square_internal_residual": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "square_direct_internal_residual": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "speed_internal_residual": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "speed_stable_internal_residual": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "H": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "G": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "source_time": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "d_norm": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "q": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "q2": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "h": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "impulse_factor_residual": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "I_factor_residual": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "post_norm": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "post_squared": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "square_saved_residual": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "square_direct_saved_residual": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "speed_saved_residual": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "speed_stable_saved_residual": {
+      "shape": [
+        14400
+      ],
+      "dtype": "float64"
+    },
+    "cosine_valid": {
+      "shape": [
+        14400
+      ],
+      "dtype": "bool"
+    },
+    "retention_valid": {
+      "shape": [
+        14400
+      ],
+      "dtype": "bool"
+    },
+    "chi_valid": {
+      "shape": [
+        14400
+      ],
+      "dtype": "bool"
+    },
+    "budget_zero_denominator": {
+      "shape": [
+        14400
+      ],
+      "dtype": "bool"
+    },
+    "damping_zero_denominator": {
+      "shape": [
+        14400
+      ],
+      "dtype": "bool"
+    },
+    "incoming_velocity": {
+      "shape": [
+        14400,
+        3
+      ],
+      "dtype": "float64"
+    },
+    "saved_successor_velocity": {
+      "shape": [
+        14400,
+        3
+      ],
+      "dtype": "float64"
+    },
+    "centroid": {
+      "shape": [
+        14400,
+        3
+      ],
+      "dtype": "float64"
+    },
+    "d": {
+      "shape": [
+        14400,
+        3
+      ],
+      "dtype": "float64"
+    },
+    "impulse": {
+      "shape": [
+        14400,
+        3
+      ],
+      "dtype": "float64"
+    },
+    "w": {
+      "shape": [
+        14400,
+        3
+      ],
+      "dtype": "float64"
+    },
+    "z": {
+      "shape": [
+        14400,
+        3
+      ],
+      "dtype": "float64"
+    },
+    "velocity_residual": {
+      "shape": [
+        14400,
+        3
+      ],
+      "dtype": "float64"
+    }
+  },
+  "reference_csv_headers": {
+    "analysis/repeated_phase_curves.csv": [
+      "dataset",
+      "update_index",
+      "response_state_index",
+      "block",
+      "phase",
+      "inherited",
+      "source_frame",
+      "H",
+      "H_sign",
+      "h",
+      "G",
+      "G_squared",
+      "incoming_mean_speed",
+      "pre_damping_mean_speed",
+      "reconstructed_post_mean_speed",
+      "post_mean_speed",
+      "incoming_mean_squared_speed",
+      "pre_damping_mean_squared_speed",
+      "reconstructed_post_mean_squared_speed",
+      "post_mean_squared_speed",
+      "mean_I",
+      "mean_A",
+      "mean_L",
+      "mean_L_direct",
+      "mean_B",
+      "mean_C",
+      "mean_R",
+      "mean_R_stable",
+      "mean_q",
+      "mean_q2",
+      "mean_impulse_norm",
+      "A_signed_center_sum",
+      "A_absolute_center_sum",
+      "mean_abs_A",
+      "A_cancellation_raw",
+      "A_cancellation_defined",
+      "A_cancellation_report_valid",
+      "A_cancellation",
+      "C_signed_center_sum",
+      "C_absolute_center_sum",
+      "mean_abs_C",
+      "C_cancellation_raw",
+      "C_cancellation_defined",
+      "C_cancellation_report_valid",
+      "C_cancellation",
+      "q_min",
+      "q_max",
+      "q_fraction_ge_090",
+      "q_fraction_ge_099",
+      "q_fraction_ge_0999",
+      "cosine_valid_count",
+      "cosine_mean",
+      "retention_valid_count",
+      "retention_mean",
+      "chi_valid_count",
+      "chi_mean",
+      "bit_change_count",
+      "observed_delta_speed",
+      "observed_delta_squared_speed",
+      "budget_delta_speed",
+      "budget_delta_squared_speed",
+      "update_saved_speed_residual",
+      "update_saved_square_residual",
+      "update_internal_speed_residual",
+      "update_internal_square_residual",
+      "h_squared",
+      "factorized_mean_I",
+      "update_I_factor_residual",
+      "update_G_residual",
+      "cycle"
+    ],
+    "analysis/phase_spread.csv": [
+      "view",
+      "phase",
+      "cycle_count",
+      "incoming_mean_speed_mean",
+      "incoming_mean_speed_min",
+      "incoming_mean_speed_max",
+      "incoming_mean_speed_range",
+      "incoming_mean_speed_population_std",
+      "incoming_mean_speed_std_over_abs_mean",
+      "incoming_mean_speed_std_over_abs_mean_valid",
+      "pre_damping_mean_speed_mean",
+      "pre_damping_mean_speed_min",
+      "pre_damping_mean_speed_max",
+      "pre_damping_mean_speed_range",
+      "pre_damping_mean_speed_population_std",
+      "pre_damping_mean_speed_std_over_abs_mean",
+      "pre_damping_mean_speed_std_over_abs_mean_valid",
+      "post_mean_speed_mean",
+      "post_mean_speed_min",
+      "post_mean_speed_max",
+      "post_mean_speed_range",
+      "post_mean_speed_population_std",
+      "post_mean_speed_std_over_abs_mean",
+      "post_mean_speed_std_over_abs_mean_valid",
+      "mean_R_mean",
+      "mean_R_min",
+      "mean_R_max",
+      "mean_R_range",
+      "mean_R_population_std",
+      "mean_R_std_over_abs_mean",
+      "mean_R_std_over_abs_mean_valid",
+      "mean_I_mean",
+      "mean_I_min",
+      "mean_I_max",
+      "mean_I_range",
+      "mean_I_population_std",
+      "mean_I_std_over_abs_mean",
+      "mean_I_std_over_abs_mean_valid",
+      "mean_A_mean",
+      "mean_A_min",
+      "mean_A_max",
+      "mean_A_range",
+      "mean_A_population_std",
+      "mean_A_std_over_abs_mean",
+      "mean_A_std_over_abs_mean_valid",
+      "mean_L_mean",
+      "mean_L_min",
+      "mean_L_max",
+      "mean_L_range",
+      "mean_L_population_std",
+      "mean_L_std_over_abs_mean",
+      "mean_L_std_over_abs_mean_valid",
+      "mean_B_mean",
+      "mean_B_min",
+      "mean_B_max",
+      "mean_B_range",
+      "mean_B_population_std",
+      "mean_B_std_over_abs_mean",
+      "mean_B_std_over_abs_mean_valid",
+      "mean_C_mean",
+      "mean_C_min",
+      "mean_C_max",
+      "mean_C_range",
+      "mean_C_population_std",
+      "mean_C_std_over_abs_mean",
+      "mean_C_std_over_abs_mean_valid",
+      "mean_abs_A_mean",
+      "mean_abs_A_min",
+      "mean_abs_A_max",
+      "mean_abs_A_range",
+      "mean_abs_A_population_std",
+      "mean_abs_A_std_over_abs_mean",
+      "mean_abs_A_std_over_abs_mean_valid",
+      "mean_abs_C_mean",
+      "mean_abs_C_min",
+      "mean_abs_C_max",
+      "mean_abs_C_range",
+      "mean_abs_C_population_std",
+      "mean_abs_C_std_over_abs_mean",
+      "mean_abs_C_std_over_abs_mean_valid",
+      "h_mean",
+      "h_min",
+      "h_max",
+      "h_range",
+      "h_population_std",
+      "h_std_over_abs_mean",
+      "h_std_over_abs_mean_valid",
+      "G_mean",
+      "G_min",
+      "G_max",
+      "G_range",
+      "G_population_std",
+      "G_std_over_abs_mean",
+      "G_std_over_abs_mean_valid",
+      "G_squared_mean",
+      "G_squared_min",
+      "G_squared_max",
+      "G_squared_range",
+      "G_squared_population_std",
+      "G_squared_std_over_abs_mean",
+      "G_squared_std_over_abs_mean_valid",
+      "mean_q_mean",
+      "mean_q_min",
+      "mean_q_max",
+      "mean_q_range",
+      "mean_q_population_std",
+      "mean_q_std_over_abs_mean",
+      "mean_q_std_over_abs_mean_valid",
+      "mean_q2_mean",
+      "mean_q2_min",
+      "mean_q2_max",
+      "mean_q2_range",
+      "mean_q2_population_std",
+      "mean_q2_std_over_abs_mean",
+      "mean_q2_std_over_abs_mean_valid",
+      "factorized_mean_I_mean",
+      "factorized_mean_I_min",
+      "factorized_mean_I_max",
+      "factorized_mean_I_range",
+      "factorized_mean_I_population_std",
+      "factorized_mean_I_std_over_abs_mean",
+      "factorized_mean_I_std_over_abs_mean_valid",
+      "pre_damping_variance",
+      "post_damping_variance",
+      "loss_variance",
+      "covariance_pre_damping_loss",
+      "variance_balance_residual",
+      "variance_change",
+      "scalar_variance_decreased",
+      "scalar_variance_increased",
+      "scalar_increase_exceeds_slack",
+      "post_over_pre_variance",
+      "variance_ratio_valid"
+    ]
+  },
+  "npz_allowed_bound_fields": [
+    "incoming_velocity",
+    "impulse",
+    "w",
+    "d",
+    "H",
+    "G",
+    "bit_plus"
+  ],
+  "npz_join_fields": [
+    "record_id",
+    "update_row",
+    "dataset_id",
+    "update_index",
+    "source_frame",
+    "source_time",
+    "center",
+    "block",
+    "phase",
+    "complete"
+  ],
+  "npz_outcome_fields": [
+    "saved_successor_velocity"
+  ],
+  "forbidden_bound_inputs": [
+    "saved_successor_velocity",
+    "z",
+    "t",
+    "post_norm",
+    "post_squared",
+    "retention",
+    "L",
+    "R",
+    "measured_dispersion"
+  ],
+  "do_not_execute": [
+    "original C",
+    "detached C",
+    "engine_api",
+    "analyst/analyze.py",
+    "old algebra/plot scripts",
+    "scientific reviewer checkers"
+  ]
+}

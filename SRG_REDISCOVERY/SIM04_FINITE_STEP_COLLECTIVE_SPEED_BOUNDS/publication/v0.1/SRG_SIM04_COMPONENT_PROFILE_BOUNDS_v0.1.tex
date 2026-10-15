@@ -1,0 +1,348 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,graphicx,booktabs,hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,pdfauthor={Hilmir Frímann Halldórsson},pdftitle={Finite-Step Collective-Speed Bounds in Early SRG Motion I},pdfsubject={Stage A manuscript candidate; accepted scientific evidence; 14 October 2026}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\avg}[1]{\left\langle #1\right\rangle}
+\newcommand{\local}[1]{\href{#1}{\texttt{\detokenize{#1}}}}
+\newcommand{\pinned}[2]{\href{https://github.com/pzychozen/trioctagon-physics/tree/e1f5115402a05965834493c1254b03118a531c92/SRG_REDISCOVERY/#1/publication/v0.1}{#2}}
+\newcommand{\fig}[3]{\par\begin{figure}[h!]\centering\includegraphics[width=\linewidth,height=.44\textheight,keepaspectratio]{plots/#1}\caption{#2}\label{#3}\end{figure}\par}
+\newcommand{\figtall}[3]{\par\begin{figure}[h!]\centering\includegraphics[width=\linewidth,height=.69\textheight,keepaspectratio]{plots/#1}\caption{#2}\label{#3}\end{figure}\par}
+\title{\LARGE\bfseries Finite-Step Collective-Speed Bounds in Early SRG Motion I\\[7pt]\large Component Profiles, Bound Dominance, and Remaining Slack}
+\author{Hilmir Frímann Halldórsson}
+\date{14 October 2026\quad\textbar\quad v0.1 manuscript candidate}
+\begin{document}
+\maketitle
+\begin{abstract}
+A bound on vector separation can substantially overestimate the difference of scalar speeds. We examine this distinction for the componentwise damping rule of historical SRG engine C, using the accepted SIM04 analysis of one saved repeated-driving population. A hierarchy separates source gain, impulse geometry, vector alignment, component derivatives and scalar component profiles. The profile bound reduces the aggregate standard-deviation factor from \ensuremath{18.4623} to \ensuremath{3.88305} across five cycles; the corresponding four-continuation-cycle factors are \ensuremath{15.6041} and \ensuremath{3.80087}. A subsequent GPT scientific-review theorem proves that this profile bound weakly dominates the signed-component bound for every finite input pair. Nevertheless, the specified sufficient nonincrease comparisons pass at no recorded phase. Saved successor diagnostics locate the remaining overestimate in norm projection and loss of signed cancellation across centers. These are conditional finite-step bounds on realized sequential intermediates, with real-arithmetic proofs and float64 consistency checks, not forecasts from a scalar initial state or a contraction theorem for the complete dynamics.
+\end{abstract}
+
+\section{The scalar question behind a vector bound}
+The response considered here is the mean of eight Euclidean velocity norms. Its differences can be small even when the underlying vectors differ considerably: directions may differ without changing a norm, and positive and negative changes at different centers may cancel in the mean. A useful bound must respect these distinctions while remaining valid under the source's nonlinear damping.
+
+SIM04 asked how much of this information could be retained by fixed, input-only refinements of an existing vector bound. The study evaluated a prescribed hierarchy on stored records, then joined already saved outcomes to measure tightness. The present paper explains those accepted results and the additional weak-dominance theorem derived in the subsequent review \cite{report,math,review,dominance}. It does not change the earlier report's chronology: that report records an empirical ordering and does not assert the later theorem.
+
+The mathematical contribution is therefore twofold. Component profiles identify a symmetry of the scalar readout that substantially sharpens the bound. The remaining inequality gaps show why that improvement alone is insufficient to establish phasewise dispersion nonincrease. Companion Part II explains the accepted SIM05 construction that retains signed radial information through collective averaging \cite{parttwo}. Both papers concern the same trajectories.
+
+\clearpage
+\section{Source, population and notation}\label{sec:setup}
+Historical engine C uses eight labeled centers in three dimensions, with source box $[0,10)^3$. Let $v_i$ be an incoming velocity, $a_i$ the realized signed impulse, $w_i=v_i+a_i$ the pre-damping vector, and $y_i$ its saved successor. The component rule and collective readouts are
+\begin{equation}\label{eq:source}
+D(x)=\frac{x}{1+\log(1+|x|)},\qquad
+u=\avg{\|v_i\|},\quad u^{\rm pre}=\avg{\|w_i\|},\quad u^+=\avg{\|y_i\|},\quad y_i=D(w_i).
+\end{equation}
+Here $\avg{f_i}=\frac18\sum_{i=0}^7 f_i$, and $D$ acts componentwise. The source uses \texttt{np.log1p}; these native numerical units have no physical calibration. Neither the norm of the average velocity nor an RMS speed is substituted for $u$.
+
+At a common driving phase, the source relationships are
+\begin{equation}\label{eq:impulse}
+G_c=\frac1{1+u_c},\quad \alpha=0.1H,\quad h=|\alpha|,\quad
+g_{c,i}=\frac{(1-2\beta_{c,i})\xi_{c,i}}{\|\xi_{c,i}\|+0.01},\quad a_{c,i}=\alpha G_c g_{c,i}.
+\end{equation}
+The bit $\beta$ is zero or one; its signs are respectively positive and negative. We rename the source displacement $d$ as $\xi$ to avoid collision with the scalar damping magnitude used later. Thus $\|g\|<1$ for finite displacements, including $g=0$ at $\xi=0$. Gain is fixed from the incoming mean during the sequential center update. The saved intermediates already contain the true mixed-position geometry; neither centroids nor source states were reconstructed in SIM04 \cite{source,simthree}.
+
+The represented population has \ensuremath{1000} distinct updates and \ensuremath{8000} center-update records: the inherited 200-update prefix once, followed by the 800-update SIM02 REPEATED continuation. At phase $j=0,\ldots,199$, cycle $c=0,\ldots,4$ uses update $n=200c+j$. Incoming $u$ belongs to $S_n$ and outgoing $u^+$ to $S_{n+1}$. The CONTINUOUS arm is excluded. The all-five view uses all ten unordered cycle pairs; new-four uses cycles 1--4 and reuses six of those pairs. The study evaluated \ensuremath{2000} pair/phase rows, \ensuremath{16000} labeled-center pairs and \ensuremath{400} view/phase rows. These dependent histories are not independent trials.
+
+Throughout, $\Delta$ means cycle $c$ minus $d$ at the same phase and center. Define
+\begin{equation}\label{eq:inputs}
+S=\big|\avg{\|y_{c,i}\|-\|y_{d,i}\|}\big|,\quad
+V=\avg{\|\Delta v_i\|},\quad J_a=\avg{\|\Delta a_i\|},\quad
+R_g=\avg{\|\Delta g_i\|},\quad \bar q_c=\avg{\|g_{c,i}\|}.
+\end{equation}
+$J_a$ is the report's impulse-distance quantity $J$, not a time index. The target $S$ is a scalar speed difference, whereas $V$ and the bounds below use vector distances.
+
+\clearpage
+\section{The source-separated hierarchy}\label{sec:hierarchy}
+The seven fixed families retain different portions of the available information. Their original IDs are preserved here to connect the formulas to the evidence.
+\begin{center}\small
+\begin{tabular}{ll}\toprule
+Stored ID & Definition\\\midrule
+\texttt{OMEGA\_COARSE} & $\Omega=(1+h)V+h\min(G_c,G_d)R_g$\\
+\texttt{GAMMA\_SOURCE} & $\Gamma=\min(\Gamma_{c|d},\Gamma_{d|c})$\\
+\texttt{T\_TRIANGLE} & $T=V+J_a$\\
+\texttt{Q\_VECTOR} & $Q=\avg{\|\Delta w_i\|}$\\
+\texttt{K\_COMPONENT} & $K=\avg{\|\kappa_i\odot\Delta w_i\|}$\\
+\texttt{P\_PROFILE} & $P=\avg{\|\lambda_i\odot(p_{c,i}-p_{d,i})\|}$\\
+\texttt{BEST\_PRE} & $\mathrm{BEST}=\min(K,P)$, before variance aggregation\\\bottomrule
+\end{tabular}
+\end{center}
+The two source expansions are
+\begin{equation}\label{eq:gamma}
+\Gamma_{c|d}=V+h\bigl(|\Delta G|\bar q_c+G_dR_g\bigr),\qquad
+\Gamma_{d|c}=V+h\bigl(|\Delta G|\bar q_d+G_cR_g\bigr).
+\end{equation}
+Section~\ref{sec:derivative} defines $\kappa$, $\lambda$ and profiles $p$. The source-dependent families require the shared $H$ and gain/impulse relationships in \eqref{eq:impulse}; they are not assertions for arbitrary independent impulses.
+
+\begin{proposition}[Inherited vector and source chain]\label{thm:chain}
+Under these common-phase source hypotheses, $S\le Q\le T\le\Gamma\le\Omega$.
+\end{proposition}
+\begin{proof}
+Componentwise nonexpansion, proved below, and the reverse norm triangle inequality give
+\[
+S\le\avg{|\|y_{c,i}\|-\|y_{d,i}\||}
+\le\avg{\|y_{c,i}-y_{d,i}\|}\le\avg{\|\Delta w_i\|}=Q.
+\]
+Since $\Delta w=\Delta v+\Delta a$, the triangle inequality yields $Q\le T$.
+The two identities
+\[
+G_cg_c-G_dg_d=(G_c-G_d)g_c+G_d(g_c-g_d)
+=(G_c-G_d)g_d+G_c(g_c-g_d)
+\]
+give $T\le\Gamma$ after multiplying by $h$ and averaging. Finally,
+\[
+|G_c-G_d|=\frac{|u_c-u_d|}{(1+u_c)(1+u_d)}\le |u_c-u_d|\le V.
+\]
+Choose the source expansion whose coefficient of $R_g$ is $\min(G_c,G_d)$ and use $\bar q\le1$. That candidate is at most $\Omega$; the minimum $\Gamma$ is no larger. This includes $H=0$ and either sign of $H$.
+\end{proof}
+This proof isolates where information is discarded: replacing the combined vector by separate lengths, expanding the source product, then bounding the gain and geometric norms. It supplies valid envelopes without assuming that the next scalar response decreases.
+
+\clearpage
+\section{Derivative intervals and scalar profiles}\label{sec:derivative}
+For $s\ge0$, write $b(s)=1+\log(1+s)$. Direct differentiation gives
+\begin{equation}\label{eq:k}
+D'(x)=k(|x|),\qquad k(s)=\frac{b(s)-s/(1+s)}{b(s)^2},\qquad
+k'(s)=\frac{2s-(s+2)b(s)}{(1+s)^2b(s)^3}<0.
+\end{equation}
+The difference quotient at zero gives $D'(0)=k(0)=1$. The numerator of $k$ is positive and $k\le1/b\le1$. To verify the strict derivative sign analytically, set $J_0(s)=(s+2)b(s)-2s$. Then $J_0(0)=2$ and $J_0'(s)=\log(1+s)+1/(1+s)>0$. Thus $k$ is positive and decreasing; no derivative grid is needed \cite{math}.
+
+For each signed component interval between $w_{c,i,a}$ and $w_{d,i,a}$, let $\ell_{i,a}$ be its nearest absolute value to zero. It is zero if the interval contains zero, and otherwise the smaller endpoint magnitude. The mean-value estimate gives
+\begin{equation}\label{eq:K}
+\kappa_{i,a}=k(\ell_{i,a}),\qquad
+|D(w_{c,i,a})-D(w_{d,i,a})|\le\kappa_{i,a}|\Delta w_{i,a}|,
+\qquad S\le K\le Q.
+\end{equation}
+In particular a zero-crossing interval must use coefficient one. Squaring and summing the component inequalities proves Euclidean nonexpansion for fixed pre-damping vectors. It does not prove contraction of the full update.
+
+Define the scalar profile $p(w)=\operatorname{sort}(|w|)$, in ascending order within a single labeled center. Oddness and identical component rules imply
+\begin{equation}\label{eq:P}
+\|D(w)\|=\|D(p(w))\|,\quad
+\lambda_{i,a}=k(\min(p_{c,i,a},p_{d,i,a})),\quad
+P_i=\|\lambda_i\odot(p_{c,i}-p_{d,i})\|,\quad S\le P.
+\end{equation}
+Only sign and permutation symmetries are used; centers and evolving states are never sorted. Sorted matching minimizes the unweighted distance between nonnegative component lists: uncrossing $a\le b$ and $c\le d$ increases the matching dot product by $(b-a)(d-c)\ge0$. Hence
+\[
+\|p(x)-p(y)\|\le\||x|-|y|\|\le\|x-y\|,
+\]
+and $\lambda\le1$ gives the original $P\le Q$ result.
+
+Arbitrary rotation is not a symmetry. At radius $r>0$, an axis vector has damped norm $r/b(r)$, whereas a vector with three equal component magnitudes has damped norm $r/b(r/\sqrt3)>r/b(r)$. Equal incoming norms therefore need not produce equal damped norms. Vector nonexpansion alone cannot be promoted to scalar-dispersion nonincrease.
+
+\clearpage
+\section{Profile dominance: deduction from the subsequent SIM04 review}\label{sec:dominance}
+The original SIM04 proof deliberately left $K$ and $P$ unordered. The following result belongs to the later GPT scientific review, specifically its \textit{Additional profile-dominance theorem} \cite{dominance}. Its proof is reproduced here as an accepted subsequent deduction, not a pre-evaluation assertion or another numerical experiment.
+
+\begin{theorem}[Weak profile dominance]\label{thm:dominance}
+For every pair of finite real pre-damping vectors at each labeled center,
+\[
+P_i\le K_i,\qquad P\le K,\qquad \mathrm{BEST}=P.
+\]
+Consequently $S\le P\le K\le Q\le T\le\Gamma\le\Omega$ under the source hypotheses for the last two bounds.
+\end{theorem}
+\begin{proof}
+For $a,b\ge0$ define $C_{\rm match}(a,b)=k(\min(a,b))^2(a-b)^2$. If $a<b$, then
+\begin{equation}\label{eq:mixed}
+\partial_a\partial_b C_{\rm match}
+=4k(a)k'(a)(b-a)-2k(a)^2<0.
+\end{equation}
+The symmetric formula holds when $b<a$. The mixed derivative extends continuously to the diagonal with value $-2k(a)^2$, and has the one-sided interpretation at the boundary. For $a_1\le a_2$ and $b_1\le b_2$, rectangle integration therefore gives
+\begin{align}\label{eq:exchange}
+&C_{\rm match}(a_1,b_1)+C_{\rm match}(a_2,b_2)
+-C_{\rm match}(a_1,b_2)-C_{\rm match}(a_2,b_1)\notag\\
+&\hspace{12mm}=\int_{a_1}^{a_2}\int_{b_1}^{b_2}\partial_a\partial_b C_{\rm match}(a,b)\,db\,da\le0.
+\end{align}
+Uncrossing any inverted match cannot increase total cost. Repetition proves that sorted matching minimizes this weighted cost, including ties:
+\[
+P_i^2=\sum_a C_{\rm match}(p(x)_a,p(y)_a)
+\le\sum_a C_{\rm match}(|x_a|,|y_a|).
+\]
+If $x_a,y_a$ have the same sign, or either is zero, the last summand equals $\kappa_a^2(x_a-y_a)^2$. For strictly opposite signs the signed interval crosses zero, so $\kappa_a=1$, and
+\[
+C_{\rm match}(|x_a|,|y_a|)\le(|x_a|-|y_a|)^2
+\le(|x_a|+|y_a|)^2=(x_a-y_a)^2.
+\]
+Summing gives $P_i^2\le K_i^2$. Nonnegative square roots and the same center average give $P\le K$, and the stated hierarchy follows.
+\end{proof}
+The theorem is weak: equality holds for equal vectors and other special cases. It neither asserts strict universal improvement nor optimality among every possible scalar bound. It explains why the historical pair-level minimum cannot improve on $P$ under these definitions; it does not remove norm-projection or center-cancellation slack.
+
+\clearpage
+\section{From pair bounds to population dispersion}\label{sec:variance}
+Let $u_c^+$ denote the scalar successor response at one common phase in a chosen cycle view. The complete-pair identity is
+\begin{equation}\label{eq:variance}
+\operatorname{Var}(u^+)=\frac1m\sum_c(u_c^+-\bar u^+)^2
+=\frac1{m^2}\sum_{c>d}(u_c^+-u_d^+)^2.
+\end{equation}
+Indeed, the unordered pair sum is $m\sum_c(u_c^+)^2-(\sum_cu_c^+)^2$. A nonnegative bound $B_{cd}\ge|u_c^+-u_d^+|$ therefore yields
+\begin{equation}\label{eq:variancebound}
+\operatorname{Var}(u^+)\le W_B=\frac1{m^2}\sum_{c>d}B_{cd}^2,
+\qquad \operatorname{SD}(u^+)\le\sqrt{W_B}.
+\end{equation}
+All-five uses denominator 25 and ten pairs; new-four uses denominator 16 and six reused pairs. These are population variances, not sample estimators. Taking the minimum of valid pair bounds before squaring is allowed independently of outcomes.
+
+For any specified $\varepsilon\ge0$, $B\le\varepsilon$ suffices for a pair difference at most $\varepsilon$, and $W_B\le\varepsilon^2$ for SD at most $\varepsilon$. Comparing $W_{\rm BEST}$ to incoming or pre-damping variance gives two separate sufficient nonincrease conditions. Their failure establishes no direction of actual change.
+
+The aggregate SD used in the result tables is
+\begin{equation}\label{eq:aggregate}
+\sigma_{\rm agg}=\sqrt{\frac1{200}\sum_{j=0}^{199}\operatorname{Var}_j(u^+)},\qquad
+\sigma_{{\rm agg},B}=\sqrt{\frac1{200}\sum_{j=0}^{199}W_{B,j}}.
+\end{equation}
+It is not the mean of phasewise SDs. Ratios of these aggregates differ from individual pair factors and phasewise SD factors. None is a confidence interval from independent trials.
+
+\subsection{The information boundary}
+The analytic stage read incoming velocities, realized impulses, pre-damping vectors, geometric differences, driving $H$, gain $G$ and bits. It wrote and hashed the complete pre-output arrays before reading successor outcomes and reference responses \cite{seal}. Exact $D(w)$ was not evaluated on saved records. The reference damping function was used only on fixed synthetic fixtures.
+
+This separation prevents a bound from being fitted by consulting its saved target during evaluation. It is not blinding to previous reports. More fundamentally, it is a conditional statement on realized sequential intermediates, some of which already contain enough information to evaluate the scalar response exactly. It is not a forecast from incoming scalar speed alone. This distinction remains essential when interpreting the tightness and sufficient-condition results.
+
+\clearpage
+\section{Full-population tightness}\label{sec:aggregate-results}
+Table~\ref{tab:aggregate} includes every prescribed family. Profile information makes the largest improvement, while all bounds remain above the observed aggregate. The subsequent dominance proof explains the equality of BEST and $P$; the amount of improvement is empirical.
+\begin{table}[h!]
+\centering\small\setlength{\tabcolsep}{4pt}
+\caption{All prescribed aggregate SD upper bounds and factors over observed aggregate SD. Values are formatted directly from the accepted full-precision cells.}\label{tab:aggregate}
+\begin{tabular}{lrrrr}\toprule
+Family & All-five SD & Factor & New-four SD & Factor\\\midrule
+$\Omega$ & \ensuremath{0.2033888326} & \ensuremath{22.02127000} & \ensuremath{0.1714699343} & \ensuremath{18.53839126}\\
+$\Gamma$ & \ensuremath{0.1748663109} & \ensuremath{18.93308593} & \ensuremath{0.1484575639} & \ensuremath{16.05041967}\\
+$T$ & \ensuremath{0.1745738868} & \ensuremath{18.90142466} & \ensuremath{0.1481690087} & \ensuremath{16.01922266}\\
+$Q$ & \ensuremath{0.1705179144} & \ensuremath{18.46227733} & \ensuremath{0.1443297649} & \ensuremath{15.60414462}\\
+$K$ & \ensuremath{0.1673612004} & \ensuremath{18.12049430} & \ensuremath{0.1408858879} & \ensuremath{15.23181148}\\
+$P$ & \ensuremath{0.03586395181} & \ensuremath{3.883053736} & \ensuremath{0.03515595153} & \ensuremath{3.800869157}\\
+BEST & \ensuremath{0.03586395181} & \ensuremath{3.883053736} & \ensuremath{0.03515595153} & \ensuremath{3.800869157}\\
+\bottomrule\end{tabular}
+\end{table}
+
+Observed post aggregate SD is \ensuremath{0.00923601738589} for all-five and \ensuremath{0.00924945060439} for new-four. Figure~\ref{fig:one} displays the baseline against the observed spread over the complete phase range. The scale gap is visible even though the vector bound is mathematically valid.
+\fig{01_baseline_and_observed_SD.png}{Baseline $Q$ and observed phasewise SD, unchanged SIM04 Figure 1. The views share saved histories; new-four excludes the inherited cycle but adds no new execution. Curves use native speed units, with every phase retained.}{fig:one}
+The larger envelope must not be interpreted as a larger observed fluctuation, a different trajectory or a statistical error bar. It is the cost of applying a vector inequality to a collective scalar target.
+
+\clearpage
+\section{What the profile symmetry removes}\label{sec:refinement-results}
+The signed-component bound improves $Q$ only modestly. Among \ensuremath{48000} component intervals, \ensuremath{23992} contain zero; their maximal derivative must be one. The median $K/Q$ is \ensuremath{0.995974441}. By contrast, the median $P/Q$ is \ensuremath{0.306095461}, and $P<K$ in all \ensuremath{2000} recorded pair/phase comparisons.
+
+These observations are consistent with the readout symmetry. $Q$ and $K$ still charge for component signs and coordinate assignments that can leave the damped norm unchanged. A profile removes those irrelevant distinctions within a center before comparing the two scalar outputs. Figure~\ref{fig:two} shows the resulting separation without concealing the poorly performing families.
+\fig{02_fixed_refinements.png}{Fixed component and profile refinements, unchanged SIM04 Figure 2. The logarithmic scale is part of the original figure. Weak $P\le K$ is a subsequent-review theorem; strict $P<K$ at every recorded comparison is a distinct empirical observation.}{fig:two}
+Removing a symmetry does not remove all scalar information loss. $P_i$ is still an upper bound based on a weighted distance between two profiles, whereas the desired center quantity is a difference of their damped norms. In addition, the final target takes an absolute value only after averaging signed center differences. The next sections locate those remaining losses using saved outcomes, without changing the analytic bound.
+
+\clearpage
+\section{Cross-history alignment}\label{sec:alignment}
+Before damping, the difference of combined vectors obeys the exact identity
+\begin{equation}\label{eq:alignment}
+\|\Delta v_i+\Delta a_i\|^2=\|\Delta v_i\|^2+\|\Delta a_i\|^2
++2\Delta v_i\cdot\Delta a_i.
+\end{equation}
+This is alignment between \emph{differences across two histories}. It is distinct from the within-history $2v_i\cdot a_i$ examined in SIM03. The latter can be important in a one-history speed budget even if the former accounts for only modest tightening of a cross-history bound.
+
+There are \ensuremath{5463} negative and \ensuremath{10537} positive cross-history terms among the labeled-center pairs, with \ensuremath{0} exact zeros. The mean $T-Q$ gap is \ensuremath{0.004240242567} in native speed units. $Q$ uses stored $\Delta w$ directly rather than reconstructing a norm through a cancellation-sensitive square root of \eqref{eq:alignment}.
+\fig{03_difference_alignment.png}{Cross-history difference alignment, unchanged SIM04 Figure 3. Its signed terms describe $2\Delta v\cdot\Delta a$, not SIM03's within-history $2v\cdot a$. All labeled-center pairs and the full phase range remain represented.}{fig:three}
+Keeping the vector sum is thus useful, but on this population it does much less than the profile refinement to tighten the scalar envelope. This comparison concerns information retained by inequalities, not a causal partition of the motion.
+
+\clearpage
+\section{Locating the remaining inequality slack}\label{sec:slack}
+After the analytic seal, saved successors define
+\begin{align}\label{eq:slackdefs}
+Z_{\rm signed}&=\avg{\|y_{c,i}-y_{d,i}\|},&
+Z_{\rm profile}&=\avg{\|p(y_{c,i})-p(y_{d,i})\|},\notag\\
+T_{\rm norm}&=\avg{|\|y_{c,i}\|-\|y_{d,i}\||}.&&
+\end{align}
+Increasing $D$ preserves the order of nonnegative components, so $p(D(w))=D(p(w))$. Choose $Z_*$ from the same branch as BEST (the historical tie rule chooses $K$). Then
+\begin{equation}\label{eq:slack}
+\begin{split}
+S\le T_{\rm norm}\le Z_*\le\mathrm{BEST}\le Q,\\
+Q-S=(Q-\mathrm{BEST})+(\mathrm{BEST}-Z_*)+(Z_*-T_{\rm norm})+(T_{\rm norm}-S).
+\end{split}
+\end{equation}
+\begin{table}[h!]
+\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Mean gaps over every saved pair/phase row; native speed units.}\label{tab:slack}
+\begin{tabular}{lr}\toprule
+Gap & Mean\\\midrule
+$Q-S$ & \ensuremath{0.1455383389}\\
+$Q-\mathrm{BEST}$: refinement & \ensuremath{0.1166414878}\\
+$\mathrm{BEST}-Z_*$: derivative & \ensuremath{0.002635575456}\\
+$Z_*-T_{\rm norm}$: norm projection & \ensuremath{0.01194442421}\\
+$T_{\rm norm}-S$: center cancellation & \ensuremath{0.01431685141}\\
+\bottomrule\end{tabular}
+\end{table}
+
+\fig{04_proof_slack_ladder.png}{The fixed slack ladder, unchanged SIM04 Figure 4. Phase means concern inequality gaps in speed units, not population variances, causal percentages or energy transfers.}{fig:four}
+On average the norm-projection and signed-center-cancellation gaps each exceed the residual derivative estimate gap. The profile refinement therefore identifies, but does not eliminate, the two scalar-specific losses motivating the signed-radial method of Part II.
+
+\clearpage
+\section{Sufficient conditions and actual directions}\label{sec:conditions}
+For reference stage $r$, define $M_r=\operatorname{Var}_r-W_{\rm BEST}$. The numerical label is PASS when $M_r>10^{-14}$, NOT\_ESTABLISHED when $M_r<-10^{-14}$, and UNRESOLVED in the closed band. Actual changes use $\operatorname{Var}_r-\operatorname{Var}_{\rm post}$ separately.
+\begin{table}[h!]
+\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Sufficient passes and separately observed actual directions. Each row contains all 200 phases.}\label{tab:conditions}
+\begin{tabular}{llrrr}\toprule
+View & Reference & PASS & Actual decrease & Actual increase\\\midrule
+all-five & incoming & \ensuremath{0} & \ensuremath{127} & \ensuremath{73}\\
+all-five & pre-damping & \ensuremath{0} & \ensuremath{200} & \ensuremath{0}\\
+new-four & incoming & \ensuremath{0} & \ensuremath{125} & \ensuremath{75}\\
+new-four & pre-damping & \ensuremath{0} & \ensuremath{200} & \ensuremath{0}\\
+\bottomrule\end{tabular}
+\end{table}
+
+All four sufficient comparisons have zero passes, 200 NOT\_ESTABLISHED margins and zero UNRESOLVED margins. Yet the saved pre-damping-to-post variance decreases at every phase in both views. Failure of this sufficient bound is not evidence of expansion. Conversely, the incoming-to-post increases are actual saved increases, so universal decrease of that complete comparison is contradicted on the recorded population.
+\fig{05_sufficient_condition_margins.png}{Sufficient and actual margins, unchanged SIM04 Figure 5. Small actual margins can appear close to zero on the shared scale; their signed stored classifications, rather than line overlap, determine direction.}{fig:five}
+The comparisons are finite-step statements. Neither absent sufficient conditions nor observed damping-stage decreases decide long-time convergence. SIM03's incoming/outgoing phase-average reindexing caveat also remains: nearly equal phase-averaged spread is not an independent regulation theorem \cite{simthree}.
+
+\clearpage
+\section{Adverse relative factors and numerical scope}\label{sec:adverse}
+At the stored extreme $(c,d,j)=(4,0,105)$, SIM04 records
+\[
+S=\ensuremath{3.87406512848687\times10^{-7}},\qquad
+P=\ensuremath{0.0163876762538909}.
+\]
+The corresponding factor is \ensuremath{42300.9828446}. The denominator is small but resolved; the ratio is not capped or removed. Thus aggregate improvement does not establish any comparably small uniform pairwise factor.
+\fig{06_phasewise_tightness.png}{Full phasewise SD factors, unchanged SIM04 Figure 6, on its labeled logarithmic scale. Aggregate SD factors are ratios after averaging variances; they are not bounds on every point in these curves.}{fig:six}
+Real-valued nonnegative gaps may have tiny negative floating residuals. For example the retained $T_{\rm norm}-S$ value at $(4,3,130)$ is \ensuremath{-8.673617379884035\times10^{-19}}. It was not clipped. Native-speed checks use absolute tolerance $10^{-12}$ and variance checks $10^{-14}$, with zero relative tolerance. Ratio masks require speed denominators at least $10^{-12}$ or variance denominators at least $10^{-24}$.
+
+These numerical checks support consistency with the real-arithmetic inequalities. They are not formal outward-rounded interval certificates. No fitted multiplicative correction, favorable phase selection or altered damping coefficient is part of the result.
+
+\clearpage
+\section{Evidence, interpretation and the companion result}\label{sec:evidence}
+\begin{center}\small\begin{tabular}{lccc}\toprule
+Stage & Fixed groups & Fixture accounting & Primary science passes\\\midrule
+Original SIM04 & 14 & 607 assertions; 59 QA arrays & 1\\
+Subsequent GPT review & 14 & Separate fixed-input verification & 1\\
+Manuscript preparation & 0 & No scientific evaluation & 0\\\bottomrule
+\end{tabular}\end{center}
+The accepted original study used 14 fixed fixture groups and 607 assertions, followed by one primary saved-data pass and 59 numerical check arrays. Synthetic reference damping was evaluated in the fixtures, but not on saved trajectory records. The subsequent GPT review independently checked the same fixed population in one successful primary reviewer pass; its code did not execute the submitted analyst or engine. These are two analytical checks of one trajectory population, not independent trajectory experiments \cite{review}.
+
+The real-arithmetic proofs, finite recorded observations and interpretation have different scopes. The theorem $P\le K$ applies to arbitrary finite vector pairs under its specified damping and profile definitions. The strict ordering and measured factors belong to the fixed saved population. The source-separated bounds additionally require shared driving phase and source gain/impulse hypotheses. None of these statements gives full-state contraction, learning, physical calibration, a universal response shape or long-time convergence.
+
+Part II \cite{parttwo} retains the profile symmetry and then bounds each \emph{signed radial} norm difference, averaging the resulting intervals before taking an absolute value. Its numerical findings belong to SIM05 and are not inserted into this study. The link between the papers is the location of remaining information loss established here: norm projection and collective cancellation.
+
+\subsection{How to inspect the evidence}
+The edition preserves the original report and \texttt{MATHEMATICAL\_RESULTS.md}, all six figures, all analysis tables and arrays, schema/field guides, selected specifications and analyst code. The complete ten-member subsequent review includes the separate dominance proof. \texttt{CLAIM\_SOURCE\_MAP.csv} identifies exact sections and stored keys for manuscript claims; the preparation bundle's transcription ledger records full-precision source strings and their display formatting.
+
+\texttt{ACCESS\_AND\_EVIDENCE\_MAP.md} explains omitted operational records and older manifest scopes. Included scripts are inspection material: the curated edition is not an unchanged execution environment, and reviewer execution requires original archives and a fresh output directory. Paper preparation did not rerun fixtures, scientific checkers, statistical summaries or simulations. The original reports and review chronology remain unchanged.
+
+\paragraph{Attribution and status.} Hilmir Frímann Halldórsson is the human research author. GPT supplied proposed mathematics, scientific direction and internal scientific review, including the subsequent dominance deduction. Codex performed the accepted implementation and proof verification and prepared this manuscript and its documents. These are assistance roles, not AI coauthorship. The science is accepted within conditional finite-step-bound scope. This v0.1 manuscript and exact edition are Stage A candidates dated 14 October 2026, awaiting manuscript/payload review; no publication approval is asserted. No new rights grant is made; repository licence scope is limited to its stated software distribution.
+
+\clearpage
+\section*{Notation and source guide}
+\begin{center}\begin{tabular}{lp{.72\linewidth}}\toprule
+Symbol & Meaning\\\midrule
+$v,a,w,y$ & Incoming velocity, realized impulse, pre-damping vector and saved successor.\\
+$u,u^{\rm pre},u^+$ & Means of eight vector norms at the three stages.\\
+$p(w)$ & Ascending absolute components within one center; not a position or a sorted center list.\\
+$V,J_a,R_g$ & Mean cross-history distances of incoming velocities, impulses and signed geometric vectors.\\
+$k,\kappa,\lambda$ & Scalar derivative and its signed-interval/profile-interval maxima.\\
+$S,Q,K,P$ & Scalar target and vector/component/profile bounds, all in native speed units.\\
+$W_B$ & Complete-pair population variance upper bound, in squared-speed units.\\
+$\sigma_{\rm agg}$ & Square root of phase-averaged population variance.\\\bottomrule
+\end{tabular}\end{center}
+\begin{thebibliography}{9}\raggedright
+\bibitem{report} H. F. Halldórsson, \emph{SRG-SIM04: Finite-step collective-speed bounds}, accepted report, 14 October 2026. \local{SIM04_REPORT.md}.
+\bibitem{math} SIM04, \emph{Independently checked mathematical results}, pre-evaluation verification, sections 1--7. \local{MATHEMATICAL_RESULTS.md}. Fixed proposal: \local{received/SIM04_MATHEMATICAL_SPEC_v0.1.md}.
+\bibitem{review} GPT, \emph{SRG-SIM04 scientific review}, subsequent internal review, 14 October 2026. \local{review/SIM04_GPT_SCIENTIFIC_REVIEW.md}; execution note and independent results retained alongside it.
+\bibitem{dominance} GPT, \emph{Additional reviewer theorem: the profile bound weakly dominates the signed-component bound}, 14 October 2026. \local{review/ADDITIONAL_PROFILE_DOMINANCE_THEOREM.md}.
+\bibitem{seal} SIM04, sealed pre-output bounds and data-access record. \local{analysis/PRE_OUTPUT_BOUNDS_SEAL.json}; \local{evidence/DATA_ACCESS_LOG.json}. Full output definitions: \local{OUTPUT_FIELD_GUIDE.md}.
+\bibitem{source} Historical source C and detached C core, preserved through SIM01 and SIM02. \local{inputs/inputs/accepted_sim02/inputs/sources/source_C.py}, lines 49--54 and 110--123; \local{inputs/inputs/accepted_sim02/inputs/detached/engine_C.py}. Pinned upstream editions: \pinned{SIM01_SURVIVING_RECURSIVE_MOTION}{SIM01} and \pinned{SIM02_REPEATED_DRIVE_AND_RETAINED_STATE}{SIM02}.
+\bibitem{simthree} H. F. Halldórsson, \emph{Driving, geometry and response alignment}, corrected SIM03 edition at checkpoint \texttt{e1f5115402a05965834493c1254b03118a531c92}. \pinned{SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT}{SIM03}; source report and subsequent review are retained under \texttt{inputs/}.
+\bibitem{parttwo} H. F. Halldórsson, \emph{Finite-Step Collective-Speed Bounds in Early SRG Motion II: Signed Radial Intervals and Collective Cancellation}, companion v0.1 candidate, 14 October 2026. \href{../../../SIM05_SIGNED_RADIAL_CANCELLATION_BOUNDS/publication/v0.1/README.md}{Companion edition}; accepted SIM05 evidence and subsequent review. Publication remains subject to the joint review gate.
+\end{thebibliography}
+
+\end{document}

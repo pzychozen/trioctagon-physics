@@ -1,0 +1,180 @@
+{
+  "format": "SIM05_EXPERIMENT_SPEC_v0.1",
+  "date": "2026-10-14",
+  "title": "Signed radial intervals and collective cancellation",
+  "status": "AUTHORIZED_FOR_CODEX_BOUNDED_LOCAL_ANALYSIS",
+  "question": "Can signed center-speed enclosures materially tighten profile bounds when cancellation is retained before taking absolute values, and do they establish any finite phasewise variance decrease or increase conditions?",
+  "scientific_state": {
+    "SIM04": "Accepted sealed local submission plus complete internal review; publication not asserted.",
+    "SIM03_source_commit": "e1f5115402a05965834493c1254b03118a531c92"
+  },
+  "workspace_relative": "SRG_REDISCOVERY/SIM05_SIGNED_RADIAL_CANCELLATION_BOUNDS",
+  "input_root_relative": "SRG_REDISCOVERY/SIM04_FINITE_STEP_COLLECTIVE_SPEED_BOUNDS",
+  "resolutions": [
+    1,
+    4
+  ],
+  "node_fractions": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1
+  ],
+  "node_rule": "uniform in squared-component coordinate, not in time; reuse endpoint nodes for J1",
+  "pair_orientation": "cycle_c > cycle_d; all signed differences c-d",
+  "pairs": [
+    [
+      1,
+      0
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      3,
+      0
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      4,
+      3
+    ]
+  ],
+  "phases": {
+    "first": 0,
+    "last": 199,
+    "count": 200
+  },
+  "centers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "views": {
+    "all_five": {
+      "cycles": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "pairs": 10,
+      "variance_denominator": 25
+    },
+    "new_four": {
+      "cycles": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "pairs": 6,
+      "variance_denominator": 16
+    }
+  },
+  "counts": {
+    "represented_unique_updates": 1000,
+    "represented_unique_centers": 8000,
+    "primary_pair_phase_evaluations": 2000,
+    "center_pairs": 16000,
+    "component_pairs": 48000,
+    "derivative_node_slots": 240000,
+    "outcome_pair_phase_joins": 2000,
+    "view_phase_summaries": 400,
+    "fixture_groups": 14,
+    "primary_attempts": 1
+  },
+  "upper_families": [
+    "P_PROFILE",
+    "RADIAL_1_UNSIGNED",
+    "RADIAL_1_SIGNED",
+    "RADIAL_4_UNSIGNED",
+    "RADIAL_4_SIGNED"
+  ],
+  "lower_families": [
+    "RADIAL_1_SIGNED",
+    "RADIAL_4_SIGNED"
+  ],
+  "raw_pre_P_intervals_retained": true,
+  "outcome_policy": {
+    "seal_before_join": "analysis/PRE_OUTPUT_INTERVALS.npz",
+    "source_record_D_or_exact_F_evaluations": 0,
+    "source_state_reconstruction": 0,
+    "synthetic_reference_D_allowed": true,
+    "no_blinding_claim": true
+  },
+  "tolerances": {
+    "relative": 0.0,
+    "speed_component_intervals": 1e-12,
+    "squared_component_fixture": 1e-12,
+    "dimensionless_fixture": 1e-12,
+    "variance": 1e-14,
+    "ratio_speed_floor": 1e-12,
+    "ratio_variance_floor": 1e-24
+  },
+  "interval_inversion_rule": "Raw gap >1e-12: stop. Smaller nonzero inversion: record original endpoints, use their outward hull and flag roundoff-unresolved. Never silently collapse to a point or hide a substantive failure.",
+  "condition_rule": {
+    "decrease_margin": "reference_variance - variance_upper",
+    "increase_margin": "variance_lower - reference_variance",
+    "pass": "margin > 1e-14",
+    "not_established": "margin < -1e-14",
+    "unresolved": "abs(margin) <= 1e-14",
+    "actual_change": "reference_variance - saved_post_variance, classified separately"
+  },
+  "limits": {
+    "fixture_seconds": 60,
+    "primary_seconds": 300,
+    "figure_seconds": 120,
+    "max_figures": 6,
+    "max_presentation_only_corrections": 1,
+    "aggregate_bytes_including_zip_cache_seal": 268435456
+  },
+  "prohibited": [
+    "new trajectory",
+    "engine/API call",
+    "RNG operation",
+    "raw state or centroid reconstruction",
+    "old checker rerun",
+    "adaptive refinement",
+    "new resolution",
+    "outcome fitting",
+    "selected favorable phases",
+    "model modification",
+    "paper build",
+    "Git write",
+    "publication",
+    "scale/lineage diversion"
+  ],
+  "stop": "Return results and complete evidence for GPT scientific review; no automatic follow-on."
+}

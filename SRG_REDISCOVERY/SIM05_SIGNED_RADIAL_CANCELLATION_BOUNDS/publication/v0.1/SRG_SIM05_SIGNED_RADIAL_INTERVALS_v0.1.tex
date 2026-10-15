@@ -1,0 +1,389 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,graphicx,booktabs,hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,pdfauthor={Hilmir Frímann Halldórsson},pdftitle={Finite-Step Collective-Speed Bounds in Early SRG Motion II},pdfsubject={Stage A manuscript candidate; accepted scientific evidence; 14 October 2026}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\avg}[1]{\left\langle #1\right\rangle}
+\newcommand{\local}[1]{\href{#1}{\texttt{\detokenize{#1}}}}
+\newcommand{\pinned}[2]{\href{https://github.com/pzychozen/trioctagon-physics/tree/e1f5115402a05965834493c1254b03118a531c92/SRG_REDISCOVERY/#1/publication/v0.1}{#2}}
+\newcommand{\fig}[3]{\par\begin{figure}[h!]\centering\includegraphics[width=\linewidth,height=.44\textheight,keepaspectratio]{plots/#1}\caption{#2}\label{#3}\end{figure}\par}
+\newcommand{\figtall}[3]{\par\begin{figure}[h!]\centering\includegraphics[width=\linewidth,height=.69\textheight,keepaspectratio]{plots/#1}\caption{#2}\label{#3}\end{figure}\par}
+\title{\LARGE\bfseries Finite-Step Collective-Speed Bounds in Early SRG Motion II\\[7pt]\large Signed Radial Intervals and Collective Cancellation}
+\author{Hilmir Frímann Halldórsson}
+\date{14 October 2026\quad\textbar\quad v0.1 manuscript candidate}
+\begin{document}
+\maketitle
+\begin{abstract}
+Collective mean-speed differences can be much smaller than distances between velocity vectors or component profiles. We explain the accepted SIM05 signed-radial construction for historical SRG engine C: fixed Darboux intervals in squared-component coordinates enclose each signed damped-norm difference; analytic denominator envelopes avoid evaluating the exact readout; signed averaging retains cancellation while carrying interval uncertainty. On the same saved repeated-driving population as Part I, four subintervals give aggregate SD upper factors of \ensuremath{1.08422} and \ensuremath{1.07807} for all-five and continuation-only views. The corresponding unsigned factors from the same center intervals are \ensuremath{2.25293} and \ensuremath{2.17389}. Two-sided variance enclosures establish both decrease and increase sufficient conditions. Damping-stage decrease passes at 200 all-five phases and 198 new-four phases; the latter's phases 17 and 57 remain nonpassing despite actual decreases. Large adverse pair factors also remain. The result is conditional finite-step enclosure mathematics on realized profiles, supported by float64 checks, not a prediction-error guarantee, formal interval-arithmetic certificate or contraction theorem for the full dynamics.
+\end{abstract}
+
+\section{Preserving cancellation in a scalar target}
+Part I explains why a component-profile bound improves a vector estimate but still loses information when a profile distance is projected to a norm difference and when absolute values are taken center by center \cite{partone}. SIM05 addresses those two losses with a fixed, scalar-specific construction. It encloses the signed difference at each center, keeps its uncertainty, and postpones the final absolute value until after averaging.
+
+The comparison between unsigned and signed averaging is especially informative because it uses exactly the same center intervals. Any improvement at that step is attributable to the mathematical order of aggregation, without changing the trajectory or damping law. A second fixed comparison, one versus four subintervals, measures refinement of the same enclosure. No partition was chosen after seeing outcomes. This paper presents the accepted construction, proofs, complete-population observations and later-review clarifications \cite{report,math,review}.
+
+\clearpage
+\section{Common source and fixed saved population}\label{sec:setup}
+The source has eight labeled three-dimensional centers in $[0,10)^3$. Incoming velocity $v_i$, realized impulse $a_i$, pre-damping vector $w_i=v_i+a_i$ and saved successor $y_i$ satisfy
+\begin{equation}\label{eq:source}
+D(x)=\frac{x}{1+\log(1+|x|)},\quad y_i=D(w_i),\quad
+u=\avg{\|v_i\|},\quad u^{\rm pre}=\avg{\|w_i\|},\quad u^+=\avg{\|y_i\|}.
+\end{equation}
+Brackets denote the mean over the eight labeled centers; $D$ acts componentwise using the source's \texttt{np.log1p}. These are means of Euclidean norms, not RMS speed or the norm of a mean vector. Gain is $G=1/(1+u)$ from incoming speed and is shared across centers during the sequential update. Impulses include the source's geometric and bit-dependent signs; this analysis changes none of them \cite{upstream}.
+
+For one paired center, $p,q$ are the ascending lists of absolute components of its two pre-damping vectors. They are not positions, and center labels are never sorted. For proof notation put
+\begin{equation}\label{eq:F}
+b(s)=1+\log(1+s),\qquad d(s)=s/b(s),\qquad F(p)=\|d(p)\|_2,
+\qquad \delta_i=F(p_i)-F(q_i).
+\end{equation}
+Here scalar $d(s)$ is not the source displacement. The same component damping makes $F$ invariant under signs and coordinate permutations, but generally not arbitrary rotations. The inherited center bound is
+\begin{equation}\label{eq:P}
+P_i=\left\|k(\min(p_i,q_i))\odot(p_i-q_i)\right\|,\qquad
+|\delta_i|\le P_i,\qquad P=\avg{P_i}.
+\end{equation}
+The minimum is componentwise. The derivative $k$ is defined next. Its validity and the later weak-dominance theorem $P\le K$ are inherited from SIM04 and its subsequent GPT review, not new SIM05 discoveries \cite{dominance}.
+
+SIM05 represents \ensuremath{1000} saved updates and \ensuremath{8000} distinct center-update records: one inherited 200-update prefix and the 800-update REPEATED continuation. At cycle $c=0,\ldots,4$ and phase $j=0,\ldots,199$, $n=200c+j$. Incoming response belongs to $S_n$ and post response to $S_{n+1}$. CONTINUOUS is excluded. All ten $c>d$ pair families were evaluated; new-four reuses six families from cycles 1--4. It means an earlier continuation, not new execution during paper preparation.
+
+The production inputs were SIM04's sealed, outcome-free profiles and existing $P$ bounds. No centroid, raw state, trajectory or RNG operation was performed. Although $D,d,F$ are legitimate proof notation, their exact readout was not evaluated on saved records. Realized profiles contain enough information for such an evaluation; this is an enclosure of that readout, not a forecast from scalar initial data.
+
+\clearpage
+\section{A monotone derivative in squared coordinates}\label{sec:derivative}
+The damping derivative inherited from Part I is
+\begin{equation}\label{eq:k}
+k(s)=\frac{b(s)-s/(1+s)}{b(s)^2}>0,\qquad
+k'(s)=\frac{2s-(s+2)b(s)}{(1+s)^2b(s)^3}<0,\qquad k(0)=1.
+\end{equation}
+For completeness, the numerator complement $J_0(s)=(s+2)b(s)-2s$ has $J_0(0)=2$ and derivative $\log(1+s)+1/(1+s)>0$, proving the sign of $k'$. Positivity follows from $b\ge1>s/(1+s)$. This is an analytic proof, not numerical derivative sampling.
+
+Introduce the squared-coordinate function
+\begin{equation}\label{eq:Phi}
+\Phi(z)=\frac{z}{b(\sqrt z)^2},\qquad z\ge0.
+\end{equation}
+$\Phi$ is a function in this construction, not the golden ratio. It converts squared pre-damping component magnitude to squared damped component magnitude in the proof. Thus $F(p)^2=\sum_a\Phi(p_a^2)$.
+
+\begin{proposition}[Increasing concavity]\label{thm:concavity}
+On the nonnegative half-line, $\Phi$ has a positive decreasing derivative. For $z>0$,
+\begin{equation}\label{eq:theta}
+\Phi'(z)=\vartheta(\sqrt z),\qquad
+\vartheta(s)=\frac{k(s)}{b(s)}=\frac{b(s)-s/(1+s)}{b(s)^3},
+\end{equation}
+and the right derivative at zero is one. Consequently $\Phi$ is increasing and concave.
+\end{proposition}
+\begin{proof}
+With $s=\sqrt z$, the chain rule gives $\Phi'(z)=d(s)d'(s)/s=k(s)/b(s)$. At zero, $\Phi(z)/z=1/b(\sqrt z)^2\to1$, matching $\vartheta(0)$. Differentiation yields
+\[
+\vartheta'(s)=\frac{k'(s)}{b(s)}-\frac{k(s)}{(1+s)b(s)^2}<0.
+\]
+Positivity and monotonicity, including the continuous limiting derivative at zero, prove the claims.
+\end{proof}
+This change of coordinate makes the numerator of a norm difference accessible through signed component integrals. It does not modify the damping operator. Concavity also supplies the analytic upper norm envelope used for the denominator, so the construction can retain a valid interval without forming the exact saved-record response.
+
+\clearpage
+\section{Fixed signed Darboux intervals}\label{sec:darboux}
+For each paired profile component define
+\begin{equation}\label{eq:xy}
+x=p_a^2,\quad y=q_a^2,\quad h_a=(p_a-q_a)(p_a+q_a),\quad
+z_t=\min(x,y)+\frac{t}{4}|x-y|\quad(t=0,\ldots,4).
+\end{equation}
+In real arithmetic $h_a=x-y$. The factored form is the accepted numerical evaluation; direct-square subtraction is retained as an algebra residual. There are exactly five fixed node slots in the squared-component interval, including zero-length intervals. These are not subdivisions of the simulation clock.
+
+Put $t_r=\vartheta(\sqrt{z_r})$. Since the derivative decreases, its average over the interval lies between the following fixed endpoint averages:
+\begin{equation}\label{eq:averages}
+\begin{array}{lll}
+J=1:& a_1^-=t_4,&a_1^+=t_0,\\[2mm]
+J=4:& a_4^-=(t_1+t_2+t_3+t_4)/4,&a_4^+=(t_0+t_1+t_2+t_3)/4.
+\end{array}
+\end{equation}
+$J$ counts integration subintervals. The one-subinterval version reuses the endpoints of the four-subinterval version; it does not add node evaluations.
+
+\begin{proposition}[Signed numerator enclosure and nesting]\label{thm:numerator}
+Define each component interval and its sum by
+\begin{equation}\label{eq:numerator}
+n_{J,a}^-=\min(h_aa_J^-,h_aa_J^+),\quad
+n_{J,a}^+=\max(h_aa_J^-,h_aa_J^+),\quad N_J^\pm=\sum_{a=1}^3 n_{J,a}^\pm.
+\end{equation}
+Then $F(p)^2-F(q)^2\in[N_J^-,N_J^+]$, and the $J=4$ interval is contained in the $J=1$ interval.
+\end{proposition}
+\begin{proof}
+The fundamental theorem of calculus expresses $\Phi(x)-\Phi(y)$ as $(x-y)$ times the derivative average on $[\min(x,y),\max(x,y)]$. The right and left Darboux sums bound that average. Multiplication by signed $h_a$ determines endpoint order, which the minimum/maximum in \eqref{eq:numerator} handles for either orientation. Summing signed component intervals gives the numerator enclosure.
+
+Monotonicity implies $a_1^-\le a_4^-\le a_4^+\le a_1^+$. Signed multiplication preserves interval containment even when it reverses endpoint order. Summation therefore preserves containment. If $h_a=0$, that component contributes exactly $[0,0]$ while retaining the prescribed node slots.
+\end{proof}
+Replacing $h_a$ by $|h_a|$ would destroy the signed numerator information. The construction instead preserves positive and negative squared-component changes before rationalizing to a norm difference. No adaptive partition or outcome-selected resolution is involved.
+
+\clearpage
+\section{Denominator envelopes and valid intersections}\label{sec:denominator}
+Let $m_p=\|p\|$ and $M_p=\max_a p_a$. The analytic norm envelopes are
+\begin{equation}\label{eq:envelopes}
+L(p)=\frac{m_p}{b(M_p)},\qquad U(p)=\frac{m_p}{b(m_p/\sqrt3)},\qquad
+L(p)\le F(p)\le U(p).
+\end{equation}
+The lower inequality follows from $b(p_a)\le b(M_p)$. Concavity of $\Phi$ and Jensen's inequality give
+\[
+F(p)^2=\sum_a\Phi(p_a^2)\le3\Phi(m_p^2/3)=\frac{m_p^2}{b(m_p/\sqrt3)^2},
+\]
+which proves the upper inequality after taking nonnegative square roots. Both envelopes vanish at zero.
+
+Unless both profiles vanish, $D_-=L(p)+L(q)>0$ and $D_+=U(p)+U(q)$ enclose $F(p)+F(q)$. Rationalization gives
+\begin{equation}\label{eq:quotient}
+\delta=\frac{F(p)^2-F(q)^2}{F(p)+F(q)},\qquad
+I_J^{\rm quot}=\left[\min_{\epsilon,\eta\in\{-,+\}}\frac{N_J^\epsilon}{D_\eta},\
+\max_{\epsilon,\eta\in\{-,+\}}\frac{N_J^\epsilon}{D_\eta}\right].
+\end{equation}
+For a positive denominator interval the quotient extrema occur at its four endpoint combinations: the numerator dependence is monotone, while denominator monotonicity depends on the numerator's sign. Retaining all four corners handles sign-changing numerator intervals correctly.
+
+Define raw and effective center intervals by
+\begin{equation}\label{eq:intersections}
+I_J^{\rm raw}=I_J^{\rm quot}\cap[L(p)-U(q),\ U(p)-L(q)],\qquad
+I_J=I_J^{\rm raw}\cap[-P_i,P_i]=[l_{J,i},r_{J,i}].
+\end{equation}
+Each intersected interval contains the same unknown $\delta_i$; no independence or joint attainability of the endpoints is required. Fixed intersections preserve the $J=4$ nesting. Raw endpoints and the separate prior-$P$ activity remain in the saved evidence rather than being replaced by only the final interval.
+
+If $p=q=0$, set $I_J=[0,0]$ without division or an epsilon. If $p=q\ne0$, every signed numerator is zero and the interval is again exactly $[0,0]$. These real-arithmetic intersections cannot be empty. The implementation's predeclared numerical policy stops on inversions exceeding $10^{-12}$; a smaller positive inversion is retained and outward-hulled with an unresolved flag. No production inversion or hull event occurred. That policy is not formal outward-rounded interval arithmetic.
+
+\clearpage
+\section{Collective signed averaging with uncertainty}\label{sec:averaging}
+Write each effective center interval as $I_{J,i}=\mu_{J,i}\pm\epsilon_{J,i}$, where
+\begin{equation}\label{eq:midradius}
+\mu_{J,i}=\frac{l_{J,i}+r_{J,i}}2,\quad
+\epsilon_{J,i}=\frac{r_{J,i}-l_{J,i}}2\ge0,\quad
+\Delta u=\avg{\delta_i}\in[\bar l_J,\bar r_J]=\bar\mu_J\pm\bar\epsilon_J.
+\end{equation}
+Bars denote the same eight-center average. The signed and unsigned upper bounds use exactly these intervals:
+\begin{equation}\label{eq:signedunsigned}
+B_J=|\bar\mu_J|+\bar\epsilon_J,\qquad
+U_J=\overline{|\mu_J|}+\bar\epsilon_J,\qquad
+U_J-B_J=\overline{|\mu_J|}-|\bar\mu_J|\ge0.
+\end{equation}
+The notation $U_J$ for a collective unsigned bound differs from the single-profile norm envelope $U(p)$. A midpoint is not assumed to equal the true speed difference. The same nonzero mean radius remains in both bounds.
+
+\begin{theorem}[Collective enclosure and fixed refinement]\label{thm:collective}
+Set
+\begin{equation}\label{eq:lower}
+A_J=\begin{cases}0,&\bar l_J\le0\le\bar r_J,\\
+\min(|\bar l_J|,|\bar r_J|),&\mathrm{otherwise}.
+\end{cases}
+\end{equation}
+Then
+\begin{equation}\label{eq:ordering}
+A_J\le|\Delta u|\le B_J\le U_J\le P,\qquad
+A_4\ge A_1,\quad B_4\le B_1,\quad U_4\le U_1.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The smallest and largest magnitudes on the collective interval are $A_J$ and $B_J$. The triangle inequality gives $|\bar\mu_J|\le\overline{|\mu_J|}$. Since each effective center interval lies inside $[-P_i,P_i]$, its maximum magnitude $|\mu_{J,i}|+\epsilon_{J,i}$ is at most $P_i$; averaging proves $U_J\le P$. Nested center intervals give a nested collective interval and cannot increase any individual maximum magnitude. Hence the absolute lower bound increases and the two upper bounds decrease under the fixed refinement.
+\end{proof}
+All orderings are weak: strict improvement is not required by the theorem. A collective interval containing zero has no resolved sign. The numerical sign rule requires a lower endpoint above $10^{-12}$ or an upper endpoint below $-10^{-12}$; it never substitutes the midpoint's sign for an interval crossing zero.
+
+\clearpage
+\section{Two-sided population variance conditions}\label{sec:variance}
+At each phase, complete unordered pairs satisfy
+\begin{equation}\label{eq:variance}
+\sum_{c>d}(u_c^+-u_d^+)^2=m\sum_c(u_c^+)^2-\left(\sum_cu_c^+\right)^2
+=m^2\operatorname{Var}(u^+).
+\end{equation}
+Squaring the nonnegative lower and upper pair bounds gives
+\begin{equation}\label{eq:W}
+W_J^-=\frac1{m^2}\sum_{c>d}A_{J,cd}^2
+\le\operatorname{Var}(u^+)\le
+\frac1{m^2}\sum_{c>d}B_{J,cd}^2=W_J^+.
+\end{equation}
+The denominators are 25 and 16 for the all-five and new-four views, respectively. All ten or six required pairs are present; the latter view reuses the previously evaluated comparisons. Validity does not require simultaneous attainability of all pair endpoints, and sharpness in that sense is not claimed.
+
+For either incoming or pre-damping reference variance, the two sufficient statements are
+\begin{equation}\label{eq:conditions}
+V_{\rm ref}-W_J^+>0\ \Longrightarrow\ \operatorname{Var}(u^+)<V_{\rm ref},\qquad
+W_J^--V_{\rm ref}>0\ \Longrightarrow\ \operatorname{Var}(u^+)>V_{\rm ref}.
+\end{equation}
+Failure of either test does not establish the other direction. The implementation labels the respective margin PASS above $10^{-14}$, NOT\_ESTABLISHED below $-10^{-14}$, and UNRESOLVED in the closed band. The actual margin $V_{\rm ref}-V_{\rm post}$ has its own decrease/increase classification.
+
+For a specified $\varepsilon\ge0$, $B_J\le\varepsilon$ also implies the pair difference is at most $\varepsilon$, while $W_J^+\le\varepsilon^2$ implies SD at most $\varepsilon$. No $\varepsilon$ was selected from outcomes. These implications are exact real-valued mathematics; their recorded evaluation uses float64 absolute tolerances rather than formal interval certification.
+
+\subsection{Aggregate spread and its limits}
+The aggregate SD is $\sqrt{\operatorname{mean}_j\operatorname{Var}_j}$, with corresponding bounds $\sqrt{\operatorname{mean}_jW_J^\pm}$. It is not mean phasewise SD. Aggregate factors divide those aggregate quantities; they are not individual-pair error guarantees or statistical confidence levels. The cycle population is correlated and finite.
+
+This framework permits useful conclusions in either direction. In particular, a lower variance bound can establish an increase rather than treating every increase as an inconvenient failure of an intended contraction claim. The fixed SIM05 design retained both reference stages and both directions before outcomes were joined.
+
+\clearpage
+\section{The fixed evaluation and its dataflow boundary}\label{sec:evaluation}
+The saved-data pass used only the permitted key/profile/$P$ fields of SIM04's sealed pre-output archive. Existing profiles and $P_i$ values were reused; the earlier bound was not rerun. The new center, pair and population arrays were written and hashed before saved outcome differences and stage variances were joined \cite{seal}.
+
+The execution population was \ensuremath{2000} pair/phase comparisons, \ensuremath{16000} labeled-center pairs, \ensuremath{48000} component pairs and \ensuremath{240000} derivative-node slots. After sealing, there were \ensuremath{2000} pair/phase outcome joins and \ensuremath{400} view/phase summaries. These are analytical operations on the same represented updates, not new trajectory steps.
+
+Five primary families were fixed: inherited $P$, one-subinterval unsigned $U_1$, one-subinterval signed $B_1$, four-subinterval unsigned $U_4$, and four-subinterval signed $B_4$. Raw pre-$P$ variants were retained as diagnostics. The input, partition levels, all phases, masks and tolerances were fixed; there was no fit, extra seed or favorable-phase selection.
+
+The original proof gate preceded 14 deterministic synthetic fixture groups with 816 assertions. Reference $D$ was evaluated only on those synthetic inputs. A single primary pass then checked 96 signed numerical residual arrays. The subsequent GPT review independently verified the fixed construction in one successful primary pass, with its own 759 numerical fixture comparisons plus logical checks; it did not rerun the exact 816-assertion sequence \cite{review}.
+
+\begin{center}\small\begin{tabular}{lccc}\toprule
+Stage & Fixed groups & Fixture accounting & Primary science passes\\\midrule
+Original SIM05 & 14 & 816 assertions; 96 QA arrays & 1\\
+Subsequent GPT review & 14 & 759 comparisons plus logical checks & 1\\
+Manuscript preparation & 0 & No scientific evaluation & 0\\\bottomrule
+\end{tabular}\end{center}
+
+This dataflow separation is not a claim of blinding to prior reports. The retained profiles are realized sequential intermediates and contain enough information to evaluate the exact damped norm. The study deliberately bounds that readout without evaluating it on saved records. Neither that restriction nor the analytic seal makes the bound a prediction from scalar speed or initial state alone.
+
+Paper production performed only source reading, direct transcription, editorial construction and document QA. It did not execute the accepted analyst, fixture or reviewer programs, recompute a summary statistic, or evaluate new scientific records. The prior execution counts in this paper describe completed studies and reviews, not manuscript-stage activity.
+
+\clearpage
+\section{Aggregate tightness: all five fixed families}\label{sec:aggregate-results}
+\begin{table}[h!]
+\centering\small\setlength{\tabcolsep}{4pt}
+\caption{All prescribed aggregate SD upper bounds and factors over observed aggregate SD. Values are formatted directly from the accepted full-precision cells.}\label{tab:aggregate}
+\begin{tabular}{lrrrr}\toprule
+Family & All-five SD & Factor & New-four SD & Factor\\\midrule
+$P$ & \ensuremath{0.03586395181} & \ensuremath{3.883053736} & \ensuremath{0.03515595153} & \ensuremath{3.800869157}\\
+$U_1$ & \ensuremath{0.02147331032} & \ensuremath{2.324953432} & \ensuremath{0.02072716033} & \ensuremath{2.240907187}\\
+$B_1$ & \ensuremath{0.01056442397} & \ensuremath{1.143828939} & \ensuremath{0.01048427617} & \ensuremath{1.133502585}\\
+$U_4$ & \ensuremath{0.02080811938} & \ensuremath{2.252932029} & \ensuremath{0.02010729615} & \ensuremath{2.173890862}\\
+$B_4$ & \ensuremath{0.01001382988} & \ensuremath{1.084215139} & \ensuremath{0.009971513893} & \ensuremath{1.078065533}\\
+\bottomrule\end{tabular}
+\end{table}
+
+The signed one-subinterval construction already gives smaller aggregate factors than the unsigned four-subinterval construction in both views. Refining the derivative interval alone therefore does not account for the principal improvement. Retaining cancellation through averaging is a separate mathematical gain.
+\fig{01_profile_unsigned_signed.png}{Inherited profile, unsigned and signed bounds, unchanged SIM05 Figure 1. The original logarithmic scale and complete phase range are retained. Signed and unsigned comparisons use the same center intervals at each fixed resolution.}{fig:one}
+The factors compare SD upper bounds with observed aggregate SD. In particular, the four-subinterval factor near 1.08 is not an eight-percent prediction-error rate, confidence interval or guarantee at every pair and phase. Sections~\ref{sec:conditions-results} and \ref{sec:adverse} retain the nonpassing cases and unfavorable relative scales.
+
+\clearpage
+\section{Lower and upper enclosures remain visible}\label{sec:enclosure-results}
+\begin{table}[h!]
+\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Four-subinterval aggregate SD enclosure and observed aggregate SD.}\label{tab:enclosure}
+\begin{tabular}{lrrr}\toprule
+View & Lower & Observed & Upper\\\midrule
+all-five & \ensuremath{0.00847398247853} & \ensuremath{0.00923601738589} & \ensuremath{0.0100138298760}\\
+new-four & \ensuremath{0.00850486453974} & \ensuremath{0.00924945060439} & \ensuremath{0.00997151389272}\\
+\bottomrule\end{tabular}
+\end{table}
+
+These are deterministic aggregate enclosures, not uncertainty estimates from independent observations. They carry a nonzero width even where the signed upper bound is close to the observed aggregate. Figure~\ref{fig:two} retains both resolutions and both endpoints.
+\fig{02_fixed_resolution_enclosures.png}{Fixed one- and four-subinterval enclosures, unchanged SIM05 Figure 2. Lower and upper bounds are retained with the observed values; logarithmic axes are identified in the original figure. Refinement concerns squared-component integration, not additional trajectory steps.}{fig:two}
+The inherited $P$ intersection tightens \ensuremath{148} center intervals at $J=1$ and \ensuremath{9} at $J=4$. At four subintervals, the raw signed aggregate factors are \ensuremath{1.08421597324} and \ensuremath{1.07806553267}, very close to the effective factors in Table~\ref{tab:aggregate}. The improvement is therefore not merely a fallback to $P$.
+
+Every raw interval, quotient endpoint, prior-intersection flag and effective interval is retained. The real-valued intersection is justified because both intervals contain the same unknown difference; it is not corrected against observed outputs.
+
+\clearpage
+\section{Cancellation and unresolved signs}\label{sec:cancellation}
+The mean collective radius decreases from \ensuremath{0.00125171232746} at $J=1$ to \ensuremath{0.000682317955742} at $J=4$. This uncertainty remains in $B_J$. It is not legitimate to replace each interval by its midpoint or to identify a midpoint's sign when the interval contains zero.
+
+At four subintervals, \ensuremath{7981} center pairs have resolved positive signs and \ensuremath{7970} negative signs; \ensuremath{49} remain unresolved. Both signs are established among the centers at \ensuremath{1998} pair comparisons. Yet the collective interval still has an unresolved sign at \ensuremath{55} pairs. These center-level and collective statements answer different questions.
+\fig{03_cancellation_and_uncertainty.png}{Cancellation and retained radius, unchanged SIM05 Figure 3. The radius stays in the signed upper bound, while the cancellation gain compares unsigned and signed averaging of the same intervals. Neither is a statistical confidence measure.}{fig:three}
+The midpoint cancellation gain exceeds the native tolerance at \ensuremath{1998} comparisons and is exactly zero at \ensuremath{2}. Its mathematical form in \eqref{eq:signedunsigned} is nonnegative regardless of whether the midpoint equals the saved difference. Equality is allowed by the theorem and is retained in the evidence.
+
+\clearpage
+\section{Separating the gains and remaining slack}\label{sec:gaps}
+After joining saved signed center differences, $S=|\avg{\delta_i}|$ gives the exact ladder
+\begin{equation}\label{eq:gap}
+P-S=(P-U_4)+(U_4-B_4)+(B_4-S).
+\end{equation}
+The first term measures within-center enclosure improvement over the inherited profile bound. The second is the additional gain from signed averaging of the same intervals. The third is the remaining upper slack.
+\begin{table}[h!]
+\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Mean gaps across all pair/phase comparisons; native speed units.}\label{tab:gaps}
+\begin{tabular}{lr}\toprule
+Gap & Mean\\\midrule
+$P-U_4$: center enclosure & \ensuremath{0.0139015769864}\\
+$U_4-B_4$: signed averaging & \ensuremath{0.0143154667776}\\
+$B_4-S$: remaining slack & \ensuremath{0.000679807314080}\\
+$P-S$: total & \ensuremath{0.0288968510781}\\
+\bottomrule\end{tabular}
+\end{table}
+
+\fig{04_fixed_gap_ladder.png}{The fixed gap ladder, unchanged SIM05 Figure 4. These full-population phase means are native-speed inequality gaps, not causal contributions, energies or variance aggregates.}{fig:four}
+Both within-center scalar information and collective cancellation matter on this population. The mean remaining slack is close to, but not identical with, the mean radius: rowwise,
+\[
+B_4-S=\bar\epsilon_4+|\bar\mu_4|-|\bar\delta|.
+\]
+This identity explains why retained uncertainty and remaining overestimate should not be conflated. Improving a mathematical envelope changes the comparison, not the underlying motion or strength of damping.
+
+\clearpage
+\section{Decrease and increase: all prescribed comparisons}\label{sec:conditions-results}
+\begin{table}[h!]
+\centering\small\setlength{\tabcolsep}{4pt}
+\caption{All sufficient-condition counts and actual directions; 200 phases per row. Neither means both tests are NOT\_ESTABLISHED.}\label{tab:conditions}
+\begin{tabular}{ll l r r r c}\toprule
+View & $J$ & Reference & Decrease & Increase & Neither & Actual dec./inc.\\\midrule
+all-five & 1 & incoming & 94 & 49 & 57 & 127 / 73\\
+all-five & 1 & pre-damping & 193 & 0 & 7 & 200 / 0\\
+all-five & 4 & incoming & 111 & 56 & 33 & 127 / 73\\
+all-five & 4 & pre-damping & 200 & 0 & 0 & 200 / 0\\
+new-four & 1 & incoming & 97 & 51 & 52 & 125 / 75\\
+new-four & 1 & pre-damping & 189 & 0 & 11 & 200 / 0\\
+new-four & 4 & incoming & 108 & 58 & 34 & 125 / 75\\
+new-four & 4 & pre-damping & 198 & 0 & 2 & 200 / 0\\
+\bottomrule\end{tabular}
+\end{table}
+
+The table preserves both resolutions and both references. Its sufficient conditions are distinct from the actual saved direction. In particular, incoming-to-post variance increases at many phases, and the lower bound establishes a subset of those increases. No passing decrease condition coincides with a saved increase, and no passing increase condition coincides with a saved decrease, according to the accepted complete checks \cite{review}.
+
+Every individual test margin is outside the closed $\pm10^{-14}$ unresolved band. ``Neither'' therefore means that both sufficient tests are NOT\_ESTABLISHED, not that the actual motion is zero or that a margin is numerically unresolved. Failure of one condition does not establish its opposite.
+
+The damping-stage result is stronger than the incoming-to-post result, but it is still conditional on the stored pre-damping profiles. It does not prove that the complete update contracts arbitrary states: gain, impulse geometry, sequential positions and bits lie upstream of that damping comparison. The finite correlated cycles cannot support a universal long-time conclusion.
+
+\subsection{Two limits of the four-subinterval decrease test}
+For new-four, phases 17 and 57 have actual pre-damping-to-post decreases but nonpassing upper-bound margins. Table~\ref{tab:nonpass} gives the existing variance cells directly, without recomputation or adjustment.
+\begin{table}[h!]
+\centering\small\setlength{\tabcolsep}{4pt}
+\caption{The two nonpassing new-four damping phases. Both actual variances decrease.}\label{tab:nonpass}
+\begin{tabular}{lrr}\toprule
+Quantity & Phase 17 & Phase 57\\\midrule
+Pre-damping variance & \ensuremath{0.00002150348993564879} & \ensuremath{1.986207405587810\times10^{-7}}\\
+Observed post variance & \ensuremath{0.00001445688979084070} & \ensuremath{1.887795458905935\times10^{-7}}\\
+$W_4^+$ & \ensuremath{0.00003176667175141667} & \ensuremath{2.167091635336946\times10^{-7}}\\
+$W_4^-$ & \ensuremath{0.00000473397537913797} & \ensuremath{1.643035040964846\times10^{-7}}\\
+Decrease-test margin & \ensuremath{-0.00001026318181576787} & \ensuremath{-1.808842297491358\times10^{-8}}\\
+\bottomrule\end{tabular}
+\end{table}
+
+The all-five smallest passing damping-stage margin is \ensuremath{4.667115994392145\times10^{-8}} at phase 199. These comparisons establish what the fixed construction can resolve; they do not justify adding subintervals to force every phase to pass.
+
+\clearpage
+\section{Reading the two-sided margin figure}\label{sec:margin-figure}
+\figtall{05_two_sided_conditions.png}{Both sufficient directions, resolutions and reference stages, unchanged SIM05 Figure 5. The symmetric-log display transition is $10^{-8}$; the numerical decision tolerance remains $10^{-14}$. All phases, including the nonpassing new-four damping phases, are retained.}{fig:five}
+The plotted margins separate upper-bound decrease tests from lower-bound increase tests. A line near zero on this display is not itself a classification: the complete stored values and thresholds in Section~\ref{sec:conditions-results} determine PASS, NOT\_ESTABLISHED and UNRESOLVED. ``Numerically verified sufficient condition'' here means a real-valued implication evaluated using float64 tolerances, not a machine-certified interval-arithmetic proof.
+
+\clearpage
+\section{Adverse comparisons and finite precision}\label{sec:adverse}
+The largest four-subinterval phasewise SD factors are \ensuremath{1.360754182} and \ensuremath{1.482342030}, both at phase 17. Individual pair factors can be far larger:
+\begin{table}[h!]
+\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Adverse individual-pair scales retained with their original SIM05 reduction convention.}\label{tab:adverse}
+\begin{tabular}{lrrr}\toprule
+$(c,d,j)$ & Observed $S$ & Upper $B_4$ & $B_4/S$\\\midrule
+$(4,0,5)$ & \ensuremath{0.0000354320366678} & \ensuremath{0.00791189786647} & \ensuremath{223.297857265}\\
+$(4,0,105)$ & \ensuremath{3.87406512849\times10^{-7}} & \ensuremath{0.0000480267170528} & \ensuremath{123.969823583}\\
+\bottomrule\end{tabular}
+\end{table}
+
+All quoted denominators are resolved. The aggregate factor near 1.08 conceals neither these near-cancelling pairs nor the full phase variation in Figure~\ref{fig:six}.
+\fig{06_full_phase_tightness.png}{Full phasewise SD tightness, unchanged SIM05 Figure 6, with the original logarithmic scale. Neither the favorable aggregate ratio nor the fixed refinement is a uniform individual-pair guarantee.}{fig:six}
+SIM05 forms $S$ by averaging saved signed center differences; SIM04's separately reduced collective means can differ in the last bits. At $(4,0,105)$ the SIM05 $S$ is the value above; Part I retains its own accepted reduction convention. These values are not forced to agree. Raw residuals, masks and adverse ratios remain unchanged. Native interval/speed checks use absolute tolerance $10^{-12}$, variance checks $10^{-14}$, and zero relative tolerance. No formal outward-rounded certification is claimed.
+
+\clearpage
+\section{Evidence, scope and conclusion}\label{sec:evidence}
+The fixed signed-radial construction retains more information about the scalar target than a distance between profiles. Analytic denominator envelopes make signed center intervals possible without evaluating the exact saved-record response. Averaging those intervals before taking an absolute value preserves cancellation while keeping the radius. Two-sided complete-pair aggregation then permits useful sufficient comparisons in both directions.
+
+The limits remain part of the finding: nonzero uncertainty, unresolved collective signs, two nonpassing continuation-only damping phases, and large relative factors at small resolved pair differences. These are limitations of an enclosure on realized inputs. They are not failed simulations or reasons to alter the partition after observing outcomes. Better bounds do not change the model, strengthen damping, demonstrate learning, establish physical calibration or prove full-state or long-time contraction.
+
+The edition retains the original report, mathematical verification, all six figures, full analysis CSV/JSON/NPZ evidence, residual arrays, schemas, selected specifications and analyst code. Its inherited \texttt{review/} files are the earlier SIM04 review, including the dominance theorem. Its own subsequent acceptance and thirteen-member review are under \texttt{review/SIM05/}. These two histories remain distinct and unchanged. The claim-source map and local transcription ledger trace every displayed numerical result to an existing full-precision cell.
+
+The curated layout is an inspectable evidence set. Older manifests have their historical scope; retained checker scripts require their original submissions, transport seals and fresh output directories. The access map records omitted operational prerequisites. No checker or scientific analysis was run during manuscript production.
+
+\paragraph{Attribution and status.} Hilmir Frímann Halldórsson is the human research author. GPT supplied proposed mathematics, scientific direction and internal review; Codex performed the accepted implementation/proof verification and manuscript/document preparation. These are assistance roles. The accepted scientific scope is conditional signed-radial bounds. This v0.1 manuscript and edition are Stage A candidates dated 14 October 2026, awaiting manuscript-and-exact-payload review. No external peer review, publication approval or new licence grant is asserted.
+
+\clearpage
+\begin{thebibliography}{9}\raggedright
+\bibitem{report} H. F. Halldórsson, \emph{SRG-SIM05: Signed radial intervals and collective cancellation}, accepted report, 14 October 2026. \local{SIM05_REPORT.md}.
+\bibitem{math} SIM05, \emph{Independent pre-evaluation mathematical verification}, sections 1--6. \local{MATHEMATICAL_RESULTS.md}. Fixed proposal: \local{received/SIM05_MATHEMATICAL_SPEC_v0.1.md}.
+\bibitem{review} GPT, \emph{SRG-SIM05 scientific review}, subsequent internal review, 14 October 2026. \local{review/SIM05/SIM05_GPT_SCIENTIFIC_REVIEW.md}; complete results and execution notes retained alongside it.
+\bibitem{dominance} GPT, \emph{Additional profile-dominance theorem}, subsequent SIM04 review. \local{review/ADDITIONAL_PROFILE_DOMINANCE_THEOREM.md}; original SIM04 proofs retained at \local{inputs/MATHEMATICAL_RESULTS.md}.
+\bibitem{seal} SIM05, \local{analysis/PRE_OUTPUT_INTERVALS_SEAL.json}, \local{evidence/DATA_ACCESS_LOG.json}, and \local{OUTPUT_FIELD_GUIDE.md}.
+\bibitem{partone} H. F. Halldórsson, \emph{Finite-Step Collective-Speed Bounds in Early SRG Motion I: Component Profiles, Bound Dominance, and Remaining Slack}, companion v0.1 candidate. \href{../../../SIM04_FINITE_STEP_COLLECTIVE_SPEED_BOUNDS/publication/v0.1/README.md}{Companion edition}. Both papers await joint review.
+\bibitem{upstream} Historical C source through \pinned{SIM01_SURVIVING_RECURSIVE_MOTION}{SIM01} and \pinned{SIM02_REPEATED_DRIVE_AND_RETAINED_STATE}{SIM02}; sequential interpretation and indexing caveat in corrected \pinned{SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT}{SIM03}, pinned at \texttt{e1f5115402a05965834493c1254b03118a531c92}. SIM04's selected input chain and the companion access map identify exact preserved source files.
+\end{thebibliography}
+
+\end{document}

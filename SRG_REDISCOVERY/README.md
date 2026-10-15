@@ -59,3 +59,11 @@ The v0.1 chapter gives the exact two-step access criterion and sharp singleton a
 
 [Driving, Geometry, and Response Alignment in Early SRG Motion: An Exact Observed-Path Decomposition of Repeated Forcing and Nonlinear Damping](SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT/publication/v0.1/README.md) explains the accepted saved-only decomposition of impulse magnitude, signed velocity alignment and damping. The edition includes the manuscript, eight unchanged figures, numerical/source evidence and complete subsequent GPT review. It distinguishes damping-stage vector nonexpansion and observed scalar-variance reduction from full-update contraction, and includes the geometric normalization bound and phase-reindexing caveat. See its [publication disposition](SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT/publication/v0.1/PUBLICATION_DISPOSITION.md) for scope, assistance and rights.
 
+
+## SRG Finite-Step Collective-Speed Bounds I — SIM04
+
+[Component Profiles, Bound Dominance, and Remaining Slack](SIM04_FINITE_STEP_COLLECTIVE_SPEED_BOUNDS/publication/v0.1/README.md) explains the accepted finite-step hierarchy, the subsequent-review profile-dominance theorem and remaining scalar information loss. The companion edition preserves the original evidence and distinguishes valid bounds from unestablished sufficient conditions.
+
+## SRG Finite-Step Collective-Speed Bounds II — SIM05
+
+[Signed Radial Intervals and Collective Cancellation](SIM05_SIGNED_RADIAL_CANCELLATION_BOUNDS/publication/v0.1/README.md) explains signed center enclosures and two-sided dispersion conditions on the same saved population. Uncertainty, actual increases, nonpassing phases and adverse factors remain explicit. Each edition records its preparation-time status and separate manuscript/publication gate.

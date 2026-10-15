@@ -1,0 +1,52 @@
+{
+  "access": [
+    {
+      "utc": "2026-10-14T15:08:14.047629+00:00",
+      "stage": "allowed analytic inputs",
+      "file": "inputs\\analysis\\PRE_OUTPUT_BOUNDS.npz",
+      "fields": [
+        "pair__pair_id",
+        "pair__cycle_c",
+        "pair__cycle_d",
+        "pair__phase",
+        "pair__update_c",
+        "pair__update_d",
+        "pair__P_PROFILE",
+        "center__pair_phase_row",
+        "center__center",
+        "center__profile_c",
+        "center__profile_d",
+        "center__P_center"
+      ]
+    },
+    {
+      "utc": "2026-10-14T15:08:16.695481+00:00",
+      "stage": "post-seal outcomes",
+      "file": "inputs\\analysis\\center_pair_bounds.npz",
+      "fields": [
+        "pair__pair_id",
+        "pair__cycle_c",
+        "pair__cycle_d",
+        "pair__phase",
+        "pair__update_c",
+        "pair__update_d",
+        "center__pair_phase_row",
+        "center__center",
+        "outcome__signed_speed_difference",
+        "outcome__individual_abs_speed_difference"
+      ]
+    },
+    {
+      "utc": "2026-10-14T15:08:16.869568+00:00",
+      "stage": "post-seal scalar references",
+      "files": [
+        "cycle_phase_speeds.csv",
+        "pair_phase_bounds.csv",
+        "phase_dispersion_bounds.csv"
+      ]
+    }
+  ],
+  "outcome_join_after_seal": true,
+  "raw_state_loads": 0,
+  "prior_engine_or_checker_runs": 0
+}

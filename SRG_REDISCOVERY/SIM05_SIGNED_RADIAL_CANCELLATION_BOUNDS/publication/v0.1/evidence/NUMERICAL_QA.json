@@ -1,0 +1,2145 @@
+{
+  "status": "PASS",
+  "checks": {
+    "prior_center_mean_minus_pair": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": 0.0,
+      "min_index": [
+        0
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        0
+      ],
+      "max_abs": 0.0,
+      "max_abs_index": [
+        0
+      ]
+    },
+    "stable_h_minus_direct_squares": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000,
+        3
+      ],
+      "axes": [
+        "center_pair_row",
+        "component"
+      ],
+      "min_signed": -5.551115123125783e-17,
+      "min_index": [
+        47,
+        2
+      ],
+      "max_signed": 5.551115123125783e-17,
+      "max_index": [
+        16,
+        1
+      ],
+      "max_abs": 5.551115123125783e-17,
+      "max_abs_index": [
+        16,
+        1
+      ]
+    },
+    "theta_node_monotonicity": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000,
+        3,
+        4
+      ],
+      "axes": [
+        "center_pair_row",
+        "component",
+        "node_gap"
+      ],
+      "min_signed": -0.4362875708512306,
+      "min_index": [
+        1615,
+        2,
+        0
+      ],
+      "max_signed": -1.1342492112209612e-07,
+      "max_index": [
+        15853,
+        2,
+        3
+      ],
+      "max_abs": 0.4362875708512306,
+      "max_abs_index": [
+        1615,
+        2,
+        0
+      ]
+    },
+    "J1_numerator_lo_minus_numerator_hi": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.33038000353038866,
+      "min_index": [
+        25
+      ],
+      "max_signed": -1.0245025709156823e-09,
+      "max_index": [
+        4244
+      ],
+      "max_abs": 0.33038000353038866,
+      "max_abs_index": [
+        25
+      ]
+    },
+    "J1_raw_lo_original_minus_raw_hi_original": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.08730961806729506,
+      "min_index": [
+        1623
+      ],
+      "max_signed": -3.869497083619634e-08,
+      "max_index": [
+        4252
+      ],
+      "max_abs": 0.08730961806729506,
+      "max_abs_index": [
+        1623
+      ]
+    },
+    "J1_effective_lo_original_minus_effective_hi_original": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.08112659697264349,
+      "min_index": [
+        8023
+      ],
+      "max_signed": -3.869497083619634e-08,
+      "max_index": [
+        4252
+      ],
+      "max_abs": 0.08112659697264349,
+      "max_abs_index": [
+        8023
+      ]
+    },
+    "J1_lo_minus_hi": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.08112659697264349,
+      "min_index": [
+        8023
+      ],
+      "max_signed": -3.869497083619634e-08,
+      "max_index": [
+        4252
+      ],
+      "max_abs": 0.08112659697264349,
+      "max_abs_index": [
+        8023
+      ]
+    },
+    "J1_effective_hi_minus_prior": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -1.148643213378036,
+      "min_index": [
+        25
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        2
+      ],
+      "max_abs": 1.148643213378036,
+      "max_abs_index": [
+        25
+      ]
+    },
+    "J1_minus_prior_minus_effective_lo": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -1.167392615028776,
+      "min_index": [
+        3225
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        276
+      ],
+      "max_abs": 1.167392615028776,
+      "max_abs_index": [
+        3225
+      ]
+    },
+    "J1_signed_minus_unsigned": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.11742340882724644,
+      "min_index": [
+        1206
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        1930
+      ],
+      "max_abs": 0.11742340882724644,
+      "max_abs_index": [
+        1206
+      ]
+    },
+    "J1_midpoint_identity_residual": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -1.3877787807814457e-17,
+      "min_index": [
+        201
+      ],
+      "max_signed": 1.3877787807814457e-17,
+      "max_index": [
+        1
+      ],
+      "max_abs": 1.3877787807814457e-17,
+      "max_abs_index": [
+        1
+      ]
+    },
+    "J1_unsigned_identity_residual": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -2.7755575615628914e-17,
+      "min_index": [
+        412
+      ],
+      "max_signed": 2.7755575615628914e-17,
+      "max_index": [
+        2
+      ],
+      "max_abs": 2.7755575615628914e-17,
+      "max_abs_index": [
+        2
+      ]
+    },
+    "J1_cancellation_identity_residual": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -1.3877787807814457e-17,
+      "min_index": [
+        5
+      ],
+      "max_signed": 2.7755575615628914e-17,
+      "max_index": [
+        1608
+      ],
+      "max_abs": 2.7755575615628914e-17,
+      "max_abs_index": [
+        1608
+      ]
+    },
+    "J1_raw_signed_minus_unsigned": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.11742340882724644,
+      "min_index": [
+        1206
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        1930
+      ],
+      "max_abs": 0.11742340882724644,
+      "max_abs_index": [
+        1206
+      ]
+    },
+    "J1_raw_midpoint_identity_residual": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -1.3877787807814457e-17,
+      "min_index": [
+        201
+      ],
+      "max_signed": 1.3877787807814457e-17,
+      "max_index": [
+        1
+      ],
+      "max_abs": 1.3877787807814457e-17,
+      "max_abs_index": [
+        1
+      ]
+    },
+    "J1_raw_unsigned_identity_residual": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -2.7755575615628914e-17,
+      "min_index": [
+        412
+      ],
+      "max_signed": 2.7755575615628914e-17,
+      "max_index": [
+        2
+      ],
+      "max_abs": 2.7755575615628914e-17,
+      "max_abs_index": [
+        2
+      ]
+    },
+    "J1_raw_cancellation_identity_residual": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -1.3877787807814457e-17,
+      "min_index": [
+        5
+      ],
+      "max_signed": 2.7755575615628914e-17,
+      "max_index": [
+        1608
+      ],
+      "max_abs": 2.7755575615628914e-17,
+      "max_abs_index": [
+        1608
+      ]
+    },
+    "J1_unsigned_minus_P": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.1440133838801363,
+      "min_index": [
+        1609
+      ],
+      "max_signed": -0.0004173639290550764,
+      "max_index": [
+        599
+      ],
+      "max_abs": 0.1440133838801363,
+      "max_abs_index": [
+        1609
+      ]
+    },
+    "J1_signed_lower_minus_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.03375325964485629,
+      "min_index": [
+        1207
+      ],
+      "max_signed": -2.6483320470674625e-05,
+      "max_index": [
+        1799
+      ],
+      "max_abs": 0.03375325964485629,
+      "max_abs_index": [
+        1207
+      ]
+    },
+    "J4_numerator_lo_minus_numerator_hi": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.08259500088259714,
+      "min_index": [
+        25
+      ],
+      "max_signed": -2.561256427288147e-10,
+      "max_index": [
+        4244
+      ],
+      "max_abs": 0.08259500088259714,
+      "max_abs_index": [
+        25
+      ]
+    },
+    "J4_raw_lo_original_minus_raw_hi_original": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.06523529294572361,
+      "min_index": [
+        9658
+      ],
+      "max_signed": -1.2107391997310654e-08,
+      "max_index": [
+        4252
+      ],
+      "max_abs": 0.06523529294572361,
+      "max_abs_index": [
+        9658
+      ]
+    },
+    "J4_effective_lo_original_minus_effective_hi_original": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.06523529294572361,
+      "min_index": [
+        9658
+      ],
+      "max_signed": -1.2107391997310654e-08,
+      "max_index": [
+        4252
+      ],
+      "max_abs": 0.06523529294572361,
+      "max_abs_index": [
+        9658
+      ]
+    },
+    "J4_lo_minus_hi": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.06523529294572361,
+      "min_index": [
+        9658
+      ],
+      "max_signed": -1.2107391997310654e-08,
+      "max_index": [
+        4252
+      ],
+      "max_abs": 0.06523529294572361,
+      "max_abs_index": [
+        9658
+      ]
+    },
+    "J4_effective_hi_minus_prior": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -1.148643213378036,
+      "min_index": [
+        25
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        2054
+      ],
+      "max_abs": 1.148643213378036,
+      "max_abs_index": [
+        25
+      ]
+    },
+    "J4_minus_prior_minus_effective_lo": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -1.167392615028776,
+      "min_index": [
+        3225
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        4989
+      ],
+      "max_abs": 1.167392615028776,
+      "max_abs_index": [
+        3225
+      ]
+    },
+    "J4_signed_minus_unsigned": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.11769237204125564,
+      "min_index": [
+        1206
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        1930
+      ],
+      "max_abs": 0.11769237204125564,
+      "max_abs_index": [
+        1206
+      ]
+    },
+    "J4_midpoint_identity_residual": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -1.3877787807814457e-17,
+      "min_index": [
+        212
+      ],
+      "max_signed": 1.3877787807814457e-17,
+      "max_index": [
+        414
+      ],
+      "max_abs": 1.3877787807814457e-17,
+      "max_abs_index": [
+        212
+      ]
+    },
+    "J4_unsigned_identity_residual": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -1.3877787807814457e-17,
+      "min_index": [
+        6
+      ],
+      "max_signed": 2.7755575615628914e-17,
+      "max_index": [
+        2
+      ],
+      "max_abs": 2.7755575615628914e-17,
+      "max_abs_index": [
+        2
+      ]
+    },
+    "J4_cancellation_identity_residual": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -1.3877787807814457e-17,
+      "min_index": [
+        213
+      ],
+      "max_signed": 1.3877787807814457e-17,
+      "max_index": [
+        2
+      ],
+      "max_abs": 1.3877787807814457e-17,
+      "max_abs_index": [
+        2
+      ]
+    },
+    "J4_raw_signed_minus_unsigned": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.11769237204125564,
+      "min_index": [
+        1206
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        1930
+      ],
+      "max_abs": 0.11769237204125564,
+      "max_abs_index": [
+        1206
+      ]
+    },
+    "J4_raw_midpoint_identity_residual": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -1.3877787807814457e-17,
+      "min_index": [
+        212
+      ],
+      "max_signed": 1.3877787807814457e-17,
+      "max_index": [
+        414
+      ],
+      "max_abs": 1.3877787807814457e-17,
+      "max_abs_index": [
+        212
+      ]
+    },
+    "J4_raw_unsigned_identity_residual": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -1.3877787807814457e-17,
+      "min_index": [
+        6
+      ],
+      "max_signed": 2.7755575615628914e-17,
+      "max_index": [
+        2
+      ],
+      "max_abs": 2.7755575615628914e-17,
+      "max_abs_index": [
+        2
+      ]
+    },
+    "J4_raw_cancellation_identity_residual": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -1.3877787807814457e-17,
+      "min_index": [
+        213
+      ],
+      "max_signed": 1.3877787807814457e-17,
+      "max_index": [
+        2
+      ],
+      "max_abs": 1.3877787807814457e-17,
+      "max_abs_index": [
+        2
+      ]
+    },
+    "J4_unsigned_minus_P": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.1500841112152928,
+      "min_index": [
+        1609
+      ],
+      "max_signed": -0.00042349828021385604,
+      "max_index": [
+        599
+      ],
+      "max_abs": 0.1500841112152928,
+      "max_abs_index": [
+        1609
+      ]
+    },
+    "J4_signed_lower_minus_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.020224629339889697,
+      "min_index": [
+        1207
+      ],
+      "max_signed": -1.5191974643909319e-05,
+      "max_index": [
+        399
+      ],
+      "max_abs": 0.020224629339889697,
+      "max_abs_index": [
+        1207
+      ]
+    },
+    "nesting_lower": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.029025266645035186,
+      "min_index": [
+        3223
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        3
+      ],
+      "max_abs": 0.029025266645035186,
+      "max_abs_index": [
+        3223
+      ]
+    },
+    "nesting_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.034624270123929435,
+      "min_index": [
+        103
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        8
+      ],
+      "max_abs": 0.034624270123929435,
+      "max_abs_index": [
+        103
+      ]
+    },
+    "raw_nesting_lower": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.04532622784973872,
+      "min_index": [
+        3223
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        3
+      ],
+      "max_abs": 0.04532622784973872,
+      "max_abs_index": [
+        3223
+      ]
+    },
+    "raw_nesting_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.034624270123929435,
+      "min_index": [
+        103
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        8
+      ],
+      "max_abs": 0.034624270123929435,
+      "max_abs_index": [
+        103
+      ]
+    },
+    "signed_J4_minus_J1": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.008696713930343943,
+      "min_index": [
+        1203
+      ],
+      "max_signed": -2.231136463627832e-06,
+      "max_index": [
+        568
+      ],
+      "max_abs": 0.008696713930343943,
+      "max_abs_index": [
+        1203
+      ]
+    },
+    "unsigned_J4_minus_J1": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.009522440490613238,
+      "min_index": [
+        1203
+      ],
+      "max_signed": -2.9292465084972477e-06,
+      "max_index": [
+        1199
+      ],
+      "max_abs": 0.009522440490613238,
+      "max_abs_index": [
+        1203
+      ]
+    },
+    "lower_J1_minus_J4": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.010803158573510167,
+      "min_index": [
+        1805
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        8
+      ],
+      "max_abs": 0.010803158573510167,
+      "max_abs_index": [
+        1805
+      ]
+    },
+    "saved_absolute_difference": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": 0.0,
+      "min_index": [
+        0
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        0
+      ],
+      "max_abs": 0.0,
+      "max_abs_index": [
+        0
+      ]
+    },
+    "collective_reduction_order": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -9.020562075079397e-17,
+      "min_index": [
+        1204
+      ],
+      "max_signed": 9.71445146547012e-17,
+      "max_index": [
+        1805
+      ],
+      "max_abs": 9.71445146547012e-17,
+      "max_abs_index": [
+        1805
+      ]
+    },
+    "prior_reference_identity": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": 0.0,
+      "min_index": [
+        0
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        0
+      ],
+      "max_abs": 0.0,
+      "max_abs_index": [
+        0
+      ]
+    },
+    "J1_center_lower_minus_outcome": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.05762714306665884,
+      "min_index": [
+        3215
+      ],
+      "max_signed": -1.6677273352216015e-08,
+      "max_index": [
+        4244
+      ],
+      "max_abs": 0.05762714306665884,
+      "max_abs_index": [
+        3215
+      ]
+    },
+    "J1_outcome_minus_center_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.0590872866571589,
+      "min_index": [
+        1642
+      ],
+      "max_signed": -2.0696974142616527e-08,
+      "max_index": [
+        4252
+      ],
+      "max_abs": 0.0590872866571589,
+      "max_abs_index": [
+        1642
+      ]
+    },
+    "J1_collective_lower_minus_outcome": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.017341718001770506,
+      "min_index": [
+        202
+      ],
+      "max_signed": -8.972800463966698e-06,
+      "max_index": [
+        1799
+      ],
+      "max_abs": 0.017341718001770506,
+      "max_abs_index": [
+        202
+      ]
+    },
+    "J1_outcome_minus_collective_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.02002604175957788,
+      "min_index": [
+        1208
+      ],
+      "max_signed": -1.1700635584834668e-05,
+      "max_index": [
+        799
+      ],
+      "max_abs": 0.02002604175957788,
+      "max_abs_index": [
+        1208
+      ]
+    },
+    "J1_raw_center_lower_minus_outcome": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.06571344843072802,
+      "min_index": [
+        3223
+      ],
+      "max_signed": -1.6677273352216015e-08,
+      "max_index": [
+        4244
+      ],
+      "max_abs": 0.06571344843072802,
+      "max_abs_index": [
+        3223
+      ]
+    },
+    "J1_raw_outcome_minus_center_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.0590872866571589,
+      "min_index": [
+        1642
+      ],
+      "max_signed": -2.0696974142616527e-08,
+      "max_index": [
+        4252
+      ],
+      "max_abs": 0.0590872866571589,
+      "max_abs_index": [
+        1642
+      ]
+    },
+    "J1_raw_collective_lower_minus_outcome": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.018809490860009014,
+      "min_index": [
+        202
+      ],
+      "max_signed": -8.972800463966698e-06,
+      "max_index": [
+        1799
+      ],
+      "max_abs": 0.018809490860009014,
+      "max_abs_index": [
+        202
+      ]
+    },
+    "J1_raw_outcome_minus_collective_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.02002604175957788,
+      "min_index": [
+        1208
+      ],
+      "max_signed": -1.1700635584834668e-05,
+      "max_index": [
+        799
+      ],
+      "max_abs": 0.02002604175957788,
+      "max_abs_index": [
+        1208
+      ]
+    },
+    "J1_absolute_lower_minus_S": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.02002604175957788,
+      "min_index": [
+        1208
+      ],
+      "max_signed": -3.8740651284912067e-07,
+      "max_index": [
+        1305
+      ],
+      "max_abs": 0.02002604175957788,
+      "max_abs_index": [
+        1208
+      ]
+    },
+    "J4_center_lower_minus_outcome": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.05762714306665884,
+      "min_index": [
+        3215
+      ],
+      "max_signed": -4.7025128789109685e-09,
+      "max_index": [
+        4252
+      ],
+      "max_abs": 0.05762714306665884,
+      "max_abs_index": [
+        3215
+      ]
+    },
+    "J4_outcome_minus_center_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.05153469115565412,
+      "min_index": [
+        1650
+      ],
+      "max_signed": -7.404879118399685e-09,
+      "max_index": [
+        4252
+      ],
+      "max_abs": 0.05153469115565412,
+      "max_abs_index": [
+        1650
+      ]
+    },
+    "J4_collective_lower_minus_outcome": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.012657962979722735,
+      "min_index": [
+        201
+      ],
+      "max_signed": -6.745251608157761e-06,
+      "max_index": [
+        399
+      ],
+      "max_abs": 0.012657962979722735,
+      "max_abs_index": [
+        201
+      ]
+    },
+    "J4_outcome_minus_collective_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.009396493958961947,
+      "min_index": [
+        1207
+      ],
+      "max_signed": -7.273631992230165e-06,
+      "max_index": [
+        799
+      ],
+      "max_abs": 0.009396493958961947,
+      "max_abs_index": [
+        1207
+      ]
+    },
+    "J4_raw_center_lower_minus_outcome": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.05762714306665884,
+      "min_index": [
+        3215
+      ],
+      "max_signed": -4.7025128789109685e-09,
+      "max_index": [
+        4252
+      ],
+      "max_abs": 0.05762714306665884,
+      "max_abs_index": [
+        3215
+      ]
+    },
+    "J4_raw_outcome_minus_center_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        16000
+      ],
+      "axes": [
+        "center_pair_row"
+      ],
+      "min_signed": -0.05153469115565412,
+      "min_index": [
+        1650
+      ],
+      "max_signed": -7.404879118399685e-09,
+      "max_index": [
+        4252
+      ],
+      "max_abs": 0.05153469115565412,
+      "max_abs_index": [
+        1650
+      ]
+    },
+    "J4_raw_collective_lower_minus_outcome": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.012657962979722735,
+      "min_index": [
+        201
+      ],
+      "max_signed": -6.745251608157761e-06,
+      "max_index": [
+        399
+      ],
+      "max_abs": 0.012657962979722735,
+      "max_abs_index": [
+        201
+      ]
+    },
+    "J4_raw_outcome_minus_collective_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.009396493958961947,
+      "min_index": [
+        1207
+      ],
+      "max_signed": -7.273631992230165e-06,
+      "max_index": [
+        799
+      ],
+      "max_abs": 0.009396493958961947,
+      "max_abs_index": [
+        1207
+      ]
+    },
+    "J4_absolute_lower_minus_S": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.012657962979722735,
+      "min_index": [
+        201
+      ],
+      "max_signed": -3.8740651284912067e-07,
+      "max_index": [
+        1305
+      ],
+      "max_abs": 0.012657962979722735,
+      "max_abs_index": [
+        201
+      ]
+    },
+    "S_minus_P_PROFILE": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.23761343412087424,
+      "min_index": [
+        1206
+      ],
+      "max_signed": -0.002212868460667064,
+      "max_index": [
+        595
+      ],
+      "max_abs": 0.23761343412087424,
+      "max_abs_index": [
+        1206
+      ]
+    },
+    "S_minus_RADIAL_1_UNSIGNED": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.13255967803183605,
+      "min_index": [
+        1206
+      ],
+      "max_signed": -4.32626347299089e-05,
+      "max_index": [
+        1931
+      ],
+      "max_abs": 0.13255967803183605,
+      "max_abs_index": [
+        1206
+      ]
+    },
+    "S_minus_RADIAL_1_SIGNED": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.016014316078499055,
+      "min_index": [
+        1205
+      ],
+      "max_signed": -1.1700635584834668e-05,
+      "max_index": [
+        799
+      ],
+      "max_abs": 0.016014316078499055,
+      "max_abs_index": [
+        1205
+      ]
+    },
+    "S_minus_RADIAL_4_UNSIGNED": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.1261198412234606,
+      "min_index": [
+        2
+      ],
+      "max_signed": -2.7618763623018204e-05,
+      "max_index": [
+        1930
+      ],
+      "max_abs": 0.1261198412234606,
+      "max_abs_index": [
+        2
+      ]
+    },
+    "S_minus_RADIAL_4_SIGNED": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.01082813538092775,
+      "min_index": [
+        1207
+      ],
+      "max_signed": -6.745251608157761e-06,
+      "max_index": [
+        399
+      ],
+      "max_abs": 0.01082813538092775,
+      "max_abs_index": [
+        1207
+      ]
+    },
+    "S_minus_J1_raw_unsigned_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.13255967803183605,
+      "min_index": [
+        1206
+      ],
+      "max_signed": -4.32626347299089e-05,
+      "max_index": [
+        1931
+      ],
+      "max_abs": 0.13255967803183605,
+      "max_abs_index": [
+        1206
+      ]
+    },
+    "S_minus_J1_raw_signed_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.016014316078499055,
+      "min_index": [
+        1205
+      ],
+      "max_signed": -1.1700635584834668e-05,
+      "max_index": [
+        799
+      ],
+      "max_abs": 0.016014316078499055,
+      "max_abs_index": [
+        1205
+      ]
+    },
+    "S_minus_J4_raw_unsigned_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.1261198412234606,
+      "min_index": [
+        2
+      ],
+      "max_signed": -2.7618763623018204e-05,
+      "max_index": [
+        1930
+      ],
+      "max_abs": 0.1261198412234606,
+      "max_abs_index": [
+        2
+      ]
+    },
+    "S_minus_J4_raw_signed_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.01082813538092775,
+      "min_index": [
+        1207
+      ],
+      "max_signed": -6.745251608157761e-06,
+      "max_index": [
+        399
+      ],
+      "max_abs": 0.01082813538092775,
+      "max_abs_index": [
+        1207
+      ]
+    },
+    "negative_gap_P_to_unsigned4": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.1500841112152928,
+      "min_index": [
+        1609
+      ],
+      "max_signed": -0.00042349828021385604,
+      "max_index": [
+        599
+      ],
+      "max_abs": 0.1500841112152928,
+      "max_abs_index": [
+        1609
+      ]
+    },
+    "negative_gap_unsigned4_to_signed4": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.11769237204125564,
+      "min_index": [
+        1206
+      ],
+      "max_signed": -0.0,
+      "max_index": [
+        1930
+      ],
+      "max_abs": 0.11769237204125564,
+      "max_abs_index": [
+        1206
+      ]
+    },
+    "negative_gap_signed4_to_S": {
+      "kind": "inequality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -0.01082813538092775,
+      "min_index": [
+        1207
+      ],
+      "max_signed": -6.745251608157761e-06,
+      "max_index": [
+        399
+      ],
+      "max_abs": 0.01082813538092775,
+      "max_abs_index": [
+        1207
+      ]
+    },
+    "gap_telescope": {
+      "kind": "equality",
+      "tolerance": 1e-12,
+      "shape": [
+        2000
+      ],
+      "axes": [
+        "pair_phase_row"
+      ],
+      "min_signed": -2.7755575615628914e-17,
+      "min_index": [
+        1410
+      ],
+      "max_signed": 2.7755575615628914e-17,
+      "max_index": [
+        201
+      ],
+      "max_abs": 2.7755575615628914e-17,
+      "max_abs_index": [
+        201
+      ]
+    },
+    "incoming_pair_identity_residual": {
+      "kind": "equality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": -1.0842021724855044e-19,
+      "min_index": [
+        9
+      ],
+      "max_signed": 2.168404344971009e-19,
+      "max_index": [
+        0
+      ],
+      "max_abs": 2.168404344971009e-19,
+      "max_abs_index": [
+        0
+      ]
+    },
+    "incoming_reference_residual": {
+      "kind": "equality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": 0.0,
+      "min_index": [
+        0
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        0
+      ],
+      "max_abs": 0.0,
+      "max_abs_index": [
+        0
+      ]
+    },
+    "pre_damping_pair_identity_residual": {
+      "kind": "equality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": -2.168404344971009e-19,
+      "min_index": [
+        7
+      ],
+      "max_signed": 8.673617379884035e-19,
+      "max_index": [
+        1
+      ],
+      "max_abs": 8.673617379884035e-19,
+      "max_abs_index": [
+        1
+      ]
+    },
+    "pre_damping_reference_residual": {
+      "kind": "equality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": 0.0,
+      "min_index": [
+        0
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        0
+      ],
+      "max_abs": 0.0,
+      "max_abs_index": [
+        0
+      ]
+    },
+    "post_pair_identity_residual": {
+      "kind": "equality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": -1.0842021724855044e-19,
+      "min_index": [
+        8
+      ],
+      "max_signed": 2.168404344971009e-19,
+      "max_index": [
+        13
+      ],
+      "max_abs": 2.168404344971009e-19,
+      "max_abs_index": [
+        13
+      ]
+    },
+    "post_reference_residual": {
+      "kind": "equality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": 0.0,
+      "min_index": [
+        0
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        0
+      ],
+      "max_abs": 0.0,
+      "max_abs_index": [
+        0
+      ]
+    },
+    "P_variance_reference": {
+      "kind": "equality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": 0.0,
+      "min_index": [
+        0
+      ],
+      "max_signed": 0.0,
+      "max_index": [
+        0
+      ],
+      "max_abs": 0.0,
+      "max_abs_index": [
+        0
+      ]
+    },
+    "post_variance_minus_P_PROFILE": {
+      "kind": "inequality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": -0.012793659448518544,
+      "min_index": [
+        209
+      ],
+      "max_signed": -1.2577545456689963e-05,
+      "max_index": [
+        399
+      ],
+      "max_abs": 0.012793659448518544,
+      "max_abs_index": [
+        209
+      ]
+    },
+    "post_variance_minus_RADIAL_1_UNSIGNED": {
+      "kind": "inequality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": -0.0032986458995251625,
+      "min_index": [
+        13
+      ],
+      "max_signed": -6.343127676570359e-06,
+      "max_index": [
+        332
+      ],
+      "max_abs": 0.0032986458995251625,
+      "max_abs_index": [
+        13
+      ]
+    },
+    "post_variance_minus_RADIAL_1_SIGNED": {
+      "kind": "inequality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": -0.0004403869908946429,
+      "min_index": [
+        1
+      ],
+      "max_signed": -2.214491910862876e-08,
+      "max_index": [
+        199
+      ],
+      "max_abs": 0.0004403869908946429,
+      "max_abs_index": [
+        1
+      ]
+    },
+    "post_variance_minus_RADIAL_4_UNSIGNED": {
+      "kind": "inequality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": -0.003097216974750554,
+      "min_index": [
+        13
+      ],
+      "max_signed": -6.260686441853196e-06,
+      "max_index": [
+        332
+      ],
+      "max_abs": 0.003097216974750554,
+      "max_abs_index": [
+        13
+      ]
+    },
+    "post_variance_minus_RADIAL_4_SIGNED": {
+      "kind": "inequality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": -0.00028759467407338127,
+      "min_index": [
+        1
+      ],
+      "max_signed": -1.3366681483499427e-08,
+      "max_index": [
+        199
+      ],
+      "max_abs": 0.00028759467407338127,
+      "max_abs_index": [
+        1
+      ]
+    },
+    "post_variance_minus_J1_raw_unsigned_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": -0.0032986458995251625,
+      "min_index": [
+        13
+      ],
+      "max_signed": -6.343127676570359e-06,
+      "max_index": [
+        332
+      ],
+      "max_abs": 0.0032986458995251625,
+      "max_abs_index": [
+        13
+      ]
+    },
+    "post_variance_minus_J1_raw_signed_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": -0.0004403869908946429,
+      "min_index": [
+        1
+      ],
+      "max_signed": -2.214491910862876e-08,
+      "max_index": [
+        199
+      ],
+      "max_abs": 0.0004403869908946429,
+      "max_abs_index": [
+        1
+      ]
+    },
+    "post_variance_minus_J4_raw_unsigned_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": -0.003097216974750554,
+      "min_index": [
+        13
+      ],
+      "max_signed": -6.260686441853196e-06,
+      "max_index": [
+        332
+      ],
+      "max_abs": 0.003097216974750554,
+      "max_abs_index": [
+        13
+      ]
+    },
+    "post_variance_minus_J4_raw_signed_upper": {
+      "kind": "inequality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": -0.00028759467407338127,
+      "min_index": [
+        1
+      ],
+      "max_signed": -1.3366681483499427e-08,
+      "max_index": [
+        199
+      ],
+      "max_abs": 0.00028759467407338127,
+      "max_abs_index": [
+        1
+      ]
+    },
+    "J1_lower_variance_minus_post": {
+      "kind": "inequality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": -0.00038798307107017834,
+      "min_index": [
+        209
+      ],
+      "max_signed": -2.5522893853625556e-08,
+      "max_index": [
+        199
+      ],
+      "max_abs": 0.00038798307107017834,
+      "max_abs_index": [
+        209
+      ]
+    },
+    "J4_lower_variance_minus_post": {
+      "kind": "inequality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": -0.00024437605865752516,
+      "min_index": [
+        213
+      ],
+      "max_signed": -1.5178832490301798e-08,
+      "max_index": [
+        199
+      ],
+      "max_abs": 0.00024437605865752516,
+      "max_abs_index": [
+        213
+      ]
+    },
+    "variance_upper_refinement": {
+      "kind": "inequality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": -0.00015279231682126162,
+      "min_index": [
+        1
+      ],
+      "max_signed": -8.778237625129334e-09,
+      "max_index": [
+        199
+      ],
+      "max_abs": 0.00015279231682126162,
+      "max_abs_index": [
+        1
+      ]
+    },
+    "variance_lower_refinement": {
+      "kind": "inequality",
+      "tolerance": 1e-14,
+      "shape": [
+        400
+      ],
+      "axes": [
+        "view_phase_row"
+      ],
+      "min_signed": -0.00016752009610634976,
+      "min_index": [
+        209
+      ],
+      "max_signed": -1.0344061363323758e-08,
+      "max_index": [
+        199
+      ],
+      "max_abs": 0.00016752009610634976,
+      "max_abs_index": [
+        209
+      ]
+    }
+  },
+  "counts": {
+    "represented_unique_updates": 1000,
+    "represented_unique_centers": 8000,
+    "primary_pair_phase_evaluations": 2000,
+    "center_pairs": 16000,
+    "component_pairs": 48000,
+    "derivative_node_slots": 240000,
+    "outcome_pair_phase_joins": 2000,
+    "view_phase_summaries": 400
+  },
+  "relative_tolerance": 0,
+  "clipping": false,
+  "locator_axes": "pair_phase_row and view_phase_row are CSV row indices; center_pair_row=8*pair_phase_row+center; components 0..2, nodes 0..4"
+}

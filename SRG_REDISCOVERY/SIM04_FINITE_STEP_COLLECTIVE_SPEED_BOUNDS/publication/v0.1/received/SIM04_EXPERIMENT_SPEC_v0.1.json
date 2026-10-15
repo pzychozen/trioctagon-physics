@@ -1,0 +1,295 @@
+{
+  "schema": "SRG-SIM04 bounded saved-intermediate investigation v0.1",
+  "date": "2026-10-14",
+  "status": "AUTHORIZED_FOR_CODEX_IMPLEMENTATION_AND_BOUNDED_ANALYSIS; NOT_EXECUTED_IN_HANDOFF_PREPARATION",
+  "title": "Finite-step collective-speed bounds: validity, tightness and explicit conditions",
+  "work_order": "SRG_SIM04_CODEX_WORK_ORDER_v0.1_20261014.md",
+  "math_specification": "SIM04_MATHEMATICAL_SPEC_v0.1.md",
+  "input_identities": "SIM04_INPUT_IDENTITIES_AND_SCHEMAS.json",
+  "fixtures": "SIM04_FIXED_FIXTURES_v0.1.json",
+  "source_commit": "e1f5115402a05965834493c1254b03118a531c92",
+  "windows_repository": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics",
+  "windows_task_root": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\SRG_REDISCOVERY\\SIM04_FINITE_STEP_COLLECTIVE_SPEED_BOUNDS",
+  "source_edition_relative": "SRG_REDISCOVERY/SIM03_DRIVING_GEOMETRY_AND_RESPONSE_ALIGNMENT/publication/v0.1",
+  "source_model": {
+    "engine": "historical C",
+    "box_side": 10.0,
+    "DT": 0.1,
+    "norm_regularizer": 0.01,
+    "centers": 8,
+    "components": 3,
+    "modification_authorized": false
+  },
+  "data": {
+    "primary": "analysis/center_decomposition.npz",
+    "pickle_allowed": false,
+    "raw_source_states_to_load": 0,
+    "cycle_length_updates": 200,
+    "phase_inclusive": [
+      0,
+      199
+    ],
+    "dataset_ids_to_use": [
+      0,
+      2
+    ],
+    "dataset_ids_to_exclude": [
+      1
+    ],
+    "required_selected_updates": 1000,
+    "required_selected_center_records": 8000,
+    "join_key": [
+      "dataset_id",
+      "update_index",
+      "center"
+    ],
+    "cycle": "update_index // 200",
+    "phase": "update_index % 200",
+    "outcome": "mean over centers of norm(saved_successor_velocity)",
+    "incoming": "mean over centers of norm(incoming_velocity)",
+    "pre_damping": "mean over centers of norm(w)"
+  },
+  "comparisons": {
+    "orientation": "c>d",
+    "unordered_pairs": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        3
+      ]
+    ],
+    "pair_phase_rows": 2000,
+    "center_pair_rows": 16000,
+    "paired_component_positions": 48000,
+    "previous_SIM03_pairs": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "new_pair_families": [
+      [
+        3,
+        1
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        2
+      ]
+    ],
+    "views": {
+      "all_five": {
+        "cycles": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "m": 5,
+        "unordered_pairs": 10
+      },
+      "new_four": {
+        "cycles": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "m": 4,
+        "unordered_pairs": 6
+      }
+    },
+    "view_phase_rows": 400,
+    "new_four_reuses_all_five_pairs": true,
+    "population_variance_unordered_denominator": "m*m",
+    "ddof": 0,
+    "cross_arm_comparisons": 0
+  },
+  "bound_families": [
+    "OMEGA_COARSE",
+    "GAMMA_SOURCE",
+    "T_TRIANGLE",
+    "Q_VECTOR",
+    "K_COMPONENT",
+    "P_PROFILE",
+    "BEST_PRE"
+  ],
+  "mathematical_hierarchies": [
+    [
+      "Q_VECTOR",
+      "T_TRIANGLE",
+      "GAMMA_SOURCE",
+      "OMEGA_COARSE"
+    ],
+    [
+      "BEST_PRE",
+      "K_COMPONENT",
+      "Q_VECTOR"
+    ],
+    [
+      "BEST_PRE",
+      "P_PROFILE",
+      "Q_VECTOR"
+    ]
+  ],
+  "bound_internal_rules": {
+    "signed_interval_contains_zero": "min(x,y)<=0<=max(x,y)",
+    "signed_interval_min_abs": "0 if contains zero else min(abs(x),abs(y))",
+    "profile": "sort(abs(w), ascending, along the 3 component coordinates of each center)",
+    "profile_weight": "k(min(profile_c,profile_d)) coordinatewise",
+    "derivative_k": "(1+log1p(s)-s/(1+s))/(1+log1p(s))^2",
+    "best": "pairwise min(K_COMPONENT,P_PROFILE) before squaring/aggregation",
+    "tie_winner": "K_COMPONENT",
+    "profile_vs_signed_order_assumed": false,
+    "bound_inputs": [
+      "v",
+      "a",
+      "w",
+      "d",
+      "H",
+      "G",
+      "bit_plus"
+    ],
+    "post_outcome_data_in_bounds_allowed": false,
+    "source_factorization_replaces_stored_impulse": false
+  },
+  "tolerances": {
+    "native_vectors_speeds_and_source_factors_abs": 1e-12,
+    "squared_vector_identity_abs": 1e-12,
+    "variance_abs": 1e-14,
+    "dimensionless_fixture_abs": 1e-12,
+    "comparison_relative_tolerance": 0.0,
+    "interval_certification_claim_allowed": false
+  },
+  "reporting": {
+    "speed_ratio_denominator_floor": 1e-12,
+    "variance_ratio_denominator_floor": 1e-24,
+    "quantiles": [
+      0.05,
+      0.5,
+      0.95
+    ],
+    "quantile_method": "linear",
+    "all_phases_required": true,
+    "factor_categories": [
+      2,
+      5,
+      10
+    ],
+    "missing_ratio": "null/blank plus validity mask",
+    "raw_signed_slack_required": true,
+    "clipping_or_bound_inflation_allowed": false,
+    "condition_margin": "reference_variance - BEST_PRE_variance_upper",
+    "condition_references": [
+      "incoming_variance",
+      "pre_damping_variance"
+    ],
+    "condition_labels": {
+      "PASS": "margin > 1e-14",
+      "NOT_ESTABLISHED": "margin < -1e-14",
+      "UNRESOLVED": "abs(margin) <= 1e-14"
+    },
+    "statistical_confidence_intervals_allowed": false
+  },
+  "execution_budget": {
+    "primary_attempts_max": 1,
+    "fixed_fixture_groups": 14,
+    "fixture_gate_wall_seconds": 60,
+    "primary_wall_seconds": 300,
+    "figure_wall_seconds_total": 120,
+    "figure_count_max": 6,
+    "presentation_only_correction_passes_max": 1,
+    "aggregate_new_file_bytes_max": 268435456,
+    "new_rollout_updates": 0,
+    "engine_calls": 0,
+    "RNG_samples": 0,
+    "RNG_restorations": 0,
+    "old_scientific_script_runs": 0,
+    "source_centroid_reconstructions": 0,
+    "new_source_state_reconstructions": 0,
+    "detached_D_evaluations_on_actual_saved_records": 0,
+    "pure_D_evaluations_on_fixed_synthetic_fixtures": "allowed; record actual counts",
+    "paper_builds": 0,
+    "Git_writes": 0,
+    "automatic_retries": 0
+  },
+  "required_artifacts": [
+    "SIM04_REPORT.md",
+    "MATHEMATICAL_RESULTS.md",
+    "analysis/PRE_OUTPUT_BOUNDS.npz",
+    "analysis/center_pair_bounds.npz",
+    "analysis/pair_phase_bounds.csv",
+    "analysis/phase_dispersion_bounds.csv",
+    "analysis/bound_summary.csv",
+    "analysis/proof_slack_summary.csv",
+    "analysis/RESULTS.json",
+    "SIM04_EXECUTION_RECEIPT.md",
+    "SIM04_GPT_REVIEW.zip",
+    "SIM04_TRANSPORT_SEAL.json"
+  ],
+  "governance": "Original engine and accepted science immutable. Read-only analysis in isolated new directory. Stop after GPT review handback; no publication, new trajectories, scale changes or historical census."
+}

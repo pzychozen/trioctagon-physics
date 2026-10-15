@@ -1,0 +1,1906 @@
+{
+  "format": "SIM05_FIXED_FIXTURES_v0.1",
+  "groups": [
+    {
+      "id": "F01",
+      "topic": "Both profiles zero",
+      "cases": [
+        {
+          "name": "zero",
+          "history_c_vectors": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "history_d_vectors": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "assertions": [
+            "signed outcome containment",
+            "norm-envelope validity",
+            "J4 subset J1 within fixed tolerance",
+            "effective interval subset of symmetric P within fixed tolerance",
+            "signed <= unsigned <= P",
+            "pair reversal swaps/negates interval endpoints",
+            "exact [0,0], no epsilon, no invalid quotient"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F02",
+      "topic": "Identical nonzero heterogeneous vectors",
+      "cases": [
+        {
+          "name": "identical",
+          "history_c_vectors": [
+            [
+              0.1,
+              0.2,
+              0.3
+            ],
+            [
+              -0.2,
+              0.01,
+              0.4
+            ],
+            [
+              0.05,
+              -0.2,
+              0.0
+            ],
+            [
+              0.3,
+              0.3,
+              0.3
+            ],
+            [
+              0.5,
+              0.0,
+              0.1
+            ],
+            [
+              0.0,
+              0.2,
+              -0.4
+            ],
+            [
+              0.6,
+              0.2,
+              0.01
+            ],
+            [
+              -0.15,
+              0.25,
+              -0.35
+            ]
+          ],
+          "history_d_vectors": [
+            [
+              0.1,
+              0.2,
+              0.3
+            ],
+            [
+              -0.2,
+              0.01,
+              0.4
+            ],
+            [
+              0.05,
+              -0.2,
+              0.0
+            ],
+            [
+              0.3,
+              0.3,
+              0.3
+            ],
+            [
+              0.5,
+              0.0,
+              0.1
+            ],
+            [
+              0.0,
+              0.2,
+              -0.4
+            ],
+            [
+              0.6,
+              0.2,
+              0.01
+            ],
+            [
+              -0.15,
+              0.25,
+              -0.35
+            ]
+          ],
+          "assertions": [
+            "signed outcome containment",
+            "norm-envelope validity",
+            "J4 subset J1 within fixed tolerance",
+            "effective interval subset of symmetric P within fixed tolerance",
+            "signed <= unsigned <= P",
+            "pair reversal swaps/negates interval endpoints",
+            "all center and collective intervals exactly zero"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F03",
+      "topic": "Signs and coordinate permutations",
+      "cases": [
+        {
+          "name": "readout symmetry",
+          "history_c_vectors": [
+            [
+              0.1,
+              0.2,
+              0.3
+            ],
+            [
+              -0.2,
+              0.01,
+              0.4
+            ],
+            [
+              0.05,
+              -0.2,
+              0.0
+            ],
+            [
+              0.3,
+              0.3,
+              0.3
+            ],
+            [
+              0.5,
+              0.0,
+              0.1
+            ],
+            [
+              0.0,
+              0.2,
+              -0.4
+            ],
+            [
+              0.6,
+              0.2,
+              0.01
+            ],
+            [
+              -0.15,
+              0.25,
+              -0.35
+            ]
+          ],
+          "history_d_vectors": [
+            [
+              -0.3,
+              0.1,
+              -0.2
+            ],
+            [
+              -0.4,
+              -0.2,
+              -0.01
+            ],
+            [
+              -0.0,
+              0.05,
+              0.2
+            ],
+            [
+              -0.3,
+              0.3,
+              -0.3
+            ],
+            [
+              -0.1,
+              0.5,
+              -0.0
+            ],
+            [
+              0.4,
+              0.0,
+              -0.2
+            ],
+            [
+              -0.01,
+              0.6,
+              -0.2
+            ],
+            [
+              0.35,
+              -0.15,
+              -0.25
+            ]
+          ],
+          "assertions": [
+            "signed outcome containment",
+            "norm-envelope validity",
+            "J4 subset J1 within fixed tolerance",
+            "effective interval subset of symmetric P within fixed tolerance",
+            "signed <= unsigned <= P",
+            "pair reversal swaps/negates interval endpoints",
+            "profiles and scalar speeds equal; no arbitrary rotation assumption"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F04",
+      "topic": "One zero endpoint in both orientations",
+      "cases": [
+        {
+          "name": "positive",
+          "history_c_vectors": [
+            [
+              0.2,
+              0,
+              0
+            ],
+            [
+              0.2,
+              0,
+              0
+            ],
+            [
+              0.2,
+              0,
+              0
+            ],
+            [
+              0.2,
+              0,
+              0
+            ],
+            [
+              0.2,
+              0,
+              0
+            ],
+            [
+              0.2,
+              0,
+              0
+            ],
+            [
+              0.2,
+              0,
+              0
+            ],
+            [
+              0.2,
+              0,
+              0
+            ]
+          ],
+          "history_d_vectors": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "assertions": [
+            "signed outcome containment",
+            "norm-envelope validity",
+            "J4 subset J1 within fixed tolerance",
+            "effective interval subset of symmetric P within fixed tolerance",
+            "signed <= unsigned <= P",
+            "pair reversal swaps/negates interval endpoints",
+            "nonnegative signed interval"
+          ]
+        },
+        {
+          "name": "negative",
+          "history_c_vectors": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "history_d_vectors": [
+            [
+              0.2,
+              0,
+              0
+            ],
+            [
+              0.2,
+              0,
+              0
+            ],
+            [
+              0.2,
+              0,
+              0
+            ],
+            [
+              0.2,
+              0,
+              0
+            ],
+            [
+              0.2,
+              0,
+              0
+            ],
+            [
+              0.2,
+              0,
+              0
+            ],
+            [
+              0.2,
+              0,
+              0
+            ],
+            [
+              0.2,
+              0,
+              0
+            ]
+          ],
+          "assertions": [
+            "signed outcome containment",
+            "norm-envelope validity",
+            "J4 subset J1 within fixed tolerance",
+            "effective interval subset of symmetric P within fixed tolerance",
+            "signed <= unsigned <= P",
+            "pair reversal swaps/negates interval endpoints",
+            "nonpositive signed interval"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F05",
+      "topic": "Comparable profiles and resolved signs",
+      "cases": [
+        {
+          "name": "larger components",
+          "history_c_vectors": [
+            [
+              0.15,
+              0.25,
+              0.35
+            ],
+            [
+              0.15,
+              0.25,
+              0.35
+            ],
+            [
+              0.15,
+              0.25,
+              0.35
+            ],
+            [
+              0.15,
+              0.25,
+              0.35
+            ],
+            [
+              0.15,
+              0.25,
+              0.35
+            ],
+            [
+              0.15,
+              0.25,
+              0.35
+            ],
+            [
+              0.15,
+              0.25,
+              0.35
+            ],
+            [
+              0.15,
+              0.25,
+              0.35
+            ]
+          ],
+          "history_d_vectors": [
+            [
+              0.1,
+              0.2,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.3
+            ]
+          ],
+          "assertions": [
+            "signed outcome containment",
+            "norm-envelope validity",
+            "J4 subset J1 within fixed tolerance",
+            "effective interval subset of symmetric P within fixed tolerance",
+            "signed <= unsigned <= P",
+            "pair reversal swaps/negates interval endpoints",
+            "strict positive lower endpoint"
+          ]
+        },
+        {
+          "name": "smaller components",
+          "history_c_vectors": [
+            [
+              0.1,
+              0.2,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.3
+            ]
+          ],
+          "history_d_vectors": [
+            [
+              0.15,
+              0.25,
+              0.35
+            ],
+            [
+              0.15,
+              0.25,
+              0.35
+            ],
+            [
+              0.15,
+              0.25,
+              0.35
+            ],
+            [
+              0.15,
+              0.25,
+              0.35
+            ],
+            [
+              0.15,
+              0.25,
+              0.35
+            ],
+            [
+              0.15,
+              0.25,
+              0.35
+            ],
+            [
+              0.15,
+              0.25,
+              0.35
+            ],
+            [
+              0.15,
+              0.25,
+              0.35
+            ]
+          ],
+          "assertions": [
+            "signed outcome containment",
+            "norm-envelope validity",
+            "J4 subset J1 within fixed tolerance",
+            "effective interval subset of symmetric P within fixed tolerance",
+            "signed <= unsigned <= P",
+            "pair reversal swaps/negates interval endpoints",
+            "strict negative upper endpoint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F06",
+      "topic": "Equal undamped norm but different component distribution",
+      "cases": [
+        {
+          "name": "axis versus equal components",
+          "history_c_vectors": [
+            [
+              0.6,
+              0,
+              0
+            ],
+            [
+              0.6,
+              0,
+              0
+            ],
+            [
+              0.6,
+              0,
+              0
+            ],
+            [
+              0.6,
+              0,
+              0
+            ],
+            [
+              0.6,
+              0,
+              0
+            ],
+            [
+              0.6,
+              0,
+              0
+            ],
+            [
+              0.6,
+              0,
+              0
+            ],
+            [
+              0.6,
+              0,
+              0
+            ]
+          ],
+          "history_d_vectors": [
+            [
+              0.34641016151377546,
+              0.34641016151377546,
+              0.34641016151377546
+            ],
+            [
+              0.34641016151377546,
+              0.34641016151377546,
+              0.34641016151377546
+            ],
+            [
+              0.34641016151377546,
+              0.34641016151377546,
+              0.34641016151377546
+            ],
+            [
+              0.34641016151377546,
+              0.34641016151377546,
+              0.34641016151377546
+            ],
+            [
+              0.34641016151377546,
+              0.34641016151377546,
+              0.34641016151377546
+            ],
+            [
+              0.34641016151377546,
+              0.34641016151377546,
+              0.34641016151377546
+            ],
+            [
+              0.34641016151377546,
+              0.34641016151377546,
+              0.34641016151377546
+            ],
+            [
+              0.34641016151377546,
+              0.34641016151377546,
+              0.34641016151377546
+            ]
+          ],
+          "assertions": [
+            "signed outcome containment",
+            "norm-envelope validity",
+            "J4 subset J1 within fixed tolerance",
+            "effective interval subset of symmetric P within fixed tolerance",
+            "signed <= unsigned <= P",
+            "pair reversal swaps/negates interval endpoints",
+            "damped norms differ; intervals must not collapse by equal undamped norm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F07",
+      "topic": "Mixed signs of squared-component differences",
+      "cases": [
+        {
+          "name": "mixed radial changes",
+          "history_c_vectors": [
+            [
+              0.1,
+              0.3,
+              0.6
+            ],
+            [
+              0.1,
+              0.3,
+              0.6
+            ],
+            [
+              0.1,
+              0.3,
+              0.6
+            ],
+            [
+              0.1,
+              0.3,
+              0.6
+            ],
+            [
+              0.1,
+              0.3,
+              0.6
+            ],
+            [
+              0.1,
+              0.3,
+              0.6
+            ],
+            [
+              0.1,
+              0.3,
+              0.6
+            ],
+            [
+              0.1,
+              0.3,
+              0.6
+            ]
+          ],
+          "history_d_vectors": [
+            [
+              0.2,
+              0.25,
+              0.55
+            ],
+            [
+              0.2,
+              0.25,
+              0.55
+            ],
+            [
+              0.2,
+              0.25,
+              0.55
+            ],
+            [
+              0.2,
+              0.25,
+              0.55
+            ],
+            [
+              0.2,
+              0.25,
+              0.55
+            ],
+            [
+              0.2,
+              0.25,
+              0.55
+            ],
+            [
+              0.2,
+              0.25,
+              0.55
+            ],
+            [
+              0.2,
+              0.25,
+              0.55
+            ]
+          ],
+          "assertions": [
+            "signed outcome containment",
+            "norm-envelope validity",
+            "J4 subset J1 within fixed tolerance",
+            "effective interval subset of symmetric P within fixed tolerance",
+            "signed <= unsigned <= P",
+            "pair reversal swaps/negates interval endpoints",
+            "keep positive and negative component numerator terms"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F08",
+      "topic": "Exact cancellation across centers",
+      "cases": [
+        {
+          "name": "four forward four reverse",
+          "history_c_vectors": [
+            [
+              0.3,
+              0.3,
+              0.3
+            ],
+            [
+              0.3,
+              0.3,
+              0.3
+            ],
+            [
+              0.3,
+              0.3,
+              0.3
+            ],
+            [
+              0.3,
+              0.3,
+              0.3
+            ],
+            [
+              0.1,
+              0.1,
+              0.1
+            ],
+            [
+              0.1,
+              0.1,
+              0.1
+            ],
+            [
+              0.1,
+              0.1,
+              0.1
+            ],
+            [
+              0.1,
+              0.1,
+              0.1
+            ]
+          ],
+          "history_d_vectors": [
+            [
+              0.1,
+              0.1,
+              0.1
+            ],
+            [
+              0.1,
+              0.1,
+              0.1
+            ],
+            [
+              0.1,
+              0.1,
+              0.1
+            ],
+            [
+              0.1,
+              0.1,
+              0.1
+            ],
+            [
+              0.3,
+              0.3,
+              0.3
+            ],
+            [
+              0.3,
+              0.3,
+              0.3
+            ],
+            [
+              0.3,
+              0.3,
+              0.3
+            ],
+            [
+              0.3,
+              0.3,
+              0.3
+            ]
+          ],
+          "assertions": [
+            "signed outcome containment",
+            "norm-envelope validity",
+            "J4 subset J1 within fixed tolerance",
+            "effective interval subset of symmetric P within fixed tolerance",
+            "signed <= unsigned <= P",
+            "pair reversal swaps/negates interval endpoints",
+            "true collective difference zero",
+            "unsigned bound positive",
+            "signed bound below unsigned",
+            "never assume midpoint equals truth in general"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F09",
+      "topic": "Partial collective cancellation",
+      "cases": [
+        {
+          "name": "five forward three reverse",
+          "history_c_vectors": [
+            [
+              0.3,
+              0.3,
+              0.3
+            ],
+            [
+              0.3,
+              0.3,
+              0.3
+            ],
+            [
+              0.3,
+              0.3,
+              0.3
+            ],
+            [
+              0.3,
+              0.3,
+              0.3
+            ],
+            [
+              0.3,
+              0.3,
+              0.3
+            ],
+            [
+              0.1,
+              0.1,
+              0.1
+            ],
+            [
+              0.1,
+              0.1,
+              0.1
+            ],
+            [
+              0.1,
+              0.1,
+              0.1
+            ]
+          ],
+          "history_d_vectors": [
+            [
+              0.1,
+              0.1,
+              0.1
+            ],
+            [
+              0.1,
+              0.1,
+              0.1
+            ],
+            [
+              0.1,
+              0.1,
+              0.1
+            ],
+            [
+              0.1,
+              0.1,
+              0.1
+            ],
+            [
+              0.1,
+              0.1,
+              0.1
+            ],
+            [
+              0.3,
+              0.3,
+              0.3
+            ],
+            [
+              0.3,
+              0.3,
+              0.3
+            ],
+            [
+              0.3,
+              0.3,
+              0.3
+            ]
+          ],
+          "assertions": [
+            "signed outcome containment",
+            "norm-envelope validity",
+            "J4 subset J1 within fixed tolerance",
+            "effective interval subset of symmetric P within fixed tolerance",
+            "signed <= unsigned <= P",
+            "pair reversal swaps/negates interval endpoints",
+            "true collective difference positive",
+            "positive collective lower bound at tolerance",
+            "unsigned-minus-signed cancellation identity"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F10",
+      "topic": "Small and larger finite magnitudes",
+      "cases": [
+        {
+          "name": "small nonzero",
+          "history_c_vectors": [
+            [
+              1e-08,
+              3e-08,
+              4e-08
+            ],
+            [
+              1e-08,
+              3e-08,
+              4e-08
+            ],
+            [
+              1e-08,
+              3e-08,
+              4e-08
+            ],
+            [
+              1e-08,
+              3e-08,
+              4e-08
+            ],
+            [
+              1e-08,
+              3e-08,
+              4e-08
+            ],
+            [
+              1e-08,
+              3e-08,
+              4e-08
+            ],
+            [
+              1e-08,
+              3e-08,
+              4e-08
+            ],
+            [
+              1e-08,
+              3e-08,
+              4e-08
+            ]
+          ],
+          "history_d_vectors": [
+            [
+              2e-08,
+              2e-08,
+              5e-08
+            ],
+            [
+              2e-08,
+              2e-08,
+              5e-08
+            ],
+            [
+              2e-08,
+              2e-08,
+              5e-08
+            ],
+            [
+              2e-08,
+              2e-08,
+              5e-08
+            ],
+            [
+              2e-08,
+              2e-08,
+              5e-08
+            ],
+            [
+              2e-08,
+              2e-08,
+              5e-08
+            ],
+            [
+              2e-08,
+              2e-08,
+              5e-08
+            ],
+            [
+              2e-08,
+              2e-08,
+              5e-08
+            ]
+          ],
+          "assertions": [
+            "signed outcome containment",
+            "norm-envelope validity",
+            "J4 subset J1 within fixed tolerance",
+            "effective interval subset of symmetric P within fixed tolerance",
+            "signed <= unsigned <= P",
+            "pair reversal swaps/negates interval endpoints",
+            "no epsilon in norm denominator"
+          ]
+        },
+        {
+          "name": "larger finite",
+          "history_c_vectors": [
+            [
+              1,
+              4,
+              8
+            ],
+            [
+              1,
+              4,
+              8
+            ],
+            [
+              1,
+              4,
+              8
+            ],
+            [
+              1,
+              4,
+              8
+            ],
+            [
+              1,
+              4,
+              8
+            ],
+            [
+              1,
+              4,
+              8
+            ],
+            [
+              1,
+              4,
+              8
+            ],
+            [
+              1,
+              4,
+              8
+            ]
+          ],
+          "history_d_vectors": [
+            [
+              2,
+              3,
+              7
+            ],
+            [
+              2,
+              3,
+              7
+            ],
+            [
+              2,
+              3,
+              7
+            ],
+            [
+              2,
+              3,
+              7
+            ],
+            [
+              2,
+              3,
+              7
+            ],
+            [
+              2,
+              3,
+              7
+            ],
+            [
+              2,
+              3,
+              7
+            ],
+            [
+              2,
+              3,
+              7
+            ]
+          ],
+          "assertions": [
+            "signed outcome containment",
+            "norm-envelope validity",
+            "J4 subset J1 within fixed tolerance",
+            "effective interval subset of symmetric P within fixed tolerance",
+            "signed <= unsigned <= P",
+            "pair reversal swaps/negates interval endpoints",
+            "no overflow, all nodes finite"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F11",
+      "topic": "Tied nodes and zero components",
+      "cases": [
+        {
+          "name": "ties",
+          "history_c_vectors": [
+            [
+              0,
+              0.2,
+              0.2
+            ],
+            [
+              0,
+              0.2,
+              0.2
+            ],
+            [
+              0,
+              0.2,
+              0.2
+            ],
+            [
+              0,
+              0.2,
+              0.2
+            ],
+            [
+              0,
+              0.2,
+              0.2
+            ],
+            [
+              0,
+              0.2,
+              0.2
+            ],
+            [
+              0,
+              0.2,
+              0.2
+            ],
+            [
+              0,
+              0.2,
+              0.2
+            ]
+          ],
+          "history_d_vectors": [
+            [
+              0,
+              0.2,
+              0.3
+            ],
+            [
+              0,
+              0.2,
+              0.3
+            ],
+            [
+              0,
+              0.2,
+              0.3
+            ],
+            [
+              0,
+              0.2,
+              0.3
+            ],
+            [
+              0,
+              0.2,
+              0.3
+            ],
+            [
+              0,
+              0.2,
+              0.3
+            ],
+            [
+              0,
+              0.2,
+              0.3
+            ],
+            [
+              0,
+              0.2,
+              0.3
+            ]
+          ],
+          "assertions": [
+            "signed outcome containment",
+            "norm-envelope validity",
+            "J4 subset J1 within fixed tolerance",
+            "effective interval subset of symmetric P within fixed tolerance",
+            "signed <= unsigned <= P",
+            "pair reversal swaps/negates interval endpoints",
+            "theta(0)=1",
+            "zero component difference has exactly zero numerator interval",
+            "fixed five-node slots retained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F12",
+      "topic": "Interval arithmetic independent of damping witness",
+      "interval_cases": [
+        {
+          "name": "signed midpoint cancellation",
+          "centers": [
+            [
+              -2,
+              -1
+            ],
+            [
+              -2,
+              -1
+            ],
+            [
+              -2,
+              -1
+            ],
+            [
+              -2,
+              -1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "name": "all straddle zero",
+          "centers": [
+            [
+              -1,
+              2
+            ],
+            [
+              -1,
+              2
+            ],
+            [
+              -1,
+              2
+            ],
+            [
+              -1,
+              2
+            ],
+            [
+              -1,
+              2
+            ],
+            [
+              -1,
+              2
+            ],
+            [
+              -1,
+              2
+            ],
+            [
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "name": "point intervals",
+          "centers": [
+            [
+              0.25,
+              0.25
+            ],
+            [
+              0.25,
+              0.25
+            ],
+            [
+              0.25,
+              0.25
+            ],
+            [
+              0.25,
+              0.25
+            ],
+            [
+              -0.25,
+              -0.25
+            ],
+            [
+              -0.25,
+              -0.25
+            ],
+            [
+              -0.25,
+              -0.25
+            ],
+            [
+              -0.25,
+              -0.25
+            ]
+          ]
+        }
+      ],
+      "assertions": [
+        "endpoint extrema equal midpoint-radius formulas",
+        "absolute lower bound zero exactly when collective interval contains zero",
+        "signed <= unsigned",
+        "raw negative-width handling: >1e-12 STOP; <=1e-12 outward hull flagged",
+        "undefined ratio masks not zero-valued outcomes"
+      ]
+    },
+    {
+      "id": "F13",
+      "topic": "Complete population variance and both margin signs",
+      "cycles": [
+        {
+          "cycle": 0,
+          "vectors": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "cycle": 1,
+          "vectors": [
+            [
+              0.1,
+              0.2,
+              0.30000000000000004
+            ],
+            [
+              0.1,
+              0.2,
+              0.30000000000000004
+            ],
+            [
+              0.1,
+              0.2,
+              0.30000000000000004
+            ],
+            [
+              0.1,
+              0.2,
+              0.30000000000000004
+            ],
+            [
+              0.1,
+              0.2,
+              0.30000000000000004
+            ],
+            [
+              0.1,
+              0.2,
+              0.30000000000000004
+            ],
+            [
+              0.1,
+              0.2,
+              0.30000000000000004
+            ],
+            [
+              0.1,
+              0.2,
+              0.30000000000000004
+            ]
+          ]
+        },
+        {
+          "cycle": 2,
+          "vectors": [
+            [
+              0.2,
+              0.4,
+              0.6000000000000001
+            ],
+            [
+              0.2,
+              0.4,
+              0.6000000000000001
+            ],
+            [
+              0.2,
+              0.4,
+              0.6000000000000001
+            ],
+            [
+              0.2,
+              0.4,
+              0.6000000000000001
+            ],
+            [
+              0.2,
+              0.4,
+              0.6000000000000001
+            ],
+            [
+              0.2,
+              0.4,
+              0.6000000000000001
+            ],
+            [
+              0.2,
+              0.4,
+              0.6000000000000001
+            ],
+            [
+              0.2,
+              0.4,
+              0.6000000000000001
+            ]
+          ]
+        },
+        {
+          "cycle": 3,
+          "vectors": [
+            [
+              0.3,
+              0.6,
+              0.8999999999999999
+            ],
+            [
+              0.3,
+              0.6,
+              0.8999999999999999
+            ],
+            [
+              0.3,
+              0.6,
+              0.8999999999999999
+            ],
+            [
+              0.3,
+              0.6,
+              0.8999999999999999
+            ],
+            [
+              0.3,
+              0.6,
+              0.8999999999999999
+            ],
+            [
+              0.3,
+              0.6,
+              0.8999999999999999
+            ],
+            [
+              0.3,
+              0.6,
+              0.8999999999999999
+            ],
+            [
+              0.3,
+              0.6,
+              0.8999999999999999
+            ]
+          ]
+        },
+        {
+          "cycle": 4,
+          "vectors": [
+            [
+              0.4,
+              0.8,
+              1.2000000000000002
+            ],
+            [
+              0.4,
+              0.8,
+              1.2000000000000002
+            ],
+            [
+              0.4,
+              0.8,
+              1.2000000000000002
+            ],
+            [
+              0.4,
+              0.8,
+              1.2000000000000002
+            ],
+            [
+              0.4,
+              0.8,
+              1.2000000000000002
+            ],
+            [
+              0.4,
+              0.8,
+              1.2000000000000002
+            ],
+            [
+              0.4,
+              0.8,
+              1.2000000000000002
+            ],
+            [
+              0.4,
+              0.8,
+              1.2000000000000002
+            ]
+          ]
+        }
+      ],
+      "views": {
+        "all_five": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "new_four": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "assertions": [
+        "all 10 unordered pairs, 6 reused for new_four",
+        "sum squared true differences divided by m^2 equals ddof0 variance",
+        "sum squared lower and upper bounds enclose reference variance",
+        "classification tests use margins +2e-14, -2e-14 and 0; do not require a data-derived certificate"
+      ]
+    },
+    {
+      "id": "F14",
+      "topic": "Outcome-isolation canary",
+      "cases": [
+        {
+          "name": "fixed analytic inputs",
+          "history_c_vectors": [
+            [
+              0.1,
+              0.3,
+              0.6
+            ],
+            [
+              0.1,
+              0.3,
+              0.6
+            ],
+            [
+              0.1,
+              0.3,
+              0.6
+            ],
+            [
+              0.1,
+              0.3,
+              0.6
+            ],
+            [
+              0.1,
+              0.3,
+              0.6
+            ],
+            [
+              0.1,
+              0.3,
+              0.6
+            ],
+            [
+              0.1,
+              0.3,
+              0.6
+            ],
+            [
+              0.1,
+              0.3,
+              0.6
+            ]
+          ],
+          "history_d_vectors": [
+            [
+              0.2,
+              0.25,
+              0.55
+            ],
+            [
+              0.2,
+              0.25,
+              0.55
+            ],
+            [
+              0.2,
+              0.25,
+              0.55
+            ],
+            [
+              0.2,
+              0.25,
+              0.55
+            ],
+            [
+              0.2,
+              0.25,
+              0.55
+            ],
+            [
+              0.2,
+              0.25,
+              0.55
+            ],
+            [
+              0.2,
+              0.25,
+              0.55
+            ],
+            [
+              0.2,
+              0.25,
+              0.55
+            ]
+          ],
+          "assertions": [
+            "signed outcome containment",
+            "norm-envelope validity",
+            "J4 subset J1 within fixed tolerance",
+            "effective interval subset of symmetric P within fixed tolerance",
+            "signed <= unsigned <= P",
+            "pair reversal swaps/negates interval endpoints"
+          ]
+        }
+      ],
+      "canary": "Run pure-bound orchestration with unchanged profile/P arguments while replacing an external synthetic outcome witness by an unrelated value. The analytic arrays/fingerprint must be unchanged. Do not perform containment QA against the deliberately false witness; this group tests dataflow only."
+    }
+  ],
+  "required_group_count": 14,
+  "source": "Fixed synthetic inputs specified by GPT before source-data evaluation; not sampled from SIM04.",
+  "numeric_type": "float64",
+  "reference_rule": "Compute D(x)=x/(1+np.log1p(abs(x))) only on these synthetic inputs. Compute synthetic P from its accepted analytic formula; do not run old fixture/checker scripts.",
+  "assertion_count": "Record actual assertions and helper/reference evaluations; do not borrow SIM04's 607 count.",
+  "random_operations": 0
+}

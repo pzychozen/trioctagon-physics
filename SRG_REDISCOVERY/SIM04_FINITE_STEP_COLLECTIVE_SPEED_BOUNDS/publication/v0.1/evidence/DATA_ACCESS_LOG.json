@@ -1,0 +1,49 @@
+{
+  "access": [
+    {
+      "utc": "2026-10-14T13:20:49.194906+00:00",
+      "stage": "metadata",
+      "fields": [
+        "record_id",
+        "update_row",
+        "dataset_id",
+        "update_index",
+        "source_frame",
+        "source_time",
+        "center",
+        "block",
+        "phase",
+        "complete"
+      ]
+    },
+    {
+      "utc": "2026-10-14T13:20:49.224386+00:00",
+      "stage": "allowed pre-output fields",
+      "fields": [
+        "incoming_velocity",
+        "impulse",
+        "w",
+        "d",
+        "H",
+        "G",
+        "bit_plus"
+      ]
+    },
+    {
+      "utc": "2026-10-14T13:20:49.601489+00:00",
+      "stage": "post-seal outcome join",
+      "fields": [
+        "saved_successor_velocity"
+      ],
+      "preceding_bound_seal": {
+        "bytes": 4788324,
+        "sha256": "5df03134e083e9879458eb8a0d560c3c1e9bd91f6a57b6d8c367e0a3ed749e6f"
+      }
+    }
+  ],
+  "outcome_load_follows_seal": true,
+  "D_evaluations_on_saved_records": 0,
+  "raw_state_loads": 0,
+  "reference_CSV_numeric_join": "after pre-output seal",
+  "earlier_file_inspection": "CSV field names and dataset/cycle/view metadata only; not bound inputs"
+}

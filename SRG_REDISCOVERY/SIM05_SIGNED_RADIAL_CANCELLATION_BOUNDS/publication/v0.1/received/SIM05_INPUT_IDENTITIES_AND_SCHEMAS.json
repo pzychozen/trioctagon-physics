@@ -1,0 +1,1127 @@
+{
+  "format": "SIM05_INPUT_IDENTITIES_AND_SCHEMAS_v0.1",
+  "date": "2026-10-14",
+  "scientific_upstream_commit": "e1f5115402a05965834493c1254b03118a531c92",
+  "commit_meaning": "Published SIM03 source checkpoint; SIM04 is accepted locally, not asserted published.",
+  "SIM04_root": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\SRG_REDISCOVERY\\SIM04_FINITE_STEP_COLLECTIVE_SPEED_BOUNDS",
+  "SIM04_submission": {
+    "name": "SIM04_GPT_REVIEW.zip",
+    "bytes": 21653622,
+    "sha256": "d3be3e9829181378f1e0e3af696d5cfe8de98c8a697ee59677c0edd5036e2987",
+    "members": 95,
+    "manifest_payloads": 94
+  },
+  "SIM04_review": {
+    "name": "SIM04_GPT_SCIENTIFIC_REVIEW_v0.1.zip",
+    "bytes": 138546,
+    "sha256": "b2dbaf8d327e354ea04d3726c15a77d3e0bdeda09abaf35de954492fc38e17dd",
+    "members": 10,
+    "scope": "Complete unchanged internal-review package, including profile-dominance theorem; no script execution."
+  },
+  "required_SIM04_files": {
+    "MANIFEST.json": {
+      "bytes": 14521,
+      "sha256": "1f33b8b7cdd37475f50357df22c32682405985253386bb7ab3e4a061abb2dce3",
+      "role": "Accepted SIM04 submission inventory; historical scope, not the SIM05 inventory."
+    },
+    "SIM04_REPORT.md": {
+      "bytes": 18458,
+      "sha256": "b95abdb7aecfbe38b7e340035497db6bc5801719aec257ce30a65344bcdaaf2f",
+      "role": "Accepted results and limitations; reading authority, not allowed to analytic functions."
+    },
+    "MATHEMATICAL_RESULTS.md": {
+      "bytes": 8250,
+      "sha256": "a0e655157fa848c3aa882a9f0105deac8514b38d4380b7f0f288eb7a89d56765",
+      "role": "Inherited damping monotonicity, profile and population identities."
+    },
+    "OUTPUT_FIELD_GUIDE.md": {
+      "bytes": 9981,
+      "sha256": "bcee2a03988bad465561a257bd13879cf9cfd9cf60f20cb0294a394dc271d143",
+      "role": "Exact field meanings, pair/center joins and units."
+    },
+    "analysis/PRE_OUTPUT_BOUNDS.npz": {
+      "bytes": 4788324,
+      "sha256": "5df03134e083e9879458eb8a0d560c3c1e9bd91f6a57b6d8c367e0a3ed749e6f",
+      "role": "PRIMARY: outcome-free profiles, per-center P and explicit pair/center keys; reuse without recomputing SIM04 families.",
+      "npz_schema": {
+        "pair__pair_id": {
+          "shape": [
+            2000
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        },
+        "pair__cycle_c": {
+          "shape": [
+            2000
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        },
+        "pair__cycle_d": {
+          "shape": [
+            2000
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        },
+        "pair__phase": {
+          "shape": [
+            2000
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        },
+        "pair__update_c": {
+          "shape": [
+            2000
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        },
+        "pair__update_d": {
+          "shape": [
+            2000
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        },
+        "pair__T_TRIANGLE": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__Q_VECTOR": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__K_COMPONENT": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__P_PROFILE": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__BEST_PRE": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__V": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__J": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__best_is_K": {
+          "shape": [
+            2000
+          ],
+          "dtype": "bool",
+          "fortran_order": false
+        },
+        "pair__T_minus_Q": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__GAMMA_SOURCE": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__OMEGA_COARSE": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__Gamma_c_given_d": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__Gamma_d_given_c": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__Rg": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__qbar_c": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__qbar_d": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__G_c": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__G_d": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__abs_delta_G": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__H_c": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__H_d": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__h": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__delta_v": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__delta_a": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__delta_w": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__v_distance": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__a_distance": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__Q_center": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__K_center": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__P_center": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__T_center": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__difference_alignment": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__difference_cosine": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__difference_cosine_valid": {
+          "shape": [
+            16000
+          ],
+          "dtype": "bool",
+          "fortran_order": false
+        },
+        "center__alignment_residual": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__triangle_slack": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__contains_zero": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "bool",
+          "fortran_order": false
+        },
+        "center__ell": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__kappa": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__lambda": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__profile_c": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__profile_d": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__profile_distance": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__g_c": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__g_d": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__pair_phase_row": {
+          "shape": [
+            16000
+          ],
+          "dtype": "int32",
+          "fortran_order": false
+        },
+        "center__center": {
+          "shape": [
+            16000
+          ],
+          "dtype": "int8",
+          "fortran_order": false
+        }
+      }
+    },
+    "analysis/PRE_OUTPUT_BOUNDS_SEAL.json": {
+      "bytes": 610,
+      "sha256": "7172a90d4ac7374e6bb48fb225dfbd0504266bf775e8615f8ed9ccfce6428b86",
+      "role": "Accepted pre-outcome seal; exact identity of numerical primary input."
+    },
+    "analysis/center_pair_bounds.npz": {
+      "bytes": 6009501,
+      "sha256": "953b87a544cd963239d3a95e1d6fe96484e4b4438dbe51d9e8197d1a0107b820",
+      "role": "OUTCOME ONLY: saved center signed speed differences; open numerical fields only after new seal.",
+      "npz_schema": {
+        "pair__pair_id": {
+          "shape": [
+            2000
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        },
+        "pair__cycle_c": {
+          "shape": [
+            2000
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        },
+        "pair__cycle_d": {
+          "shape": [
+            2000
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        },
+        "pair__phase": {
+          "shape": [
+            2000
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        },
+        "pair__update_c": {
+          "shape": [
+            2000
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        },
+        "pair__update_d": {
+          "shape": [
+            2000
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        },
+        "pair__T_TRIANGLE": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__Q_VECTOR": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__K_COMPONENT": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__P_PROFILE": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__BEST_PRE": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__V": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__J": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__best_is_K": {
+          "shape": [
+            2000
+          ],
+          "dtype": "bool",
+          "fortran_order": false
+        },
+        "pair__T_minus_Q": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__GAMMA_SOURCE": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__OMEGA_COARSE": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__Gamma_c_given_d": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__Gamma_d_given_c": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__Rg": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__qbar_c": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__qbar_d": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__G_c": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__G_d": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__abs_delta_G": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__H_c": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__H_d": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "pair__h": {
+          "shape": [
+            2000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__delta_v": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__delta_a": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__delta_w": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__v_distance": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__a_distance": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__Q_center": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__K_center": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__P_center": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__T_center": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__difference_alignment": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__difference_cosine": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__difference_cosine_valid": {
+          "shape": [
+            16000
+          ],
+          "dtype": "bool",
+          "fortran_order": false
+        },
+        "center__alignment_residual": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__triangle_slack": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__contains_zero": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "bool",
+          "fortran_order": false
+        },
+        "center__ell": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__kappa": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__lambda": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__profile_c": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__profile_d": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__profile_distance": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__g_c": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__g_d": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "center__pair_phase_row": {
+          "shape": [
+            16000
+          ],
+          "dtype": "int32",
+          "fortran_order": false
+        },
+        "center__center": {
+          "shape": [
+            16000
+          ],
+          "dtype": "int8",
+          "fortran_order": false
+        },
+        "outcome__post_delta_velocity": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "outcome__post_profile_delta": {
+          "shape": [
+            16000,
+            3
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "outcome__post_signed_distance": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "outcome__post_profile_distance": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "outcome__signed_speed_difference": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "outcome__individual_abs_speed_difference": {
+          "shape": [
+            16000
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        }
+      }
+    },
+    "analysis/cycle_phase_speeds.csv": {
+      "bytes": 69795,
+      "sha256": "4dfbd6f7f8c20cab393370962a35dbb1ced8f277cdceb8e510a3eb554abb7d1f",
+      "role": "OUTCOME/REFERENCE ONLY: all three stage speeds; read after new seal.",
+      "csv_header": [
+        "cycle",
+        "phase",
+        "update_index",
+        "incoming",
+        "pre_damping",
+        "post"
+      ]
+    },
+    "analysis/phase_dispersion_bounds.csv": {
+      "bytes": 650889,
+      "sha256": "4cf05a7f5f2f081c7520136a62b8ff5af910577b6a998256e45ab9f408c4718a",
+      "role": "OUTCOME/REFERENCE ONLY: previously accepted variances and P aggregation; read after new seal.",
+      "csv_header": [
+        "view",
+        "phase",
+        "cycles",
+        "pairs",
+        "incoming_variance",
+        "incoming_SD",
+        "incoming_pair_variance",
+        "pre_damping_variance",
+        "pre_damping_SD",
+        "pre_damping_pair_variance",
+        "post_variance",
+        "post_SD",
+        "post_pair_variance",
+        "OMEGA_COARSE_variance_upper",
+        "OMEGA_COARSE_SD_upper",
+        "OMEGA_COARSE_variance_gap",
+        "OMEGA_COARSE_SD_gap",
+        "OMEGA_COARSE_variance_utilization",
+        "OMEGA_COARSE_variance_utilization_valid",
+        "OMEGA_COARSE_variance_factor",
+        "OMEGA_COARSE_variance_factor_valid",
+        "OMEGA_COARSE_SD_utilization",
+        "OMEGA_COARSE_SD_utilization_valid",
+        "OMEGA_COARSE_SD_factor",
+        "OMEGA_COARSE_SD_factor_valid",
+        "GAMMA_SOURCE_variance_upper",
+        "GAMMA_SOURCE_SD_upper",
+        "GAMMA_SOURCE_variance_gap",
+        "GAMMA_SOURCE_SD_gap",
+        "GAMMA_SOURCE_variance_utilization",
+        "GAMMA_SOURCE_variance_utilization_valid",
+        "GAMMA_SOURCE_variance_factor",
+        "GAMMA_SOURCE_variance_factor_valid",
+        "GAMMA_SOURCE_SD_utilization",
+        "GAMMA_SOURCE_SD_utilization_valid",
+        "GAMMA_SOURCE_SD_factor",
+        "GAMMA_SOURCE_SD_factor_valid",
+        "T_TRIANGLE_variance_upper",
+        "T_TRIANGLE_SD_upper",
+        "T_TRIANGLE_variance_gap",
+        "T_TRIANGLE_SD_gap",
+        "T_TRIANGLE_variance_utilization",
+        "T_TRIANGLE_variance_utilization_valid",
+        "T_TRIANGLE_variance_factor",
+        "T_TRIANGLE_variance_factor_valid",
+        "T_TRIANGLE_SD_utilization",
+        "T_TRIANGLE_SD_utilization_valid",
+        "T_TRIANGLE_SD_factor",
+        "T_TRIANGLE_SD_factor_valid",
+        "Q_VECTOR_variance_upper",
+        "Q_VECTOR_SD_upper",
+        "Q_VECTOR_variance_gap",
+        "Q_VECTOR_SD_gap",
+        "Q_VECTOR_variance_utilization",
+        "Q_VECTOR_variance_utilization_valid",
+        "Q_VECTOR_variance_factor",
+        "Q_VECTOR_variance_factor_valid",
+        "Q_VECTOR_SD_utilization",
+        "Q_VECTOR_SD_utilization_valid",
+        "Q_VECTOR_SD_factor",
+        "Q_VECTOR_SD_factor_valid",
+        "K_COMPONENT_variance_upper",
+        "K_COMPONENT_SD_upper",
+        "K_COMPONENT_variance_gap",
+        "K_COMPONENT_SD_gap",
+        "K_COMPONENT_variance_utilization",
+        "K_COMPONENT_variance_utilization_valid",
+        "K_COMPONENT_variance_factor",
+        "K_COMPONENT_variance_factor_valid",
+        "K_COMPONENT_SD_utilization",
+        "K_COMPONENT_SD_utilization_valid",
+        "K_COMPONENT_SD_factor",
+        "K_COMPONENT_SD_factor_valid",
+        "P_PROFILE_variance_upper",
+        "P_PROFILE_SD_upper",
+        "P_PROFILE_variance_gap",
+        "P_PROFILE_SD_gap",
+        "P_PROFILE_variance_utilization",
+        "P_PROFILE_variance_utilization_valid",
+        "P_PROFILE_variance_factor",
+        "P_PROFILE_variance_factor_valid",
+        "P_PROFILE_SD_utilization",
+        "P_PROFILE_SD_utilization_valid",
+        "P_PROFILE_SD_factor",
+        "P_PROFILE_SD_factor_valid",
+        "BEST_PRE_variance_upper",
+        "BEST_PRE_SD_upper",
+        "BEST_PRE_variance_gap",
+        "BEST_PRE_SD_gap",
+        "BEST_PRE_variance_utilization",
+        "BEST_PRE_variance_utilization_valid",
+        "BEST_PRE_variance_factor",
+        "BEST_PRE_variance_factor_valid",
+        "BEST_PRE_SD_utilization",
+        "BEST_PRE_SD_utilization_valid",
+        "BEST_PRE_SD_factor",
+        "BEST_PRE_SD_factor_valid",
+        "incoming_condition_margin",
+        "incoming_condition_class",
+        "incoming_actual_margin",
+        "incoming_actual_class",
+        "pre_damping_condition_margin",
+        "pre_damping_condition_class",
+        "pre_damping_actual_margin",
+        "pre_damping_actual_class"
+      ]
+    },
+    "analysis/pair_phase_bounds.csv": {
+      "bytes": 2600784,
+      "sha256": "00fb4c0a154f3afacb74cebe07414d8b1a4b22f8e840a582482d900d2a7d4c5e",
+      "role": "OUTCOME/REFERENCE ONLY: accepted signed collective difference and P; read after new seal.",
+      "csv_header": [
+        "pair_id",
+        "cycle_c",
+        "cycle_d",
+        "phase",
+        "update_c",
+        "update_d",
+        "T_TRIANGLE",
+        "Q_VECTOR",
+        "K_COMPONENT",
+        "P_PROFILE",
+        "BEST_PRE",
+        "V",
+        "J",
+        "best_is_K",
+        "T_minus_Q",
+        "GAMMA_SOURCE",
+        "OMEGA_COARSE",
+        "Gamma_c_given_d",
+        "Gamma_d_given_c",
+        "Rg",
+        "qbar_c",
+        "qbar_d",
+        "G_c",
+        "G_d",
+        "abs_delta_G",
+        "H_c",
+        "H_d",
+        "h",
+        "observed_S",
+        "signed_collective_difference",
+        "Zsigned",
+        "Zprofile",
+        "Tnorm",
+        "Zstar",
+        "gap_Q_to_BEST",
+        "gap_BEST_to_Zstar",
+        "gap_Zstar_to_Tnorm",
+        "gap_Tnorm_to_S",
+        "gap_Q_to_S",
+        "gap_telescope_residual",
+        "OMEGA_COARSE_gap",
+        "OMEGA_COARSE_utilization",
+        "OMEGA_COARSE_utilization_valid",
+        "OMEGA_COARSE_factor_over_outcome",
+        "OMEGA_COARSE_factor_valid",
+        "GAMMA_SOURCE_gap",
+        "GAMMA_SOURCE_utilization",
+        "GAMMA_SOURCE_utilization_valid",
+        "GAMMA_SOURCE_factor_over_outcome",
+        "GAMMA_SOURCE_factor_valid",
+        "T_TRIANGLE_gap",
+        "T_TRIANGLE_utilization",
+        "T_TRIANGLE_utilization_valid",
+        "T_TRIANGLE_factor_over_outcome",
+        "T_TRIANGLE_factor_valid",
+        "Q_VECTOR_gap",
+        "Q_VECTOR_utilization",
+        "Q_VECTOR_utilization_valid",
+        "Q_VECTOR_factor_over_outcome",
+        "Q_VECTOR_factor_valid",
+        "K_COMPONENT_gap",
+        "K_COMPONENT_utilization",
+        "K_COMPONENT_utilization_valid",
+        "K_COMPONENT_factor_over_outcome",
+        "K_COMPONENT_factor_valid",
+        "P_PROFILE_gap",
+        "P_PROFILE_utilization",
+        "P_PROFILE_utilization_valid",
+        "P_PROFILE_factor_over_outcome",
+        "P_PROFILE_factor_valid",
+        "BEST_PRE_gap",
+        "BEST_PRE_utilization",
+        "BEST_PRE_utilization_valid",
+        "BEST_PRE_factor_over_outcome",
+        "BEST_PRE_factor_valid",
+        "K_COMPONENT_improvement",
+        "K_COMPONENT_over_Q",
+        "K_COMPONENT_over_Q_valid",
+        "P_PROFILE_improvement",
+        "P_PROFILE_over_Q",
+        "P_PROFILE_over_Q_valid",
+        "BEST_PRE_improvement",
+        "BEST_PRE_over_Q",
+        "BEST_PRE_over_Q_valid"
+      ]
+    },
+    "analysis/selected_record_map.csv": {
+      "bytes": 297411,
+      "sha256": "c04b68db071bd287fcb4443ac29741a2732baa69a3e06abd0eca7e222cbe7095",
+      "role": "Metadata-only mapping of represented 1000 updates and 8000 center records.",
+      "csv_header": [
+        "selected_row",
+        "source_row",
+        "record_id",
+        "update_row",
+        "dataset_id",
+        "update_index",
+        "cycle",
+        "phase",
+        "center",
+        "source_frame"
+      ]
+    },
+    "evidence/OUTPUT_SCHEMAS.json": {
+      "bytes": 28319,
+      "sha256": "daafea246a5a0b9317f4018d780206584f008706539c5a3f20dfc1ac6f976a16",
+      "role": "Source schemas only; no execution."
+    }
+  },
+  "analytic_loaded_fields": [
+    "pair__pair_id",
+    "pair__cycle_c",
+    "pair__cycle_d",
+    "pair__phase",
+    "pair__update_c",
+    "pair__update_d",
+    "pair__P_PROFILE",
+    "center__pair_phase_row",
+    "center__center",
+    "center__profile_c",
+    "center__profile_d",
+    "center__P_center"
+  ],
+  "outcome_loaded_fields_after_seal": [
+    "outcome__signed_speed_difference",
+    "outcome__individual_abs_speed_difference"
+  ],
+  "schema_inspection": "NPZ headers only; no saved scientific values evaluated in handoff preparation."
+}
