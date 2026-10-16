@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-16",
+  "surface": "Codex in-app browser via http://127.0.0.1:8765/BOUNDARY11_VIEWER.html",
+  "observed_checks": [
+    "Initial R/w=1 renders the three panels, edges, extended lines, three spheres and 42 dots",
+    "Vertex sphere button sets R/w=0.6133730937584284 and displays 18 dots",
+    "Crossing A button sets R/w=0.7637626158259734 and displays 18 dots",
+    "Crossing B button sets R/w=1.338073284435453 and displays 18 dots",
+    "Typed radius 1 restores 42 dots",
+    "Slider keyboard adjustment changes R/w to 1.02386626906242 and updates the displacement and angular readout",
+    "E02 selection highlights original seam and displays midpoint (0,1/sqrt(3),0) and both exits",
+    "Radial projection checkbox adds the separate 18 crosses",
+    "Axial and oblique camera controls render distinct genuine three-dimensional views",
+    "Tangency midpoint checkbox and layer state update successfully",
+    "CSV export produces 42 labelled rows with branch, edge, class, radius and centred coordinates",
+    "No browser console errors observed"
+  ],
+  "screenshots": ["viewer_axial.jpg", "viewer_oblique.jpg", "viewer_preview.jpg"],
+  "standalone_file_navigation": "Not tested: the Codex browser URL policy rejects file: navigation. No workaround attempted. The same self-contained HTML was tested over loopback HTTP.",
+  "numerical_limits": "Display merging uses 1e-9 max(1,R/w). Exact classification is in the report and inventory.",
+  "pass": true
+}

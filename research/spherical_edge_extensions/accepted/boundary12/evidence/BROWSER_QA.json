@@ -1,0 +1,72 @@
+{
+  "pass": true,
+  "checked_utc": "2026-10-16T07:42:55.377Z",
+  "url": "http://127.0.0.1:8766/BOUNDARY12_VIEWER.html",
+  "browser": "Codex in-app browser",
+  "checks": [
+    "All seven fixed presets selected; original/A/B show 18 exact dots, assigned cases show 42 separate branch markers",
+    "B shows graph 54/105 and separate hull 18/36/20",
+    "A shows graph 36/63 and separate hull 18/48/32",
+    "Original shows graph 18/21 and hull 18/27/11",
+    "Separate graph and hull visibility controls exercised",
+    "E01 retains V0/V1 and E01-/E01+ with corresponding exact event IDs",
+    "C/w=1 keyboard input selects A; ell/w=1 keyboard input selects B",
+    "Width 3 and original-edge unit retained in actual A export",
+    "Width 0 and -1 rejected; export disabled",
+    "R/w=0.5 rejected; export disabled",
+    "Per-extension unit is disabled at original sphere; selection reverts to width",
+    "Radii on both sides of A retain 42 branch markers with no exact event tag",
+    "Oblique, axial and side camera buttons exercised",
+    "Prepared B and scaled A JSON payloads inspected and saved under isolated output root",
+    "Source PDF pages and both static figure sets visually inspected"
+  ],
+  "fixed_assigned_snapshots": [
+    {
+      "error": "",
+      "network": "Graph and hull overlays are defined only for original/A/B; choose an exact event to show them.",
+      "preset": "R_equals_w",
+      "status": "42 separate branch markers · no exact event tagt/w=0.816496581C/w=1.632993162 · ell/w=0.609389800"
+    },
+    {
+      "error": "",
+      "network": "Graph and hull overlays are defined only for original/A/B; choose an exact event to show them.",
+      "preset": "t_equals_w",
+      "status": "42 separate branch markers · no exact event tagt/w=1.000000000C/w=2.000000000 · ell/w=0.792893219"
+    },
+    {
+      "error": "",
+      "network": "Graph and hull overlays are defined only for original/A/B; choose an exact event to show them.",
+      "preset": "assigned_R10",
+      "status": "42 separate branch markers · no exact event tagt/w=9.983319421C/w=19.966638842 · ell/w=9.776212640Assigned scalar comparison. No physical calibration."
+    }
+  ],
+  "near_A_snapshots": [
+    {
+      "error": "",
+      "radius": "0.7637626157259734",
+      "status": "42 separate branch markers · no exact event tagt/w=0.500000000C/w=1.000000000 · ell/w=0.292893219"
+    },
+    {
+      "error": "",
+      "radius": "0.7637626159259734",
+      "status": "42 separate branch markers · no exact event tagt/w=0.500000000C/w=1.000000000 · ell/w=0.292893219"
+    }
+  ],
+  "zero_width": {
+    "error": "Panel width w must be positive and finite.",
+    "exportDisabled": true
+  },
+  "console_messages": [],
+  "screenshots": [
+    "VIEWER_B_full.jpg",
+    "VIEWER_B_side.jpg",
+    "VIEWER_A_full.jpg",
+    "VIEWER_A_oblique.jpg"
+  ],
+  "limitations": [
+    "Direct file navigation not attempted; known browser restriction respected using allowed loopback preview",
+    "Save download link not clicked; export preparation and payload tested without writing outside output root",
+    "Mouse-drag gesture not separately automated; orbit mode enabled and three camera controls exercised",
+    "On invalid input last valid drawing remains with error and disabled export; it is not a new valid observation"
+  ]
+}

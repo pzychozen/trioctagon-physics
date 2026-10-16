@@ -291,3 +291,9 @@ For kernel tests, follow its README and pinned requirements. Historical test
 results are archived as recorded; packaging did not rerun them. The original
 bridge script and scientific documents retain their original absolute paths;
 see CURRENT_STATE.md before attempting research-script execution on another host.
+
+
+### Spherical edge extensions
+
+[Detailed synthesis paper](papers/SPHERICAL_EDGE_EXTENSIONS/README.md) and
+[accepted evidence, observation prototype and deferred questions](research/spherical_edge_extensions/README.md).

@@ -1,0 +1,2270 @@
+{
+  "normalization": "w=1; all distances scale by w",
+  "length_table": [
+    {
+      "event": "original",
+      "t_over_w": "-1/2 + sqrt(2)/2",
+      "C_over_w": "-1 + sqrt(2)",
+      "ell_over_w": "0",
+      "total_added_over_w": "0",
+      "R2_over_w2": "13/12 - sqrt(2)/2"
+    },
+    {
+      "event": "A",
+      "t_over_w": "1/2",
+      "C_over_w": "1",
+      "ell_over_w": "1 - sqrt(2)/2",
+      "total_added_over_w": "2 - sqrt(2)",
+      "R2_over_w2": "7/12"
+    },
+    {
+      "event": "B",
+      "t_over_w": "1/2 + sqrt(2)/2",
+      "C_over_w": "1 + sqrt(2)",
+      "ell_over_w": "1",
+      "total_added_over_w": "2",
+      "R2_over_w2": "sqrt(2)/2 + 13/12"
+    }
+  ],
+  "rays": [
+    {
+      "branch": "E01+",
+      "edge": "E01",
+      "original_endpoint_vertex": 1,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-sqrt(2)/4",
+        "-sqrt(6)/4",
+        "-sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P02",
+        "incident_branches": [
+          "E01+",
+          "E04-"
+        ],
+        "coordinates_exact": [
+          "-1/2 + sqrt(2)/4",
+          "-sqrt(3)/6 + sqrt(6)/4",
+          "-1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P02",
+        "incident_branches": [
+          "E01+",
+          "E05-"
+        ],
+        "coordinates_exact": [
+          "-1/4",
+          "sqrt(3)/12",
+          "-sqrt(2)/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P02",
+        "incident_branches": [
+          "E01+",
+          "E06-",
+          "E14-"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "-sqrt(2)/2 - 1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E01-",
+      "edge": "E01",
+      "original_endpoint_vertex": 0,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "sqrt(2)/4",
+        "sqrt(6)/4",
+        "sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P01",
+        "incident_branches": [
+          "E01-",
+          "E02-",
+          "E03-"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "1/2 - sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P01",
+        "incident_branches": [
+          "E01-",
+          "E11+"
+        ],
+        "coordinates_exact": [
+          "-1/4 + sqrt(2)/4",
+          "sqrt(3)/12 + sqrt(6)/4",
+          "0"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P01",
+        "incident_branches": [
+          "E01-",
+          "E10+"
+        ],
+        "coordinates_exact": [
+          "sqrt(2)/4",
+          "sqrt(3)/3 + sqrt(6)/4",
+          "1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E02+",
+      "edge": "E02",
+      "original_endpoint_vertex": 7,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "0",
+        "0",
+        "1"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P03",
+        "incident_branches": [
+          "E02+",
+          "E11+",
+          "E12-"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "-1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P04",
+        "incident_branches": [
+          "E02+",
+          "E10+",
+          "E21-"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P04",
+        "incident_branches": [
+          "E02+",
+          "E08+",
+          "E18+"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E02-",
+      "edge": "E02",
+      "original_endpoint_vertex": 0,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "0",
+        "0",
+        "-1"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P01",
+        "incident_branches": [
+          "E01-",
+          "E02-",
+          "E03-"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "1/2 - sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P03",
+        "incident_branches": [
+          "E02-",
+          "E04-",
+          "E20+"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "-1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P03",
+        "incident_branches": [
+          "E02-",
+          "E05-",
+          "E16+"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "-sqrt(2)/2 - 1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E03+",
+      "edge": "E03",
+      "original_endpoint_vertex": 15,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "sqrt(2)/4",
+        "-sqrt(6)/4",
+        "-sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P04",
+        "incident_branches": [
+          "E03+",
+          "E20+"
+        ],
+        "coordinates_exact": [
+          "1/2 - sqrt(2)/4",
+          "-sqrt(3)/6 + sqrt(6)/4",
+          "-1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P06",
+        "incident_branches": [
+          "E03+",
+          "E16+"
+        ],
+        "coordinates_exact": [
+          "1/4",
+          "sqrt(3)/12",
+          "-sqrt(2)/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P06",
+        "incident_branches": [
+          "E03+",
+          "E07+",
+          "E15-"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "-sqrt(2)/2 - 1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E03-",
+      "edge": "E03",
+      "original_endpoint_vertex": 0,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-sqrt(2)/4",
+        "sqrt(6)/4",
+        "sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P01",
+        "incident_branches": [
+          "E01-",
+          "E02-",
+          "E03-"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "1/2 - sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P05",
+        "incident_branches": [
+          "E03-",
+          "E12-"
+        ],
+        "coordinates_exact": [
+          "1/4 - sqrt(2)/4",
+          "sqrt(3)/12 + sqrt(6)/4",
+          "0"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P05",
+        "incident_branches": [
+          "E03-",
+          "E21-"
+        ],
+        "coordinates_exact": [
+          "-sqrt(2)/4",
+          "sqrt(3)/3 + sqrt(6)/4",
+          "1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E04+",
+      "edge": "E04",
+      "original_endpoint_vertex": 2,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-1/2",
+        "-sqrt(3)/2",
+        "0"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P05",
+        "incident_branches": [
+          "E04+",
+          "E05-"
+        ],
+        "coordinates_exact": [
+          "-sqrt(2)/4",
+          "-sqrt(6)/4 + sqrt(3)/3",
+          "-1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P07",
+        "incident_branches": [
+          "E04+",
+          "E06-",
+          "E13-"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P08",
+        "incident_branches": [
+          "E04+",
+          "E08-"
+        ],
+        "coordinates_exact": [
+          "-1/2 - sqrt(2)/4",
+          "-sqrt(6)/4 - sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E04-",
+      "edge": "E04",
+      "original_endpoint_vertex": 1,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "1/2",
+        "sqrt(3)/2",
+        "0"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P02",
+        "incident_branches": [
+          "E01+",
+          "E04-"
+        ],
+        "coordinates_exact": [
+          "-1/2 + sqrt(2)/4",
+          "-sqrt(3)/6 + sqrt(6)/4",
+          "-1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P03",
+        "incident_branches": [
+          "E02-",
+          "E04-",
+          "E20+"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "-1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P07",
+        "incident_branches": [
+          "E04-",
+          "E11+"
+        ],
+        "coordinates_exact": [
+          "sqrt(2)/4",
+          "sqrt(3)/3 + sqrt(6)/4",
+          "-1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E05+",
+      "edge": "E05",
+      "original_endpoint_vertex": 3,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-sqrt(2)/4",
+        "-sqrt(6)/4",
+        "sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P06",
+        "incident_branches": [
+          "E05+",
+          "E06-",
+          "E07-"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "1/2 - sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P08",
+        "incident_branches": [
+          "E05+",
+          "E08-"
+        ],
+        "coordinates_exact": [
+          "-sqrt(2)/4 - 1/4",
+          "-sqrt(6)/4 + sqrt(3)/12",
+          "0"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P09",
+        "incident_branches": [
+          "E05+",
+          "E10-"
+        ],
+        "coordinates_exact": [
+          "-1/2 - sqrt(2)/4",
+          "-sqrt(6)/4 - sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E05-",
+      "edge": "E05",
+      "original_endpoint_vertex": 2,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "sqrt(2)/4",
+        "sqrt(6)/4",
+        "-sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P05",
+        "incident_branches": [
+          "E04+",
+          "E05-"
+        ],
+        "coordinates_exact": [
+          "-sqrt(2)/4",
+          "-sqrt(6)/4 + sqrt(3)/3",
+          "-1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P02",
+        "incident_branches": [
+          "E01+",
+          "E05-"
+        ],
+        "coordinates_exact": [
+          "-1/4",
+          "sqrt(3)/12",
+          "-sqrt(2)/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P03",
+        "incident_branches": [
+          "E02-",
+          "E05-",
+          "E16+"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "-sqrt(2)/2 - 1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E06+",
+      "edge": "E06",
+      "original_endpoint_vertex": 4,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "0",
+        "0",
+        "1"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P07",
+        "incident_branches": [
+          "E06+",
+          "E08-",
+          "E09-"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "-1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P09",
+        "incident_branches": [
+          "E06+",
+          "E10-",
+          "E19+"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P10",
+        "incident_branches": [
+          "E06+",
+          "E11-",
+          "E17+"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E06-",
+      "edge": "E06",
+      "original_endpoint_vertex": 3,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "0",
+        "0",
+        "-1"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P06",
+        "incident_branches": [
+          "E05+",
+          "E06-",
+          "E07-"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "1/2 - sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P07",
+        "incident_branches": [
+          "E04+",
+          "E06-",
+          "E13-"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P02",
+        "incident_branches": [
+          "E01+",
+          "E06-",
+          "E14-"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "-sqrt(2)/2 - 1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E07+",
+      "edge": "E07",
+      "original_endpoint_vertex": 8,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "sqrt(2)/2",
+        "0",
+        "-sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P08",
+        "incident_branches": [
+          "E07+",
+          "E13-"
+        ],
+        "coordinates_exact": [
+          "1/2 - sqrt(2)/2",
+          "-sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P11",
+        "incident_branches": [
+          "E07+",
+          "E14-"
+        ],
+        "coordinates_exact": [
+          "0",
+          "-sqrt(3)/6",
+          "-sqrt(2)/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P06",
+        "incident_branches": [
+          "E03+",
+          "E07+",
+          "E15-"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "-sqrt(2)/2 - 1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E07-",
+      "edge": "E07",
+      "original_endpoint_vertex": 3,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-sqrt(2)/2",
+        "0",
+        "sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P06",
+        "incident_branches": [
+          "E05+",
+          "E06-",
+          "E07-"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "1/2 - sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P10",
+        "incident_branches": [
+          "E07-",
+          "E09-"
+        ],
+        "coordinates_exact": [
+          "-sqrt(2)/2",
+          "-sqrt(3)/6",
+          "0"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P11",
+        "incident_branches": [
+          "E07-",
+          "E19+"
+        ],
+        "coordinates_exact": [
+          "-sqrt(2)/2 - 1/2",
+          "-sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E08+",
+      "edge": "E08",
+      "original_endpoint_vertex": 5,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "sqrt(2)/4",
+        "sqrt(6)/4",
+        "sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P09",
+        "incident_branches": [
+          "E08+",
+          "E10-"
+        ],
+        "coordinates_exact": [
+          "-sqrt(2)/4",
+          "-sqrt(6)/4 + sqrt(3)/3",
+          "1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P12",
+        "incident_branches": [
+          "E08+",
+          "E11-"
+        ],
+        "coordinates_exact": [
+          "-1/4",
+          "sqrt(3)/12",
+          "sqrt(2)/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P04",
+        "incident_branches": [
+          "E02+",
+          "E08+",
+          "E18+"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E08-",
+      "edge": "E08",
+      "original_endpoint_vertex": 4,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-sqrt(2)/4",
+        "-sqrt(6)/4",
+        "-sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P07",
+        "incident_branches": [
+          "E06+",
+          "E08-",
+          "E09-"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "-1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P08",
+        "incident_branches": [
+          "E05+",
+          "E08-"
+        ],
+        "coordinates_exact": [
+          "-sqrt(2)/4 - 1/4",
+          "-sqrt(6)/4 + sqrt(3)/12",
+          "0"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P08",
+        "incident_branches": [
+          "E04+",
+          "E08-"
+        ],
+        "coordinates_exact": [
+          "-1/2 - sqrt(2)/4",
+          "-sqrt(6)/4 - sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E09+",
+      "edge": "E09",
+      "original_endpoint_vertex": 13,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "sqrt(2)/2",
+        "0",
+        "sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P10",
+        "incident_branches": [
+          "E09+",
+          "E19+"
+        ],
+        "coordinates_exact": [
+          "1/2 - sqrt(2)/2",
+          "-sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P13",
+        "incident_branches": [
+          "E09+",
+          "E17+"
+        ],
+        "coordinates_exact": [
+          "0",
+          "-sqrt(3)/6",
+          "sqrt(2)/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P13",
+        "incident_branches": [
+          "E09+",
+          "E12+",
+          "E15+"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E09-",
+      "edge": "E09",
+      "original_endpoint_vertex": 4,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-sqrt(2)/2",
+        "0",
+        "-sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P07",
+        "incident_branches": [
+          "E06+",
+          "E08-",
+          "E09-"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "-1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P10",
+        "incident_branches": [
+          "E07-",
+          "E09-"
+        ],
+        "coordinates_exact": [
+          "-sqrt(2)/2",
+          "-sqrt(3)/6",
+          "0"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P12",
+        "incident_branches": [
+          "E09-",
+          "E13-"
+        ],
+        "coordinates_exact": [
+          "-sqrt(2)/2 - 1/2",
+          "-sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E10+",
+      "edge": "E10",
+      "original_endpoint_vertex": 6,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "1/2",
+        "sqrt(3)/2",
+        "0"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P11",
+        "incident_branches": [
+          "E10+",
+          "E11-"
+        ],
+        "coordinates_exact": [
+          "-1/2 + sqrt(2)/4",
+          "-sqrt(3)/6 + sqrt(6)/4",
+          "1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P04",
+        "incident_branches": [
+          "E02+",
+          "E10+",
+          "E21-"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P01",
+        "incident_branches": [
+          "E01-",
+          "E10+"
+        ],
+        "coordinates_exact": [
+          "sqrt(2)/4",
+          "sqrt(3)/3 + sqrt(6)/4",
+          "1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E10-",
+      "edge": "E10",
+      "original_endpoint_vertex": 5,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-1/2",
+        "-sqrt(3)/2",
+        "0"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P09",
+        "incident_branches": [
+          "E08+",
+          "E10-"
+        ],
+        "coordinates_exact": [
+          "-sqrt(2)/4",
+          "-sqrt(6)/4 + sqrt(3)/3",
+          "1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P09",
+        "incident_branches": [
+          "E06+",
+          "E10-",
+          "E19+"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P09",
+        "incident_branches": [
+          "E05+",
+          "E10-"
+        ],
+        "coordinates_exact": [
+          "-1/2 - sqrt(2)/4",
+          "-sqrt(6)/4 - sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E11+",
+      "edge": "E11",
+      "original_endpoint_vertex": 7,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "sqrt(2)/4",
+        "sqrt(6)/4",
+        "-sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P03",
+        "incident_branches": [
+          "E02+",
+          "E11+",
+          "E12-"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "-1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P01",
+        "incident_branches": [
+          "E01-",
+          "E11+"
+        ],
+        "coordinates_exact": [
+          "-1/4 + sqrt(2)/4",
+          "sqrt(3)/12 + sqrt(6)/4",
+          "0"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P07",
+        "incident_branches": [
+          "E04-",
+          "E11+"
+        ],
+        "coordinates_exact": [
+          "sqrt(2)/4",
+          "sqrt(3)/3 + sqrt(6)/4",
+          "-1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E11-",
+      "edge": "E11",
+      "original_endpoint_vertex": 6,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-sqrt(2)/4",
+        "-sqrt(6)/4",
+        "sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P11",
+        "incident_branches": [
+          "E10+",
+          "E11-"
+        ],
+        "coordinates_exact": [
+          "-1/2 + sqrt(2)/4",
+          "-sqrt(3)/6 + sqrt(6)/4",
+          "1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P12",
+        "incident_branches": [
+          "E08+",
+          "E11-"
+        ],
+        "coordinates_exact": [
+          "-1/4",
+          "sqrt(3)/12",
+          "sqrt(2)/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P10",
+        "incident_branches": [
+          "E06+",
+          "E11-",
+          "E17+"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E12+",
+      "edge": "E12",
+      "original_endpoint_vertex": 16,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "sqrt(2)/4",
+        "-sqrt(6)/4",
+        "sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P12",
+        "incident_branches": [
+          "E12+",
+          "E21-"
+        ],
+        "coordinates_exact": [
+          "1/2 - sqrt(2)/4",
+          "-sqrt(3)/6 + sqrt(6)/4",
+          "1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P14",
+        "incident_branches": [
+          "E12+",
+          "E18+"
+        ],
+        "coordinates_exact": [
+          "1/4",
+          "sqrt(3)/12",
+          "sqrt(2)/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P13",
+        "incident_branches": [
+          "E09+",
+          "E12+",
+          "E15+"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E12-",
+      "edge": "E12",
+      "original_endpoint_vertex": 7,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-sqrt(2)/4",
+        "sqrt(6)/4",
+        "-sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P03",
+        "incident_branches": [
+          "E02+",
+          "E11+",
+          "E12-"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "-1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P05",
+        "incident_branches": [
+          "E03-",
+          "E12-"
+        ],
+        "coordinates_exact": [
+          "1/4 - sqrt(2)/4",
+          "sqrt(3)/12 + sqrt(6)/4",
+          "0"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P14",
+        "incident_branches": [
+          "E12-",
+          "E20+"
+        ],
+        "coordinates_exact": [
+          "-sqrt(2)/4",
+          "sqrt(3)/3 + sqrt(6)/4",
+          "-1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E13+",
+      "edge": "E13",
+      "original_endpoint_vertex": 9,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "1",
+        "0",
+        "0"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P13",
+        "incident_branches": [
+          "E13+",
+          "E14-"
+        ],
+        "coordinates_exact": [
+          "-1/2 + sqrt(2)/2",
+          "-sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P15",
+        "incident_branches": [
+          "E13+",
+          "E15-",
+          "E20-"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P15",
+        "incident_branches": [
+          "E13+",
+          "E17-"
+        ],
+        "coordinates_exact": [
+          "1/2 + sqrt(2)/2",
+          "-sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E13-",
+      "edge": "E13",
+      "original_endpoint_vertex": 8,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-1",
+        "0",
+        "0"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P08",
+        "incident_branches": [
+          "E07+",
+          "E13-"
+        ],
+        "coordinates_exact": [
+          "1/2 - sqrt(2)/2",
+          "-sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P07",
+        "incident_branches": [
+          "E04+",
+          "E06-",
+          "E13-"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P12",
+        "incident_branches": [
+          "E09-",
+          "E13-"
+        ],
+        "coordinates_exact": [
+          "-sqrt(2)/2 - 1/2",
+          "-sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E14+",
+      "edge": "E14",
+      "original_endpoint_vertex": 10,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "sqrt(2)/2",
+        "0",
+        "sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P14",
+        "incident_branches": [
+          "E14+",
+          "E15-",
+          "E16-"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "1/2 - sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P16",
+        "incident_branches": [
+          "E14+",
+          "E17-"
+        ],
+        "coordinates_exact": [
+          "sqrt(2)/2",
+          "-sqrt(3)/6",
+          "0"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P16",
+        "incident_branches": [
+          "E14+",
+          "E19-"
+        ],
+        "coordinates_exact": [
+          "1/2 + sqrt(2)/2",
+          "-sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E14-",
+      "edge": "E14",
+      "original_endpoint_vertex": 9,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-sqrt(2)/2",
+        "0",
+        "-sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P13",
+        "incident_branches": [
+          "E13+",
+          "E14-"
+        ],
+        "coordinates_exact": [
+          "-1/2 + sqrt(2)/2",
+          "-sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P11",
+        "incident_branches": [
+          "E07+",
+          "E14-"
+        ],
+        "coordinates_exact": [
+          "0",
+          "-sqrt(3)/6",
+          "-sqrt(2)/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P02",
+        "incident_branches": [
+          "E01+",
+          "E06-",
+          "E14-"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "-sqrt(2)/2 - 1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E15+",
+      "edge": "E15",
+      "original_endpoint_vertex": 11,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "0",
+        "0",
+        "1"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P15",
+        "incident_branches": [
+          "E15+",
+          "E17-",
+          "E18-"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "-1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P17",
+        "incident_branches": [
+          "E15+",
+          "E19-",
+          "E21+"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P13",
+        "incident_branches": [
+          "E09+",
+          "E12+",
+          "E15+"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E15-",
+      "edge": "E15",
+      "original_endpoint_vertex": 10,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "0",
+        "0",
+        "-1"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P14",
+        "incident_branches": [
+          "E14+",
+          "E15-",
+          "E16-"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "1/2 - sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P15",
+        "incident_branches": [
+          "E13+",
+          "E15-",
+          "E20-"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P06",
+        "incident_branches": [
+          "E03+",
+          "E07+",
+          "E15-"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "-sqrt(2)/2 - 1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E16+",
+      "edge": "E16",
+      "original_endpoint_vertex": 14,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-sqrt(2)/4",
+        "sqrt(6)/4",
+        "-sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P16",
+        "incident_branches": [
+          "E16+",
+          "E20-"
+        ],
+        "coordinates_exact": [
+          "sqrt(2)/4",
+          "-sqrt(6)/4 + sqrt(3)/3",
+          "-1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P06",
+        "incident_branches": [
+          "E03+",
+          "E16+"
+        ],
+        "coordinates_exact": [
+          "1/4",
+          "sqrt(3)/12",
+          "-sqrt(2)/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P03",
+        "incident_branches": [
+          "E02-",
+          "E05-",
+          "E16+"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "-sqrt(2)/2 - 1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E16-",
+      "edge": "E16",
+      "original_endpoint_vertex": 10,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "sqrt(2)/4",
+        "-sqrt(6)/4",
+        "sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P14",
+        "incident_branches": [
+          "E14+",
+          "E15-",
+          "E16-"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "1/2 - sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P18",
+        "incident_branches": [
+          "E16-",
+          "E18-"
+        ],
+        "coordinates_exact": [
+          "1/4 + sqrt(2)/4",
+          "-sqrt(6)/4 + sqrt(3)/12",
+          "0"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P17",
+        "incident_branches": [
+          "E16-",
+          "E21+"
+        ],
+        "coordinates_exact": [
+          "sqrt(2)/4 + 1/2",
+          "-sqrt(6)/4 - sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E17+",
+      "edge": "E17",
+      "original_endpoint_vertex": 12,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-sqrt(2)/2",
+        "0",
+        "sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P17",
+        "incident_branches": [
+          "E17+",
+          "E19-"
+        ],
+        "coordinates_exact": [
+          "-1/2 + sqrt(2)/2",
+          "-sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P13",
+        "incident_branches": [
+          "E09+",
+          "E17+"
+        ],
+        "coordinates_exact": [
+          "0",
+          "-sqrt(3)/6",
+          "sqrt(2)/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P10",
+        "incident_branches": [
+          "E06+",
+          "E11-",
+          "E17+"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E17-",
+      "edge": "E17",
+      "original_endpoint_vertex": 11,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "sqrt(2)/2",
+        "0",
+        "-sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P15",
+        "incident_branches": [
+          "E15+",
+          "E17-",
+          "E18-"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "-1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P16",
+        "incident_branches": [
+          "E14+",
+          "E17-"
+        ],
+        "coordinates_exact": [
+          "sqrt(2)/2",
+          "-sqrt(3)/6",
+          "0"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P15",
+        "incident_branches": [
+          "E13+",
+          "E17-"
+        ],
+        "coordinates_exact": [
+          "1/2 + sqrt(2)/2",
+          "-sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E18+",
+      "edge": "E18",
+      "original_endpoint_vertex": 17,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-sqrt(2)/4",
+        "sqrt(6)/4",
+        "sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P18",
+        "incident_branches": [
+          "E18+",
+          "E21+"
+        ],
+        "coordinates_exact": [
+          "sqrt(2)/4",
+          "-sqrt(6)/4 + sqrt(3)/3",
+          "1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P14",
+        "incident_branches": [
+          "E12+",
+          "E18+"
+        ],
+        "coordinates_exact": [
+          "1/4",
+          "sqrt(3)/12",
+          "sqrt(2)/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P04",
+        "incident_branches": [
+          "E02+",
+          "E08+",
+          "E18+"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E18-",
+      "edge": "E18",
+      "original_endpoint_vertex": 11,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "sqrt(2)/4",
+        "-sqrt(6)/4",
+        "-sqrt(2)/2"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P15",
+        "incident_branches": [
+          "E15+",
+          "E17-",
+          "E18-"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "-1/2 + sqrt(2)/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P18",
+        "incident_branches": [
+          "E16-",
+          "E18-"
+        ],
+        "coordinates_exact": [
+          "1/4 + sqrt(2)/4",
+          "-sqrt(6)/4 + sqrt(3)/12",
+          "0"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P18",
+        "incident_branches": [
+          "E18-",
+          "E20-"
+        ],
+        "coordinates_exact": [
+          "sqrt(2)/4 + 1/2",
+          "-sqrt(6)/4 - sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E19+",
+      "edge": "E19",
+      "original_endpoint_vertex": 13,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-1",
+        "0",
+        "0"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P10",
+        "incident_branches": [
+          "E09+",
+          "E19+"
+        ],
+        "coordinates_exact": [
+          "1/2 - sqrt(2)/2",
+          "-sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P09",
+        "incident_branches": [
+          "E06+",
+          "E10-",
+          "E19+"
+        ],
+        "coordinates_exact": [
+          "-1/2",
+          "-sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P11",
+        "incident_branches": [
+          "E07-",
+          "E19+"
+        ],
+        "coordinates_exact": [
+          "-sqrt(2)/2 - 1/2",
+          "-sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E19-",
+      "edge": "E19",
+      "original_endpoint_vertex": 12,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "1",
+        "0",
+        "0"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P17",
+        "incident_branches": [
+          "E17+",
+          "E19-"
+        ],
+        "coordinates_exact": [
+          "-1/2 + sqrt(2)/2",
+          "-sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P17",
+        "incident_branches": [
+          "E15+",
+          "E19-",
+          "E21+"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P16",
+        "incident_branches": [
+          "E14+",
+          "E19-"
+        ],
+        "coordinates_exact": [
+          "1/2 + sqrt(2)/2",
+          "-sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E20+",
+      "edge": "E20",
+      "original_endpoint_vertex": 15,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-1/2",
+        "sqrt(3)/2",
+        "0"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P04",
+        "incident_branches": [
+          "E03+",
+          "E20+"
+        ],
+        "coordinates_exact": [
+          "1/2 - sqrt(2)/4",
+          "-sqrt(3)/6 + sqrt(6)/4",
+          "-1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P03",
+        "incident_branches": [
+          "E02-",
+          "E04-",
+          "E20+"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "-1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P14",
+        "incident_branches": [
+          "E12-",
+          "E20+"
+        ],
+        "coordinates_exact": [
+          "-sqrt(2)/4",
+          "sqrt(3)/3 + sqrt(6)/4",
+          "-1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E20-",
+      "edge": "E20",
+      "original_endpoint_vertex": 14,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "1/2",
+        "-sqrt(3)/2",
+        "0"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P16",
+        "incident_branches": [
+          "E16+",
+          "E20-"
+        ],
+        "coordinates_exact": [
+          "sqrt(2)/4",
+          "-sqrt(6)/4 + sqrt(3)/3",
+          "-1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P15",
+        "incident_branches": [
+          "E13+",
+          "E15-",
+          "E20-"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P18",
+        "incident_branches": [
+          "E18-",
+          "E20-"
+        ],
+        "coordinates_exact": [
+          "sqrt(2)/4 + 1/2",
+          "-sqrt(6)/4 - sqrt(3)/6",
+          "-1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E21+",
+      "edge": "E21",
+      "original_endpoint_vertex": 17,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "1/2",
+        "-sqrt(3)/2",
+        "0"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P18",
+        "incident_branches": [
+          "E18+",
+          "E21+"
+        ],
+        "coordinates_exact": [
+          "sqrt(2)/4",
+          "-sqrt(6)/4 + sqrt(3)/3",
+          "1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P17",
+        "incident_branches": [
+          "E15+",
+          "E19-",
+          "E21+"
+        ],
+        "coordinates_exact": [
+          "1/2",
+          "-sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P17",
+        "incident_branches": [
+          "E16-",
+          "E21+"
+        ],
+        "coordinates_exact": [
+          "sqrt(2)/4 + 1/2",
+          "-sqrt(6)/4 - sqrt(3)/6",
+          "1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    },
+    {
+      "branch": "E21-",
+      "edge": "E21",
+      "original_endpoint_vertex": 16,
+      "ray_formula": "original endpoint + extension * outward unit direction; extension > 0",
+      "outward_unit_direction_exact": [
+        "-1/2",
+        "sqrt(3)/2",
+        "0"
+      ],
+      "original": {
+        "event": "original",
+        "outer_dot_id": "original:P12",
+        "incident_branches": [
+          "E12+",
+          "E21-"
+        ],
+        "coordinates_exact": [
+          "1/2 - sqrt(2)/4",
+          "-sqrt(3)/6 + sqrt(6)/4",
+          "1/2"
+        ]
+      },
+      "first_new_meeting": {
+        "event": "A",
+        "outer_dot_id": "A:P04",
+        "incident_branches": [
+          "E02+",
+          "E10+",
+          "E21-"
+        ],
+        "coordinates_exact": [
+          "0",
+          "sqrt(3)/3",
+          "1/2"
+        ]
+      },
+      "last_finite_meeting": {
+        "event": "B",
+        "outer_dot_id": "B:P05",
+        "incident_branches": [
+          "E03-",
+          "E21-"
+        ],
+        "coordinates_exact": [
+          "-sqrt(2)/4",
+          "sqrt(3)/3 + sqrt(6)/4",
+          "1/2"
+        ]
+      },
+      "first_extension_over_w": "1 - sqrt(2)/2",
+      "last_extension_over_w": "1"
+    }
+  ],
+  "classification_source": "accepted BOUNDARY11 catalogue; no old pair solver rerun"
+}

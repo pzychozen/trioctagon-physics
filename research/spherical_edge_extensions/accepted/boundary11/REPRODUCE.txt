@@ -1,0 +1,81 @@
+BOUNDARY-11 - review package, 16 October 2026
+
+START WITH
+  BOUNDARY11_REPORT.pdf       Five-page mathematical report and static plates.
+  BOUNDARY11_VIEWER.html      Self-contained rotatable 3D viewer (WebGL browser).
+  BOUNDARY11_REPORT.tex       Editable report source.
+
+The mathematical radius R is a parameter, not a fitted physical scale.
+All computations use w=1, with scale restoration stated in the report.
+The source model remains three panels, 18 numbered vertices and 21 unique edges.
+No scientific project modules are imported. No simulations or Git actions occur.
+
+DATA
+  data/geometry_inventory.json: exact original and centred coordinates, face
+    cycles, all edge IDs and directions, both branches and event incidence groups.
+  data/angular_separations.json: all 861 labelled point pairs in 60 symbolic
+    angular-function classes. A class is a function, not a fixed numerical angle.
+  data/polygon_patterns.json: exact polygon events, orbit and limit checks.
+  evidence/all_branch_coincidence_checks.json: exhaustive exact pair results.
+
+REPRODUCTION IN COMMAND PROMPT
+  cd /d C:\TORMENT\TRIOCTAGON_new\research\BOUNDARY11_20261016
+  conda activate torment
+  set PYTHONDONTWRITEBYTECODE=1
+  python -B analyze.py
+  python -B patterns.py
+  python -B build_visuals.py
+  node evidence\check_viewer_math.cjs
+
+The current analyze.py source-identity step expects the original Paper C and
+BOUNDARY-10 source paths relative to the project root; retain that folder layout
+for a full rerun. The exact coordinates are also fully contained in the script
+and inventory. patterns.py and build_visuals.py run from an extracted package
+using the included inventory and library. No dependency installation is needed
+in the existing torment environment. The Plotly library is included unchanged;
+build_visuals.py downloads its official CDN version only if the local copy is
+missing. Viewer generation and use otherwise need no network connection.
+
+PDF BUILD (existing Tectonic; no project paper builds)
+  C:\TORMENT\TRIOCTAGON_new\reconstruction\publication\paper_C\build\tools\tectonic\tectonic.exe -X compile BOUNDARY11_REPORT.tex --outdir . --keep-logs
+
+The TeX includes three figures from figures/. PNG and editable SVG outputs are
+provided, together with their generating script. TeX can alternatively be built
+with a compatible LaTeX installation. Renderer paths and versions are recorded
+in evidence/FINAL_CHECKS.json.
+
+VIEWER
+  Open BOUNDARY11_VIEWER.html in a normal WebGL-capable browser. The file embeds
+  Plotly and its data; it has no external script or data dependency.
+  The Codex browser's policy does not permit file: navigation, so browser QA was
+  performed via a loopback-only Python server. No alternate file-access mechanism
+  was attempted. To use the same optional preview method from Command Prompt:
+    python -B -m http.server 8765 --bind 127.0.0.1 --directory .
+  Then open http://127.0.0.1:8765/BOUNDARY11_VIEWER.html
+
+All geometry layers have independent switches. Original edges always remain.
+Gold dots indicate coincident or selected branches; orange crosses indicate the
+secondary radial projection. Use the exact-event buttons rather than rounding
+their radii. Export retains 42 labelled rows even when there are 18 unique dots.
+Floating drawing tolerances can visually merge nearby points; the exact inventory
+and report define mathematical counts. The initial R/w=1 is illustrative only.
+
+VERIFICATION
+  evidence/exact_checks.json: 161 exact predicates, 861 branch pairs, 210 line pairs.
+  evidence/VIEWER_MATH_CHECKS.json: actual JavaScript evaluator versus independent
+    Python coordinates at six radii; all 42 branches agree within 2e-15.
+  evidence/BROWSER_QA.json and viewer_*.jpg: observed controls and visual rendering.
+  evidence/viewer_export_R1.csv: actual browser export, 42 labelled rows.
+  evidence/pdf_pages/: rendered final PDF pages inspected for layout and content.
+  evidence/SOURCE_PRESERVATION.json: final hashes compared with source baseline.
+  MANIFEST_SHA256.json: all packaged files except itself and the zip, with hashes.
+
+SCOPE AND OPEN MEANINGS
+  No physical outer shell, preferred R, field, density, dynamics or recursive
+  closure rule is inferred. Arbitrary selected point subsets are not classified.
+  All finite full point sets have exactly D3h symmetry; limiting directions have
+  D6h. No whole-set tenfold symmetry is supplied by this construction.
+  The edge-tangent sphere cuts panel interiors; it is not face-tangent.
+
+All generated research resides in this isolated directory. Accepted inputs were
+read only. Nothing was committed, pushed or published.
