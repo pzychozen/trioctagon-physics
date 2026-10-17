@@ -1,0 +1,108 @@
+{
+  "schema": "SHELL_APP_CI02_CORRECTION_PUBLICATION/1.0",
+  "date": "2026-10-17",
+  "base_source_publication_commit": "a62ec09175b8bb95aab5789ad817edc11ecfdc9e",
+  "scope": "Three exact source/test corrections; separately recorded local acceptance. No package release or installation replacement.",
+  "paths": [
+    {
+      "path": "apps/scientific_ui/src/trioctagon_ui/shell_exports.py",
+      "before": {
+        "bytes": 6582,
+        "sha256": "00228911a91614e3a950191c0e7d3fff940794122679392fc3e22c907cc7da69"
+      },
+      "after": {
+        "bytes": 8835,
+        "sha256": "0df99e385a11c82210d59073d4851d12542491b21f8d18b743c8ce56c5ffa7d2"
+      }
+    },
+    {
+      "path": "apps/scientific_ui/tests/test_export_publication.py",
+      "before": {
+        "bytes": 10588,
+        "sha256": "73d5a974b182cc66b8bd24909bca620b6a36c4c9ac4513253862053b306208cb"
+      },
+      "after": {
+        "bytes": 17356,
+        "sha256": "f18deb0988ccb6089249858b68d0c010fafbf542270b9d096dd1bcda93e29c03"
+      }
+    },
+    {
+      "path": "apps/scientific_ui/tests/test_shell_exports.py",
+      "before": {
+        "bytes": 9510,
+        "sha256": "f075664cfcf2691e18093d6b811eac4096e1287b42cf7621665260402facf01f"
+      },
+      "after": {
+        "bytes": 21072,
+        "sha256": "efdfc5cae179cfcefaafc17d4994394ea18a8f8dee1b32d5832d4b4d80441fa3"
+      }
+    }
+  ],
+  "candidate_zip": {
+    "bytes": 26405,
+    "sha256": "cf86f85c1d30c34929124765bddd72f636a2bad6075d8d1013c49ac22778cf29",
+    "members": 6
+  },
+  "candidate_manifest": {
+    "bytes": 1214,
+    "sha256": "5a6f4bba3cadbe2ee0f0acd9fe2dfd86ce1842a848ea57e63669094ec7a8653e"
+  },
+  "patch": {
+    "bytes": 39185,
+    "sha256": "4803f5360f0f95a31750691b3647acb6f0b153515329a3b6e7983c63b2245574"
+  },
+  "locally_tested_wheel": {
+    "bytes": 219018,
+    "sha256": "9fff2871b60f862ea90a9846005a895fbc17139b70077db3c8614b59d99067ae",
+    "members": 49,
+    "unchanged": 47,
+    "changed": [
+      "trioctagon_ui/shell_exports.py",
+      "trioctagon_scientific_ui-0.2.1.dist-info/RECORD"
+    ],
+    "RECORD_verified": 48
+  },
+  "retained_local_validation": {
+    "focused_tests": 25,
+    "installed_tests": 269,
+    "source_tests": 269,
+    "new_test_methods": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_is_subset": true,
+    "frozen_analysis": 183,
+    "frozen_historical_protocol": 187,
+    "frozen_core": 64,
+    "shell_cross_token_rows": 84,
+    "successful_read_copy_hash_rows": 82,
+    "expected_negative_denials": 2
+  },
+  "ci02_review_archive": {
+    "bytes": 6859521,
+    "sha256": "27ed4e100ead1f6ce4da8ff10853c899bfac219ed9302281e43363adc529b99b",
+    "members": 633,
+    "verified_payloads": 632
+  },
+  "history": {
+    "previous_ui_run": 39033974349,
+    "previous_ui_attempt": 1,
+    "previous_ui_result": "failure",
+    "previous_kernel_run": 39033974392,
+    "previous_kernel_attempt": 1,
+    "previous_kernel_result": "success",
+    "local_acceptance_is_not_a_hosted_CI_pass": true
+  },
+  "preserved": {
+    "old_PUB01_manifests": "Unchanged records of the base commit, not a manifest of this corrective commit.",
+    "other_wheel_members": 47,
+    "UI_version": "0.2.1",
+    "geometry_and_numeric_policy": "unchanged",
+    "export_schema": "unchanged",
+    "low_level_publisher": "unchanged",
+    "kernels_and_scientific_research": "unchanged"
+  },
+  "implementation_identity_note": "The inherited UNRELEASED_UNCOMMITTED_CANDIDATE string remains unchanged. It is not a live Git-status or execution attestation. Use the containing commit plus actual module and resource digests to identify the source.",
+  "rights": "Existing software-only licensing scope and separately governed scientific references remain unchanged; no new grant.",
+  "self_reference": "This manifest identifies the three corrected files and retained input artifacts. It does not hash itself or predict its containing commit."
+}

@@ -25,6 +25,18 @@ def artifact(reference, observation, view):
     return result
 
 
+def _ancestry(dest):
+    rows=[]
+    for ancestor in (dest.parent,*dest.parent.parents):
+        info=ancestor.lstat()
+        if getattr(info,'st_file_attributes',0)&stat.FILE_ATTRIBUTE_REPARSE_POINT: raise ValueError('Reparse destinations are refused')
+        if not stat.S_ISDIR(info.st_mode): raise ValueError('Choose an existing destination directory')
+        if ancestor.name.lower() in ('papers','research','trioctagon_ui','.git') or (ancestor/'.git').exists(): raise ValueError('Source/research/package destinations are protected')
+        if ancestor.name.lower()=='records' and (ancestor.parent/'sweep-manifest.json').exists(): raise ValueError('Authoritative dataset records are protected')
+        rows.append((str(ancestor),info.st_dev,info.st_ino))
+    return tuple(rows)
+
+
 def validate_destination(raw, protected_roots=()):
     text=os.fspath(raw); p=PureWindowsPath(text)
     if os.name!='nt': raise OSError('Shell exports require the supported Windows lane')
@@ -34,40 +46,66 @@ def validate_destination(raw, protected_roots=()):
         if component.endswith((' ','.')) or ':' in component or component.split('.')[0].upper() in reserved or any(c in component for c in '<>"|?*'): raise ValueError('Ambiguous Windows destination')
     dest=Path(text)
     if not dest.parent.is_dir(): raise ValueError('Choose an existing destination directory')
-    ancestors=[dest.parent,*dest.parent.parents]
-    for ancestor in ancestors:
-        info=ancestor.lstat()
-        if getattr(info,'st_file_attributes',0)&stat.FILE_ATTRIBUTE_REPARSE_POINT: raise ValueError('Reparse destinations are refused')
-        if ancestor.name.lower() in ('papers','research','trioctagon_ui','.git') or (ancestor/'.git').exists(): raise ValueError('Source/research/package destinations are protected')
-        if ancestor.name.lower()=='records' and (ancestor.parent/'sweep-manifest.json').exists(): raise ValueError('Authoritative dataset records are protected')
+    raw_chain=_ancestry(dest)
     resolved=dest.resolve()
+    canonical_chain=_ancestry(resolved)
+    # Inspect both spellings; normalization may not hide a protected/reparse path
+    # or replace the objects observed before resolution.
+    if tuple(r[1:] for r in raw_chain)!=tuple(r[1:] for r in canonical_chain) or _ancestry(dest)!=raw_chain or dest.resolve()!=resolved:
+        raise ValueError('Destination ancestry changed')
     for root in (Path(__file__).resolve().parent,*map(Path,protected_roots)):
         if resolved.is_relative_to(root.resolve()): raise ValueError('Protected export destination')
     if dest.exists() or dest.is_symlink(): raise FileExistsError('Exports never overwrite existing files')
-    return resolved,tuple((str(a),a.stat().st_dev,a.stat().st_ino) for a in ancestors)
+    return resolved,canonical_chain
+
+
+class _FileInformation(ctypes.Structure):
+    _fields_=[('attributes',wintypes.DWORD),('creation',wintypes.FILETIME),
+              ('access',wintypes.FILETIME),('write',wintypes.FILETIME),
+              ('volume',wintypes.DWORD),('size_high',wintypes.DWORD),
+              ('size_low',wintypes.DWORD),('links',wintypes.DWORD),
+              ('index_high',wintypes.DWORD),('index_low',wintypes.DWORD)]
+
+
+def _held_identity(api,handle):
+    info=_FileInformation()
+    if not api.GetFileInformationByHandle(handle,ctypes.byref(info)): raise ctypes.WinError(ctypes.get_last_error())
+    if info.attributes&stat.FILE_ATTRIBUTE_REPARSE_POINT: raise ValueError('Reparse destinations are refused')
+    return info.volume,(info.index_high<<32)|info.index_low
 
 
 @contextmanager
 def guarded_destination(destination, sidecar=None, protected_roots=()):
-    target,before=validate_destination(destination,protected_roots)
-    if sidecar is not None: validate_destination(sidecar,protected_roots)
+    raw=os.fspath(destination); roots=tuple(protected_roots)
+    target,before=validate_destination(raw,roots)
+    companion_raw=os.fspath(sidecar) if sidecar is not None else None
+    if companion_raw is not None:
+        companion,companion_before=validate_destination(companion_raw,roots)
+        if companion!=target.with_suffix(target.suffix+'.provenance.json') or companion_before!=before:
+            raise ValueError('Companion does not match the admitted destination')
     # Hold ancestors against rename/deletion for the complete two-publication operation.
     api=ctypes.WinDLL('kernel32',use_last_error=True)
     api.CreateFileW.argtypes=[wintypes.LPCWSTR,wintypes.DWORD,wintypes.DWORD,ctypes.c_void_p,wintypes.DWORD,wintypes.DWORD,wintypes.HANDLE]
     api.CreateFileW.restype=wintypes.HANDLE
     api.CloseHandle.argtypes=[wintypes.HANDLE]; api.CloseHandle.restype=wintypes.BOOL
+    api.GetFileInformationByHandle.argtypes=[wintypes.HANDLE,ctypes.POINTER(_FileInformation)]
+    api.GetFileInformationByHandle.restype=wintypes.BOOL
     handles=[]
     try:
-        for name,_,_ in before:
+        for name,dev,ino in before:
             # Attribute-only access does not participate in Windows sharing
             # exclusion. Directory read access makes denial of DELETE effective.
             h=api.CreateFileW(name,0x80000000,3,None,3,0x02200000,None)
             if h==ctypes.c_void_p(-1).value: raise ctypes.WinError(ctypes.get_last_error())
             handles.append(h)
+            if _held_identity(api,h)!=(dev,ino): raise ValueError('Destination ancestry changed')
         def recheck():
-            _,now=validate_destination(target,protected_roots)
-            if now!=before: raise ValueError('Destination ancestry changed')
-            if sidecar is not None: validate_destination(sidecar,protected_roots)
+            current,now=validate_destination(raw,roots)
+            if current!=target or now!=before: raise ValueError('Destination ancestry changed')
+            if tuple(_held_identity(api,h) for h in handles)!=tuple(r[1:] for r in before): raise ValueError('Destination ancestry changed')
+            if companion_raw is not None:
+                current,now=validate_destination(companion_raw,roots)
+                if current!=companion or now!=companion_before: raise ValueError('Destination ancestry changed')
         recheck()
         yield target,recheck
     finally:
@@ -91,6 +129,7 @@ def export_image(reference, observation, view, figure, destination, *, protected
     observed=artifact(reference,observation,view)
     companion=Path(destination).with_suffix(suffix+'.provenance.json')
     with guarded_destination(destination,companion,protected_roots) as (dest,recheck):
+        companion=dest.with_suffix(suffix+'.provenance.json')
         with publication(dest,companion) as (item,side):
             if suffix=='.svg':
                 with text_writer(item.stream,newline=None) as f: figure.savefig(f,format='svg')
