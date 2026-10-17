@@ -297,3 +297,8 @@ see CURRENT_STATE.md before attempting research-script execution on another host
 
 [Detailed synthesis paper](papers/SPHERICAL_EDGE_EXTENSIONS/README.md) and
 [accepted evidence, observation prototype and deferred questions](research/spherical_edge_extensions/README.md).
+
+
+## Native Spherical Edge Observer source
+
+The accepted P1R1 Spherical Edge Observer and its required export repair are available in the scientific application's C — Geometry workspace. See the [source publication record](apps/scientific_ui/publication/shell_observer/v0.1/README.md) and [application guide](apps/scientific_ui/README.md). This is source publication; no package release or installation replacement is included.

@@ -2,9 +2,8 @@
 import csv
 import hashlib
 import json
-import os
 from pathlib import Path
-import tempfile
+from trioctagon_ui._export_publication import publication, text_writer
 from trioctagon_ui.comparison import leaves, plain
 from trioctagon_ui import __version__
 
@@ -38,26 +37,20 @@ def stage_export(destination, artifact_type, writer, metadata):
     if destination.exists() or sidecar.exists(): raise FileExistsError("Exports never overwrite existing files; choose a new destination")
     if destination.parent.name == "records" and (destination.parent.parent / "sweep-manifest.json").exists():
         raise ValueError("Choose an export location separate from authoritative dataset records/")
-    published = []
-    try:
-        with tempfile.TemporaryDirectory(prefix=".trioctagon-export-", dir=destination.parent) as staging:
-            staging = Path(staging); artifact = staging / destination.name; companion = staging / sidecar.name
-            writer(artifact)
-            raw = artifact.read_bytes()
-            result = {**plain(metadata), "artifact_type": artifact_type, "export_schema_version": 1, "app_version": __version__,
-                "filename": destination.name, "sha256": hashlib.sha256(raw).hexdigest(), "qualification": QUALIFICATION}
-            if artifact_type == "derived_svg":
-                result["rasterized_layers_detected"] = b"<image" in raw
-                result["svg_qualification"] = "Presentation only; not exact symbolic geometry"
-            companion.write_text(json.dumps(result, indent=2, ensure_ascii=False, allow_nan=False) + "\n", encoding="utf-8")
-            # Hard-link publication is atomic and refuses a concurrently created
-            # destination. Staging cleanup unlinks its copies; existing data is safe.
-            for staged, target in ((artifact, destination), (companion, sidecar)):
-                os.link(staged, target); published.append(target)
-        return {"artifact": str(destination), "sidecar": str(sidecar), "metadata": result}
-    except Exception:
-        for path in reversed(published): path.unlink(missing_ok=True)
-        raise
+    with publication(destination, sidecar) as (artifact, companion):
+        writer(artifact.stream)
+        raw = artifact.read()
+        result = {**plain(metadata), "artifact_type": artifact_type, "export_schema_version": 1, "app_version": __version__,
+            "filename": destination.name, "sha256": hashlib.sha256(raw).hexdigest(), "qualification": QUALIFICATION}
+        if artifact_type == "derived_svg":
+            result["rasterized_layers_detected"] = b"<image" in raw
+            result["svg_qualification"] = "Presentation only; not exact symbolic geometry"
+        with text_writer(companion.stream, newline=None) as text:
+            text.write(json.dumps(result, indent=2, ensure_ascii=False, allow_nan=False) + "\n")
+        # Separate no-replace renames; consumers must validate the matching hash.
+        artifact.publish()
+        companion.publish()
+    return {"artifact": str(destination), "sidecar": str(sidecar), "metadata": result}
 
 
 def export_csv(record, destination, groups, selection, *, precision=17, kernel_identity=None):
@@ -74,8 +67,8 @@ def export_csv(record, destination, groups, selection, *, precision=17, kernel_i
         if path in f64:
             columns.extend((path + ".decimal", path + ".f64_hex")); semantics[path] = "human decimal and exact stored binary64 hex"
         else: columns.append(path); semantics[path] = "stored scalar text; missing means not recorded"
-    def writer(path):
-        with path.open("w", encoding="utf-8", newline="") as out:
+    def writer(stream):
+        with text_writer(stream) as out:
             csv_writer = csv.writer(out); csv_writer.writerow(columns)
             for ordinal, row in zip(ordinals, values):
                 fields = [ordinal, record.samples[ordinal]["update_index"]]
@@ -108,4 +101,11 @@ def export_image(figure, destination, context):
     suffix = Path(destination).suffix.lower()
     if suffix not in (".png", ".svg"): raise ValueError("Choose PNG or SVG")
     metadata = {**plain(context), "camera": camera_metadata(figure)}
-    return stage_export(destination, "derived_" + suffix[1:], lambda p: figure.savefig(p, format=suffix[1:]), metadata)
+    def writer(stream):
+        if suffix == ".svg":
+            # Matplotlib's filename route uses text mode for SVG. Preserve its
+            # Windows newline translation when writing through our owned stream.
+            with text_writer(stream, newline=None) as text: figure.savefig(text, format="svg")
+        else:
+            figure.savefig(stream, format="png")
+    return stage_export(destination, "derived_" + suffix[1:], writer, metadata)

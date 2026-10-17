@@ -1,4 +1,4 @@
-# Trioctagon Scientific UI — v0.2.0 passive axial observations
+# Trioctagon Scientific UI — v0.2.1 export access repair
 
 UI DISPLAYS SCIENCE. PYTHON KERNEL COMPUTES SCIENCE.
 
@@ -570,11 +570,53 @@ precision, camera elevation/azimuth/limits, geometry frames/object visibility an
 analysis lineage where relevant. Comparison exports reference both parents.
 SVG reports detectable rasterized layers and makes no exact-symbolic-geometry claim.
 
-Artifacts and sidecars are staged together. Success is reported only after both
-are published. Publication refuses existing destinations, including concurrent
-ones; failure removes staging and any newly published pair member. Filesystems
-must support same-directory hard-link publication. Existing scientific records are
-never overwritten. Dataset records/ is not a derived-export destination.
+Artifacts and sidecars use exclusive unpredictable temporary files directly in
+the chosen destination folder, inheriting that folder's ordinary permissions.
+The exporter never changes ACLs. Windows file handles retain ownership through
+same-directory no-replace renames and handled-failure cleanup. Existing and
+concurrently created destinations are never overwritten or deleted. A cleanup
+failure reports the affected owned path instead of silently deleting by name.
+Dataset records/ is not a derived-export destination.
+
+Primary and sidecar publication are **two separate operations**, not a two-name
+atomic transaction. Success is reported after both; consumers must validate the
+matching provenance and SHA-256. A process crash can leave a scratch file or an
+incomplete pair. Handles prevent other writers/deleters during publication and
+rollback; readers should open the completed export after success.
+
+UI 0.2.1 changes only export publication and the UI version. Kernel K, canonical
+axial JSON, CSV/image formatting, observation schema and scientific provenance
+remain unchanged (sidecars naturally identify UI 0.2.1). No hard-link support is
+required. Simply renaming from a private TemporaryDirectory is not an acceptable
+alternative: the elevated-writer access defect survives that rename.
+
+### Export access certification
+
+Full certification requires Windows x64 CPython 3.11.10 or later in the admitted
+3.11 series so the negative control actually exercises Windows private-directory
+permissions. CI uses Anaconda CPython 3.11.15 build h1044e36_0, with its runtime
+archive identity checked and retained separately from the unchanged wheel locks.
+Older 3.11.9 same-token CI results do not establish cross-token export access.
+
+`--certify` now requires `test_windows_export_access.py --matrix` to pass before
+issuing a certificate. It creates fresh ordinary inherited directories under
+Downloads and Desktop (creating equivalent profile directories on CI if absent).
+It retains per-process Python/token identities, security descriptors, read-only
+open/read/hash/copy results, direct sibling controls, single-link counts and the
+private-TemporaryDirectory-plus-rename negative witness. The test patches
+`os.link` and scientific entry points to fail if called. Unit tests separately
+exercise writer/flush/hash/publication/cleanup faults, collisions, races, held
+ownership, exact retained JSON/CSV bytes and PNG/SVG provenance.
+
+For a normal local operator, the matrix launches one elevated external writer
+through the normal Windows UAC prompt and uses separate ordinary reader/writer
+processes. An already-elevated CI coordinator instead creates fresh native LUA
+restricted medium processes with Administrators deny-only, no elevation and a
+user-owned token. Their token default DACL permits their own process initialization;
+this changes no file, directory, desktop ACL or machine policy. Evidence explicitly
+identifies this synthetic CI token route, distinct from the ordinary local route.
+Both routes must reproduce access denial for the elevated private-directory control.
+Test outputs and all build/runtime scratch remain outside the checkout.
 
 ## Lock v2 and certified source reconstruction
 
@@ -621,3 +663,116 @@ No scientific worker/API/kernel schema change, new dependency, research/Option B
 surface, observer feedback or geometry/dynamics coupling is introduced. Public
 release, PyPI upload, GitHub Release, installer/frozen executable/MSIX and public
 version bump require separate human authorization.
+
+
+## Spherical Edge Observer — unreleased SHELL-APP P1 candidate
+
+In C — Geometry, the first C01 / D03 subtab retains the existing record workflow.
+The second subtab is a panel-local static observation of the accepted Spherical
+Edge Extensions edition (scientific commit
+0997e565f2ddbd350d3c50e5d3af26c651d8b4c9). It neither requests a scientific worker
+nor changes Core/Historical state, Omega, clocks, memory, checkpoints or C01
+parameters. Application startup remains on Dynamics. The observer starts at A.
+Publication identity is separate from the new uncommitted component identity.
+
+Original/A/B buttons select accepted exact incidence data. A has whole chord
+C/w=1; B has added length ell/w=1 at each endpoint. The other four comparisons
+(R/w=1, t/w=1, R/w=10 and R/w=pi*e*phi) are assigned comparison scales, not exact
+events or physical boundaries. Every case preserves the 42 E01–E21 +/- branch
+identities. Generic observations do not infer coincident positions, graphs or
+hulls. Exact events use accepted groups, split graphs and maximal facet cycles.
+
+Enter a custom normalized R, C or ell and explicitly Apply. Changing input mode
+without an edit retains the originating request; changing width, frame or units
+retains its provenance. Width is a positive similarity scale, never implicitly
+metres. The exact-text branch/dot inspector is keyboard accessible. Separate
+layers show panels, original edges, added framework, spheres, dots and optional
+convex hulls. Filled hulls default off. Drag the native 3D plot to rotate, use its
+toolbar to zoom, or select Oblique/Axial/Side/Reset. Visibility changes preserve
+the camera. Reset explicitly fits the observer sphere; original-shell focus
+discloses clipping. Large comparisons may need Reset after selection. All axes
+have equal spans and box aspect. The raw Matplotlib Save action stays disabled.
+
+SHELL_NUMERIC_V1 uses a local Decimal context: precision 80, ROUND_HALF_EVEN,
+Emin=-999, Emax=999, capitals=1, clamp=0; traps InvalidOperation, DivisionByZero,
+Overflow, Underflow and Clamped. Input accepts ASCII decimal text up to 128
+characters, 64 significant digits and explicit exponents -80 through 80. The
+nonzero magnitude range is [1e-50,1e12]; width is [1e-12,1e12]. The mathematical
+R/C lower domains additionally apply. Unsupported resolution is rejected, with
+diagnostics; this bounded numerical policy is not a whole-domain proof.
+
+The historical V01 endpoint representations are pinned to resource values:
+R=0.6133730937584284 (0x1.3a0c09c3e0a95p-1) and
+C=0.41421356237309503 (0x1.a827999fcef32p-2). A custom value rounding to either
+pin resolves to t=h, ell=0 with an explicit adjustment ledger and no event tag,
+groups, topology or certified distinct-position count. Several decimal spellings
+can round to the same pin. The immediately lower float is rejected and the
+immediately higher float remains generic with positive extension. Elsewhere the
+entered Decimal remains the arithmetic input. Only exact pre-rounding decimal
+C=1, ell=0 or ell=1 qualifies as A, Original or B. Radius input never acquires an
+event tag. Generic branches may visually overlap without certified coincidence.
+For zero extension, ell units are unavailable; exact Original explicitly switches
+to width units with a recorded notice, while a generic endpoint/ell-unit request
+is refused. Any pending/invalid edit marks the retained view STALE and disables
+exports immediately.
+
+The immutable packaged reference is a byte-identical 422,733-byte copy of
+research/spherical_edge_extensions/accepted/boundary12/data/viewer_data.json,
+SHA-256 54d93b7396921c87d17cbec65b56affc4272e384d68a2d471521c621664c454b.
+It is loaded via importlib.resources, hash/schema checked before use and frozen
+recursively. The manifest records eight canonical source mappings and the
+event-map/list correspondence. No archived HTML, JS, Plotly, PDF, research checker
+or network/repository fallback is used. A missing or corrupt resource disables
+only the shell panel; C01/D03 remains available. Scientific rights are described
+in shell_reference_notice_v0_1.txt and LICENSE_SCOPE.md.
+
+Shell exports form a separate family TRIOCTAGON_SPHERICAL_EDGE_OBSERVATION,
+schema 1.0.0, component SHELL_OBSERVER_V1, policy SHELL_NUMERIC_V1, UI 0.2.1.
+Use Export JSON (.shell.json), PNG or SVG. JSON records raw/parsed/resolved input,
+adjustments, all branches, exact-event origin, frames/units, topology if admitted,
+camera/layers/clipping and actual module/resource hashes with
+UNRELEASED_UNCOMMITTED_CANDIDATE status. Its content_sha256 excludes only that
+field and uses sorted-key, compact-separator, UTF-8 JSON, unescaped Unicode and
+no nonfinite numbers. PNG/SVG sidecars contain the actual image hash, cached
+observation/digest and rendered state; the image is a numerical view, not an
+exact-symbolic claim. There is no shell CSV export or importer.
+
+The repaired destination-parent publisher remains unchanged. Shell guards refuse
+raw ambiguous/remote/traversal paths, reparse ancestors, source/research/package
+locations, authoritative dataset records and occupied/racing primary/sidecar
+names. Ancestor handles/identities are held and rechecked. Cancel writes nothing;
+dialog return rechecks observation and view identity. Only owned file objects are
+cleaned after failure. Image/sidecar publication consists of two no-replace
+renames, not an atomic pair; consumers must check both hashes. No file ACLs are
+changed. Publisher filename entropy supplies no scientific values.
+
+Bounded verification uses unittest, outside the checkout. New focused tests are
+test_shell_reference.py, test_shell_observer.py, test_shell_panel.py,
+test_shell_isolation.py, test_shell_exports.py and test_shell_installed.py.
+Installed route (from an empty external cwd, with external copied tests):
+
+```bat
+<isolated-runtime> -I -B -m unittest discover -s <external-test-suite> -p test_shell_*.py -v
+```
+
+The isolated source runner inserts only copied UI src and external tests before
+unittest discovery; it does not put the checkout kernel on sys.path. Set
+QT_QPA_PLATFORM=offscreen, QT_OPENGL=software and an external MPLCONFIGDIR for
+automated GUI tests. The unchanged complete offline certification route is:
+
+```bat
+conda activate torment
+set GIT_OPTIONAL_LOCKS=0
+set PYTHONDONTWRITEBYTECODE=1
+python -B apps/scientific_ui/tests/test_install_launch.py --certify --source <checkout> --workspace <fresh-verified-cache>
+```
+
+P1 uses verified admitted wheels/cache only; no --acquire or fresh reconstruction.
+The receipt identifies actual isolated runtime, wheel, copied tests and evidence.
+Source/installed tests have equal counts. Existing axial JSON/CSV cross-token
+coverage is separate from the explicit shell JSON/PNG/SVG access exercise using
+test_shell_exports.access_writer and the unchanged token harness. Token
+orchestration is external and never part of unittest discovery. Real supported
+Windows mouse/keyboard/dialog review, with offscreen mode cleared, is a separate
+required gate. Programmatic tests alone do not establish full application
+acceptance. No commit, release or normal-launcher replacement is part of P1.

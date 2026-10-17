@@ -21,3 +21,16 @@ receipt selection admitted by the author's APP-G work order. Its Paper G and
 M1/M2/M3 source material retains the original paper/evidence rights and scope;
 packaging this reference does not extend the software-only Apache-2.0 grant to
 those papers or scientific evidence. It is not a new proof or a run certificate.
+
+
+The Spherical Edge Observer's shell_reference_v0_1.json is the unchanged accepted
+Boundary-12 viewer data attributed to Hilmir Frímann Halldórsson, with GPT/Codex
+assistance as retained in the accepted source records. The associated manifest
+and notice identify canonical publication sources, the exact byte identity and
+application qualifications. Packaging this scientific reference under SHELL-APP
+P1 does not extend the software-only Apache-2.0 grant to the paper, research,
+figures, scientific data or accepted evidence. Their existing rights and
+exclusions remain in force. No new scientific-data licence grant is made.
+The runtime uses no Plotly/HTML viewer code or research checker; those assets are
+not included. Generated shell observations and images may contain separately
+governed scientific content and retain that qualification.

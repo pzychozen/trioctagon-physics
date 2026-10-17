@@ -23,10 +23,19 @@ jobs:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
-        with:
-          python-version: '3.11'
-          architecture: x64
+      - name: Use affected CPython 3.11.15 Windows runtime for the access regression
+        shell: pwsh
+        run: |
+          $runtime = "$env:RUNNER_TEMP/export-python"
+          & "$env:CONDA/Scripts/conda.exe" create --yes --prefix $runtime --override-channels --channel https://repo.anaconda.com/pkgs/main python=3.11.15=h1044e36_0
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $identity = Get-Content "$runtime/conda-meta/python-3.11.15-h1044e36_0.json" -Raw | ConvertFrom-Json
+          if ($identity.sha256 -ne 'ecf46bcdd6413dadd376746c828c923a1d25a165690c0dbc05df80c5a9a3ae17') { throw 'Unexpected Python runtime package' }
+          "$runtime" | Out-File -FilePath $env:GITHUB_PATH -Append
+          "$runtime/Scripts" | Out-File -FilePath $env:GITHUB_PATH -Append
+          "$runtime/Library/bin" | Out-File -FilePath $env:GITHUB_PATH -Append
+          New-Item -ItemType Directory -Path "$env:RUNNER_TEMP/scientific-ui" | Out-Null
+          Copy-Item "$runtime/conda-meta/python-3.11.15-h1044e36_0.json" "$env:RUNNER_TEMP/scientific-ui/python-runtime.json"
       - name: Acquire exact Core, analysis, Historical protocol and hashed wheels
         env:
           GH_TOKEN: ${{ github.token }}
@@ -60,5 +69,6 @@ jobs:
             ${{ runner.temp }}/scientific-ui/historical-wheelhouse/*.whl
             ${{ runner.temp }}/scientific-ui/acquisition.json
             ${{ runner.temp }}/scientific-ui/latest-certification.json
+            ${{ runner.temp }}/scientific-ui/python-runtime.json
           if-no-files-found: error
           retention-days: 30

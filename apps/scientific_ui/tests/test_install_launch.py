@@ -20,6 +20,7 @@ import struct
 import subprocess
 import sys
 import tempfile
+import uuid
 import tomllib
 import unittest
 from unittest.mock import patch
@@ -607,7 +608,9 @@ def certify(source, workspace):
         assert head == os.environ["GITHUB_SHA"] and not status.strip()
     # Each attempt gets a fresh, external installation; failed evidence is retained.
     # Short environment paths also support Windows hosts without long-path opt-in.
-    attempt = Path(tempfile.mkdtemp(prefix="c-", dir=workspace))
+    # Ordinary inherited directory: fresh medium-token children must be able to
+    # traverse the test/runtime path even when certification starts elevated.
+    attempt = workspace / ("c-" + uuid.uuid4().hex[:12]); attempt.mkdir()
     evidence = attempt / "evidence"; evidence.mkdir()
     empty = attempt / "outside-checkout"; empty.mkdir()
     env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1", PYTHONUTF8="1", QT_QPA_PLATFORM="offscreen",
@@ -651,7 +654,7 @@ def certify(source, workspace):
     closure_script = attempt / "runtime-closure.py"
     closure_script.write_text(RUNTIME_CLOSURE, encoding="utf-8")
     approved = {row["name"]: row["version"] for row in dependencies}
-    approved.update({"trioctagon-scientific-ui": "0.2.0", "trioctagon-analysis": analysis_pin["version"],
+    approved.update({"trioctagon-scientific-ui": "0.2.1", "trioctagon-analysis": analysis_pin["version"],
         "trioctagon-historical-protocol": historical_pin["version"], "trioctagon-physics": lock["version"]})
     closure = json.loads(run("runtime-closure", [runtime, "-I", "-B", closure_script, json.dumps(approved)]))
     write_json(evidence / "runtime-closure.json", closure)
@@ -675,6 +678,18 @@ def certify(source, workspace):
     source_result = command([runtime, "-I", "-B", source_runner, source_ui, tests], empty, evidence / "source-ui-tests.log", source_env)
     source_match = re.search(r"Ran (\d+) tests in ([\d.]+)s\s+OK\s*$", source_result)
     assert source_match and source_match[1] == match[1]
+    access = evidence / "export-access"; access.mkdir()
+    destinations = []
+    for name in ("Downloads", "Desktop"):
+        destination = Path.home() / name / ("trioctagon-export-cert-" + attempt.name)
+        destination.mkdir(parents=True)
+        destinations.append(str(destination))
+    write_json(access / "config.json", {"source_commit": head, "destinations": destinations,
+        "copy_destination": str(access / "reader-copies")})
+    run("cross-token-export-access", [runtime, "-I", "-B", tests / "test_windows_export_access.py", "--matrix", access / "config.json"])
+    cross_token = json.loads((access / "cross-token-access.json").read_text(encoding="utf-8"))
+    assert cross_token["status"] == "PASS" and cross_token["source_commit"] == head
+    assert cross_token["ui_version"] == approved["trioctagon-scientific-ui"]
     regressions = certify_regressions(source, app, workspace, attempt, evidence, analysis, historical, kernel, reconstruction, run, venv)
     # Second kernel installation needs only the frozen numeric closure: the
     # existing scientific worker is GUI-free. The full UI suite ran above.
@@ -702,6 +717,12 @@ def certify(source, workspace):
         "offline_installs": True, "runtime_network_attempts": 0, "model_required": False, "gpu_required": False,
         "all_tracked_bytes_unchanged": True, "source_status_unchanged": True, "evidence": str(evidence)}
     report["certified_reconstruction"] = reconstruction
+    report["export_access"] = {"status": cross_token["status"], "python": cross_token["python"],
+        "medium_token_mechanism": cross_token["medium_token_mechanism"],
+        "writer_tokens": [cross_token[n]["token"] for n in ("normal_writer", "elevated_writer")],
+        "reader_token": cross_token["normal_reader"]["token"],
+        "negative_private_directory_rename_denied": cross_token["negative_private_directory_rename_denied"],
+        "evidence_sha256": sha(access / "cross-token-access.json")}
     write_json(evidence / "certification.json", report)
     write_json(workspace / "latest-certification.json", report)
     print(json.dumps({k: report[k] for k in ("status", "app_tests", "app_wheel_sha256", "evidence", "installed_runtime")}), flush=True)
@@ -790,7 +811,7 @@ class InstallTests(unittest.TestCase):
         else:
             self.assertTrue(Path(origins["app"]).is_relative_to(site))
         self.assertTrue(all(Path(origins[k]).is_relative_to(site) for k in ("kernel_api", "analysis")))
-        self.assertEqual(importlib.metadata.version("trioctagon-scientific-ui"), "0.2.0")
+        self.assertEqual(importlib.metadata.version("trioctagon-scientific-ui"), "0.2.1")
         self.assertTrue(help_data()["items"])
         self.assertFalse(kernel_lock()["REGISTRY_RESOLUTION_ALLOWED"])
         self.evidence("installed-origins.json", {"prefix": str(site), "origins": origins, "kernel_lock": kernel_lock()})

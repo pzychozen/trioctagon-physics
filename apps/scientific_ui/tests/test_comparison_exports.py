@@ -113,12 +113,13 @@ class ComparisonExportTests(unittest.TestCase):
 
     def test_failed_export_removes_staging_and_partial_publication(self):
         with tempfile.TemporaryDirectory() as directory:
-            original_link = os.link; calls = []
-            def fail_second(a, b):
-                calls.append(b)
+            from trioctagon_ui._export_publication import _OwnedFile
+            original_publish = _OwnedFile.publish; calls = []
+            def fail_second(item):
+                calls.append(item.destination)
                 if len(calls) == 2: raise OSError("sidecar publication failed")
-                original_link(a, b)
-            with patch("trioctagon_ui.exports.os.link", side_effect=fail_second):
+                original_publish(item)
+            with patch.object(_OwnedFile, "publish", fail_second):
                 with self.assertRaises(OSError): exports.export_image(self.figure(), Path(directory)/"failed.png", self.context())
             self.assertEqual(list(Path(directory).iterdir()), [])
 

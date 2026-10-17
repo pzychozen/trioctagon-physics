@@ -1,8 +1,7 @@
 """Export immutable accepted observations without scientific recomputation."""
 import csv
-import os
 from pathlib import Path
-import tempfile
+from trioctagon_ui._export_publication import publication, text_writer
 from trioctagon_ui.axial_artifacts import AxialAnalysisView, plain
 from trioctagon_ui.exports import stage_export, export_image
 
@@ -19,20 +18,18 @@ def export_json(view, destination):
     provenance(view); destination = Path(destination).resolve()
     if destination.suffix.lower() != '.json': raise ValueError('Choose .axial.json')
     if destination.exists(): raise FileExistsError('Axial exports never overwrite existing files')
-    with tempfile.TemporaryDirectory(prefix='.trioctagon-axial-', dir=destination.parent) as stage:
-        p = Path(stage) / destination.name
-        with p.open('wb') as f:
-            f.write(view.canonical_json.encode('utf-8')); f.flush(); os.fsync(f.fileno())
-        os.link(p, destination)
-    if destination.read_bytes() != view.canonical_json.encode('utf-8'):
-        raise ValueError('Published axial JSON differs from retained bytes')
+    with publication(destination) as (artifact,):
+        artifact.stream.write(view.canonical_json.encode('utf-8'))
+        if artifact.read() != view.canonical_json.encode('utf-8'):
+            raise ValueError('Axial JSON differs from retained bytes')
+        artifact.publish()
     return str(destination)
 
 
 def export_csv(view, destination):
     context = provenance(view)
-    def writer(path):
-        with path.open('w', encoding='utf-8', newline='') as f:
+    def writer(stream):
+        with text_writer(stream) as f:
             out = csv.writer(f); out.writerow(('field', 'display_value', 'exact_stored_token'))
             out.writerows(view.rows(17))
     return stage_export(destination, 'derived_csv', writer, {'axial_observation': context})

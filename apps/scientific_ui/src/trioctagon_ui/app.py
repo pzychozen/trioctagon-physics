@@ -18,6 +18,7 @@ from trioctagon_ui.artifact_panel import ArtifactsPanel
 from trioctagon_ui.axial_views import AxialPanel
 from trioctagon_ui.axial_artifacts import AxialAnalysisView
 from trioctagon_ui.geometry_view import GeometryView
+from trioctagon_ui.shell_panel import ShellPanel
 from trioctagon_ui.jobs import JobManager
 from trioctagon_ui.plots import StoredPlots, HistoryPlot, ComparisonPlot
 from trioctagon_ui import sweeps, exports
@@ -419,7 +420,12 @@ class MainWindow(QMainWindow):
         self.geometry_view = GeometryView(); layout.addWidget(self.geometry_view, 2)
         self.geometry_tree = tree("Exact geometry objects, parameters, incidence, roles and symmetry")
         layout.addWidget(self.geometry_tree, 1)
-        self.tabs.addTab(page, "C — Geometry")
+        self.geometry_tabs = QTabWidget()
+        self.geometry_tabs.setAccessibleName("Geometry records and independent spherical edge observer")
+        self.geometry_tabs.addTab(page, "C01 / D03 geometry")
+        self.shell_panel = ShellPanel()
+        self.geometry_tabs.addTab(self.shell_panel, "Spherical Edge Observer")
+        self.tabs.addTab(self.geometry_tabs, "C — Geometry")
 
     def _records(self):
         container = QWidget(); outer = QVBoxLayout(container)
@@ -756,9 +762,9 @@ class MainWindow(QMainWindow):
             installed = metadata.version("trioctagon-physics")
         except metadata.PackageNotFoundError:
             installed = "missing"
-        self.kernel_identity.setText(f"Preferred locked kernel archive: {self.lock['artifact_filename']}\nPreferred archive SHA-256: {self.lock['artifact_sha256']}\nCertified reconstruction also accepted under lock-v2 equivalence; this is not an installed-archive identity query.\nExpected source: {self.lock['source_commit']}\nInstalled distribution version: {installed}\nCurrent source identity: {self.runtime_source}\nApplication: trioctagon-scientific-ui 0.2.0; separate software identity")
+        self.kernel_identity.setText(f"Preferred locked kernel archive: {self.lock['artifact_filename']}\nPreferred archive SHA-256: {self.lock['artifact_sha256']}\nCertified reconstruction also accepted under lock-v2 equivalence; this is not an installed-archive identity query.\nExpected source: {self.lock['source_commit']}\nInstalled distribution version: {installed}\nCurrent source identity: {self.runtime_source}\nApplication: trioctagon-scientific-ui 0.2.1; separate software identity")
         if self._artifact_context_active():
-            self.identity.setText("Artifact inspection — " + self.artifacts.heading.text() + "\nUI: trioctagon-scientific-ui 0.2.0 · Analysis loader: independent installed pin 0.1.1 · Core kernel: separate Records identity")
+            self.identity.setText("Artifact inspection — " + self.artifacts.heading.text() + "\nUI: trioctagon-scientific-ui 0.2.1 · Analysis loader: independent installed pin 0.1.1 · Core kernel: separate Records identity")
             return
         if self.current is None:
             self.identity.setText("Draft configuration · no completed record · geometry and dynamics remain independent")
