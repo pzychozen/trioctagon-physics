@@ -302,3 +302,8 @@ see CURRENT_STATE.md before attempting research-script execution on another host
 ## Native Spherical Edge Observer source
 
 The accepted P1R1 Spherical Edge Observer and its required export repair are available in the scientific application's C — Geometry workspace. See the [source publication record](apps/scientific_ui/publication/shell_observer/v0.1/README.md) and [application guide](apps/scientific_ui/README.md). This is source publication; no package release or installation replacement is included.
+
+
+## Geometric origins and constant interpretations
+
+[Tri-Octagon: Geometric Origins, Normalization, and Constant Interpretations](papers/GEOMETRIC_ORIGINS_AND_NORMALIZATION/publication/v0.1/README.md) — a nine-page author-approved history/mathematics companion, distinguishing original human–AI geometric motivations from accepted identities and open physical interpretations.
