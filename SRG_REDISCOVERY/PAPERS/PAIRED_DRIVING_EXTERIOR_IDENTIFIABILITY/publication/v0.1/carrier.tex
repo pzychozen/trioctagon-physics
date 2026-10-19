@@ -1,0 +1,192 @@
+\section{A shared periodic carrier and its source account}\label{sec:carrier}
+We now state the C1 adoption from SRG-05.~\cite{SRG05} For $0<\epsilon<\eta$, define the periodic tent and its translates by
+\begin{equation}\label{eq:tent}
+ b_\epsilon(s)=\epsilon^{-1}\left(1-\frac{|\operatorname{wrap}_L(s)|}{\epsilon}\right)_+,
+ \quad b_\pm(s)=b_\epsilon(s-s_\pm),\quad
+ g(s,t)=b_+(s)f_+(t)+b_-(s)f_-(t).
+\end{equation}
+Here $\operatorname{wrap}_L$ takes values in $[-L/2,L/2)$. The width is along the carrier, not a tube radius. The two supports are disjoint because their shortest centre separation is $2\eta>2\epsilon$. The adopted field law is
+\begin{equation}\label{eq:C1}
+ \boxed{p_t+c r_s=g,\qquad r_t+c p_s=0,\qquad c>0,}
+\end{equation}
+on $\R/L\mathbb Z$, with real, independently specified initial data $(p_0,r_0)$. There is only one field, regardless of the observer list.
+
+\begin{proposition}[Finite profile norms]\label{prop:tent}
+The profile $b_\epsilon$ is continuous and belongs to $H^1_{\rm per}$, with
+\begin{equation}\label{eq:tentnorm}
+ \int b_\epsilon\dd s=1,\qquad
+ \norm{b_\epsilon}_2^2=\frac2{3\epsilon},\qquad
+ \norm{b_\epsilon'}_2^2=\frac2{\epsilon^3},\qquad
+ \norm{g(t)}_2^2=\frac2{3\epsilon}(f_+^2+f_-^2).
+\end{equation}
+\end{proposition}
+\begin{proof}
+On each half-support the tent is affine. Twice the integrals over $[0,\epsilon]$ of $\epsilon^{-1}(1-s/\epsilon)$ and its square give the first two identities. Its weak derivative is $\pm\epsilon^{-2}$ on the two open half-supports and zero elsewhere, giving the third. Continuity across the corners excludes delta terms in its first weak derivative. The translates have disjoint supports up to null endpoints, so their $L^2$ cross term vanishes, proving the last identity.
+\end{proof}
+
+\begin{theorem}[C1 initial-value problem]\label{thm:wellposed}
+Let $(p_0,r_0)\in H^1_{\rm per}(0,L)^2$ and $f_\pm\in C([0,T_*];\R)$ for each finite $T_*>0$. Then C1 has a unique solution in
+$C([0,T_*];H^1_{\rm per})^2\cap C^1([0,T_*];L^2)^2$. It depends continuously on preparation and forcing. With $w_\sigma=(p+\sigma r)/\sqrt2$, its formula is
+\begin{equation}\label{eq:characteristics}
+ w_\sigma(s,t)=w_{\sigma,0}(s-\sigma ct)
+ +\frac1{\sqrt2}\int_0^t g(s-\sigma c(t-u),u)\dd u,
+ \qquad\sigma\in\{+1,-1\}.
+\end{equation}
+For $L^2$ preparation and $L^1([0,T_*];L^2)$ forcing, the same formula defines the unique continuous $L^2$ mild solution. The stated finite-profile, time-$L^2$ inputs fall in this class.
+\end{theorem}
+\begin{proof}
+Adding and subtracting C1 yields $(\partial_t+\sigma c\partial_s)w_\sigma=g/\sqrt2$. Periodic translation $S_\sigma(t)h=h(\cdot-\sigma ct)$ is an isometry in both $H^1$ and $L^2$. Strong continuity follows first for trigonometric polynomials, and then for all elements by density and the isometry bound. Thus the Bochner integral in \eqref{eq:characteristics} is continuous in $H^1$ for the stated continuous forcing. The translation generator maps $H^1$ to $L^2$ by $-\sigma c\partial_s$. Differentiating the integral in $L^2$ gives the transport equation and hence C1, with the prescribed initial values.
+
+For uniqueness, conjugate a homogeneous difference by the inverse translation. Its distributional time derivative is zero, so it is constant and equals its initial difference; zero initial difference forces zero solution. The same argument establishes uniqueness of the mild solution. The isometry and triangle inequality give
+\[
+ \norm{(p,r)(t)}_{L^2\times L^2}
+ \le \norm{(p_0,r_0)}_{L^2\times L^2}+\int_0^t\norm{g(u)}_2\dd u.
+\]
+Apply this estimate to a difference of preparations and forcings for continuous dependence. The identical argument works in $H^1$ when the forcing is measured there. Finally continuous forcing may be approximated in $L^1_tL^2_s$; the inequality makes the solutions Cauchy in $C_tL^2_s$, producing the asserted mild extension. On finite intervals time-$L^2$ forcing is time-$L^1$ by Cauchy--Schwarz.
+\end{proof}
+
+The formula is classical where the derivatives exist and weak at source corners. It does not impose $p(s_\pm,t)=q_\pm(t)$. For zero preparation and continuous input, strong continuity of translations gives $p(t)=tg(0)+o(t)$ and $r(t)=o(t)$ in $L^2$. The collocated response $y_\pm=\int b_\pm p\dd s$ therefore starts as $2f_\pm(0)t/(3\epsilon)+o(t)$, even when the prescribed $q_\pm(0)$ is nonzero. This is a distributed source in a periodic domain, not a Dirichlet condition at an endpoint.
+
+\begin{theorem}[Signed work and a finite-time bound]\label{thm:work}
+At the regularity of Theorem~\ref{thm:wellposed}, put
+\begin{equation}\label{eq:account}
+ e=\tfrac12(p^2+r^2),\quad j=cpr,\quad E=\int_0^L e\dd s,
+ \quad y_\pm=\int_0^L b_\pm p\dd s.
+\end{equation}
+Then the local distributional and global identities are
+\begin{equation}\label{eq:balance}
+ e_t+j_s=pg,\qquad \dot E=f_+y_++f_-y_-.
+\end{equation}
+Moreover,
+\begin{equation}\label{eq:energybound}
+ \sqrt{E(t)}\le\sqrt{E(0)}+\frac1{\sqrt{3\epsilon}}\int_0^t\norm{f(u)}_{\R^2}\dd u
+ \le\sqrt{E(0)}+\sqrt{\frac t{3\epsilon}}\norm{f}_{L^2(0,t;\R^2)}.
+\end{equation}
+For the time-$L^2$ mild extension, the integrated global identity holds and its derivative holds almost everywhere. Source-off storage is conserved.
+\end{theorem}
+\begin{proof}
+Multiplication of C1 by $p,r$ and addition gives $pp_t+rr_t+c(pr)_s=pg$. In one dimension $H^1$ functions have continuous representatives and their products have the weak product rule, justifying this calculation distributionally. The state is differentiable in $L^2$, so its squared norm has derivative $2\langle(p,r),(p_t,r_t)\rangle$. Integrating the periodic spatial derivative gives zero and leaves the two products in \eqref{eq:balance}.
+
+The orthogonal characteristic transform preserves the product-space norm; $\sqrt E=\norm{(p,r)}/\sqrt2$. The norm estimate in the previous proof and \eqref{eq:tentnorm} give the first inequality in \eqref{eq:energybound}. Cauchy--Schwarz in time gives the second. This derivation remains valid at $E=0$, where division by $\sqrt E$ would be inappropriate. Smooth-time approximation gives convergence of the state and the work integral for time-$L^2$ forcing, proving the integrated identity in that class. Setting $f=0$ gives conservation.
+\end{proof}
+
+This bound is not uniform as $\epsilon\downarrow0$, and does not imply global boundedness for sustained forcing. In normalized characteristic coordinates,
+\begin{equation}\label{eq:characteristicaccount}
+ e=\tfrac12(w_+^2+w_-^2),\qquad j=\tfrac c2(w_+^2-w_-^2).
+\end{equation}
+Source work is signed. For example, if $g(0)\ne0$ and $p_0=-T_0g(0),r_0=0$ with $T_0>0$, then $\dot E(0)=-T_0\norm{g(0)}_2^2<0$. From zero preparation, by contrast, $E(t)=t^2(f_+^2(0)+f_-^2(0))/(3\epsilon)+o(t^2)$. Neither case replaces $f_\pm y_\pm$ by $q_\pm^2$.
+
+Linearity does not imply additivity of quadratic storage. For two compatible source responses and real constants $\alpha,\beta$,
+\begin{equation}\label{eq:mixed}
+ E_{\alpha 1+\beta 2}=\alpha^2E_1+\beta^2E_2+
+ \alpha\beta\int(p_1p_2+r_1r_2)\dd s.
+\end{equation}
+The native blend is subject to this identity if its data units are commensurate and its preparation is the corresponding blend. Its components are not independent energy reservoirs. The same bilinear expansion gives mixed terms in $\sum f_jy_j$. No reciprocal debit to the native state is included in C1.
+
+\section{Contact geometry, propagation and spectrum}\label{sec:spectrum}
+\begin{proposition}[Pair sectors and finite supports]\label{prop:parity}
+For zero preparation, equal drives give $p$ even and $r$ odd under $s\mapsto L-s$; opposite drives give $p$ odd and $r$ even. For a source beginning at $t_0$, a necessary support-arrival time from source support $S$ to tap support $T_i$ in direction $\sigma$ is
+\begin{equation}\label{eq:onset}
+ t_0+c^{-1}\inf_{u\in S,\,v\in T_i}D_\sigma(u,v),
+ \quad D_+(u,v)=(v-u)\bmod L,\quad D_-(u,v)=(u-v)\bmod L.
+\end{equation}
+If disjoint centred supports have half-widths $\epsilon,\delta$, with both centre-arc distances $D_\pm>\epsilon+\delta$, the infima are $D_\pm-\epsilon-\delta$.
+\end{proposition}
+\begin{proof}
+Reflection exchanges $b_+$ and $b_-$. If $(p,r)$ solves C1, then $(p(L-s,t),-r(L-s,t))$ solves it with the exchanged drives. For equal drives uniqueness identifies this reflected solution with the original; for opposite drives it identifies it with its negative. This proves both parity statements. For propagation, a nonzero integrand in \eqref{eq:characteristics} requires $s-\sigma c(t-u)$ to lie in the source support, modulo a full circuit. Minimizing the directed distance to the tap support gives \eqref{eq:onset}. On a branch that does not cross a support overlap, moving both endpoints toward each other shortens that distance by $\epsilon+\delta$, giving the formula.
+\end{proof}
+
+These are support infima. Tents vanish at their endpoints; source values, projections and cancellations may also vanish. An initial wave may predate a new source signal. Further windings add $L/c$, and are not reflections at a port. For the illustrative $\epsilon=L/32$, tap half-width $\delta=L/64$, and tap centres $0,L/2$, both taps lie strictly inside source-free arcs since $\pi/4<\theta<\pi/2$. The earliest support distances are $0.3017798594$ inward and $1.0675377392$ outward, before division by $c$.
+
+\begin{proposition}[Fourier factors and the irrational contact angle]\label{prop:fourier}
+For $k_n=n/R$, the spatial source coefficient is
+\begin{equation}\label{eq:sourcefourier}
+ g_n(t)=\frac{2(-1)^n}{L}\sinc^2(k_n\epsilon/2)
+ [f_s(t)\cos(n\theta)+\ii f_a(t)\sin(n\theta)].
+\end{equation}
+For every positive integer $n$, $\sin(n\theta),\cos(n\theta)$ and $\sin(2n\theta)$ are nonzero. The tent factor has its own zeros precisely when $n\epsilon/L$ is a nonzero integer, and is $O(n^{-2})$ at fixed positive width.
+\end{proposition}
+\begin{proof}
+The normalized tent is the convolution of two normalized boxes of width $\epsilon$, hence its ordinary integral Fourier factor is $\sinc^2(k_n\epsilon/2)$; division by $L$ gives its Fourier-series coefficient. Equivalently, integrate its two affine pieces. Translation multiplies this coefficient by $e^{-\ii k_ns_\pm}=(-1)^ne^{\pm\ii n\theta}$. Expanding $f_\pm=f_s\pm f_a$ yields \eqref{eq:sourcefourier}.
+
+The exact angle satisfies $2\cos(2\theta)=-2/7$. If $\theta/\pi$ were rational, $\zeta=e^{2\ii\theta}$ would be a root of unity. Both $\zeta$ and $\zeta^{-1}$ satisfy monic integer polynomials and are algebraic integers; their sum would be a rational algebraic integer. A rational number $a/b$ in lowest terms that satisfies a monic integer polynomial has $b=1$ by multiplying that polynomial by its highest denominator power. Thus $-2/7$ cannot be such a sum. This contradiction proves irrationality. Any of the stated trigonometric zeros would imply rationality. Finally $\sin(k_n\epsilon/2)=0$ gives the stated profile zeros, while its bounded numerator and quadratic denominator give the decay.
+\end{proof}
+
+Reflection parity does not exclude all even or all odd Fourier indices. It removes the mean in the antisymmetric sector, but no positive index solely by contact phase. Nonvanishing is not uniform conditioning: the profile decays, and irrational-angle multiples can approach a trigonometric zero. The free eigenfrequencies remain $nc/R$; the contacts affect coupling, not this spectrum.
+
+\begin{theorem}[Particular response, resonance and mean]\label{thm:resonance}
+For a formal harmonic source $g_n(t)=\widehat g_ne^{\ii\omega t}$ and $c^2k_n^2\ne\omega^2$, a particular solution is
+\begin{equation}\label{eq:resolvent}
+ \binom{\widehat p_n}{\widehat r_n}
+ =\frac1{c^2k_n^2-\omega^2}\binom{\ii\omega\widehat g_n}{-\ii ck_n\widehat g_n}.
+\end{equation}
+It is not an attracting response. At a nonzero eigenfrequency $|\omega|=mc/R$, with a nonzero tent factor at $m$, no nonzero pair of harmonic port amplitudes cancels both resonant spatial directions. Independently,
+\begin{equation}\label{eq:mean}
+ \dot{\bar p}=(f_++f_-)/L=2f_s/L,\qquad \dot{\bar r}=0.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Fourier transformation of C1 yields the $2\times2$ matrix $\ii\left(\begin{smallmatrix}\omega&ck_n\\ck_n&\omega\end{smallmatrix}\right)$; inversion gives \eqref{eq:resolvent}. For zero preparation and a switched-on harmonic, direct integration of \eqref{eq:characteristics} gives
+\begin{equation}\label{eq:switchedharmonic}
+ w_{\sigma,n}(t)=\frac{\widehat g_n}{\sqrt2}
+ \frac{e^{\ii\omega t}-e^{-\sigma\ii ck_nt}}{\ii(\omega+\sigma ck_n)}.
+\end{equation}
+The second term persists. At $\omega=-\sigma ck_n$ its limiting value is $\widehat g_nt e^{\ii\omega t}/\sqrt2$. Compatibility at the spatial modes $m,-m$ requires $\widehat g_m=\widehat g_{-m}=0$. After removing nonzero common profile factors, their phase matrix has determinant proportional to $\sin(2m\theta)$, nonzero by Proposition~\ref{prop:fourier}. Therefore both source amplitudes must vanish. A relation can cancel one direction only; if the profile factor itself vanishes, both corresponding constraints disappear and this exception must be retained. Averaging C1 directly proves \eqref{eq:mean}.
+\end{proof}
+
+Equal constant drives $f$ give $\bar p=2ft/L$ from rest and $E\ge2f^2t^2/L$. At zero frequency, a stationary particular solution requires zero drive sum. For opposite constant drives, one can choose $p_n=0$, $r_n=g_n/(\ii ck_n)$ for $n\ne0$, with arbitrary means. From zero preparation the actual coefficients are $p_n=g_n\sin(ck_nt)/(ck_n)$ and $r_n=-\ii g_n[1-\cos(ck_nt)]/(ck_n)$: bounded oscillations persist, rather than approach that particular solution. Preparing a free eigenwave is valid even at an eigenfrequency; it is not inversion of the singular forced resolvent.
+
+\subsection{On-carrier taps and their domain}\label{sec:taps}
+A finite tap with real normalized $h_i\in H^1_{\rm per}$ records $(\int h_ip,\int h_ir)$. It is bounded on $L^2\times L^2$ by Cauchy--Schwarz. Unrestricted point evaluation is not defined on arbitrary $L^2$ states; a shrinking-window limit needs a continuous representative. No tap appears in C1 or its account.
+
+\begin{proposition}[Two finite-window taps]\label{prop:taps}
+Place tent taps of half-width $\delta$ at $s_{\rm in}=L/2$ and $s_{\rm out}=0$, wholly within the two source-free arcs. Set $b_\omega=\omega/c$, $A_\omega=b_\omega L/2$, $B_\omega=b_\omega\eta$ and
+$H_\omega=\sinc^2(b_\omega\epsilon/2)\sinc^2(b_\omega\delta/2)$. If $\sin A_\omega\ne0$, the harmonic particular tap map is
+\begin{equation}\label{eq:tapmap}
+ \begin{pmatrix}\widehat p_{\rm in}\\\widehat r_{\rm in}\\\widehat p_{\rm out}\\\widehat r_{\rm out}\end{pmatrix}
+ =\frac{H_\omega}{c\sin A_\omega}
+ \begin{pmatrix}
+ -\ii\cos(A_\omega-B_\omega)&0\\0&\sin(A_\omega-B_\omega)\\
+ -\ii\cos B_\omega&0\\0&-\sin B_\omega
+ \end{pmatrix}\binom{\widehat f_s}{\widehat f_a}.
+\end{equation}
+It has complex rank two when also $H_\omega\ne0$.
+\end{proposition}
+\begin{proof}
+For one unit point source in a harmonic advection equation, periodic continuation gives the factor $e^{-\ii b_\omega D_\sigma}/[c(1-e^{-\ii b_\omega L})]$ at directed distance $D_\sigma$. This follows by summing successive circuits when the multiplier is initially damped and then taking its algebraic continuation, or directly by the unit jump and periodic condition. The denominator is nonzero under the hypothesis. Source and tap windows do not cross the directed-distance branch, so averaging their two affine profiles multiplies the factor by $H_\omega$. Each normalized characteristic receives $g/\sqrt2$, and recombination to $p,r$ supplies a further $1/\sqrt2$.
+
+At the inward midpoint the two forward distances from upper/lower ports are $\eta,L-\eta$, in opposite order for the reverse direction. At the outward midpoint they are $L/2+\eta,L/2-\eta$. Substitute these four distances, use $1-e^{-2\ii A}=2\ii e^{-\ii A}\sin A$, then add/subtract the port strengths. This gives each row of \eqref{eq:tapmap}, including the outward $r$ minus sign. The two columns have disjoint row support. If both sine entries vanished, $B_\omega$ and $A_\omega-B_\omega$ would be integer multiples of $\pi$, forcing $\sin A_\omega=0$. If both cosine entries vanished, their arguments would be half-integer multiples of $\pi$, again forcing that contradiction. Thus both columns are nonzero and independent.
+\end{proof}
+
+For $\epsilon=L/32,\delta=L/64$ the window/profile zeros lie at resonant integer multiples; other widths can add off-resonance zeros. At $\omega R/c=1/2$, the matrix after removing $H_\omega/c$ has Gram matrix $I_2$, and $H_\omega\simeq0.9989964473$. This is an exact calibration, not an optimized physical frequency. Immediately after zero preparation the records are all zero, and independent initial waves add further unknowns; those experiments are outside the particular-amplitude rank statement.
+
+\subsection{Storage is not directional transport}
+For arbitrary $a_+,a_-\in\C$, the free first-harmonic family is
+\begin{equation}\label{eq:freefamily}
+ \begin{aligned}
+ p&=\Re\{(a_+e^{-\ii\chi}+a_-e^{\ii\chi})e^{\ii\omega t}\},\\
+ r&=\Re\{(a_+e^{-\ii\chi}-a_-e^{\ii\chi})e^{\ii\omega t}\},\qquad\omega=c/R.
+ \end{aligned}
+\end{equation}
+\begin{proposition}[Equal storage, different flux]\label{prop:freeenergy}
+Family \eqref{eq:freefamily} satisfies unforced C1, and
+\begin{equation}\label{eq:freeenergy}
+ E=\frac L2(|a_+|^2+|a_-|^2),\qquad
+ \Jflux=\frac{cL}{2}(|a_+|^2-|a_-|^2).
+\end{equation}
+\end{proposition}
+\begin{proof}
+Each positive-direction term has $p=r$ and depends on $s-ct$; each negative-direction term has $p=-r$ and depends on $s+ct$, proving C1 by differentiation. Write the real contributions $P_+,P_-$. Then $(p^2+r^2)/2=P_+^2+P_-^2$ and $pr=P_+^2-P_-^2$. The integral of each squared first harmonic is $L|a_\sigma|^2/2$, proving both identities at every time.
+\end{proof}
+The four controls in Table~\ref{tab:free} all have $E=A_0^2L/4$. The standing example has locally alternating $j=(cA_0^2/4)\sin(2\chi)\sin(2\omega t)$ but zero integrated flux. These are independent all-time preparations, not source-generated histories with a first arrival.
+\begin{table}[htbp]\centering
+\begin{tabular}{lccc}\toprule
+Control & $a_+/A_0$ & $a_-/A_0$ & $\Jflux/(cE)$\\\midrule
+T+ & $1/\sqrt2$ & $0$ & $1$\\
+T- & $0$ & $1/\sqrt2$ & $-1$\\
+S0 & $1/2$ & $1/2$ & $0$\\
+S45 & $e^{\ii\pi/4}/2$ & $e^{-\ii\pi/4}/2$ & $0$\\\bottomrule
+\end{tabular}
+\caption{One common amplitude $A_0>0$; S45 is the fixed shifted-standing control.}\label{tab:free}
+\end{table}
+The outer centres are off this carrier: their distance from $O$ is at least 2, whereas $\norm{\Gamma-O}\le K+R<1.294$. The finite taps above therefore cannot be identified with the full exterior miniatures. An additional observation rule is needed, supplied next.

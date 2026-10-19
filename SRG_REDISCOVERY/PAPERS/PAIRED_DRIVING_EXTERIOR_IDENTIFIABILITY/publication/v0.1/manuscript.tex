@@ -1,0 +1,49 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,unicode-math,lmodern}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont[BoldFont=texgyrepagella-bold.otf,ItalicFont=texgyrepagella-italic.otf,BoldItalicFont=texgyrepagella-bolditalic.otf]{texgyrepagella-regular.otf}
+\setmonofont[BoldFont=lmmonolt10-bold.otf]{lmmono10-regular.otf}
+\setmathfont{texgyrepagella-math.otf}
+\usepackage[margin=25mm,headheight=14pt,headsep=7mm]{geometry}
+\usepackage{mathtools,booktabs,array,graphicx,xcolor,fancyhdr,needspace}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage[colorlinks=true,linkcolor=blue!40!black,citecolor=blue!40!black,urlcolor=blue!40!black]{hyperref}
+\pagestyle{fancy}\fancyhf{}\lhead{\small Paired driving and exterior identifiability}\rhead{\small Paper II: draft v0.1}\cfoot{\thepage}
+\setlength{\parskip}{4pt}\setlength{\parindent}{1.2em}\setlength{\emergencystretch}{2em}\raggedbottom
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newenvironment{proof}{\par\noindent\textit{Proof.}\ }{\hfill$\square$\par}
+\AddToHook{env/theorem/before}{\Needspace{7\baselineskip}}
+\AddToHook{env/proposition/before}{\Needspace{6\baselineskip}}
+\AddToHook{cmd/subsection/before}{\Needspace{7\baselineskip}}
+\AddToHook{cmd/section/before}{\Needspace{10\baselineskip}}
+\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\norm}[1]{\lVert#1\rVert}\newcommand{\sinc}{\operatorname{sinc}}
+\newcommand{\diag}{\operatorname{diag}}\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\ii}{\mathrm i}\newcommand{\dd}{\,\mathrm d}
+\newcommand{\tr}{^{\mathrm T}}\newcommand{\ez}{e_z}\newcommand{\tf}{t_{\mathrm f}}
+\newcommand{\tref}{t_{\mathrm{ref}}}\newcommand{\F}{\mathcal F}\newcommand{\Jflux}{\mathcal J}
+\hypersetup{pdftitle={Paired Driving and Exterior Identifiability on a Conditional Periodic Carrier},pdfauthor={Hilmir Frimann Halldorsson},pdfsubject={Paper II; draft v0.1; conditional mathematical comparison}}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries Paired Driving and Exterior Identifiability\par on a Conditional Periodic Carrier\par}
+\vspace{5mm}{\large Hilmir Fr\'imann Halld\'orsson}\par
+\vspace{3mm}19 October 2026\quad Paper II\quad Draft v0.1
+\end{center}
+\begin{abstract}
+We connect the paired-gap geometry of the folded Tri-Octagon to an explicitly adopted periodic carrier and passive exterior observation rule. Two distributed tent sources act at the actual non-antipodal contacts of one offset vertical circle. We prove well-posedness, a signed source-work identity, geometry-dependent spectral coupling, and the limits imposed by a persistent mean and undamped resonances. A circular symmetry reduction gives exact singular values for the first-harmonic exterior map. Every equatorial scalar array is blind to travelling direction, even when a shifted standing wave has the same storage and scalar record. Off-height phase measurements or calibrated directional channels resolve this ambiguity within a stated delay range. Starting from rest, a common one-circuit pulse produces a mean plus standing harmonic and zero integrated directional bias at all times. For general finite paired histories we derive the temporal cross-phase criterion; the specified quarter-period lag gives a strong but impure harmonic bias whose total-storage fraction is much smaller when the mean is retained. Source-defined macro and chiral readouts are then compared through an explicit symbolic sample-and-hold convention. The resulting distinctions concern conditional state generation and identification, without identifying model storage with native physical energy. Full proofs, inherited error-qualified reception data and static figures accompany the construction.
+\end{abstract}
+\tableofcontents
+\clearpage
+\input{foundations}
+\input{carrier}
+\input{exterior}
+\input{pulse}
+\input{timing}
+\input{native}
+\input{closing}
+\input{references}
+\end{document}

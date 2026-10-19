@@ -1,0 +1,112 @@
+\section{Native readouts and a symbolic analysis-time bridge}\label{sec:native}
+The pulse timings above are prescribed. They do not demonstrate that the native core supplies those histories. We now consolidate the three limited source comparisons of SRG-08, using the printed definitions in \texttt{DYNAMICS.py}, \texttt{READOUTS.py} and \texttt{Z\_MANIFOLD.py} as mathematical text.~\cite{Native,SRG08} No project function is executed. The recurrence has an integer index and no intrinsic $dt$; the supplied readout clock and carrier analysis time remain separate.
+
+\subsection{Common finite hold and cadence aliases}
+For a finite source record $f_{\pm,j}$ and symbolic $\Delta t>0$, select the common hold and end gate
+\begin{equation}\label{eq:hold}
+ f_\pm(t)=\sum_{j=0}^{N_s-1}f_{\pm,j}\mathbf1_{[j\Delta t,(j+1)\Delta t)}(t),
+ \qquad f_\pm(t)=0\text{ outside the recorded window}.
+\end{equation}
+This is an interface assumption, not a native continuous-time interpolation. Its discontinuities are covered by the mild solution and integrated account.
+
+\begin{proposition}[Hold factor and two-row determinant]\label{prop:hold}
+For \eqref{eq:hold},
+\begin{equation}\label{eq:holdfactor}
+ \F_\pm(\omega)=H_{\Delta t}(\omega)\sum_{j=0}^{N_s-1}f_{\pm,j}e^{\ii\omega j\Delta t},
+ \quad H_{\Delta t}(\omega)=e^{\ii\omega\Delta t/2}\Delta t\sinc(\omega\Delta t/2),
+ \quad H_{\Delta t}(0)=\Delta t.
+\end{equation}
+For two rows, define
+\begin{equation}\label{eq:detport}
+ D_{\rm port}=f_{+,0}f_{-,1}-f_{+,1}f_{-,0}
+ =-2(f_{s,0}f_{a,1}-f_{a,0}f_{s,1}).
+\end{equation}
+Then
+\begin{equation}\label{eq:holdcriterion}
+ \Im(\F_+\overline{\F_-})=-D_{\rm port}|H_{\Delta t}|^2\sin(\omega\Delta t),
+ \qquad D_n=4\beta_n^2\sin(2n\theta)D_{\rm port}
+ |H_{\Delta t}(\omega_n)|^2\sin(\omega_n\Delta t).
+\end{equation}
+\end{proposition}
+\begin{proof}
+Integrate $e^{\ii\omega t}$ on each hold interval after translating $t=j\Delta t+u$. The common integral on $[0,\Delta t]$ is $e^{\ii\omega\Delta t/2}\Delta t\sinc(\omega\Delta t/2)$, including its continuous value at zero. For two rows put $x=\omega\Delta t$ and expand
+$(f_{+,0}+f_{+,1}e^{\ii x})(f_{-,0}+f_{-,1}e^{-\ii x})$.
+Its imaginary part is $(f_{+,1}f_{-,0}-f_{+,0}f_{-,1})\sin x$. Multiplication by $|H|^2$ and substitution into \eqref{eq:criterion} prove \eqref{eq:holdcriterion}. Expanding $f_\pm=f_s\pm f_a$ proves the second expression in \eqref{eq:detport}.
+\end{proof}
+
+The discrete polynomial repeats when $\omega\Delta t$ changes by $2\pi m$; the hold factor does not generally repeat. At nonzero even multiples of $\pi$ the hold vanishes; at odd multiples its sine cross term vanishes although the hold is nonzero. The actual DC is $\Delta t\sum_j f_{\pm,j}$. For $n=1$ and nonzero determinant, the mode imbalance is nonzero exactly when $\omega_1\Delta t\notin\pi\mathbb Z$. If $\Delta t/T$ is an integer multiple of $1/2$, all eigenmode cross terms vanish at the terminal time. Other rational cadences can remove subsets of modes, with tent zeros at multiples of 32 as an additional mechanism. A nonzero first-mode term still does not prove a nonzero total signed sum for the held record.
+
+\subsection{N0: fixed-clock macro obstruction}
+\begin{proposition}[One fixed macro direction]\label{prop:N0}
+At fixed clock, configuration and registration $A$, arbitrary state-norm variation of the staged $M$ readout supplies proportional real port histories. A common hold and gate preserve this property, so every $D_n$ and the total integrated flux vanish at every truncated time from zero preparation.
+\end{proposition}
+\begin{proof}
+Equation~\eqref{eq:readouts} writes $M=zv_c$, where $v_c=(\cos\vartheta_c,\sin\vartheta_c,1)$ is fixed and $z$ is real. Fixed $A$ and the fixed normals give $f_\pm=\kappa_{\rm in}(n_\pm\tr Av_c)z$. Thus both histories are constant real multiples of one scalar history, including a possible identically zero port. Common holding and end gating multiply that same scalar record. Their finite cross transforms are real multiples of its squared magnitude, so Theorem~\ref{thm:temporal} gives zero mode-by-mode and at all truncated times.
+\end{proof}
+This obstruction does not require a native orbit. It is an identity of the fixed-clock readout map. Native norm variation alone cannot be promoted into two independently timed macro directions.
+
+\subsection{N1: clock-only variation at a fixed core}
+For $\Omega=(1,1,1)$ and native coefficients $k=(1,1,1)$, the radial increments $\Omega_i(k_i-|\Omega_i|^2)$ and all coupling differences vanish. The synchronization increment is a sum of sines of three times equal-phase differences and also vanishes. Thus this state is algebraically fixed, and $C=0$.
+
+Use the admitted literal staged parameters $\lambda_{vp}=.618$, $\gamma=.577$, $\vartheta_{\rm lock}=\ell=.244$. Compare clocks
+$(q,N,t_{\rm clock},q_{\rm step})=(0,12,0,1)$ and $(1,12,1/10,1)$.
+With $\rho=\sqrt3/(1+\sqrt3)$ the two scalar values are
+\begin{equation}\label{eq:N1z}
+ z_0=.618\rho\cos(3\ell),\qquad
+ z_1=.618\rho\sin(3\ell)e^{-.577/10}.
+\end{equation}
+Keep the already declared registration $A=aR_z(\pi/2-\ell)$. Direct rotation gives $W_r=az\cos(\vartheta_c-\ell)$ and $W_z=az$.
+
+\begin{proposition}[Clock-only determinant]\label{prop:N1}
+The two above clocks at the unchanged core give
+\begin{equation}\label{eq:N1}
+ \frac{D_{\rm port}}{(\kappa_{\rm in}a)^2}
+ =-\frac{4\sqrt3}{7}z_0z_1\left[\cos\ell-\cos(\pi/6-\ell)\right]
+ =-0.0006568730238002878\ldots<0.
+\end{equation}
+Repeating the same clock instead gives zero determinant.
+\end{proposition}
+\begin{proof}
+Combine \eqref{eq:sectors} and \eqref{eq:detport} to obtain
+$D_{\rm port}=-(4\sqrt3\kappa_{\rm in}^2/7)(W_{r,0}W_{z,1}-W_{z,0}W_{r,1})$.
+Insert the two rotated macro vectors to get \eqref{eq:N1}. Both $z$ values are positive because $0<3\ell<\pi/2$. Also $0<\ell<\pi/12$, so $\ell<\pi/6-\ell<\pi$; cosine decreases there, making the bracket positive. The sign is therefore exact, independently of the displayed decimal. Repeated clocks yield identical vectors and zero determinant.
+\end{proof}
+
+For symbolic cadences with $\sin(\omega_1\Delta t)>0$, the first-mode bias has the negative sign of this determinant. Its origin is the readout-clock policy at unchanged $\Omega$. The exponential in \eqref{eq:N1z} belongs to the readout; it is not damping added to C1. The readout increment $1/10$ does not set $\Delta t$.
+
+\subsection{N2: one sourced polynomial successor}
+Set $\Omega_0=(1,1+\ii,2)$, $\epsilon_{\rm core}=1/20$, $g=1/5$, $k=(1,1,1)$ and phase strength zero. In that source branch, the printed recurrence is the polynomial
+\begin{equation}\label{eq:nativepoly}
+ \Omega_{1,i}=\Omega_{0,i}+\epsilon_{\rm core}\Omega_{0,i}(1-|\Omega_{0,i}|^2)
+ +g\sum_{j\ne i}(\Omega_{0,j}-\Omega_{0,i}).
+\end{equation}
+There is no phase extraction or reconstruction in the zero-strength branch. We use exactly this single admitted substitution.
+
+\begin{proposition}[One chiral compatibility witness]\label{prop:N2}
+Equation~\eqref{eq:nativepoly} gives
+\begin{equation}\label{eq:successor}
+ \Omega_1=(6/5+\ii/5,\ 23/20+11\ii/20,\ 13/10+\ii/5),
+ \quad C_0=(-2,0,1),\quad C_1=(-97/200,1/50,43/100).
+\end{equation}
+With the same $A=aR_z(\pi/2-\ell)$ as N1,
+\begin{equation}\label{eq:N2}
+ \frac{D_{\rm port}}{(\kappa_{\rm in}a)^2}
+ =\frac{4\sqrt3}{7}\left(\frac38\cos\ell+\frac1{50}\sin\ell\right)
+ =0.36494211036136137\ldots>0.
+\end{equation}
+\end{proposition}
+\begin{proof}
+The three coupling sums at $\Omega_0$ are $1+\ii$, $1-2\ii$, and $-2+\ii$. The radial increments are respectively $0$, $-(1+\ii)/20$ and $-3/10$. Adding these terms with their stated coefficients gives the three entries in \eqref{eq:successor}. Applying the independently defined real/imaginary cross product gives $C_0$ and $C_1$ as displayed. Under the fixed registration,
+$W_r/a=\cos\ell\,C_x+\sin\ell\,C_y$ and $W_z/a=C_z$. Therefore
+\[
+ \frac{W_{r,0}W_{z,1}-W_{z,0}W_{r,1}}{a^2}
+ =-\frac38\cos\ell-\frac1{50}\sin\ell.
+\]
+The determinant relation used in N1 now proves \eqref{eq:N2}. Its sign is positive since $0<\ell<\pi/2$.
+\end{proof}
+
+This is one recurrence-compatible pair, not a multi-step trajectory or a claim of typical behavior. At a cadence with positive first-mode sine it gives the opposite first-mode sign from N1, but neither example determines the signed all-mode total. Held records generally contain modes beyond $n=1$, so the retained first-harmonic $Q$ matrices apply only to an explicitly isolated first-harmonic component, not a complete native-held reception history.
+
+The arithmetic above treats the source's decimals literally and the polynomial over exact real/complex numbers. The actual implementation uses binary64/complex128 arithmetic, with rounding, overflow and finite/nonzero intermediate restrictions in the readouts. Exact algebra is not a claim of bitwise equivalence to executing that implementation. The synchronization-zero restriction is essential. Neither the chiral definition nor these two $C$ values depend on the readout clock, and the $M$ and $C$ experiments have not been blended.
+
+What remains for native attribution is specific: a source-defined multi-step generating/readout policy, an independently justified sample-to-analysis-time interface, and the full signed modal account. The present fixed-clock obstruction, clock-only witness and one-step compatibility witness do not supply that history or establish native circulation.

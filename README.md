@@ -312,3 +312,8 @@ The accepted P1R1 Spherical Edge Observer and its required export repair are ava
 ## Paired-gap geometry and toroidal observations — Paper I
 
 [Paired-Gap Geometry and Toroidal Observation Maps for the Folded Tri-Octagon](SRG_REDISCOVERY/PAPERS/PAIRED_GAP_GEOMETRY_OBSERVATION/publication/v0.1.1/README.md) — author-authorized v0.1.1 repository edition of the accepted 25-page manuscript. Includes editable source, computed figures and manuscript-reproduction inputs; conditional geometry/observation research, with no kernel or application changes.
+
+
+## Paired driving and exterior identifiability — Paper II
+
+[Paired Driving and Exterior Identifiability on a Conditional Periodic Carrier](SRG_REDISCOVERY/PAPERS/PAIRED_DRIVING_EXTERIOR_IDENTIFIABILITY/publication/v0.1/README.md) — author-authorized v0.1 repository edition of the accepted 33-page manuscript. Includes editable source, computed figures and manuscript-reproduction data; conditional shared-carrier, reception and timing analysis, with no kernel or application changes.
