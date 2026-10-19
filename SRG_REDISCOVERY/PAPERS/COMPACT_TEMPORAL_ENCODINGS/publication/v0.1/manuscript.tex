@@ -1,0 +1,53 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,unicode-math,lmodern}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont[BoldFont=texgyrepagella-bold.otf,ItalicFont=texgyrepagella-italic.otf,BoldItalicFont=texgyrepagella-bolditalic.otf]{texgyrepagella-regular.otf}
+\setmonofont[BoldFont=lmmonolt10-bold.otf]{lmmono10-regular.otf}
+\setmathfont{texgyrepagella-math.otf}
+\usepackage[margin=25mm,headheight=14pt,headsep=7mm]{geometry}
+\usepackage{mathtools,booktabs,longtable,array,graphicx,xcolor,fancyhdr,needspace}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage[colorlinks=true,linkcolor=blue!40!black,citecolor=blue!40!black,urlcolor=blue!40!black]{hyperref}
+\pagestyle{fancy}\fancyhf{}\lhead{\small Compact temporal encodings}\rhead{\small Paper III: draft v0.1}\cfoot{\thepage}
+\setlength{\parskip}{4pt}\setlength{\parindent}{1.2em}\setlength{\emergencystretch}{2em}\raggedbottom
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newenvironment{proof}{\par\noindent\textit{Proof.}\ }{\hfill$\square$\par}
+\AddToHook{env/theorem/before}{\Needspace{7\baselineskip}}
+\AddToHook{env/proposition/before}{\Needspace{7\baselineskip}}
+\AddToHook{cmd/subsection/before}{\Needspace{7\baselineskip}}
+\AddToHook{cmd/section/before}{\Needspace{10\baselineskip}}
+\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\ii}{\mathrm i}\newcommand{\dd}{\,\mathrm d}
+\newcommand{\sinc}{\operatorname{sinc}}\newcommand{\clip}{\operatorname{clip}}
+\newcommand{\rint}{\operatorname{rint}}\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\E}{\mathcal E}\newcommand{\Mat}{\mathrm M}
+\newcommand{\Tp}{\mathcal T}\newcommand{\Pair}{\mathcal P}
+\newcommand{\Amap}{\mathcal A}\newcommand{\Bmap}{\mathcal B}
+\newcommand{\etaosc}{\eta_{\rm osc}}\newcommand{\qbox}{Q_{b,H}}
+\hypersetup{pdftitle={Compact Temporal Encodings: Fourier Equivalence, Retrieval Obstructions and Saturation Effects},pdfauthor={Hilmir Frimann Halldorsson},pdfsubject={Paper III; local manuscript draft v0.1}}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries Compact Temporal Encodings:\par Fourier Equivalence, Retrieval Obstructions\par and Saturation Effects\par}
+\vspace{5mm}{\large Hilmir Fr\'imann Halld\'orsson}\par
+\vspace{3mm}19 October 2026\quad Paper III\quad Draft v0.1
+\end{center}
+\begin{abstract}
+We examine what a five-real temporal representation inherited from a conditional periodic carrier preserves, what it loses, and what changes under numerical saturation. Completed pulses of exactly one circuit duration have a mean and one residual harmonic. Their directional coefficients are invertibly equivalent to two ordinary port Fourier moments. We prove an isolated timing-domain criterion, an aligned majority formula and an exact collision that prevents universal latest-order retrieval from the lossless aggregate. Retained observation data expose noisy-tie false decisions; matched software measurements favor direct timestamps for the narrow descriptor-to-order task and establish no general speed advantage. Event-wise quantization defines a different nonlinear map. We derive its chronological integer compositions, a sufficient corner-dominance domain, twelve-pair entrance bounds, a restricted suffix regime and the independent Fourier quantizer's corner abstention. Exact collisions, short covered errors and prefix dependence remain. At one-eighth-period lag, a monotone all-grid proof shows that the fixed 12-bit map reverses every final label after a sufficient 67 pairs. Complete retained operation and perturbation outcomes delimit the successful subset. Numerical projection changes the quadratic account and is not physical dissipation. The results separate information equivalence, decoder behavior and nonlinear numerical effects without a capacity or production-readiness claim.
+\end{abstract}
+\tableofcontents
+\clearpage
+\input{foundations}
+\input{equivalence}
+\input{observations}
+\input{maps}
+\input{failures}
+\input{controls}
+\input{closing}
+\input{appendix}
+\input{references}
+\end{document}

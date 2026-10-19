@@ -1,0 +1,54 @@
+\appendix
+\section{Rational rounding certificates and proof reproducibility}\label{app:rational}
+The map theorems use mathematical integer increments, not a heuristic decimal rounding argument. We restate a finite rational construction from the accepted mechanism source.~\cite{Mechanism} For $q>1$, let
+\[
+ A_m(q)=\sum_{j=0}^{m-1}\frac{(-1)^j}{(2j+1)q^{2j+1}},\qquad
+ R_m(q)=\frac{(-1)^m}{(2m+1)q^{2m+1}}.
+\]
+The alternating-series remainder puts $\arctan(1/q)$ between $A_m(q)$ and $A_m(q)+R_m(q)$. With $m=36$, the identity
+$\pi=16\arctan(1/5)-4\arctan(1/239)$ gives rational endpoints $\pi_-,\pi_+$. For completeness, the tangent double-angle formula gives $\tan(2\arctan(1/5))=5/12$ and $\tan(4\arctan(1/5))=120/119$. Subtracting $\arctan(1/239)$ gives tangent one; the difference is in $(0,\pi/2)$, so it equals $\pi/4$. Thus the stated identity requires no assumed decimal value of $\pi$.
+
+Let
+\[
+ P_m(x)=\sum_{j=0}^{m}\frac{(-1)^j x^{2j}}{(2j+1)!}.
+\]
+On the small positive interval around $\pi/32$, alternating terms decrease, hence $P_9(x)\le\sinc x\le P_8(x)$. Also $\sinc$ decreases there: $\sin x-x\cos x=\int_0^x t\sin t\dd t>0$ for $0<x<\pi$. Therefore
+\begin{equation}\label{eq:rationalB}
+ P_9(\pi_+/32)^2\le B_1\le P_8(\pi_-/32)^2 .
+\end{equation}
+All bounds are positive, so squaring preserves the inequalities.
+
+For positive rational $v$ and $S=10^{45}$, define
+$k=\lfloor\sqrt{\lfloor vS^2\rfloor}\rfloor$ by integer square root. Then
+$(k/S)^2\le v<((k+1)/S)^2$, proving a rational square-root enclosure. Apply it to $3/7,4/7,2$. Multiplying the positive $B_1$ and radical intervals gives $c_0,s_0,B_1/4$. For eighth lag, if these bounds are $[c_-,c_+]$, $[s_-,s_+]$, $[\rho_-,\rho_+]$ for $\sqrt2$, positivity gives
+\[
+ \frac{s_--c_+}{\rho_+}\le e\le\frac{s_+-c_-}{\rho_-},
+ \qquad
+ \frac{s_-+c_-}{\rho_+}\le f\le\frac{s_++c_+}{\rho_-}.
+\]
+Divide by the exact positive step and compare with $k\pm1/2$. The accepted rational endpoints, retained in the supplement, lie inside these wider outward rational intervals:
+\begin{center}
+\begin{tabular}{rrrr}\toprule
+$b$ & $c_0/\Delta$ & $s_0/\Delta$ & $B_1/(4\Delta)$\\\midrule
+8 & $(10.440850,10.440851)$ & $(12.056055,12.056056)$ & $(15.948661,15.948662)$\\
+12 & $(167.053600,167.053601)$ & $(192.896881,192.896882)$ & $(255.178589,255.178590)$\\
+16 & $(2672.857601,2672.857602)$ & $(3086.350111,3086.350112)$ & $(4082.857427,4082.857428)$\\\bottomrule
+\end{tabular}
+\end{center}
+At width 12, $18.273959<e/\Delta<18.273960$ and
+$254.523426<f/\Delta<254.523427$. Every displayed decimal endpoint is an exact rational with denominator $10^6$. Each interval lies strictly between the half-integer neighbors of its code, proving the rounding choices without a half-tie ambiguity. The narrow source endpoints and their outward serialization are copied unchanged; the manuscript-local checker verifies their containment and consequences rather than replaying the original large suite.
+
+\section{Complete endpoint and measurement tables}\label{app:data}
+The tables below use saved records only. In a non-tie set of size $n$, let $C$ be correct decisions, $A$ abstentions and $W$ covered wrong decisions. Coverage is $(C+W)/n$ and covered error is $W/(C+W)$ when the denominator is nonzero. Unconditional correct fraction is $C/n$. Simultaneous truth is reported separately as false resolved signs, rather than being hidden in a non-tie accuracy denominator.
+
+Each operation or perturbation row reuses 48 histories, so neither widths nor cells are independent replications. Full prefix tables and coordinate diagnostics remain in the accompanying complete-condition data. The main text states the theoretical domains; counts alone do not generalize them.
+\input{tables/operations}
+\input{tables/perturbations}
+
+\subsection{All noise cells}
+Noise levels are absolute standard deviations in the normalized output units, not a universal physical SNR specification. Both coordinate decoders process identical records and agree in decisions. Rank-one refusal is an information limit; a fast unresolved return is not a successful direction estimate.
+\input{tables/noise}
+
+\subsection{All matched timing cells}
+The following table uses the corrected single-thread run only. J1 is events-to-order, J2 events-to-record and J3 samples-to-direction. Float32 denotes mixed state/sample precision, with binary64 input clocks and fitting arithmetic as specified in the text. Timestamp code remains binary64 in both J1 lanes. All seven raw repetition totals, batch sizes, warmups, rotated method order, overhead loops and calibration-growth records are retained separately. The measured ranges are descriptive and do not establish confidence intervals or worst-case performance.
+\input{tables/timings}
