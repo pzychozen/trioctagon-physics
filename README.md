@@ -307,3 +307,8 @@ The accepted P1R1 Spherical Edge Observer and its required export repair are ava
 ## Geometric origins and constant interpretations
 
 [Tri-Octagon: Geometric Origins, Normalization, and Constant Interpretations](papers/GEOMETRIC_ORIGINS_AND_NORMALIZATION/publication/v0.1/README.md) — a nine-page author-approved history/mathematics companion, distinguishing original human–AI geometric motivations from accepted identities and open physical interpretations.
+
+
+## Paired-gap geometry and toroidal observations — Paper I
+
+[Paired-Gap Geometry and Toroidal Observation Maps for the Folded Tri-Octagon](SRG_REDISCOVERY/PAPERS/PAIRED_GAP_GEOMETRY_OBSERVATION/publication/v0.1.1/README.md) — author-authorized v0.1.1 repository edition of the accepted 25-page manuscript. Includes editable source, computed figures and manuscript-reproduction inputs; conditional geometry/observation research, with no kernel or application changes.
