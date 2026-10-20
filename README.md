@@ -317,3 +317,10 @@ The accepted P1R1 Spherical Edge Observer and its required export repair are ava
 ## Paired driving and exterior identifiability — Paper II
 
 [Paired Driving and Exterior Identifiability on a Conditional Periodic Carrier](SRG_REDISCOVERY/PAPERS/PAIRED_DRIVING_EXTERIOR_IDENTIFIABILITY/publication/v0.1/README.md) — author-authorized v0.1 repository edition of the accepted 33-page manuscript. Includes editable source, computed figures and manuscript-reproduction data; conditional shared-carrier, reception and timing analysis, with no kernel or application changes.
+
+## Central geometry, Z readouts, and chiral response
+
+[Central Geometry, Z Readouts, and Chiral Response in the Tri-Octagon Model](papers/CENTRAL_GEOMETRY_Z_CHIRAL_RESPONSE/README.md), by **Hilmir Frímann Halldórsson**.
+Author-authorized repository research edition **v0.3**; the reviewed manuscript is preserved unchanged, with project-internal review and a completed scoped numerical audit and replay. No external peer review is claimed.
+[PDF](papers/CENTRAL_GEOMETRY_Z_CHIRAL_RESPONSE/publication/v0.3/CENTRAL_GEOMETRY_Z_CHIRAL_RESPONSE_v0.3.pdf) · [Edition and supporting evidence](papers/CENTRAL_GEOMETRY_Z_CHIRAL_RESPONSE/publication/v0.3/README.md) · [Publication disposition](papers/CENTRAL_GEOMETRY_Z_CHIRAL_RESPONSE/publication/v0.3/PUBLICATION_DISPOSITION.md).
+No runtime or kernel changes.

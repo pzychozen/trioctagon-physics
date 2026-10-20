@@ -1,0 +1,300 @@
+--- v0.2/manuscript.tex
++++ v0.3/manuscript.tex
+@@ -8,9 +8,9 @@
+ \setmathfont{texgyrepagella-math.otf}
+ \usepackage{graphicx,booktabs,longtable,array}
+ \usepackage{microtype}
+ \usepackage[hidelinks]{hyperref}
+-\hypersetup{pdftitle={Central Geometry, Z Readouts, and Chiral Response in the Tri-Octagon Model},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={v0.2 local research draft for review}}
++\hypersetup{pdftitle={Central Geometry, Z Readouts, and Chiral Response in the Tri-Octagon Model},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={v0.3 -- local final-review draft}}
+ \usepackage{fancyhdr}
+ \usepackage{caption}
+ \setlength{\parskip}{4pt}
+ \setlength{\parindent}{0pt}
+@@ -18,9 +18,9 @@
+ \captionsetup{font=small,labelfont=bf}
+ \pagestyle{fancy}
+ \fancyhf{}
+ \fancyhead[L]{\small Central geometry, Z readouts, and chiral response}
+-\fancyhead[R]{\small Local draft v0.2}
++\fancyhead[R]{\small Final-review v0.3}
+ \fancyfoot[C]{\thepage}
+ \numberwithin{equation}{section}
+ \newtheorem{theorem}{Theorem}[section]
+ \newtheorem{proposition}[theorem]{Proposition}
+@@ -53,9 +53,9 @@
+ \newcommand{\review}{\emph{Review status.}\ }
+ \title{Central Geometry, Z Readouts, and Chiral Response\\
+ in the Tri-Octagon Model}
+ \author{Hilmir Frímann Halldórsson}
+-\date{20 October 2026\\[4pt]\large v0.2 --- local research draft for review}
++\date{20 October 2026\\[4pt]\large v0.3 --- local final-review draft}
+ 
+ \begin{document}
+ \maketitle
+ \begin{abstract}
+@@ -67,16 +67,17 @@
+ an edge traversal, reflecting a mesh, and turning its zero member have different
+ mathematical meanings. Under a declared spatial placement, the macro cone
+ crosses each half of the finite band once per azimuth, but frozen-curve contact
+ and discrete clock contact have different conditions. The full readout adds a
+-chiral vector derived from the same native state. An inherited four-update
+-certificate illustrates an interior visit followed by three exterior observations,
++chiral vector derived from the same native state. An inherited, subsequently
++audited four-update certificate illustrates an interior visit followed by three exterior observations,
+ including exterior status at the first harmonic return. Exact symmetry residuals
+ identify conditional correspondences and their obstructions. Finally, a norm
+ budget and a weighted finite-step phase criterion explain distinct growth
+ balances and opposite synchronization responses. Explicit finite phase domains
+ give squared-chiral-magnitude gain and loss. Their proofs are separated from the
+-inherited numerical enclosure chain locating the worked inputs within them.
++inherited numerical enclosure chain locating the worked inputs within them;
++the scoped interval audit and exact replay are complete.
+ No motion, flow, or geometry-to-dynamics coupling equation is assumed.
+ \end{abstract}
+ 
+ \vspace{4pt}
+@@ -87,15 +88,17 @@
+ The ten controlling documents are unpublished investigation reports
+ \cite{R0,R1,R2,R3,R4,R5,R6,R7,R8,R9}. The source snapshot actually read is
+ \texttt{3b4aa9cb64b7c218ca82962dbf3caea39d9f7d34}.
+ 
+-\textbf{Evidence boundary.} Exact definitions and algebraic arguments were
+-reviewed in writing for this consolidation. Numerical certificate data are
+-explicitly inherited where indicated, with their residual and perturbation
+-allowances reproduced for inspection. They were not independently regenerated
+-by scientific execution. Document compilation and page inspection are separate
+-from mathematical verification. The private review ledger identifies the
+-remaining arithmetic audit obligations.
++\textbf{Verification status.} The numerical bounds originate in R3--R8.
++A subsequent standalone audit checked the required residual, propagation,
++finite-region, mechanism, and whole-domain phase inequalities using outward
++interval arithmetic and exact supporting identities \cite{Audit}.
++GPT's isolated replay of the unchanged checker reproduced all 768 scalar
++records exactly; the scoped numerical review is closed \cite{GPTAudit}.
++Appendix~\ref{app:crosswalk} states its coverage and implementation assumptions.
++This v0.3 pass updates documents only. Author-wording approval and publication
++clearance remain separate.
+ 
+ \newpage
+ \tableofcontents
+ \newpage
+@@ -654,9 +657,9 @@
+ weights, lock, and schedule are fixed. In particular $\tau=0$, so the
+ throat plane is $w=0$. Exact initial fan contact is required only of the
+ center, not of every perturbed input.
+ 
+-\begin{proposition}[Inherited uniform four-update certificate]\label{prop:four}
++\begin{proposition}[Audited uniform four-update certificate]\label{prop:four}
+ For each input of $\boxinput$, apply exactly four complete native updates
+ \eqref{eq:native}. The resulting observations satisfy
+ Table~\ref{tab:observations}. Every observation after the initial one is inside
+ the host's central triangular prism; only observation one is inside the
+@@ -680,22 +683,24 @@
+ \end{tabular}
+ \caption{Uniform strict rational enclosures for the unchanged closed input
+ box. Throat-plane distance is $|w_n|$, not signed height. The first row
+ permits nearby points off the fan; its central input is the exact contact
+-witness. The first three rows inherit R4--R5, the last two R6.}
++witness. The first three rows inherit R4--R5, the last two R6; their scoped numerical checks are complete \cite{Audit,GPTAudit}.}
+ \label{tab:observations}
+ \end{table}
+ 
+-\begin{proof}[Proof with its inherited dependency identified]
++\begin{proof}[Proof and completed numerical check]
+ Appendix~\ref{app:certificate} gives the rational comparison states, residual
+-allowances, Lipschitz domains, and recurrences from R3--R6. Conditional on
+-those inherited elementary enclosures, the recurrences bound all inputs in
+-the original closed box. Appendix~\ref{app:finite} carries the resulting
+-coordinates through finite section tests, including the directional test
+-needed at observation four. Those displayed strict inequalities prove the
+-classifications, not the harmonic signs. The inherited residual allowances
+-have not all been independently re-expanded for this draft; this proposition
+-retains that explicit verification dependency.
++allowances, Lipschitz domains, and recurrences from R3--R6. The standalone
++audit independently checked these inherited enclosures and their coverage
++on the original closed box \cite{Audit}. The recurrences bound every input,
++with its configuration fixed through all four updates.
++Appendix~\ref{app:finite} carries the resulting coordinates through finite
++section tests, including the directional test needed at observation four.
++Those strict inequalities prove the classifications, not the harmonic signs.
++The unchanged-checker replay reproduced the scalar certificates exactly
++\cite{GPTAudit}; the implementation qualifications in
++Appendix~\ref{app:crosswalk} still apply.
+ \end{proof}
+ 
+ All distance comparisons are with each input's own preceding observations.
+ From two to three, distances to the throat, axis, and center all decrease.
+@@ -1154,9 +1159,9 @@
+ $t^{10}/10!<2\,10^{-9}$. Reduce about $\pi$ or $\pi/2$ using
+ $3.1415926<\pi<3.1415927$ and parity, then apply these polynomials.
+ These estimates justify the outward strict bounds displayed above.
+ The final rational margin expansions are checked in writing in the review
+-notes; a new interval program was neither run nor claimed.
++notes. Their subsequent whole-domain interval checks are recorded in the completed audit \cite{Audit}; this document pass runs no evaluator.
+ 
+ \subsection{Why the mean line is not the response boundary}
+ Throughout this subsection take $\lambda\in\Lambda=[.16999999,.17000001]$.
+ The weights in \eqref{eq:weighted} and the finite phase step both matter.
+@@ -1188,10 +1193,11 @@
+ \end{equation}
+ Their magnitudes lie in $\mathcal A_3,\mathcal A_4$ and each input's
+ coefficient lies in $\Lambda$. The intervals are strictly within
+ \eqref{eq:domains}. Appendix~\ref{app:inclusion} exhibits the argument-error
+-allowances. This inclusion inherits the nominal residual chain; it is not
+-independently verified merely because R7 and R8 reuse R6.
++allowances. This inclusion inherits the nominal residual chain, separately
++checked with its original-box application in the subsequent audit
++\cite{Audit,GPTAudit}. Reuse of R6 in R7 and R8 alone was not that check.
+ 
+ After the third synchronization, $\zeta'>1.5043>\pi/3$. The next polynomial
+ stage supplies $V_4$ with $\zeta<.633<\pi/3$ before the same synchronizer is
+ applied again. The polynomial update, rather than a change in $\lambda$,
+@@ -1222,9 +1228,10 @@
+ The native mechanisms are equally specific: the finite-increment norm
+ remainder matters, polynomial and synchronization effects on chirality
+ can oppose or reinforce each other, and the weighted finite-step criterion
+ has explicit domains of strict gain and loss. The locally uniform example
+-illustrates those mechanisms with the inherited enclosure dependency stated.
++illustrates those mechanisms with the inherited enclosure chain and its
++completed scoped audit distinguished \cite{Audit,GPTAudit}.
+ No crystal motion law, geometry-to-native feedback, transport equation, SRG
+ premise, or memory premise has been supplied by these results. This manuscript
+ ends at the existing fourth update for review.
+ 
+@@ -1320,9 +1327,10 @@
+ \]
+ Thus $L(\eta_1)>.1144>R_1$, with an interior clearance greater than $.0054$,
+ at every input-dependent height and azimuth. This restores R4
+ Section~5.4, equations~(32)--(34); its numerical substitutions remain
+-inherited \cite{R4}. The disk is a consequence of the actual triangles,
++inherited from R4 and subsequently checked \cite{R4,Audit}.
++The disk is a consequence of the actual triangles,
+ not a replacement geometry. Both endpoints are inside the host because their radii are
+ less than $r$, and both satisfy $0<w_1<w_N<w_0$.
+ 
+ For all scheduled $n=1,\ldots,4$, $R_n<r$ and $|w_n|<h$ prove host
+@@ -1334,14 +1342,14 @@
+ than the tightest possible ones.
+ 
+ \section{The inherited four-update enclosure chain}\label{app:certificate}
+ \subsection{Status and exact starting point}
+-This appendix records the load-bearing numerical chain of R3--R6, with
+-source locations in the review ledger. It is an inspectable certificate
+-transcription, not a claim that this draft independently recomputed every
+-rational substitution. Algebraic recurrences and their roles have been
+-reviewed; the nominal residual rows remain inherited verification
+-dependencies. No change has been made to the original input uncertainty.
++This appendix records the load-bearing numerical chain of R3--R6.
++The subsequent standalone audit checked its initial inclusion, comparison
++residuals, nonzero-domain coverage, sensitivity estimates, and propagation
++recurrences; GPT's unchanged-checker replay matched the saved records
++\cite{Audit,GPTAudit}. The original bounds and source attributions are
++retained. No change has been made to the original input uncertainty.
+ 
+ The exact initial state is \eqref{eq:contactstate}. A cancellation-free form is
+ \begin{equation}\label{eq:initialxy}
+ x=\left(-\frac{Xc^\star_2}{b_\perp},
+@@ -1703,10 +1711,11 @@
+ $\sin(u'+v')/\sin u'=\cos v'+\cot u'\sin v'$.
+ Then
+ $C_3/\norm{\chiral}=[1+(C_1/C_3)^2+(C_2/C_3)^2]^{-1/2}$
+ gives the fraction in Table~\ref{tab:chiral}. These refinements retain their
+-R7 Sections 5.3--6.2 dependency and must not be replaced by the wider
+-independent-product bounds of Section~\ref{sec:domaintheorems}.
++R7 Sections 5.3--6.2 dependency, subsequently checked in the audit
++\cite{Audit}, and must not be replaced by the wider independent-product
++bounds of Section~\ref{sec:domaintheorems}.
+ The third synchronization's fraction change and all fourth-stage fraction
+ changes remain unresolved, as does the net direction change from three
+ to four. No direction claim here rests on treating interval overlap as
+ proof of equality or heterogeneous behavior.
+@@ -1730,20 +1739,21 @@
+ respectively. Adding the two appropriate errors to each relative phase gives
+ exactly the intervals in \eqref{eq:actualphase}. Squaring the Cartesian
+ component boxes gives the amplitude boxes in \eqref{eq:domains}; all exclude
+ zero. This establishes inclusion for the unchanged closed twelve-coordinate
+-input product, conditional on the inherited nominal residual chain.
+-
+-For the phase theorems themselves, the absolute margin multiplications can
+-be audited without that chain. The gain terms are
++input product using the inherited nominal residual chain, now separately checked with the inclusion \cite{Audit,GPTAudit}.
++
++For the phase theorems themselves, the absolute margin multiplications
++were checked separately from that chain. The gain terms are
+ $ .00015808576+.000205476992-.000022744605762
+ =.000340818146238$.
+ The loss terms are
+ $ .00091201969152+.000007226175216+.00156428523
+ =.002483531096736$.
+-These exact terminating-decimal sums are written arithmetic, not outputs of
+-a newly executed scientific evaluator. The wider theorem rectangles and
+-the actual-image intervals serve different logical purposes.
++These exact terminating-decimal sums were originally checked in writing
++and subsequently verified by the standalone audit \cite{Audit}.
++The wider theorem rectangles and the actual-image intervals continue
++to serve different logical purposes.
+ 
+ \section{Exceptional symmetry cases and finite contact transport}\label{app:residualcases}
+ This appendix completes the grid classification of
+ Proposition~\ref{prop:residual} from R9 Sections 5--7.
+@@ -1802,18 +1812,31 @@
+ The finite phase-domain proofs reproduce the original inequalities and
+ remainder method independently of the trajectory table. The final strict
+ margin sums and corrected R6 coverage value have been checked in writing.
+ 
+-The four-update table and detailed mechanism intervals inherit the
+-following load-bearing dependencies: exact initial radical enclosures;
+-polynomial and full-update comparison residuals; phase quotient and
+-increment enclosures; their coverage by the nonzero Lipschitz domains; and
+-the correlated directional refinements in R7. Their formulas, numerical
+-allowances, and applications are reproduced here, but every endpoint
+-substitution has not been freshly expanded. Repeated use in R7 and R8 is
+-not independent verification. No contradictory scientific premise was
+-identified in the consolidation; these outstanding arithmetic checks remain
+-review obligations rather than a claim of publication-ready certification.
++The later standalone audit checked the required inherited numerical
++dependencies, including the entire original input box through four updates,
++each input's fixed configuration, finite-region tests, mechanism bounds,
++and the full closed phase/amplitude products \cite{Audit}.
++All six numerical proof blocks passed: 768 scalar bound records, with
++58 arithmetic self-checks and eight exact supporting-identity checks counted
++separately. Of the 37 claim-map rows, 14 have quantitative checks within scope,
++six are checked only as supporting definitions or identities, and 17 lie
++outside the numerical audit. These counts do not represent independent
++theorems, and overlapping per-claim records are not added.
++
++GPT inspected the checker and proof structure and replayed the same unchanged
++checker in an isolated environment. All 768 scalar records matched exactly,
++including endpoints, margins, and statuses \cite{GPTAudit}. This is replay
++of the standalone audit, not a third independently written evaluator or
++independent human peer review. Outward interval evidence supports whole-domain
++claims; the high-precision nominal calculation is corroboration only.
++The certificate remains conditional on the inspectable interval implementation,
++integer and rational arithmetic, correct source transcription, and the stated
++analytic remainder bounds. It is not proof-assistant verification, production
++binary64 certification, or experimental validation. The existing unresolved
++direction/projection comparisons remain unresolved. This document-only
++finalization adds no scientific execution, tighter bound, or new conclusion.
+ 
+ Two editorial points are recorded without changing earlier reports.
+ First, the R6 coverage arithmetic is $.001504831$, as displayed above.
+ Second, the notch formula contains the addition sign in \eqref{eq:notch}.
+@@ -1907,6 +1930,17 @@
+ Gain and Loss}, v0.1, unpublished technical report, 2026. Report key R8.
+ \bibitem{R9}
+ \emph{Z and the Central Crystal---Reversal and Upper/Lower Correspondence}, v0.1,
+ unpublished technical report, 2026. Report key R9.
++\bibitem{Audit}
++Codex (preparation), \emph{Independent Numerical Audit}, v0.1, for the
++accepted \emph{Central Geometry, Z Readouts, and Chiral Response} manuscript
++v0.2, 20 October 2026. Local, unpublished supporting review report,
++standalone checker, exact results, and claim-coverage record.
++\bibitem{GPTAudit}
++GPT (review and replay), \emph{GPT numerical-audit closure---Central Geometry,
++Z Readouts, and Chiral Response v0.2}, 20 October 2026, with
++\emph{GPT audit-review replay evidence}, companion package v0.1.
++Local, unpublished supporting review materials; unchanged-checker replay,
++exact evidence comparison, and scoped closure.
+ \end{thebibliography}
+ \end{document}
