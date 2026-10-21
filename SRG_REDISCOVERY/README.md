@@ -67,3 +67,7 @@ The v0.1 chapter gives the exact two-step access criterion and sharp singleton a
 ## SRG Finite-Step Collective-Speed Bounds II — SIM05
 
 [Signed Radial Intervals and Collective Cancellation](SIM05_SIGNED_RADIAL_CANCELLATION_BOUNDS/publication/v0.1/README.md) explains signed center enclosures and two-sided dispersion conditions on the same saved population. Uncertainty, actual increases, nonpassing phases and adverse factors remain explicit. Each edition records its preparation-time status and separate manuscript/publication gate.
+
+## SRG Attractor Dynamics
+
+[SRG Attractor Dynamics: Selective Retention and Certified Convergence under Returning Drive — publication v0.1](PAPERS/SRG_ATTRACTOR_DYNAMICS/publication/v0.1/README.md).
