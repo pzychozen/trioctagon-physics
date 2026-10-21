@@ -1,0 +1,697 @@
+# SRG Origins — From Geometry to Recursive Operators
+
+Hilmir Frímann Halldórsson · v0.1.1 PUBLICATION EDITION · 21 October 2026
+
+An educational companion to SRG-I. Repository publication edition approved by the author.
+
+This v0.1.1 publication edition adds the complete $G\to G'\to-G'$ derivation in Section 5.3a, analytic reflection in Section 5.4, and a conditional two-profile torus construction with author-approved exploratory wording in Section 5.5. Original equations (1)-(29) retain their labels and contents; new equations use (21a)-(21k). The original draft's 59/59 paper-local checks are retained, not rerun for publication. Earlier historical validation is retained, not rerun. The author has approved the exploratory interpretation and authorized repository publication.
+
+## 1. A worked route a reader can follow
+
+Draw two circles of radius one whose centres are one unit apart. A point where they intersect is one unit from either centre. Those three points therefore form an equilateral triangle. Its height is $\sqrt3/2$; its inscribed circle has radius $\sqrt3/6$. Squaring that radius gives **$1/12$**. No infinite series or physical model is needed.
+
+Now consider the quite different question of what patterns fit around a loop. A smooth wave can fit once, twice, three times, and so on. The squared frequencies grow like $1^2,2^2,3^2,\ldots$. Taking inverse powers $3/2$ turns those squared frequencies into $1,1/8,1/27,\ldots$. Their convergent sum is **$\zeta(3)$**. A finite cycle makes this calculation precise, including its scale and the pair of wave directions.
+
+A third calculation adds positive frequencies and subtracts their continuous bulk approximation. The finite remainder tends to **$-1/12$**. Its sign comes from the subtraction: the sampled sine arch lies below the continuous arch. It is not a negative ordinary sum of positive numbers.
+
+These results fit within one mathematical account, but they are different measurements. The historical SRG lock,
+
+$$\pi e\varphi=\frac{\zeta(3)}{\gamma},\qquad
+\gamma_*=\frac{\zeta(3)}{\pi e\varphi}
+=0.08699474751703500249752365748\ldots, \tag{1}$$
+
+introduces another choice. The loop calculation supplies $\zeta(3)/(4\pi^3)$. To obtain (1), the October analysis multiplies by $4\pi^2/(e\varphi)$. That multiplier carries the historical target into the new diagnostic. The recovered sources do not determine it from the equilateral triangle or from a measured field statistic.
+
+Finally, a numerical operator answers a different question: “given the current field, what is its next value?” In the January composition, neighbouring values first contribute a discrete Laplacian; a nonlinear contribution reads the same incoming field; a prescribed function $H(t)$ multiplies the result; compression is last. Section 7 works through an actual $3\times3$ mathematical example without executing a source step.
+
+**Main finding.** The exact mathematical connections are substantial and provable. The historical record does not establish one unchanged recursion running from circle geometry to the lock to all later SRG implementations. It records several definitions, some incompatible descriptions, and explicit later adaptations. This report preserves those distinctions.
+
+## 2. Evidence conventions and chronology
+
+**H** means recovered historical definition or claim, **D** a deduction with assumptions stated here, **A** a choice introduced in later analysis, and **U** an unresolved specification or provenance gap. “Historical claim” does not certify its truth.
+
+Page references below are physical PDF pages, counted from one. P01–P19 retain the accepted R0 source identifiers. SOURCE_INDEX.md gives human-readable titles, public access routes where verified, exact source hashes and access limits. The source-key map at the end of this paper resolves every abbreviation used below. Code citations count the first line as one, including a possible BOM. Historical source programs were read as text, not executed.
+
+| Date or evidence of date | Source | Mathematical development |
+|---|---|---|
+| 29 June 2025, internal date | P08/P09 | Golden-scaled nonlinear damping, phase/tensor feedback modules |
+| Undated cover; June 2025 metadata is only a locator | P13, p.5 | A distinct “Master Recursive Dual-Phase Collapse Operator” |
+| 11 July 2025 | P07, pp.3–6 | Logarithmic RPCO, spatial TGMO formula, REFU and prescribed $H$ |
+| 13 July 2025 | P06, pp.4,6 | Earliest internally dated lock equation located in this bounded primary set; inconsistent identification of its $\gamma$ |
+| 14 July 2025 | P03, pp.2,5,7–8 | Explicit resonance rule, consistency relation and implicit temporal trail rule |
+| 15 July 2025 | P01, pp.3–4; P05 | Lock claimed empirical; patch supplies a different position engine and standalone operators |
+| 22 July 2025, cover | Rainman | Geometric analogies and a proposed cycle/period construction |
+| 6 September 2025 | P19 | Run-dependent coupling claim, lock penalty, unspecified GammaEstimate |
+| 25 January 2026, cover | JANUARY, pp.2–3 and accompanying code | Fully specified fixed-grid composition with two RPCO modes |
+| 14 March 2026, internal headers | P18 and March programs | Particle adaptation, R/D coupling, assigned frequency tower and static zeta predictions |
+| 9 October 2026 | Received Geometry–Zeta Investigation 01 | Auxiliary normalized loop and three distinct spectral observables |
+| October 2026 | Accepted F01, SRG-I, OC01–02 | Source recovery and mathematical analysis; no retroactive alteration of historical equations |
+
+P06 cites earlier work that was not recovered as a target manuscript by the named-reference follow-up. Therefore “earliest located” is not a claim of absolute authorship priority. Dates are not inferred from the current copy time.
+
+## 3. Elementary geometry, $\varphi$, and $e$
+
+### 3.1 Circles and angle projections [D; H comparison: Rainman pp.3–4]
+
+A circle is $(x,y)=R(\cos\theta,\sin\theta)$. Its angle gives separate horizontal and vertical projections. For example,
+
+$$\cos45^\circ=\sin135^\circ=\frac{\sqrt2}{2},
+\quad \cos45^\circ\sin135^\circ=\frac12. \tag{2}$$
+
+For equal circles centred at $(0,0)$ and $(d,0)$, subtract
+$x^2+y^2=R^2$ and $(x-d)^2+y^2=R^2$. For $0<d\leq2R$ their intersection has
+
+$$x=d/2,\qquad y=\pm\sqrt{R^2-d^2/4}. \tag{3}$$
+
+Thus the midpoint is forced by symmetry. The choice $d=R$ gives the canonical vesica and a $60^\circ$ equilateral triangle; $d=\sqrt2R$ gives a different, $45^\circ$ intersection geometry. They should not be substituted for one another.
+
+Let $a$ be the equilateral triangle's side. Its altitude is $h=\sqrt3a/2$. Area equals both $ah/2$ and inradius times semiperimeter $3ar/2$, so $r=h/3$. Consequently
+
+$$\left(\frac r a\right)^2=\frac1{12}.
+\quad\text{For the canonical two-circle triangle, }a=R. \tag{4}$$
+
+Here $R$ denotes the original circles' radius, **not** the triangle's circumradius. The latter is $a/\sqrt3$, and the inradius-to-circumradius squared is $1/4$. This notation distinction is essential.
+
+Uniform resizing does not change (4). In particular $\gamma_*-1/12=0.00366141418\ldots\ne0$. The accepted October geometry note distinguishes its side-one triangle from the octagon edge and full shell height; none are silently identified here.
+
+Rainman's comparison $x=1/2\leftrightarrow\Re s=1/2$ (p.3) assigns the same coordinate to two settings. It provides no map relating circle intersections to zeros of the analytic zeta function. An equal coordinate is not a proof about zeros.
+
+### 3.2 Golden ratio: a particular proportion and a genuine recurrence [D]
+
+For four consecutive vertices of a regular pentagon, Ptolemy's cyclic-quadrilateral identity gives $d^2=s^2+sd$, with side $s$ and diagonal $d$. Dividing by $s^2$ gives $q^2=q+1$, whose positive root is $\varphi=(1+\sqrt5)/2$. The identity also follows by drawing the intersecting diagonals and using the resulting similar triangles. This is additional pentagonal geometry; (3) alone does not force it.
+
+For completeness, the algebraic recursion $F_{n+1}=F_n+F_{n-1}$, $F_0=0,F_1=1$, has characteristic roots $\varphi$ and $\psi=-\varphi^{-1}$. Direct substitution and the two initial conditions prove
+
+$$F_n=\frac{\varphi^n-\psi^n}{\sqrt5},\qquad
+\frac{F_{n+1}}{F_n}=
+\varphi\frac{1-(\psi/\varphi)^{n+1}}{1-(\psi/\varphi)^n}
+\longrightarrow\varphi. \tag{5}$$
+
+The convergence follows from $|\psi/\varphi|<1$, not merely from assuming a limit and solving its equation.
+
+### 3.3 Exponential growth and decay [D; H use: P07 p.6]
+
+Compounding a unit growth rate in $n$ equal pieces gives $(1+1/n)^n$. The integral definition of logarithm yields
+$x/(1+x)\leq\log(1+x)\leq x$ for $x>0$. Hence
+$n/(n+1)\leq n\log(1+1/n)\leq1$, proving the limit $e$.
+The series $\exp t=\sum_{k\geq0}t^k/k!$ differentiates to itself; $\exp(-bt)$ solves $u'=-bu$. This explains the mathematical role of exponentials in prescribed decay curves. It does not select the product $\pi e\varphi$ as a physical coupling.
+
+The base $e$, Euler–Mascheroni constant $\gamma_{\rm EM}$, and the lock value $\gamma_*$ are three different numbers.
+
+## 4. From repeated integration to $\zeta(3)$
+
+### 4.1 A convergent construction [D; H: Rainman p.23]
+
+For $0\leq x<1$, the geometric series gives $f_0(x)=x/(1-x)=\sum_{n\geq1}x^n$. Define
+$(If)(x)=\int_0^x f(t)\,dt/t$. Termwise integration is justified by uniform convergence on compact subintervals, or by positivity. Each integration divides the $n$th coefficient by $n$:
+
+$$I^kf_0(x)=\sum_{n\geq1}\frac{x^n}{n^k}
+=\operatorname{Li}_k(x),\qquad
+\lim_{x\uparrow1}I^3f_0(x)=\sum_{n\geq1}\frac1{n^3}=\zeta(3). \tag{6}$$
+
+The endpoint follows by monotone convergence; $\sum n^{-3}$ is finite by the integral comparison test. This is repeated application of an integration operator. It is not an evolving SRG state, and the choice of three integrations does not derive three spatial dimensions.
+
+Writing all integrations gives
+
+$$I(a)=\int_0^a\frac{dx_1}{x_1}
+\int_0^{x_1}\frac{dx_2}{x_2}
+\int_0^{x_2}\frac{dx_3}{1-x_3}
+=\operatorname{Li}_3(a),\quad0<a\leq1. \tag{7}$$
+
+This validates the scalar iterated integral on Rainman p.23 at $a=1$, with the orientation chosen to agree with positive iterated integration. A differential-form presentation must choose the matching chain orientation.
+
+### 4.2 What changes on the scaled domain [D correction to H: Rainman p.24]
+
+Page 24 sets $a=m_{\max}\gamma$ and $x_i=a u_i$. Both the domain **and the differential form** must transform:
+
+$$\frac{dx_3}{1-x_3}\frac{dx_2}{x_2}\frac{dx_1}{x_1}
+=\frac{a\,du_3}{1-a u_3}\frac{du_2}{u_2}\frac{du_1}{u_1}. \tag{8}$$
+
+The factor $a$ in the numerator is required. The result is $\operatorname{Li}_3(a)$, not generally $\zeta(3)$. At $a=1/2$, (7) is $0.5372131936080402\ldots$, versus $\zeta(3)=1.202056903159594\ldots$. For $0<a<1$ strict inequality follows term by term from (6). For $a>1$ the pole at $x_3=1$ obstructs the ordinary integral. A principal value or analytic continuation would require a newly specified prescription.
+
+Using $dx_3/(a-x_3)$ instead would make the pulled-back form standard. That is a **new scale-dependent measure**, not a consequence of the historical formula. This report does not adopt that completion.
+
+### 4.3 The proposed geometric bridge [H/U]
+
+Rainman p.18 and p.20 define their construction using $\gamma=\gamma_*$ at the outset. They cannot then serve as an independent derivation selecting that same constant.
+
+Page 20 chooses an affine translation by $\gamma$ inside projective space. Its $m$th power is a translation by $m\gamma$. In the concrete p.21 map
+$T_\gamma([x:y:z])=[x+\gamma z:y:z]$, the forward image of $x=0$ satisfies $x-\gamma z=0$. The printed $x+\gamma z=0$ is its preimage instead. Substituting $(0,y,z)$ into the displayed transformation proves the sign distinction directly.
+
+Nor is the asserted three-dimensional integration chain on p.24 derived from the intersections described there. A curve intersected with a hyperplane in the p.21 example gives points; the text has not supplied a map and dimension/orientation argument producing the real ordered simplex in $X^3$ used on p.23. Non-singularity of a matrix of selected classes alone does not prove they span the intended ambient space: the single vector $(1,0)$ has non-singular Gram matrix $[1]$ but does not span $\mathbb R^2$. These are specific gaps in the proposed bridge, not a rejection of the valid integral (7).
+
+### 4.4 An exact golden-ratio relation [D; classical, reused by October analysis]
+
+Let $q=\varphi^{-1}$ and $\ell=\log\varphi$, so $q+q^2=1$. The following identity genuinely connects the golden split with the trilogarithm:
+
+$$\operatorname{Li}_3(q^2)=
+\frac45\zeta(3)-\frac{2\pi^2}{15}\ell+\frac23\ell^3. \tag{9}$$
+
+Here is a full derivation, independent of the proposed vesica chain. For $0<x<1/2$, differentiating the defining series proves
+$\operatorname{Li}'_s(x)=\operatorname{Li}_{s-1}(x)/x$ and $\operatorname{Li}_1(x)=-\log(1-x)$. Differentiating and taking the limit at zero then prove the two dilogarithm identities
+
+$$\begin{aligned}
+\operatorname{Li}_2(x)+\operatorname{Li}_2(1-x)&=\zeta(2)-\log x\log(1-x),\\
+\operatorname{Li}_2(x)+\operatorname{Li}_2(-x/(1-x))&=-\tfrac12\log^2(1-x).
+\end{aligned} \tag{10}$$
+
+Put $L=\log(1-x)$. The derivative of
+$\operatorname{Li}_3(x)+\operatorname{Li}_3(1-x)+\operatorname{Li}_3(-x/(1-x))$
+reduces by (10) to
+$[-\zeta(2)+(\log x)L]/(1-x)-L^2/[2x(1-x)]$.
+That is exactly the derivative of
+$\zeta(3)+\zeta(2)L-\tfrac12\log x\,L^2+\tfrac16L^3$.
+Both have limit $\zeta(3)$ at zero, fixing the constant.
+Set $x=q^2$. The series also gives
+$\operatorname{Li}_3(q)+\operatorname{Li}_3(-q)=\tfrac14\operatorname{Li}_3(q^2)$
+by cancelling odd powers. Substitution, $L=-\ell$ and $\log x=-2\ell$, proves (9).
+
+These are standard polylogarithm identities; definitions and the dilogarithm identities can be checked against [NIST DLMF §25.12](https://dlmf.nist.gov/25.12). The derivation above specifies the real domain and integration constant.
+
+The companion identity is $\operatorname{Li}_2(q^2)=\pi^2/15-\ell^2$: apply (10) at $q^2$, and use $\operatorname{Li}_2(q)+\operatorname{Li}_2(-q)=\tfrac12\operatorname{Li}_2(q^2)$. Thus the exact finite-interval forms are
+
+$$\int_0^\ell t^2\coth t\,dt=\frac{\zeta(3)}{10},
+\qquad \int_0^\ell t\coth t\,dt=\frac{\pi^2}{20}. \tag{11}$$
+
+To verify, expand $\coth t=1+2\sum_{n\geq1}e^{-2nt}$ and use positivity to integrate termwise. The first integral becomes
+$\ell^3/3+\zeta(3)/2-\operatorname{Li}_3(q^2)/2
+-\ell\operatorname{Li}_2(q^2)-\ell^2\operatorname{Li}_1(q^2)$.
+Since $\operatorname{Li}_1(q^2)=\ell$, (9) cancels the logarithmic terms and leaves $\zeta(3)/10$.
+The second is $\ell^2/2+\zeta(2)/2-\operatorname{Li}_2(q^2)/2-\ell\operatorname{Li}_1(q^2)=\pi^2/20$.
+These classical Hjortnaes identities are also treated by [Markov (2024)](https://www.diogenes.bg/ijam/contents/2024-37-3/2/2.pdf).
+
+Equation (9) rearranges exactly to
+
+$$\gamma_*=\frac{\tfrac54\operatorname{Li}_3(\varphi^{-2})
++\tfrac{\pi^2}{6}\ell-\tfrac56\ell^3}{\pi e\varphi}. \tag{12}$$
+
+This is an exact evaluation route, not an independent selection of the denominator. For $z=\varphi^{-2}$, truncating the trilogarithm after $K$ terms gives a positive error bounded by
+$5z^{K+1}/[4\pi e\varphi(K+1)^3(1-z)]$, by bounding every omitted denominator below by $(K+1)^3$ and summing the geometric tail.
+
+## 5. The three loop observables and the two signs of $1/12$
+
+These calculations independently rederive the accepted October investigation. Their operator scale, zero-mode removal, exponent and bulk subtraction are **A**, not recovered July choices.
+
+### 5.1 Spectrum and exact finite inverse trace
+
+For $N\geq3$ define $(\Delta_Nu)_j=u_{j+1}+u_{j-1}-2u_j$ with periodic indices and $A_N=N^2(-\Delta_N)$. Substituting $u_j=e^{2\pi ikj/N}$ gives
+
+$$\lambda_{N,k}=4N^2\sin^2(\pi k/N),\quad k=0,\ldots,N-1.
+\quad Z_N(p)=\sum_{k=1}^{N-1}\lambda_{N,k}^{-p}. \tag{13}$$
+
+The constant mode $k=0$ is deliberately excluded. The factor $N^2$ chooses spacing $1/N$, i.e. unit circumference. For circumference $\mathcal L$, eigenvalues are divided by $\mathcal L^2$ and $Z_N(p)$ is multiplied by $\mathcal L^{2p}$.
+
+Factorization of $z^N-1$ into its $N$ roots, with $z=e^{2ix}$, gives a nonzero constant times
+$\prod_{k=0}^{N-1}\sin(x+k\pi/N)=c_N\sin Nx$.
+The constant is immaterial to the logarithmic derivative. Differentiating once and then once more gives
+
+$$\sum_{k=0}^{N-1}\cot(x+k\pi/N)=N\cot Nx,\qquad
+\sum_{k=0}^{N-1}\csc^2(x+k\pi/N)=N^2\csc^2 Nx. \tag{14}$$
+
+Remove the $k=0$ term and let $x\to0$. The Taylor expansion
+$\csc^2x=x^{-2}+1/3+O(x^2)$ cancels the divergent terms, leaving
+$\sum_{k=1}^{N-1}\csc^2(\pi k/N)=(N^2-1)/3$. Therefore
+
+$$Z_N(1)=\frac{1-N^{-2}}{12},\qquad
+\lim Z_N(1)=\frac1{12}. \tag{15}$$
+
+For example $Z_3(1)=2/27$, not $1/12$. Equality of the limiting number with (4) does not identify a three-node graph with a filled triangle.
+
+### 5.2 The inverse-cube frequency sum
+
+For $1\leq k\leq N/2$, concavity gives $\sin(\pi k/N)\geq2k/N$, so $\lambda_{N,k}\geq16k^2$. Pair $k$ and $N-k$. For fixed $k$, $\lambda_{N,k}\to(2\pi k)^2$, while the paired inverse powers are bounded by $2(16k^2)^{-p}$. This is summable for $p>1/2$. Dominated convergence, extending absent terms by zero, proves
+
+$$\lim_{N\to\infty}Z_N(p)=\frac{2\zeta(2p)}{(2\pi)^{2p}},
+\qquad
+\lim Z_N(3/2)=\frac{\zeta(3)}{4\pi^3}. \tag{16}$$
+
+The possible unpaired midpoint for even $N$ tends to zero and does not alter the limit. Taking $N$ through multiples of three gives the same full-spectrum result.
+
+By contrast, restricting to states repeated every three nodes keeps only $k=0,N/3,2N/3$. The two nonzero eigenvalues are $3N^2$, hence the restricted sum is $2(3N^2)^{-p}\to0$. With the unscaled operator $-\Delta_N$ they instead stay equal to $3$. Neither case equals the full refinement in (16).
+
+The historically normalized October diagnostic is
+
+$$\gamma_N=\frac{4\pi^2}{e\varphi}Z_N(3/2)
+\longrightarrow\gamma_*. \tag{17}$$
+
+The spectral exponent and prefactor are explicit analytical choices. No preceding geometric identity uniquely selects them. For example choosing $p=1$ produces (15) instead, and changing circumference changes the uncorrected trace.
+
+### 5.3 A different observable produces a negative finite part
+
+Define the half-total normalized frequency sum
+
+$$S_N=\frac1{4\pi}\sum_{k=1}^{N-1}\sqrt{\lambda_{N,k}}
+=\frac N{2\pi}\sum_{k=1}^{N-1}\sin(\pi k/N). \tag{18}$$
+
+The finite geometric sum of $e^{ik\theta}$ has imaginary part
+$\sum_{k=1}^{N-1}\sin(k\theta)
+=\sin((N-1)\theta/2)\sin(N\theta/2)/\sin(\theta/2)$.
+At $\theta=\pi/N$ this is $\cot(\pi/(2N))$. Replacing the same finite dispersion by its continuous integral gives
+
+$$S_N=\frac N{2\pi}\cot\frac{\pi}{2N},\quad
+S_N^{\rm bulk}=\frac N{2\pi}\int_0^N\sin(\pi x/N)\,dx
+=\frac{N^2}{\pi^2}. \tag{19}$$
+
+Divide the Taylor series for cosine by that for sine to obtain
+$\cot x=x^{-1}-x/3-x^3/45-2x^5/945+O(x^7)$.
+Then
+
+$$S_N-S_N^{\rm bulk}
+=-\frac1{12}-\frac{\pi^2}{720N^2}
+-\frac{\pi^4}{30240N^4}+O(N^{-6}). \tag{20}$$
+
+The sign has a finite geometric explanation: the trapezoidal sum for the strictly concave sine arch lies below its integral; both endpoints are zero. All terms in $S_N$ remain positive. The negative quantity is the **difference** in (20).
+
+This equals the usual analytically continued value $\zeta(-1)$, but the ordinary series $\sum n$ diverges. [DLMF §25.6](https://dlmf.nist.gov/25.6) records the continued integer values. As another direct comparison,
+
+$$\sum_{n\geq1}ne^{-tn}
+=\frac{e^{-t}}{(1-e^{-t})^2}
+=t^{-2}-\frac1{12}+O(t^2). \tag{21}$$
+
+### 5.3a From the generating function to the weighted sum [D; new in v0.1.1]
+
+Equation (21) is retained from v0.1. The following intervening derivation explains precisely which operation produces each sign. Here $G$ is a function label, not a gravitational coupling. The mode index $n$ and cutoff $t$ are dimensionless in the unit-spaced mode normalization of (21); $t$ is not the historical operator clock in Section 7. Changing units or mode spacing requires changing the formula and its subtraction explicitly.
+
+For real $t>0$, put $q=e^{-t}\in(0,1)$. The geometric series gives
+
+$$G(t)=\sum_{n=1}^{\infty}e^{-nt}=\frac{q}{1-q}=\frac{1}{e^t-1}. \tag{21a}$$
+
+On any compact interval $[\delta,M]\subset(0,\infty)$, the terms and their derivatives are bounded by $e^{-n\delta}$ and $ne^{-n\delta}$. Both bounding series converge. Uniform convergence of the derivative series, together with convergence at one point, justifies termwise differentiation there. Since every positive $t$ belongs to such an interval,
+
+$$G'(t)=-\sum_{n=1}^{\infty}ne^{-nt}=-\frac{e^t}{(e^t-1)^2},\qquad t>0. \tag{21b}$$
+
+Differentiating a decaying mode supplies the factor $-n$. Consequently the positive weighted sum in (21) is
+
+$$S(t):=-G'(t)=\sum_{n=1}^{\infty}ne^{-nt}=\frac{e^{-t}}{(1-e^{-t})^2}>0. \tag{21c}$$
+
+In particular, **$G'(t)<0$ for every positive real $t$**. A positive coefficient in its expansion does not make the whole derivative positive: the leading term is negative and divergent.
+
+The coefficients can be obtained without assigning a value to a divergent sum. Multiply the Laurent ansatz $t^{-1}+a_0+a_1t+a_2t^2+a_3t^3+\cdots$ by $e^t-1=t+t^2/2+t^3/6+\cdots$ and equate the product to one. Successive coefficients give $a_0=-1/2$, $a_1=1/12$, $a_2=0$, $a_3=-1/720$ and $a_4=0$. The convergent Laurent expansion may be differentiated termwise:
+
+$$\begin{aligned}
+G(t)&=\frac1t-\frac12+\frac{t}{12}-\frac{t^3}{720}+O(t^5),\\
+G'(t)&=-\frac1{t^2}+\frac1{12}-\frac{t^2}{240}+O(t^4),\\
+-G'(t)&=\frac1{t^2}-\frac1{12}+\frac{t^2}{240}+O(t^4).
+\end{aligned} \tag{21d}$$
+
+Thus $+1/12$ is the coefficient of $t$ in $G$, and the constant Laurent coefficient in $G'$; $-1/12$ is the constant coefficient in $S=-G'$. The constant coefficient of $G$ itself is $-1/2$. The relevant finite remainders are defined by the specific subtractions
+
+$$\begin{aligned}
+\lim_{t\downarrow0}\left(G'(t)+\frac1{t^2}\right)&=\frac1{12},\\
+\lim_{t\downarrow0}\left(-G'(t)-\frac1{t^2}\right)&=-\frac1{12}.
+\end{aligned} \tag{21e}$$
+
+The second subtraction removes the positive continuum bulk $\int_0^\infty x e^{-tx}\,dx=t^{-2}$ in this normalization. Neither subtraction is an ordinary value at $t=0$. The damped sum remains positive, whereas its specified finite part is negative; the undamped partial sums $\sum_{n=1}^N n=N(N+1)/2$ diverge to positive infinity.
+
+The [Bernoulli generating function, DLMF 24.2.1](https://dlmf.nist.gov/24.2.E1) gives the same algebraic coefficients; [DLMF 25.6.3](https://dlmf.nist.gov/25.6.E3) gives the continued zeta value:
+
+$$\frac{t}{e^t-1}=\sum_{m=0}^\infty B_m\frac{t^m}{m!},\qquad
+\frac{B_2}{2!}=\frac1{12},\qquad \zeta(-1)=-\frac{B_2}{2}=-\frac1{12}. \tag{21f}$$
+
+Here $B_2=1/6$. The generating power series has radius $2\pi$ because the nearest nonzero poles occur at $t=\pm2\pi i$; the corresponding Laurent series for $G$ holds on $0<|t|<2\pi$. This analytic domain differs from the positive real domain of the convergent damped sums, which have no upper cutoff on $t$. Differentiation of the remainders in (21d) is warranted by that convergent series, not by a general rule for differentiating arbitrary big-O estimates.
+
+Four different observables must therefore remain separate: the squared triangle ratio in (4), the inverse spectral trace limit in (15), the constant coefficient or subtracted limit of $G'$ in (21d)-(21e), and the weighted-sum finite part of $-G'$ in (21e). Their values are respectively $+1/12,+1/12,+1/12,-1/12$. The finite-cycle difference (20) and the exponential-cutoff difference (21e) agree in their limiting constant, but use different spectra and bulk prescriptions. Neither derivation replaces the other. The common Bernoulli coefficient explains an algebraic relation, not a physical equivalence with the triangle.
+
+Changing to half-integer modes gives
+$-\frac d{dt}[1/(2\sinh(t/2))]=t^{-2}+1/24+O(t^2)$.
+Thus the mode family and subtraction matter. A further oscillator factor $1/2$ halves a coefficient; it does not change the inverse moment in (16) into an energy sum.
+
+Equations (4), (15), (16) and (20) are compatible identities. None says that $\gamma_*$ replaces $-1/12$ or establishes a physical string model.
+
+### 5.4 Analytic reflection and the chain-rule sign [D; new in v0.1.1]
+
+The closed form in (21a) continues meromorphically away from $2\pi i\mathbb Z$. Direct algebra, rather than summing growing modes, gives
+
+$$G(-t)=-1-G(t),\qquad
+\mathcal C_G(t):=G(t)+\frac12=\frac12\coth(t/2),\qquad
+\mathcal C_G(-t)=-\mathcal C_G(t). \tag{21g}$$
+
+The subscript prevents confusion with the historical prescribed function $H(t)$ in Section 7. For negative real $t$, the terms $e^{-nt}$ grow and do not tend to zero, so their original series diverges. Equation (21g) then refers only to the continued closed form. Differentiating the identity in (21g) yields $-G'(-t)=-G'(t)$, hence
+
+$$G'(-t)=G'(t),\qquad \frac{d}{dt}G(-t)=-G'(-t)=-G'(t). \tag{21h}$$
+
+The derivative evaluated at the reversed argument is even. The derivative of the composite function includes an additional chain-rule minus sign. Argument reversal alone therefore does not turn the $+1/12$ constant coefficient of $G'$ into the $-1/12$ coefficient of $-G'$.
+
+A regular analytic version of the comparison removes the pole:
+
+$$\mathcal R_G(t):=G(t)-\frac1t+\frac12
+=\frac{t}{12}-\frac{t^3}{720}+O(t^5),\qquad
+\mathcal R_G'(0)=\frac1{12}. \tag{21i}$$
+
+The removable value is $\mathcal R_G(0)=0$, and the extension is odd for $|t|<2\pi$. Its derivative is even. The finite part of the weighted sum is $-\mathcal R_G'(0)$. These are exact analytic relations; they do not supply a map from an analytic argument to a spatial point or a physical duality.
+
+### 5.5 Both sides and a half-turn: a conditional geometric test [A, D, U]
+
+**Motivation and status.** The author-approved exploratory interpretation below asks how geometric constants, differentiation and recursive relationships, initially drawn in a plane, might be compared through complementary representations of a fuller toroidal description. The author has approved this statement of motivation. The following construction tests a precise meaning of “both sides plus a half-turn”; it is a newly adopted example [A], with deductions [D], not a recovered identification of Hilmir's original geometry [U].
+
+Choose a $z$ axis, new radii $R_T>\rho_T>0$, and the two complete circular profiles in the meridional plane $y=0$:
+
+$$C_\pm(u)=\bigl(\pm(R_T+\rho_T\cos u),0,\rho_T\sin u\bigr),\qquad 0\leq u<2\pi. \tag{21j}$$
+
+Let $Q_z(v)$ be the usual three-dimensional rotation about the specified axis. Then
+
+$$\begin{aligned}
+Q_z(v)&=\begin{pmatrix}\cos v&-\sin v&0\\\sin v&\cos v&0\\0&0&1\end{pmatrix},\\
+T(u,v)&=\bigl((R_T+\rho_T\cos u)\cos v,\ (R_T+\rho_T\cos u)\sin v,\ \rho_T\sin u\bigr),\\
+Q_z(v)C_+(u)&=T(u,v),\qquad Q_z(v)C_-(u)=T(u,v+\pi).
+\end{aligned} \tag{21k}$$
+
+Because $R_T+\rho_T\cos u>0$, the azimuth is well defined. The first sweep with $0\leq v\leq\pi$ covers azimuths $[0,\pi]$ and the second covers $[\pi,2\pi]$. Their union is the complete standard ring-torus surface, with shared boundary circles. One profile swept through this interval covers only half of that surface. Merely displaying the initial and terminal profiles gives two circles, not the intervening surface. The parameterization obeys $(\sqrt{x^2+y^2}-R_T)^2+z^2=\rho_T^2$.
+
+The planar mirror $M_x:(x,y,z)\mapsto(-x,y,z)$ sends $C_+$ to $C_-$. It has determinant $-1$ as a spatial transformation. The half-turn $Q_z(\pi):(x,y,z)\mapsto(-x,-y,z)$ also sends those profiles into each other, but has determinant $+1$. They agree on $y=0$ and differ off it, for example at $(0,1,0)$. A planar reflection, a proper spatial half-turn and a continuous sweep are therefore distinct operations. Orthogonality $Q_z(v)^TQ_z(v)=I$ preserves Euclidean distances, norms, radii and unsigned length ratios, including a rotated triangle's squared inradius-to-side ratio. Coordinates may change sign; rotation does not turn a positive scalar ratio into a negative finite remainder. Even the scalar meridional ratio $\rho_T/R_T$ is unspecified by the construction, so no new $1/12$ value is selected.
+
+The example's circles have centre separation $2R_T>2\rho_T$ and are disjoint. The canonical vesica in Section 3.1 instead has centre separation equal to one circle radius and its circles overlap. Those profiles cannot be silently identified. The meridional cross-section is also not an orthographic projection: $T(0,\pi/2)=(0,R_T+\rho_T,0)$ projects onto the origin in the plane $y=0$, although the origin is not on the ring torus or either profile when $R_T>\rho_T$.
+
+**What the inspected sources actually supply [H].** Section 3.1 supplies overlapping circles and an equilateral ratio, without selecting an axis or toroidal sweep. The July reconstructed TGMO source, lines 5-14, fixes the major angle at $\pi/4$ and traces a minor circle (Section 7.1); repeating its minor angle does not sweep the major angle. January's separate `torus_embedding`, lines 62-76, supplies a two-angle torus parameterization (Section 7.2). Under the additional ring condition $a>b>0$, it agrees with this example after $a=R_T$, $b=\rho_T$, $\theta=v$, $\phi=u$. Its function defaults $a=b=1$ do not satisfy that ring condition and do not establish these disjoint profiles as historical defaults. Neither source provides a map from the original overlapping-circle construction, or from the cutoff $t$, to this new two-profile sweep. These are read-only source comparisons, not executions of those programs.
+
+**Unresolved correspondence [U].** No supplied definition identifies $t\mapsto-t$ with $Q_z(\pi)$, selects the torus radii from (4), or converts the weighted-sum subtraction into a geometric measurement. Having order two is insufficient: many unrelated transformations are involutions. A proposed map would need specified domain, codomain and an intertwining relation, for example $F(-t)=Q_z(\pi)F(t)$ on a reflection-stable punctured real domain, together with a stated observable. None is selected here. Even such a relation by itself would not imply a scalar sign flip or fix the radii. The analytic evenness in (21h) and the spatial invariants just proved constrain any later proposal.
+
+**Author-approved exploratory interpretation.** The following author-approved wording states an exploratory interpretation, not an established physical result:
+
+My starting point is geometric constants, differentiation and recursive relationships represented in a plane. I want to investigate whether this plane can serve as a partial or mirror representation, with a complementary side and a specified 180-degree operation helping to reconstruct a fuller toroidal description. The explicit two-profile sweep shows one way to make “both sides” precise once the axis, radii and sweep are chosen; it does not yet identify that construction with my original overlapping-circle geometry. The generating function likewise has an exact reflection identity, but its relation to a spatial half-turn remains to be defined. I want these representations examined together while keeping the regularized negative finite remainder separate from a fundamental SRG parameter. The positive geometric ratio, the positive constant coefficient of $G'$, even though $G'(t) < 0$ for $t > 0$, and the negative finite part of the positive weighted sum $-G'$ have different definitions; their signs alone do not establish a physical duality or show that another physical theory studies a wrong side.
+
+**End of author-approved interpretation.** Author approval covers the motivation, intended correspondence and wording; it does not establish the exploratory geometry as a physical result. The verified identities do not depend on approval of this interpretation. This edition adds no motion, flow, coupling or replacement-recursion equations.
+
+## 6. The lock equation: what was printed, assigned, or measured
+
+### 6.1 July sources contain a real discrepancy
+
+P06 physical p.4 Eq.(2) prints (1). Its p.6 glossary identifies $\gamma$ as **Euler–Mascheroni's constant**, approximately $0.577$. Those two statements cannot both be exact: substituting $\gamma_{\rm EM}=0.5772156649\ldots$ does not satisfy (1). This report uses the new disambiguating notation $\gamma_*$ for the solved target and $\gamma_{\rm EM}$ for the classical constant; it does not repair the manuscript.
+
+P01 pp.3–4 Eq.(1) repeats the equation, calls $\gamma$ a scaling constant of order $10^{-1}$, describes calibration, and explicitly says the relation was not derived from first principles. Its claim of observation is historical evidence **of the claim**, not a surviving estimator or measurement receipt. P05 p.2 and the position reconstruction instead assign GAMMA $=0.577$; it is unused in that engine.
+
+
+### 6.1a The author’s design interpretation
+
+The fusion manuscript's Appendix A, physical pp.19–20, supplies a positive historical explanation. It associates the circle constant and the exponential base with geometry and growth, the golden ratio with packing or growth patterns, the zeta value with discrete lattice sums, and gamma with the scale linking those ingredients. It reports approximately 0.087 as a calibration value. These are the author's documented interpretations; the appendix itself distinguishes empirical or analytical tools from a first-principles physical derivation.
+
+That makes the formula intelligible as a design relation. It does not make each factor uniquely forced by one diagram, or supply an independent gamma estimator. The exact arithmetic in (1), the historical interpretation, and the separate later spectral normalization (17) therefore have different evidential roles. The original appendix also includes physical speculation; this companion does not adopt it as a proved result.
+
+### 6.2 September's proposed estimator is not an implementation
+
+P19 p.8 describes $\gamma$ as inferred from spectra and adjusted to satisfy the lock. Page 13 calls
+$\widehat\gamma^{(t)}\leftarrow\mathrm{GammaEstimate}(\{\Phi_a\},\mathrm{spectra},\zeta(3))$,
+without defining the function. The p.12 value $0.10$ occurs in a table explicitly labelled **“Run Stamp (example)”**, with a placeholder commit and incomplete parameter arrays. It is not an independently verified run measurement.
+
+An independently testable estimator would need an explicit map from state/spectral data to a number, its units/normalization and the raw inputs. A lock penalty or tuning procedure that drives a residual toward zero is not, by itself, an independent measurement of the target. Those missing specifications remain **U**.
+
+### 6.3 March saved outputs distinguish predictions from observations
+
+The inert source srg_resonance_lock_analysis.py, line 42, computes gamma_derived as zeta3/lock_product. Lines 443–448 label the odd-zeta extension as a hypothesis. Its saved resonance_lock_results.json contains $\gamma_{\rm SRG}=0.08699474751703501$, the formula itself, and six non-finite eigenmode lock times. This is evidence of a saved formula evaluation and unsuccessful listed searches, not six coupling measurements.
+
+Tower II lines 289–318 explicitly compute the zeta argument from the **assigned** frequency, put the result in **gamma_predicted**, and separately collect lock_time, final_R and final_coherence. The received CSV has 90 rows: 45 formula predictions and 45 blanks. All finite predictions agree with the indicated formula to the precision of the saved numbers; every blank is at a negative tower index. These counts come from the accepted lineage investigation’s static audit of existing records, which is reused here without replay. No trajectory was regenerated.
+
+Infinity is different: its assigned $0.08699$ actually multiplies the R/D cross term (section 8). Conversely Seed Explorer's $0.0870$ is stored but unused. One cannot infer use merely from a parameter name.
+
+### 6.4 The other “constant one” candidates
+
+The informal phrase does not uniquely name a recovered equation. The prior bounded search found no literal occurrence in 278 supplied Markdown/text files; that private file inventory is not republished here. It would be unjustified to identify it with the July equation merely because both contain constants. Several distinguishable candidates survive:
+
+| Candidate | Exact source and meaning | Finding |
+|---|---|---|
+| July lock | P06 p.4 Eq.(2), P01 p.3 Eq.(1) | $\pi e\varphi\gamma=\zeta(3)$; explicit historical target, conflicting $\gamma$ definitions |
+| Dual-phase master operator | P13 p.5 | A tensor/phase/floor/compression expression, not the scalar lock |
+| A literal equation equal to one | srg_resonance_lock_analysis.py, lines 293–327 | $1=(1+\lambda H/H_{\max})(1+h\mu+\kappa/s)$, an approximate single-mode multiplier condition |
+| Frequency master equation | P18 p.7 Eq.(12) | $\pi e\varphi\,\gamma(\omega)=\zeta(2\log_\varphi(\omega/\omega_0)+3)$ |
+| DieGlocke lock ratio | DieGlocke_Sim_Core.py, lines 6–14 | $\pi e\varphi\,\gamma_{\rm EM}\zeta(3)$, different algebra from the July lock |
+
+The multiplier equation follows formally by linearizing $\kappa\tanh(\Theta/s)\approx(\kappa/s)\Theta$ on an eigenmode $\mathcal L\Theta=\mu\Theta$, **and** treating compression as identity on the chosen branch. For the actual $\varepsilon>0$ RPCO, the inactive nonzero branch is not exactly identity. The approximation is not a proof of (1), contains no $\zeta(3)$, and does not supply an estimator. The source's $(1,1)$ “fundamental” omits lower nonconstant modes $(1,0)$ and $(0,1)$ of the two-dimensional periodic grid. Its assigned polyhedral names are not spectral identifications proved there.
+
+DieGlocke uses rhs $=1/(\mathrm{GAMMA}\,\mathrm{ZETA3})$, then returns lhs/rhs. Setting that ratio to one would require $\gamma=1/(\pi e\varphi\zeta(3))$, not (1). Moreover GAMMA is actually assigned $0.5772156649$, and the provided Run file neither imports nor calls the ratio. Its time loop freshly samples a product of prescribed fields; earlier composite states are stored for diagnostics, not fed into the next composite (Run lines 37–46). The radial phases, $0.244$, $0.122$, and modulation gamma $0.3$ are explicit inputs, not recovered lock measurements.
+
+P13's master operator includes $\nabla\nabla\cdot\Phi-\Delta\Phi$, floor quantization and feedback, with complex phase $\Phi=e^{i\theta}T$. Its floor/domain and tensor-feedback typing are unresolved, as already recorded in SRG-I §6.4 (physical pp.12–13). It is a distinct historical proposal, not a substitute solver selected here.
+
+**Bounded provenance conclusion.** No implemented independent GammaEstimate or saved independent gamma measurement was recovered in the searched sets. No native rule selecting the inverse exponent $3/2$ and normalization $4\pi^2/(e\varphi)$ was found there. The latter first appears in this inspected chain as an explicitly declared October diagnostic choice. The informal phrase “the weird constant one” was part of the provenance request, not a manuscript title. Its exact referent remains unidentified; the competing equations above are now documented without asking the owner to reconstruct them from memory.
+
+## 7. TGMO, REFU and RPCO: precise operator lineage
+
+### 7.1 Earlier names did not denote one unchanged function
+
+P08 p.1 gives the golden stability map $(\varphi/\sqrt3)\tanh x$. Its derivative has absolute value at most $\varphi/\sqrt3<1$, and its output is bounded by that same constant. This is a valid scalar damping statement. It is not the later threshold compressor or either logarithmic RPCO.
+
+P07 pp.3–6 uses “Toroidal Gradient Memory Operator” and “Recursive Entangled Field Update.” It prints a weighted spatial Laplacian and the positive-output logarithmic compressor. Its claim that that compressor retains negative signs contradicts its exponential formula.
+
+P05 p.1 and the surviving standalone scripts instead implement:
+
+* TGMO.py lines 5–14: $(x,y,z)=((2+r\cos\theta)\cos(\pi/4),(2+r\cos\theta)\sin(\pi/4),r\sin\theta)$. This is a sampled minor circle at fixed major angle, repeated through the chosen number of rotations; it is not a field Laplacian.
+* REFU.py lines 5–13: the prescribed scalar curve $H(t)$ below, not a full next-state update.
+* RPCO.py lines 5–13: $\sin(5\operatorname{atan2}(Y,X))e^{-0.05(X^2+Y^2)}$, a sampled spatial phase field, not a compressor applied to evolving amplitudes.
+
+P11 pp.1–2 correctly distinguishes a constant radius from a field. $\Delta r=0$ for constant $r$, whereas $\Delta\sqrt{x^2+y^2}=1/\sqrt{x^2+y^2}$ away from the origin in two dimensions. The latter is singular at the origin. Promoting a constant radius to a spatial field changes the mathematical object; the alternatives are not interchangeable repairs.
+
+P03 pp.7–8 is also not January's spatial stencil: its trail definition is
+$\nabla_T^2\Theta(t)=\Theta(t+1)-2\Theta(t)+\Theta(t-1)$.
+Substitution in the printed update gives
+$y=C_\lambda(y+b)$, $b=\Theta(t-1)-\Theta(t)+F(t)$, for a finite scalar state and frozen feedback. Its compressor is $C_\lambda(x)=x$ below $\lambda$ and $x/\varphi$ at or above $\lambda$.
+
+The complete branches, reusing accepted SRG-I §3.2, Theorem 3.1 (physical pp.4–6), are
+
+$$\{y:y=C_\lambda(y+b)\}
+=\begin{cases}(-\infty,\lambda),&b=0\\\varnothing,&b\ne0\end{cases}
+\ \cup\
+\begin{cases}\{\varphi b\},&\varphi^2b\geq\lambda\\\varnothing,&\varphi^2b<\lambda.\end{cases} \tag{22}$$
+
+Proof: on the first branch $y=y+b$, requiring $b=0$; on the second $(1-\varphi^{-1})y=\varphi^{-1}b$, giving $y=\varphi b$ and input $\varphi^2b$. This exhibits both no-solution and nonunique cases. No intended root-selection solver is supplied by these sources. Replacing the temporal term by a spatial difference would be a new model choice.
+
+The July position reconstruction, P05 p.2 / recursive_field_evolve.py, uses a fixed directed five-neighbour graph from the starting positions:
+$Y=X+0.05\Delta_{\rm graph}X+0.15\tanh(\Delta_{\rm graph}X)$,
+then $Z=0.95Y+0.05\overline Y+\xi$ and a small prescribed sinusoidal scaling of $Z$'s third coordinate. It is a concrete alternative evolution, with stochastic position noise, not an implementation of (22).
+
+### 7.2 January's complete fixed-grid composition [H]
+
+For a finite real two-dimensional field, JANUARY pp.2–3 and tgmo.py lines 4–46 define
+
+$$\mathcal L\Theta_{ij}=
+a^{-2}(\Theta_{i+1,j}+\Theta_{i-1,j}-2\Theta_{ij})
++b^{-2}(\Theta_{i,j+1}+\Theta_{i,j-1}-2\Theta_{ij}). \tag{23}$$
+
+Indices wrap on both axes. The optional third axis has a separate second difference, reflecting by default. The normalized loop (13) shares the one-axis stencil but adds a positive sign reversal, $N^2$ scaling, zero-mode removal and a spectral observable. January does not compute (17).
+
+An embedded torus needs an additional geometric convention. In January's helper, $\theta$ is the major-circle angle and $\phi$ the minor-circle angle, with $a>b>0$:
+
+$$X(\theta,\phi)=((a+b\cos\phi)\cos\theta,(a+b\cos\phi)\sin\theta,b\sin\phi).$$
+
+Taking the squared lengths and dot product of its coordinate derivatives gives the metric $\operatorname{diag}((a+b\cos\phi)^2,b^2)$. The metric Laplacian, defined by $|g|^{-1/2}\partial_i(|g|^{1/2}g^{ij}\partial_j f)$, is consequently
+
+$$\Delta_g f=\frac{f_{\theta\theta}}{(a+b\cos\phi)^2}
++\frac{f_{\phi\phi}}{b^2}
+-\frac{\sin\phi}{b(a+b\cos\phi)}f_\phi.$$
+
+The accepted lineage report uses the consistently exchanged angle names for this comparison; the present edition follows the January helper (tgmo.py lines 62–76). Neither convention makes its constant-coefficient stencil (23) the induced metric operator. SRG-I §5.3, physical p.9, Eq.(5.7), gives the related comparison. “Toroidal Grid Modulation Operator” names the actual January periodic stencil.
+
+For (23)–(24), positive grid scales $a,b$, a nonzero finite $s$, and finite real coefficients and inputs avoid undefined divisions; $H_{\max}$ is fixed, positive and finite. In the app's reference callbacks $D(\Theta,t)=\Theta$ and $f(D)=\kappa\tanh(D/s)$. With a fixed finite positive $H_{\max}$,
+
+$$\begin{aligned}
+P(\Theta)&=\Theta+h\mathcal L\Theta+\kappa\tanh(\Theta/s),\\
+Q_t(\Theta)&=m_tP(\Theta),\quad m_t=1+\lambda H(t)/H_{\max},\\
+\Theta^+&=C_{\rm mode}(Q_t(\Theta)),\\
+H(t)&=2e^{-0.5t}\cos t+e^{-0.3t}\sin t+1.5e^{-0.7t}+e^{-0.4t}.
+\end{aligned} \tag{24}$$
+
+This order is explicit in refu.py lines 109–138. Both spatial and nonlinear terms read the same incoming $\Theta$; $H$ multiplies before RPCO. Only the spatial term is multiplied by $h$. Calling the scheme “Euler style” does not establish a continuous-time limit with every other per-step operation held fixed.
+
+Here $H$ is prescribed by the clock, not an accumulator of past states. Any state-driven memory claim needs an additional defined carrier and update. The library samples $\max|H|$ and adds a guard (lines 25–31). The rollout starts at $t=0$. A custom H requires both its matching Hmax and compute_global_Hmax=False; automatic normalization otherwise evaluates the original H and overwrites the supplied value. Accepted OC01's correction is retained.
+
+### 7.3 The two compressors and their symmetry [D from H]
+
+Let $u=e^{-L}$, $v=e^L$, $L>0,\varepsilon>0$. Moving the exponential through the monotone clamp gives exactly
+
+$$C_p(x)=
+\begin{cases}
+\operatorname{clip}(x+\varepsilon,u,v),&x>0,\\
+1,&x=0,\\
+\operatorname{clip}((|x|+\varepsilon)^{-1},u,v),&x<0,
+\end{cases}
+\quad
+C_s(x)=
+\begin{cases}\operatorname{sgn}(x)\operatorname{clip}(|x|+\varepsilon,u,v),&x\ne0,\\0,&x=0.\end{cases} \tag{25}$$
+
+These are refu.py lines 37–69 / JANUARY p.3. They imply the exact reciprocal pairing $C_p(a)C_p(-a)=1$ for $a>0$, since clipping in logarithmic space commutes with sign reversal. Signed mode instead has $C_s(-a)=-C_s(a)$. Neither identity is time reversal or an inverse next-state map; a plateau loses magnitude information.
+
+An inactive signed magnitude grows by $\varepsilon$. P18 p.4 Eq.(2) prints an outside-sign formula, but its prose claims $-a\mapsto1/a$. Without epsilon or clipping, that displayed formula returns **$-a$**. January's paper mode has the reciprocal negative branch; the March engines implement signed mode. Substituting one for the other would alter the historical recurrence.
+
+The OC01 corrections remain: signed mode is discontinuous at zero for every $L>0,\varepsilon>0$; paper mode is continuous there exactly when $\varepsilon=1$, and then is $C^1$ but not $C^2$ locally. Indeed it is $1+x$ on the positive side and $(1-x)^{-1}$ on the negative side. Multiplication by a zero gain makes the complete map constant, so discontinuity claims about the compressor do not automatically transfer to that case. Diagnostic samples and update counts remain distinct.
+
+### 7.4 A concrete $3\times3$ mathematical step
+
+Choose a periodic grid, $a=b=1,h=0.1,\kappa=0.1,s=1$, H off, $L=9,\varepsilon=10^{-9}$. These are declared example parameters, not all app defaults. With
+
+$$\Theta=\begin{pmatrix}0&0&0\\0&1&0\\0&0&0\end{pmatrix},
+\quad
+\mathcal L\Theta=\begin{pmatrix}0&1&0\\1&-4&1\\0&1&0\end{pmatrix},$$
+
+the nonlinear term is nonzero only at the centre, because it reads $\Theta$, not an already diffused state. Thus
+
+$$P(\Theta)=
+\begin{pmatrix}0&0.1&0\\0.1&c&0.1\\0&0.1&0\end{pmatrix},
+\quad c=0.6+0.1\tanh1=0.6761594155955765\ldots. \tag{26}$$
+
+The centre and four edge entries lie on inactive positive branches. Paper RPCO returns
+$\begin{pmatrix}1&0.1+\varepsilon&1\\0.1+\varepsilon&c+\varepsilon&0.1+\varepsilon\\1&0.1+\varepsilon&1\end{pmatrix}$;
+signed RPCO returns the same positive entries but keeps all four corners **zero**. This is a full algebraic evaluation of the stated example; no field-step function, field rollout or random initializer was executed.
+
+Accepted OC01's paper-cap result and OC02's signed floor patterns/capture sets are later deductions from (24)–(25), with their stated parameter assumptions. They are not claims found in July manuscripts and do not transfer automatically to March's particle state.
+
+## 8. The March adaptations
+
+### 8.1 Documentary connection and substantive changes
+
+Seed Explorer line 29 explicitly describes the operators as “from your refu.py and tgmo.py, adapted for glyph particles.” Lines 53–57 distinguish its position/resonance particle state from a fixed grid. This is direct documentary lineage; it does not assert identical operators.
+
+For a directed neighbour set $N_i$, the position difference is
+$\Delta_iX=|N_i|^{-1}\sum_{j\in N_i}(X_j-X_i)$.
+The normalized resonance weights are proportional to $(d_{ij}+10^{-8})^{-1}$.
+Seed Explorer lines 91–169 rebuild the Euclidean graph, update
+$X_i\leftarrow X_i+0.05\Delta_iX+0.15\tanh(\Delta_iX)$,
+mix $R_i$ toward its weighted neighbour mean, multiply by H, move positions toward a resonance-weighted centre, apply a prescribed $0.244$ sinusoid, then apply signed RPCO. Position noise follows. Its pass count increments before the first update, so its first H argument is one, unlike January's zero. There is no toroidal wrapping of these Cartesian positions.
+
+| Version | Precisely supported change | Primary locator |
+|---|---|---|
+| July reconstructed engine | Position-only state, graph fixed before loop, unweighted centre, third-coordinate sinusoid; assigned GAMMA unused | P05 p.2; early/recursive_field_evolve.py |
+| Seed Explorer | Rebuilt kNN graph, separate $R$, weighted resonance mixing and fusion, H and signed amplitude RPCO | lines 29,53–79,91–169 |
+| Infinity | Adds real $D$ field, unequal R/D diffusion strengths, actual assigned-gamma cross coupling, shifted H for D | lines 91,114–137,162–195 |
+| Condensate Breaking | Separate branch with optional horizon, multifrequency and breathing compression; gamma stored | lines 61–99,155–196 |
+| Golden Tower | Fixed assigned golden-spaced bands; log-frequency matching, sinusoid per band, additive golden-ratio resonance mixing, band-local fusion | lines 72–94,122–179 |
+| Tower II | Adds configurable stronger mixing over $\varphi^{\pm1},\varphi^{\pm2}$ and sum/difference match tests; optional amplitude-dependent cap; same stage ordering | lines 135–213 |
+
+These are selected source variants, not a claim that every archived program belongs to one linear sequence.
+
+### 8.2 R/D cross coupling uses the assigned gamma
+
+For a row with neighbours, Infinity's default coefficients give
+
+$$\begin{aligned}
+R_i'&=R_i+0.15(\overline R_i-R_i)+0.01c_pD_i,\\
+D_i'&=D_i+0.075(\overline D_i-D_i)+0.01c_pR_i,\\
+c_p&=0.08699\sin(0.244p+\pi/2).
+\end{aligned} \tag{27}$$
+
+Both right sides read incoming R/D, and rows without neighbours skip this coupling. Subsequent gains use $H(p)$ and $H(p+\pi/2)$ separately. A time shift of a decaying curve changes its envelope as well as its trigonometric phase. These real fields are not defined as complex conjugates. Equal cross entries alone do not establish sector-exchange symmetry: the diffusion coefficients and later gains differ.
+
+### 8.3 Tower II's actual composition and static master equation
+
+Tower II lines 140–213 fix the graph and distances for that pass and move positions. At the resonance stage, a row with no selected neighbours, or with unnormalized frequency/distance weight sum below $10^{-10}$, is skipped: $R_i^{\rm mix}=R_i$. Its sine and additive mixing are both skipped. This skips only that row’s resonance-mixing stage; the subsequent H gain, fusion, RPCO and position-noise stages still follow. For an active row that passes both guards, the source constructs
+
+$$R_i^{\rm mix}
+=a_i\big[(1-\beta)R_i+\beta\sum_jw_{ij}R_j\big]
++\sum_j\eta_{ij}R_j,\quad
+a_i=1+0.01\sin(2\pi\omega_i p). \tag{28}$$
+
+For active rows, $\eta_{ij}$ is the sum of the nonnegative golden-ratio and sum/difference match additions in lines 169–188. Those additions occur **after** the per-site sine multiplication; they are not multiplied by $a_i$ there. H then multiplies $R^{\rm mix}$, that precompression resonance controls band-local position fusion, and signed RPCO is last for R. Position noise is separate. This recovers the stage distinction used by accepted R0–R3 without rerunning them.
+
+P18 p.5 Eq.(6) defines $\gamma_m=\zeta(2m+1)/(\pi e\varphi)$ for $m\geq1$. Page 7 assigns $\omega_n=\omega_0\varphi^n$, $\omega_0=0.244$, then states
+
+$$\pi e\varphi\,\gamma(\omega)
+=\zeta\!\left(2\log_\varphi(\omega/\omega_0)+3\right). \tag{29}$$
+
+At $\omega_n$ this samples $\zeta(2n+3)$, so matching the older odd-zeta indexing requires **$m=n+1$**, with $n\geq0$. This is an index substitution, not a temporal recursion. The positive Dirichlet-series domain requires $\omega>\omega_0/\varphi$. At $\omega=\omega_0/\varphi$ the zeta argument is one and has a pole. At lower frequencies analytic continuation is a further prescription; it is not a positive coupling at every band. For instance $n=-2$ gives $-\!1/(12\pi e\varphi)$ if analytically continued.
+
+The source's diagnostic explicitly requires zeta_arg > 1.01 and otherwise writes NaN (Tower II lines 293–298). No zeta evaluation occurs in the recovered update (28). The constant-frequency labels are assigned and are not generated by the mix. P18 itself calls the master equation static on p.7. Its limit $\gamma_m\to1/(\pi e\varphi)$ follows from $\zeta(s)\to1$ as $s\to+\infty$; neither that limit nor the CSV proves measured equilibrium couplings equal predictions.
+
+## 9. Claim disposition and remaining definition
+
+The source-grounded chain is:
+
+1. **Recoverable mathematics:** circle projections; exact equilateral ratio; Fibonacci limit; exponential definition; iterated-integral identity; golden polylogarithm identity; cycle spectrum and all three observables.
+2. **Recovered historical choices:** July lock formula, competing gamma meanings, threshold compression, prescribed H, January stencil/order/modes, March assigned frequencies and coupling coefficients.
+3. **Later analytical choices:** scalar branch analysis with frozen feedback; normalized full-loop refinement and spectral powers; the prefactor importing the lock target; cap/floor and capture theorems.
+4. **Incompatible descriptions:** P06's Euler-gamma glossary versus lock; P07's sign-retention claim versus positive exponential; P18's outside-sign equation versus reciprocal prose; Rainman's unchanged scaled integral and forward-image sign.
+5. **Underdetermined:** original selector for $\pi e\varphi$; the missing GammaEstimate; an independently measured coupling record; the vesica-cycle-to-integration-chain map; temporal root selection; the exact informal “constant one” referent.
+
+The first three categories support a careful mathematical reconstruction manuscript when attributed and qualified as above. Historical empirical/physical conclusions require evidence beyond these identities. The report proposes no replacement recursion or source repair. The most precise remaining mathematical question is whether an existing native state statistic and an independently specified selection rule choose (17)'s observable and scale. The bounded search found no such specification.
+
+
+
+## 10. Reading the evidence responsibly
+
+An equation can play several roles. It may define a chosen operation, express a theorem once its assumptions are fixed, describe a measured relationship, or propose a physical interpretation. The histories in this paper contain all four roles. The worked examples and proofs establish the stated algebra and limits; historical empirical descriptions remain attributed to their sources. No experiment, historical simulation or earlier verification suite was rerun for this edition.
+
+The October lineage investigation received an internal GPT review, accepted with the explicit source-and-notation addendum incorporated here. The v0.1 companion was subsequently published after internal review; this v0.1.1 edition is author-approved for repository publication. Neither label means external peer review, journal acceptance or physical validation. Accepted SRG-I, source code and earlier research remain unchanged.
+
+The proof chain is self-contained for the central identities: circle intersection, equilateral inradius, Fibonacci ratio, compounding limit, iterated integration, the cycle's finite inverse trace and continuum inverse powers, its negative finite part, the golden polylogarithm and finite-interval identities, and the source-specific compression/implicit branches. Standard trigonometric and polylogarithm definitions are linked in the source index.
+
+The main unresolved question is precise: which independently specified native statistic and selection rule, if any, choose the historical coupling scale? A geometric interpretation of the factors exists. The bounded archive search did not recover the additional estimator needed to test that selection claim independently. Neither finding erases the other.
+
+### Assistance and attribution
+
+Hilmir Frímann Halldórsson is the named human author. ChatGPT/GPT and Codex assisted with source recovery, mathematical checking, editorial organization and document preparation. Historical AI credits are preserved as source history, not adopted as institutional affiliation or endorsement. The classical identities are attributed to established mathematics; the present work claims a source-grounded exposition rather than their discovery.
+
+### Reuse
+
+This edition adds no blanket reuse licence to the derived manuscript or its records. Linked historical works retain their source-specific notices, including the identified CC BY 4.0 deposits. Public visibility, internal acceptance and reuse permission are separate matters. The accompanying publication disposition records this edition's authorization and verification scope; the retained v0.1 publication disposition is historical.
+
+## 11. Source keys and reading map
+
+These keys are used throughout the paper. Page numbers are physical PDF pages. Exact file hashes and code access instructions are in the accompanying SOURCE_INDEX.md; full historical files are not republished.
+
+### P01 — Symbolic Recursion and SRG Fusion: Emergent Lattice Fields from Glyph Memory Dynamics
+
+Hilmir Frímann Halldórsson; source AI credits retained in the original. 15 July 2025. Cited locations: pp.3–4, Eq.(1); Appendix A, pp.19–20. [Read this source](https://zenodo.org/records/17253999/files/1.Symbolic%20Recursion%20and%20SRG%20Fusion.pdf).
+
+### P03 — Symbolic Recursion and SRG Formation: Full Method and Emergence
+
+Hilmir Frímann Halldórsson; source AI credits retained in the original. 14 July 2025. Cited locations: pp.2,5,7–8. [Read this source](https://zenodo.org/records/17253999/files/3.Symbolic%20Recursion%20and%20SRG%20Formation%20Full%20Method%20and%20Emergence.pdf).
+
+### P05 — Patch Research: Detailed Reconstruction of Missing Components in Symbolic Recursion and SRG Framework
+
+Collaborative Reconstruction. 15 July 2025. Cited locations: pp.1–2. [Read this source](https://zenodo.org/records/17253999/files/patch_research.pdf).
+
+### P06 — Recursive Dark Energy and Vacuum Feedback: A Vesica-Phase Cosmological Framework
+
+Hilmir Frímann Halldórsson; source AI credits retained in the original. 13 July 2025. Cited locations: p.4 Eq.(2); p.6 glossary. [Read this source](https://zenodo.org/records/15872156/files/dark_energy.pdf).
+
+### P07 — Recursive Numerical Operators for Symbolic Dynamics
+
+Hilmir Frímann Halldórsson; source AI credits retained in the original. 11 July 2025. Cited locations: pp.3–6. [Read this source](https://github.com/pzychozen/trioctagon-physics/blob/26a3f666c3082144e37fa08b752d5221053dd3bc/SRG_REDISCOVERY/PAPERS/SRG_I_FOUNDATIONAL_RECONSTRUCTION/publication/v0.1.1/sources/P07_Recursive_Numerical_Operators.pdf).
+
+### P08 — Recursive Symbolic Evolution and Feedback Dynamics in Python (three-page version)
+
+Hilmir Frímann Halldórsson; source AI credits retained in the original. 29 June 2025. Cited locations: p.1 §2.1. [Read this source](https://zenodo.org/records/15770001/files/Recursive%20Symbolic%20Evolution%201.pdf).
+
+### P09 — Recursive Symbolic Evolution and Feedback Dynamics in Python (seven-page version)
+
+Hilmir Frímann Halldórsson; source AI credits retained in the original. 29 June 2025. Cited locations: pp.1–7, comparison. [Read this source](https://zenodo.org/records/15770001/files/Recursive%20Symbolic%20Evolution%20and%20Feedback%20Dynamics%20in%20python.pdf).
+
+### P11 — Why the Toroidal Laplacian Failed: A Structural Explanation
+
+Author not printed on the inspected opening page; surviving project manuscript. Undated. Cited locations: pp.1–2. [Read this source](https://zenodo.org/records/15770001/files/Toroidal%20Laplacian%20Failure.pdf).
+
+### P13 — Unified Recursive Cosmological Model Memo
+
+Author not printed on the inspected opening page; surviving project manuscript. Undated cover. Cited locations: p.5 master operator. [Read this source](https://zenodo.org/records/15770001/files/Unified%20Recursive%20Cosmological%20Model.pdf).
+
+### P18 — Symbolic Resonant Geometry: Recursive Field Dynamics, the Golden Frequency Tower, and the Breathing Compression Field
+
+pzychozen; source also credits Claude. 14 March 2026. Cited locations: p.4 Eq.(2); p.5 Eq.(6); p.7 Eqs.(10),(12). [Read this source](https://zenodo.org/records/19023429/files/SRG_paper.pdf).
+
+### P19 — Unified Recursive Fields: Geometry, Recursion, and Consciousness
+
+Hilmir Frímann Halldórsson; source AI credits retained in the original. 6 September 2025. Cited locations: pp.8,12–13. [Read this source](https://zenodo.org/records/17068563/files/URF_core.pdf).
+
+### JANUARY — An Experimental Framework for Exploring Recursive Numerical Operators: TGMO, RPCO, and REFU as a Reproducible Computational Laboratory
+
+Hilmir Frímann Halldórsson; source AI credits retained in the original. 25 January 2026. Cited locations: pp.2–3; exact companion source versions below. [Read this source](https://zenodo.org/records/18285147/files/refu__rpco__tgmo.pdf).
+
+### RAINMAN — Rainman
+
+Hilmir Frímann Halldórsson; source AI credits retained in the original. 22 July 2025. Cited locations: pp.3–4,18,20–24. Author-supplied copy; no verified public URL. Relevant equations and counterexamples are stated in this paper.
+
+### Program families and accepted analyses
+
+[July reconstructed operators](https://zenodo.org/records/17253999): TGMO.py samples a minor circle, REFU.py supplies H, RPCO.py samples a damped phase field, and recursive_field_evolve.py evolves positions. The exact standalone files are also linked individually in SOURCE_INDEX.md.
+
+[January fixed-grid sources](https://zenodo.org/records/18285147): tgmo.py, refu.py and app.py, exact versions identified in SOURCE_INDEX.md. All January code locators refer to this version, not a later app revision.
+
+[March source and saved-output archive](https://zenodo.org/records/19023429): simulations.zip, with Seed Explorer, Infinity, Condensate Breaking, Golden Tower, Tower II, resonance-lock analysis, its saved JSON and master-equation CSV. Cited line numbers use the exact members hashed in SOURCE_INDEX.md. No program from this archive was run for this edition.
+
+DieGlocke_Sim_Core.py and DieGlocke_Run.py are separate author-supplied files with no verified public URL. SOURCE_INDEX.md records their exact identities; the relevant ratio and data-flow distinction are explicit in §6.4.
+
+[SRG-I: Foundational Reconstruction, v0.1.1](https://github.com/pzychozen/trioctagon-physics/blob/26a3f666c3082144e37fa08b752d5221053dd3bc/SRG_REDISCOVERY/PAPERS/SRG_I_FOUNDATIONAL_RECONSTRUCTION/publication/v0.1.1/README.md): internally accepted companion on the original implicit recursion and its unresolved definitions. Use §3.2 (pp.4–6), §5.3 (p.9) and §6.4 (pp.12–13) for this paper’s three precise cross-references.
+
+F01 = Foundations-01; OC01 = Operator Composition 01; OC02 = Signed Plateaus and Capture Sets; R0–R3 = the closed Tower II audit. These internal records and the October Geometry–Zeta note are background analyses identified by hash in SOURCE_INDEX.md. The current paper reproduces its central proofs instead of requiring access to those private records.
+
+### Classical references
+
+[NIST DLMF §25.12](https://dlmf.nist.gov/25.12), Polylogarithms; [§25.6](https://dlmf.nist.gov/25.6), Integer Arguments of the Riemann Zeta Function.
+
+Lubomir Markov, [Hjortnaes Integrals Involving the Di- and Trilogarithms](https://www.diogenes.bg/ijam/contents/2024-37-3/2/2.pdf), International Journal of Applied Mathematics 37(3), 305–310 (2024), DOI 10.12732/ijam.v37i3.2; especially pp.305–308, Eqs.(2),(3),(8),(11).
