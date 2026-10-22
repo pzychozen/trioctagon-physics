@@ -1,0 +1,254 @@
+\chapter{Simulation 01: three interacting points}\label{ch:s01}
+\plain{Three points start at different random locations, at rest. Each point
+responds to the other two, adds that response to its retained velocity,
+damps the result, and moves. The points take turns. Only after all 500 rounds
+does the program draw their complete trails. The trail is a record, not an
+extra moving object or a route the points consult.}
+
+\section{Entities, initialization and retained state}
+The complete 74-line \filepath{recursive_attractor.py} imports NumPy and
+Matplotlib, defines three helpers, performs the whole numerical loop at
+module level, then makes a static plot. There is no main guard or animation
+callback. Importing the file would execute the simulation; no such import
+was made for this volume. \src{S01}{1--74}; \cite{construction01}.
+\claim{C09}
+
+There are three position vectors $x_i\in[-1,1)^2$ and three velocity vectors
+$v_i\in\mathbb R^2$, giving twelve real-valued state entries. The source
+initializes six coordinates by \filepath{np.random.rand(3,2)*2-1},
+with no seed statement, and sets all six velocity entries to zero.
+It sets $N=3$, $\Delta t=0.05$ and 500 sweeps.
+There are no masses, radii, collision surfaces, binary modes or permanent
+leader/follower assignments. The legend later labels array indices $0,1,2$
+as Attractors $1,2,3$. \src{S01}{5--14,66--71}. \claim{C10}
+
+The current arrays carry state between sweeps. The initially empty
+\filepath{position_log} stores observations for drawing. Neither that log
+nor its earlier entries are read by the movement rule. A point's velocity
+therefore retains consequences of previous interactions, but the program
+does not contain an explicit remembered itinerary.
+\src{S01}{14,38--62}. \claim{C11}
+
+\section{The exact operators}
+The source's function H is
+\begin{equation}\label{eq:H}
+H(t)=2e^{-0.5t}\cos t+e^{-0.3t}\sin t
+      +1.5e^{-0.7t}+e^{-0.4t}.
+\end{equation}
+Its four amplitude/decay pairs are $(2,0.5)$, $(1,0.3)$, $(1.5,0.7)$
+and $(1,0.4)$. It depends only on its time argument. The name “REFU memory
+curve” in the source comment does not add a dependence on recorded
+positions. \src{S01}{16--27}. \claim{C12}
+
+Define componentwise wrapping and damping by
+\begin{align}
+\W_2(z)&=((z+1)\bmod 2)-1,\label{eq:W2}\\
+\R(u)_a&=\frac{u_a}{1+\log(1+|u_a|)}.\label{eq:RPCO}
+\end{align}
+Equation~\eqref{eq:W2} is TGMO, used both on relative displacements and on
+new positions. Its range is half-open; an exact half-period tie selects
+$-1$ in that coordinate. Equation~\eqref{eq:RPCO} acts separately on
+components, not on the Euclidean norm of a whole vector.
+\src{S01}{29--35}. \claim{C13}
+
+For one sweep $n$, let $x_i^n,v_i^n$ denote the incoming state and
+$x_i^{n+1},v_i^{n+1}$ the values after body $i$ has been updated. Before
+updating body $i$, define the actually available positions
+\begin{equation}\label{eq:mixed01}
+\widetilde x_j^{\,n,i}=
+\begin{cases}
+x_j^{n+1}, &j<i,\\
+x_j^n, &j\geq i.
+\end{cases}
+\end{equation}
+For $i=0,1,2$ in that order, the exact mathematical transcription is
+\begin{align}
+t_n&=0.05n,\qquad h_n=H(t_n),\label{eq:clock01}\\
+d_{ij}^{\,n,i}&=\W_2(\widetilde x_j^{\,n,i}-x_i^n),\qquad j\ne i,\label{eq:pairdiff}\\
+F_i^{\,n}&=\sum_{j\ne i}
+ \frac{d_{ij}^{\,n,i}}{\|d_{ij}^{\,n,i}\|_2+0.001},\label{eq:pairforce}\\
+u_i^{\,n}&=v_i^n+0.05h_nF_i^{\,n},\label{eq:kick01}\\
+v_i^{n+1}&=\R(u_i^{\,n}),\qquad
+x_i^{n+1}=\W_2(x_i^n+0.05v_i^{n+1}).\label{eq:move01}
+\end{align}
+The shared $h_n$ is evaluated once per sweep. The regularizer is added
+\emph{after} taking the norm; it is not a squared-distance softening.
+At coincidence the corresponding displacement contribution is zero.
+No inverse-square law, potential or physical unit is supplied by these
+expressions. \src{S01}{38--56}. \claim{C14}
+
+\section{One sweep in execution order}
+At the beginning of a sweep, the source creates an empty
+\filepath{new_positions} list. For each body it resets a two-component
+interaction sum, visits the other indices, skips itself, wraps each
+difference and adds its regularized direction. It then performs
+velocity addition, componentwise damping and position wrapping, and appends
+a \emph{copy} of the resulting position. \src{S01}{42--57}.
+
+\begin{table}[htbp]\centering
+\caption{Position dependencies during one S01 sweep. A common clock does
+not imply simultaneous numerical updates.}\label{tab:order01}
+\begin{tabular}{@{}lll@{}}\toprule
+Body updated & First other position & Second other position\\\midrule
+0 & Old body 1 & Old body 2\\
+1 & New body 0 & Old body 2\\
+2 & New body 0 & New body 1\\\bottomrule
+\end{tabular}
+\end{table}
+
+The list is an observation buffer, not an array of proposals committed
+simultaneously. Earlier mutations are already visible to later bodies.
+After the third move, the three copied positions form an end-of-sweep
+snapshot because later bodies do not overwrite earlier rows.
+The final log has shape $(500,3,2)$ and excludes the initializer.
+It stores neither velocities nor within-sweep comparisons.
+\src{S01}{43--62}. \claim{C15}
+
+The first stored state was produced with $t=0$; the last with $t=24.95$.
+Counting 500 multipliers of $0.05$ gives 25 model-step units, but no
+physical-time calibration. The program stops because its loop ends, not
+because it detects equilibrium. A zero initial velocity is not restored
+after each sweep. \src{S01}{5--11,38--59}. \claim{C16}
+
+\section{What the historical drawing establishes}
+After simulation, one plot call per body connects its 500 recorded positions
+into 499 line segments. The script supplies title, legend, grid, equal
+axis scaling and a final \filepath{plt.show()}. It supplies no
+\filepath{savefig}, CSV export, movie writer, temporal arrows or
+initial-state marker. The saving method for the surviving
+\filepath{attractors.png} is missing. \src{S01}{64--74}. \claim{C17}
+
+Figure~\ref{fig:F01} is the original attributed image. Its exact title
+and three traces match the source construction. Closely aligned upper
+curves, separate turns and long near-vertical central connections are
+visible. Those features do not disclose the order in which the points
+visited a location. Since wrapped samples are connected directly,
+the source permits a seam crossing to produce a long flat-plot connector.
+Without the generating numerical log, that is an explanation the source
+permits, not a certified diagnosis of each line in the old PNG.
+\cite{construction01} \claim{C18}
+\EvidenceFig{F01}
+
+The plotted line is also a discrete drawing convention. It is not a
+continuous-time solution supplied by the code. Neither overlapping
+segments nor the apparent merging of colors proves simultaneous
+occupancy, exact coincidence, a bound pair or route inheritance.
+The original seed and ordered history were not recovered in the bounded
+construction study. That negative recovery result does not prove no
+such evidence exists elsewhere. \claim{C19}
+
+\section{The separately accepted seed-0 reproduction}
+The subsequent replay study was explicitly authorized as one new
+500-sweep configuration using legacy NumPy seed~0. Its initializer is
+shown in Table~\ref{tab:init01}. The historical rules, zero velocities,
+arithmetic order, clock and wrapping were preserved. The accepted
+environment was Python~3.11.15, NumPy~2.4.4, Matplotlib~3.10.9 and
+float64 arrays, with Agg rendering. \cite{replay01} \claim{C20}
+
+\begin{table}[htbp]\centering\small
+\caption{The reproduced initializer, not the missing historical initializer.
+All initial velocities are $(0,0)$. Full floating-point values and hexadecimal
+representations remain in replay/initial\_state.json.}\label{tab:init01}
+\begin{tabular}{@{}lrr@{}}\toprule
+Body & X & Y\\\midrule
+0 &0.0976270078546495&0.43037873274483895\\
+1 &0.20552675214328775&0.08976636599379373\\
+2 &$-0.15269040132219058$&0.29178822613331223\\\bottomrule
+\end{tabular}
+\end{table}
+
+The accepted harness recorded 501 sweep-boundary states including $S_0$,
+1,500 ordered point events, incoming and outgoing velocities, comparisons,
+native increments and integer wrap shifts. A single same-seed reference
+execution of the unchanged copied source supplied a fidelity comparison:
+all 3,000 logged position components and six final velocity components
+matched bit for bit. Intermediate reference velocities were not compared
+at every sweep. The present volume reads that receipt; it performs
+neither execution again. \claim{C21}
+
+Figure~\ref{fig:F02} is therefore labelled reproduced, not original.
+Its long shared diagonal belongs to this known seed. The very different
+historical picture in Figure~\ref{fig:F01} cannot be assigned this
+initializer or chronology. \claim{C22}
+\EvidenceFig{F02}
+
+\subsection{The opening updates}
+The first inspection window was fixed as events 1--9, the first three
+sweeps. In event~1, body~0 moves by approximately
+$(-0.005728,-0.012602)$. Body~1 then sees its changed coordinates and
+moves by approximately $(-0.010860,+0.012595)$. Body~2 sees both updated
+positions and moves by approximately $(+0.014857,-0.000239)$.
+These are saved records, not new calculations for this manuscript.
+Figure~\ref{fig:F03} makes the ordered dependence visible.
+\cite{replay01}, within\_sweep.jsonl lines 1--9. \claim{C23}
+
+For body~0's first update, the accepted record gives approximately
+\[
+\begin{aligned}
+F_0&=(-0.570665,-1.433338),\\
+u_0&=(-0.128400,-0.322501),\\
+v_0^+&=(-0.114561,-0.252047).
+\end{aligned}
+\]
+The damped result is the next incoming velocity.
+All three points move in the opening sweep of this reproduction;
+this observation is not a general theorem excluding small-motion
+waiting under every initializer. \claim{C24}
+\EvidenceFig{F03}
+
+\subsection{Near-contact and subsequent separation}
+The accepted replay selected the smallest simultaneous periodic
+separation among the 500 recorded end-of-sweep states and three unordered
+pairs, with a declared tie rule. It selected bodies~1 and~2 at $S_{169}$.
+The inspected events are 502--510, with the preceding state at event~501.
+The central sweep uses source step~168, $t=8.4$ and
+$H(t)\simeq0.09211406$. \claim{C25}
+
+\begin{table}[htbp]\centering
+\caption{A finite reproduced near-contact. Distances are in coordinate
+units at recorded sweep boundaries, not interpolated continuous minima.
+Source: replay/observation\_summary.json and within\_sweep.jsonl events
+504,507,510.}\label{tab:near 01}
+\begin{tabular}{@{}lrr@{}}\toprule
+State & Completing event & Distance between bodies 1 and 2\\\midrule
+$S_{168}$ &504&0.001496078692\\
+$S_{169}$ &507&0.0000442435133\\
+$S_{170}$ &510&0.001583353616\\\bottomrule
+\end{tabular}
+\end{table}
+
+At the central sweep, body~0's interaction points up-right but its
+outgoing velocity remains approximately $(-0.040387,-0.040422)$.
+Bodies~1 and~2 have down-left interaction sums while their outgoing
+velocities remain approximately $(0.008924,0.008872)$ and
+$(0.030815,0.030547)$. Carried velocities explain why the instantaneous
+interaction direction does not identify the movement direction.
+The two nearly overlapping markers conceal distinct coordinates and
+velocities; the next sweep separates them again.
+\cite{replay01}, events 505--507 and 510. \claim{C26}
+\EvidenceFig{F04}
+
+This is a measured near-contact in one reproduced chronology. It is not
+exact coincidence, a proven continuous collision, or a delayed
+leader--pair route-following episode. The point moving the other way
+along the same diagonal demonstrates why a completed line picture is
+insufficient for that interpretation. \claim{C27}
+
+\subsection{The complete finite record}
+The accepted record has no position seam crossings in 1,500 point
+updates and no nonzero wrap shift in 3,000 interaction comparisons.
+The wrapping operators still execute. The largest native increment is
+about 0.03456666287 at event~20, body~1 in source step~6.
+The ordinary and seam-aware paths therefore have the same curves for
+this initializer. This absence is not a property proved for every
+execution of S01. \claim{C28}
+
+Figure~\ref{fig:F05} shows repeated approach and separation together with
+smaller later increments. All final velocities at $S_{500}$ remain
+nonzero. The accepted record also contains seven sign changes of its
+sampled H values; no ablation was performed to assign a full episode
+to H alone. Finite slowing does not establish eventual convergence.
+\cite{replay01}, observation\_summary.json and record\_checks.json.
+\claim{C29}
+\EvidenceFig{F05}
+\FloatBarrier

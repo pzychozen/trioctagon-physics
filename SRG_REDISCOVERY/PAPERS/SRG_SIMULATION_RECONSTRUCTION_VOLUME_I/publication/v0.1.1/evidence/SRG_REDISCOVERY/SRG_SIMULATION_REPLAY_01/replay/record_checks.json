@@ -1,0 +1,51 @@
+{
+  "label": "NEW REPLAY",
+  "method": "Saved-record consistency only, no additional trajectory execution.",
+  "checks": {
+    "501_states_and_1500_events": true,
+    "saved_reference_positions_bitwise_equal": true,
+    "saved_reference_final_velocities_bitwise_equal": true,
+    "all_event_inputs_and_outputs_contiguous": true,
+    "all_end_sweep_records_match_event_records": true,
+    "csv_row_count": true,
+    "csv_roundtrips_every_recorded_float": true,
+    "selected_events_are_native_order_exact_copies": true,
+    "no_position_wraps": true,
+    "no_force_wraps": true,
+    "all_recorded_values_finite": true,
+    "optional_viewer_contains_exact_saved_records": true,
+    "optional_viewer_event_targets_match_summary": true
+  },
+  "closest_window_end_distances": [
+    {
+      "state_index": 168,
+      "step": 167,
+      "event_id": 504,
+      "P1_P2_distance": 0.0014960786921470969
+    },
+    {
+      "state_index": 169,
+      "step": 168,
+      "event_id": 507,
+      "P1_P2_distance": 4.424351327869298e-05
+    },
+    {
+      "state_index": 170,
+      "step": 169,
+      "event_id": 510,
+      "P1_P2_distance": 0.0015833536160262435
+    }
+  ],
+  "visual_inspection": {
+    "PNGs": [
+      "wrapped_paths.png",
+      "seam_aware_paths.png",
+      "opening_sequence.png",
+      "closest_pair_sequence.png",
+      "movement_over_time.png"
+    ],
+    "contact_sheet_reading": "Rows top to bottom, columns left to right; all represented event states inspected.",
+    "html_browser_playback_validated": false,
+    "html_preview_limitation": "Browser URL policy rejected file:// preview. No alternate-surface or server workaround used. Embedded data and source were checked; primary evidence is the inspected PNG sequences."
+  }
+}

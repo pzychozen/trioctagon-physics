@@ -1,0 +1,183 @@
+{
+  "task": "SRG_SIMULATION_CONSTRUCTION_01",
+  "date": "2026-10-22",
+  "scope": "Inspection and explanation of one existing simulation. Complete source read; original static image directly examined. No historical script import/execution, trajectory generation, reproduction, theorem extension or new archive inventory.",
+  "review_directory": "C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_01",
+  "archive_name": "SRG_SIMULATION_CONSTRUCTION_01_REVIEW.zip",
+  "package_files": [
+    {
+      "path": "START_HERE.md",
+      "bytes": 3501,
+      "sha256": "4a03f2df7ba19dce4a4d0005b1313ed6eef5f1fa1666e9eb3c0b52dcf17674dd"
+    },
+    {
+      "path": "CONSTRUCTION_WALKTHROUGH.md",
+      "bytes": 18570,
+      "sha256": "1476e813f8d4231986030a6e6edc39774fd9ea6ad63d056c0f13e236c53c9e1e"
+    },
+    {
+      "path": "source/recursive_attractor.py",
+      "bytes": 2074,
+      "sha256": "847819ec381e200d9008395175342ec138e52ab3180a4f599b4db1cb91ae42d3"
+    },
+    {
+      "path": "evidence/attractors.png",
+      "bytes": 49967,
+      "sha256": "72776de5e6228f4c4a0e2ef43d804f479bf8db80af6884e492e9ccbc3053d651"
+    }
+  ],
+  "manifest_self_hash": "Excluded to avoid self-reference. Archive contents are checked against live package bytes after creation.",
+  "archive_self_inclusion": false,
+  "selected_originals": [
+    {
+      "original_path": "C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/SRG_REDISCOVERY/OLD_MATERIAL/Simulations_Trash/Simulations_part_2/recursive_attractor.py",
+      "copy_path": "source/recursive_attractor.py",
+      "bytes": 2074,
+      "sha256": "847819ec381e200d9008395175342ec138e52ab3180a4f599b4db1cb91ae42d3",
+      "copy_byte_identical": true,
+      "inspection": "Complete lines 1-74 read as text, including recording and rendering; not imported or executed.",
+      "local_source_dependencies": [],
+      "external_imports": [
+        "numpy",
+        "matplotlib.pyplot"
+      ],
+      "explicit_file_inputs": [],
+      "explicit_file_exports": [],
+      "top_level_execution": "Initialization, all 500 sequential update sweeps, recording and plt.show would execute at import; no main guard."
+    },
+    {
+      "original_path": "C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/SRG_REDISCOVERY/OLD_MATERIAL/Simulations_Trash/Simulations_part_2/attractors.png",
+      "copy_path": "evidence/attractors.png",
+      "bytes": 49967,
+      "sha256": "72776de5e6228f4c4a0e2ef43d804f479bf8db80af6884e492e9ccbc3053d651",
+      "copy_byte_identical": true,
+      "width_px": 800,
+      "height_px": 800,
+      "bit_depth": 8,
+      "png_color_type": 6,
+      "inspection": "Original image opened and visually examined at original resolution via view_image. Dimensions also read from the PNG header. No derivative crop, enhancement or regenerated plot.",
+      "visible_content": [
+        "Matching source title and three labeled blue/orange/green traces",
+        "Closely aligned sections, central near-vertical lines and curved turns",
+        "X/Y labels, grid and legend",
+        "No timestamps, direction arrows, marked start/end positions or motion"
+      ],
+      "caption_location": "START_HERE.md and CONSTRUCTION_WALKTHROUGH.md section F"
+    }
+  ],
+  "evidence_relationships": [
+    {
+      "source": "source/recursive_attractor.py",
+      "evidence": "evidence/attractors.png",
+      "status": "likely association; exact generating run unknown",
+      "support": [
+        "Same original directory",
+        "Image title matches source line 68",
+        "Three trace labels match source lines 66-71",
+        "Axes, grid and static line rendering are consistent with source lines 65-74"
+      ],
+      "unknowns": [
+        "Original initial positions or RNG state",
+        "Ordered position log for the depicted run",
+        "Exact runtime and rendering configuration",
+        "How and by whom the PNG was saved"
+      ],
+      "limits": "Title and appearance do not authenticate a specific execution. No savefig or trajectory export exists in the selected script."
+    }
+  ],
+  "bounded_record_lookup": {
+    "authentic_time_resolved_record_for_selected_script": "not found in consulted records; not a universal absence claim",
+    "associated_video": null,
+    "associated_saved_trajectory_log": null,
+    "video_frames_inspected": 0,
+    "video_playback_performed": false,
+    "trajectory_rows_newly_inspected": 0,
+    "references": [
+      {
+        "path": "C:/TORMENT/TRIOCTAGON_new/research/SRG_PATH_INHERITANCE_RECOVERY_01/SRG_PATH_HISTORICAL_EVIDENCE.md",
+        "locator": "H1, line 19",
+        "use": "Prior source/image locator; reports no located three-point log or seed."
+      },
+      {
+        "path": "C:/TORMENT/TRIOCTAGON_new/research/SRG_PATH_INHERITANCE_RECOVERY_01/SRG_PATH_EQUATION_MAP.md",
+        "locator": "E1",
+        "use": "Source locator and state/update summary, checked against the actual complete script."
+      },
+      {
+        "path": "C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/SRG_REDISCOVERY/R0_SOURCE_RECOVERY/source_manifest.json",
+        "locator": "Selected PNG entry at line 1017; script entry at line 1031; indexed media entries",
+        "use": "Existing selected-source identities and media-provenance check. No supported video linkage to this selected program."
+      },
+      {
+        "path": "C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/SRG_REDISCOVERY/R0_SOURCE_RECOVERY/script_inventory.json",
+        "locator": "recursive_attractor.py entry at line 556",
+        "use": "Existing 74-line source/import/function index."
+      },
+      {
+        "path": "C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/SRG_REDISCOVERY/R0_SOURCE_RECOVERY/data_inventory.json",
+        "locator": "Three entries under Simulations_Trash/Simulations_part_2/",
+        "use": "Same-folder text records have t/H(t), X/Y/Field and X/Y/Z schemas, not an indexed three-point position_log. Their data were not substituted for trajectories."
+      },
+      {
+        "path": "C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/SRG_REDISCOVERY/R0_SOURCE_RECOVERY/SRG_R0_REPORT.md",
+        "locator": "Section 5.1",
+        "use": "Existing recorded trajectory linkages concern other models; no reassignment to this script."
+      }
+    ],
+    "same_folder_indexed_records_not_attributed_to_this_run": [
+      "refu_memory_curve.txt",
+      "rpco_field_values.txt",
+      "tgmo_orbit_values.txt"
+    ],
+    "exclusions": "Other indexed videos and eight-body/later-model logs were not copied, played or presented as this program's output."
+  },
+  "historical_limits": {
+    "earliest_SRG_program": "not established",
+    "identity_with_recalled_program": "not established",
+    "development_chronology": "not established beyond the code's execution order",
+    "original_intention": "Only the actual source comments and plot title are available here; no creation story inferred from filesystem dates."
+  },
+  "preservation": {
+    "destination_preexisted": false,
+    "protected_inputs": [
+      {
+        "path": "C:/Users/Notandi/Downloads/SRG_SIMULATION_CONSTRUCTION_01_CODEX_WORK_ORDER.md",
+        "sha256": "e47f4a06c2a65f7a2a619c06fca6a89102ef70630e8520ce401ce4bb3cff9641",
+        "unchanged": true
+      },
+      {
+        "path": "C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/SRG_REDISCOVERY/OLD_MATERIAL/Simulations_Trash/Simulations_part_2/recursive_attractor.py",
+        "sha256": "847819ec381e200d9008395175342ec138e52ab3180a4f599b4db1cb91ae42d3",
+        "unchanged": true
+      },
+      {
+        "path": "C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/SRG_REDISCOVERY/OLD_MATERIAL/Simulations_Trash/Simulations_part_2/attractors.png",
+        "sha256": "72776de5e6228f4c4a0e2ef43d804f479bf8db80af6884e492e9ccbc3053d651",
+        "unchanged": true
+      },
+      {
+        "path": "C:/TORMENT/TRIOCTAGON_new/research/SRG_PATH_INHERITANCE_RECOVERY_01/SRG_PATH_HISTORICAL_EVIDENCE.md",
+        "sha256": "b3c820ad46216fc5b6e2498098fb5771d42d721743cb1954ecff4efbcde82455",
+        "unchanged": true
+      },
+      {
+        "path": "C:/TORMENT/TRIOCTAGON_new/research/SRG_PATH_INHERITANCE_RECOVERY_01/SRG_PATH_EQUATION_MAP.md",
+        "sha256": "c6ca26bf18855d1a8690e0b9f3b0bc70b1143ade911f9c444d338af321c7b100",
+        "unchanged": true
+      }
+    ],
+    "git_head_before": "170e638ecc0438f911c4ceb8091ffb1b574652fe",
+    "git_head_after": "170e638ecc0438f911c4ceb8091ffb1b574652fe",
+    "git_index_sha256_before": "ff88a675346bdf5aba858329039f400af037fceea1eaa6334586d681c4dbfb4f",
+    "git_index_sha256_after": "ff88a675346bdf5aba858329039f400af037fceea1eaa6334586d681c4dbfb4f",
+    "preexisting_status_entries_before": 215,
+    "preexisting_status_entries_after": 215,
+    "preexisting_status_entries_identical": true,
+    "preexisting_status_sha256": "3981db72a5ac6a659b96f433a00bbc90632b2af3ad6aa4875075ec9ee531f820",
+    "status_digest_encoding": "UTF-8 porcelain-v1 --untracked-files=normal lines joined with LF and no trailing LF; exclude only the new task directory.",
+    "only_new_status_entry": "?? SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_01/",
+    "local_markdown_links_checked": 17,
+    "modification_scope": "Only the new task directory. Historical source/image and consulted recovery documents preserved; no kernel, accepted manuscript, prior proof package, index, commit, push or publication changes."
+  },
+  "stop_point": "One source-to-display construction explained. Missing evidence item: original ordered position_log belonging to attractors.png. No reproduction or next task started."
+}

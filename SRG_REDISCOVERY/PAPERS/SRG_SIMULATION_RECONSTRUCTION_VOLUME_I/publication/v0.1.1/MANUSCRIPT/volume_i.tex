@@ -1,0 +1,152 @@
+\documentclass[11pt,a4paper,oneside]{report}
+\usepackage[margin=25mm,headheight=15pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{texgyrepagella}[Extension=.otf,UprightFont=*-regular,
+ BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\setsansfont{texgyreheros}[Extension=.otf,UprightFont=*-regular,
+ BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\setmonofont{lmmono10-regular.otf}[Scale=0.86]
+\usepackage{amsmath,amssymb,graphicx,booktabs,longtable,tabularx,array}
+\usepackage{caption,enumitem,xcolor,fancyhdr,placeins}
+\usepackage[unicode,colorlinks=true,linkcolor=blue!40!black,citecolor=blue!40!black,urlcolor=blue!40!black]{hyperref}
+\usepackage{xurl}
+\usepackage{microtype}
+\definecolor{ink}{HTML}{173849}
+\definecolor{pale}{HTML}{EFF4F5}
+\hypersetup{pdftitle={SRG Simulation Reconstruction — Volume I},
+ pdfauthor={Hilmir Frímann Halldórsson; scientific lead GPT; research engineering and manuscript preparation Codex},
+ pdfsubject={Accepted edition v0.1.1: Three-Point Attraction and Eight-Body Tetrahedral Dynamics}}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0.2em}
+\setlength{\emergencystretch}{2em}
+\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{2}
+\captionsetup{font=small,labelfont=bf,width=\linewidth,justification=raggedright,singlelinecheck=false}
+\setlist[itemize]{noitemsep,topsep=4pt,leftmargin=1.4em}
+\setlist[enumerate]{itemsep=3pt,topsep=4pt,leftmargin=1.8em}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small SRG Simulation Reconstruction}
+\fancyhead[R]{\small Volume I \;|\; v0.1.1}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\src}[2]{\textsf{#1}, lines #2}
+\newcommand{\claim}[1]{\textsf{\scriptsize [#1]}}
+\newcommand{\class}[1]{\textsf{\small #1}}
+\newcommand{\R}{\mathcal R}
+\newcommand{\W}{\mathcal W}
+\newcommand{\D}{\mathcal D}
+\newcommand{\plain}[1]{\par\medskip\noindent\fcolorbox{ink!25}{pale}{\begin{minipage}{0.94\linewidth}\small\textbf{In ordinary language.} #1\end{minipage}}\par\medskip}
+\newcommand{\EvidenceFig}[1]{\input{figures/#1.tex}}
+\newcommand{\filepath}[1]{\nolinkurl{#1}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\color{ink}
+\vspace*{18mm}
+{\sffamily\large SRG SIMULATION RECONSTRUCTION\par}
+\vspace{9mm}
+{\Huge\bfseries Volume I\par}
+\vspace{6mm}
+{\LARGE Three-Point Attraction and\\[2mm] Eight-Body Tetrahedral Dynamics\par}
+\vspace{13mm}
+{\large Historical construction, mathematical transcription\\and evidence-led experimental reconstruction\par}
+\vspace{18mm}
+{\large Hilmir Frímann Halldórsson\par}
+\vspace{3mm}
+Scientific lead: GPT\\
+Research engineering and manuscript preparation: Codex
+\vfill
+{\sffamily\bfseries ACCEPTED SCIENTIFIC AND EDITORIAL EDITION\par}
+\vspace{3mm}
+Edition v0.1.1 \quad 22 October 2026\par
+\vspace{6mm}
+\begin{minipage}{0.9\linewidth}\small
+Prepared from three accepted simulation studies and their preserved evidence.
+No new simulation, scientific checker run, physical assumption or change to the
+historical equations was made for this volume. GPT accepted the scientific content
+and closed editorial review. This edition prepares the accepted manuscript
+for repository publication.
+\end{minipage}
+\end{titlepage}
+\pagenumbering{roman}
+\hypersetup{pageanchor=true}
+\chapter*{Reader's orientation}
+\addcontentsline{toc}{chapter}{Reader's orientation}
+Hilmir, these programs begin with a small number of positions and velocities.
+Their shapes and trails are ways of showing those values. The most useful
+reconstruction therefore follows two histories at once: what the arrays do,
+and what the recording and drawing code lets us see.
+
+The first program moves three points using their pairwise directions. Its
+surviving historical picture is a completed drawing, not a movie. A separately
+authorized seed-0 reproduction supplies a detailed chronology: two points
+nearly meet and then separate, while another moves in the opposite direction
+along much the same visible diagonal. The reproduction clarifies how this rule
+can make overlapping trails, but does not recover the lost run behind the old
+picture.
+
+The second program moves eight centers in three dimensions toward a
+sequentially recalculated group average. Each center is decorated with a fixed
+tetrahedron. Its movie survives, but its numerical history does not. We can
+describe specific visible relocations and explain the source mechanisms that
+permit them without inventing unseen coordinates.
+
+The third program retains that centroid construction and adds a binary response
+switch. Its two original logs reveal what the movie alone cannot: a switch can
+first slow a center before reversing its movement; frame labels can restart
+while the numerical state continues; and a large displayed coordinate jump
+can accompany a small native step. Its “teleport” diagnostic has a modulo
+defect that flags many ordinary negative coordinate changes.
+
+This volume connects those findings to exact source statements, equations,
+rows and images. It preserves unresolved provenance, including the strong but
+formally unlinked correspondence between the third movie and its shorter log.
+It completes a first volume of reconstruction, not the wider SRG project.
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+We reconstruct three historical SRG moving-center programs:
+\filepath{recursive_attractor.py}, \filepath{3Dtriangles.py}, and
+\filepath{plot_1.py}. The account integrates complete source construction,
+accepted inspection records, attributed historical graphics and movies, one
+previously authorized fixed-seed reproduction, and original eight-body CSV
+evidence. Exact transcriptions preserve sequential update order, wrapped
+coordinates, carried velocities, a prescribed damped oscillatory gain,
+componentwise logarithmic damping, and, where present, a mean-speed response
+factor and stochastic binary interaction sign.
+
+The three-point reproduction establishes a finite near-contact followed by
+separation, not a recovered historical path-inheritance episode. The
+no-switch tetrahedral movie supports visible relocation and slower late
+movement, while lacking the numerical record required for exact displacement
+claims. The switching program's logs contain 1,092 and 440 eight-body callback
+blocks despite 200 nominal movie labels. They preserve repeated labels and
+state continuity through clock resets. At checkable transitions, native
+increments remain below 0.062 coordinate units; actual coordinate seam events
+number 22 and 7, whereas the source diagnostic would flag 8,151 and 3,129 body
+events. The signed contribution can change before velocity reverses.
+
+We derive the source-level drive--damping bookkeeping identity for the recorded
+kinetic quantity and distinguish it from physical energy conservation. The
+central conclusion is methodological and mathematical: update ordering,
+retained state, clock semantics and measurement conventions are necessary to
+interpret apparent collective behavior. Source-associated media, reproduced
+data, derived identities and unresolved interpretations remain separate.
+
+\tableofcontents
+\listoffigures
+\clearpage
+\pagenumbering{arabic}
+\input{sections/01_scope.tex}
+\input{sections/02_three_points.tex}
+\input{sections/03_centroid.tex}
+\input{sections/04_switching.tex}
+\input{sections/05_synthesis.tex}
+\input{sections/06_agenda.tex}
+\appendix
+\input{sections/07_provenance.tex}
+\input{sections/08_reproducibility.tex}
+\input{references.tex}
+\end{document}

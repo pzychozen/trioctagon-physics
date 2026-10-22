@@ -1,0 +1,115 @@
+\chapter{Inspection references and review reproducibility}\label{app:repro}
+\section{What can be inspected without another experiment}
+The accepted packages contain the evidence required to audit this
+account without advancing a simulated state. S01's source and original
+image establish its construction and historical display. Its replay
+package supplies initial state, run specification, complete state
+records, selected event windows, fidelity receipt and saved-record
+checks. The replay harness is preserved for provenance, but this
+volume does not instruct its execution.
+
+S02's package contains the unaltered movie, selected full-resolution
+frames, inspection sheets, metadata, frame-count receipt and
+Matplotlib source excerpts. S03 adds the two complete original
+logs, callback tables, switch/wrap event tables, pair minima,
+sampled equation residuals, independent-check receipt, episode
+records and content-correspondence results. Its inspection
+scripts are references for how the accepted results were obtained;
+they were not rerun during manuscript preparation.
+
+\begin{table}[htbp]\centering\small
+\caption{Verification coverage retained from the accepted studies.
+The present volume performs editorial and preservation checks only.}
+\label{tab:verification}
+\begin{tabularx}{\linewidth}{@{}l Y Y@{}}\toprule
+Evidence & Accepted check & Important limit\\\midrule
+S01 reproduction &500 position snapshots and final velocities bitwise
+equal to unchanged copied-source execution &No lost historical-run recovery;
+intermediate reference velocities not compared at every sweep\\
+S02 movie &All 2,000 frames decoded; selected sheets/stills visually inspected
+&No full numeric trajectory; no certified native displacement from pixels\\
+S03 logs &All energy, position and GRF relations; 31 sampled full velocity
+transitions; independent 20 R0 samples &No first pre-log state; missing RNG draws;
+not every velocity equation audited\\
+S03 movie/log candidate &All 18 recorded zero-label candidates versus movie frame 0;
+eight fixed $f\leftrightarrow q=f+1$ pairs &Descriptive pixel evidence;
+exact original-run join remains UNLINKED\\\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Manuscript build}
+The professional source is LaTeX:
+\path{MANUSCRIPT/volume_i.tex}, its section files, references and
+figure includes. The candidate PDF is built from that source, not
+from an unrelated text export. A pinned Tectonic 0.17.0 binary
+was obtained from its official release for this draft, with the
+download checksum matched to the release asset digest.
+Its provenance and executable hash are recorded in
+\path{records/typesetter_provenance.json}. The toolchain and cache
+remain inside the draft's build directory and are excluded from
+the review archive.
+
+Build and inspection commands use Windows Command Prompt with
+the requested conda environment. From the repository root:
+\begin{verbatim}
+call C:\Users\Notandi\miniconda3\condabin\conda.bat activate torment
+\end{verbatim}
+Then change to
+\path{SRG_REDISCOVERY/SIMULATION_RECONSTRUCTION_RESEARCH/VOLUME_I_01_R1}.
+In a fresh extracted Windows copy, first obtain the pinned compiler,
+then run the manuscript-only builder:
+\begin{verbatim}
+python -B tools\acquire_typesetter.py
+python -B tools\build_pdf.py
+\end{verbatim}
+Existing workspaces with \path{build/toolchain/tectonic.exe} already
+present can skip acquisition. First-time dependency acquisition needs
+network access. The compiler and build cache are excluded from the
+review ZIP; the first build may also fetch uncached TeX dependencies.
+An alternative compatible XeLaTeX setup is a separate build route;
+cross-environment byte identity is not promised.
+
+The builder executes no historical source, simulation harness or
+scientific checker. It sets a task-local Tectonic cache and
+temporary paths. The candidate's actual compiler receipt,
+PDF hash, page count and rendering review are retained in the
+review records.
+
+\section{Figures and presentation}
+All scientific figure content comes from accepted packages.
+Two replay sheets are cropped to their already-recorded four-panel
+rows and arranged in a readable two-by-two layout; crop rectangles
+and input/output hashes are explicit. Original and derived movie
+stills are placed side by side only for their already-tested
+correspondence, never joined into a combined trajectory.
+Other chosen images are byte-identical copies scaled on the page.
+
+Each caption states evidence class, origin, axes or frame indices,
+and a limit on inference. The figure register lists every asset's
+SHA-256, source path and transformation. No scientific data were
+replotted or recalculated for a more attractive outcome.
+
+\section{Preservation and acceptance}
+The initial preservation snapshot covers 397 files: the four
+accepted packages, including their archives; the previously
+protected originals, aliases and supplied instructions; the
+canonical charter and the Volume I work order. The canonical
+ledger is separately captured before its explicitly authorized
+minimal update. This is exact scoped coverage, not a claim to
+hash every unrelated untracked file in the repository.
+
+Git HEAD and index are recorded, as are all 220 initial status
+entries. The reconstruction workspace was already untracked at
+that level, so a new nested volume need not create an additional
+top-level porcelain entry. Preservation requires the prior
+entries to remain unchanged, protected file hashes to match and
+the ledger diff to contain only the authorized acceptance and
+draft-navigation update.
+
+The manuscript's claim matrix, figure register, mechanism map,
+open-question document, editorial checks and archive manifest
+are review deliverables. Build caches and the candidate's
+temporary page rasters are excluded from the compact review ZIP;
+the visual-review receipt describes the inspected pages.
+No staging, commit, push, upload or publication is part of this
+assignment.

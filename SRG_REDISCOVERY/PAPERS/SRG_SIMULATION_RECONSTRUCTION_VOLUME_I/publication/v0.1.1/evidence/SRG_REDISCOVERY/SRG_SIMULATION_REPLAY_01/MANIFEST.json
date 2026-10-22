@@ -1,0 +1,318 @@
+{
+  "task": "SRG_SIMULATION_REPLAY_01",
+  "label": "NEW REPLAY",
+  "date": "2026-10-22",
+  "output_directory": "C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01",
+  "archive": "SRG_SIMULATION_REPLAY_01_REVIEW.zip",
+  "scope": "One investigator-selected legacy seed-0 configuration, one 500-sweep instrumented trajectory, and one identical-seed 500-sweep unchanged-source execution solely for fidelity.",
+  "source": {
+    "original_path": "C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/SRG_REDISCOVERY/OLD_MATERIAL/Simulations_Trash/Simulations_part_2/recursive_attractor.py",
+    "sandbox_copy": "replay/source/recursive_attractor.py",
+    "sha256": "847819ec381e200d9008395175342ec138e52ab3180a4f599b4db1cb91ae42d3",
+    "byte_identical": true,
+    "original_location_executed": false,
+    "sandbox_copy_executed": true
+  },
+  "historical_image": {
+    "original_path": "C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/SRG_REDISCOVERY/OLD_MATERIAL/Simulations_Trash/Simulations_part_2/attractors.png",
+    "sha256": "72776de5e6228f4c4a0e2ef43d804f479bf8db80af6884e492e9ccbc3053d651",
+    "regenerated": false,
+    "matching_new_run_claim": false
+  },
+  "execution": {
+    "seed": 0,
+    "rng": "legacy MT19937 / RandomState",
+    "sampled_configurations": 1,
+    "instrumented_sweeps": 500,
+    "instrumented_point_events": 1500,
+    "reference_seed": 0,
+    "reference_sweeps": 500,
+    "additional_trajectory_executions": 0,
+    "initial_velocities": "all zero",
+    "dt": 0.05,
+    "order": [
+      0,
+      1,
+      2
+    ],
+    "software_versions": "replay/environment.json",
+    "receipt": "replay/execution_receipt.json",
+    "one_time_guard": "run_replay.py refuses existing execution receipt or trajectory"
+  },
+  "fidelity": {
+    "position_snapshots": 500,
+    "position_float64_values": 3000,
+    "positions_bitwise_equal": true,
+    "final_velocity_components": 6,
+    "final_velocities_bitwise_equal": true,
+    "first_divergence": null,
+    "details": "replay/equivalence.json",
+    "saved_reference": "replay/reference_comparison.npz",
+    "limitation": "Intermediate reference velocities were not separately compared; cross-environment bitwise identity and exact-real equivalence are not claimed."
+  },
+  "observation": {
+    "end_states_including_initializer": 501,
+    "within_sweep_records": 1500,
+    "position_wrap_events": 0,
+    "force_comparisons": 3000,
+    "force_comparisons_with_nonzero_wrap": 0,
+    "windows": [
+      {
+        "name": "opening",
+        "steps": [
+          0,
+          1,
+          2
+        ],
+        "events": [
+          1,
+          9
+        ]
+      },
+      {
+        "name": "closest_pair",
+        "steps": [
+          167,
+          168,
+          169
+        ],
+        "events": [
+          502,
+          510
+        ],
+        "closest_end_state": 169,
+        "closest_event": 507,
+        "pair": [
+          1,
+          2
+        ],
+        "distance": 0.00004424351327869298
+      }
+    ],
+    "selection_spec": "replay/RUN_SPEC.json",
+    "largest_native_increment": {
+      "event": 20,
+      "point": 1,
+      "step": 6,
+      "length": 0.0345666628740522
+    },
+    "all_records": "replay/within_sweep.jsonl",
+    "checks": "replay/record_checks.json"
+  },
+  "visual_review": {
+    "inspected": [
+      "visuals/wrapped_paths.png",
+      "visuals/seam_aware_paths.png",
+      "visuals/opening_sequence.png",
+      "visuals/closest_pair_sequence.png",
+      "visuals/movement_over_time.png"
+    ],
+    "ordered_panel_inspection": "All before/after panels in both selected-window sheets read chronologically, left to right then top to bottom.",
+    "intermediate_positions_invented": false,
+    "source_style_plot_vertices": "500 post-sweep samples per point; initializer omitted as in original plot",
+    "frame_sheet_and_viewer_vertices": "Recorded initializer and recorded within-sweep states",
+    "seam_illustration": "No crossing occurred; no hypothetical example generated.",
+    "html_optional": "visuals/replay_viewer.html",
+    "html_embedded_records_checked": true,
+    "html_controls_browser_validated": false,
+    "html_preview_limitation": "Browser URL policy blocked file:// preview. No workaround used. PNG sequences are the inspected primary evidence.",
+    "whole_run_movie_watched": false
+  },
+  "preservation": {
+    "destination_preexisted": false,
+    "protected_inputs": [
+      {
+        "path": "C:/Users/Notandi/Downloads/SRG_SIMULATION_REPLAY_01_CODEX_WORK_ORDER.md",
+        "sha256": "ce77b4ac1fc4081e9b543247ed77b1c52b2c8e3330cec82c5d2091bf2a7812af",
+        "unchanged": true
+      },
+      {
+        "path": "C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/SRG_REDISCOVERY/OLD_MATERIAL/Simulations_Trash/Simulations_part_2/recursive_attractor.py",
+        "sha256": "847819ec381e200d9008395175342ec138e52ab3180a4f599b4db1cb91ae42d3",
+        "unchanged": true
+      },
+      {
+        "path": "C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/SRG_REDISCOVERY/OLD_MATERIAL/Simulations_Trash/Simulations_part_2/attractors.png",
+        "sha256": "72776de5e6228f4c4a0e2ef43d804f479bf8db80af6884e492e9ccbc3053d651",
+        "unchanged": true
+      },
+      {
+        "path": "C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_01/START_HERE.md",
+        "sha256": "4a03f2df7ba19dce4a4d0005b1313ed6eef5f1fa1666e9eb3c0b52dcf17674dd",
+        "unchanged": true
+      },
+      {
+        "path": "C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_01/CONSTRUCTION_WALKTHROUGH.md",
+        "sha256": "1476e813f8d4231986030a6e6edc39774fd9ea6ad63d056c0f13e236c53c9e1e",
+        "unchanged": true
+      },
+      {
+        "path": "C:/TORMENT/TRIOCTAGON_new/trioctagon-physics/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_01/MANIFEST.json",
+        "sha256": "9de1cd97c3d5aee76e7eca4872166a4799ab1a3c1ab713e7ec09ea95a00b529a",
+        "unchanged": true
+      }
+    ],
+    "git_head_before": "170e638ecc0438f911c4ceb8091ffb1b574652fe",
+    "git_head_after": "170e638ecc0438f911c4ceb8091ffb1b574652fe",
+    "git_index_sha256_before": "ff88a675346bdf5aba858329039f400af037fceea1eaa6334586d681c4dbfb4f",
+    "git_index_sha256_after": "ff88a675346bdf5aba858329039f400af037fceea1eaa6334586d681c4dbfb4f",
+    "preexisting_status_count_before": 216,
+    "preexisting_status_count_after": 216,
+    "preexisting_status_identical": true,
+    "preexisting_status_sha256": "3c8d660de18554ece4322954369c14b5478e780b5756351beb68fee2b698969c",
+    "status_digest_encoding": "UTF-8 porcelain-v1 --untracked-files=normal entries in native order joined with LF, no trailing LF, excluding only the new task entry.",
+    "only_new_status_entry": "?? SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/",
+    "local_markdown_links_checked": 17,
+    "write_scope": "New task directory only; originals, prior reviews, unrelated material, scientific kernel and accepted papers unchanged."
+  },
+  "files": [
+    {
+      "path": "MOTION_WALKTHROUGH.md",
+      "bytes": 12275,
+      "sha256": "aeb0cfc24cb599a0046e492ceff83fa066f98b646405d99625aaf543bc2a0090"
+    },
+    {
+      "path": "REPLAY_VALIDATION.md",
+      "bytes": 10155,
+      "sha256": "0ad99bc406df424af6b2799693579f37b82de0edae9c0e31b5ed3b1d3c0e10a3"
+    },
+    {
+      "path": "replay/environment.json",
+      "bytes": 748,
+      "sha256": "5d3f805c67206bdcc1865e484124200297bf2f529e6501bdee29b2730f2d99d7"
+    },
+    {
+      "path": "replay/equivalence.json",
+      "bytes": 630,
+      "sha256": "87ff736c1c5b43cdcb822a9a925cef6a4d717390c6a6c12903b8151efdebb633"
+    },
+    {
+      "path": "replay/execution_receipt.json",
+      "bytes": 327,
+      "sha256": "17577be373388990b5564773c80de208d2c89cbd08e25ca97b5bef500a9871d4"
+    },
+    {
+      "path": "replay/initial_state.json",
+      "bytes": 818,
+      "sha256": "a20c291e6eaf8aff89f4b0faf5b227469c4c38108ddd6a18d3fff9a0b026276c"
+    },
+    {
+      "path": "replay/observation_summary.json",
+      "bytes": 26086,
+      "sha256": "a19affc63ec71e310e47e1ae2b054710638a3d60008309bd7cf34545447efaf8"
+    },
+    {
+      "path": "replay/observe_replay.py",
+      "bytes": 13204,
+      "sha256": "ce72a871fd8abc6e20df16ff19a11657b01c5aa143e99d0fe4d93fe80b06cf28"
+    },
+    {
+      "path": "replay/record_checks.json",
+      "bytes": 1789,
+      "sha256": "c44f19af852e12a005a535137b9ac4fca796804c45cc07121eb76a7d2c968289"
+    },
+    {
+      "path": "replay/reference_comparison.npz",
+      "bytes": 23010,
+      "sha256": "938d9913eed4db5a2370ecab385959d2baebf52bf7ec0a60f94050008c61a969"
+    },
+    {
+      "path": "replay/run_replay.py",
+      "bytes": 10352,
+      "sha256": "c9b7da02a4498164bb41633ac3b4bcdc1e19242584aca4b9f5d62097ee9aad76"
+    },
+    {
+      "path": "replay/RUN_SPEC.json",
+      "bytes": 1202,
+      "sha256": "9268bb0fa16b9d32fa7bad014beff4efdc8ca6c79056180098dc0aa61d6221b0"
+    },
+    {
+      "path": "replay/selected_events.csv",
+      "bytes": 8756,
+      "sha256": "683ea95a1f8565c0d1ae427fb1b7553a2179e8680724fbd83b6119619f6fd366"
+    },
+    {
+      "path": "replay/selected_events.jsonl",
+      "bytes": 27526,
+      "sha256": "4c696cb7e69891545653eeba66f2fb629e8a6134d96e293f76fdddceaed6c80e"
+    },
+    {
+      "path": "replay/source/recursive_attractor.py",
+      "bytes": 2074,
+      "sha256": "847819ec381e200d9008395175342ec138e52ab3180a4f599b4db1cb91ae42d3"
+    },
+    {
+      "path": "replay/states.csv",
+      "bytes": 216563,
+      "sha256": "4cdc156fd4cc777220528805a85dee65298b8c44b723e3766a65809ffb6b6ff9"
+    },
+    {
+      "path": "replay/trajectory.npz",
+      "bytes": 102272,
+      "sha256": "b14901adc4612a3e557615fd0833f58ccb953d3f84f8823f1121a5bef5b0c5e1"
+    },
+    {
+      "path": "replay/verify_records.py",
+      "bytes": 4465,
+      "sha256": "09de09f358c60b0264f47bbb8e4938dd8835e79fa19f54f4e23da732280d3777"
+    },
+    {
+      "path": "replay/viewer_template.html",
+      "bytes": 8364,
+      "sha256": "0bdec682a7dd59b3376de137dca0f1d083dc00440db884254a88264c96c19fb1"
+    },
+    {
+      "path": "replay/within_sweep.jsonl",
+      "bytes": 2351331,
+      "sha256": "af43911ab0dc3fa7bda5ae96e418ccac1e93da30839124abeb6a3514cb4b80ff"
+    },
+    {
+      "path": "START_HERE.md",
+      "bytes": 4022,
+      "sha256": "c3d04c90adccab2e008a3d3660ea2ab9d4d84abad0b088fe05c3778c4c22ff95"
+    },
+    {
+      "path": "visuals/closest_pair_sequence.png",
+      "bytes": 190467,
+      "sha256": "4c70c9bd588225b13bbb0c9609616520ebdb6ede8fe5647e75859f7d266f89f9"
+    },
+    {
+      "path": "visuals/movement_over_time.png",
+      "bytes": 186338,
+      "sha256": "958f549ece6583479b2386c1e7160d7517d3e2eb4c6c13a0dc8eeea60125c0d2"
+    },
+    {
+      "path": "visuals/NO_POSITION_WRAP.txt",
+      "bytes": 127,
+      "sha256": "c48db1e553ed8d267b8a795281b0c3d7fb1249666b39cf500dc8f4b56aa46e3b"
+    },
+    {
+      "path": "visuals/opening_sequence.png",
+      "bytes": 143126,
+      "sha256": "9bff64368173346248d7249751ebe0c8f921185b7b26c8a9c0020db39292b7ea"
+    },
+    {
+      "path": "visuals/replay_viewer.html",
+      "bytes": 2359990,
+      "sha256": "2ab81fed8f7ce6e3706ffb02030d0b996b5d7c855cf44f0daf265df4aed88124"
+    },
+    {
+      "path": "visuals/seam_aware_paths.png",
+      "bytes": 76976,
+      "sha256": "4abb04b428ce9a5c5ade35901a55cd9f96b8787eb21b5f057c549d2b9a8a521b"
+    },
+    {
+      "path": "visuals/wrapped_paths.png",
+      "bytes": 76618,
+      "sha256": "4c1e748b44d6bc16325aad76efb1c832a4d7cab10637ab831a4dbc104245e15a"
+    }
+  ],
+  "checksum_scope": "SHA-256 above covers every payload file other than MANIFEST.json itself. ZIP members are separately checked against live bytes at completion. Manifest/ZIP self-hashes excluded to avoid circularity.",
+  "excluded_from_archive": [
+    "replay/mplconfig/ (task-local Matplotlib font cache)",
+    "review ZIP itself",
+    "original historical image (only hash/provenance recorded; previous review retains it)",
+    "environment libraries and unrelated sources"
+  ],
+  "stop": "Completed single replay and review package. No publication, staging, commit, push, follow-on simulation or new work order."
+}

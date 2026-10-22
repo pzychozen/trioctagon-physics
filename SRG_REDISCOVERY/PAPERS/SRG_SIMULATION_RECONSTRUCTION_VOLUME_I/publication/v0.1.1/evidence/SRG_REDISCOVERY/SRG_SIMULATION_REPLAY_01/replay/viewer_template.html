@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEW REPLAY · original three-point rules · seed 0</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f6f8;color:#172330;font:15px system-ui,sans-serif}
+main{max-width:1200px;margin:auto;padding:22px}h1{font-size:25px;margin:0 0 6px}p{line-height:1.5}
+.badge{color:#9d3a0b;font-weight:750}.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:15px 0}
+button,select{font:inherit;padding:7px 12px;border:1px solid #b5c1ca;border-radius:5px;background:white}
+input[type=range]{flex:1;min-width:200px}.grid{display:grid;grid-template-columns:minmax(400px,650px) 1fr;gap:22px}
+canvas{width:100%;background:white;border:1px solid #b6c5cf;border-radius:6px}
+.panel{padding:16px;background:white;border:1px solid #d5dfe6;border-radius:6px}
+table{border-collapse:collapse;font-size:12px;width:100%;font-variant-numeric:tabular-nums}
+td,th{padding:7px 4px;border-bottom:1px solid #ddd;text-align:left}
+#details{font-size:13px;line-height:1.65;font-variant-numeric:tabular-nums}
+.small{font-size:12px;color:#435766}.status{font-weight:700;min-height:25px}
+@media(max-width:850px){.grid{grid-template-columns:1fr}}
+</style>
+<main>
+<div class="badge">NEW REPLAY — investigator-selected legacy seed 0</div>
+<h1>Three points, observed one update at a time</h1>
+<p>These are saved states from the original rules, not the undocumented historical PNG run.
+Only one point changes in each frame: 0 → 1 → 2. No positions are interpolated.</p>
+<div class="controls">
+<button id="back">← Previous</button><button id="play">Play</button><button id="next">Next →</button>
+<select id="pace" aria-label="Playback interval"><option value="200">200 ms per update</option><option value="60">60 ms per update</option><option value="600">600 ms per update</option></select>
+<input id="slider" type="range" min="0" max="1500" value="0" aria-label="Recorded event">
+</div>
+<div class="controls"><label><input id="seams" type="checkbox" checked> Omit wrap connectors</label>
+<label><input id="history" type="checkbox" checked> Show earlier positions as trails</label>
+<label><input id="future" type="checkbox"> Also show the full run as faint trails</label>
+<button id="firstwrap">First position wrap</button><button id="closest">Closest simultaneous pair</button></div>
+<div class="status" id="status"></div>
+<div class="grid"><div><canvas id="plot" width="760" height="760"></canvas>
+<p class="small">Dots are current recorded positions. A black ring marks the point just updated; × marks its input position.
+Trails are earlier locations, not additional objects. Connecting lines are display joins between samples.</p></div>
+<div class="panel"><h2 style="font-size:18px;margin-top:0">What the moving point saw</h2>
+<div id="details"></div><table><thead><tr><th>Point</th><th>Input X, Y</th><th>Timing in sweep</th></tr></thead><tbody id="inputs"></tbody></table>
+<p class="small">The update clock is shared by the whole sweep. Playback milliseconds are an inspection choice, not model-time units.
+Browser display refresh can omit paints during Play; Previous/Next exposes every recorded event exactly.
+No model equations are executed by this page.</p>
+<p class="small">Full-precision values and all force comparisons are in replay/within_sweep.jsonl; the initial state and 500 complete states are also in replay/trajectory.npz and replay/states.csv.</p></div></div>
+</main>
+<script id="recorded" type="application/json">__RECORDED_DATA__</script>
+<script>
+const data=JSON.parse(document.getElementById('recorded').textContent),ev=data.events;
+const canvas=document.getElementById('plot'),ctx=canvas.getContext('2d'),C=['#1875b9','#e87816','#269650'];
+const slider=document.getElementById('slider'); let frame=0,timer=null;
+const at=n=>n===0?data.initial:ev[n-1].positions_after_event;
+const xy=p=>[55+(p[0]+1)*325,705-(p[1]+1)*325];
+const vec=p=>'('+p.map(x=>x.toFixed(9)).join(', ')+')';
+function stop(){if(timer)clearInterval(timer);timer=null;document.getElementById('play').textContent='Play';}
+function set(n){frame=Math.max(0,Math.min(1500,n));slider.value=frame;draw();}
+function trail(last,alpha){
+ctx.lineWidth=1.5;ctx.globalAlpha=alpha;
+for(let i=0;i<3;i++){ctx.strokeStyle=C[i];ctx.beginPath();let p=xy(data.initial[i]);ctx.moveTo(...p);
+for(let k=0;k<last;k++){const e=ev[k];if(e.point!==i)continue;p=xy(e.post_wrap_position);
+if(document.getElementById('seams').checked&&e.position_wrap_lattice.some(Boolean))ctx.moveTo(...p);else ctx.lineTo(...p);}
+ctx.stroke();}ctx.globalAlpha=1;
+}
+function dot(p,i){const [x,y]=xy(p);ctx.fillStyle=C[i];ctx.beginPath();ctx.arc(x,y,6,0,2*Math.PI);ctx.fill();ctx.font='bold 14px system-ui';ctx.fillText('P'+i,x+9,y-8-10*i);}
+function draw(){
+ctx.clearRect(0,0,760,760);ctx.fillStyle='#fff';ctx.fillRect(0,0,760,760);
+ctx.font='12px system-ui';ctx.lineWidth=1;
+for(let z=-1;z<=1.001;z+=.25){const [x,y]=xy([z,z]);ctx.strokeStyle='#e5e9ec';ctx.beginPath();ctx.moveTo(x,55);ctx.lineTo(x,705);ctx.moveTo(55,y);ctx.lineTo(705,y);ctx.stroke();ctx.fillStyle='#51606c';ctx.fillText(z.toFixed(2),x-13,727);ctx.fillText(z.toFixed(2),12,y+4);}
+ctx.strokeStyle='#566b79';ctx.strokeRect(55,55,650,650);ctx.fillStyle='#253b4b';ctx.font='15px system-ui';ctx.fillText('X',735,727);ctx.fillText('Y',12,32);
+if(document.getElementById('future').checked)trail(1500,.15);
+if(document.getElementById('history').checked)trail(frame,.7);
+const positions=at(frame);positions.forEach(dot);
+if(!frame){document.getElementById('status').textContent='Initial state S0 · all velocities zero';
+document.getElementById('details').textContent='No point has moved yet. Legacy seed 0 supplies the six starting coordinates.';
+document.getElementById('inputs').innerHTML=data.initial.map((p,i)=>'<tr><td>P'+i+'</td><td>'+vec(p)+'</td><td>initial</td></tr>').join('');return;}
+const e=ev[frame-1],i=e.point,[x,y]=xy(positions[i]),[bx,by]=xy(e.input_positions[i]);
+ctx.strokeStyle='#111';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(x,y,10,0,Math.PI*2);ctx.stroke();ctx.beginPath();ctx.moveTo(bx-4,by-4);ctx.lineTo(bx+4,by+4);ctx.moveTo(bx-4,by+4);ctx.lineTo(bx+4,by-4);ctx.stroke();
+document.getElementById('status').textContent='Event '+frame+' / 1500 · step '+e.step+' (sweep '+e.sweep_number+') · after point '+i+' · t='+e.t.toFixed(2);
+const norm=v=>Math.hypot(...v);
+document.getElementById('details').innerHTML='<b>H = '+e.H.toPrecision(9)+'</b><br>Input position: '+vec(e.input_positions[i])+'<br>Net interaction: '+vec(e.net_force)+'<br>Incoming velocity: '+vec(e.velocity_before)+'<br>Pre-damping velocity: '+vec(e.velocity_pre_damping)+'<br>Carried outgoing velocity: '+vec(e.velocity_post_damping)+'<br>Native increment: '+vec(e.native_displacement)+'<br>Raw endpoint: '+vec(e.raw_updated_position)+'<br>Wrapped endpoint: '+vec(e.post_wrap_position)+'<br><b>Native length '+norm(e.native_displacement).toPrecision(7)+'; screen change '+norm(e.screen_displacement).toPrecision(7)+'</b><br>Position-wrap lattice: '+e.position_wrap_lattice.join(', ');
+document.getElementById('inputs').innerHTML=e.input_positions.map((p,j)=>'<tr><td style="color:'+C[j]+'">P'+j+'</td><td>'+vec(p)+'</td><td>'+(j<i?'already updated':j===i?'moving now':'not yet updated')+'</td></tr>').join('');
+}
+document.getElementById('back').onclick=()=>{stop();set(frame-1)};
+document.getElementById('next').onclick=()=>{stop();set(frame+1)};
+slider.oninput=()=>{stop();set(Number(slider.value))};
+document.getElementById('play').onclick=()=>{if(timer){stop();return;}if(frame===1500)set(0);document.getElementById('play').textContent='Pause';timer=setInterval(()=>{set(frame+1);if(frame===1500)stop()},Number(document.getElementById('pace').value))};
+document.getElementById('pace').onchange=stop;
+['history','future','seams'].forEach(id=>document.getElementById(id).onchange=draw);
+document.getElementById('firstwrap').disabled=data.first_wrap_event_id===null;
+document.getElementById('firstwrap').onclick=()=>{stop();if(data.first_wrap_event_id!==null)set(data.first_wrap_event_id)};
+document.getElementById('closest').onclick=()=>{stop();set(data.closest_event_id)};
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){stop();set(frame+1)}if(e.key==='ArrowLeft'){stop();set(frame-1)}});
+draw();
+</script></html>
+

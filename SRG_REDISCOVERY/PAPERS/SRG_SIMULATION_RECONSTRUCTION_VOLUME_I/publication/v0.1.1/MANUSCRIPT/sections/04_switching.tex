@@ -1,0 +1,433 @@
+\chapter{Simulation 03: switching and recorded history}\label{ch:s03}
+\plain{Each center now carries a switch as well as its position and velocity.
+The switch reverses the new interaction contribution, not the motion already
+being carried. The saved logs reveal the difference. They also show that
+the program can restart its labelled clock without restarting its state.
+This chapter follows those records before interpreting the movie.}
+
+\section{Construction and added state}
+The 167-line \filepath{plot_1.py} retains eight 3D centers, period~10,
+$\Delta t=0.1$, the same tetrahedral offsets, random initial coordinates
+and random velocity components. It adds eight binary modes $b_i$, all
+initialized to zero. Its numerical carried state therefore has 48 real
+entries and eight mode bits, together with the random stream and externally
+supplied frame input. \src{S03}{10--28,152}; \cite{study03}.
+\claim{C45}
+
+The common H, componentwise RPCO and mean-speed GRF function bodies match
+S02 after removing docstrings, as recorded by the accepted AST check.
+At each callback, GRF and H are computed once, then the incoming positions
+are copied for a diagnostic. Bodies update in order 0--7, with the same
+mixed-state arithmetic centroid and wrapped displacement.
+\src{S03}{36--54,102--113}. \claim{C46}
+
+The source is not merely S02 plus a color change. It also changes nominal
+frame count to 200, requests \filepath{blit=False}, saves at 20 fps,
+computes a kinetic diagnostic, prints a jump diagnostic and appends
+numerical records on every callback. These changes affect the available
+chronology and presentation even though they do not all feed into the
+movement rule. \src{S03}{12,57--78,129--167}. \claim{C47}
+
+\section{Exact switch and update equations}
+Use $\W_{10}$, $\D_{10}$ and $\R$ from
+Equations~\eqref{eq:wrap10} and~\eqref{eq:RPCO}. At callback $q$,
+with incoming velocities $v_j$ and supplied label $f_q$, set
+\begin{equation}\label{eq:shared03}
+g_q=\frac{1}{1+\frac18\sum_j\|v_j\|_2},\qquad h_q=H(0.1f_q).
+\end{equation}
+For each body $i$, calculate $c_{q,i},d_{q,i},r_{q,i}$ using
+Equations~\eqref{eq:centroid}--\eqref{eq:centroiddiff}. Only then
+evaluate the gate. If $g_q>0.5$, draw $U_{q,i}$ using
+\filepath{np.random.rand()}; otherwise no draw is consumed.
+Define
+\begin{equation}\label{eq:toggle}
+F_{q,i}=
+\begin{cases}
+1,&g_q>0.5\ \hbox{and the consumed draw }U_{q,i}<0.01,\\
+0,&\hbox{otherwise},
+\end{cases}
+\qquad
+b_i^+=b_i\mathbin{\mathrm{XOR}}F_{q,i}.
+\end{equation}
+The update is
+\begin{align}
+a_{q,i}
+ &=0.1g_qh_q(1-2b_i^+)\frac{d_{q,i}}{r_{q,i}+0.01},\label{eq:kick03}\\
+u_{q,i}&=v_i+a_{q,i},\qquad v_i^+=\R(u_{q,i}),\label{eq:vel03}\\
+x_i^+&=\W_{10}(x_i+0.1v_i^+).\label{eq:pos03}
+\end{align}
+The sign is the \emph{post-toggle} mode, the one recorded in the current
+block. H is multiplied once, and GRF remains the incoming common value
+throughout the sweep. \src{S03}{102--126}. \claim{C48}
+
+Conditional on the intended uniform generator and an open gate, the
+toggle probability is 1\% per body per callback. No random values or RNG
+state are logged. When H is positive, mode~0 contributes toward the
+chosen wrapped centroid displacement and mode~1 away from it. When H is
+negative those roles reverse. Neither mode alone specifies the outgoing
+velocity direction. \claim{C49}
+
+\section{Recording and callback chronology}
+At startup the source writes an eleven-column header to a timestamped
+CSV. After each complete callback it appends eight rows in body order:
+\begin{center}\small
+\filepath{Step,Tetrahedron,X,Y,Z,VX,VY,VZ,Energy,GRF,Rule_State}.
+\end{center}
+Positions, velocities and modes are outgoing values; Energy is the
+whole-system post-sweep value repeated in each row; GRF is incoming.
+There is no saved detector flag, H column, within-sweep snapshot or
+per-row wall-clock time. \src{S03}{74--78,129,144--147}. \claim{C50}
+
+\begin{table}[htbp]\centering\small
+\caption{Original log structure, preserved in physical row order.
+The repeated-key count is the number of rows beyond the first occurrence
+of each (Step,Tetrahedron) key. Accepted source: S03
+ORIGINAL\_LOG\_ANALYSIS and analysis/log\_summary.json.}\label{tab:counts03}
+\begin{tabular}{@{}lrr@{}}\toprule
+Measure & Log A & Log B\\\midrule
+Data rows &8,736&3,520\\
+Eight-body callback blocks &1,092&440\\
+Distinct frame labels &200&200\\
+Label-zero blocks &12&6\\
+Repeated-key rows &7,136&1,920\\
+Partial or corrupt blocks &0&0\\\bottomrule
+\end{tabular}
+\end{table}
+
+Log A is \filepath{PLOT_1_tetrahedral_states_20250712_015421.csv};
+log B is \filepath{tetrahedral_states_20250712_015647.csv}.
+They contain finite values, correctly ordered body IDs and shared
+Step/Energy/GRF within each block. All positions lie in $[0,10)$ and
+all modes are binary. They are strongly attributed to this recurrence
+by schema and numerical agreement; the original seed and pre-log
+state are missing. \claim{C51}
+
+\begin{table}[htbp]\centering\small
+\caption{Exact label chronology. A dash denotes no further record,
+not an assumed reset or simulated continuation.}\label{tab:segments03}
+\begin{tabular}{@{}lll@{}}\toprule
+Callback range & A labels & B labels\\\midrule
+0 &0&0\\
+1--200 &0--199&0--199\\
+201 &0&0\\
+202--401 &0--199&0--199\\
+402 &0&0\\
+403--602 &0--199&0--36 through q439 only\\
+603 &0&---\\
+604--803 &0--199&---\\
+804 &0&---\\
+805--1004 &0--199&---\\
+1005 &0&---\\
+1006--1091 &0--85&---\\\bottomrule
+\end{tabular}
+\end{table}
+
+Each label-zero block is a distinct recorded state. Sorting by Step and
+discarding duplicates would destroy the chronology in
+Table~\ref{tab:segments03}. Counting $0.1$ per recorded callback gives
+109.2 and 44.0 model-step units; the first-to-last stored-state spans
+are 109.1 and 43.9. Neither count is the variable supplied to H:
+its argument repeatedly returns to zero.
+\cite{study03}, ORIGINAL\_LOG\_ANALYSIS. \claim{C52}
+
+The accepted inspection of local Matplotlib 3.10.9 identifies
+initialization, save, interactive start and repeated playback as
+possible sources of extra first-label calls. The observed singleton
+zeros and complete passes are consistent with those paths. However,
+the historic library, backend and GUI event sequence are missing.
+We preserve recorded labels without assigning an invented save or
+window event to every segment. \claim{C53}
+\EvidenceFig{F10}
+
+\section{What the accepted numerical checks cover}
+The accepted primary checker read every row. It reconciled the kinetic
+quantity on all 1,532 blocks, and position and incoming-GRF relations
+on every consecutive block: 8,728 body transitions in A and 3,512 in B.
+Callback zero lacks a recorded predecessor, so its incoming update
+cannot be certified. \claim{C54}
+
+The full velocity equation was checked at a declared union of sample
+callbacks: the first five transitions, final five, maximum native
+increment, strongest consecutive-vector turn, closest pair, first
+label discontinuity, first decreasing-label reset, first switch and
+first seam. Deduplicating that \emph{selection list}, not the data,
+gave 16 sampled transitions in A and 15 in B. The checker substituted
+the observed current prefix and preceding suffix into the centroid;
+it did not propagate calculated states. An independent scalar
+implementation checked the 20 original R0 sample transitions and
+all energy/position/GRF identities.
+\cite{study03}, equation-residual CSVs and independent\_checks.json.
+\claim{C55}
+
+All declared checks passed an absolute tolerance of $10^{-12}$.
+Across the methods, reported maximum position residual was
+$1.78\times10^{-15}$ and sampled velocity residual
+$3.61\times10^{-16}$. Such agreement supports source attribution and
+the interpretation of columns. It is not an exhaustive velocity
+audit, recovery of random draws or bit-identical reproduction of
+the unknown historical execution. These scientific checkers were
+not rerun for Volume I. \claim{C56}
+
+\section{A sign change before movement reverses}
+All recorded callbacks have GRF above 0.5. Its range is approximately
+0.633309--0.987992 in A and 0.641949--0.987362 in B.
+Between successive recorded blocks there are 79 toggles in A and
+33 in B. All are gate-eligible, but the unrecorded draws cannot be
+reconstructed or used to certify a distribution. \claim{C57}
+
+The shorter log's first toggle is body~5 at $q=7$, Step~6, CSV line~63.
+It changes mode from 0 to 1 while H remains positive.
+Table~\ref{tab:delay03} follows the recorded response. The radial
+component is the dot product of outgoing velocity with the unit
+wrapped centroid displacement evaluated at that body's update,
+using the observed mixed-state positions. Positive means along
+that instantaneous direction. \claim{C58}
+
+\begin{table}[htbp]\centering\small
+\caption{Original log B, body 5. A response-sign change at q7 precedes
+an outward radial velocity at q9. Source: original CSV lines shown;
+accepted analysis/episode\_records.json. Rounded values, no new update.}
+\label{tab:delay03}
+\begin{tabular}{@{}rrrrr@{}}\toprule
+Callback & CSV line & Mode & Speed & Radial outgoing velocity\\\midrule
+6&55&0&0.570163&$+0.565607$\\
+7&63&1&0.291844&$+0.284300$\\
+8&71&1&0.087759&$+0.062268$\\
+9&79&1&0.141476&$-0.131445$\\\bottomrule
+\end{tabular}
+\end{table}
+
+The new opposing contribution first reduces an inward carried
+velocity. The next record still moves inward; two callbacks after
+the toggle, its radial outgoing component is negative. This is a
+specific delayed direction change, not a universal two-callback
+law. A's first toggle, body~4 at $q=12$, has an analogous ordering
+through $q=14$. \claim{C59}
+
+Across all observed toggles, none has a negative dot product
+between the immediately preceding and outgoing velocity vectors.
+There are 17 such obtuse consecutive turns in A and 6 in B at
+other transitions. The strongest examples are A body~4 at
+$q=1005$ (line 8046, cosine about $-0.977692$) and B body~5 at
+$q=402$ (line 3223, about $-0.973052$). Both retain mode~1 and
+occur when the frame label returns to zero. A switch, a
+velocity reversal and a clock reset are distinguishable events.
+\cite{study03}, switch-event tables and log\_summary.json.
+\claim{C60}
+
+\section{Energy accounting and renewed clock drive}
+The function \filepath{compute_energy} ignores its positions argument.
+It returns
+\begin{equation}\label{eq:K03}
+K^+=\frac12\sum_{i=0}^7\|v_i^+\|_2^2+0.
+\end{equation}
+The zero is a literal potential-energy placeholder. No mass parameter,
+position potential, conservation rule or energy feedback is implemented.
+The same global number is written eight times per callback; summing
+the column over a block would count it eight times.
+\src{S03}{57--61,129,147}. \claim{C61}
+
+At the first $199\to 0$ label reset, $q=200\to 201$, A's K changes
+from 0.000922772 to 0.479749699, and B's from 0.000721817 to
+0.473368802. The source changes the prescribed gain from
+$H(19.9)\simeq0.00261412235$ to $H(0)=4.5$ while retaining state.
+Another zero follows, supplying another strong-drive update.
+Figure~\ref{fig:F10} shows this chronology for B. These are recorded
+drive/damping effects, not spontaneous creation of a physically
+conserved energy. \claim{C62}
+
+For either centroid update, let $a_i$ be the source contribution,
+$u_i=v_i+a_i$, and $v_i^+=\R(u_i)$. Directly expand the squared norm
+and then subtract the damping loss:
+\begin{align}
+\tfrac12\|u_i\|^2-\tfrac12\|v_i\|^2
+ &=v_i\cdot a_i+\tfrac12\|a_i\|^2,\\
+L_i&=\tfrac12\bigl(\|u_i\|^2-\|\R(u_i)\|^2\bigr)\geq0,\\
+K^+-K&=\sum_i v_i\cdot a_i+\frac12\sum_i\|a_i\|^2-\sum_iL_i.
+\label{eq:energybalance}
+\end{align}
+The inequality follows componentwise from the denominator in RPCO,
+which is at least one. This is the accepted source-derived
+bookkeeping identity, not an introduced potential or a new dynamical
+law. The accepted 31-transition sample reports a balance residual
+no greater than $6.67\times10^{-16}$, alongside the independent
+velocity-equation checks. \cite{study03}, TIME\_SWITCH\_AND\_MOVEMENT
+and equation-residual tables. \claim{C63}
+
+\plain{The diagnostic can rise because the added interaction changes
+velocity before damping reduces it. Restarting the H clock restores
+a strong input. The source contains no statement that this kinetic
+number must remain constant.}
+
+\section{Native movement, coordinate seams and the detector defect}
+The position equation separates native increment
+$\delta x_i=0.1v_i^+$ from stored coordinate difference
+$x_i^+-x_i$. Equation~\eqref{eq:seam} explains their integer-period
+offset. In the accepted logs, all checkable native increments are
+below 0.062. In contrast, the largest stored jumps are almost ten.
+Table~\ref{tab:jumps03} preserves both measurements and their anchors.
+\claim{C64}
+
+\begin{table}[htbp]\centering\small
+\caption{Original recorded movements, not image-derived estimates.
+Anchors use physical CSV lines. Accepted source: S03 log summary
+and wrap-event tables.}\label{tab:jumps03}
+\begin{tabularx}{\linewidth}{@{}l Y Y@{}}\toprule
+Measure & A & B\\\midrule
+Maximum native increment &0.061531942; q205, body 2, Step 3, line 1644
+&0.060380826; q205, body 5, Step 3, line 1647\\
+Maximum stored jump &9.997419049; q1038, body 4, Step 32, line 8310
+&9.993505332; q430, body 5, Step 27, line 3447\\
+Native increment at that jump &0.012148730&0.015841001\\
+Actual seam events &22 body / 22 coordinate events&7 body / 7 coordinate events\\\bottomrule
+\end{tabularx}
+\end{table}
+
+The source's \filepath{detect_teleport} instead computes
+\begin{equation}\label{eq:baddetector}
+T_i=\|\W_{10}(x_i^+-x_i)\|_2
+\end{equation}
+and prints an event if $T_i>1$. This unsigned modulo is neither a
+minimal periodic distance nor the native increment. A tiny negative
+coordinate difference becomes almost ten. The diagnostic does not
+change state, and its flags are not exported in the CSV.
+\src{S03}{64--71,132--134}. \claim{C65}
+
+For example, A at q1, body 0, line 10 has coordinate difference
+\[
+\Delta x=(0.040328749,-0.024777022,0.022525770)
+\]
+and native length 0.052418691, with no seam. The source diagnostic gives
+9.975329933 and would flag it. The accepted analysis reports
+8,151 would-flag body events in A and 3,129 in B, including
+8,130 and 3,122 events without a seam. It misses one of A's
+22 actual seams. These are recomputed diagnostics from original
+records; the original console transcript is missing.
+\claim{C66}
+\EvidenceFig{F11}
+\EvidenceFig{F12}
+
+The first B seam is q2, body 2, Step 1, line 20. Z changes from
+0.004472603 to 9.965972877 while the native length is 0.054654713.
+The corresponding stored jump is 9.961575809.
+A's earliest seam occurs at q265, body 3, Step 63, line 2125:
+Z changes from 0.001799251 to 9.998477914 with native length
+0.005387221. Neither event is a measured native movement of
+approximately ten units. \claim{C67}
+
+\section{Body 7 crosses back and forth without a mode change}
+In B, body~7 retains mode~1 throughout q400--420. Its X coordinate
+crosses the seam at q409,414,418, corresponding to lines
+3281,3321,3353. The native lengths are approximately
+0.055897106, 0.044266228 and 0.037032498.
+Figure~\ref{fig:F13} separates the coordinate jump, VX and mode.
+The next mode toggle is q431, outside this displayed window.
+\claim{C68}
+\EvidenceFig{F13}
+
+At q409 the center crosses from small positive X to a value near ten.
+The subsequent wrapped centroid X displacement changes from about
+$+4.92$ to $-3.80$. VX then changes from negative to positive,
+and the center crosses back at q414. The next displacement becomes
+about $+4.93$ and VX turns negative again before q418.
+These are accepted measurements of the mixed-state centroid and
+velocities, retained in analysis/episode\_records.json.
+The arithmetic-mean dependence in Equation~\eqref{eq:centroid}
+explains how a coordinate crossing can change the subsequent target.
+No wall, collision or added teleport mechanism is present.
+\claim{C69}
+
+The observation supports real sign changes in a velocity component
+and small native movements through a coordinate seam. It is not
+a proof of a periodic orbit, nor an isolated causal experiment
+holding every other body fixed. Other centers continue moving and
+contribute to the centroid. \claim{C70}
+
+\section{Pair relations and collective interpretations}
+The accepted scan of all 28 unordered pairs at stored callbacks
+found A's closest pair at q602, Step 199: bodies~2 and~7,
+lines 4820/4825, distance 0.111912869. Their velocity cosine is
+0.959590042 and relative speed 0.006143850. That is a near,
+similarly directed slow pair at a specified instant.
+B's closest pair occurs at q118, Step 117: bodies~1 and~4,
+lines 947/950, distance 0.813987821, velocity cosine
+$-0.568814101$. Its nearest pair is not aligned at that instant.
+\cite{study03}, pair-minima tables. \claim{C71}
+
+A narrow descriptive screen in the accepted study used separation
+below 0.1, velocity cosine above 0.9 and nonzero speeds above
+$10^{-6}$. Neither log met its distance threshold. This is not
+a physical threshold, a path-inheritance test or a rejection of
+approximate collective following. No route-delay criterion was
+imposed on these records. \claim{C72}
+
+\section{The original movie and the candidate correspondence}
+The original \filepath{tetrahedral_attractors_logic.mp4} has
+200 decoded frames at 20 fps, 1000 by 800 pixels and a duration of
+10 seconds. The title, filename, eight tetrahedra, axis range and
+viridis/Reds palettes match S03's declarations. Palette family
+indicates mode; within either family its phase changes with
+$(i+f)\bmod8$. Pale red faces can be difficult to see.
+No numeric energy or detector-event overlay is drawn.
+\src{S03}{81--97,137--141,158--161}. \claim{C73}
+\EvidenceFig{F09}
+
+The accepted inspection decoded every frame and visually reviewed
+selected consecutive sheets, an overview, four full-resolution
+stills and a comparison panel. A bounded attribution test rendered
+\emph{already-recorded} states, never a calculated trajectory.
+It compared movie frame 0 with all 18 recorded label-zero states and then
+tested frames 0,1,6,34,82,120,184,199 against B callback $q=f+1$.
+The fixed geometry, view and palette were not optimized.
+\claim{C74}
+
+At movie frame 0, Bq1 gives colored-pixel mask IoU 0.890282 and mean
+absolute RGB error 5.516925 on the 0--255 scale. Bq0 gives
+0.859051 and 13.001680. Across the eight fixed candidate pairs,
+IoU ranges from 0.856495 to 0.890282 and RGB error from
+5.516925 to 7.086700. These descriptive image metrics support
+a compelling content correspondence, not a calibrated likelihood.
+Lossy encoding, transparency and rendering versions affect the
+scores. Figure~\ref{fig:F16} selects two of the already-tested
+comparisons. \claim{C75}
+\EvidenceFig{F16}
+
+\textbf{The formal original-run join remains UNLINKED.}
+No export receipt binds a source hash, RNG state, log and movie.
+The tested correspondence does not certify all 200 frames or a
+unique historical execution. Conditionally, the opening movie
+relocation matches Bq1--2's small Z seam crossing, and frame 6
+matches Bq7's first mode toggle. No movie observation silently
+inherits a CSV measurement as established ground truth.
+\claim{C76}
+
+\section{Historical charts and mixed horizontal axes}
+Two historical body-7 PNGs are strongly attributed to postprocessing
+of B. The position chart's trace shapes and event markers match
+the shorter log, but no generating chart script was recovered.
+S03 itself contains no PNG export. Figure~\ref{fig:F14} preserves
+the historical chart; Figure~\ref{fig:F15} reuses the accepted
+diagnostic demonstrating its mixed horizontal coordinates.
+\claim{C77}
+\EvidenceFig{F14}
+\EvidenceFig{F15}
+
+The traces use repeated Step labels 0--199 while markers at
+409,414,418 correspond to callback indices of body~7's actual
+seam crossings. Connecting physical rows on a repeated Step
+axis folds passes together and joins label 199 back to label 0.
+The event markers then lie beyond the trace range. This explains
+a misleading layout without altering historical bytes or
+claiming exact recovery of the lost plotting script.
+\claim{C78}
+
+The old GRF/energy chart (Figure~\ref{fig:F17}) has the same
+repeated-label issue. Its Energy comes from the global K repeated
+on body 7's rows; the title does not make it body 7's individual
+kinetic quantity. The three highlighted seam markers also
+cannot be equated to the source detector's thousands of
+would-flag events. Their selection appears to be different
+postprocessing, whose precise algorithm remains missing.
+\claim{C79}
+\EvidenceFig{F17}
+\FloatBarrier

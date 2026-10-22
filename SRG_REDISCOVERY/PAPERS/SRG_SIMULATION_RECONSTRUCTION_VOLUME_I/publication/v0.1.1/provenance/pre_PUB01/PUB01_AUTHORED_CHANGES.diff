@@ -1,0 +1,261 @@
+--- submitted/MANUSCRIPT/sections/01_scope.tex
++++ PUB01/MANUSCRIPT/sections/01_scope.tex
+@@ -101,8 +101,8 @@
+ was captured while that study was in review. The Volume I work order records
+ GPT's subsequent acceptance within the evidence/provenance qualifications.
+ The ledger is minimally updated accordingly; the accepted study package and
+-its historical in-review snapshot remain unchanged. This manuscript itself
+-is a draft awaiting review. \claim{C07}
++its historical in-review snapshot remain unchanged. Scientific and editorial
++review is complete; publication requires separate authorization. \claim{C07}
+ 
+ \section{Notation, units and record locators}
+ Positions and velocities are numerical arrays. The programs supply no
+--- submitted/CLAIM_EVIDENCE_MATRIX.md
++++ PUB01/CLAIM_EVIDENCE_MATRIX.md
+@@ -22,7 +22,7 @@
+ | C04 | Missing seeds and reusable/relative output names | ORIGINAL | S01:1–74; S02:15–16,110–119; S03:17–18,74–78,158–167 | Filename dates and directories do not certify development order. | [Scope, historical evidence and method / Evidence classes and attribution](MANUSCRIPT/sections/01_scope.tex) line 79 |
+ | C05 | Synthesis reuses accepted studies without new execution | Method / preservation | Volume I work order; tools/build_pdf.py; REVIEW_REPORT; records/preservation_before.json | Only editorial, hash, build and PDF-inspection operations. | [Scope, historical evidence and method / Method and limits of the present synthesis](MANUSCRIPT/sections/01_scope.tex) line 89 |
+ | C06 | Different verification coverage in S01 replay and S03 logs | REPRODUCED / DERIVED | R01 REPLAY_VALIDATION, equivalence.json; C03 ORIGINAL_LOG_ANALYSIS, independent_checks.json | S01 final velocity only in reference; S03 full velocity check sampled. | [Scope, historical evidence and method / Method and limits of the present synthesis](MANUSCRIPT/sections/01_scope.tex) line 98 |
+-| C07 | SIM03 acceptance and Volume I review status | Review authority | Volume I work order, Existing authority / Review status; ledger diff | Acceptance preserves provenance limits; manuscript remains in review. | [Scope, historical evidence and method / Method and limits of the present synthesis](MANUSCRIPT/sections/01_scope.tex) line 105 |
++| C07 | SIM03 acceptance and Volume I review status | Review authority | Volume I work order, Existing authority / Review status; ledger diff (historical SIM03 acceptance); provenance/editorial_closure/SRG_VOLUME_I_v0.1.1_GPT_EDITORIAL_CLOSURE.md (current manuscript status); instructions/PUBLICATION_WORK_ORDER.md (separate publication authority) | Scientific and editorial review is complete; provenance qualifications remain; publication requires separate authorization. | [Scope, historical evidence and method / Method and limits of the present synthesis](MANUSCRIPT/sections/01_scope.tex) line 105 |
+ | C08 | Index conventions and physical CSV line formula | ORIGINAL / DERIVED | R01 REPLAY_VALIDATION, Numerical records; S03:144–147; C03 ORIGINAL_LOG_ANALYSIS, chronology | q is an analysis locator; Step is repeated. | [Scope, historical evidence and method / Notation, units and record locators](MANUSCRIPT/sections/01_scope.tex) line 120 |
+ | C09 | S01 complete module-level construction and static display | ORIGINAL | S01:1–74; C01 CONSTRUCTION_WALKTHROUGH §A–E | No source import during this volume. | [Simulation 01: three interacting points / Entities, initialization and retained state](MANUSCRIPT/sections/02_three_points.tex) line 14 |
+ | C10 | S01 twelve real entries, zero velocities and parameters | ORIGINAL | S01:5–14,66–71 | Uniform pseudorandom initializer has no recorded historical seed. | [Simulation 01: three interacting points / Entities, initialization and retained state](MANUSCRIPT/sections/02_three_points.tex) line 23 |
+@@ -117,4 +117,4 @@
+ | C99 | Full velocity audit and chart generators remain unresolved | MISSING / research agenda | C03 ORIGINAL_LOG_ANALYSIS checks; ORIGINAL_MOVIE_REVIEW chart limits | Scientific checkers not rerun; original charts not corrected. | [Open questions and the next volumes / Order, wrapping and attribution of causes](MANUSCRIPT/sections/06_agenda.tex) line 72 |
+ | C100 | Later geometric/amplitude/neighbor-change families outside Volume I | Scope / research agenda | Charter mission and distinctions; Volume I work order §F | No new simulator selected or archive audit. | [Open questions and the next volumes / Later families and the gravity question](MANUSCRIPT/sections/06_agenda.tex) line 81 |
+ | C101 | Gravity/energy relationship is an open comparison | HYPOTHESIS / scientific boundary | Volume I work order §F; S03:57–61; charter | No physical force/container assumption or field equation added. | [Open questions and the next volumes / Later families and the gravity question](MANUSCRIPT/sections/06_agenda.tex) line 90 |
+-| C102 | Volume I ends at review, not project completion/publication | Review authority | User request; Volume I work order final stop; REVIEW_REPORT | No staging/commit/push/upload or next investigation. | [Open questions and the next volumes / The review boundary](MANUSCRIPT/sections/06_agenda.tex) line 99 |
++| C102 | Scientific/editorial review complete; wider SRG unfinished; publication and further experiments require separate authorization | Review authority | Historical: User request; Volume I work order final stop; REVIEW_REPORT. Current: provenance/editorial_closure/SRG_VOLUME_I_v0.1.1_GPT_EDITORIAL_CLOSURE.md; instructions/PUBLICATION_WORK_ORDER.md | Publication and further experiments require separate authorization; no staging, commit, push, upload or new investigation. | [Open questions and the next volumes / The review boundary](MANUSCRIPT/sections/06_agenda.tex) line 99 |
+--- submitted/records/claims.json
++++ PUB01/records/claims.json
+@@ -87,8 +87,8 @@
+     "id": "C07",
+     "claim": "SIM03 acceptance and Volume I review status",
+     "class": "Review authority",
+-    "support": "Volume I work order, Existing authority / Review status; ledger diff",
+-    "limitation": "Acceptance preserves provenance limits; manuscript remains in review.",
++    "support": "Volume I work order, Existing authority / Review status; ledger diff (historical SIM03 acceptance); provenance/editorial_closure/SRG_VOLUME_I_v0.1.1_GPT_EDITORIAL_CLOSURE.md (current manuscript status); instructions/PUBLICATION_WORK_ORDER.md (separate publication authority)",
++    "limitation": "Scientific and editorial review is complete; provenance qualifications remain; publication requires separate authorization.",
+     "manuscript_locations": [
+       {
+         "file": "MANUSCRIPT/sections/01_scope.tex",
+@@ -1420,10 +1420,10 @@
+   },
+   {
+     "id": "C102",
+-    "claim": "Volume I ends at review, not project completion/publication",
++    "claim": "Scientific/editorial review complete; wider SRG unfinished; publication and further experiments require separate authorization",
+     "class": "Review authority",
+-    "support": "User request; Volume I work order final stop; REVIEW_REPORT",
+-    "limitation": "No staging/commit/push/upload or next investigation.",
++    "support": "Historical: User request; Volume I work order final stop; REVIEW_REPORT. Current: provenance/editorial_closure/SRG_VOLUME_I_v0.1.1_GPT_EDITORIAL_CLOSURE.md; instructions/PUBLICATION_WORK_ORDER.md",
++    "limitation": "Publication and further experiments require separate authorization; no staging, commit, push, upload or new investigation.",
+     "manuscript_locations": [
+       {
+         "file": "MANUSCRIPT/sections/06_agenda.tex",
+--- submitted/tools/verify_publication.py
++++ PUB01/tools/verify_publication.py
+@@ -2,6 +2,14 @@
+ from pathlib import Path
+ import hashlib,json,re,zipfile,urllib.parse,sys
+ ROOT=Path(__file__).resolve().parents[1]
++PUB01_STATUS={
++    'C07':{
++        'support':'Volume I work order, Existing authority / Review status; ledger diff (historical SIM03 acceptance); provenance/editorial_closure/SRG_VOLUME_I_v0.1.1_GPT_EDITORIAL_CLOSURE.md (current manuscript status); instructions/PUBLICATION_WORK_ORDER.md (separate publication authority)',
++        'limitation':'Scientific and editorial review is complete; provenance qualifications remain; publication requires separate authorization.'},
++    'C102':{
++        'claim':'Scientific/editorial review complete; wider SRG unfinished; publication and further experiments require separate authorization',
++        'support':'Historical: User request; Volume I work order final stop; REVIEW_REPORT. Current: provenance/editorial_closure/SRG_VOLUME_I_v0.1.1_GPT_EDITORIAL_CLOSURE.md; instructions/PUBLICATION_WORK_ORDER.md',
++        'limitation':'Publication and further experiments require separate authorization; no staging, commit, push, upload or new investigation.'}}
+ def digest(data):return hashlib.sha256(data).hexdigest()
+ def sha(p):
+     with p.open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
+@@ -26,7 +34,18 @@
+             rel=r['path']
+             if rel.startswith('MANUSCRIPT/') and Path(rel).suffix in ['.tex','.png','.py']:
+                 if sha(ROOT/rel)!=r['sha256']:changed.append(rel)
+-        assert set(changed)=={'MANUSCRIPT/volume_i.tex','MANUSCRIPT/sections/06_agenda.tex'},changed
++        assert set(changed)=={'MANUSCRIPT/volume_i.tex','MANUSCRIPT/sections/01_scope.tex','MANUSCRIPT/sections/06_agenda.tex'},changed
++        scope='MANUSCRIPT/sections/01_scope.tex'
++        oldscope=ztext(scope);newscope=(ROOT/scope).read_text(encoding='utf-8')
++        oldsentence='This manuscript itself\nis a draft awaiting review.'
++        newsentence='Scientific and editorial\nreview is complete; publication requires separate authorization.'
++        assert oldscope.count(oldsentence)==1
++        assert newscope==oldscope.replace(oldsentence,newsentence),scope
++        assert len(newscope.splitlines())==len(oldscope.splitlines())
++        oldbytes=z.read(scope);newline=b'\r\n' if b'\r\n' in oldbytes else b'\n'
++        before_bytes=oldsentence.encode('utf-8').replace(b'\n',newline)
++        after_bytes=newsentence.encode('utf-8').replace(b'\n',newline)
++        assert (ROOT/scope).read_bytes()==oldbytes.replace(before_bytes,after_bytes)
+         chapter='MANUSCRIPT/sections/06_agenda.tex';old=ztext(chapter);new=(ROOT/chapter).read_text(encoding='utf-8')
+         split='\\section{The review boundary}'
+         assert old.split(split)[0]==new.split(split)[0]
+@@ -34,7 +53,14 @@
+         assert new.split(split)[1].strip().endswith('\\claim{C102}')
+         main='MANUSCRIPT/volume_i.tex'
+         assert ztext(main).split('\\end{titlepage}',1)[1]==(ROOT/main).read_text(encoding='utf-8').split('\\end{titlepage}',1)[1]
+-        for rel in ['records/claims.json','records/figures.json','tools/build_pdf.py','tools/acquire_typesetter.py']:
++        oldclaims=json.loads(z.read('records/claims.json'));newclaims=load(ROOT/'records/claims.json')
++        assert len(oldclaims)==len(newclaims)==102
++        for oldrow,newrow in zip(oldclaims,newclaims):
++            assert newrow=={**oldrow,**PUB01_STATUS.get(oldrow['id'],{})},oldrow['id']
++        assert {a['id'] for a,b in zip(oldclaims,newclaims) if a!=b}=={'C07','C102'}
++        findings['PUB01_exact_status_records_verified']=['C07','C102']
++        findings['other_claim_records_unchanged']=100
++        for rel in ['records/figures.json','tools/build_pdf.py','tools/acquire_typesetter.py']:
+             assert (ROOT/rel).read_bytes()==z.read(rel),rel
+         math_count=0
+         for p in (ROOT/'MANUSCRIPT/sections').glob('*.tex'):
+@@ -43,6 +69,26 @@
+             assert a==b,rel;math_count+=len(a)
+         assert math_count==16
+         findings.update(changed_latex_files=changed,display_math_environments_unchanged=math_count)
++    # Frozen pre-correction records provide a second comparison, against the reviewed publication.
++    with zipfile.ZipFile(ROOT/'provenance/pre_PUB01/submitted_publication_records.zip') as z:
++        assert z.testzip() is None
++        assert digest(z.read('PUBLICATION_FILE_MANIFEST.json'))=='d7ff67b5b1383f8d8d38b17f6081ab7c5234f66b22ff70b9948eda7b08d9ccab'
++        previous={r['path']:r for r in json.loads(z.read('PUBLICATION_FILE_MANIFEST.json'))['files']}
++        for rel in z.namelist():
++            if rel=='PUBLICATION_FILE_MANIFEST.json':continue
++            data=z.read(rel);assert len(data)==previous[rel]['bytes'] and digest(data)==previous[rel]['sha256'],rel
++        assert (ROOT/'MANUSCRIPT/sections/06_agenda.tex').read_bytes()==z.read('MANUSCRIPT/sections/06_agenda.tex')
++        prior_matrix=z.read('CLAIM_EVIDENCE_MATRIX.md').decode('utf-8').replace('\r\n','\n')
++        expected_matrix=prior_matrix
++        for claim_id,fields in PUB01_STATUS.items():
++            row=next(line for line in prior_matrix.splitlines() if line.startswith('| '+claim_id+' |'))
++            cells=row.split(' | ')
++            for field,index in [('claim',1),('support',3),('limitation',4)]:
++                if field in fields:cells[index]=fields[field]
++            expected_matrix=expected_matrix.replace(row,' | '.join(cells))
++        assert (ROOT/'CLAIM_EVIDENCE_MATRIX.md').read_text(encoding='utf-8')==expected_matrix
++        findings['PUB01_matrix_only_two_rows_changed']=True
++        findings['section_6_6_unchanged_since_submission']=True
+     closure=ROOT/'provenance/editorial_closure'
+     for r in load(closure/'CLOSURE_MANIFEST.json')['files']:check_file(closure/r['path'],r)
+     findings['editorial_closure_payloads']=4
+--- submitted/MANUSCRIPT/README.md
++++ PUB01/MANUSCRIPT/README.md
+@@ -1,6 +1,6 @@
+ # Manuscript source and publication PDF
+ 
+-[volume_i.pdf](volume_i.pdf) is the separately rebuilt publication copy of accepted edition v0.1.1. Its [editable source](volume_i.tex) includes eight section files, references, 17 figure includes and 35 image assets. Only cover/PDF metadata, running-header and closing review-status text change from the accepted manuscript. The scientific text, equations, numerical results, captions, figures and historical source copies retain the accepted content.
++[volume_i.pdf](volume_i.pdf) is the separately rebuilt publication copy of accepted edition v0.1.1. Its [editable source](volume_i.tex) includes eight section files, references, 17 figure includes and 35 image assets. Only cover/PDF metadata, running-header, C07 manuscript-status sentence and closing review-status text change from the accepted manuscript. The scientific text, equations, numerical results, captions, figures and historical source copies retain the accepted content.
+ 
+ The [exact diff](../provenance/PUBLICATION_CHANGES.diff) and [verification](../PUBLICATION_VERIFICATION.md) identify every change. The accepted R1 archive and its subsequent GPT closure receipt remain preserved under provenance/.
+ 
+--- submitted/PUBLICATION_PREPARATION_REPORT.md
++++ PUB01/PUBLICATION_PREPARATION_REPORT.md
+@@ -8,7 +8,7 @@
+ 
+ - Edition v0.1.1, 22 October 2026; author Hilmir Frímann Halldórsson; scientific lead GPT; research engineering and manuscript preparation Codex.
+ - 53 physical pages, 17 numbered figures, 35 image assets and 102 mapped claims.
+-- [Publication PDF](MANUSCRIPT/volume_i.pdf): 3,712,951 bytes, SHA-256 `0ed0b424a4121f0892589bd4837820d1fcfda4c2042006073760e41bfe3aaae8`.
++- [Publication PDF](MANUSCRIPT/volume_i.pdf): 3,712,962 bytes, SHA-256 `56489c2a4702ca05686cf47bd91faf6cf1981126f48191b8fb5b2b40aea61b9a`.
+ - [Landing page](PUBLICATION_README.md), complete LaTeX, all required assets, mathematical mechanism map, claim/evidence and figure registers, build instructions and read-only integrity checker.
+ - All 374 manifest-listed payloads of the four accepted study packages, four original manifests, all 66 volume-indexed evidence items, accepted R1 archive and GPT editorial closure. Original movies and logs are included. Historical labels and uncertainty are preserved.
+ 
+@@ -16,7 +16,7 @@
+ 
+ The repository already uses SRG_REDISCOVERY/PAPERS/<paper>/publication/<edition> with a README, sources, provenance and checksums. This copy uses the requested SRG_SIMULATION_RECONSTRUCTION_VOLUME_I/publication/v0.1.1 directory. The root and SRG landing READMEs remain unchanged; proposed navigation additions are supplied separately in the preparation review ZIP.
+ 
+-Only two LaTeX files differ from the accepted edition: the main file's cover, PDF metadata and running header, and the final status paragraph in section 6.6. That paragraph now records completed scientific/editorial review while leaving publication and future experiments as separate decisions. The surrounding science, all 16 displayed equation/align environments, numeric statements, captions and bibliography are unchanged. The [exact diff](provenance/PUBLICATION_CHANGES.diff) also covers the manuscript README, evidence-index introduction and 118 hyperlink relocations. The JSON evidence index gains publication paths while retaining accepted paths and hashes. Newly authored publication documents/checker are listed explicitly in the manifest; the changed PDF has its own identity.
++Only three LaTeX files differ from the accepted edition: the main file's cover, PDF metadata and running header; the C07 current-status sentence in section 1.3; and the final status paragraph in section 6.6. These administrative changes record completed scientific/editorial review while leaving publication and future experiments as separate decisions. Only the C07/C102 status/support entries in the current claim registers differ; the other 100 claim records, all classifications and all source locators are unchanged. The surrounding science, all 16 displayed equation/align environments, numeric statements, captions and bibliography are unchanged. The [exact diff](provenance/PUBLICATION_CHANGES.diff) also covers the manuscript README, evidence-index introduction and 118 hyperlink relocations. The JSON evidence index gains publication paths while retaining accepted paths and hashes. Newly authored publication documents/checker are listed explicitly in the manifest; the changed PDF has its own identity.
+ 
+ The accepted appendices retain their historical workspace and compact-review-package descriptions. The publication README and build guide explain their context and give the current self-contained paths. No canonical ledger update is made; the included ledger is an unchanged snapshot.
+ 
+@@ -24,10 +24,10 @@
+ 
+ [Publication verification](PUBLICATION_VERIFICATION.md) records the build, complete source/manifest checks, link checks, exact accepted comparison and visual review. The accepted R1 PDF and ZIP identities match GPT's closure receipt. All 116 accepted archive payloads and all 374 study payloads were hash-verified before copying. No original simulator, replay harness or scientific checking routine was executed.
+ 
+-The source checkpoint is main at `170e638ecc0438f911c4ceb8091ffb1b574652fe`. The index hash is `ff88a675346bdf5aba858329039f400af037fceea1eaa6334586d681c4dbfb4f`. The preparation baseline hashes 4,056 accepted/protected and tracked files, and inventories size/mtime for 30,881 existing repository files. Full coverage and exclusions are stated in the preservation receipt; this is not a claim to hash all unrelated untracked bytes. Existing Git entries, protected bytes and inventoried metadata must remain unchanged. Only this new publication directory and its separate preparation/build workspace are written.
++The source checkpoint is main at `170e638ecc0438f911c4ceb8091ffb1b574652fe`. The index hash is `ff88a675346bdf5aba858329039f400af037fceea1eaa6334586d681c4dbfb4f`. The PUB-01 closeout baseline hashes 4,586 protected files, including accepted/protected and tracked files plus the entire prior publication preparation workspace, and inventories size/mtime for 31,409 existing repository files outside the authorized publication copy and new closeout workspace. Full coverage and exclusions are stated in the preservation receipt; this is not a claim to hash all unrelated untracked bytes. Existing Git entries, protected bytes and inventoried metadata must remain unchanged. Only the authorized publication working copy and the new SRG_V1_PUB01 closeout workspace are written. The original submitted ZIP and prior preparation workspace remain unchanged.
+ 
+ Compiler binaries, TeX caches, temporary page rasters, unrelated research and earlier study ZIP duplicates are excluded from the staging payload. No payload depends on adding an untracked historical directory later. The exact file list, proposed staging list, source checkpoint, proposed commit message and post-publication procedure accompany the review ZIP. No Git mutation has been performed.
+ 
+ ## Approval boundary
+ 
+-The [work order](instructions/PUBLICATION_WORK_ORDER.md) explicitly authorizes publication preparation only and prohibits staging, commits, pushes, releases and publication. The complete package is returned for GPT and Hilmir to review before that separate authorization. No further experiment or manuscript reconstruction is initiated.
++The [publication work order](instructions/PUBLICATION_WORK_ORDER.md) and [PUB-01 closeout order](instructions/SRG_VOLUME_I_PUBLICATION_STATUS_CLOSEOUT_CODEX.md) prohibit staging, commits, pushes, releases and publication. PUB-01 is corrected; the complete package returns only for the narrow final status and identity check before separate owner publication authorization. No new scientific review, experiment or manuscript reconstruction is requested. See [the closeout](PUBLICATION_STATUS_CLOSEOUT.md) and preserved pre-correction records.
+--- submitted/PUBLICATION_VERIFICATION.md
++++ PUB01/PUBLICATION_VERIFICATION.md
+@@ -6,19 +6,22 @@
+ |---|---|
+ | Accepted baseline | Exact R1 ZIP and PDF match the subsequent GPT closure; 116 archive payloads pass CRC, size and SHA-256 checks. |
+ | Historical evidence | All 374 payloads in four accepted study manifests pass; all 66 indexed evidence items are included with matching hashes. |
+-| Scientific comparison | Only main TeX metadata/cover/header and section 6.6 status text differ. All 16 displayed equation/align environments, source programs, figure includes/assets and bibliography are unchanged. |
++| Scientific comparison | Only main TeX metadata/cover/header, the C07 current-status sentence in section 1.3 and section 6.6 status text differ. Only C07/C102 status/support metadata changes in the current claim registers; all classifications, IDs, source locators and the other 100 records are unchanged. All 16 displayed equation/align environments, source programs, figure includes/assets and bibliography are unchanged. |
+ | Claims and references | All 102 claim IDs resolve to the same source markers and lines; 63 labels are unique; all label references and 12 bibliography entries resolve. |
+ | Figures | All 17 numbered figure includes and 35 asset hashes match; the compiler's figure list contains 17 entries. |
+ | PDF/source consistency | Exact distributed TeX/image/program inputs match the isolated build inputs; build succeeded. Final PDF identity appears in the preparation report and build receipt. |
+ | PDF quality | 53 pages; zero overfull boxes, undefined references, missing glyph warnings, replacement characters or unresolved question-mark pairs. The accepted abstract underfull warning (badness 1077) remains. |
+-| Accepted PDF comparison | After excluding only the running-header strip, 50 page bodies are pixel-identical. 51 pages retain identical extracted body text. Cover and closing status paragraph change; page 41 has unchanged source/text with a typesetter table-layout difference. |
+-| Visual inspection | Cover and all page layouts/running headers inspected; final page 41 table and page 45 status text inspected at full size. No clipping, collision or unreadable new status text found. See the final visual-review receipt. |
++| Submitted publication PDF comparison | 51 complete pages are pixel-identical and 52 pages have identical extracted text. Only pages 9 and 41 differ in pixels: page 9 contains the exact C07 sentence replacement; page 41 has unchanged source/text with a typesetter table-layout difference. |
++| Accepted R1 comparison | Excluding only the running-header strip, 50 body rasters and 50 extracted page bodies match. Cover, C07 and the previously corrected C102 status account for the body-text differences. |
++| Visual inspection | All 53 pages compared against the submitted publication. The two changed pages, 9 and 41, inspected at full size; the other 51 complete page rasters match the reviewed submission. No clipping, overlap or unreadable status text observed. Cover, headers and section 6.6 remain unchanged. |
+ | Evidence links | All active local Markdown links must resolve inside the exact payload, with case-sensitive path checks suitable for GitHub. Local absolute provenance strings and historical archived references are not advertised as live GitHub paths. |
+ | Publication seal | Complete exact-member manifest and SHA-256 checksums are verified by the read-only checker. The review ZIP's CRC, member list and byte identities are verified separately; ZIP hash is in the external delivery receipt to avoid self-reference. |
+ | Preservation | Protected file hashes, complete accepted directories, canonical ledger, Git HEAD/index and pre-existing Git entries remain unchanged. Unrelated inventoried file sizes/mtimes are also compared. |
+ 
+ Machine-readable records: [PDF and input comparison](records/pdf_comparison.json), [visual review](records/visual_review.json), [static content/link checks](records/content_checks.json), [preservation](records/preservation_after.json), [build receipt](records/build_receipt.json) and [manifest](PUBLICATION_FILE_MANIFEST.json). Run [the read-only checker](tools/verify_publication.py) from a complete extracted payload to repeat integrity checks.
+ 
++The pre-PUB-01 submission and GPT review are preserved in [frozen provenance](provenance/pre_PUB01/README.md). The [restricted authored diff](provenance/pre_PUB01/PUB01_AUTHORED_CHANGES.diff) and [closeout](PUBLICATION_STATUS_CLOSEOUT.md) distinguish this status correction from the earlier publication preparation. No scientific acceptance is reopened.
++
+ The final publication manifest hashes every payload file except itself. SHA256SUMS.txt hashes all payload files except itself and the manifest; the manifest covers SHA256SUMS.txt. The external preparation receipt supplies the manifest and review-ZIP hashes. No checksum is made self-referential.
+ 
+ No remote publication has happened, so live GitHub links to this new edition cannot yet be tested. Their relative targets are all included in the proposed file list. The proposed post-publication procedure requires a fresh clone of the authorized pushed commit, the same checksum/relative-link checks, and GitHub browser checks of the landing page, PDF, source and original media/logs. Existing external dependency URLs are retained provenance, not newly certified network services.
+--- submitted/PUBLICATION_APPROVAL_CHECKLIST.md
++++ PUB01/PUBLICATION_APPROVAL_CHECKLIST.md
+@@ -3,7 +3,7 @@
+ Prepared result: scientific review accepted and editorial E01–E02 closed; exact publication copy ready for review. No publishing action has been performed.
+ 
+ - [x] Separate copy; accepted v0.1.1, earlier studies, canonical ledger and original sources preserved.
+-- [x] Cover/header/closing status changes isolated; exact diff supplied; no scientific changes.
++- [x] Cover/header/C07/closing status changes isolated; C07/C102 current claim status synchronized; exact diff supplied; no scientific changes.
+ - [x] PDF rebuilt; 53 pages, 17 figures, 102 claims and complete evidence links checked.
+ - [x] Original media, logs, accepted checks and provenance included; unresolved classifications retained.
+ - [x] Publication manifest, checksums, proposed exact staging list and Git source checkpoint supplied.
+--- /dev/null
++++ PUB01/PUBLICATION_STATUS_CLOSEOUT.md
+@@ -0,0 +1,26 @@
++# PUB-01 publication-status closeout
++
++Hilmir, the remaining status mismatch is corrected. C07 now says: **“Scientific and editorial review is complete; publication requires separate authorization.”** The C07 and C102 claim-register entries agree with that status and cite the preserved editorial closure and publication work order. The science is unchanged. This is still edition v0.1.1.
++
++**PUB-01: corrected; narrow final status/identity check pending.** Scientific acceptance and E01/E02 closure remain in force. Publication still requires separate owner authorization.
++
++## Restricted changes
++
++- MANUSCRIPT/sections/01_scope.tex: replace only the C07 sentence on lines 104–105. The preceding ledger history, line count and C07 marker are retained.
++- CLAIM_EVIDENCE_MATRIX.md and records/claims.json: change only C07/C102 administrative status/support wording. The other 100 records, all 102 IDs, classifications and manuscript locations are unchanged.
++- tools/verify_publication.py: explicitly require those exact sentence/record replacements, the unchanged rest of section 1.3 and the unchanged section 6.6. All existing scientific-content, source, figure, evidence, link and manifest checks remain. The matrix is independently restricted to the two corresponding rows.
++- MANUSCRIPT/README.md, PUBLICATION_PREPARATION_REPORT.md, PUBLICATION_VERIFICATION.md and PUBLICATION_APPROVAL_CHECKLIST.md: refresh only the descriptions of the allowed changes, actual PDF/check results and final-review boundary.
++
++Generated records refreshed: MANUSCRIPT/volume_i.pdf; records/build_receipt.json, pdf_structure.json, pdf_comparison.json, visual_review.json, content_checks.json, preservation_after.json, modified_copies.json, typeset.log and typeset_console.txt; provenance/PUBLICATION_CHANGES.diff; SHA256SUMS.txt; PUBLICATION_FILE_MANIFEST.json. New provenance preserves the supplied order/review and pre-correction records. Exact staging/file lists and archive identities are supplied in the closeout review ZIP.
++
++The [compact authored diff](provenance/pre_PUB01/PUB01_AUTHORED_CHANGES.diff) is against the submitted publication. The [cumulative publication diff](provenance/PUBLICATION_CHANGES.diff) is against accepted R1. Old receipts and the previous PDF are retained in the [frozen record archive](provenance/pre_PUB01/submitted_publication_records.zip); the original 60,467,308-byte submission ZIP remains unchanged in its original workspace.
++
++## Verified outcome
++
++The corrected [PDF](MANUSCRIPT/volume_i.pdf) has **53 pages, 17 figures and 102 mapped claims**. It is **3,712,962 bytes**, SHA-256 **56489c2a4702ca05686cf47bd91faf6cf1981126f48191b8fb5b2b40aea61b9a**. The full current payload is sealed by the [manifest](PUBLICATION_FILE_MANIFEST.json); the external delivery receipt gives the final manifest and distinct closeout-ZIP identities.
++
++Compared with the submitted publication, 51 full pages are pixel-identical and 52 have identical extracted text. Pages 9 and 41 were inspected at full resolution. Only page 9 changes text, by the requested sentence; page 41 has unchanged source/text with a typesetter table-layout difference. No page-count change, clipping or overlap was observed. All claim source locators remain valid, including C07 line 105 and C102 line 99.
++
++All 16 displayed equation/align environments, 17 figure includes, 35 images, three source programs and 374 accepted study payloads retain their bytes/content. The formally UNLINKED movie/log qualification remains. Accepted R1, earlier studies, canonical ledger, prior preparation workspace, existing root/SRG READMEs, kernels and unrelated material remain unchanged; preservation and static check receipts are refreshed.
++
++No simulation, trajectory generation, scientific checker, dependency experiment or new research was run. No staging, commits, pushes, releases or publication occurred. Return only for the requested narrow final status and identity check.
+--- /dev/null
++++ PUB01/provenance/pre_PUB01/README.md
+@@ -0,0 +1,10 @@
++# Pre-PUB-01 submission and review
++
++These are frozen provenance records. They describe the submitted publication before the C07/C102 status correction; their status text and identities must not be read as the current closeout result.
++
++- [GPT publication review](SRG_VOLUME_I_PUBLICATION_GPT_REVIEW.zip) is the exact supplied review archive, including its manifest, independent records and closeout work order.
++- [Submitted publication records](submitted_publication_records.zip) preserves the previous PDF, manuscript text, current registers, tools and verification/preparation records before authorized changes. The subset omits unchanged evidence, figure PNGs, source-program copies and accepted provenance archives, all still preserved in the payload.
++
++The complete original submission ZIP remains preserved in the original preparation workspace. Its SHA-256 is 5647a1f99d291ba7f893f6bd08ecd60a546d4748cef836353e982ca0dc0980db. The submitted manifest SHA-256 is d7ff67b5b1383f8d8d38b17f6081ab7c5234f66b22ff70b9948eda7b08d9ccab; its PDF SHA-256 is 0ed0b424a4121f0892589bd4837820d1fcfda4c2042006073760e41bfe3aaae8.
++
++Only the current publication working copy is corrected. Accepted R1 and historical evidence remain unchanged. See the [PUB-01 closeout](../../PUBLICATION_STATUS_CLOSEOUT.md) and [exact changes](PUB01_AUTHORED_CHANGES.diff).

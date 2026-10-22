@@ -1,0 +1,128 @@
+\chapter{Source identities and evidence locations}\label{app:provenance}
+\section{Immutable program identities}
+All paths in this appendix are relative to the repository's
+\filepath{SRG_REDISCOVERY} directory unless stated otherwise.
+The manuscript includes byte-identical small source copies in
+\filepath{MANUSCRIPT/sources}; the originals and accepted study
+packages remain unchanged. Line numbers in the text refer to these
+unchanged programs, not to generated listings.
+
+\begin{description}[style=nextline,leftmargin=0pt]
+\item[S01: recursive\_attractor.py, 74 lines, 2,074 bytes]
+\path{OLD_MATERIAL/Simulations_Trash/Simulations_part_2/recursive_attractor.py}\\
+SHA-256:
+\path{847819ec381e200d9008395175342ec138e52ab3180a4f599b4db1cb91ae42d3}.
+\item[S02: 3Dtriangles.py, 119 lines, 3,970 bytes]
+\path{OLD_MATERIAL/Simulations_Trash/Simulations_part_2/3Dtriangles.py}\\
+SHA-256:
+\path{4c53678eefd803e93a910b74e7a8096bfd5095e0d09d09c9df0e7cf514b312f1}.
+\item[S03: plot\_1.py, 167 lines, 5,711 bytes]
+\path{OLD_MATERIAL/Simulations_Trash/Simulations_part_1/plot_1.py}\\
+SHA-256:
+\path{e13b92df8ac6df78cfee75b95dacea3b106e96bd5be9bf798cdcf39ccc5bc75c}.
+\end{description}
+
+No additional historical source aliases were confirmed in the focused
+recovered index used by the accepted studies. Package copies are
+preservation copies, not independent historical versions. None of
+the three sources declares a seed, author/date/version statement or
+complete export environment. Current file timestamps were not used
+to infer invention order.
+
+\section{Historical images, movies and logs}
+\begin{description}[style=nextline,leftmargin=0pt]
+\item[S01 historical image]
+\path{OLD_MATERIAL/Simulations_Trash/Simulations_part_2/attractors.png}\\
+800 by 800 PNG, 49,967 bytes. SHA-256:
+\path{72776de5e6228f4c4a0e2ef43d804f479bf8db80af6884e492e9ccbc3053d651}.
+Original / attributed; seed, ordered log and saving method missing.
+
+\item[S02 historical movie]
+\path{OLD_MATERIAL/Simulations_Trash/Simulations_part_1/tetrahedral_attractors_animation.mp4}\\
+1,002,986 bytes. SHA-256:
+\path{4f90ce9fc384b134b68b5a64424ef3e05d364153d4e70efdd1596c0b8c937dd3}.
+2,000 frames at 60 fps. Source association strong; exact run and numeric
+history missing.
+
+\item[S03 historical movie]
+\path{OLD_MATERIAL/Simulations_Trash/Simulations_part_1/tetrahedral_attractors_logic.mp4}\\
+176,442 bytes. SHA-256:
+\path{0289d8e5a084e53f536183ad87d83b4a4c5ab972851bb61922a699406623203a}.
+200 frames at 20 fps. Source association strong; exact movie/log join
+formally UNLINKED.
+
+\item[S03 original log A]
+\path{OLD_MATERIAL/Simulations_Trash/Simulations_part_1/PLOT_1_tetrahedral_states_20250712_015421.csv}\\
+1,451,175 bytes. SHA-256:
+\path{6e6fc49be7dbb5ecf77aa1fbeaf5106df12c04ef3c63c29ee84c693f2ed70e74}.
+8,736 rows / 1,092 complete callback blocks.
+
+\item[S03 original log B]
+\path{OLD_MATERIAL/Simulations/CSV/tetrahedral_states_20250712_015647.csv}\\
+581,988 bytes. SHA-256:
+\path{051f8ad8be54794fcf54171a316d9931cc65b43349634799f446c53eb1b9afe8}.
+3,520 rows / 440 complete callback blocks.
+\end{description}
+
+Log A has byte-identical aliases at
+\path{OLD_MATERIAL/Simulations/CSV/PLOT_1_tetrahedral_states_20250712_015421.csv}
+and
+\path{OLD_MATERIAL/Simulations_Trash/Simulations_part_3/PLOT_1_tetrahedral_states_20250712_015421.csv}.
+They are one evidence stream at three preserved locations.
+The two filenames suggest 2025-07-12 times but do not certify a
+timezone, source revision or movie export identity.
+
+The two body 7 historical charts lie in
+\path{OLD_MATERIAL/Simulations_Trash/Simulations_part_1}.
+The position chart has SHA-256
+\path{bf6dfb6ec1da4a9ceb56c9107b654671492576945a1b62426625b18ec99fe798};
+the GRF/energy chart has SHA-256
+\path{8f3c93d74ec1c03f97d70320b5c760953dca805b3bd3f1e967d54d6789a5b137}.
+Their full names, copy hashes and unaltered images appear in the
+figure register. Both remain attributed postprocessing, with
+generator code missing.
+
+\section{Accepted packages and reproduced records}
+The authoritative package roots are:
+\begin{itemize}
+\item \path{SRG_SIMULATION_CONSTRUCTION_01};
+\item \path{SRG_SIMULATION_REPLAY_01};
+\item \path{SRG_SIMULATION_CONSTRUCTION_02};
+\item \path{SRG_SIMULATION_STUDY_03_PLOT1}.
+\end{itemize}
+Each retains its own manifest, detailed scope and review-stage
+records. The new volume does not rewrite those receipts.
+
+Inside the replay package, \path{replay/trajectory.npz} preserves
+the binary state arrays, SHA-256
+\path{b14901adc4612a3e557615fd0833f58ccb953d3f84f8823f1121a5bef5b0c5e1}.
+\path{replay/states.csv} has SHA-256
+\path{4cdc156fd4cc777220528805a85dee65298b8c44b723e3766a65809ffb6b6ff9}.
+\path{replay/within_sweep.jsonl} has SHA-256
+\path{af43911ab0dc3fa7bda5ae96e418ccac1e93da30839124abeb6a3514cb4b80ff}.
+These are reproduced records from the known seed, not original
+historical trajectory data.
+
+The volume's external evidence index and figure/media register
+provide relative links into these packages. They avoid duplicating
+every movie, frame, CSV and prior ZIP. A detached review ZIP contains
+the manuscript, its selected figure assets, source copies and
+supporting review records; the complete numerical/movie evidence
+is accessed through the stated repository-relative locations.
+
+\section{Excluded and qualified evidence}
+The curvature-labelled CSV previously indexed by R0 belongs to a
+different, incompletely recovered rule. It is not evidence for
+S02 or S03's trajectories here. The nearby CRE/DRE and harmonic-tunnel
+images inspected in Study 03 contain quantities or narratives absent
+from the selected program; they are not used as behavior evidence.
+No neighboring movie or memory-based description substitutes for
+an unrecovered run.
+
+The chart-axis and detector findings qualify how historical outputs
+should be read; they do not alter those outputs. The wording
+“delayed direction reversal” in this manuscript refers to the
+recorded velocity relative to a source-defined centroid direction,
+without claiming physical calibration. The signed response mode
+is likewise not an invariant label for attraction whenever H
+changes sign.

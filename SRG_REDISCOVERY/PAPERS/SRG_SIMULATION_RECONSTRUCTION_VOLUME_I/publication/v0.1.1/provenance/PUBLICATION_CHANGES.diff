@@ -1,0 +1,1645 @@
+--- accepted_R1/CLAIM_EVIDENCE_MATRIX.md
++++ publication_v0.1.1_PUB01/CLAIM_EVIDENCE_MATRIX.md
+@@ -5,10 +5,10 @@
+ ## Locator key
+ 
+ - S01/S02/S03: byte-identical [source copies](MANUSCRIPT/sources); exact original locations/hashes in the manuscript Appendix A.
+-- C01: [Construction01](../../SRG_SIMULATION_CONSTRUCTION_01/CONSTRUCTION_WALKTHROUGH.md).
+-- R01: [Replay01 motion](../../SRG_SIMULATION_REPLAY_01/MOTION_WALKTHROUGH.md), [validation](../../SRG_SIMULATION_REPLAY_01/REPLAY_VALIDATION.md); records under that package's replay/ directory.
+-- C02: [Construction02](../../SRG_SIMULATION_CONSTRUCTION_02/CONSTRUCTION_WALKTHROUGH.md), [time](../../SRG_SIMULATION_CONSTRUCTION_02/TIME_AND_MOVEMENT.md), [visual evidence](../../SRG_SIMULATION_CONSTRUCTION_02/VISUAL_EVIDENCE.md).
+-- C03: [Study03 construction](../../SRG_SIMULATION_STUDY_03_PLOT1/CONSTRUCTION.md), [logs](../../SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_LOG_ANALYSIS.md), [movie](../../SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_MOVIE_REVIEW.md), [time/movement](../../SRG_SIMULATION_STUDY_03_PLOT1/TIME_SWITCH_AND_MOVEMENT.md); analysis files remain in that package.
++- C01: [Construction01](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_01/CONSTRUCTION_WALKTHROUGH.md).
++- R01: [Replay01 motion](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/MOTION_WALKTHROUGH.md), [validation](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/REPLAY_VALIDATION.md); records under that package's replay/ directory.
++- C02: [Construction02](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/CONSTRUCTION_WALKTHROUGH.md), [time](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/TIME_AND_MOVEMENT.md), [visual evidence](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/VISUAL_EVIDENCE.md).
++- C03: [Study03 construction](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/CONSTRUCTION.md), [logs](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_LOG_ANALYSIS.md), [movie](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_MOVIE_REVIEW.md), [time/movement](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/TIME_SWITCH_AND_MOVEMENT.md); analysis files remain in that package.
+ - A/B CSV lines: physical lines including header as line 1, body i at callback q on line 8q+2+i. Replay JSONL line number equals event ID.
+ - Charter and Volume I work order: exact copies in [instructions](instructions). Authority documents govern scope/review status; they are not simulated observations.
+ 
+@@ -22,7 +22,7 @@
+ | C04 | Missing seeds and reusable/relative output names | ORIGINAL | S01:1–74; S02:15–16,110–119; S03:17–18,74–78,158–167 | Filename dates and directories do not certify development order. | [Scope, historical evidence and method / Evidence classes and attribution](MANUSCRIPT/sections/01_scope.tex) line 79 |
+ | C05 | Synthesis reuses accepted studies without new execution | Method / preservation | Volume I work order; tools/build_pdf.py; REVIEW_REPORT; records/preservation_before.json | Only editorial, hash, build and PDF-inspection operations. | [Scope, historical evidence and method / Method and limits of the present synthesis](MANUSCRIPT/sections/01_scope.tex) line 89 |
+ | C06 | Different verification coverage in S01 replay and S03 logs | REPRODUCED / DERIVED | R01 REPLAY_VALIDATION, equivalence.json; C03 ORIGINAL_LOG_ANALYSIS, independent_checks.json | S01 final velocity only in reference; S03 full velocity check sampled. | [Scope, historical evidence and method / Method and limits of the present synthesis](MANUSCRIPT/sections/01_scope.tex) line 98 |
+-| C07 | SIM03 acceptance and Volume I review status | Review authority | Volume I work order, Existing authority / Review status; ledger diff | Acceptance preserves provenance limits; manuscript remains in review. | [Scope, historical evidence and method / Method and limits of the present synthesis](MANUSCRIPT/sections/01_scope.tex) line 105 |
++| C07 | SIM03 acceptance and Volume I review status | Review authority | Volume I work order, Existing authority / Review status; ledger diff (historical SIM03 acceptance); provenance/editorial_closure/SRG_VOLUME_I_v0.1.1_GPT_EDITORIAL_CLOSURE.md (current manuscript status); instructions/PUBLICATION_WORK_ORDER.md (separate publication authority) | Scientific and editorial review is complete; provenance qualifications remain; publication requires separate authorization. | [Scope, historical evidence and method / Method and limits of the present synthesis](MANUSCRIPT/sections/01_scope.tex) line 105 |
+ | C08 | Index conventions and physical CSV line formula | ORIGINAL / DERIVED | R01 REPLAY_VALIDATION, Numerical records; S03:144–147; C03 ORIGINAL_LOG_ANALYSIS, chronology | q is an analysis locator; Step is repeated. | [Scope, historical evidence and method / Notation, units and record locators](MANUSCRIPT/sections/01_scope.tex) line 120 |
+ | C09 | S01 complete module-level construction and static display | ORIGINAL | S01:1–74; C01 CONSTRUCTION_WALKTHROUGH §A–E | No source import during this volume. | [Simulation 01: three interacting points / Entities, initialization and retained state](MANUSCRIPT/sections/02_three_points.tex) line 14 |
+ | C10 | S01 twelve real entries, zero velocities and parameters | ORIGINAL | S01:5–14,66–71 | Uniform pseudorandom initializer has no recorded historical seed. | [Simulation 01: three interacting points / Entities, initialization and retained state](MANUSCRIPT/sections/02_three_points.tex) line 23 |
+@@ -117,4 +117,4 @@
+ | C99 | Full velocity audit and chart generators remain unresolved | MISSING / research agenda | C03 ORIGINAL_LOG_ANALYSIS checks; ORIGINAL_MOVIE_REVIEW chart limits | Scientific checkers not rerun; original charts not corrected. | [Open questions and the next volumes / Order, wrapping and attribution of causes](MANUSCRIPT/sections/06_agenda.tex) line 72 |
+ | C100 | Later geometric/amplitude/neighbor-change families outside Volume I | Scope / research agenda | Charter mission and distinctions; Volume I work order §F | No new simulator selected or archive audit. | [Open questions and the next volumes / Later families and the gravity question](MANUSCRIPT/sections/06_agenda.tex) line 81 |
+ | C101 | Gravity/energy relationship is an open comparison | HYPOTHESIS / scientific boundary | Volume I work order §F; S03:57–61; charter | No physical force/container assumption or field equation added. | [Open questions and the next volumes / Later families and the gravity question](MANUSCRIPT/sections/06_agenda.tex) line 90 |
+-| C102 | Volume I ends at review, not project completion/publication | Review authority | User request; Volume I work order final stop; REVIEW_REPORT | No staging/commit/push/upload or next investigation. | [Open questions and the next volumes / The review boundary](MANUSCRIPT/sections/06_agenda.tex) line 99 |
++| C102 | Scientific/editorial review complete; wider SRG unfinished; publication and further experiments require separate authorization | Review authority | Historical: User request; Volume I work order final stop; REVIEW_REPORT. Current: provenance/editorial_closure/SRG_VOLUME_I_v0.1.1_GPT_EDITORIAL_CLOSURE.md; instructions/PUBLICATION_WORK_ORDER.md | Publication and further experiments require separate authorization; no staging, commit, push, upload or new investigation. | [Open questions and the next volumes / The review boundary](MANUSCRIPT/sections/06_agenda.tex) line 99 |
+--- accepted_R1/EXTERNAL_EVIDENCE_INDEX.md
++++ publication_v0.1.1_PUB01/EXTERNAL_EVIDENCE_INDEX.md
+@@ -1,401 +1,401 @@
+ # External evidence index
+ 
+-These links resolve from this volume's repository location. The ZIP is a compact manuscript package, not a duplicate of all earlier movies and numerical archives. For full evidence access after extraction, restore the volume under the same SRG_REDISCOVERY/SIMULATION_RECONSTRUCTION_RESEARCH layout beside the accepted packages. The PDF and all its figure assets are self-contained.
++All 66 indexed evidence items are included under evidence/ in this publication copy, together with the complete manifest-listed payloads of the four accepted study packages. Links resolve inside this edition after extraction or the proposed GitHub publication. Historical locations remain provenance identifiers; no untracked local directory is needed.
+ 
+ Evidence classes and attribution limits remain those of the accepted studies. Reading a method is not permission to run it; no scientific inspection script below was rerun for this volume. Source/row/frame anchors are in CLAIM_EVIDENCE_MATRIX.md and the manuscript. Figure assets have a separate detailed register.
+ 
+ ## MANIFEST.json
+ 
+-[../../SRG_SIMULATION_CONSTRUCTION_01/MANIFEST.json](../../SRG_SIMULATION_CONSTRUCTION_01/MANIFEST.json)
++[../../SRG_SIMULATION_CONSTRUCTION_01/MANIFEST.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_01/MANIFEST.json)
+ 
+ Accepted package integrity receipt; its historical review-stage wording is preserved. 9,533 bytes. SHA-256: 9de1cd97c3d5aee76e7eca4872166a4799ab1a3c1ab713e7ec09ea95a00b529a.
+ 
+ ## CONSTRUCTION_WALKTHROUGH.md
+ 
+-[../../SRG_SIMULATION_CONSTRUCTION_01/CONSTRUCTION_WALKTHROUGH.md](../../SRG_SIMULATION_CONSTRUCTION_01/CONSTRUCTION_WALKTHROUGH.md)
++[../../SRG_SIMULATION_CONSTRUCTION_01/CONSTRUCTION_WALKTHROUGH.md](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_01/CONSTRUCTION_WALKTHROUGH.md)
+ 
+ Accepted explanatory study document; retained as existing evidence. 18,570 bytes. SHA-256: 1476e813f8d4231986030a6e6edc39774fd9ea6ad63d056c0f13e236c53c9e1e.
+ 
+ ## START_HERE.md
+ 
+-[../../SRG_SIMULATION_CONSTRUCTION_01/START_HERE.md](../../SRG_SIMULATION_CONSTRUCTION_01/START_HERE.md)
++[../../SRG_SIMULATION_CONSTRUCTION_01/START_HERE.md](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_01/START_HERE.md)
+ 
+ Accepted explanatory study document; retained as existing evidence. 3,501 bytes. SHA-256: 4a03f2df7ba19dce4a4d0005b1313ed6eef5f1fa1666e9eb3c0b52dcf17674dd.
+ 
+ ## MANIFEST.json
+ 
+-[../../SRG_SIMULATION_REPLAY_01/MANIFEST.json](../../SRG_SIMULATION_REPLAY_01/MANIFEST.json)
++[../../SRG_SIMULATION_REPLAY_01/MANIFEST.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/MANIFEST.json)
+ 
+ Accepted package integrity receipt; its historical review-stage wording is preserved. 12,096 bytes. SHA-256: 5c66c3af72788fe1e2973b063b231fa551346d2aad2cc12d865161984511b182.
+ 
+ ## MOTION_WALKTHROUGH.md
+ 
+-[../../SRG_SIMULATION_REPLAY_01/MOTION_WALKTHROUGH.md](../../SRG_SIMULATION_REPLAY_01/MOTION_WALKTHROUGH.md)
++[../../SRG_SIMULATION_REPLAY_01/MOTION_WALKTHROUGH.md](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/MOTION_WALKTHROUGH.md)
+ 
+ Accepted explanatory study document; retained as existing evidence. 12,275 bytes. SHA-256: aeb0cfc24cb599a0046e492ceff83fa066f98b646405d99625aaf543bc2a0090.
+ 
+ ## REPLAY_VALIDATION.md
+ 
+-[../../SRG_SIMULATION_REPLAY_01/REPLAY_VALIDATION.md](../../SRG_SIMULATION_REPLAY_01/REPLAY_VALIDATION.md)
++[../../SRG_SIMULATION_REPLAY_01/REPLAY_VALIDATION.md](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/REPLAY_VALIDATION.md)
+ 
+ Accepted explanatory study document; retained as existing evidence. 10,155 bytes. SHA-256: 0ad99bc406df424af6b2799693579f37b82de0edae9c0e31b5ed3b1d3c0e10a3.
+ 
+ ## START_HERE.md
+ 
+-[../../SRG_SIMULATION_REPLAY_01/START_HERE.md](../../SRG_SIMULATION_REPLAY_01/START_HERE.md)
++[../../SRG_SIMULATION_REPLAY_01/START_HERE.md](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/START_HERE.md)
+ 
+ Accepted explanatory study document; retained as existing evidence. 4,022 bytes. SHA-256: c3d04c90adccab2e008a3d3660ea2ab9d4d84abad0b088fe05c3778c4c22ff95.
+ 
+ ## MANIFEST.json
+ 
+-[../../SRG_SIMULATION_CONSTRUCTION_02/MANIFEST.json](../../SRG_SIMULATION_CONSTRUCTION_02/MANIFEST.json)
++[../../SRG_SIMULATION_CONSTRUCTION_02/MANIFEST.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/MANIFEST.json)
+ 
+ Accepted package integrity receipt; its historical review-stage wording is preserved. 17,771 bytes. SHA-256: b13a12e2f6dfd73f24707f8221a426e19d6d3a3f57e45d751333eba0e79080fc.
+ 
+ ## CONSTRUCTION_WALKTHROUGH.md
+ 
+-[../../SRG_SIMULATION_CONSTRUCTION_02/CONSTRUCTION_WALKTHROUGH.md](../../SRG_SIMULATION_CONSTRUCTION_02/CONSTRUCTION_WALKTHROUGH.md)
++[../../SRG_SIMULATION_CONSTRUCTION_02/CONSTRUCTION_WALKTHROUGH.md](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/CONSTRUCTION_WALKTHROUGH.md)
+ 
+ Accepted explanatory study document; retained as existing evidence. 6,620 bytes. SHA-256: 88cede2fba6eb0d754b8cd66591339613d28b551ffcc4e622522eaa9f69a71ae.
+ 
+ ## SIMULATION_01_COMPARISON.md
+ 
+-[../../SRG_SIMULATION_CONSTRUCTION_02/SIMULATION_01_COMPARISON.md](../../SRG_SIMULATION_CONSTRUCTION_02/SIMULATION_01_COMPARISON.md)
++[../../SRG_SIMULATION_CONSTRUCTION_02/SIMULATION_01_COMPARISON.md](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/SIMULATION_01_COMPARISON.md)
+ 
+ Accepted explanatory study document; retained as existing evidence. 4,945 bytes. SHA-256: 8941674cc5d1a1554c6fa7f9abff5db9b133f91c3bcd4d6d9962bdde5e1f3de9.
+ 
+ ## START_HERE.md
+ 
+-[../../SRG_SIMULATION_CONSTRUCTION_02/START_HERE.md](../../SRG_SIMULATION_CONSTRUCTION_02/START_HERE.md)
++[../../SRG_SIMULATION_CONSTRUCTION_02/START_HERE.md](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/START_HERE.md)
+ 
+ Accepted explanatory study document; retained as existing evidence. 3,799 bytes. SHA-256: dc01bb859526e47412997e26fb10034a8bbe447eb3df7b9b3f7cc957091da8ea.
+ 
+ ## TIME_AND_MOVEMENT.md
+ 
+-[../../SRG_SIMULATION_CONSTRUCTION_02/TIME_AND_MOVEMENT.md](../../SRG_SIMULATION_CONSTRUCTION_02/TIME_AND_MOVEMENT.md)
++[../../SRG_SIMULATION_CONSTRUCTION_02/TIME_AND_MOVEMENT.md](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/TIME_AND_MOVEMENT.md)
+ 
+ Accepted explanatory study document; retained as existing evidence. 7,790 bytes. SHA-256: 9d343e67b316e4b25bc431de741ad5bfe7e913779c0aaa0ee2fa5dfbc4096ea6.
+ 
+ ## VISUAL_EVIDENCE.md
+ 
+-[../../SRG_SIMULATION_CONSTRUCTION_02/VISUAL_EVIDENCE.md](../../SRG_SIMULATION_CONSTRUCTION_02/VISUAL_EVIDENCE.md)
++[../../SRG_SIMULATION_CONSTRUCTION_02/VISUAL_EVIDENCE.md](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/VISUAL_EVIDENCE.md)
+ 
+ Accepted explanatory study document; retained as existing evidence. 7,722 bytes. SHA-256: 0b82c8182abd0b472cc27ea0cbe960d4bfcf6353d6c4c983c84178cb2b888605.
+ 
+ ## MANIFEST.json
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/MANIFEST.json](../../SRG_SIMULATION_STUDY_03_PLOT1/MANIFEST.json)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/MANIFEST.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/MANIFEST.json)
+ 
+ Accepted package integrity receipt; its historical review-stage wording is preserved. 56,252 bytes. SHA-256: e6fd51f64a74f2839025403b444d2836996a6471f75d54c927c68cfe78bc743e.
+ 
+ ## CONSTRUCTION.md
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/CONSTRUCTION.md](../../SRG_SIMULATION_STUDY_03_PLOT1/CONSTRUCTION.md)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/CONSTRUCTION.md](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/CONSTRUCTION.md)
+ 
+ Accepted explanatory study document; retained as existing evidence. 8,786 bytes. SHA-256: cfeb5a17e04f4b3de6a5885a3b23a03751d557f443428a149930098cfd09a036.
+ 
+ ## ORIGINAL_LOG_ANALYSIS.md
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_LOG_ANALYSIS.md](../../SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_LOG_ANALYSIS.md)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_LOG_ANALYSIS.md](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_LOG_ANALYSIS.md)
+ 
+ Accepted explanatory study document; retained as existing evidence. 12,584 bytes. SHA-256: c854a764252a071198ba344292a01b02c2148ababda529c56ee3db350612137e.
+ 
+ ## ORIGINAL_MOVIE_REVIEW.md
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_MOVIE_REVIEW.md](../../SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_MOVIE_REVIEW.md)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_MOVIE_REVIEW.md](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_MOVIE_REVIEW.md)
+ 
+ Accepted explanatory study document; retained as existing evidence. 9,635 bytes. SHA-256: eb3bceb4accd357e06cae19e162767467a0030b7243eb29331fbd445eba9092a.
+ 
+ ## SIMULATION_02_COMPARISON.md
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/SIMULATION_02_COMPARISON.md](../../SRG_SIMULATION_STUDY_03_PLOT1/SIMULATION_02_COMPARISON.md)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/SIMULATION_02_COMPARISON.md](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/SIMULATION_02_COMPARISON.md)
+ 
+ Accepted explanatory study document; retained as existing evidence. 7,139 bytes. SHA-256: 772560db73bfaf6ba282bac0ab08c915545f85167878f65ce623f2a84b7b99e1.
+ 
+ ## START_HERE.md
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/START_HERE.md](../../SRG_SIMULATION_STUDY_03_PLOT1/START_HERE.md)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/START_HERE.md](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/START_HERE.md)
+ 
+ Accepted explanatory study document; retained as existing evidence. 4,899 bytes. SHA-256: ffbdbc37469acedd4973001bea0d823616ada9d4ce145f3c992432bc72aa6118.
+ 
+ ## TIME_SWITCH_AND_MOVEMENT.md
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/TIME_SWITCH_AND_MOVEMENT.md](../../SRG_SIMULATION_STUDY_03_PLOT1/TIME_SWITCH_AND_MOVEMENT.md)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/TIME_SWITCH_AND_MOVEMENT.md](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/TIME_SWITCH_AND_MOVEMENT.md)
+ 
+ Accepted explanatory study document; retained as existing evidence. 8,758 bytes. SHA-256: 4d138d302e58d13d50f68f16124d8c0b48cdec00ea73d33f331c508e1c445d5e.
+ 
+ ## VERIFICATION_AND_PRESERVATION.md
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/VERIFICATION_AND_PRESERVATION.md](../../SRG_SIMULATION_STUDY_03_PLOT1/VERIFICATION_AND_PRESERVATION.md)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/VERIFICATION_AND_PRESERVATION.md](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/VERIFICATION_AND_PRESERVATION.md)
+ 
+ Accepted explanatory study document; retained as existing evidence. 9,159 bytes. SHA-256: 924029b06d1042d9d23c7f0d6b807f627b867e97f845b554ea47ea74ab36b68b.
+ 
+ ## recursive_attractor.py
+ 
+-[../../OLD_MATERIAL/Simulations_Trash/Simulations_part_2/recursive_attractor.py](../../OLD_MATERIAL/Simulations_Trash/Simulations_part_2/recursive_attractor.py)
++[../../OLD_MATERIAL/Simulations_Trash/Simulations_part_2/recursive_attractor.py](evidence/SRG_REDISCOVERY/OLD_MATERIAL/Simulations_Trash/Simulations_part_2/recursive_attractor.py)
+ 
+ ORIGINAL source; byte-identical small copy included in this volume. 2,074 bytes. SHA-256: 847819ec381e200d9008395175342ec138e52ab3180a4f599b4db1cb91ae42d3.
+ 
+ ## 3Dtriangles.py
+ 
+-[../../OLD_MATERIAL/Simulations_Trash/Simulations_part_2/3Dtriangles.py](../../OLD_MATERIAL/Simulations_Trash/Simulations_part_2/3Dtriangles.py)
++[../../OLD_MATERIAL/Simulations_Trash/Simulations_part_2/3Dtriangles.py](evidence/SRG_REDISCOVERY/OLD_MATERIAL/Simulations_Trash/Simulations_part_2/3Dtriangles.py)
+ 
+ ORIGINAL source; byte-identical small copy included in this volume. 3,970 bytes. SHA-256: 4c53678eefd803e93a910b74e7a8096bfd5095e0d09d09c9df0e7cf514b312f1.
+ 
+ ## plot_1.py
+ 
+-[../../OLD_MATERIAL/Simulations_Trash/Simulations_part_1/plot_1.py](../../OLD_MATERIAL/Simulations_Trash/Simulations_part_1/plot_1.py)
++[../../OLD_MATERIAL/Simulations_Trash/Simulations_part_1/plot_1.py](evidence/SRG_REDISCOVERY/OLD_MATERIAL/Simulations_Trash/Simulations_part_1/plot_1.py)
+ 
+ ORIGINAL source; byte-identical small copy included in this volume. 5,711 bytes. SHA-256: e13b92df8ac6df78cfee75b95dacea3b106e96bd5be9bf798cdcf39ccc5bc75c.
+ 
+ ## trajectory.npz
+ 
+-[../../SRG_SIMULATION_REPLAY_01/replay/trajectory.npz](../../SRG_SIMULATION_REPLAY_01/replay/trajectory.npz)
++[../../SRG_SIMULATION_REPLAY_01/replay/trajectory.npz](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/trajectory.npz)
+ 
+ REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I. 102,272 bytes. SHA-256: b14901adc4612a3e557615fd0833f58ccb953d3f84f8823f1121a5bef5b0c5e1.
+ 
+ ## states.csv
+ 
+-[../../SRG_SIMULATION_REPLAY_01/replay/states.csv](../../SRG_SIMULATION_REPLAY_01/replay/states.csv)
++[../../SRG_SIMULATION_REPLAY_01/replay/states.csv](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/states.csv)
+ 
+ REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I. 216,563 bytes. SHA-256: 4cdc156fd4cc777220528805a85dee65298b8c44b723e3766a65809ffb6b6ff9.
+ 
+ ## within_sweep.jsonl
+ 
+-[../../SRG_SIMULATION_REPLAY_01/replay/within_sweep.jsonl](../../SRG_SIMULATION_REPLAY_01/replay/within_sweep.jsonl)
++[../../SRG_SIMULATION_REPLAY_01/replay/within_sweep.jsonl](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/within_sweep.jsonl)
+ 
+ REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I. 2,351,331 bytes. SHA-256: af43911ab0dc3fa7bda5ae96e418ccac1e93da30839124abeb6a3514cb4b80ff.
+ 
+ ## initial_state.json
+ 
+-[../../SRG_SIMULATION_REPLAY_01/replay/initial_state.json](../../SRG_SIMULATION_REPLAY_01/replay/initial_state.json)
++[../../SRG_SIMULATION_REPLAY_01/replay/initial_state.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/initial_state.json)
+ 
+ REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I. 818 bytes. SHA-256: a20c291e6eaf8aff89f4b0faf5b227469c4c38108ddd6a18d3fff9a0b026276c.
+ 
+ ## RUN_SPEC.json
+ 
+-[../../SRG_SIMULATION_REPLAY_01/replay/RUN_SPEC.json](../../SRG_SIMULATION_REPLAY_01/replay/RUN_SPEC.json)
++[../../SRG_SIMULATION_REPLAY_01/replay/RUN_SPEC.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/RUN_SPEC.json)
+ 
+ REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I. 1,202 bytes. SHA-256: 9268bb0fa16b9d32fa7bad014beff4efdc8ca6c79056180098dc0aa61d6221b0.
+ 
+ ## equivalence.json
+ 
+-[../../SRG_SIMULATION_REPLAY_01/replay/equivalence.json](../../SRG_SIMULATION_REPLAY_01/replay/equivalence.json)
++[../../SRG_SIMULATION_REPLAY_01/replay/equivalence.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/equivalence.json)
+ 
+ REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I. 630 bytes. SHA-256: 87ff736c1c5b43cdcb822a9a925cef6a4d717390c6a6c12903b8151efdebb633.
+ 
+ ## execution_receipt.json
+ 
+-[../../SRG_SIMULATION_REPLAY_01/replay/execution_receipt.json](../../SRG_SIMULATION_REPLAY_01/replay/execution_receipt.json)
++[../../SRG_SIMULATION_REPLAY_01/replay/execution_receipt.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/execution_receipt.json)
+ 
+ REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I. 327 bytes. SHA-256: 17577be373388990b5564773c80de208d2c89cbd08e25ca97b5bef500a9871d4.
+ 
+ ## record_checks.json
+ 
+-[../../SRG_SIMULATION_REPLAY_01/replay/record_checks.json](../../SRG_SIMULATION_REPLAY_01/replay/record_checks.json)
++[../../SRG_SIMULATION_REPLAY_01/replay/record_checks.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/record_checks.json)
+ 
+ REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I. 1,789 bytes. SHA-256: c44f19af852e12a005a535137b9ac4fca796804c45cc07121eb76a7d2c968289.
+ 
+ ## observation_summary.json
+ 
+-[../../SRG_SIMULATION_REPLAY_01/replay/observation_summary.json](../../SRG_SIMULATION_REPLAY_01/replay/observation_summary.json)
++[../../SRG_SIMULATION_REPLAY_01/replay/observation_summary.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/observation_summary.json)
+ 
+ REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I. 26,086 bytes. SHA-256: a19affc63ec71e310e47e1ae2b054710638a3d60008309bd7cf34545447efaf8.
+ 
+ ## run_replay.py
+ 
+-[../../SRG_SIMULATION_REPLAY_01/replay/run_replay.py](../../SRG_SIMULATION_REPLAY_01/replay/run_replay.py)
++[../../SRG_SIMULATION_REPLAY_01/replay/run_replay.py](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/run_replay.py)
+ 
+ REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I. 10,352 bytes. SHA-256: c9b7da02a4498164bb41633ac3b4bcdc1e19242584aca4b9f5d62097ee9aad76.
+ 
+ ## verify_records.py
+ 
+-[../../SRG_SIMULATION_REPLAY_01/replay/verify_records.py](../../SRG_SIMULATION_REPLAY_01/replay/verify_records.py)
++[../../SRG_SIMULATION_REPLAY_01/replay/verify_records.py](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/verify_records.py)
+ 
+ REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I. 4,465 bytes. SHA-256: 09de09f358c60b0264f47bbb8e4938dd8835e79fa19f54f4e23da732280d3777.
+ 
+ ## observe_replay.py
+ 
+-[../../SRG_SIMULATION_REPLAY_01/replay/observe_replay.py](../../SRG_SIMULATION_REPLAY_01/replay/observe_replay.py)
++[../../SRG_SIMULATION_REPLAY_01/replay/observe_replay.py](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/observe_replay.py)
+ 
+ REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I. 13,204 bytes. SHA-256: ce72a871fd8abc6e20df16ff19a11657b01c5aa143e99d0fe4d93fe80b06cf28.
+ 
+ ## tetrahedral_attractors_animation.mp4
+ 
+-[../../SRG_SIMULATION_CONSTRUCTION_02/evidence/tetrahedral_attractors_animation.mp4](../../SRG_SIMULATION_CONSTRUCTION_02/evidence/tetrahedral_attractors_animation.mp4)
++[../../SRG_SIMULATION_CONSTRUCTION_02/evidence/tetrahedral_attractors_animation.mp4](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/evidence/tetrahedral_attractors_animation.mp4)
+ 
+ S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing. 1,002,986 bytes. SHA-256: 4f90ce9fc384b134b68b5a64424ef3e05d364153d4e70efdd1596c0b8c937dd3.
+ 
+ ## video_inspection.json
+ 
+-[../../SRG_SIMULATION_CONSTRUCTION_02/inspection/video_inspection.json](../../SRG_SIMULATION_CONSTRUCTION_02/inspection/video_inspection.json)
++[../../SRG_SIMULATION_CONSTRUCTION_02/inspection/video_inspection.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/inspection/video_inspection.json)
+ 
+ S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing. 6,633 bytes. SHA-256: 33347cb5d6e3d8362c02923b85ab20b140646fc16de8854f80c9a87d2e3ffe79.
+ 
+ ## jump_window_inspection.json
+ 
+-[../../SRG_SIMULATION_CONSTRUCTION_02/inspection/jump_window_inspection.json](../../SRG_SIMULATION_CONSTRUCTION_02/inspection/jump_window_inspection.json)
++[../../SRG_SIMULATION_CONSTRUCTION_02/inspection/jump_window_inspection.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/inspection/jump_window_inspection.json)
+ 
+ S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing. 2,391 bytes. SHA-256: 0633992ba74a4161f558760a07a146bb22ae8ae4416d51f57571de305fa7df09.
+ 
+ ## early_movie_inspection.json
+ 
+-[../../SRG_SIMULATION_CONSTRUCTION_02/inspection/early_movie_inspection.json](../../SRG_SIMULATION_CONSTRUCTION_02/inspection/early_movie_inspection.json)
++[../../SRG_SIMULATION_CONSTRUCTION_02/inspection/early_movie_inspection.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/inspection/early_movie_inspection.json)
+ 
+ S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing. 4,066 bytes. SHA-256: 7e0c6f88ccb52f792d0dae1fd08c9a6d134142e5a7e12226bf155f69338148f6.
+ 
+ ## static_source_checks.json
+ 
+-[../../SRG_SIMULATION_CONSTRUCTION_02/inspection/static_source_checks.json](../../SRG_SIMULATION_CONSTRUCTION_02/inspection/static_source_checks.json)
++[../../SRG_SIMULATION_CONSTRUCTION_02/inspection/static_source_checks.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/inspection/static_source_checks.json)
+ 
+ S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing. 650 bytes. SHA-256: 8682417d1ef790fe0eb1164f2b665aeed09f455ece7d36b1fe4cdbc50be41ea0.
+ 
+ ## matplotlib_callback_excerpts.txt
+ 
+-[../../SRG_SIMULATION_CONSTRUCTION_02/inspection/matplotlib_callback_excerpts.txt](../../SRG_SIMULATION_CONSTRUCTION_02/inspection/matplotlib_callback_excerpts.txt)
++[../../SRG_SIMULATION_CONSTRUCTION_02/inspection/matplotlib_callback_excerpts.txt](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/inspection/matplotlib_callback_excerpts.txt)
+ 
+ S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing. 23,611 bytes. SHA-256: 6813ebaa299e6e1a6185a84dea8e099bb919888c31f86376db7e6a60069d1177.
+ 
+ ## environment.json
+ 
+-[../../SRG_SIMULATION_CONSTRUCTION_02/inspection/environment.json](../../SRG_SIMULATION_CONSTRUCTION_02/inspection/environment.json)
++[../../SRG_SIMULATION_CONSTRUCTION_02/inspection/environment.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/inspection/environment.json)
+ 
+ S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing. 1,033 bytes. SHA-256: 2769eccf3ee454e59bdb09405277dca588bece82addc8f6c0a1b6156a32e86c8.
+ 
+ ## A_callbacks.csv
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_callbacks.csv](../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_callbacks.csv)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_callbacks.csv](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_callbacks.csv)
+ 
+ S03 accepted analysis of original records/media; scientific calculations not rerun. 194,174 bytes. SHA-256: d231b29d1a6dbe570987cbe61ebf8e1e1018a311d2d8c95e566efa02d7ee9ba8.
+ 
+ ## A_equation_residuals.csv
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_equation_residuals.csv](../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_equation_residuals.csv)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_equation_residuals.csv](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_equation_residuals.csv)
+ 
+ S03 accepted analysis of original records/media; scientific calculations not rerun. 2,068 bytes. SHA-256: 047d71c5786edc7dd7abc0243862c06a8311012d09376a1c1081684ddb3809c3.
+ 
+ ## A_pair_minima.json
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_pair_minima.json](../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_pair_minima.json)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_pair_minima.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_pair_minima.json)
+ 
+ S03 accepted analysis of original records/media; scientific calculations not rerun. 11,000 bytes. SHA-256: 2fc4e4f45e281fdcbec15fb62112ad1c389bd9f72c5a6e54a7f912a3cbe50d47.
+ 
+ ## A_switch_events.json
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_switch_events.json](../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_switch_events.json)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_switch_events.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_switch_events.json)
+ 
+ S03 accepted analysis of original records/media; scientific calculations not rerun. 34,698 bytes. SHA-256: 6f5ad425816749da265be861caab048e3bb2d3e75fb149c2d8989dedca466c6b.
+ 
+ ## A_wrap_events.json
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_wrap_events.json](../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_wrap_events.json)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_wrap_events.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_wrap_events.json)
+ 
+ S03 accepted analysis of original records/media; scientific calculations not rerun. 16,402 bytes. SHA-256: 42f0567248abb9325bbde1038d6e9f5008abe4b3a6ded51f7747249a2cb00700.
+ 
+ ## B_callbacks.csv
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_callbacks.csv](../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_callbacks.csv)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_callbacks.csv](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_callbacks.csv)
+ 
+ S03 accepted analysis of original records/media; scientific calculations not rerun. 78,029 bytes. SHA-256: 1461fe7203d0706ed0cd00af7eebb0152d203306018193b0f5570fcd11dba8cd.
+ 
+ ## B_equation_residuals.csv
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_equation_residuals.csv](../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_equation_residuals.csv)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_equation_residuals.csv](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_equation_residuals.csv)
+ 
+ S03 accepted analysis of original records/media; scientific calculations not rerun. 1,871 bytes. SHA-256: d7c386ce5854bca803af99a9a95ff90408895888070a68adcd280969fae14a0a.
+ 
+ ## B_pair_minima.json
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_pair_minima.json](../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_pair_minima.json)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_pair_minima.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_pair_minima.json)
+ 
+ S03 accepted analysis of original records/media; scientific calculations not rerun. 10,938 bytes. SHA-256: 42cd11248b535eced1fa0aec1a50795bde6c29294286714027f6c43c2e6e3914.
+ 
+ ## B_switch_events.json
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_switch_events.json](../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_switch_events.json)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_switch_events.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_switch_events.json)
+ 
+ S03 accepted analysis of original records/media; scientific calculations not rerun. 14,445 bytes. SHA-256: 61e6b67ab776cc2158ec7762060140c026f342d6c97b87ba5f187bb1175aa64f.
+ 
+ ## B_wrap_events.json
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_wrap_events.json](../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_wrap_events.json)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_wrap_events.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_wrap_events.json)
+ 
+ S03 accepted analysis of original records/media; scientific calculations not rerun. 5,201 bytes. SHA-256: 8825e27233e1702fe06728b3f27d5226d523458b76952d325c09e17301f9c73b.
+ 
+ ## episode_records.json
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/episode_records.json](../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/episode_records.json)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/episode_records.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/episode_records.json)
+ 
+ S03 accepted analysis of original records/media; scientific calculations not rerun. 38,844 bytes. SHA-256: 7049fc48800b1b8bb3da22f6591dd8c0136af0a5f7fc023248de4d1f12113cb4.
+ 
+ ## independent_checks.json
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/independent_checks.json](../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/independent_checks.json)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/independent_checks.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/independent_checks.json)
+ 
+ S03 accepted analysis of original records/media; scientific calculations not rerun. 1,542 bytes. SHA-256: 9d98a5333c8227a36f9c33a901f3ba388e887b1d61094185741a98b07845dc16.
+ 
+ ## log_summary.json
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/log_summary.json](../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/log_summary.json)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/log_summary.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/log_summary.json)
+ 
+ S03 accepted analysis of original records/media; scientific calculations not rerun. 48,853 bytes. SHA-256: aac5c937f65150458ad7bd6d50efc17e3b4d5afad43152f3f1fec079c775ece7.
+ 
+ ## movie_inspection.json
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/movie_inspection.json](../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/movie_inspection.json)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/movie_inspection.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/movie_inspection.json)
+ 
+ S03 accepted analysis of original records/media; scientific calculations not rerun. 48,204 bytes. SHA-256: b1b4faf023a64c585ea57949a356e426c45811db8528afe407d18402ac79e41d.
+ 
+ ## visual_correspondence.json
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/visual_correspondence.json](../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/visual_correspondence.json)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/visual_correspondence.json](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/visual_correspondence.json)
+ 
+ S03 accepted analysis of original records/media; scientific calculations not rerun. 7,640 bytes. SHA-256: 27c05100bff81b0689586e29d234111400038202ac137ef9d8fae593b8a20bc2.
+ 
+ ## PLOT_1_tetrahedral_states_20250712_015421.csv
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/originals/PLOT_1_tetrahedral_states_20250712_015421.csv](../../SRG_SIMULATION_STUDY_03_PLOT1/originals/PLOT_1_tetrahedral_states_20250712_015421.csv)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/originals/PLOT_1_tetrahedral_states_20250712_015421.csv](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/originals/PLOT_1_tetrahedral_states_20250712_015421.csv)
+ 
+ S03 ORIGINAL artifact; source attribution qualified and original movie/log join UNLINKED. 1,451,175 bytes. SHA-256: 6e6fc49be7dbb5ecf77aa1fbeaf5106df12c04ef3c63c29ee84c693f2ed70e74.
+ 
+ ## tetrahedral_attractors_logic.mp4
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_attractors_logic.mp4](../../SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_attractors_logic.mp4)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_attractors_logic.mp4](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_attractors_logic.mp4)
+ 
+ S03 ORIGINAL artifact; source attribution qualified and original movie/log join UNLINKED. 176,442 bytes. SHA-256: 0289d8e5a084e53f536183ad87d83b4a4c5ab972851bb61922a699406623203a.
+ 
+ ## tetrahedral_states_20250712_015647.csv
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_states_20250712_015647.csv](../../SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_states_20250712_015647.csv)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_states_20250712_015647.csv](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_states_20250712_015647.csv)
+ 
+ S03 ORIGINAL artifact; source attribution qualified and original movie/log join UNLINKED. 581,988 bytes. SHA-256: 051f8ad8be54794fcf54171a316d9931cc65b43349634799f446c53eb1b9afe8.
+ 
+ ## Tetrahedron_7_GRF_over_time.png
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_GRF_over_time.png](../../SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_GRF_over_time.png)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_GRF_over_time.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_GRF_over_time.png)
+ 
+ S03 ORIGINAL artifact; source attribution qualified and original movie/log join UNLINKED. 120,207 bytes. SHA-256: 8f3c93d74ec1c03f97d70320b5c760953dca805b3bd3f1e967d54d6789a5b137.
+ 
+ ## Tetrahedron_7_position_trace_with_teleport_events.png
+ 
+-[../../SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_position_trace_with_teleport_events.png](../../SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_position_trace_with_teleport_events.png)
++[../../SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_position_trace_with_teleport_events.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_position_trace_with_teleport_events.png)
+ 
+ S03 ORIGINAL artifact; source attribution qualified and original movie/log join UNLINKED. 117,437 bytes. SHA-256: bf6dfb6ec1da4a9ceb56c9107b654671492576945a1b62426625b18ec99fe798.
+ 
+ ## attractors.png
+ 
+-[../../SRG_SIMULATION_CONSTRUCTION_01/evidence/attractors.png](../../SRG_SIMULATION_CONSTRUCTION_01/evidence/attractors.png)
++[../../SRG_SIMULATION_CONSTRUCTION_01/evidence/attractors.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_01/evidence/attractors.png)
+ 
+ ORIGINAL / ATTRIBUTED S01 image; seed and ordered log missing. 49,967 bytes. SHA-256: 72776de5e6228f4c4a0e2ef43d804f479bf8db80af6884e492e9ccbc3053d651.
+ 
+ ## RESEARCH_CHARTER_v0.1.md
+ 
+-[../RESEARCH_CHARTER_v0.1.md](../RESEARCH_CHARTER_v0.1.md)
++[../RESEARCH_CHARTER_v0.1.md](evidence/SRG_REDISCOVERY/SIMULATION_RECONSTRUCTION_RESEARCH/RESEARCH_CHARTER_v0.1.md)
+ 
+ Research authority, unchanged. 11,415 bytes. SHA-256: 1f09ab9529877c648b2fc6c9c08889bcbe781dca1d8730f4f351b0b25320843e.
+ 
+ ## SIMULATION_STUDY_LEDGER.md
+ 
+-[../SIMULATION_STUDY_LEDGER.md](../SIMULATION_STUDY_LEDGER.md)
++[../SIMULATION_STUDY_LEDGER.md](evidence/SRG_REDISCOVERY/SIMULATION_RECONSTRUCTION_RESEARCH/SIMULATION_STUDY_LEDGER.md)
+ 
+ Canonical navigation ledger; only explicitly authorized acceptance/draft update. 11,515 bytes. SHA-256: adf3eb82bc940139eecb3ea48e3ccb3cf5c7b942a202d18d21dda364de2c2526.
+--- accepted_R1/FIGURE_AND_MEDIA_REGISTER.md
++++ publication_v0.1.1_PUB01/FIGURE_AND_MEDIA_REGISTER.md
+@@ -6,7 +6,7 @@
+ 
+ ORIGINAL / ATTRIBUTED. The historical attractors.png, preserved in Construction 01. Axes are X/Y coordinate values; the three connected traces have no time arrows or unique event labels. Its title and geometry support source association, but the initializer, ordered log and saving method are missing. This is not the seed-0 reproduction. \cite{construction01}
+ 
+-- Source: [SRG_SIMULATION_CONSTRUCTION_01/evidence/attractors.png](../../SRG_SIMULATION_CONSTRUCTION_01/evidence/attractors.png)
++- Source: [SRG_SIMULATION_CONSTRUCTION_01/evidence/attractors.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_01/evidence/attractors.png)
+ - Source SHA-256: 72776de5e6228f4c4a0e2ef43d804f479bf8db80af6884e492e9ccbc3053d651; pixels [800, 800].
+ - Manuscript asset: [figures/F01_0.png](MANUSCRIPT/figures/F01_0.png); SHA-256 72776de5e6228f4c4a0e2ef43d804f479bf8db80af6884e492e9ccbc3053d651.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+@@ -15,7 +15,7 @@
+ 
+ REPRODUCED / OBSERVED. Accepted seed-0 S01 paths, using the source's 500 post-sweep samples. X/Y are coordinate values. The new replay label distinguishes these paths from the historical PNG. Shared drawn segments do not establish simultaneous occupancy or common movement direction; no continuous trajectory between samples is supplied. \cite{replay01}
+ 
+-- Source: [SRG_SIMULATION_REPLAY_01/visuals/wrapped_paths.png](../../SRG_SIMULATION_REPLAY_01/visuals/wrapped_paths.png)
++- Source: [SRG_SIMULATION_REPLAY_01/visuals/wrapped_paths.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/visuals/wrapped_paths.png)
+ - Source SHA-256: 4c1e748b44d6bc16325aad76efb1c832a4d7cab10637ab831a4dbc104245e15a; pixels [1200, 1200].
+ - Manuscript asset: [figures/F02_0.png](MANUSCRIPT/figures/F02_0.png); SHA-256 4c1e748b44d6bc16325aad76efb1c832a4d7cab10637ab831a4dbc104245e15a.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+@@ -24,22 +24,22 @@
+ 
+ REPRODUCED / OBSERVED, editorial crop. Four panels from the first row of the accepted opening sheet, arranged in reading order: before body 0, after body 0, after body 1, after body 2 (events 0--3). The first panel is the captured initializer; the others are recorded states. X/Y axes retain their original ranges. Arrows connect observed endpoints, not simulated intermediate positions. The source sheet also contains the next two sweeps. \cite{replay01}
+ 
+-- Source: [SRG_SIMULATION_REPLAY_01/visuals/opening_sequence.png](../../SRG_SIMULATION_REPLAY_01/visuals/opening_sequence.png)
++- Source: [SRG_SIMULATION_REPLAY_01/visuals/opening_sequence.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/visuals/opening_sequence.png)
+ - Source SHA-256: 9bff64368173346248d7249751ebe0c8f921185b7b26c8a9c0020db39292b7ea; pixels [2400, 1800].
+ - Manuscript asset: [figures/F03_0.png](MANUSCRIPT/figures/F03_0.png); SHA-256 63c748f132eabd13cef3c033d298dad99048e2894c6329cae9f8147c90aef606.
+ - Transformation: Exact pixel crop; no resizing or recoloring; rectangle [0, 175, 600, 725].
+ 
+-- Source: [SRG_SIMULATION_REPLAY_01/visuals/opening_sequence.png](../../SRG_SIMULATION_REPLAY_01/visuals/opening_sequence.png)
++- Source: [SRG_SIMULATION_REPLAY_01/visuals/opening_sequence.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/visuals/opening_sequence.png)
+ - Source SHA-256: 9bff64368173346248d7249751ebe0c8f921185b7b26c8a9c0020db39292b7ea; pixels [2400, 1800].
+ - Manuscript asset: [figures/F03_1.png](MANUSCRIPT/figures/F03_1.png); SHA-256 ff0b0fa0af0d88440f0a7a86022ea236fde4fd4398818439a79ace43659db698.
+ - Transformation: Exact pixel crop; no resizing or recoloring; rectangle [600, 175, 1200, 725].
+ 
+-- Source: [SRG_SIMULATION_REPLAY_01/visuals/opening_sequence.png](../../SRG_SIMULATION_REPLAY_01/visuals/opening_sequence.png)
++- Source: [SRG_SIMULATION_REPLAY_01/visuals/opening_sequence.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/visuals/opening_sequence.png)
+ - Source SHA-256: 9bff64368173346248d7249751ebe0c8f921185b7b26c8a9c0020db39292b7ea; pixels [2400, 1800].
+ - Manuscript asset: [figures/F03_2.png](MANUSCRIPT/figures/F03_2.png); SHA-256 e28be346204307102b3a89fe284f4b8077e1ad573a5a847740ad23adfb1bbdf4.
+ - Transformation: Exact pixel crop; no resizing or recoloring; rectangle [1200, 175, 1800, 725].
+ 
+-- Source: [SRG_SIMULATION_REPLAY_01/visuals/opening_sequence.png](../../SRG_SIMULATION_REPLAY_01/visuals/opening_sequence.png)
++- Source: [SRG_SIMULATION_REPLAY_01/visuals/opening_sequence.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/visuals/opening_sequence.png)
+ - Source SHA-256: 9bff64368173346248d7249751ebe0c8f921185b7b26c8a9c0020db39292b7ea; pixels [2400, 1800].
+ - Manuscript asset: [figures/F03_3.png](MANUSCRIPT/figures/F03_3.png); SHA-256 f2be6d8c6247562b4a893a2545c65eff23e1f98cbdf732e4ccf0a410791b7545.
+ - Transformation: Exact pixel crop; no resizing or recoloring; rectangle [1800, 175, 2400, 725].
+@@ -48,22 +48,22 @@
+ 
+ REPRODUCED / OBSERVED, editorial crop. Central row of the accepted near-contact sheet, arranged in reading order: event 504 before the sweep, then events 505,506,507. Source step 168 uses t=8.4. The local X/Y zoom makes the final near-overlap visible, while the saved velocities remain distinct. Table~\ref{tab:near 01} supplies the subsequent separation; no exact coincidence or interpolated meeting is asserted. \cite{replay01}
+ 
+-- Source: [SRG_SIMULATION_REPLAY_01/visuals/closest_pair_sequence.png](../../SRG_SIMULATION_REPLAY_01/visuals/closest_pair_sequence.png)
++- Source: [SRG_SIMULATION_REPLAY_01/visuals/closest_pair_sequence.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/visuals/closest_pair_sequence.png)
+ - Source SHA-256: 4c70c9bd588225b13bbb0c9609616520ebdb6ede8fe5647e75859f7d266f89f9; pixels [2400, 1800].
+ - Manuscript asset: [figures/F04_0.png](MANUSCRIPT/figures/F04_0.png); SHA-256 79d415dbc350e6872b3b4437e16538e42eb50d04eabe85967f93899525467872.
+ - Transformation: Exact pixel crop; no resizing or recoloring; rectangle [0, 705, 600, 1230].
+ 
+-- Source: [SRG_SIMULATION_REPLAY_01/visuals/closest_pair_sequence.png](../../SRG_SIMULATION_REPLAY_01/visuals/closest_pair_sequence.png)
++- Source: [SRG_SIMULATION_REPLAY_01/visuals/closest_pair_sequence.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/visuals/closest_pair_sequence.png)
+ - Source SHA-256: 4c70c9bd588225b13bbb0c9609616520ebdb6ede8fe5647e75859f7d266f89f9; pixels [2400, 1800].
+ - Manuscript asset: [figures/F04_1.png](MANUSCRIPT/figures/F04_1.png); SHA-256 a1b895d02b7109ca573139fd8da2ab0f1303d32600d40570cbb5ede429c2a50d.
+ - Transformation: Exact pixel crop; no resizing or recoloring; rectangle [600, 705, 1200, 1230].
+ 
+-- Source: [SRG_SIMULATION_REPLAY_01/visuals/closest_pair_sequence.png](../../SRG_SIMULATION_REPLAY_01/visuals/closest_pair_sequence.png)
++- Source: [SRG_SIMULATION_REPLAY_01/visuals/closest_pair_sequence.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/visuals/closest_pair_sequence.png)
+ - Source SHA-256: 4c70c9bd588225b13bbb0c9609616520ebdb6ede8fe5647e75859f7d266f89f9; pixels [2400, 1800].
+ - Manuscript asset: [figures/F04_2.png](MANUSCRIPT/figures/F04_2.png); SHA-256 d1fd15aba9f6b17bfd1d9d41b33fe98ef010c0d79a6a98f2566c4236098bc6c9.
+ - Transformation: Exact pixel crop; no resizing or recoloring; rectangle [1200, 705, 1800, 1230].
+ 
+-- Source: [SRG_SIMULATION_REPLAY_01/visuals/closest_pair_sequence.png](../../SRG_SIMULATION_REPLAY_01/visuals/closest_pair_sequence.png)
++- Source: [SRG_SIMULATION_REPLAY_01/visuals/closest_pair_sequence.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/visuals/closest_pair_sequence.png)
+ - Source SHA-256: 4c70c9bd588225b13bbb0c9609616520ebdb6ede8fe5647e75859f7d266f89f9; pixels [2400, 1800].
+ - Manuscript asset: [figures/F04_3.png](MANUSCRIPT/figures/F04_3.png); SHA-256 9a88852fa130109a3986aa0fdb8a3ff43cd89d11e1795f777e9b5310808e24e4.
+ - Transformation: Exact pixel crop; no resizing or recoloring; rectangle [1800, 705, 2400, 1230].
+@@ -72,7 +72,7 @@
+ 
+ DERIVED from the accepted REPRODUCED S01 record. The upper panel measures simultaneous periodic pair separation at sweep boundaries; the lower measures native update lengths. The horizontal axis is completed-sweep chronology, not historical movie time. Repeated approaches and smaller late movement do not establish an asymptotic limit. Reused without recalculation. \cite{replay01}
+ 
+-- Source: [SRG_SIMULATION_REPLAY_01/visuals/movement_over_time.png](../../SRG_SIMULATION_REPLAY_01/visuals/movement_over_time.png)
++- Source: [SRG_SIMULATION_REPLAY_01/visuals/movement_over_time.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/visuals/movement_over_time.png)
+ - Source SHA-256: 958f549ece6583479b2386c1e7160d7517d3e2eb4c6c13a0dc8eeea60125c0d2; pixels [1650, 1050].
+ - Manuscript asset: [figures/F05_0.png](MANUSCRIPT/figures/F05_0.png); SHA-256 958f549ece6583479b2386c1e7160d7517d3e2eb4c6c13a0dc8eeea60125c0d2.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+@@ -81,22 +81,22 @@
+ 
+ ORIGINAL movie content / ATTRIBUTED, decoded stills. S02 frames 0,30,600,1999 in reading order (0,0.5,10,33.3167 movie seconds). The XYZ axes cover 0--10 in source coordinates. Projection shows changing arrangements and smaller late screen motion, not measured 3D speeds or convergence. Decoded in the accepted Construction 02 study; no new state was generated. \cite{construction02}
+ 
+-- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0000.png](../../SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0000.png)
++- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0000.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0000.png)
+ - Source SHA-256: 5563c37c72ccfb8c37fa91f551cd35ddbd0dc79f39b0504478647302dd579393; pixels [1000, 800].
+ - Manuscript asset: [figures/F06_0.png](MANUSCRIPT/figures/F06_0.png); SHA-256 5563c37c72ccfb8c37fa91f551cd35ddbd0dc79f39b0504478647302dd579393.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+ 
+-- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0030.png](../../SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0030.png)
++- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0030.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0030.png)
+ - Source SHA-256: 333b471950aec47ae36654a45633a7219451709a9cc44da2211a126509f07591; pixels [1000, 800].
+ - Manuscript asset: [figures/F06_1.png](MANUSCRIPT/figures/F06_1.png); SHA-256 333b471950aec47ae36654a45633a7219451709a9cc44da2211a126509f07591.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+ 
+-- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0600.png](../../SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0600.png)
++- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0600.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0600.png)
+ - Source SHA-256: 224c62c37147b632dc02b79f9d3fdb25f2780ebed3efc29bf021c1ee4b1991e4; pixels [1000, 800].
+ - Manuscript asset: [figures/F06_2.png](MANUSCRIPT/figures/F06_2.png); SHA-256 224c62c37147b632dc02b79f9d3fdb25f2780ebed3efc29bf021c1ee4b1991e4.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+ 
+-- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_1999.png](../../SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_1999.png)
++- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_1999.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_1999.png)
+ - Source SHA-256: 99e49f78ab8118ac5767aa85c4244fcee3da14d062f0deb550611056bd1b45c8; pixels [1000, 800].
+ - Manuscript asset: [figures/F06_3.png](MANUSCRIPT/figures/F06_3.png); SHA-256 99e49f78ab8118ac5767aa85c4244fcee3da14d062f0deb550611056bd1b45c8.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+@@ -105,22 +105,22 @@
+ 
+ ORIGINAL movie content / ATTRIBUTED. Consecutive S02 frames 12--15 in reading order (0.2000--0.2500 movie seconds). The conspicuous relocation occurs between 13 and 14 and is consistent with wrapping. Missing numerical states prevent a certified crossing axis or native displacement. Color also advances between frames and is not a stable body label. \cite{construction02}
+ 
+-- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0012.png](../../SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0012.png)
++- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0012.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0012.png)
+ - Source SHA-256: 698a16392024b160ffb2d5a905fe801af77873ca4fb79f8c064e542d23b237a1; pixels [1000, 800].
+ - Manuscript asset: [figures/F07_0.png](MANUSCRIPT/figures/F07_0.png); SHA-256 698a16392024b160ffb2d5a905fe801af77873ca4fb79f8c064e542d23b237a1.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+ 
+-- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0013.png](../../SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0013.png)
++- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0013.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0013.png)
+ - Source SHA-256: c1fd774e32e214c595391d03a9162c2901e8d7f6c118203fb1a687ffd65e4864; pixels [1000, 800].
+ - Manuscript asset: [figures/F07_1.png](MANUSCRIPT/figures/F07_1.png); SHA-256 c1fd774e32e214c595391d03a9162c2901e8d7f6c118203fb1a687ffd65e4864.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+ 
+-- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0014.png](../../SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0014.png)
++- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0014.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0014.png)
+ - Source SHA-256: 05e6a54e1d3b9bc926a92d02b2131046525da79b0248fd848c4d77bdb323fa7b; pixels [1000, 800].
+ - Manuscript asset: [figures/F07_2.png](MANUSCRIPT/figures/F07_2.png); SHA-256 05e6a54e1d3b9bc926a92d02b2131046525da79b0248fd848c4d77bdb323fa7b.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+ 
+-- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0015.png](../../SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0015.png)
++- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0015.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/evidence/frames/frame_0015.png)
+ - Source SHA-256: 0fb4326ff11d2ecd0c1a4511b358d77a4be3dedcb777d74b50ea8b2ca7956cc1; pixels [1000, 800].
+ - Manuscript asset: [figures/F07_3.png](MANUSCRIPT/figures/F07_3.png); SHA-256 0fb4326ff11d2ecd0c1a4511b358d77a4be3dedcb777d74b50ea8b2ca7956cc1.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+@@ -129,7 +129,7 @@
+ 
+ DERIVED inspection sheet of ORIGINAL / ATTRIBUTED movie frames 0--7, read left to right then down. Frame labels and movie seconds were added by Construction 02. Color cycling follows body index plus frame even when position changes little. These colors do not measure velocity or force. The fixed view can overlap separate 3D objects. \cite{construction02}
+ 
+-- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/first_eight_frames.png](../../SRG_SIMULATION_CONSTRUCTION_02/evidence/first_eight_frames.png)
++- Source: [SRG_SIMULATION_CONSTRUCTION_02/evidence/first_eight_frames.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/evidence/first_eight_frames.png)
+ - Source SHA-256: 2a8344c257cd38af60cf177a8147b93e1c4edb4abfe851bd7a501f1c3266a44c; pixels [2000, 860].
+ - Manuscript asset: [figures/F08_0.png](MANUSCRIPT/figures/F08_0.png); SHA-256 2a8344c257cd38af60cf177a8147b93e1c4edb4abfe851bd7a501f1c3266a44c.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+@@ -138,22 +138,22 @@
+ 
+ ORIGINAL movie content / ATTRIBUTED. S03 frames 0,1,6,199 in reading order (0,0.05,0.30,9.95 movie seconds). The first pair shows an opening screen relocation; later views include red mode palettes. Pale faces can look absent. The title mentions energy/teleport tracking, but no numeric overlay is drawn. Exact original movie/log provenance remains UNLINKED. \cite{study03}
+ 
+-- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_000.png](../../SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_000.png)
++- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_000.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_000.png)
+ - Source SHA-256: 4f6c0944b4df2840cbb209a3addbcdbc42b1106cd1e57bd674f6161273170a26; pixels [1000, 800].
+ - Manuscript asset: [figures/F09_0.png](MANUSCRIPT/figures/F09_0.png); SHA-256 4f6c0944b4df2840cbb209a3addbcdbc42b1106cd1e57bd674f6161273170a26.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+ 
+-- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_001.png](../../SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_001.png)
++- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_001.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_001.png)
+ - Source SHA-256: 40fb5efcfe49b4e95489546dc8d2ab72f7c8cce44441a6b313a5398cd70cd3fa; pixels [1000, 800].
+ - Manuscript asset: [figures/F09_1.png](MANUSCRIPT/figures/F09_1.png); SHA-256 40fb5efcfe49b4e95489546dc8d2ab72f7c8cce44441a6b313a5398cd70cd3fa.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+ 
+-- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_006.png](../../SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_006.png)
++- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_006.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_006.png)
+ - Source SHA-256: 10d080175f465b3a22dbc85feff19778db0750106d71fb514f598b22256c18ea; pixels [1000, 800].
+ - Manuscript asset: [figures/F09_2.png](MANUSCRIPT/figures/F09_2.png); SHA-256 10d080175f465b3a22dbc85feff19778db0750106d71fb514f598b22256c18ea.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+ 
+-- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_199.png](../../SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_199.png)
++- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_199.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_199.png)
+ - Source SHA-256: fd87b97e8d7eb2e7b11daaeac3d67ba00a366cabfc7ed8e8ca371fa218ad195f; pixels [1000, 800].
+ - Manuscript asset: [figures/F09_3.png](MANUSCRIPT/figures/F09_3.png); SHA-256 fd87b97e8d7eb2e7b11daaeac3d67ba00a366cabfc7ed8e8ca371fa218ad195f.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+@@ -162,7 +162,7 @@
+ 
+ DERIVED from ORIGINAL log B, reused from Study 03. Horizontal axis: zero-based callback q in physical CSV order. Panels show Step, global K counted once, incoming GRF and binary modes. Vertical dotted lines mark label discontinuities. State persists across returns to label 0; 440 callbacks are not 200 unique states. No GUI event cause is assigned to each restart. \cite{study03}
+ 
+-- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/B_chronology.png](../../SRG_SIMULATION_STUDY_03_PLOT1/visuals/B_chronology.png)
++- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/B_chronology.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/visuals/B_chronology.png)
+ - Source SHA-256: 8d1be6eb455cebd1c1d32d8ea5dd0606ac8c7ecbdb28841a8d11da6a72256f96; pixels [1680, 1400].
+ - Manuscript asset: [figures/F10_0.png](MANUSCRIPT/figures/F10_0.png); SHA-256 8d1be6eb455cebd1c1d32d8ea5dd0606ac8c7ecbdb28841a8d11da6a72256f96.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+@@ -171,7 +171,7 @@
+ 
+ DERIVED from ORIGINAL log A, reused from Study 03. Callback order compares native increments with stored-coordinate jumps and source-detector would-flags with actual seams. The 22 seam body events differ from 8151 detector flags. These flags are recomputed diagnostics, not recovered console output or physical teleportation. Values and anchors are retained in the accepted event tables. \cite{study03}
+ 
+-- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/A_movement.png](../../SRG_SIMULATION_STUDY_03_PLOT1/visuals/A_movement.png)
++- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/A_movement.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/visuals/A_movement.png)
+ - Source SHA-256: a48f91b0f7d4b0e2631bc6f4f3081a79b9c92c4dcb8fc3b82d60e0e4175f09be; pixels [1680, 1120].
+ - Manuscript asset: [figures/F11_0.png](MANUSCRIPT/figures/F11_0.png); SHA-256 a48f91b0f7d4b0e2631bc6f4f3081a79b9c92c4dcb8fc3b82d60e0e4175f09be.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+@@ -180,7 +180,7 @@
+ 
+ DERIVED from ORIGINAL log B, reused from Study 03. Callback order preserves repeated labels. Seven actual seam body events coexist with 3129 detector would-flags; small negative coordinate differences trigger the unsigned-modulo defect. Largest checked native increment is 0.060380826 at q205/body 5. The figure does not equate a near-ten coordinate jump with travel of that length. \cite{study03}
+ 
+-- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/B_movement.png](../../SRG_SIMULATION_STUDY_03_PLOT1/visuals/B_movement.png)
++- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/B_movement.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/visuals/B_movement.png)
+ - Source SHA-256: 6639406d855d5bd21083f0192d0d7bcd83cfe034a8eb32f719a8a8522cd2b539; pixels [1680, 1120].
+ - Manuscript asset: [figures/F12_0.png](MANUSCRIPT/figures/F12_0.png); SHA-256 6639406d855d5bd21083f0192d0d7bcd83cfe034a8eb32f719a8a8522cd2b539.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+@@ -189,7 +189,7 @@
+ 
+ DERIVED from ORIGINAL log B, body 7, q400--420. Panels show stored X, VX and mode. Seams at q409,414,418 correspond to CSV lines 3281,3321,3353; the mode remains 1 throughout this window. Coordinate jumps and actual VX sign changes are distinguishable. The later toggle at q431 is excluded. This finite episode is not a periodic-orbit proof. \cite{study03}
+ 
+-- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/B_body7_seam_window.png](../../SRG_SIMULATION_STUDY_03_PLOT1/visuals/B_body7_seam_window.png)
++- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/B_body7_seam_window.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/visuals/B_body7_seam_window.png)
+ - Source SHA-256: b2fcc11b1e30af1ab156267c184f70a05ebd64d0874ce517dbe16113904458d1; pixels [1540, 1120].
+ - Manuscript asset: [figures/F13_0.png](MANUSCRIPT/figures/F13_0.png); SHA-256 b2fcc11b1e30af1ab156267c184f70a05ebd64d0874ce517dbe16113904458d1.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+@@ -198,7 +198,7 @@
+ 
+ ORIGINAL historical chart / ATTRIBUTED to postprocessing of log B. Position traces use repeated Step labels 0--199, while markers 409,414,418 match callback-index seam events. The original PNG is unchanged. S03 contains no such PNG export and the chart generator is missing; exact plotting code and marker-selection algorithm are not certified. \cite{study03}
+ 
+-- Source: [SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_position_trace_with_teleport_events.png](../../SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_position_trace_with_teleport_events.png)
++- Source: [SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_position_trace_with_teleport_events.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_position_trace_with_teleport_events.png)
+ - Source SHA-256: bf6dfb6ec1da4a9ceb56c9107b654671492576945a1b62426625b18ec99fe798; pixels [1674, 1365].
+ - Manuscript asset: [figures/F14_0.png](MANUSCRIPT/figures/F14_0.png); SHA-256 bf6dfb6ec1da4a9ceb56c9107b654671492576945a1b62426625b18ec99fe798.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+@@ -207,7 +207,7 @@
+ 
+ DERIVED from ORIGINAL log B, reused from Study 03. Repeated Step labels are used for the body 7 position traces while callback indices locate the three event markers. This recreates the misleading axis convention as a diagnostic; it does not repair the original chart or recover its exact generator. Lines joining label 199 back to 0 are drawing connections, not new trajectories. \cite{study03}
+ 
+-- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/B_historical_axis_diagnostic.png](../../SRG_SIMULATION_STUDY_03_PLOT1/visuals/B_historical_axis_diagnostic.png)
++- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/B_historical_axis_diagnostic.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/visuals/B_historical_axis_diagnostic.png)
+ - Source SHA-256: c7ca7ebd1df1a27847c107adbc7d4a5376e738021338eefb5214a0cf52d864b2; pixels [1540, 1260].
+ - Manuscript asset: [figures/F15_0.png](MANUSCRIPT/figures/F15_0.png); SHA-256 c7ca7ebd1df1a27847c107adbc7d4a5376e738021338eefb5214a0cf52d864b2.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+@@ -216,22 +216,22 @@
+ 
+ ORIGINAL movie content at left; DERIVED renderings of ORIGINAL saved B states at right. Top: movie frame 1 versus Bq2. Bottom: movie frame 6 versus Bq7. These are two of the eight fixed comparisons already performed in Study 03 using source geometry and current rendering defaults. No trajectories or fitted parameters were generated. Strong content agreement supports a candidate correspondence, while the original-run join remains formally UNLINKED. \cite{study03}
+ 
+-- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_001.png](../../SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_001.png)
++- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_001.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_001.png)
+ - Source SHA-256: 40fb5efcfe49b4e95489546dc8d2ab72f7c8cce44441a6b313a5398cd70cd3fa; pixels [1000, 800].
+ - Manuscript asset: [figures/F16_0.png](MANUSCRIPT/figures/F16_0.png); SHA-256 40fb5efcfe49b4e95489546dc8d2ab72f7c8cce44441a6b313a5398cd70cd3fa.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+ 
+-- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/recorded_state_comparison/B_callback_002_render.png](../../SRG_SIMULATION_STUDY_03_PLOT1/visuals/recorded_state_comparison/B_callback_002_render.png)
++- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/recorded_state_comparison/B_callback_002_render.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/visuals/recorded_state_comparison/B_callback_002_render.png)
+ - Source SHA-256: 5241deca88cfd342cf8d578d46a82bc3bde1ac9c5170ae68a2d62c2a26ab4ba1; pixels [1000, 800].
+ - Manuscript asset: [figures/F16_1.png](MANUSCRIPT/figures/F16_1.png); SHA-256 5241deca88cfd342cf8d578d46a82bc3bde1ac9c5170ae68a2d62c2a26ab4ba1.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+ 
+-- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_006.png](../../SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_006.png)
++- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_006.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/visuals/movie_frames/frame_006.png)
+ - Source SHA-256: 10d080175f465b3a22dbc85feff19778db0750106d71fb514f598b22256c18ea; pixels [1000, 800].
+ - Manuscript asset: [figures/F16_2.png](MANUSCRIPT/figures/F16_2.png); SHA-256 10d080175f465b3a22dbc85feff19778db0750106d71fb514f598b22256c18ea.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+ 
+-- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/recorded_state_comparison/B_callback_007_render.png](../../SRG_SIMULATION_STUDY_03_PLOT1/visuals/recorded_state_comparison/B_callback_007_render.png)
++- Source: [SRG_SIMULATION_STUDY_03_PLOT1/visuals/recorded_state_comparison/B_callback_007_render.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/visuals/recorded_state_comparison/B_callback_007_render.png)
+ - Source SHA-256: fbdd1fbc9c0eb6da9627a916f50f70de83b0403527c79476db7a55dba90a5100; pixels [1000, 800].
+ - Manuscript asset: [figures/F16_3.png](MANUSCRIPT/figures/F16_3.png); SHA-256 fbdd1fbc9c0eb6da9627a916f50f70de83b0403527c79476db7a55dba90a5100.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+@@ -240,7 +240,7 @@
+ 
+ ORIGINAL historical chart / ATTRIBUTED to postprocessing of B. The body 7 title does not make the Energy column individual energy: the source repeats global K on every body's row. Repeated Step labels superpose separate passes, and event markers use callback indices. The exact chart generator remains missing. This preserved image is evidence of a reporting convention, not a conserved-energy measurement. \cite{study03}
+ 
+-- Source: [SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_GRF_over_time.png](../../SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_GRF_over_time.png)
++- Source: [SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_GRF_over_time.png](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_GRF_over_time.png)
+ - Source SHA-256: 8f3c93d74ec1c03f97d70320b5c760953dca805b3bd3f1e967d54d6789a5b137; pixels [1825, 793].
+ - Manuscript asset: [figures/F17_0.png](MANUSCRIPT/figures/F17_0.png); SHA-256 8f3c93d74ec1c03f97d70320b5c760953dca805b3bd3f1e967d54d6789a5b137.
+ - Transformation: Byte-identical copy; scaled only by LaTeX layout.
+@@ -249,10 +249,10 @@
+ 
+ Relative links below are from VOLUME_I_01 to SRG_REDISCOVERY. The review ZIP carries figure assets and small source copies, not repeated movies, CSVs or prior ZIPs. Their original classifications and run-attribution limits are unchanged.
+ 
+-- [SRG_SIMULATION_CONSTRUCTION_02/evidence/tetrahedral_attractors_animation.mp4](../../SRG_SIMULATION_CONSTRUCTION_02/evidence/tetrahedral_attractors_animation.mp4) — 1002986 bytes; SHA-256 4f90ce9fc384b134b68b5a64424ef3e05d364153d4e70efdd1596c0b8c937dd3.
+-- [SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_attractors_logic.mp4](../../SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_attractors_logic.mp4) — 176442 bytes; SHA-256 0289d8e5a084e53f536183ad87d83b4a4c5ab972851bb61922a699406623203a.
+-- [SRG_SIMULATION_STUDY_03_PLOT1/originals/PLOT_1_tetrahedral_states_20250712_015421.csv](../../SRG_SIMULATION_STUDY_03_PLOT1/originals/PLOT_1_tetrahedral_states_20250712_015421.csv) — 1451175 bytes; SHA-256 6e6fc49be7dbb5ecf77aa1fbeaf5106df12c04ef3c63c29ee84c693f2ed70e74.
+-- [SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_states_20250712_015647.csv](../../SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_states_20250712_015647.csv) — 581988 bytes; SHA-256 051f8ad8be54794fcf54171a316d9931cc65b43349634799f446c53eb1b9afe8.
+-- [SRG_SIMULATION_REPLAY_01/replay/trajectory.npz](../../SRG_SIMULATION_REPLAY_01/replay/trajectory.npz) — 102272 bytes; SHA-256 b14901adc4612a3e557615fd0833f58ccb953d3f84f8823f1121a5bef5b0c5e1.
+-- [SRG_SIMULATION_REPLAY_01/replay/within_sweep.jsonl](../../SRG_SIMULATION_REPLAY_01/replay/within_sweep.jsonl) — 2351331 bytes; SHA-256 af43911ab0dc3fa7bda5ae96e418ccac1e93da30839124abeb6a3514cb4b80ff.
+-- [SRG_SIMULATION_REPLAY_01/replay/states.csv](../../SRG_SIMULATION_REPLAY_01/replay/states.csv) — 216563 bytes; SHA-256 4cdc156fd4cc777220528805a85dee65298b8c44b723e3766a65809ffb6b6ff9.
++- [SRG_SIMULATION_CONSTRUCTION_02/evidence/tetrahedral_attractors_animation.mp4](evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/evidence/tetrahedral_attractors_animation.mp4) — 1002986 bytes; SHA-256 4f90ce9fc384b134b68b5a64424ef3e05d364153d4e70efdd1596c0b8c937dd3.
++- [SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_attractors_logic.mp4](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_attractors_logic.mp4) — 176442 bytes; SHA-256 0289d8e5a084e53f536183ad87d83b4a4c5ab972851bb61922a699406623203a.
++- [SRG_SIMULATION_STUDY_03_PLOT1/originals/PLOT_1_tetrahedral_states_20250712_015421.csv](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/originals/PLOT_1_tetrahedral_states_20250712_015421.csv) — 1451175 bytes; SHA-256 6e6fc49be7dbb5ecf77aa1fbeaf5106df12c04ef3c63c29ee84c693f2ed70e74.
++- [SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_states_20250712_015647.csv](evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_states_20250712_015647.csv) — 581988 bytes; SHA-256 051f8ad8be54794fcf54171a316d9931cc65b43349634799f446c53eb1b9afe8.
++- [SRG_SIMULATION_REPLAY_01/replay/trajectory.npz](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/trajectory.npz) — 102272 bytes; SHA-256 b14901adc4612a3e557615fd0833f58ccb953d3f84f8823f1121a5bef5b0c5e1.
++- [SRG_SIMULATION_REPLAY_01/replay/within_sweep.jsonl](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/within_sweep.jsonl) — 2351331 bytes; SHA-256 af43911ab0dc3fa7bda5ae96e418ccac1e93da30839124abeb6a3514cb4b80ff.
++- [SRG_SIMULATION_REPLAY_01/replay/states.csv](evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/states.csv) — 216563 bytes; SHA-256 4cdc156fd4cc777220528805a85dee65298b8c44b723e3766a65809ffb6b6ff9.
+--- accepted_R1/MANUSCRIPT/README.md
++++ publication_v0.1.1_PUB01/MANUSCRIPT/README.md
+@@ -1,20 +1,11 @@
+-# Manuscript source and candidate PDF
++# Manuscript source and publication PDF
+ 
+-The editable source is [volume_i.tex](volume_i.tex), with eight section files, references and seventeen figure includes. [volume_i.pdf](volume_i.pdf) is the corrected candidate compiled from that source: edition 0.1.1, editorial R1, awaiting closure review. GPT accepted the scientific content with minor editorial revisions. The reviewed edition 0.1 remains unchanged in the sibling VOLUME_I_01 directory.
++[volume_i.pdf](volume_i.pdf) is the separately rebuilt publication copy of accepted edition v0.1.1. Its [editable source](volume_i.tex) includes eight section files, references, 17 figure includes and 35 image assets. Only cover/PDF metadata, running-header, C07 manuscript-status sentence and closing review-status text change from the accepted manuscript. The scientific text, equations, numerical results, captions, figures and historical source copies retain the accepted content.
+ 
+-The figures are selected accepted evidence. F03 and F04 use exact declared crops of already-existing replay sheets for readable panel layout; no data plot or trajectory was generated. See the root figure register for hashes and crop rectangles. Small original program copies are included under sources/; they are never imported by the manuscript build.
++The [exact diff](../provenance/PUBLICATION_CHANGES.diff) and [verification](../PUBLICATION_VERIFICATION.md) identify every change. The accepted R1 archive and its subsequent GPT closure receipt remain preserved under provenance/.
+ 
+-From Windows Command Prompt, activate the requested environment and change to this volume root. In a fresh extracted Windows copy, obtain the pinned compiler before building. If build/toolchain/tectonic.exe is already present, skip the acquisition command. First-time dependency acquisition requires network access; the compiler and build cache are excluded from the ZIP, and the first build may fetch uncached TeX dependencies.
++Follow the [publication build guide](../REPRODUCIBILITY.md) for Windows Command Prompt, conda activation, short-path independent build copies, pinned compiler acquisition and the existing-compiler exception. Fresh compiler acquisition must precede the builder; it needs network access, and the first build may fetch uncached TeX dependencies. No compiler or build cache is distributed. A compatible XeLaTeX installation is a separate alternative; cross-environment byte identity is not promised.
+ 
+-    call C:\Users\Notandi\miniconda3\condabin\conda.bat activate torment
+-    cd /d C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\SRG_REDISCOVERY\SIMULATION_RECONSTRUCTION_RESEARCH\VOLUME_I_01_R1
+-    python -B tools\acquire_typesetter.py
+-    python -B tools\build_pdf.py
++The build and acquisition scripts are unchanged from the accepted edition. They do not import original simulation programs or execute scientific checkers. The preparation used a verified compiler and an independent copied cache. The PDF was built from the exact distributed TeX and figure inputs.
+ 
+-The acquisition script obtains pinned Tectonic 0.17.0 and checks its release asset digest; no system-wide installation is required. The builder expects build/toolchain/tectonic.exe. For this editorial closeout, the verified compiler and cached dependencies were copied from the prior workspace; acquisition was not rerun.
+-
+-Alternative build route: a compatible XeLaTeX setup with the specified fonts/packages can compile this LaTeX project. This is separate from the supplied Windows commands. Cross-environment byte identity is not promised.
+-
+-The standard standalone Codex LaTeX compiler does not support this project's additional section/figure files, so the candidate uses a recorded local project build. The build tools do not execute original source or scientific checkers.
+-
+-Use the root REVIEW_REPORT.md for actual compilation and PDF inspection results, not merely file existence. Large original movies/logs and accepted numerical receipts remain linked to repository-relative locations in FIGURE_AND_MEDIA_REGISTER.md and EXTERNAL_EVIDENCE_INDEX.md.
++F03 and F04 retain their accepted exact pixel crops; all other scientific figure assets retain their accepted bytes. See the [figure register](../FIGURE_AND_MEDIA_REGISTER.md) and [evidence index](../EXTERNAL_EVIDENCE_INDEX.md) for included original media, logs and provenance. Appendix A/B workspace paths and original review-package descriptions are retained historical context; this publication directory is self-contained.
+--- accepted_R1/MANUSCRIPT/volume_i.tex
++++ publication_v0.1.1_PUB01/MANUSCRIPT/volume_i.tex
+@@ -13,9 +13,9 @@
+ \usepackage{microtype}
+ \definecolor{ink}{HTML}{173849}
+ \definecolor{pale}{HTML}{EFF4F5}
+-\hypersetup{pdftitle={SRG Simulation Reconstruction Volume I},
+- pdfauthor={Hilmir Frímann Halldórsson; scientific lead GPT; manuscript preparation Codex},
+- pdfsubject={Review candidate: three historical moving-center simulations}}
++\hypersetup{pdftitle={SRG Simulation Reconstruction — Volume I},
++ pdfauthor={Hilmir Frímann Halldórsson; scientific lead GPT; research engineering and manuscript preparation Codex},
++ pdfsubject={Accepted edition v0.1.1: Three-Point Attraction and Eight-Body Tetrahedral Dynamics}}
+ \setlength{\parindent}{1.2em}
+ \setlength{\parskip}{0.2em}
+ \setlength{\emergencystretch}{2em}
+@@ -27,7 +27,7 @@
+ \pagestyle{fancy}
+ \fancyhf{}
+ \fancyhead[L]{\small SRG Simulation Reconstruction}
+-\fancyhead[R]{\small Volume I \;|\; Review candidate}
++\fancyhead[R]{\small Volume I \;|\; v0.1.1}
+ \fancyfoot[C]{\thepage}
+ \renewcommand{\headrulewidth}{0.3pt}
+ \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+@@ -58,16 +58,16 @@
+ Scientific lead: GPT\\
+ Research engineering and manuscript preparation: Codex
+ \vfill
+-{\sffamily\bfseries EDITORIAL R1 / CLOSURE REVIEW\par}
++{\sffamily\bfseries ACCEPTED SCIENTIFIC AND EDITORIAL EDITION\par}
+ \vspace{3mm}
+-Candidate edition 0.1.1 \quad 22 October 2026\par
++Edition v0.1.1 \quad 22 October 2026\par
+ \vspace{6mm}
+ \begin{minipage}{0.9\linewidth}\small
+ Prepared from three accepted simulation studies and their preserved evidence.
+ No new simulation, scientific checker run, physical assumption or change to the
+ historical equations was made for this volume. GPT accepted the scientific content
+-with minor editorial revisions. This corrected candidate addresses E01--E02
+-and awaits editorial closure review; publication is not authorized.
++and closed editorial review. This edition prepares the accepted manuscript
++for repository publication.
+ \end{minipage}
+ \end{titlepage}
+ \pagenumbering{roman}
+--- accepted_R1/MANUSCRIPT/sections/01_scope.tex
++++ publication_v0.1.1_PUB01/MANUSCRIPT/sections/01_scope.tex
+@@ -101,8 +101,8 @@
+ was captured while that study was in review. The Volume I work order records
+ GPT's subsequent acceptance within the evidence/provenance qualifications.
+ The ledger is minimally updated accordingly; the accepted study package and
+-its historical in-review snapshot remain unchanged. This manuscript itself
+-is a draft awaiting review. \claim{C07}
++its historical in-review snapshot remain unchanged. Scientific and editorial
++review is complete; publication requires separate authorization. \claim{C07}
+ 
+ \section{Notation, units and record locators}
+ Positions and velocities are numerical arrays. The programs supply no
+--- accepted_R1/MANUSCRIPT/sections/06_agenda.tex
++++ publication_v0.1.1_PUB01/MANUSCRIPT/sections/06_agenda.tex
+@@ -91,9 +91,9 @@
+ 
+ \section{The review boundary}
+ Volume I is a substantial first reconstruction of three selected
+-programs, not completion of the SRG project. Its next step is
+-scientific and editorial review by GPT and Hilmir. Acceptance
+-of this manuscript, any requested revisions, subsequent
+-experiments and eventual GitHub publication are separate
+-decisions. This package is a review candidate and has not
+-been staged, committed, pushed or published. \claim{C102}
++programs, not completion of the SRG project. Scientific and
++editorial review is complete. Subsequent experiments and
++GitHub publication remain separate decisions. This edition
++preserves the accepted science. Publication preparation does
++not itself authorize staging, commits, pushes, releases or
++another experiment. \claim{C102}
+--- accepted_R1/records/claims.json
++++ publication_v0.1.1_PUB01/records/claims.json
+@@ -87,8 +87,8 @@
+     "id": "C07",
+     "claim": "SIM03 acceptance and Volume I review status",
+     "class": "Review authority",
+-    "support": "Volume I work order, Existing authority / Review status; ledger diff",
+-    "limitation": "Acceptance preserves provenance limits; manuscript remains in review.",
++    "support": "Volume I work order, Existing authority / Review status; ledger diff (historical SIM03 acceptance); provenance/editorial_closure/SRG_VOLUME_I_v0.1.1_GPT_EDITORIAL_CLOSURE.md (current manuscript status); instructions/PUBLICATION_WORK_ORDER.md (separate publication authority)",
++    "limitation": "Scientific and editorial review is complete; provenance qualifications remain; publication requires separate authorization.",
+     "manuscript_locations": [
+       {
+         "file": "MANUSCRIPT/sections/01_scope.tex",
+@@ -1420,10 +1420,10 @@
+   },
+   {
+     "id": "C102",
+-    "claim": "Volume I ends at review, not project completion/publication",
++    "claim": "Scientific/editorial review complete; wider SRG unfinished; publication and further experiments require separate authorization",
+     "class": "Review authority",
+-    "support": "User request; Volume I work order final stop; REVIEW_REPORT",
+-    "limitation": "No staging/commit/push/upload or next investigation.",
++    "support": "Historical: User request; Volume I work order final stop; REVIEW_REPORT. Current: provenance/editorial_closure/SRG_VOLUME_I_v0.1.1_GPT_EDITORIAL_CLOSURE.md; instructions/PUBLICATION_WORK_ORDER.md",
++    "limitation": "Publication and further experiments require separate authorization; no staging, commit, push, upload or new investigation.",
+     "manuscript_locations": [
+       {
+         "file": "MANUSCRIPT/sections/06_agenda.tex",
+--- accepted_R1/records/external_evidence.json
++++ publication_v0.1.1_PUB01/records/external_evidence.json
+@@ -1,398 +1,464 @@
+ [
+   {
+-    "path": "../../SRG_SIMULATION_CONSTRUCTION_01/MANIFEST.json",
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_01/MANIFEST.json",
+     "bytes": 9533,
+     "sha256": "9de1cd97c3d5aee76e7eca4872166a4799ab1a3c1ab713e7ec09ea95a00b529a",
+-    "role": "Accepted package integrity receipt; its historical review-stage wording is preserved"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_CONSTRUCTION_01/CONSTRUCTION_WALKTHROUGH.md",
++    "role": "Accepted package integrity receipt; its historical review-stage wording is preserved",
++    "accepted_relative_path": "../../SRG_SIMULATION_CONSTRUCTION_01/MANIFEST.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_01/CONSTRUCTION_WALKTHROUGH.md",
+     "bytes": 18570,
+     "sha256": "1476e813f8d4231986030a6e6edc39774fd9ea6ad63d056c0f13e236c53c9e1e",
+-    "role": "Accepted explanatory study document; retained as existing evidence"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_CONSTRUCTION_01/START_HERE.md",
++    "role": "Accepted explanatory study document; retained as existing evidence",
++    "accepted_relative_path": "../../SRG_SIMULATION_CONSTRUCTION_01/CONSTRUCTION_WALKTHROUGH.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_01/START_HERE.md",
+     "bytes": 3501,
+     "sha256": "4a03f2df7ba19dce4a4d0005b1313ed6eef5f1fa1666e9eb3c0b52dcf17674dd",
+-    "role": "Accepted explanatory study document; retained as existing evidence"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_REPLAY_01/MANIFEST.json",
++    "role": "Accepted explanatory study document; retained as existing evidence",
++    "accepted_relative_path": "../../SRG_SIMULATION_CONSTRUCTION_01/START_HERE.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/MANIFEST.json",
+     "bytes": 12096,
+     "sha256": "5c66c3af72788fe1e2973b063b231fa551346d2aad2cc12d865161984511b182",
+-    "role": "Accepted package integrity receipt; its historical review-stage wording is preserved"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_REPLAY_01/MOTION_WALKTHROUGH.md",
++    "role": "Accepted package integrity receipt; its historical review-stage wording is preserved",
++    "accepted_relative_path": "../../SRG_SIMULATION_REPLAY_01/MANIFEST.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/MOTION_WALKTHROUGH.md",
+     "bytes": 12275,
+     "sha256": "aeb0cfc24cb599a0046e492ceff83fa066f98b646405d99625aaf543bc2a0090",
+-    "role": "Accepted explanatory study document; retained as existing evidence"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_REPLAY_01/REPLAY_VALIDATION.md",
++    "role": "Accepted explanatory study document; retained as existing evidence",
++    "accepted_relative_path": "../../SRG_SIMULATION_REPLAY_01/MOTION_WALKTHROUGH.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/REPLAY_VALIDATION.md",
+     "bytes": 10155,
+     "sha256": "0ad99bc406df424af6b2799693579f37b82de0edae9c0e31b5ed3b1d3c0e10a3",
+-    "role": "Accepted explanatory study document; retained as existing evidence"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_REPLAY_01/START_HERE.md",
++    "role": "Accepted explanatory study document; retained as existing evidence",
++    "accepted_relative_path": "../../SRG_SIMULATION_REPLAY_01/REPLAY_VALIDATION.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/START_HERE.md",
+     "bytes": 4022,
+     "sha256": "c3d04c90adccab2e008a3d3660ea2ab9d4d84abad0b088fe05c3778c4c22ff95",
+-    "role": "Accepted explanatory study document; retained as existing evidence"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_CONSTRUCTION_02/MANIFEST.json",
++    "role": "Accepted explanatory study document; retained as existing evidence",
++    "accepted_relative_path": "../../SRG_SIMULATION_REPLAY_01/START_HERE.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/MANIFEST.json",
+     "bytes": 17771,
+     "sha256": "b13a12e2f6dfd73f24707f8221a426e19d6d3a3f57e45d751333eba0e79080fc",
+-    "role": "Accepted package integrity receipt; its historical review-stage wording is preserved"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_CONSTRUCTION_02/CONSTRUCTION_WALKTHROUGH.md",
++    "role": "Accepted package integrity receipt; its historical review-stage wording is preserved",
++    "accepted_relative_path": "../../SRG_SIMULATION_CONSTRUCTION_02/MANIFEST.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/CONSTRUCTION_WALKTHROUGH.md",
+     "bytes": 6620,
+     "sha256": "88cede2fba6eb0d754b8cd66591339613d28b551ffcc4e622522eaa9f69a71ae",
+-    "role": "Accepted explanatory study document; retained as existing evidence"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_CONSTRUCTION_02/SIMULATION_01_COMPARISON.md",
++    "role": "Accepted explanatory study document; retained as existing evidence",
++    "accepted_relative_path": "../../SRG_SIMULATION_CONSTRUCTION_02/CONSTRUCTION_WALKTHROUGH.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/SIMULATION_01_COMPARISON.md",
+     "bytes": 4945,
+     "sha256": "8941674cc5d1a1554c6fa7f9abff5db9b133f91c3bcd4d6d9962bdde5e1f3de9",
+-    "role": "Accepted explanatory study document; retained as existing evidence"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_CONSTRUCTION_02/START_HERE.md",
++    "role": "Accepted explanatory study document; retained as existing evidence",
++    "accepted_relative_path": "../../SRG_SIMULATION_CONSTRUCTION_02/SIMULATION_01_COMPARISON.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/START_HERE.md",
+     "bytes": 3799,
+     "sha256": "dc01bb859526e47412997e26fb10034a8bbe447eb3df7b9b3f7cc957091da8ea",
+-    "role": "Accepted explanatory study document; retained as existing evidence"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_CONSTRUCTION_02/TIME_AND_MOVEMENT.md",
++    "role": "Accepted explanatory study document; retained as existing evidence",
++    "accepted_relative_path": "../../SRG_SIMULATION_CONSTRUCTION_02/START_HERE.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/TIME_AND_MOVEMENT.md",
+     "bytes": 7790,
+     "sha256": "9d343e67b316e4b25bc431de741ad5bfe7e913779c0aaa0ee2fa5dfbc4096ea6",
+-    "role": "Accepted explanatory study document; retained as existing evidence"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_CONSTRUCTION_02/VISUAL_EVIDENCE.md",
++    "role": "Accepted explanatory study document; retained as existing evidence",
++    "accepted_relative_path": "../../SRG_SIMULATION_CONSTRUCTION_02/TIME_AND_MOVEMENT.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/VISUAL_EVIDENCE.md",
+     "bytes": 7722,
+     "sha256": "0b82c8182abd0b472cc27ea0cbe960d4bfcf6353d6c4c983c84178cb2b888605",
+-    "role": "Accepted explanatory study document; retained as existing evidence"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/MANIFEST.json",
++    "role": "Accepted explanatory study document; retained as existing evidence",
++    "accepted_relative_path": "../../SRG_SIMULATION_CONSTRUCTION_02/VISUAL_EVIDENCE.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/MANIFEST.json",
+     "bytes": 56252,
+     "sha256": "e6fd51f64a74f2839025403b444d2836996a6471f75d54c927c68cfe78bc743e",
+-    "role": "Accepted package integrity receipt; its historical review-stage wording is preserved"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/CONSTRUCTION.md",
++    "role": "Accepted package integrity receipt; its historical review-stage wording is preserved",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/MANIFEST.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/CONSTRUCTION.md",
+     "bytes": 8786,
+     "sha256": "cfeb5a17e04f4b3de6a5885a3b23a03751d557f443428a149930098cfd09a036",
+-    "role": "Accepted explanatory study document; retained as existing evidence"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_LOG_ANALYSIS.md",
++    "role": "Accepted explanatory study document; retained as existing evidence",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/CONSTRUCTION.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_LOG_ANALYSIS.md",
+     "bytes": 12584,
+     "sha256": "c854a764252a071198ba344292a01b02c2148ababda529c56ee3db350612137e",
+-    "role": "Accepted explanatory study document; retained as existing evidence"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_MOVIE_REVIEW.md",
++    "role": "Accepted explanatory study document; retained as existing evidence",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_LOG_ANALYSIS.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_MOVIE_REVIEW.md",
+     "bytes": 9635,
+     "sha256": "eb3bceb4accd357e06cae19e162767467a0030b7243eb29331fbd445eba9092a",
+-    "role": "Accepted explanatory study document; retained as existing evidence"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/SIMULATION_02_COMPARISON.md",
++    "role": "Accepted explanatory study document; retained as existing evidence",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/ORIGINAL_MOVIE_REVIEW.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/SIMULATION_02_COMPARISON.md",
+     "bytes": 7139,
+     "sha256": "772560db73bfaf6ba282bac0ab08c915545f85167878f65ce623f2a84b7b99e1",
+-    "role": "Accepted explanatory study document; retained as existing evidence"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/START_HERE.md",
++    "role": "Accepted explanatory study document; retained as existing evidence",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/SIMULATION_02_COMPARISON.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/START_HERE.md",
+     "bytes": 4899,
+     "sha256": "ffbdbc37469acedd4973001bea0d823616ada9d4ce145f3c992432bc72aa6118",
+-    "role": "Accepted explanatory study document; retained as existing evidence"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/TIME_SWITCH_AND_MOVEMENT.md",
++    "role": "Accepted explanatory study document; retained as existing evidence",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/START_HERE.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/TIME_SWITCH_AND_MOVEMENT.md",
+     "bytes": 8758,
+     "sha256": "4d138d302e58d13d50f68f16124d8c0b48cdec00ea73d33f331c508e1c445d5e",
+-    "role": "Accepted explanatory study document; retained as existing evidence"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/VERIFICATION_AND_PRESERVATION.md",
++    "role": "Accepted explanatory study document; retained as existing evidence",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/TIME_SWITCH_AND_MOVEMENT.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/VERIFICATION_AND_PRESERVATION.md",
+     "bytes": 9159,
+     "sha256": "924029b06d1042d9d23c7f0d6b807f627b867e97f845b554ea47ea74ab36b68b",
+-    "role": "Accepted explanatory study document; retained as existing evidence"
+-  },
+-  {
+-    "path": "../../OLD_MATERIAL/Simulations_Trash/Simulations_part_2/recursive_attractor.py",
++    "role": "Accepted explanatory study document; retained as existing evidence",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/VERIFICATION_AND_PRESERVATION.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/OLD_MATERIAL/Simulations_Trash/Simulations_part_2/recursive_attractor.py",
+     "bytes": 2074,
+     "sha256": "847819ec381e200d9008395175342ec138e52ab3180a4f599b4db1cb91ae42d3",
+-    "role": "ORIGINAL source; byte-identical small copy included in this volume"
+-  },
+-  {
+-    "path": "../../OLD_MATERIAL/Simulations_Trash/Simulations_part_2/3Dtriangles.py",
++    "role": "ORIGINAL source; byte-identical small copy included in this volume",
++    "accepted_relative_path": "../../OLD_MATERIAL/Simulations_Trash/Simulations_part_2/recursive_attractor.py"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/OLD_MATERIAL/Simulations_Trash/Simulations_part_2/3Dtriangles.py",
+     "bytes": 3970,
+     "sha256": "4c53678eefd803e93a910b74e7a8096bfd5095e0d09d09c9df0e7cf514b312f1",
+-    "role": "ORIGINAL source; byte-identical small copy included in this volume"
+-  },
+-  {
+-    "path": "../../OLD_MATERIAL/Simulations_Trash/Simulations_part_1/plot_1.py",
++    "role": "ORIGINAL source; byte-identical small copy included in this volume",
++    "accepted_relative_path": "../../OLD_MATERIAL/Simulations_Trash/Simulations_part_2/3Dtriangles.py"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/OLD_MATERIAL/Simulations_Trash/Simulations_part_1/plot_1.py",
+     "bytes": 5711,
+     "sha256": "e13b92df8ac6df78cfee75b95dacea3b106e96bd5be9bf798cdcf39ccc5bc75c",
+-    "role": "ORIGINAL source; byte-identical small copy included in this volume"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_REPLAY_01/replay/trajectory.npz",
++    "role": "ORIGINAL source; byte-identical small copy included in this volume",
++    "accepted_relative_path": "../../OLD_MATERIAL/Simulations_Trash/Simulations_part_1/plot_1.py"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/trajectory.npz",
+     "bytes": 102272,
+     "sha256": "b14901adc4612a3e557615fd0833f58ccb953d3f84f8823f1121a5bef5b0c5e1",
+-    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_REPLAY_01/replay/states.csv",
++    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I",
++    "accepted_relative_path": "../../SRG_SIMULATION_REPLAY_01/replay/trajectory.npz"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/states.csv",
+     "bytes": 216563,
+     "sha256": "4cdc156fd4cc777220528805a85dee65298b8c44b723e3766a65809ffb6b6ff9",
+-    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_REPLAY_01/replay/within_sweep.jsonl",
++    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I",
++    "accepted_relative_path": "../../SRG_SIMULATION_REPLAY_01/replay/states.csv"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/within_sweep.jsonl",
+     "bytes": 2351331,
+     "sha256": "af43911ab0dc3fa7bda5ae96e418ccac1e93da30839124abeb6a3514cb4b80ff",
+-    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_REPLAY_01/replay/initial_state.json",
++    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I",
++    "accepted_relative_path": "../../SRG_SIMULATION_REPLAY_01/replay/within_sweep.jsonl"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/initial_state.json",
+     "bytes": 818,
+     "sha256": "a20c291e6eaf8aff89f4b0faf5b227469c4c38108ddd6a18d3fff9a0b026276c",
+-    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_REPLAY_01/replay/RUN_SPEC.json",
++    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I",
++    "accepted_relative_path": "../../SRG_SIMULATION_REPLAY_01/replay/initial_state.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/RUN_SPEC.json",
+     "bytes": 1202,
+     "sha256": "9268bb0fa16b9d32fa7bad014beff4efdc8ca6c79056180098dc0aa61d6221b0",
+-    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_REPLAY_01/replay/equivalence.json",
++    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I",
++    "accepted_relative_path": "../../SRG_SIMULATION_REPLAY_01/replay/RUN_SPEC.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/equivalence.json",
+     "bytes": 630,
+     "sha256": "87ff736c1c5b43cdcb822a9a925cef6a4d717390c6a6c12903b8151efdebb633",
+-    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_REPLAY_01/replay/execution_receipt.json",
++    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I",
++    "accepted_relative_path": "../../SRG_SIMULATION_REPLAY_01/replay/equivalence.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/execution_receipt.json",
+     "bytes": 327,
+     "sha256": "17577be373388990b5564773c80de208d2c89cbd08e25ca97b5bef500a9871d4",
+-    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_REPLAY_01/replay/record_checks.json",
++    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I",
++    "accepted_relative_path": "../../SRG_SIMULATION_REPLAY_01/replay/execution_receipt.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/record_checks.json",
+     "bytes": 1789,
+     "sha256": "c44f19af852e12a005a535137b9ac4fca796804c45cc07121eb76a7d2c968289",
+-    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_REPLAY_01/replay/observation_summary.json",
++    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I",
++    "accepted_relative_path": "../../SRG_SIMULATION_REPLAY_01/replay/record_checks.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/observation_summary.json",
+     "bytes": 26086,
+     "sha256": "a19affc63ec71e310e47e1ae2b054710638a3d60008309bd7cf34545447efaf8",
+-    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_REPLAY_01/replay/run_replay.py",
++    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I",
++    "accepted_relative_path": "../../SRG_SIMULATION_REPLAY_01/replay/observation_summary.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/run_replay.py",
+     "bytes": 10352,
+     "sha256": "c9b7da02a4498164bb41633ac3b4bcdc1e19242584aca4b9f5d62097ee9aad76",
+-    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_REPLAY_01/replay/verify_records.py",
++    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I",
++    "accepted_relative_path": "../../SRG_SIMULATION_REPLAY_01/replay/run_replay.py"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/verify_records.py",
+     "bytes": 4465,
+     "sha256": "09de09f358c60b0264f47bbb8e4938dd8835e79fa19f54f4e23da732280d3777",
+-    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_REPLAY_01/replay/observe_replay.py",
++    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I",
++    "accepted_relative_path": "../../SRG_SIMULATION_REPLAY_01/replay/verify_records.py"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_REPLAY_01/replay/observe_replay.py",
+     "bytes": 13204,
+     "sha256": "ce72a871fd8abc6e20df16ff19a11657b01c5aa143e99d0fe4d93fe80b06cf28",
+-    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_CONSTRUCTION_02/evidence/tetrahedral_attractors_animation.mp4",
++    "role": "REPRODUCED seed-0 evidence or accepted inspection method; no execution in Volume I",
++    "accepted_relative_path": "../../SRG_SIMULATION_REPLAY_01/replay/observe_replay.py"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/evidence/tetrahedral_attractors_animation.mp4",
+     "bytes": 1002986,
+     "sha256": "4f90ce9fc384b134b68b5a64424ef3e05d364153d4e70efdd1596c0b8c937dd3",
+-    "role": "S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_CONSTRUCTION_02/inspection/video_inspection.json",
++    "role": "S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing",
++    "accepted_relative_path": "../../SRG_SIMULATION_CONSTRUCTION_02/evidence/tetrahedral_attractors_animation.mp4"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/inspection/video_inspection.json",
+     "bytes": 6633,
+     "sha256": "33347cb5d6e3d8362c02923b85ab20b140646fc16de8854f80c9a87d2e3ffe79",
+-    "role": "S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_CONSTRUCTION_02/inspection/jump_window_inspection.json",
++    "role": "S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing",
++    "accepted_relative_path": "../../SRG_SIMULATION_CONSTRUCTION_02/inspection/video_inspection.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/inspection/jump_window_inspection.json",
+     "bytes": 2391,
+     "sha256": "0633992ba74a4161f558760a07a146bb22ae8ae4416d51f57571de305fa7df09",
+-    "role": "S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_CONSTRUCTION_02/inspection/early_movie_inspection.json",
++    "role": "S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing",
++    "accepted_relative_path": "../../SRG_SIMULATION_CONSTRUCTION_02/inspection/jump_window_inspection.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/inspection/early_movie_inspection.json",
+     "bytes": 4066,
+     "sha256": "7e0c6f88ccb52f792d0dae1fd08c9a6d134142e5a7e12226bf155f69338148f6",
+-    "role": "S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_CONSTRUCTION_02/inspection/static_source_checks.json",
++    "role": "S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing",
++    "accepted_relative_path": "../../SRG_SIMULATION_CONSTRUCTION_02/inspection/early_movie_inspection.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/inspection/static_source_checks.json",
+     "bytes": 650,
+     "sha256": "8682417d1ef790fe0eb1164f2b665aeed09f455ece7d36b1fe4cdbc50be41ea0",
+-    "role": "S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_CONSTRUCTION_02/inspection/matplotlib_callback_excerpts.txt",
++    "role": "S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing",
++    "accepted_relative_path": "../../SRG_SIMULATION_CONSTRUCTION_02/inspection/static_source_checks.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/inspection/matplotlib_callback_excerpts.txt",
+     "bytes": 23611,
+     "sha256": "6813ebaa299e6e1a6185a84dea8e099bb919888c31f86376db7e6a60069d1177",
+-    "role": "S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_CONSTRUCTION_02/inspection/environment.json",
++    "role": "S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing",
++    "accepted_relative_path": "../../SRG_SIMULATION_CONSTRUCTION_02/inspection/matplotlib_callback_excerpts.txt"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_02/inspection/environment.json",
+     "bytes": 1033,
+     "sha256": "2769eccf3ee454e59bdb09405277dca588bece82addc8f6c0a1b6156a32e86c8",
+-    "role": "S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_callbacks.csv",
++    "role": "S02 source-attributed original movie or accepted inspection receipt; numerical run identity missing",
++    "accepted_relative_path": "../../SRG_SIMULATION_CONSTRUCTION_02/inspection/environment.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_callbacks.csv",
+     "bytes": 194174,
+     "sha256": "d231b29d1a6dbe570987cbe61ebf8e1e1018a311d2d8c95e566efa02d7ee9ba8",
+-    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_equation_residuals.csv",
++    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_callbacks.csv"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_equation_residuals.csv",
+     "bytes": 2068,
+     "sha256": "047d71c5786edc7dd7abc0243862c06a8311012d09376a1c1081684ddb3809c3",
+-    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_pair_minima.json",
++    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_equation_residuals.csv"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_pair_minima.json",
+     "bytes": 11000,
+     "sha256": "2fc4e4f45e281fdcbec15fb62112ad1c389bd9f72c5a6e54a7f912a3cbe50d47",
+-    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_switch_events.json",
++    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_pair_minima.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_switch_events.json",
+     "bytes": 34698,
+     "sha256": "6f5ad425816749da265be861caab048e3bb2d3e75fb149c2d8989dedca466c6b",
+-    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_wrap_events.json",
++    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_switch_events.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_wrap_events.json",
+     "bytes": 16402,
+     "sha256": "42f0567248abb9325bbde1038d6e9f5008abe4b3a6ded51f7747249a2cb00700",
+-    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_callbacks.csv",
++    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/A_wrap_events.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_callbacks.csv",
+     "bytes": 78029,
+     "sha256": "1461fe7203d0706ed0cd00af7eebb0152d203306018193b0f5570fcd11dba8cd",
+-    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_equation_residuals.csv",
++    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_callbacks.csv"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_equation_residuals.csv",
+     "bytes": 1871,
+     "sha256": "d7c386ce5854bca803af99a9a95ff90408895888070a68adcd280969fae14a0a",
+-    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_pair_minima.json",
++    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_equation_residuals.csv"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_pair_minima.json",
+     "bytes": 10938,
+     "sha256": "42cd11248b535eced1fa0aec1a50795bde6c29294286714027f6c43c2e6e3914",
+-    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_switch_events.json",
++    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_pair_minima.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_switch_events.json",
+     "bytes": 14445,
+     "sha256": "61e6b67ab776cc2158ec7762060140c026f342d6c97b87ba5f187bb1175aa64f",
+-    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_wrap_events.json",
++    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_switch_events.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_wrap_events.json",
+     "bytes": 5201,
+     "sha256": "8825e27233e1702fe06728b3f27d5226d523458b76952d325c09e17301f9c73b",
+-    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/episode_records.json",
++    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/B_wrap_events.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/episode_records.json",
+     "bytes": 38844,
+     "sha256": "7049fc48800b1b8bb3da22f6591dd8c0136af0a5f7fc023248de4d1f12113cb4",
+-    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/independent_checks.json",
++    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/episode_records.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/independent_checks.json",
+     "bytes": 1542,
+     "sha256": "9d98a5333c8227a36f9c33a901f3ba388e887b1d61094185741a98b07845dc16",
+-    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/log_summary.json",
++    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/independent_checks.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/log_summary.json",
+     "bytes": 48853,
+     "sha256": "aac5c937f65150458ad7bd6d50efc17e3b4d5afad43152f3f1fec079c775ece7",
+-    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/movie_inspection.json",
++    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/log_summary.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/movie_inspection.json",
+     "bytes": 48204,
+     "sha256": "b1b4faf023a64c585ea57949a356e426c45811db8528afe407d18402ac79e41d",
+-    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/visual_correspondence.json",
++    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/movie_inspection.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/analysis/visual_correspondence.json",
+     "bytes": 7640,
+     "sha256": "27c05100bff81b0689586e29d234111400038202ac137ef9d8fae593b8a20bc2",
+-    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/originals/PLOT_1_tetrahedral_states_20250712_015421.csv",
++    "role": "S03 accepted analysis of original records/media; scientific calculations not rerun",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/analysis/visual_correspondence.json"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/originals/PLOT_1_tetrahedral_states_20250712_015421.csv",
+     "bytes": 1451175,
+     "sha256": "6e6fc49be7dbb5ecf77aa1fbeaf5106df12c04ef3c63c29ee84c693f2ed70e74",
+-    "role": "S03 ORIGINAL artifact; source attribution qualified and original movie/log join UNLINKED"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_attractors_logic.mp4",
++    "role": "S03 ORIGINAL artifact; source attribution qualified and original movie/log join UNLINKED",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/originals/PLOT_1_tetrahedral_states_20250712_015421.csv"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_attractors_logic.mp4",
+     "bytes": 176442,
+     "sha256": "0289d8e5a084e53f536183ad87d83b4a4c5ab972851bb61922a699406623203a",
+-    "role": "S03 ORIGINAL artifact; source attribution qualified and original movie/log join UNLINKED"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_states_20250712_015647.csv",
++    "role": "S03 ORIGINAL artifact; source attribution qualified and original movie/log join UNLINKED",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_attractors_logic.mp4"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_states_20250712_015647.csv",
+     "bytes": 581988,
+     "sha256": "051f8ad8be54794fcf54171a316d9931cc65b43349634799f446c53eb1b9afe8",
+-    "role": "S03 ORIGINAL artifact; source attribution qualified and original movie/log join UNLINKED"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_GRF_over_time.png",
++    "role": "S03 ORIGINAL artifact; source attribution qualified and original movie/log join UNLINKED",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/originals/tetrahedral_states_20250712_015647.csv"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_GRF_over_time.png",
+     "bytes": 120207,
+     "sha256": "8f3c93d74ec1c03f97d70320b5c760953dca805b3bd3f1e967d54d6789a5b137",
+-    "role": "S03 ORIGINAL artifact; source attribution qualified and original movie/log join UNLINKED"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_position_trace_with_teleport_events.png",
++    "role": "S03 ORIGINAL artifact; source attribution qualified and original movie/log join UNLINKED",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_GRF_over_time.png"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_position_trace_with_teleport_events.png",
+     "bytes": 117437,
+     "sha256": "bf6dfb6ec1da4a9ceb56c9107b654671492576945a1b62426625b18ec99fe798",
+-    "role": "S03 ORIGINAL artifact; source attribution qualified and original movie/log join UNLINKED"
+-  },
+-  {
+-    "path": "../../SRG_SIMULATION_CONSTRUCTION_01/evidence/attractors.png",
++    "role": "S03 ORIGINAL artifact; source attribution qualified and original movie/log join UNLINKED",
++    "accepted_relative_path": "../../SRG_SIMULATION_STUDY_03_PLOT1/originals/Tetrahedron_7_position_trace_with_teleport_events.png"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SRG_SIMULATION_CONSTRUCTION_01/evidence/attractors.png",
+     "bytes": 49967,
+     "sha256": "72776de5e6228f4c4a0e2ef43d804f479bf8db80af6884e492e9ccbc3053d651",
+-    "role": "ORIGINAL / ATTRIBUTED S01 image; seed and ordered log missing"
+-  },
+-  {
+-    "path": "../RESEARCH_CHARTER_v0.1.md",
++    "role": "ORIGINAL / ATTRIBUTED S01 image; seed and ordered log missing",
++    "accepted_relative_path": "../../SRG_SIMULATION_CONSTRUCTION_01/evidence/attractors.png"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SIMULATION_RECONSTRUCTION_RESEARCH/RESEARCH_CHARTER_v0.1.md",
+     "bytes": 11415,
+     "sha256": "1f09ab9529877c648b2fc6c9c08889bcbe781dca1d8730f4f351b0b25320843e",
+-    "role": "Research authority, unchanged"
+-  },
+-  {
+-    "path": "../SIMULATION_STUDY_LEDGER.md",
++    "role": "Research authority, unchanged",
++    "accepted_relative_path": "../RESEARCH_CHARTER_v0.1.md"
++  },
++  {
++    "path": "evidence/SRG_REDISCOVERY/SIMULATION_RECONSTRUCTION_RESEARCH/SIMULATION_STUDY_LEDGER.md",
+     "bytes": 11515,
+     "sha256": "adf3eb82bc940139eecb3ea48e3ccb3cf5c7b942a202d18d21dda364de2c2526",
+-    "role": "Canonical navigation ledger; only explicitly authorized acceptance/draft update"
++    "role": "Canonical navigation ledger; only explicitly authorized acceptance/draft update",
++    "accepted_relative_path": "../SIMULATION_STUDY_LEDGER.md"
+   }
+-]+]

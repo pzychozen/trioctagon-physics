@@ -1,0 +1,128 @@
+\chapter{Scope, historical evidence and method}\label{ch:scope}
+\plain{The equations, the stored history and the picture answer different
+questions. A picture can show a line without telling us who arrived first.
+A program can define a clock without counting every time an animation callback
+changes the state. We reconstruct these distinctions before interpreting the motion.}
+
+\section{The corpus and the scientific question}
+This volume asks what three recovered moving-center simulators actually
+calculated and displayed, and what their surviving evidence establishes.
+The primary programs are designated S01, S02 and S03 in research order
+(Table~\ref{tab:corpus}). These identifiers do not assert a historical
+creation sequence. The accepted construction studies and the separately
+authorized three-point replay supply the basis for this synthesis
+\cite{construction01,replay01,construction02,study03,charter}.
+\claim{C01}
+
+\begin{table}[htbp]\centering\small
+\caption{The selected corpus. Program identity is fixed by the SHA-256 records
+in Appendix~\ref{app:provenance}; media association does not itself certify
+an exact generating run.}\label{tab:corpus}
+\begin{tabularx}{\linewidth}{@{}l Y Y@{}}\toprule
+ID and source & Native construction & Surviving evidence used\\\midrule
+S01: recursive\_attractor.py & Three 2D points, pairwise response,
+zero initial velocities, 500 sweeps & Attributed historical static PNG;
+separate seed-0 reproduction with full saved chronology\\
+S02: 3Dtriangles.py & Eight 3D centers, sequential centroid response,
+random initial velocities & Attributed 2,000-frame historical movie;
+no certified numerical history for that movie\\
+S03: plot\_1.py & Same centroid family plus eight binary response modes,
+stochastic toggles and diagnostics & Attributed 200-frame movie; original
+logs A and B; attributed historical body-7 charts\\\bottomrule
+\end{tabularx}
+\end{table}
+
+The scope is deliberately narrower than a general SRG theory. We do not merge
+these programs with fixed-grid systems, later amplitude/neighbor-change
+models, production physics or memory kernels. Names such as REFU, TGMO, RPCO
+and GRF are read through their actual implementations. A variable named
+\filepath{force} is not by itself a physical-force law; a function labelled
+“memory” need not read stored routes. No Newtonian or relativistic field
+equation, new metric, additional potential or hidden following rule is
+assumed. \claim{C02}
+
+\section{Evidence classes and attribution}
+We use the charter's distinctions throughout:
+\begin{description}[style=nextline,leftmargin=0pt]
+\item[ORIGINAL] Preserved historical bytes: programs, figures, movies, logs
+or contemporaneous records.
+\item[ATTRIBUTED] A relationship between an artifact and a source or run
+supported by corroboration, with the remaining uncertainty stated.
+\item[OBSERVED] A directly inspected or quantified feature of specified
+original or reproduced evidence.
+\item[REPRODUCED] A new execution of unchanged rules, identified by its
+initializer and environment; it is not relabelled as lost original data.
+\item[DERIVED] A mathematical conclusion from explicit source equations and
+stated conditions, or an analysis product constructed from existing records.
+\item[HYPOTHESIS] An interpretation or research lead not established by the
+preceding evidence.
+\item[MISSING / AMBIGUOUS] An unrecovered identity, state, dependency,
+chronology or mechanism. Missing evidence is not silently supplied.
+\end{description}
+
+These labels can coexist. A movie is an original artifact even when its link
+to a particular source snapshot is only attributed. Matching a filename,
+title, geometry and nominal frame rate strengthens source association;
+it does not recover a random seed, callback sequence or export receipt.
+Likewise, a derived figure may display original measurements without becoming
+an original historical plot. \claim{C03}
+
+No original script sets a fixed seed. S01's source makes no file export at
+all; its historical PNG therefore has an unrecovered saving step. S02 and
+S03 write fixed movie names relative to the process working directory.
+Those names can be reused by later executions. S03 gives its CSV a
+second-resolution timestamp, without a timezone or unique run identifier.
+The \filepath{PLOT_1_} prefix on log A is not produced by that filename
+expression. Neither current directory placement nor filename dates alone
+establish which source version generated an artifact.
+See \src{S01}{1--74}, \src{S02}{110--119} and \src{S03}{74--78,158--167}.
+\claim{C04}
+
+\section{Method and limits of the present synthesis}
+For the underlying studies, the complete programs were read, their state and
+execution order were transcribed, relevant original evidence was inspected,
+and numerical consistency was checked at the declared coverage. This volume
+reuses those accepted results and their saved verification receipts.
+It does not rerun the original simulations or their scientific checkers.
+New operations are editorial: preserving source copies, checking hashes and
+links, assembling figures, typesetting, inspecting the PDF and packaging.
+\claim{C05}
+
+For S01's accepted replay, all 500 recorded end-of-sweep position arrays and
+the final velocity array matched an execution of the unchanged copied source
+bit for bit in the recorded environment. That comparison does not certify
+the lost historical PNG or promise bitwise identity on every software stack.
+For S03, all-row energy, position and incoming-GRF checks coexist with
+\emph{sampled} full velocity-equation checks. The latter must not be described
+as an exhaustive audit of every force calculation.
+\cite{replay01,study03} \claim{C06}
+
+The canonical study ledger is a navigation record. Its original SIM03 entry
+was captured while that study was in review. The Volume I work order records
+GPT's subsequent acceptance within the evidence/provenance qualifications.
+The ledger is minimally updated accordingly; the accepted study package and
+its historical in-review snapshot remain unchanged. Scientific and editorial
+review is complete; publication requires separate authorization. \claim{C07}
+
+\section{Notation, units and record locators}
+Positions and velocities are numerical arrays. The programs supply no
+physical calibration of coordinate length, mass or time. We use
+“coordinate units” and “model-step units” rather than metres or seconds
+for the dynamics. Video seconds are actual encoded presentation times;
+they are not silently identified with model time.
+
+For S01, $n=0,\ldots,499$ is the source loop index and $S_n$ the state after
+$n$ completed sweeps. Event $e=3n+i+1$ updates body $i$ in sweep $n+1$.
+For S03, $q$ is a zero-based callback-block index introduced by the accepted
+analysis in physical CSV order; $f_q$ is the logged \filepath{Step} label.
+Body $i$ at callback $q$ is on physical CSV line $8q+2+i$, counting the header
+as line~1. This locates repeated labels without deduplication. Movie frame
+indices are zero-based throughout. \claim{C08}
+
+Source locators use the unchanged copies, whose full originals and SHA-256
+identities are listed in Appendix~\ref{app:provenance}. Major claims carry
+matrix IDs such as \claim{C08}; the accompanying
+\filepath{CLAIM_EVIDENCE_MATRIX.md} maps each to exact support and caveats.
+Figures have independent provenance in
+\filepath{FIGURE_AND_MEDIA_REGISTER.md}. These registers are part of the
+scientific review package, not a substitute for the explanations below.

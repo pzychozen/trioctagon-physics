@@ -1,0 +1,24 @@
+{
+  "label": "NEW REPLAY",
+  "seed": 0,
+  "initializer": "numpy.random.RandomState(0).rand(3,2)*2-1; equivalent to original legacy global RNG seeded 0",
+  "sweeps": 500,
+  "dt": 0.05,
+  "update_order": [
+    0,
+    1,
+    2
+  ],
+  "allowed_executions": {
+    "instrumented": 1,
+    "identical_seed_reference": 1
+  },
+  "source_sha256": "847819ec381e200d9008395175342ec138e52ab3180a4f599b4db1cb91ae42d3",
+  "windows_declared_before_run": {
+    "opening": "sweeps 0,1,2, all nine point updates",
+    "first_position_wrap": "first event where a pre-wrap updated coordinate lies outside [-1,1); show its sweep plus adjacent sweeps if present",
+    "closest_pair": "smallest native torus distance over the 500 end-of-sweep states and pairs (0,1),(0,2),(1,2); earliest state then pair breaks ties; show its sweep plus adjacent sweeps. This is a saved-record descriptive statistic, not a seed or path-matching search."
+  },
+  "rendering": "Only recorded states; no interpolated states. Original static path convention uses end-of-sweep positions only. Seam-aware drawing omits connectors at observed position wraps.",
+  "historical_status": "New investigator-selected seed, not a recovered historical run."
+}

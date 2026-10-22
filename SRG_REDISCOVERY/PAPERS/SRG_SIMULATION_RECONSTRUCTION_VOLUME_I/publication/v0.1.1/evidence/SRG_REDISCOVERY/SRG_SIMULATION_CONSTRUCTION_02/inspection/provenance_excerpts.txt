@@ -1,0 +1,62 @@
+
+FILE: C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\SRG_REDISCOVERY\OLD_MATERIAL\Simulations_Trash\Simulations_part_1\plot_1.py
+SHA256: e13b92df8ac6df78cfee75b95dacea3b106e96bd5be9bf798cdcf39ccc5bc75c
+10: TORUS_SIZE = 10.0
+11: NUM_TETRAHEDRONS = 8
+12: STEP_COUNT = 200
+13: DT = 0.1  # Time step
+86: ax.set_title("Tetrahedral Attractors with Energy and Teleport Tracking")
+155: ani = FuncAnimation(fig, update, frames=STEP_COUNT, interval=50, blit=False)
+156: 
+157: # Save animation (optional, requires ffmpeg)
+158: output_path = "tetrahedral_attractors_logic.mp4"
+159: try:
+160:     os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
+161:     ani.save(output_path, writer="ffmpeg", fps=20)
+
+FILE: C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\SRG_REDISCOVERY\R0_SOURCE_RECOVERY\source_manifest.json
+SHA256: b7b8fd23695a7c0837845e45c502355d8f64efc9cbc142e8ddc4afead0abaf8c
+947:       "path": "Simulations_Trash/Simulations_part_1/tetrahedral_attractors_animation.mp4",
+948:       "type": ".mp4",
+949:       "bytes": 1002986,
+950:       "sha256": "4f90ce9fc384b134b68b5a64424ef3e05d364153d4e70efdd1596c0b8c937dd3",
+951:       "filesystem_mtime_utc": "2025-07-12T01:40:17+00:00",
+952:       "internal_title_date_version": {
+953:         "title": "tetrahedral_attractors_animation",
+954:         "date": null,
+955:         "version": "not separately established"
+956:       },
+957:       "role": "saved animation",
+958:       "content_coverage": "Metadata and SHA-256 only. Pixels/frames not inspected; historical figure linkage not certified."
+959:     },
+960:     {
+1003:       "path": "Simulations_Trash/Simulations_part_2/3Dtriangles.py",
+1004:       "type": ".py",
+1005:       "bytes": 3970,
+1006:       "sha256": "4c53678eefd803e93a910b74e7a8096bfd5095e0d09d09c9df0e7cf514b312f1",
+1007:       "filesystem_mtime_utc": "2025-07-12T01:32:40+00:00",
+1008:       "internal_title_date_version": {
+1009:         "source_name": "3Dtriangles.py",
+1010:         "declared_dates": [],
+1011:         "version": "not separately established; content hash is identity"
+1012:       },
+1013:       "role": "wrapped eight-body centroid-force recurrence and animation; no rule switching",
+1014:       "content_coverage": "Complete static source read; imports and top-level side effects inspected; original not executed. Byte-identical aliases share inspection."
+1015:     },
+1016:     {
+1017:       "path": "Simulations_Trash/Simulations_part_2/attractors.png",
+
+FILE: C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\SRG_REDISCOVERY\R0_SOURCE_RECOVERY\SRG_R0_REPORT.md
+SHA256: 7714312ff3cf1e3cebf117434099ad84acf474d65f08e9551ad22c58e54e6f11
+320: ### 5.1 Older data with actual source connections
+321: 
+322: [saved_data_checks.json](saved_data_checks.json) records the numerical evidence. No original launcher or module was run.
+323: 
+324: | Saved artifact | Inspected evidence and supported linkage |
+325: |---|---|
+326: | `PLOT_1_tetrahedral_states_20250712_015421.csv` | 8,736 rows = 1,092 eight-body callback blocks, frames 0–199, 7,136 repeated `(Step,Tetrahedron)` keys. In row order, wrapped position increment=.1*new velocity to 4.45e-15. Ten sampled consecutive blocks match the full in-place `plot_1.py` velocity equation to 1.12e-16, conditional on the stored binary rule outcomes. Energy residual <=6.67e-16. |
+327: | `tetrahedral_states_20250712_015647.csv` | 3,520 rows = 440 callback blocks, same frame range, 1,920 repeated keys. Same position identity to 4.45e-15; ten sampled full velocity transitions to 2.78e-16; energy residual <=4.45e-16. |
+328: | `tetrahedral_states_curvature_20250712_062601.csv` | 1,600 rows, 200 unique steps x 8 bodies, with Curvature, Adjusted_DT, Teleport_Flag and Emotional_Energy. Position increments match the stored row-specific Adjusted_DT and new velocity to 3.56e-15; kinetic energy to 1.12e-16. Its full generating velocity/curvature/time-adjustment rule is absent from the inspected executable set. Do not substitute `plot_1.py`'s fixed dt. |
+333: | `refu_memory_curve.txt`, `rpco_field_values.txt`, `tgmo_orbit_values.txt` | 1,000 / 10,000 / 200 samples respectively; match assigned helper formulas within 5e-6, the five-decimal export precision. TGMO's fixed azimuth gives a sampled minor circle, not a full 2D torus state. Duplicate originals under Reading material and Simulations_part_2 are hash-grouped. |
+334: 
+335: These matches strengthen source linkage without recovering the original RNG state or GUI callback schedule. The binary rule draw sequence was not reconstructed. No claim of byte-for-byte simulation reproduction is made.

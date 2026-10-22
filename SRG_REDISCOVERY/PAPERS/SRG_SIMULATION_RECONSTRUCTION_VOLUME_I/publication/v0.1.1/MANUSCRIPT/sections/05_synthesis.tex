@@ -1,0 +1,164 @@
+\chapter{Shared mechanisms and genuine distinctions}\label{ch:synthesis}
+\plain{The programs share some formulas, but they are not one interchangeable
+experiment. Three pairwise-interacting points, eight centroid-coupled centers
+and eight centers with stochastic response signs have different states,
+interaction calculations and recording systems. Their evidence must be
+compared at the same level of certainty.}
+
+\section{A precise mechanism comparison}
+Table~\ref{tab:mechanisms} summarizes the source-supported distinctions.
+The complete side-by-side source locators are also supplied in
+\filepath{CROSS_STUDY_MECHANISM_MAP.md}. Similar helper names do not
+justify replacing one interaction law with another. \claim{C80}
+
+\begin{table}[htbp]\centering\small
+\caption{Mechanism map. State dimensions count real position/velocity
+entries; the binary modes and external RNG/frame inputs are stated
+separately. Source support: S01 lines 5--74; S02 lines 8--119;
+S03 lines 10--167.}\label{tab:mechanisms}
+\begin{tabularx}{\linewidth}{@{}l Y Y Y@{}}\toprule
+Property & S01 & S02 & S03\\\midrule
+State &12 reals&48 reals&48 reals + 8 bits\\
+Positions &3 in 2D&8 in 3D&8 in 3D\\
+Initial velocity &Zero&Components in $[-0.1,0.1)$&Same distribution as S02\\
+Interaction &Two pairwise directions&Arithmetic centroid&Signed arithmetic-centroid response\\
+Regularizer &Norm +0.001&Norm +0.01&Norm +0.01\\
+Order &0,1,2 in place&0 through 7 in place&0 through 7 in place\\
+Step multiplier &0.05&0.1&0.1\\
+Coordinate period &2&10&10\\
+H argument &Loop index $\times0.05$&Frame label $\times0.1$&Frame label $\times0.1$\\
+Speed feedback &Absent&Shared GRF&Same GRF, also toggle gate\\
+Randomness after setup &Absent&Absent&Gated per-body draws\\
+Stored history &Post-sweep position log&No numeric history export&CSV on every callback\\
+Display &Static connected trails&Moving tetrahedra&Moving tetrahedra with mode palettes\\\bottomrule
+\end{tabularx}
+\end{table}
+
+S01's sum of regularized pairwise directions and S02's direction toward
+an arithmetic mean are different nonlinear constructions. Averaging
+positions before normalizing is not the operation written in S01.
+The change of dimension, boundary period, regularizer and initial
+velocity distribution further prevents interpreting their pictures as
+a controlled comparison of one isolated mechanism.
+\src{S01}{45--56}; \src{S02}{85--96}. \claim{C81}
+
+There is a narrower exact relationship between S02 and S03:
+given identical incoming numerical arrays and an identical frame label,
+if every S03 post-gate mode is zero, its position/velocity update is
+the same mathematical update as S02's. Both share the same mixed-state
+centroid, H, GRF, norm regularizer, RPCO and wrap. This conditional
+identity follows by substituting $b_i^+=0$ into
+Equation~\eqref{eq:kick03}. It does not establish equal historical
+initializers, random streams, callback schedules or trajectories.
+\src{S02}{74--104}; \src{S03}{100--149};
+\cite{study03}, SIMULATION\_02\_COMPARISON. \claim{C82}
+
+\section{Sequential order is part of each model}
+All three programs overwrite positions before later bodies are
+processed. Consequently the mathematical state seen by a later
+interaction is a mixture of new and old rows. Equations
+\eqref{eq:mixed01} and \eqref{eq:centroid} preserve that dependence.
+A simultaneous proposal/commit implementation would generally
+calculate different directions; it would be a modified model,
+not an innocent translation of the historical source.
+\claim{C83}
+
+The pictures show end-of-sweep states, so they hide this internal order.
+S01's accepted replay supplies all within-sweep arrays and demonstrates
+the dependency directly in events 1--3 and 505--507. S03's CSV exports
+only complete callbacks; its mixed-state values used in accepted
+residual checks are reconstructed from observed adjacent blocks.
+Those different observation capabilities must remain visible in the
+method, even when the algebraic notation is similar. \claim{C84}
+
+\section{Persistent velocity and componentwise damping}
+For any scalar component $u_a$, Equation~\eqref{eq:RPCO} gives
+\begin{equation}\label{eq:damping}
+\operatorname{sgn}\R(u)_a=\operatorname{sgn}u_a,\qquad
+|\R(u)_a|\leq |u_a|,
+\end{equation}
+with strict magnitude reduction when $u_a\ne0$. This follows because
+$1+\log(1+|u_a|)>1$ for a nonzero component. Different component
+magnitudes receive different denominators, so the vector direction
+can change. The magnitude comparison is with the \emph{candidate}
+velocity after adding the drive, not necessarily with the previous
+stored velocity. \src{S01}{29--31,54--56};
+\src{S02}{44--46,91--96}; \src{S03}{47--49,123--126}.
+\claim{C85}
+
+Thus an inward response does not imply inward movement during the
+same update. S01's near-contact and S03's delayed switch response
+are two distinct observed examples. A zero instantaneous interaction
+also does not erase a carried nonzero velocity. No source implements
+a waiting state or a threshold that freezes every small velocity.
+These source facts are not a theorem against approximate waiting
+or approximate collective following over a particular finite window.
+\claim{C86}
+
+\section{A prescribed gain is not a route memory}
+For nonnegative $t$, the shared H formula satisfies the elementary
+bound
+\begin{equation}\label{eq:Hbound}
+|H(t)|\leq 2e^{-0.5t}+e^{-0.3t}+1.5e^{-0.7t}+e^{-0.4t}
+\longrightarrow0\quad (t\to\infty).
+\end{equation}
+This is the triangle inequality applied to
+Equation~\eqref{eq:H}, using $|\sin t|,|\cos t|\leq1$.
+It does not say H is positive or that its magnitude decreases at
+every sample. The accepted S02 analysis evaluates
+$H(3\pi/2)\simeq-0.03600350414$ as a formula example; that time is
+not claimed as a nominal frame label.
+\cite{construction02}, TIME\_AND\_MOVEMENT. \claim{C87}
+
+The bound concerns increasing arguments. It does not make a
+restarting frame clock decay forever as callback count increases.
+S03's original records demonstrate why that distinction matters:
+at each return to label 0 the prescribed gain returns to 4.5.
+Neither H nor GRF reads a saved itinerary. GRF is state feedback
+through current mean speed; carried velocities are another form
+of state persistence. A stored route that explicitly guides future
+movement is absent from these three sources. \claim{C88}
+
+\plain{There are several meanings of “memory” here. The current velocity
+retains effects of the past. A log records the past for an observer.
+H is a preset function of a supplied clock. These roles should be
+named separately before relating them to a broader SRG time theory.}
+
+\section{Coordinate geometry and measurement}
+The coordinate rules identify opposite edges but do not add a
+material container. Minimal wrapped displacements, native increments,
+stored coordinate differences and screen distances are separate
+quantities. S01 draws connectors between wrapped samples; S02 and S03
+draw current shapes without trails. S03 adds a diagnostic whose
+unsigned modulo differs from the displacement wrap used in the force.
+\claim{C89}
+
+The arithmetic centroid has its own coordinate-representative
+dependence. A seam crossing can change the interaction target even
+when the native movement is small. The measured S03 body 7 episode
+is therefore not adequately described by calling every visible
+effect a rendering artifact. Conversely, a large screen relocation
+alone does not certify a large native movement. Equations
+\eqref{eq:centroid}, \eqref{eq:seam} and \eqref{eq:baddetector}
+make the three operations distinguishable. \claim{C90}
+
+\section{What the experiments establish together}
+The evidence supports three bounded conclusions. First, source order
+and carried velocity explain why an interaction direction and a
+movement direction can differ. Second, callback history and clock
+labels are necessary for interpreting a time-dependent gain: a
+200-frame movie is not automatically a 200-update record. Third,
+the recording and rendering conventions can either reveal or hide
+the distinction between near-contact, projected overlap, seam
+crossing and a detector warning. \claim{C91}
+
+It does not follow that the stochastic mode is responsible for
+every visible difference between the two eight-body movies.
+Their unknown initializers, distinct nominal durations, blitting
+settings and encoding rates are uncontrolled differences.
+Nor do the finite records establish asymptotic convergence,
+a persistent orbit, a universal collective-following phenomenon
+or a physical theory of gravity. The kinetic bookkeeping identity
+describes the code's diagnostic; it is not a gravitational energy
+equation. \claim{C92}
+\FloatBarrier

@@ -1,0 +1,183 @@
+\chapter{Simulation 02: eight tetrahedral centers}\label{ch:s02}
+\plain{This program moves eight centers through three coordinate directions.
+The tetrahedra are fixed shapes drawn around them. Each center takes its turn
+responding to an average of the currently stored center coordinates. The
+movie shows the resulting shapes, but the missing numerical history limits
+what can be measured from it.}
+
+\section{The world and the drawing geometry}
+The complete 119-line \filepath{3Dtriangles.py} initializes an $(8,3)$
+position array uniformly through \filepath{np.random.rand(8,3)*10}
+and an $(8,3)$ velocity array through
+\filepath{(np.random.rand(8,3)-0.5)*0.2}. Thus positions lie in $[0,10)^3$
+and velocity components in $[-0.1,0.1)$. No fixed seed is set.
+Unlike S01, the initial velocities are generally nonzero.
+There are 48 real-valued carried entries. \src{S02}{8--16}.
+\claim{C30}
+
+The relative vertex offsets are
+\[
+\tfrac12(1,1,1),\quad\tfrac12(-1,-1,1),\quad
+\tfrac12(-1,1,-1),\quad\tfrac12(1,-1,-1),
+\]
+with face index triples $(0,1,2)$, $(0,1,3)$, $(0,2,3)$ and $(1,2,3)$.
+Their edge length is $\sqrt2$, directly from the coordinate differences.
+Every displayed tetrahedron retains its size and orientation. Its center
+translates; its vertices do not have velocities, force laws or collision
+rules. Face transparency is 0.6. No independent vertex wrapping is
+implemented. \src{S02}{19--26,64--71,99--102}. \claim{C31}
+
+\section{Exact centroid construction}
+Write the componentwise position and displacement wraps as
+\begin{equation}\label{eq:wrap10}
+\W_{10}(z)=z\bmod10,\qquad
+\D_{10}(z)=((z+5)\bmod10)-5.
+\end{equation}
+These map respectively to $[0,10)$ and $[-5,5)$ in each coordinate.
+At a callback with supplied label $f$, let $x_i,v_i$ be the incoming
+state and $x_i^+,v_i^+$ the resulting state. The source sets
+\begin{equation}\label{eq:shared02}
+t=0.1f,\qquad h=H(t),\qquad
+g=\frac{1}{1+\frac18\sum_{j=0}^7\|v_j\|_2}.
+\end{equation}
+H and RPCO are the same formulas as
+Equations~\eqref{eq:H} and~\eqref{eq:RPCO}. GRF accepts positions and
+time as arguments but reads neither; it uses the global incoming
+velocity array. It is computed once, not recalculated after each
+body moves. \src{S02}{29--51,74--82}. \claim{C32}
+
+For $i=0,\ldots,7$ in order,
+\begin{align}
+c_i&=\frac18\left(\sum_{j<i}x_j^++\sum_{j\ge i}x_j\right),\label{eq:centroid}\\
+d_i&=\D_{10}(c_i-x_i),\qquad r_i=\|d_i\|_2,\label{eq:centroiddiff}\\
+a_i&=0.1gh\,\frac{d_i}{r_i+0.01},\label{eq:kick02}\\
+u_i&=v_i+a_i,\qquad v_i^+=\R(u_i),\label{eq:vel02}\\
+x_i^+&=\W_{10}(x_i+0.1v_i^+).\label{eq:pos02}
+\end{align}
+The symbol $a_i$ denotes the source's velocity contribution, not a new
+mechanism. The centroid includes the body itself and averages the
+currently wrapped Cartesian coordinates. Earlier bodies have already
+moved. The regularized direction has magnitude $r_i/(r_i+0.01)$,
+multiplied by the common signed H and GRF factors. H is multiplied
+exactly once. \src{S02}{83--96}. \claim{C33}
+
+There is no binary switch in this program and no random draw after
+initialization. Nevertheless, “attraction to centroid” is a source
+comment rather than a guarantee of inward velocity. H can be negative,
+and even a positive inward contribution may leave an outward carried
+velocity after addition and damping. GRF lies in $(0,1]$ for finite
+velocities and decreases as mean incoming speed grows.
+\src{S02}{33--51,83--96}; \cite{construction02}. \claim{C34}
+
+\section{Clock labels, animation and retained state}
+The source requests 2,000 animation labels, a 50 ms interval and
+\filepath{blit=True}. It supplies no separate initialization function.
+It attempts a 60 fps MP4 save and then calls \filepath{plt.show()},
+also showing after a caught save exception. Arrays are not reset between
+save and display. All of this is at module level.
+\src{S02}{107--119}. \claim{C35}
+
+\begin{table}[htbp]\centering\small
+\caption{Four distinct time-related quantities in S02. The first two affect
+the numerical rule; the last two control requested presentation.}\label{tab:clocks02}
+\begin{tabularx}{\linewidth}{@{}l Y@{}}\toprule
+Quantity & Meaning\\\midrule
+$\Delta t=0.1$ & Multiplier in both velocity addition and position advance\\
+$t=0.1f$ & Argument passed to H on each callback; not an accumulator\\
+GUI interval 50 ms & Nominal timer interval, not a measured callback duration\\
+Movie 60 fps & Encoded presentation cadence, independent of model-step units\\\bottomrule
+\end{tabularx}
+\end{table}
+
+If labels 0--1999 are processed once, H's argument ranges from 0 to
+199.9, while 2,000 multipliers of 0.1 account for 200 model-step units.
+That conditional count does not establish the historical number of
+state-changing callbacks. The accepted local-library inspection
+(Matplotlib 3.10.9) found initialization, save, interactive-start and
+repeat paths that can invoke a callback with its first label. With
+a mutating update function, an initialization draw is a numerical
+update, not necessarily a harmless rendering of the initializer.
+Historical dependency versions and backend events are unrecovered.
+\cite{construction02}, TIME\_AND\_MOVEMENT and saved library excerpts.
+\claim{C36}
+
+Repeated labels can apply the same H value to changed arrays. A label
+reset can renew the large starting gain while retaining positions and
+velocities. This is a source/library possibility for S02; its movie
+does not certify that exact callback chronology. S03's surviving logs
+will supply direct evidence of repeated labels for that distinct
+program. \claim{C37}
+
+\section{Wrapping can affect both the image and the interaction}
+From the position line, there is an integer coordinate vector $k_i$
+such that
+\begin{equation}\label{eq:seam}
+x_i^+-x_i=0.1v_i^+-10k_i.
+\end{equation}
+The native increment $0.1v_i^+$ can therefore be small while a stored
+coordinate difference is almost ten. The displayed shape moves with
+the wrapped center; the movie does not draw a periodic seam connection
+or interpolate a path across it. \src{S02}{95--101}. \claim{C38}
+
+There is a second, distinct effect. Because $c_i$ is an arithmetic mean
+of wrapped coordinates, a body's positive crossing contributes
+$-10/8=-1.25$ to that coordinate of the group average, in addition
+to ordinary motion. Later bodies in the same sweep see the changed
+average. Wrapping $c_i-x_i$ afterward does not turn the preceding mean
+into an intrinsic mean on a torus. The chosen displacement itself
+also has a branch at a half-period. These are deductions from the
+implemented operations, not proposed replacements.
+\src{S02}{85--96}; \cite{construction02}. \claim{C39}
+
+\plain{A boundary relocation can be a drawing jump and still matter to
+later motion. This program averages the displayed coordinate
+representatives before wrapping the direction. We must preserve that
+choice to explain the historical construction.}
+
+\section{The original movie and what it shows}
+The attributed movie
+\filepath{tetrahedral_attractors_animation.mp4} contains 2,000 decoded
+frames at 60 fps, 1000 by 800 pixels, duration $33\frac13$ seconds.
+Its name, title, geometry, axes and nominal encoding agree with the
+source. The original lies in part\_1 while the source lies in part\_2;
+the output's relative working-directory path makes that directory
+difference insufficient to reject attribution.
+No source/run receipt or ordered numerical history was recovered.
+\cite{construction02}, VISUAL\_EVIDENCE. \claim{C40}
+
+Figure~\ref{fig:F06} samples the full duration. Shapes become closer
+in projection and later arrangements change much less visibly.
+Several shapes remain separated in the final image. These observations
+establish neither every three-dimensional pair distance nor exact rest.
+The accepted study decoded all frames but visually reviewed selected
+sheets and full-resolution stills; it did not claim to have manually
+inspected every frame. \claim{C41}
+\EvidenceFig{F06}
+
+The consecutive window in Figure~\ref{fig:F07} locates a conspicuous
+screen relocation between frames 13 and 14. It is consistent with the
+source wrap operation, but the missing positions and velocities prevent
+certification of the crossing axis and native displacement. No value
+from S03's CSVs is substituted for this missing S02 history.
+\claim{C42}
+\EvidenceFig{F07}
+
+Color is another observation variable. The source uses
+\filepath{viridis((i+frame)\%8/8)}, so an individual body's color
+changes even when its location changes little. The first eight frames
+(Figure~\ref{fig:F08}) illustrate why color alone is not a stable
+identity label. Projection and transparency can overlap tetrahedra
+separated in depth; their silhouettes may look triangular despite
+four-face source geometry. There are no accumulated trajectory lines
+in this movie, unlike S01's static plot.
+\src{S02}{64--71,99--102}. \claim{C43}
+\EvidenceFig{F08}
+
+The source supports coupling through the centroid, carried velocity
+and shared speed feedback. The inspected movie supports visible
+motion, one localized relocation and slower late changes.
+It does not establish a leader, route-following pair, collision,
+asymptotic equilibrium or physical gravitational interpretation.
+These limits concern available evidence, not a theorem that the
+program can never display another collective event. \claim{C44}
+\FloatBarrier

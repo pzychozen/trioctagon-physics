@@ -1,0 +1,365 @@
+
+Animation._start — C:\Users\Notandi\miniconda3\envs\torment\Lib\site-packages\matplotlib\animation.py:916
+916:     def _start(self, *args):
+917:         """
+918:         Starts interactive animation. Adds the draw frame command to the GUI
+919:         handler, calls show to start the event loop.
+920:         """
+921:         # Do not start the event source if saving() it.
+922:         if self._fig.canvas.is_saving():
+923:             return
+924:         # First disconnect our draw event handler
+925:         self._fig.canvas.mpl_disconnect(self._first_draw_id)
+926: 
+927:         # Now do any initial draw
+928:         self._init_draw()
+929: 
+930:         # Add our callback for stepping the animation and
+931:         # actually start the event_source.
+932:         self.event_source.add_callback(self._step)
+933:         self.event_source.start()
+
+Animation.save — C:\Users\Notandi\miniconda3\envs\torment\Lib\site-packages\matplotlib\animation.py:943
+943:     def save(self, filename, writer=None, fps=None, dpi=None, codec=None,
+944:              bitrate=None, extra_args=None, metadata=None, extra_anim=None,
+945:              savefig_kwargs=None, *, progress_callback=None):
+946:         """
+947:         Save the animation as a movie file by drawing every frame.
+948: 
+949:         Parameters
+950:         ----------
+951:         filename : str
+952:             The output filename, e.g., :file:`mymovie.mp4`.
+953: 
+954:         writer : `AbstractMovieWriter` subclass or str, default: :rc:`animation.writer`
+955:             The writer used to grab the frames and create the movie file.
+956:             This can be an instance of an `AbstractMovieWriter` subclass or a
+957:             string. The builtin writers are
+958: 
+959:             ==================  ==============================
+960:             str                 class
+961:             ==================  ==============================
+962:             'ffmpeg'            `.FFMpegWriter`
+963:             'ffmpeg_file'       `.FFMpegFileWriter`
+964:             'imagemagick'       `.ImageMagickWriter`
+965:             'imagemagick_file'  `.ImageMagickFileWriter`
+966:             'pillow'            `.PillowWriter`
+967:             'html'              `.HTMLWriter`
+968:             ==================  ==============================
+969: 
+970:         fps : int, optional
+971:             Movie frame rate (per second).  If not set, the frame rate from the
+972:             animation's frame interval.
+973: 
+974:         dpi : float, default: :rc:`savefig.dpi`
+975:             Controls the dots per inch for the movie frames.  Together with
+976:             the figure's size in inches, this controls the size of the movie.
+977: 
+978:         codec : str, default: :rc:`animation.codec`.
+979:             The video codec to use.  Not all codecs are supported by a given
+980:             `MovieWriter`.
+981: 
+982:         bitrate : int, default: :rc:`animation.bitrate`
+983:             The bitrate of the movie, in kilobits per second.  Higher values
+984:             means higher quality movies, but increase the file size.  A value
+985:             of -1 lets the underlying movie encoder select the bitrate.
+986: 
+987:         extra_args : list of str or None, optional
+988:             Extra command-line arguments passed to the underlying movie encoder. These
+989:             arguments are passed last to the encoder, just before the output filename.
+990:             The default, None, means to use :rc:`animation.[name-of-encoder]_args` for
+991:             the builtin writers.
+992: 
+993:         metadata : dict[str, str], default: {}
+994:             Dictionary of keys and values for metadata to include in
+995:             the output file. Some keys that may be of use include:
+996:             title, artist, genre, subject, copyright, srcform, comment.
+997: 
+998:         extra_anim : list, default: []
+999:             Additional `Animation` objects that should be included
+1000:             in the saved movie file. These need to be from the same
+1001:             `.Figure` instance. Also, animation frames will
+1002:             just be simply combined, so there should be a 1:1 correspondence
+1003:             between the frames from the different animations.
+1004: 
+1005:         savefig_kwargs : dict, default: {}
+1006:             Keyword arguments passed to each `~.Figure.savefig` call used to
+1007:             save the individual frames.
+1008: 
+1009:         progress_callback : function, optional
+1010:             A callback function that will be called for every frame to notify
+1011:             the saving progress. It must have the signature ::
+1012: 
+1013:                 def func(current_frame: int, total_frames: int) -> Any
+1014: 
+1015:             where *current_frame* is the current frame number and *total_frames* is the
+1016:             total number of frames to be saved. *total_frames* is set to None, if the
+1017:             total number of frames cannot be determined. Return values may exist but are
+1018:             ignored.
+1019: 
+1020:             Example code to write the progress to stdout::
+1021: 
+1022:                 progress_callback = lambda i, n: print(f'Saving frame {i}/{n}')
+1023: 
+1024:         Notes
+1025:         -----
+1026:         *fps*, *codec*, *bitrate*, *extra_args* and *metadata* are used to
+1027:         construct a `.MovieWriter` instance and can only be passed if
+1028:         *writer* is a string.  If they are passed as non-*None* and *writer*
+1029:         is a `.MovieWriter`, a `RuntimeError` will be raised.
+1030:         """
+1031: 
+1032:         all_anim = [self]
+1033:         if extra_anim is not None:
+1034:             all_anim.extend(anim for anim in extra_anim
+1035:                             if anim._fig is self._fig)
+1036: 
+1037:         # Disable "Animation was deleted without rendering" warning.
+1038:         for anim in all_anim:
+1039:             anim._draw_was_started = True
+1040: 
+1041:         if writer is None:
+1042:             writer = mpl.rcParams['animation.writer']
+1043:         elif (not isinstance(writer, str) and
+1044:               any(arg is not None
+1045:                   for arg in (fps, codec, bitrate, extra_args, metadata))):
+1046:             raise RuntimeError('Passing in values for arguments '
+1047:                                'fps, codec, bitrate, extra_args, or metadata '
+1048:                                'is not supported when writer is an existing '
+1049:                                'MovieWriter instance. These should instead be '
+1050:                                'passed as arguments when creating the '
+1051:                                'MovieWriter instance.')
+1052: 
+1053:         if savefig_kwargs is None:
+1054:             savefig_kwargs = {}
+1055:         else:
+1056:             # we are going to mutate this below
+1057:             savefig_kwargs = dict(savefig_kwargs)
+1058: 
+1059:         if fps is None and hasattr(self, '_interval'):
+1060:             # Convert interval in ms to frames per second
+1061:             fps = 1000. / self._interval
+1062: 
+1063:         # Reuse the savefig DPI for ours if none is given.
+1064:         dpi = mpl._val_or_rc(dpi, 'savefig.dpi')
+1065:         if dpi == 'figure':
+1066:             dpi = self._fig.dpi
+1067: 
+1068:         writer_kwargs = {}
+1069:         if codec is not None:
+1070:             writer_kwargs['codec'] = codec
+1071:         if bitrate is not None:
+1072:             writer_kwargs['bitrate'] = bitrate
+1073:         if extra_args is not None:
+1074:             writer_kwargs['extra_args'] = extra_args
+1075:         if metadata is not None:
+1076:             writer_kwargs['metadata'] = metadata
+1077: 
+1078:         # If we have the name of a writer, instantiate an instance of the
+1079:         # registered class.
+1080:         if isinstance(writer, str):
+1081:             try:
+1082:                 writer_cls = writers[writer]
+1083:             except RuntimeError:  # Raised if not available.
+1084:                 writer_cls = PillowWriter  # Always available.
+1085:                 _log.warning("MovieWriter %s unavailable; using Pillow "
+1086:                              "instead.", writer)
+1087:             writer = writer_cls(fps, **writer_kwargs)
+1088:         _log.info('Animation.save using %s', type(writer))
+1089: 
+1090:         if 'bbox_inches' in savefig_kwargs:
+1091:             _log.warning("Warning: discarding the 'bbox_inches' argument in "
+1092:                          "'savefig_kwargs' as it may cause frame size "
+1093:                          "to vary, which is inappropriate for animation.")
+1094:             savefig_kwargs.pop('bbox_inches')
+1095: 
+1096:         # Create a new sequence of frames for saved data. This is different
+1097:         # from new_frame_seq() to give the ability to save 'live' generated
+1098:         # frame information to be saved later.
+1099:         # TODO: Right now, after closing the figure, saving a movie won't work
+1100:         # since GUI widgets are gone. Either need to remove extra code to
+1101:         # allow for this non-existent use case or find a way to make it work.
+1102: 
+1103:         def _pre_composite_to_white(color):
+1104:             r, g, b, a = mcolors.to_rgba(color)
+1105:             return a * np.array([r, g, b]) + 1 - a
+1106: 
+1107:         # canvas._is_saving = True makes the draw_event animation-starting
+1108:         # callback a no-op; canvas.manager = None prevents resizing the GUI
+1109:         # widget (both are likewise done in savefig()).
+1110:         with (writer.saving(self._fig, filename, dpi),
+1111:               cbook._setattr_cm(self._fig.canvas, _is_saving=True, manager=None)):
+1112:             if not writer._supports_transparency():
+1113:                 facecolor = savefig_kwargs.get('facecolor',
+1114:                                                mpl.rcParams['savefig.facecolor'])
+1115:                 if facecolor == 'auto':
+1116:                     facecolor = self._fig.get_facecolor()
+1117:                 savefig_kwargs['facecolor'] = _pre_composite_to_white(facecolor)
+1118:                 savefig_kwargs['transparent'] = False   # just to be safe!
+1119: 
+1120:             for anim in all_anim:
+1121:                 anim._init_draw()  # Clear the initial frame
+1122:             frame_number = 0
+1123:             # TODO: Currently only FuncAnimation has a save_count
+1124:             #       attribute. Can we generalize this to all Animations?
+1125:             save_count_list = [getattr(a, '_save_count', None)
+1126:                                for a in all_anim]
+1127:             if None in save_count_list:
+1128:                 total_frames = None
+1129:             else:
+1130:                 total_frames = sum(save_count_list)
+1131:             for data in zip(*[a.new_saved_frame_seq() for a in all_anim]):
+1132:                 for anim, d in zip(all_anim, data):
+1133:                     # TODO: See if turning off blit is really necessary
+1134:                     anim._draw_next_frame(d, blit=False)
+1135:                     if progress_callback is not None:
+1136:                         progress_callback(frame_number, total_frames)
+1137:                         frame_number += 1
+1138:                 writer.grab_frame(**savefig_kwargs)
+
+TimedAnimation.__init__ — C:\Users\Notandi\miniconda3\envs\torment\Lib\site-packages\matplotlib\animation.py:1442
+1442:     def __init__(self, fig, interval=200, repeat_delay=0, repeat=True,
+1443:                  event_source=None, *args, **kwargs):
+1444:         self._interval = interval
+1445:         # Undocumented support for repeat_delay = None as backcompat.
+1446:         self._repeat_delay = repeat_delay if repeat_delay is not None else 0
+1447:         self._repeat = repeat
+1448:         # If we're not given an event source, create a new timer. This permits
+1449:         # sharing timers between animation objects for syncing animations.
+1450:         if event_source is None:
+1451:             event_source = fig.canvas.new_timer(interval=self._interval)
+1452:         super().__init__(fig, event_source=event_source, *args, **kwargs)
+
+TimedAnimation._step — C:\Users\Notandi\miniconda3\envs\torment\Lib\site-packages\matplotlib\animation.py:1454
+1454:     def _step(self, *args):
+1455:         """Handler for getting events."""
+1456:         # Extends the _step() method for the Animation class.  If
+1457:         # Animation._step signals that it reached the end and we want to
+1458:         # repeat, we refresh the frame sequence and return True. If
+1459:         # _repeat_delay is set, change the event_source's interval to our loop
+1460:         # delay and set the callback to one which will then set the interval
+1461:         # back.
+1462:         still_going = super()._step(*args)
+1463:         if not still_going:
+1464:             if self._repeat:
+1465:                 # Restart the draw loop
+1466:                 self._init_draw()
+1467:                 self.frame_seq = self.new_frame_seq()
+1468:                 self.event_source.interval = self._repeat_delay
+1469:                 return True
+1470:             else:
+1471:                 # We are done with the animation. Call pause to remove
+1472:                 # animated flags from artists that were using blitting
+1473:                 self.pause()
+1474:                 if self._blit:
+1475:                     # Remove the resize callback if we were blitting
+1476:                     self._fig.canvas.mpl_disconnect(self._resize_id)
+1477:                 self._fig.canvas.mpl_disconnect(self._close_id)
+1478:                 self.event_source = None
+1479:                 return False
+1480: 
+1481:         self.event_source.interval = self._interval
+1482:         return True
+
+FuncAnimation.__init__ — C:\Users\Notandi\miniconda3\envs\torment\Lib\site-packages\matplotlib\animation.py:1665
+1665:     def __init__(self, fig, func, frames=None, init_func=None, fargs=None,
+1666:                  save_count=None, *, cache_frame_data=True, **kwargs):
+1667:         if fargs:
+1668:             self._args = fargs
+1669:         else:
+1670:             self._args = ()
+1671:         self._func = func
+1672:         self._init_func = init_func
+1673: 
+1674:         # Amount of framedata to keep around for saving movies. This is only
+1675:         # used if we don't know how many frames there will be: in the case
+1676:         # of no generator or in the case of a callable.
+1677:         self._save_count = save_count
+1678:         # Set up a function that creates a new iterable when needed. If nothing
+1679:         # is passed in for frames, just use itertools.count, which will just
+1680:         # keep counting from 0. A callable passed in for frames is assumed to
+1681:         # be a generator. An iterable will be used as is, and anything else
+1682:         # will be treated as a number of frames.
+1683:         if frames is None:
+1684:             self._iter_gen = itertools.count
+1685:         elif callable(frames):
+1686:             self._iter_gen = frames
+1687:         elif np.iterable(frames):
+1688:             if kwargs.get('repeat', True):
+1689:                 self._tee_from = frames
+1690:                 def iter_frames(frames=frames):
+1691:                     this, self._tee_from = itertools.tee(self._tee_from, 2)
+1692:                     yield from this
+1693:                 self._iter_gen = iter_frames
+1694:             else:
+1695:                 self._iter_gen = lambda: iter(frames)
+1696:             if hasattr(frames, '__len__'):
+1697:                 self._save_count = len(frames)
+1698:                 if save_count is not None:
+1699:                     _api.warn_external(
+1700:                         f"You passed in an explicit {save_count=} "
+1701:                         "which is being ignored in favor of "
+1702:                         f"{len(frames)=}."
+1703:                     )
+1704:         else:
+1705:             self._iter_gen = lambda: iter(range(frames))
+1706:             self._save_count = frames
+1707:             if save_count is not None:
+1708:                 _api.warn_external(
+1709:                     f"You passed in an explicit {save_count=} which is being "
+1710:                     f"ignored in favor of {frames=}."
+1711:                 )
+1712:         if self._save_count is None and cache_frame_data:
+1713:             _api.warn_external(
+1714:                 f"{frames=!r} which we can infer the length of, "
+1715:                 "did not pass an explicit *save_count* "
+1716:                 f"and passed {cache_frame_data=}.  To avoid a possibly "
+1717:                 "unbounded cache, frame data caching has been disabled. "
+1718:                 "To suppress this warning either pass "
+1719:                 "`cache_frame_data=False` or `save_count=MAX_FRAMES`."
+1720:             )
+1721:             cache_frame_data = False
+1722: 
+1723:         self._cache_frame_data = cache_frame_data
+1724: 
+1725:         # Needs to be initialized so the draw functions work without checking
+1726:         self._save_seq = []
+1727: 
+1728:         super().__init__(fig, **kwargs)
+1729: 
+1730:         # Need to reset the saved seq, since right now it will contain data
+1731:         # for a single frame from init, which is not what we want.
+1732:         self._save_seq = []
+
+FuncAnimation._init_draw — C:\Users\Notandi\miniconda3\envs\torment\Lib\site-packages\matplotlib\animation.py:1761
+1761:     def _init_draw(self):
+1762:         super()._init_draw()
+1763:         # Initialize the drawing either using the given init_func or by
+1764:         # calling the draw function with the first item of the frame sequence.
+1765:         # For blitting, the init_func should return a sequence of modified
+1766:         # artists.
+1767:         if self._init_func is None:
+1768:             try:
+1769:                 frame_data = next(self.new_frame_seq())
+1770:             except StopIteration:
+1771:                 # we can't start the iteration, it may have already been
+1772:                 # exhausted by a previous save or just be 0 length.
+1773:                 # warn and bail.
+1774:                 warnings.warn(
+1775:                     "Can not start iterating the frames for the initial draw. "
+1776:                     "This can be caused by passing in a 0 length sequence "
+1777:                     "for *frames*.\n\n"
+1778:                     "If you passed *frames* as a generator "
+1779:                     "it may be exhausted due to a previous display or save."
+1780:                 )
+1781:                 return
+1782:             self._draw_frame(frame_data)
+1783:         else:
+1784:             self._drawn_artists = self._init_func()
+1785:             if self._blit:
+1786:                 if self._drawn_artists is None:
+1787:                     raise RuntimeError('The init_func must return a '
+1788:                                        'sequence of Artist objects.')
+1789:                 for a in self._drawn_artists:
+1790:                     a.set_animated(self._blit)
+1791:         self._save_seq = []
