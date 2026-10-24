@@ -1,0 +1,1011 @@
+--- a/BUILD_INSTRUCTIONS.md
++++ b/BUILD_INSTRUCTIONS.md
+@@ -6,7 +6,7 @@
+ 
+ ```bat
+ conda activate torment
+-cd /d C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\SRG_REDISCOVERY\PAPERS\SRG_LOCAL_GEOMETRY_AND_RESONANCE_SIM04_SIM05\draft\v0.1
++cd /d C:\TORMENT\TRIOCTAGON_new\trioctagon-physics\SRG_REDISCOVERY\PAPERS\SRG_LOCAL_GEOMETRY_AND_RESONANCE_SIM04_SIM05\draft\v0.1.1
+ python -B build_document.py
+ ```
+ 
+@@ -18,8 +18,8 @@
+ tectonic -X compile --untrusted --keep-logs --reruns 2 manuscript.tex
+ ```
+ 
+-Tectonic may fetch missing typesetting dependencies into its cache. The local build helper's `--fetch-tex-dependencies` switch permits that same document-only operation; ordinary subsequent builds are offline. Its machine-specific cache-copy fallback expects the already existing repository compiler cache. For a portable build, use the direct Tectonic command with a configured private cache instead.
++Tectonic may fetch missing typesetting dependencies into its cache. The local build helper's `--fetch-tex-dependencies` switch permits that same document-only operation; ordinary subsequent builds are offline. R1 was built offline, using a private copy of the preserved sibling v0.1 compiler cache. The helper's only R1 change is that cache-copy source. For a portable build, use the direct Tectonic command with a configured private cache instead.
+ 
+-All figures, tables and numerical claims come from retained accepted inputs. Do **not** run historical programs, replay tools, independent scientific checkers or prior random-checkpoint verification to rebuild this manuscript. `prepare_manuscript.py` and `receive_review.py` record the one-time input intake and should not be rerun over an existing candidate. `finalize_package.py` checks document/file identities and packages the candidate; it does not calculate scientific results.
++All figures, tables and numerical claims come from retained accepted inputs. Do **not** run historical programs, replay tools, independent scientific checkers or prior random-checkpoint verification to rebuild this manuscript. `prepare_r1.py` records the one-time R1 input intake and literal approved patch; it refuses to overwrite an existing intake. Earlier intake and packaging scripts are preserved under `provenance/v0.1/` for inspection and were not executed. The current `finalize_r1.py` checks document/file identities and packages the candidate; it does not calculate scientific results or invoke Git.
+ 
+ Page rendering and file hashes are environment-specific reproducibility records. The accepted review ZIP identifies the exact delivered PDF bytes; a later compiler/environment may produce different PDF metadata or layout without changing the source. Any edited candidate needs a new visual page inspection before delivery.
+--- a/CLAIM_EVIDENCE_MATRIX.md
++++ b/CLAIM_EVIDENCE_MATRIX.md
+@@ -22,14 +22,14 @@
+ | C16 / §6.2 | D positive/nonzero; exactly three lower clips at ID12 p16–18; no R/upper clips; distinct field-size ratios. REPRODUCED. | [clipping events](evidence/tables/SIM05/clipping_events.csv), [detail checks](evidence/tables/SIM05/detail_checks.json), [findings](evidence/reviews/SIM05/findings.json). | Input range differs from compressed output; no winner-takes-all interpretation. |
+ | C17 / §§6.2–6.3 | Late-stage RMS, rounded-zero direct H, active cross terms, continuing motion. DERIVED from REPRODUCED records. | [stage windows](evidence/tables/SIM05/stage_windows.csv) `last20`; [detail checks](evidence/tables/SIM05/detail_checks.json); [replay analysis](evidence/studies/SIM05/REPLAY_AND_3D_ANALYSIS.md). | Spatial RMS per coordinate; p181–200; not ablation or removal of earlier H history. |
+ | C18 / §6.3 | Tiny endpoint top gap, multiple late top IDs, final-ten CVs, ID31 motion. REPRODUCED / retained historical metrics. | [detail checks](evidence/tables/SIM05/detail_checks.json), [findings](evidence/reviews/SIM05/findings.json), [historical checks](evidence/tables/SIM05/historical_checks.json). | No causal leadership variable; scalar stability is not a whole-state fixed point. |
+-| C19 / §7.1 | Coherence, mean squared displacement, squared fields, GRF definitions. ORIGINAL. | S4 268–274, 613–650 (K631–632); S5 139–142, 207–268. | Signed/absolute means and special branches preserved; no physical energy/action law. |
+-| C20 / §7.2 | Curvature updated X/old neighbors; echoes old distances/new R; candidate thresholds. ORIGINAL. | S5 144–160, 205, 207–268; S4 126–137, 618–619. | Mixed staging retained; angle standard deviation, not variance or manifold curvature. |
++| C19 / §7.1 | Coherence, mean squared displacement, squared fields, GRF definitions. ORIGINAL. | S4 268–274, 623–625, 637–641 (mean), 631–632 (K); S5 139–142, 207–268 (mean245–249). | Both selected drivers report mean absolute R; std(R) uses the signed field, and the coherence special branches differ. No physical energy/action law. |
++| C20 / §7.2 | Curvature updated X/old neighbors; echoes old distances/new R; candidate thresholds. ORIGINAL. | S5 144–160, 205, 207–268; S4 126–137, 618–620. | Mixed staging retained; angle standard deviation, not variance or manifold curvature. |
+ | C21 / §7.2 | 238 echoes exactly all internal pairs; 44 candidates exactly complement of six. DERIVED from REPRODUCED record. | [review §§6–7](evidence/reviews/SIM05/SIM05_GPT_SCIENTIFIC_REVIEW.md), [findings.json](evidence/reviews/SIM05/findings.json), [supplemental checks](evidence/reviews/SIM05/supplemental_checks.json). | Pair masks, not totals alone; distances p199, R p200; all curvature criteria pass. |
+ | C22 / §8 Prop.1 | Smallest isolated five-neighbor component has ≥6 members; six implies30 directed selections. DERIVED. | [SIM04 source review deduction2](evidence/reviews/SIM04/source_review.md); S4 91–98. | Distinct non-self neighbors and no crossing selections; no shape conclusion. |
+ | C23 / §8 Prop.2 | Positive unclipped common-gain affine normalization yields stochastic averaging and interval nonexpansion. DERIVED. | [source review deduction1](evidence/reviews/SIM04/source_review.md); S4 111–124,154–169; [independent checks](evidence/reviews/SIM04/independent_data/independent_checks.json) normalized range. | Positivity/inactive clip/a_p>0; not raw variance monotonicity, mean conservation, consensus or H-off trajectory. |
+ | C24 / §8 Prop.3 | Mean fusion = .03δ(meanY−c). DERIVED. | [source review deduction3](evidence/reviews/SIM04/source_review.md); S4 161–163. | Positive U; abs(U) caveat; stage identity, not whole-update conservation. |
+ | C25 / §8 Prop.4 | Component-uniform R,D preserved by common scalar pair map. DERIVED. | [SIM05 review §8](evidence/reviews/SIM05/SIM05_GPT_SCIENTIFIC_REVIEW.md); S5 114–137,176–197. | Closed nonempty rows, incoming uniformity; conditional one-step preservation, not attraction, lasting closure or full-system reduction. |
+ | C26 / §9 | Shared construction with multiple changed mechanisms; no one-factor causal comparison. ORIGINAL / source comparison. | S4/S5 constructors and evolve methods; [family map](evidence/studies/SIM05/MODEL_FAMILIES_AND_PAPER_PLAN.md). | Same initial X does not isolate D; study numbering not lineage. |
+-| C27 / App.B | Shape, tensor, memory-death, golden/zeta, anatomy and phase-label audits. ORIGINAL / reviewed DERIVATION. | S4 203–266; S5 356–815; [historical audit](evidence/studies/SIM05/HISTORICAL_EVIDENCE_AND_CLAIMS.md); [review](evidence/reviews/SIM05/SIM05_GPT_SCIENTIFIC_REVIEW.md). | Other drivers inspected only; no new outputs or physical identifications. |
++| C27 / App.B | Shape, tensor, memory-death, golden/zeta, anatomy and phase-label audits. ORIGINAL / reviewed DERIVATION. | S4 203–266; S5 356–815 (magnitude selection361–371; tensor440–445); [historical audit](evidence/studies/SIM05/HISTORICAL_EVIDENCE_AND_CLAIMS.md); [review](evidence/reviews/SIM05/SIM05_GPT_SCIENTIFIC_REVIEW.md). | Other drivers inspected only; no new outputs or physical identifications. |
+ 
+ The manuscript's exact equation numbers are generated by LaTeX. Its labels are stable in the editable source; printed references are checked by the document build. Numbers above are copied from retained files and rounded for exposition, not recomputed from trajectories in this task.
+--- a/CORRECTION_DISPOSITION.md
++++ b/CORRECTION_DISPOSITION.md
+@@ -0,0 +1,25 @@
++# E01–E03 disposition — candidate v0.1.1 / editorial R1
++
++24 October 2026. Prepared for GPT and Hilmir review. GPT's v0.1 review accepts the scientific core subject to these corrections; this document records their implementation, not final manuscript acceptance or publication authority.
++
++| Item | Implemented correction | Exact source anchor | Impact and retained material |
++|---|---|---|---|
++| E01 | §7.1 now states that both selected drivers report mean absolute R. C19 states the same and separates std(R) and the coherence guards. | [S4](evidence/originals/SIM04/srg_seed_explorer.py) 623–625, 637–641; [S5](evidence/originals/SIM05/srg_infinity.py) 245–249. Guards: S4 268–274; S5 225–226. | Corrects two prose descriptions only. Eq.23, signed-field standard deviation and genuine coherence-branch difference retained. Positive recorded fields make the previously quoted mean values unchanged. No data calculation. |
++| E02 | Appendix B now says each relative vector is multiplied by its amplitude magnitude, absolute R. Locator and C27 include local magnitude selection and tensor assembly. | S5 361–371, especially 362/368, and 440–445. | Quadratic R_i² weighting and accepted principal-moment inequality/prolate conclusion retained. No tensor or eigengeometry execution. |
++| E03 | Appendix A S5 sine/compression range is190–195; noise/displacement/recording is198–205. C20 S4 echo range is618–620. | S5 sine191, compression194–195; scale198, draw199, displacement202, recording205. S4 distances618–619 and echo call620. | Navigation only. Equations9,21,22, coefficients, update order and observer staging unchanged. |
++
++The two source files above retain their accepted SHA-256 identities. The source excerpts were read as text, never imported. The exact source/claim changes match the supplied `PROPOSED_E01_E03_SOURCE_CORRECTIONS.patch`; there was no global replacement of “signed.” Signed RPCO, signed fusion coefficients and std(R) remain intact.
++
++## Exact diff and housekeeping
++
++- [SOURCE_CORRECTIONS_ONLY.patch](SOURCE_CORRECTIONS_ONLY.patch) is byte-identical to GPT's proposed patch and changes only the two specified files.
++- [DIFF_FROM_v0.1.patch](DIFF_FROM_v0.1.patch) is the complete unified diff for `manuscript.tex` and `CLAIM_EVIDENCE_MATRIX.md`. Its three additional TeX changes are the PDF subject, running header and cover version/date: candidate v0.1.1 / editorial R1 / 24 October 2026.
++- [DOCUMENT_ONLY_DIFF_FROM_v0.1.patch](DOCUMENT_ONLY_DIFF_FROM_v0.1.patch) includes authored source, guide, index, notes, build instructions and document-tool changes. [FILE_CHANGE_REGISTER.json](FILE_CHANGE_REGISTER.json) lists retained/changed/added/relocated files and exact old/new hashes, including regenerated metadata and the rebuilt PDF. Diff and manifest self-identities are handled externally to avoid circular hashes.
++- The only change to the inherited build helper is its private-cache copy source, now the completed sibling v0.1 cache. A new R1 finalizer replaces the former Git-aware packaging helper; no Git command is invoked. Historical tools are retained unchanged under `provenance/v0.1/` for audit, not execution.
++- Version/status and R1 links were synchronized in the starting guide, editorial notes, evidence index, build instructions and package receipts. No frozen study text or historical manifest was harmonized to the new status.
++
++## Retention and stop
++
++The complete four-proposition section, every equation/align block, ten figure assets, bibliography, numerical result passages and both required immutable scientific input archives are unchanged. The old v0.1 directory is preserved in full. The new PDF was rebuilt, rendered and inspected page by page; document checks and preservation comparisons are recorded separately from the retained earlier scientific checks.
++
++New simulation/update calls: **0**. Scientific checker executions: **0**. RNG draws: **0**. New statistics, estimates or figures: **0**. Kernel, ledger, Volume I and accepted-source edits: **0**. Git commands and publication actions: **0**. No Tower II or next investigation. Stop for GPT and Hilmir review.
+--- a/EDITORIAL_AND_VERIFICATION_NOTES.md
++++ b/EDITORIAL_AND_VERIFICATION_NOTES.md
+@@ -1,6 +1,14 @@
+ # Editorial and verification notes
+ 
+-Assignment: `SRG_VOLUME_II_SIM04_SIM05_MANUSCRIPT_01`. Candidate v0.1, 23 October 2026. Scientific lead/reviewer GPT; author/research director Hilmir Frímann Halldórsson; manuscript preparation Codex.
++Assignment: `SRG_VOLUME_II_SIM04_SIM05_EDITORIAL_R1`. Candidate v0.1.1 (editorial R1), 24 October 2026. Scientific lead/reviewer GPT; author/research director Hilmir Frímann Halldórsson; manuscript preparation Codex. GPT accepted the v0.1 scientific core subject to E01–E03; final acceptance of this corrected candidate remains pending. No publication authority.
++
++## R1 correction scope
++
++The exact supplied E01–E03 patch was applied to new copies of `manuscript.tex` and `CLAIM_EVIDENCE_MATRIX.md`. E01 describes both selected means as mean absolute R while retaining the signed-field standard deviation and genuine coherence-branch difference. E02 describes the tensor input as amplitude magnitude and includes its local definition in the locator. E03 repairs the S5 sine/compression and noise/recording ranges and the selected S4 echo-call range. [CORRECTION_DISPOSITION.md](CORRECTION_DISPOSITION.md) records the source anchors and impact statements.
++
++The only further manuscript changes are version/date/status housekeeping in the header, cover and PDF metadata. All equation/align blocks, the complete four-proposition section, figure captions/assets, quantitative result passages, bibliography and accepted evidence copies are retained. `SOURCE_CORRECTIONS_ONLY.patch` is byte-identical to GPT's proposed patch. [DIFF_FROM_v0.1.patch](DIFF_FROM_v0.1.patch) includes the manuscript housekeeping and exact claim-matrix changes; [DOCUMENT_ONLY_DIFF_FROM_v0.1.patch](DOCUMENT_ONLY_DIFF_FROM_v0.1.patch) covers authored documents and document tooling. Generated metadata and binary identities are itemized separately in `FILE_CHANGE_REGISTER.json`.
++
++All 665 files in the original v0.1 workspace were baselined before R1 and checked again after packaging. Both immutable scientific archives, all ten selected figures and all copied accepted evidence remain byte-identical. The R1 review ZIP was checked against its supplied manifest and retained unchanged. No earlier science checker or review audit script was executed. The sections below retain the original manuscript's scientific synthesis and historical verification context; they do not represent new analysis for R1.
+ 
+ ## Scientific synthesis
+ 
+@@ -21,7 +29,7 @@
+ 7. **Package administration:** the old nested historical delivery-receipt omission is not repeated as a claim of inclusion. The later Volume I publication receipt is a separate retained record. Publication administration is kept out of the scientific argument.
+ 8. **Figure caption readback:** the GPT six-point figure's right panel is an endpoint ranking, not rank traces over time. The Infinity stage figure plots the source's pre-.01 coefficient c_p; the manuscript's full cross multiplier is g_p=.01c_p. Both caption distinctions were corrected during visual inspection. Source image bytes were never changed.
+ 
+-No unresolved scientific conflict was silently repaired and no unresolved input identity remains. Scientific review of the new exposition is still required; this candidate does not inherit publication acceptance merely because its input studies were accepted.
++The R1 review identified the two prose errors and three narrow locator repairs recorded above; these are now corrected only in the new candidate. No accepted source was repaired or rewritten. There is no unresolved input-identity issue. Final review of the corrected candidate is still required, and the candidate does not inherit publication acceptance from its inputs.
+ 
+ ## Retained scientific verification — not rerun here
+ 
+@@ -35,10 +43,10 @@
+ 
+ `DOCUMENT_QA.json` records the final document checks; `PAGE_INSPECTION.json` identifies the final PDF and inspected page renders; `PRESERVATION_RECEIPT.json` records input preservation; `REVIEW_ZIP_IDENTITY.json` identifies the delivered archive externally. Compiler logs and all page renders remain local in the candidate workspace but are excluded from the review ZIP. A compact final build receipt is delivered.
+ 
+-The first offline build lacked the requested typography packages. The compiler then fetched only TeX/font dependencies into the new candidate's private cache. Subsequent final compilation used that cache offline. No package installation or edit to the conda environment was performed. Font files are explicitly named in the editable source; all final PDF fonts are embedded. No numerical library or historical script was imported by document tooling.
++During v0.1 preparation, the first offline build lacked the requested typography packages and the compiler fetched only TeX/font dependencies into that candidate's private cache. R1 copied the completed v0.1 cache into its own directory and compiled offline. No package installation or edit to the conda environment was performed. Font files are explicitly named in the editable source; all final PDF fonts are embedded. No numerical library or historical script was imported by document tooling.
+ 
+ ## Figures and scope
+ 
+ Ten unchanged accepted images are selected for the paper, with the unused alternatives recorded in the figure register. No measurement, estimator, trajectory, alignment or figure data was generated here. The figure panels retain their original axes and normalization, with landscape placement used for dense panels and a portrait whole-field plate. Their original “new analysis” labels refer to the prior accepted studies, not this zero-run manuscript preparation.
+ 
+-The declared task boundary is zero new state updates, zero RNG draws and zero scientific checker executions. New files are confined to this candidate directory. Historical programs, accepted packages, canonical ledger, scientific kernels, published Volume I and unrelated working material were not modified. No Git write, simulation, publication or next investigation was performed.
++The declared task boundary is zero new state updates, zero RNG draws and zero scientific checker executions. New files are confined to this v0.1.1 candidate directory. The complete original v0.1 directory, historical programs, accepted packages, canonical ledger, scientific kernels, published Volume I and unrelated working material were not modified. No Git command, simulation, publication or next investigation was performed. Stop for GPT and Hilmir review.
+--- a/EVIDENCE_INDEX.md
++++ b/EVIDENCE_INDEX.md
+@@ -1,6 +1,12 @@
+ # Relative evidence index
+ 
+ Extract the delivered review ZIP with directories intact. The manuscript's citations resolve to the convenient unchanged copies below. The two immutable input archives contain the full studies and prior methods; no personal Windows directory is needed to substantiate the paper.
++
++## Editorial R1 authority and comparison
++
++This is candidate v0.1.1, dated 24 October 2026, correcting E01–E03 only. The [R1 order](evidence/editorial/R1/SRG_VOLUME_II_CODEX_EDITORIAL_R1.md), [GPT manuscript review](evidence/editorial/R1/SRG_VOLUME_II_v0.1_GPT_MANUSCRIPT_REVIEW.md), [source readback](evidence/editorial/R1/SOURCE_READBACK_EXCERPTS.md), and [exact proposed patch](evidence/editorial/R1/PROPOSED_E01_E03_SOURCE_CORRECTIONS.patch) are unchanged extracts from the [supplied R1 review ZIP](evidence/editorial/SRG_VOLUME_II_v0.1_GPT_REVIEW_AND_CODEX_R1.zip). That ZIP also preserves the review's original audit records and script; none was executed for R1.
++
++The original v0.1 workspace remains unchanged. Its manuscript TeX, claim matrix, bibliography, root documentation, tooling and identity records are copied under `provenance/v0.1/` for exact text comparison. Those provenance copies retain their old context and may contain links designed for the old root; current navigation uses this index and the unchanged scientific archives below. The earlier PDF/review ZIP are identified by hash in [R1_STARTING_BASELINE.json](R1_STARTING_BASELINE.json) and are not redundantly embedded. [CORRECTION_DISPOSITION.md](CORRECTION_DISPOSITION.md) distinguishes source corrections from permitted housekeeping.
+ 
+ ## Immutable accepted inputs
+ 
+--- a/START_HERE.md
++++ b/START_HERE.md
+@@ -23,8 +23,14 @@
+ 
+ ## Status and stopping point
+ 
+-**Candidate v0.1, dated 23 October 2026, for GPT and Hilmir review. Not publication accepted.** “Volume II” remains provisional. GPT is scientific lead/reviewer; Hilmir is author/research director; Codex prepared this draft.
++**Candidate v0.1.1 (editorial R1), dated 24 October 2026, for GPT and Hilmir review. Not publication accepted.** “Volume II” remains provisional. GPT is scientific lead/reviewer; Hilmir is author/research director; Codex prepared this draft.
+ 
+ The current manuscript order supersedes the older Tower-II-first sequence without editing that historical plan. There is no unresolved input-identity issue; both required immutable archives were supplied and checked. Historical gaps and interpretive limits remain stated in the paper, rather than being turned into new experiments.
+ 
+ New simulations: **0**. Numerical scientific reruns: **0**. RNG draws: **0**. Original programs and checker scripts were read or preserved, never executed. Accepted studies, historical sources, canonical ledger, kernels and published Volume I were not edited. No staging, commits, pushes or publication were performed. Stop here for scientific review; no next simulation or Tower study has begun.
++
++## Editorial R1 only
++
++GPT accepted the v0.1 scientific core subject to E01–E03. This revision corrects the two mean/tensor descriptions and the three source ranges, with no changes to equations, numerical results, four propositions or ten figure assets. Final manuscript acceptance remains pending. The original v0.1 directory is preserved unchanged.
++
++See [correction disposition](CORRECTION_DISPOSITION.md), [exact manuscript and claim-matrix diff](DIFF_FROM_v0.1.patch), [complete document diff](DOCUMENT_ONLY_DIFF_FROM_v0.1.patch), and [R1 order](evidence/editorial/R1/SRG_VOLUME_II_CODEX_EDITORIAL_R1.md). No new simulations, scientific checker executions, RNG draws, figures, Tower II investigation or Git/publication actions were performed. Stop for GPT and Hilmir review.
+--- a/build_document.py
++++ b/build_document.py
+@@ -23,7 +23,7 @@
+ assert compiler.is_file(), 'Set SRG_TECTONIC to the existing Tectonic executable.'
+ cache = ROOT / 'cache'
+ if not (cache / 'tectonic').exists():
+-    source = RESEARCH / 'PUBLICATION_PREPARATION_SIM04_SIM05_v0.1/cache/tectonic'
++    source = ROOT.parent / 'v0.1/cache/tectonic'
+     shutil.copytree(lp(source), lp(cache / 'tectonic'))
+     (ROOT / 'CACHE_RECEIPT.json').write_text(json.dumps({'source': str(source), 'purpose': 'Compiler cache only; no scientific content imported', 'downloads': 0, 'distributed': False}, indent=2))
+ for q in ('cache/fontconfig', 'tmp', 'qa', 'renders', 'build'):
+--- a/finalize_package.py
++++ b/finalize_package.py
+@@ -1,158 +0,0 @@
+-"""File identity, document QA, and review ZIP only. No scientific computations.
+-
+---prepare writes the evidence inventory, figure register, preservation and QA.
+---package additionally requires the explicit human/model page-inspection record.
+-"""
+-from pathlib import Path
+-import hashlib, json, re, subprocess, sys, zipfile
+-ROOT = Path(__file__).resolve().parent
+-REPO = ROOT.parents[4]
+-
+-def digest(p):
+-    b = Path(p).read_bytes()
+-    return {'bytes': len(b), 'sha256': hashlib.sha256(b).hexdigest()}
+-
+-def readj(p):
+-    return json.loads((ROOT / p).read_text(encoding='utf-8'))
+-
+-def writej(p, data):
+-    (ROOT / p).write_text(json.dumps(data, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+-
+-archives = ['SRG_SIMULATION_STUDY_04_SEED_EXPLORER_REVIEW.zip', 'SIM05_GPT_REVIEW_AND_ADDITIONAL_FINDINGS.zip']
+-expected = ['1a10bb9c2ad94789efc6d16d7a579a5e60346275ed8c44ac4a386e7799879025', 'ae4fe33903410b211544f8f17cf4b79473b983bf4920c26c4406b27f55d37736']
+-archive_index = []
+-for name, sha in zip(archives, expected):
+-    p = ROOT / 'evidence/inputs' / name
+-    assert digest(p)['sha256'] == sha
+-    with zipfile.ZipFile(p) as z:
+-        assert z.testzip() is None
+-        members = [{'path': v.filename, 'bytes': v.file_size} for v in z.infolist() if not v.is_dir()]
+-        archive_index.append({'path': p.relative_to(ROOT).as_posix(), **digest(p), 'members': members})
+-writej('ARCHIVE_MEMBER_INDEX.json', archive_index)
+-
+-baseline = readj('INPUT_BASELINE.json') + readj('HANDOFF_BASELINE.json')
+-checked = []
+-for row in baseline:
+-    got = digest(row['original_path'])
+-    assert all(got[k] == row[k] for k in ('bytes','sha256')), row['original_path']
+-    cp = row.get('candidate_path')
+-    if cp:
+-        assert digest(ROOT / cp) == got, cp
+-    checked.append({'original_path': row['original_path'], 'candidate_path': cp, **got, 'unchanged': True})
+-fig_inputs = readj('FIGURE_INPUT_IDENTITIES.json')
+-for f in fig_inputs:
+-    assert digest(f['original']) == digest(ROOT / f['path']) == {k:f[k] for k in ('bytes','sha256')}
+-
+-with zipfile.ZipFile(ROOT / 'evidence/inputs' / archives[1]) as z:
+-    review_copies = []
+-    for p in sorted((ROOT/'evidence/reviews/SIM05').glob('*')):
+-        assert p.is_file()
+-        b = z.read(p.name)
+-        assert b == p.read_bytes(), p
+-        review_copies.append({'candidate':p.relative_to(ROOT).as_posix(),'archive_member':p.name,**digest(p)})
+-status = subprocess.run(['git','status','--porcelain=v1','--untracked-files=no'],cwd=REPO,capture_output=True,text=True,check=True).stdout
+-head = subprocess.run(['git','rev-parse','HEAD'],cwd=REPO,capture_output=True,text=True,check=True).stdout.strip()
+-assert not status, status
+-assert head == '63469551eb04c17bfbedb6b8fce057c5890cbba8', head
+-writej('PRESERVATION_RECEIPT.json', {
+-    'scope':'Inputs actually used and named preservation anchors; not a repository-wide content inventory',
+-    'protected_input_count':len(checked),'protected_inputs':checked,
+-    'figure_originals_and_copies_unchanged':len(fig_inputs),'review_copies_verified_against_accepted_archive':review_copies,
+-    'required_archives':[{k:v for k,v in row.items() if k!='members'} for row in archive_index],
+-    'repository_head':head,'tracked_and_index_status':status,
+-    'operations':{'new_simulations':0,'new_rng_draws':0,'scientific_checker_reruns':0,'git_writes':0,'publication':False},
+-    'write_scope':'Only this new candidate directory. Accepted sources, studies, canonical ledger, Volume I and kernels not edited.'})
+-
+-figure_info = {
+- 'F06_SIM04_context.png':(1,'fig:orientation','OBSERVED IN HISTORICAL DATA','SIM04 original coordinates','0,5,10,20','All50; highlighted10,15,27,30,33,47','Fixed equal-aspect world coordinates','A5: source_package/figures/F06_SIM04_context.png'),
+- 'S4_overview.png':(2,'fig:s4overview','OBSERVED IN HISTORICAL DATA','SIM04 original states/metrics','0–20, motion1–20','All50','Separate original metric axes','A4: figures/F01_recorded_overview.png'),
+- 'S4_six_review.png':(3,'fig:sixrank','OBSERVED IN HISTORICAL DATA','SIM04 original states; GPT accepted review','diameter5–20; rank20','10,15,27,30,33,47 plus final other44','Log diameter; endpoint sorted R','A5: source_package/context/SIM04_GPT_REVIEW/additional_figure/SIM04_six_point_component.png'),
+- 'F07_SIM04_scale_and_shape.png':(4,'fig:s4shape','OBSERVED IN HISTORICAL DATA / retained geometry','Accepted SIM04 addendum','3D5,10,20; traces5–20','10,15,27,30,33,47','Centered/Rg, equal aspect, no alignment; original scales and normalized diagnostics below','A5: source_package/figures/F07_SIM04_scale_and_shape.png'),
+- 'S4_episodes.png':(5,'fig:s4episodes','OBSERVED IN HISTORICAL DATA','SIM04 original states','0–20','3,40,38; pairs38/23/8;5/43; all pairs','Original amplitude and echo scales; log pair-distance panel','A4: figures/F03_identifiable_episodes.png'),
+- 'F01_SIM05_whole_field.png':(6,'fig:world5','REPRODUCED','Accepted SIM05 captured states','0,20,100,200','All50 stable IDs','Equal-aspect fixed world limits[-5.5,5.5]','A5: source_package/figures/F01_SIM05_whole_field.png'),
+- 'F05_SIM05_geometry_and_motion.png':(7,'fig:geometry5','REPRODUCED','Accepted SIM05 field geometry and graph tables','0–200; displacement1–200','All50','Original metrics; graph at saved boundary drives next pass','A5: source_package/figures/F05_SIM05_geometry_and_motion.png'),
+- 'F02_SIM05_selected_groups.png':(8,'fig:groups5','REPRODUCED','Accepted selected-group saved geometry','20,100,200','Final group containing3 (13IDs) and10 (6IDs); exact IDs in AppendixC','Centered/Rg, equal aspect, fixed normalized limits; no alignment;13ID group retrospective at20','A5: source_package/figures/F02_SIM05_selected_groups.png'),
+- 'F03_SIM05_stages.png':(9,'fig:stages','DERIVED FROM REPRODUCED STATES','Accepted saved stage budget','1–200','All50;150 coordinates','RMS and log axes as labeled; plotted c_p=.08699sin(...), manuscript g_p=.01c_p','A5: source_package/figures/F03_SIM05_stages.png'),
+- 'F04_SIM05_second_field.png':(10,'fig:second','REPRODUCED','Accepted captured R,D and component records','0–200; scatter200','All50 stable IDs','Heatmap, amplitude/squared-sum scales, endpoint fields','A5: source_package/figures/F04_SIM05_second_field.png')
+-}
+-figures=[]
+-for f in fig_inputs:
+-    name = Path(f['path']).name
+-    if name not in figure_info:
+-        continue
+-    n,label,cls,data,passes,ids,scaling,origin=figure_info[name]
+-    archive_id, member = origin.split(': ',1)
+-    ai = 0 if archive_id=='A4' else 1
+-    with zipfile.ZipFile(ROOT / 'evidence/inputs' / archives[ai]) as z:
+-        assert z.read(member)==(ROOT/f['path']).read_bytes(), origin
+-    figures.append({'figure_number':n,'tex_label':label,'path':f['path'],'bytes':f['bytes'],'sha256':f['sha256'],'archive_locator':origin,'evidence_class':cls,'data_origin':data,'passes':passes,'selection':ids,'scaling_and_timing':scaling,'presentation_changes':'LaTeX page placement and proportional sizing only; no image-byte changes','supported_conclusion':'See exact manuscript caption and linked claim matrix'})
+-writej('FIGURE_REGISTER.json',{'selected':sorted(figures,key=lambda v:v['figure_number']), 'unused_alternatives':[{'path':f['path'],'sha256':f['sha256'],'reason':'Preserved locally; alternate SIM04 position/term panels omitted to avoid redundant figure plates; available in A4'} for f in fig_inputs if Path(f['path']).name not in figure_info], 'new_scientific_figures':0})
+-
+-receipts=sorted((ROOT/'qa').glob('BUILD_*_RECEIPT.json'))
+-receipt=json.loads(receipts[-1].read_text(encoding='utf-8'))
+-assert receipt['exit_code']==0 and not receipt['warnings']
+-assert receipt['pdf_sha256']==digest(ROOT/'manuscript.pdf')['sha256']
+-assert receipt['tex_sha256']==digest(ROOT/'manuscript.tex')['sha256']
+-writej('FINAL_BUILD_RECEIPT.json',receipt)
+-tex=(ROOT/'manuscript.tex').read_text(encoding='utf-8')
+-bib=(ROOT/'references.tex').read_text(encoding='utf-8')
+-labels=re.findall(r'\\label\{([^}]+)\}',tex)
+-refs=re.findall(r'\\(?:eqref|ref)\{([^}]+)\}',tex)
+-# Labels in the plate macro are expanded arguments; include the ten fixed labels.
+-defined=set(labels)|{row['tex_label'] for row in figures}
+-assert not(set(refs)-defined),set(refs)-defined
+-cites={c.strip() for group in re.findall(r'\\cite\{([^}]+)\}',tex) for c in group.split(',')}
+-keys=set(re.findall(r'\\bibitem\{([^}]+)\}',bib))
+-assert cites<=keys,(cites-keys)
+-assert tex.count('\\begin{proposition}')==4
+-assert len(figures)==10
+-links=[]
+-for source,content in [('manuscript.tex',tex),('references.tex',bib)]:
+-    for target in re.findall(r'\\href\{([^}]+)\}',content):
+-        assert (ROOT/target).exists(),(source,target)
+-        links.append({'from':source,'target':target})
+-for p in sorted(ROOT.glob('*.md')):
+-    for target in re.findall(r'\]\(([^)]+)\)',p.read_text(encoding='utf-8')):
+-        target=target.split('#')[0]
+-        if target and '://' not in target:
+-            # Documents refer to records written at package finalization.
+-            if target in ('PAGE_INSPECTION.json','REVIEW_ZIP_IDENTITY.json','DOCUMENT_QA.json'):
+-                continue
+-            assert (ROOT/target).exists(),(p.name,target)
+-            links.append({'from':p.name,'target':target})
+-writej('DOCUMENT_QA.json',{'scope':'Document integrity and links only; scientific claims manually transcribed/read back, no result recomputation',
+- 'pdf_sha256':digest(ROOT/'manuscript.pdf')['sha256'],'pages':receipt['pages'],'tex_sha256':receipt['tex_sha256'],'build_warnings':receipt['warnings'],
+- 'propositions':4,'figure_plates':10,'bibliography_entries':len(keys),'cited_keys':sorted(cites),'unresolved_tex_references':[],
+- 'relative_links_checked':links,'all_pdf_fonts_embedded':all(receipt['embedded_fonts'].values()),
+- 'scientific_runs':0,'rng_draws':0,'preservation_checks_passed':True})
+-
+-if '--package' not in sys.argv:
+-    print(json.dumps({'prepared':True,'protected_inputs':len(checked),'figures':len(figures),'pages':receipt['pages'],'archive_prefixes':[[x['path'],sorted({r['path'].split('/')[0] for r in x['members']})] for x in archive_index]}))
+-    raise SystemExit(0)
+-
+-inspection=readj('PAGE_INSPECTION.json')
+-assert inspection['pdf_sha256']==digest(ROOT/'manuscript.pdf')['sha256']
+-assert len(inspection['pages'])==receipt['pages']
+-assert all(r['status']=='PASS' for r in inspection['pages'])
+-root_names=['manuscript.pdf','manuscript.tex','references.tex','START_HERE.md','CLAIM_EVIDENCE_MATRIX.md','FIGURE_REGISTER.json','EDITORIAL_AND_VERIFICATION_NOTES.md','EVIDENCE_INDEX.md','BUILD_INSTRUCTIONS.md','INPUT_BASELINE.json','HANDOFF_BASELINE.json','INPUT_GATE.json','HANDOFF_GATE.json','FIGURE_INPUT_IDENTITIES.json','ARCHIVE_MEMBER_INDEX.json','PRESERVATION_RECEIPT.json','FINAL_BUILD_RECEIPT.json','DOCUMENT_QA.json','PAGE_INSPECTION.json','build_document.py','finalize_package.py','prepare_manuscript.py','receive_review.py']
+-paths=[ROOT/p for p in root_names]+[ROOT/f['path'] for f in figures]
+-excluded='evidence/inputs/SRG_SIMULATION_STUDY_05_INFINITY_REVIEW.zip'
+-paths += [p for p in (ROOT/'evidence').rglob('*') if p.is_file() and p.relative_to(ROOT).as_posix()!=excluded]
+-paths=sorted(set(paths),key=lambda p:p.relative_to(ROOT).as_posix())
+-rows=[{'path':p.relative_to(ROOT).as_posix(),**digest(p)} for p in paths]
+-manifest={'candidate':'SRG Volume II SIM04/SIM05 v0.1 for GPT and Hilmir review','scope':'Exact delivered review payload; excludes itself and external ZIP identity to avoid circular hashes','payload_file_count':len(rows),'files':rows,'excluded_working_material':['cache/','tmp/','build/','renders/','qa/','fontconfig.xml','CACHE_RECEIPT.json',excluded,'unused figure alternatives','outer handoff wrapper'],'note':'Required immutable archives contain their own unchanged manifests and original accepted methods.'}
+-writej('MANIFEST.json',manifest)
+-zip_path=ROOT/'SRG_VOLUME_II_SIM04_SIM05_CANDIDATE_v0.1_REVIEW.zip'
+-with zipfile.ZipFile(zip_path,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+-    for p in paths+[ROOT/'MANIFEST.json']:
+-        info=zipfile.ZipInfo(p.relative_to(ROOT).as_posix(),date_time=(2026,10,23,0,0,0))
+-        info.compress_type=zipfile.ZIP_DEFLATED
+-        z.writestr(info,p.read_bytes())
+-with zipfile.ZipFile(zip_path) as z:
+-    assert z.testzip() is None
+-    assert set(z.namelist())=={r['path'] for r in rows}|{'MANIFEST.json'}
+-    for row in rows:
+-        b=z.read(row['path'])
+-        assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256'],row['path']
+-writej('REVIEW_ZIP_IDENTITY.json',{'path':zip_path.name,**digest(zip_path),'total_files':len(rows)+1,'manifest_sha256':digest(ROOT/'MANIFEST.json')['sha256'],'pdf_sha256':digest(ROOT/'manuscript.pdf')['sha256'],'crc_and_all_payload_bytes_read_back':True,'identity_is_external_to_zip':True})
+-print(json.dumps(readj('REVIEW_ZIP_IDENTITY.json')))
+--- a/finalize_r1.py
++++ b/finalize_r1.py
+@@ -0,0 +1,361 @@
++"""Bounded R1 document/file QA and packaging. No scientific code is imported or run.
++
++Use Windows CMD after conda activate torment. Requires the preserved sibling v0.1
++and the one-time R1 baseline. Human page inspection is a separately recorded
++observation tied to exact PDF/render hashes; this script does not replace it.
++"""
++from pathlib import Path
++import difflib
++import hashlib
++import json
++import re
++import sys
++import zipfile
++from urllib.parse import unquote
++
++ROOT = Path(__file__).resolve().parent
++OLD = ROOT.parent / 'v0.1'
++BUNDLED = Path(r'C:\Users\Notandi\.cache\codex-runtimes\codex-primary-runtime\dependencies')
++sys.path.append(str(BUNDLED / 'python/Lib/site-packages'))
++from pypdf import PdfReader
++
++ZIP_NAME = 'SRG_VOLUME_II_SIM04_SIM05_CANDIDATE_v0.1.1_R1_REVIEW.zip'
++VERSION = 'SRG Volume II SIM04/SIM05 candidate v0.1.1 / editorial R1'
++DATE = '2026-10-24'
++EXCLUDED_DIRS = {'build', 'cache', 'qa', 'renders', 'tmp', '__pycache__'}
++EXCLUDED_ROOT = {'MANIFEST.json', 'REVIEW_ZIP_IDENTITY.json', ZIP_NAME,
++                 'fontconfig.xml', 'CACHE_RECEIPT.json'}
++
++def sha_bytes(data):
++    return hashlib.sha256(data).hexdigest()
++
++def identity(path):
++    path = Path(path)
++    h = hashlib.sha256()
++    with path.open('rb') as f:
++        while b := f.read(1024 * 1024):
++            h.update(b)
++    return {'bytes': path.stat().st_size, 'sha256': h.hexdigest()}
++
++def readj(path):
++    return json.loads(Path(path).read_text(encoding='utf-8'))
++
++def writej(name, value):
++    (ROOT / name).write_text(json.dumps(value, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
++
++def writet(name, value):
++    (ROOT / name).write_bytes(value.encode('utf-8'))
++
++def file_record(path):
++    return {'path': path.relative_to(ROOT).as_posix(), **identity(path)}
++
++def same(path, row):
++    got = identity(path)
++    assert all(got[k] == row[k] for k in ('bytes', 'sha256')), str(path)
++    return got
++
++def payload():
++    return sorted(p for p in ROOT.rglob('*') if p.is_file()
++                  and p.relative_to(ROOT).parts[0] not in EXCLUDED_DIRS
++                  and p.relative_to(ROOT).as_posix() not in EXCLUDED_ROOT)
++
++baseline = readj(ROOT / 'R1_STARTING_BASELINE.json')
++intake = readj(ROOT / 'R1_INTAKE_RECEIPT.json')
++old_manifest = readj(OLD / 'MANIFEST.json')
++old_rows = {r['path']: r for r in old_manifest['files']}
++
++def preservation_check():
++    current_paths = sorted(p.relative_to(OLD).as_posix()
++                           for p in OLD.rglob('*') if p.is_file())
++    assert current_paths == sorted(r['path'] for r in baseline['old_candidate_all_files'])
++    for row in baseline['old_candidate_all_files']:
++        same(OLD / row['path'], row)
++    for row in baseline['external_accepted_inputs']:
++        same(row['original_path'], row)
++    same(baseline['r1_order_archive']['path'], baseline['r1_order_archive'])
++    for row in old_manifest['files']:
++        if row['path'].startswith(('evidence/', 'figures/')):
++            same(ROOT / row['path'], row)
++    for p in (ROOT / 'provenance/v0.1').iterdir():
++        assert p.read_bytes() == (OLD / p.name).read_bytes(), p
++    return {'old_candidate_file_count': len(current_paths),
++            'external_accepted_input_count': len(baseline['external_accepted_inputs']),
++            'old_candidate_file_list_and_all_bytes_unchanged': True,
++            'external_accepted_input_bytes_unchanged': True,
++            'review_archive_unchanged': True,
++            'prior_delivered_scientific_evidence_and_figures_unchanged': True,
++            'provenance_copies_byte_identical': True}
++
++preserved = preservation_check()
++old_tex = (OLD / 'manuscript.tex').read_text(encoding='utf-8')
++new_tex = (ROOT / 'manuscript.tex').read_text(encoding='utf-8')
++pure_tex = new_tex
++for before, after in intake['housekeeping_tex_replacements']:
++    assert pure_tex.count(after) == 1, after
++    pure_tex = pure_tex.replace(after, before)
++
++def diff(name, before, after):
++    return ''.join(difflib.unified_diff(before.splitlines(True), after.splitlines(True),
++                                       fromfile='a/' + name, tofile='b/' + name))
++
++matrix_old = (OLD / 'CLAIM_EVIDENCE_MATRIX.md').read_text(encoding='utf-8')
++matrix_new = (ROOT / 'CLAIM_EVIDENCE_MATRIX.md').read_text(encoding='utf-8')
++approved = (ROOT / 'SOURCE_CORRECTIONS_ONLY.patch').read_bytes()
++reconstructed = (diff('manuscript.tex', old_tex, pure_tex) +
++                 diff('CLAIM_EVIDENCE_MATRIX.md', matrix_old, matrix_new)).encode('utf-8')
++assert reconstructed == approved
++assert approved == (ROOT / 'evidence/editorial/R1/PROPOSED_E01_E03_SOURCE_CORRECTIONS.patch').read_bytes()
++writet('DIFF_FROM_v0.1.patch', diff('manuscript.tex', old_tex, new_tex) +
++       diff('CLAIM_EVIDENCE_MATRIX.md', matrix_old, matrix_new))
++
++# Complete textual authored-document/tool diff. Relocated prior tools remain in provenance.
++names = sorted({p.name for folder in (OLD, ROOT) for p in folder.iterdir()
++                if p.is_file() and p.suffix in {'.md', '.tex', '.py'}})
++complete_diff = ''
++for name in names:
++    before = (OLD / name).read_text(encoding='utf-8') if (OLD / name).exists() else ''
++    after = (ROOT / name).read_text(encoding='utf-8') if (ROOT / name).exists() else ''
++    complete_diff += diff(name, before, after)
++writet('DOCUMENT_ONLY_DIFF_FROM_v0.1.patch', complete_diff)
++
++math_pattern = re.compile(r'\\begin\{(equation\*?|align\*?)\}.*?\\end\{\1\}', re.S)
++old_math = [m.group(0) for m in math_pattern.finditer(old_tex)]
++new_math = [m.group(0) for m in math_pattern.finditer(new_tex)]
++assert old_math and old_math == new_math
++start = r'\section{Four reviewed mathematical explanations}'
++end = r'\section{What the comparison establishes}'
++old_props = old_tex.split(start, 1)[1].split(end, 1)[0]
++new_props = new_tex.split(start, 1)[1].split(end, 1)[0]
++assert old_props == new_props
++assert new_props.count(r'\begin{proposition}') == 4
++assert (ROOT / 'references.tex').read_bytes() == (OLD / 'references.tex').read_bytes()
++figure_register = readj(ROOT / 'FIGURE_REGISTER.json')
++assert len(figure_register['selected']) == 10
++for row in figure_register['selected']:
++    same(ROOT / row['path'], row)
++
++# Only text navigation is checked: no historical program or checker is imported.
++bib = (ROOT / 'references.tex').read_text(encoding='utf-8')
++keys = set(re.findall(r'\\bibitem\{([^}]+)\}', bib))
++used_keys = {key for group in re.findall(r'\\cite\{([^}]+)\}', new_tex)
++             for key in group.split(',')}
++assert used_keys <= keys
++labels = set(re.findall(r'\\label\{([^}]+)\}', new_tex))
++labels |= {r['tex_label'] for r in figure_register['selected']}
++refs = set(re.findall(r'\\(?:eqref|ref)\{([^}]+)\}', new_tex))
++assert refs <= labels, refs - labels
++tex_links = re.findall(r'\\href\{([^}]+)\}', new_tex + bib)
++for link in tex_links:
++    assert (ROOT / link).is_file(), link
++
++receipt = readj(ROOT / 'qa/BUILD_01_RECEIPT.json')
++assert receipt['tex_sha256'] == identity(ROOT / 'manuscript.tex')['sha256']
++assert receipt['pdf_sha256'] == identity(ROOT / 'manuscript.pdf')['sha256']
++assert receipt['exit_code'] == 0 and receipt['offline']
++assert not receipt['warnings']
++assert all(receipt['embedded_fonts'].values())
++writej('FINAL_BUILD_RECEIPT.json', receipt)
++
++reader = PdfReader(ROOT / 'manuscript.pdf')
++assert len(reader.pages) == receipt['pages'] == 30
++texts = [page.extract_text() for page in reader.pages]
++assert all(t.strip() for t in texts)
++assert '??' not in '\n'.join(texts)
++assert 'v0.1.1' in texts[0] and '24 October 2026' in texts[0]
++assert 'v0.1.1 editorial R1' in str(reader.metadata.get('/Subject'))
++pdf_file_links = []
++for number, page in enumerate(reader.pages, 1):
++    for ref in page.get('/Annots', []):
++        ann = ref.get_object()
++        action = ann.get('/A')
++        if not action:
++            continue
++        action = action.get_object()
++        target = action.get('/F', action.get('/URI'))
++        if target is None:
++            continue
++        if hasattr(target, 'get_object'):
++            target = target.get_object()
++        if isinstance(target, dict):
++            target = target.get('/F')
++        target = str(target)
++        if target.startswith(('http:', 'https:', 'mailto:')):
++            continue
++        target = unquote(target).split('#', 1)[0]
++        assert (ROOT / target).is_file(), (number, target)
++        pdf_file_links.append({'pdf_page': number, 'target': target})
++
++# Human inspection completed by Codex for precisely these rendered files.
++# Any different future build must have a fresh human visual review.
++observed_pdf_sha = '1b7ab29f656fed7a4114957ef04b8a58bde5d6d4aa75439179f6b1fa0675dd1e'
++assert identity(ROOT / 'manuscript.pdf')['sha256'] == observed_pdf_sha
++notes = [
++    'Cover: v0.1.1 editorial R1, 24 October 2026; title, attribution and scope legible.',
++    'Contents: hierarchy, section titles and page numbers legible.',
++    'Opening text and glossary: no clipping, equations/terms legible.',
++    'Landscape Figure 1: unchanged image and caption fit; orientation retained.',
++    'Evidence hierarchy and identity table legible.',
++    'Verification context and initial construction text legible.',
++    'Equations 1–11 and execution-order explanation fit within margins.',
++    'Parameter table and retained-record account legible.',
++    'Six-point group, geometry equations and variance decomposition legible.',
++    'Short printed page 9 remains intentionally sparse, as accepted by GPT.',
++    'Landscape Figure 2 and caption legible; no image changes.',
++    'Landscape Figure 3 and caption legible; no image changes.',
++    'Landscape Figure 4 geometry addendum and caption legible.',
++    'Landscape Figure 5 and caption legible; no image changes.',
++    'Infinity construction, equations 16–22 and timing explanation legible.',
++    'Replay account and endpoint table fit and remain legible.',
++    'Second-channel and finite-stabilization explanations fit.',
++    'Figure 6 world-scale plate and caption fit; unchanged asset.',
++    'Landscape Figure 7 and caption fit; unchanged asset.',
++    'Landscape Figure 8 and caption fit; unchanged asset.',
++    'Landscape Figure 9 stage-budget plate and caption fit.',
++    'Landscape Figure 10 second-channel plate and caption fit.',
++    'E01 checked: both means absolute; signed std and distinct coherence guards retained. Eq.23 fits.',
++    'Observer continuation and start of four propositions remain legible.',
++    'Propositions 1–3, equations and proof endings legible; no overlap.',
++    'Proposition 4, comparison and limitations legible.',
++    'Comparison table and start of source-locator table fit.',
++    'E02 and E03 checked: magnitude |R|, 361–371/440–445, 190–195 and 198–205 visible.',
++    'Historical-label continuation, endpoint membership and bibliography start legible.',
++    'Remaining bibliography and evidence links legible; no clipping.'
++]
++inspections = []
++for number, note in enumerate(notes, 1):
++    name = f'page-{number:02d}.png'
++    p = ROOT / 'renders/BUILD_01' / name
++    assert identity(p)['sha256'] == receipt['page_renders'][name]
++    inspections.append({'pdf_page': number, 'printed_page': None if number == 1 else number-1,
++                        'render_sha256': receipt['page_renders'][name],
++                        'visually_inspected_by': 'Codex', 'result': 'pass', 'notes': note})
++writej('PAGE_INSPECTION.json', {
++    'candidate': VERSION, 'date': DATE, 'pdf_sha256': observed_pdf_sha,
++    'method': 'Human-model visual inspection of all 30 Poppler page PNGs at 115 dpi, not text-only QA.',
++    'render_files': 'Local renders/BUILD_01; caches and renders excluded from compact delivery.',
++    'all_pages_inspected': True, 'pages': inspections})
++
++evidence = [r for r in old_manifest['files'] if r['path'].startswith('evidence/')]
++archives = [r for r in evidence if r['path'].startswith('evidence/inputs/')]
++assert len(archives) == 2
++writej('PRESERVATION_RECEIPT.json', {
++    'candidate': VERSION, 'date': DATE, 'status': 'For GPT and Hilmir review; no publication authority',
++    'method': 'SHA-256/byte count and file-list comparisons only; no scientific reruns.',
++    'scope_note': 'All writes confined to this new candidate, apart from the document skill operation marker. '
++                  'No Git commands were used. External preservation coverage is the 57 baselined accepted input files; '
++                  'no claim of a fresh whole-repository audit is made.',
++    **preserved,
++    'starting_baseline': 'R1_STARTING_BASELINE.json',
++    'old_candidate_root': str(OLD),
++    'old_candidate_total_bytes': sum(r['bytes'] for r in baseline['old_candidate_all_files']),
++    'old_main_identities': [{'path': n, **identity(OLD / n)}
++                           for n in baseline['expected_starting_identities']],
++    'unchanged_delivered_scientific_evidence': evidence,
++    'unchanged_selected_figures': [{'path': r['path'], **identity(ROOT / r['path'])}
++                                  for r in figure_register['selected']],
++    'immutable_scientific_input_archives': archives,
++    'review_authority_archive': baseline['r1_order_archive'],
++    'equations_and_four_propositions_unchanged': True,
++    'numerical_result_passages_unchanged': 'Exact approved patch plus three TeX housekeeping replacements; '
++                                        'no other manuscript changes and no result recalculation.',
++    'execution_attestation': {'new_simulations': 0, 'scientific_checker_runs': 0, 'rng_draws': 0,
++                             'new_figures': 0, 'new_scientific_statistics': 0, 'git_commands': 0,
++                             'publication_actions': 0, 'tower_ii_work': 0},
++    'attestation_basis': 'Bounded R1 tool/action record; hashes corroborate preserved bytes, '
++                         'but file hashes alone do not prove absence of execution.'
++})
++
++planned = {'DOCUMENT_QA.json', 'FILE_CHANGE_REGISTER.json', 'MANIFEST.json'}
++markdown_links = []
++for name in ['START_HERE.md', 'EVIDENCE_INDEX.md', 'CORRECTION_DISPOSITION.md',
++             'EDITORIAL_AND_VERIFICATION_NOTES.md', 'BUILD_INSTRUCTIONS.md', 'CLAIM_EVIDENCE_MATRIX.md']:
++    text = (ROOT / name).read_text(encoding='utf-8')
++    for link in re.findall(r'\[[^\]]*\]\(([^)]+)\)', text):
++        link = link.strip('<>').split('#', 1)[0]
++        if not link or '://' in link:
++            continue
++        assert (ROOT / link).is_file() or link in planned, (name, link)
++        markdown_links.append({'document': name, 'target': link})
++writej('DOCUMENT_QA.json', {
++    'candidate': VERSION, 'date': DATE, 'result': 'PASS',
++    'source_scope': {
++        'approved_patch_exactly_reconstructed': True,
++        'approved_patch_sha256': sha_bytes(approved),
++        'additional_tex_changes_only': intake['housekeeping_tex_replacements'],
++        'equation_or_align_blocks_byte_equal': len(new_math),
++        'four_proposition_section_byte_equal': True,
++        'bibliography_byte_equal': True,
++        'selected_figure_bytes_unchanged': 10,
++        'scientific_evidence_files_unchanged': len(evidence),
++        'numerical_prose_preservation_basis': 'No changes outside exact E01–E03 patch and version/date metadata.'},
++    'pdf': {'pages': len(reader.pages), 'sha256': observed_pdf_sha,
++            'warnings': [], 'all_fonts_embedded': True, 'no_unresolved_question_marks': True,
++            'cover_version_date_and_subject_checked': True, 'all_pages_visually_inspected': True},
++    'navigation': {'bibliography_keys': sorted(keys), 'used_keys_resolved': sorted(used_keys),
++                   'references_resolved': sorted(refs), 'tex_file_links': tex_links,
++                   'pdf_file_links': pdf_file_links, 'current_root_markdown_links': markdown_links,
++                   'historical_navigation_note': 'Accepted evidence/provenance documents are byte-preserved, '
++                                                 'not rewritten to repair their original-context links.'},
++    'scientific_execution': 'None. Original programs and scientific checkers were never imported or run.'
++})
++
++# The change register omits its own bytes and packaging identity files to avoid cycles.
++current = {p.relative_to(ROOT).as_posix(): p for p in payload()
++           if p.name != 'FILE_CHANGE_REGISTER.json'}
++changes = []
++for name in sorted(set(old_rows) | set(current)):
++    prior = old_rows.get(name)
++    now = current.get(name)
++    item = {'path': name}
++    if prior:
++        item['old'] = {k: prior[k] for k in ('bytes', 'sha256')}
++    if now:
++        item['new'] = identity(now)
++        item['status'] = 'unchanged' if prior and item['old'] == item['new'] else ('modified' if prior else 'added')
++    else:
++        destination = ROOT / 'provenance/v0.1' / name
++        assert destination.is_file(), ('unexpected payload omission', name)
++        same(destination, prior)
++        item.update(status='relocated unchanged', destination=destination.relative_to(ROOT).as_posix())
++    changes.append(item)
++writej('FILE_CHANGE_REGISTER.json', {
++    'candidate': VERSION, 'comparison': 'v0.1 delivered manifest payload -> current delivered payload',
++    'exclusions': ['This register itself', 'MANIFEST.json', 'External REVIEW_ZIP_IDENTITY.json', ZIP_NAME,
++                   'Non-delivered compiler cache, temporary files, build products and renders'],
++    'diff_scope': 'DOCUMENT_ONLY_DIFF_FROM_v0.1.patch covers every root .tex/.md/.py old/new file, '
++                  'including relocated tools; JSON/binary/generated identity changes are listed here.',
++    'files': changes})
++
++files = [file_record(p) for p in payload()]
++writej('MANIFEST.json', {
++    'candidate': VERSION, 'date': DATE, 'status': 'For GPT and Hilmir review, not publication accepted',
++    'scope': 'Exact delivered payload; excludes this manifest and the external ZIP identity to avoid circular hashes',
++    'payload_file_count': len(files), 'payload_bytes': sum(r['bytes'] for r in files), 'files': files})
++manifest_bytes = (ROOT / 'MANIFEST.json').read_bytes()
++with zipfile.ZipFile(ROOT / ZIP_NAME, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as z:
++    for row in files:
++        z.write(ROOT / row['path'], row['path'])
++    z.writestr('MANIFEST.json', manifest_bytes)
++with zipfile.ZipFile(ROOT / ZIP_NAME) as z:
++    assert z.testzip() is None
++    assert len(z.namelist()) == len(set(z.namelist())) == len(files) + 1
++    assert set(z.namelist()) == {r['path'] for r in files} | {'MANIFEST.json'}
++    assert z.read('MANIFEST.json') == manifest_bytes
++    for row in files:
++        data = z.read(row['path'])
++        assert len(data) == row['bytes'] and sha_bytes(data) == row['sha256'], row['path']
++        same(ROOT / row['path'], row)
++after = preservation_check()
++assert after == preserved
++writej('REVIEW_ZIP_IDENTITY.json', {
++    'candidate': VERSION, 'date': DATE, 'path': ZIP_NAME, **identity(ROOT / ZIP_NAME),
++    'zip_file_count': len(files) + 1, 'payload_file_count': len(files),
++    'manifest_sha256': sha_bytes(manifest_bytes), 'pdf_sha256': observed_pdf_sha,
++    'tex_sha256': identity(ROOT / 'manuscript.tex')['sha256'],
++    'zip_crc_and_all_payload_hashes_read_back': True,
++    'post_packaging_preservation_check': after,
++    'status': 'Ready for GPT and Hilmir review; no scientific or publication action authorized'})
++print(json.dumps({'result': 'PASS', 'zip': ZIP_NAME, 'zip_identity': identity(ROOT / ZIP_NAME),
++                  'payload_files': len(files), 'zip_files': len(files)+1,
++                  'pages_inspected': 30, 'preservation': preserved}, indent=2))
++
+--- a/manuscript.tex
++++ b/manuscript.tex
+@@ -7,7 +7,7 @@
+ \usepackage{amsmath,amssymb,amsthm,booktabs,array,longtable,tabularx}
+ \usepackage{graphicx,pdflscape,caption,xcolor,fancyhdr,enumitem}
+ \usepackage[unicode,colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+-\hypersetup{pdftitle={SRG Simulation Reconstruction - Volume II: Local Geometry and Resonance in Seed Explorer and Infinity},pdfauthor={Hilmir Frímann Halldórsson; GPT; Codex},pdfsubject={Candidate v0.1 for scientific review; zero new simulations}}
++\hypersetup{pdftitle={SRG Simulation Reconstruction - Volume II: Local Geometry and Resonance in Seed Explorer and Infinity},pdfauthor={Hilmir Frímann Halldórsson; GPT; Codex},pdfsubject={Candidate v0.1.1 editorial R1, 24 October 2026, for scientific review; zero new simulations}}
+ \setlength{\parskip}{4pt}
+ \setlength{\parindent}{1em}
+ \setlength{\emergencystretch}{2em}
+@@ -16,7 +16,7 @@
+ \captionsetup{font=small,labelfont=bf}
+ \pagestyle{fancy}\fancyhf{}
+ \fancyhead[L]{\small\sffamily SRG Reconstruction / Volume II}
+-\fancyhead[R]{\small\sffamily Candidate v0.1}
++\fancyhead[R]{\small\sffamily Candidate v0.1.1 / R1}
+ \fancyfoot[C]{\thepage}
+ \newtheorem{proposition}{Proposition}
+ \newcommand{\R}{\mathbb{R}}
+@@ -42,7 +42,7 @@
+ GPT: scientific lead and reviewer\par
+ Codex: research engineering and manuscript preparation\par
+ \vspace{10mm}
+-\textbf{Candidate manuscript v0.1 / 23 October 2026}\par
++\textbf{Candidate manuscript v0.1.1 (editorial R1) / 24 October 2026}\par
+ Prepared for GPT and Hilmir's scientific review. The volume designation is provisional. This candidate has not been accepted for publication.\par
+ \vfill
+ \begin{abstract}
+@@ -325,11 +325,11 @@
+ The observation functions are separate from the movement rules. Names such as ``seed'', ``echo'', ``curvature'', ``energy'' and ``coherence'' must therefore be read through their implemented definitions. None adds a new point, force or edge to the recurrence.
+ 
+ \subsection{Amplitude summaries, diagnostic energy and GRF}
+-Seed Explorer reports signed mean $R$, maximum $|R|$, population standard deviation of signed $R$, and
++Seed Explorer's selected deep-analysis driver reports mean $|R|$, maximum $|R|$, population standard deviation of signed $R$, and
+ \begin{equation}
+ \operatorname{coh}_4=1-\frac{\operatorname{std}(R)}{\operatorname{mean}|R|+10^{-8}},\label{eq:coh4}
+ \end{equation}
+-with a special return value 1 when standard deviation is below $10^{-12}$. Infinity uses the same displayed fraction when mean absolute amplitude exceeds $10^{-12}$, returning 0 otherwise. Infinity's reported mean is mean absolute $R$, not signed mean. The inspected fields are positive, but preserving these source distinctions matters outside that regime. A high score measures a small relative amplitude spread, not phase synchronization of a complex field.
++with a special return value 1 when standard deviation is below $10^{-12}$. Infinity uses the same displayed fraction when mean absolute amplitude exceeds $10^{-12}$, returning 0 otherwise. Both selected drivers report mean absolute $R$ (\src{S4}{623--625,637--641}; \src{S5}{245--249}); their coherence special-case branches differ as stated above. The inspected fields are positive, but the distinction between signed amplitudes in the standard deviation and absolute amplitudes in the mean remains part of the source definition. A high score measures a small relative amplitude spread, not phase synchronization of a complex field.
+ 
+ Seed Explorer's ``kinetic energy'' is
+ \begin{equation}
+@@ -489,8 +489,8 @@
+ Pass increment, graph, local movement & 139--149 & 162--171\\
+ Mixing and $H$ schedules & 151--158 & 173--183\\
+ Global center and fusion & 160--163 & 185--190\\
+-$R$ sine; signed compression & 165--169 & 192--197\\
+-Noise; displacement; recording & 171--178 & 199--205\\
++$R$ sine; signed compression & 165--169 & 190--195\\
++Noise; displacement; recording & 171--178 & 198--205\\
+ SIM04 ranked seeds; geometry labels & 185--201; 203--266 & ---\\
+ SIM04 coherence; trajectory export & 268--274; 276--293 & ---\\
+ Infinity GRF; angle spread & --- & 139--142; 144--160\\
+@@ -506,7 +506,7 @@
+ 
+ \section{Detailed audit of historical labels}
+ \label{app:audit}
+-\paragraph{Shape classification.} Infinity's separate eigengeometry driver selects twelve high-$|R|$ points, centers their positions arithmetically, multiplies each relative vector by its signed $R$ and builds $I=\sum_i(\|u_i\|^2I_3-u_iu_i^T)$ from those vectors (\src{S5}{440--445}). It therefore weights the tensor by $R_i^2$, not by $R_i$ as a physical mass. Ordered eigenvalues $I_1\geq I_2\geq I_3$ of this positive construction satisfy $I_1\leq I_2+I_3\leq2I_2$. Its strict criterion $I_1/(I_2+10^{-10})>2$ for ``prolate'' cannot hold in exact arithmetic. A sufficiently resolved line-like set instead has two large equal moments and a small third, meeting the source's ``oblate'' style of ratio test rather than that prolate branch. The numerical guards must be retained when interpreting very small configurations. Overlapping angular windows and subset selection do not fit a unique solid \cite{evidence5,review5}.
++\paragraph{Shape classification.} Infinity's separate eigengeometry driver selects twelve high-$|R|$ points, centers their positions arithmetically, multiplies each relative vector by its amplitude magnitude $|R|$ and builds $I=\sum_i(\|u_i\|^2I_3-u_iu_i^T)$ from those vectors (\src{S5}{361--371,440--445}). It therefore weights the tensor by $R_i^2$, not by $R_i$ as a physical mass. Ordered eigenvalues $I_1\geq I_2\geq I_3$ of this positive construction satisfy $I_1\leq I_2+I_3\leq2I_2$. Its strict criterion $I_1/(I_2+10^{-10})>2$ for ``prolate'' cannot hold in exact arithmetic. A sufficiently resolved line-like set instead has two large equal moments and a small third, meeting the source's ``oblate'' style of ratio test rather than that prolate branch. The numerical guards must be retained when interpreting very small configurations. Overlapping angular windows and subset selection do not fit a unique solid \cite{evidence5,review5}.
+ 
+ \paragraph{Memory-death report.} Another driver runs a different seed and disables the $H$ coefficient after 50 passes; a defined \texttt{H\_dead} function is unused. The variable named \texttt{dark\_at\_50} is assigned after the later evolution has completed, so its reported zero change compares the same endpoint rather than demonstrating an unchanged second field (\src{S5}{477--540}, especially line 531). This static source discrepancy is not a rerun or a result of the selected 200-pass trajectory.
+ 
+--- a/prepare_manuscript.py
++++ b/prepare_manuscript.py
+@@ -1,59 +0,0 @@
+-"""Document input identities/copy only. No numerical modules or study scripts imported."""
+-from pathlib import Path
+-import hashlib,json,zipfile,shutil
+-ROOT=Path(__file__).resolve().parent
+-RESEARCH=ROOT.parents[3]
+-S4=RESEARCH/'SRG_SIMULATION_STUDY_04_SEED_EXPLORER'
+-S5=RESEARCH/'SRG_SIMULATION_STUDY_05_INFINITY'
+-def digest(b):return dict(bytes=len(b),sha256=hashlib.sha256(b).hexdigest())
+-def dump(name,o):(ROOT/name).write_text(json.dumps(o,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+-rows=[]
+-def copy(p,rel):
+-    b=p.read_bytes();q=ROOT/rel;q.parent.mkdir(parents=True,exist_ok=True);q.write_bytes(b)
+-    rows.append(dict(original_path=str(p),candidate_path=rel,**digest(b)))
+-    return b
+-def main():
+-    assert not (ROOT/'INPUT_BASELINE.json').exists()
+-    copy(Path('C:/Users/Notandi/Downloads/SRG_VOLUME_II_SIM04_SIM05_CODEX_MANUSCRIPT_WORK_ORDER.md'),'evidence/AUTHORITATIVE_WORK_ORDER.md')
+-    for sid,base,zname in [(4,S4,'SRG_SIMULATION_STUDY_04_SEED_EXPLORER_REVIEW.zip'),(5,S5,'SRG_SIMULATION_STUDY_05_INFINITY_REVIEW.zip')]:
+-        b=copy(base/zname,'evidence/inputs/'+zname)
+-        with zipfile.ZipFile(base/zname) as z:
+-            assert z.testzip() is None
+-            manifest=json.loads(z.read('MANIFEST.json'))
+-            fs=manifest['files'] if isinstance(manifest,dict) else manifest
+-            if isinstance(fs,dict):fs=[dict(path=k,**v) for k,v in fs.items()]
+-            for f in fs:
+-                name=f.get('path',f.get('relative_path'));bb=z.read(name)
+-                assert hashlib.sha256(bb).hexdigest()==f['sha256'],name
+-            # Compare the local scientific originals and documents used below to the sealed input.
+-            for name in z.namelist():
+-                if name.startswith('originals/') or (name.endswith('.md') and '/' not in name):
+-                    assert (base/name).read_bytes()==z.read(name),name
+-        for p in (base/'originals').glob('*'):
+-            if p.is_file():copy(p,'evidence/originals/SIM%02d/'%sid+p.name)
+-        for name in ['START_HERE.md','CONSTRUCTION.md','VERIFICATION_AND_LIMITS.md','FIGURE_REGISTER.json']:
+-            copy(base/name,'evidence/studies/SIM%02d/'%sid+name)
+-    for name in ['ORIGINAL_EVIDENCE.md']:copy(S4/name,'evidence/studies/SIM04/'+name)
+-    for name in ['HISTORICAL_EVIDENCE_AND_CLAIMS.md','REPLAY_AND_3D_ANALYSIS.md','SIM04_3D_ADDENDUM.md','MODEL_FAMILIES_AND_PAPER_PLAN.md']:
+-        copy(S5/name,'evidence/studies/SIM05/'+name)
+-    r4=S5/'context/SIM04_GPT_REVIEW'
+-    for name in ['SIM04_GPT_SCIENTIFIC_REVIEW.md','source_review.md','independent_data/independent_checks.json','independent_data/fixed_final_partition_variance.json','additional_figure/figure_data.json']:
+-        copy(r4/name,'evidence/reviews/SIM04/'+name)
+-    # Original figure bytes, deliberately no plotting or calculations.
+-    figures=[]
+-    selections=[(S4/'figures','F01_recorded_overview.png','S4_overview.png'),(S4/'figures','F02_position_views.png','S4_positions.png'),(S4/'figures','F03_identifiable_episodes.png','S4_episodes.png'),(S4/'figures','F04_terms_and_neighbors.png','S4_terms.png'),(r4/'additional_figure','SIM04_six_point_component.png','S4_six_review.png')]
+-    selections += [(S5/'figures',n+'.png',n+'.png') for n in ['F01_SIM05_whole_field','F02_SIM05_selected_groups','F03_SIM05_stages','F04_SIM05_second_field','F05_SIM05_geometry_and_motion','F06_SIM04_context','F07_SIM04_scale_and_shape']]
+-    for parent,name,target in selections:
+-        b=copy(parent/name,'figures/'+target);figures.append(dict(path='figures/'+target,original=str(parent/name),unchanged=True,**digest(b)))
+-    dump('FIGURE_INPUT_IDENTITIES.json',figures)
+-    for name in ['historical_checks.json','analysis_checks.json','detail_checks.json','SIM04_geometry_checks.json','component_geometry.csv','stage_windows.csv','clipping_events.csv','historical_replay_columns.csv','SIM04_six_geometry.csv','SIM04_pair_shape_changes.csv']:
+-        copy(S5/'analysis'/name,'evidence/tables/SIM05/'+name)
+-    for name in ['ENVIRONMENT.json','REFERENCE_EQUIVALENCE.json','RUN_BUDGET.json','CORE_IDENTITY.json']:
+-        copy(S5/name,'evidence/studies/SIM05/'+name)
+-    # Retained administrative context is baseline-only, not scientific main-text material.
+-    for p in [RESEARCH/'SIMULATION_RECONSTRUCTION_RESEARCH/SIMULATION_STUDY_LEDGER.md',RESEARCH/'PUBLICATION_WORK/V1_PUBLISH/PUBLICATION_RECEIPT.md']:
+-        rows.append(dict(original_path=str(p),candidate_path=None,**digest(p.read_bytes())))
+-    dump('INPUT_BASELINE.json',rows)
+-    dump('INPUT_GATE.json',dict(local_study_archives_valid=True,local_originals_documents_match=True,SIM05_new_GPT_review='PENDING LOCATION',new_simulation_calls=0,numerical_checker_reruns=0))
+-    print(json.dumps(dict(protected_inputs=len(rows),copied_figures=len(figures),new_science_calls=0,pending='Accepted SIM05 review archive named in work order')))
+-if __name__=='__main__':main()
+--- a/prepare_r1.py
++++ b/prepare_r1.py
+@@ -0,0 +1,108 @@
++"""R1 file intake and literal approved patch only; no science imports or execution."""
++from pathlib import Path
++import difflib, hashlib, json, re, shutil, zipfile
++ROOT=Path(__file__).resolve().parent
++OLD=ROOT.parent/'v0.1'
++REVIEW=Path(r'C:\Users\Notandi\Downloads\SRG_VOLUME_II_v0.1_GPT_REVIEW_AND_CODEX_R1.zip')
++
++def identity(p):
++    h=hashlib.sha256()
++    with Path(p).open('rb') as f:
++        while b:=f.read(1024*1024):h.update(b)
++    return {'bytes':Path(p).stat().st_size,'sha256':h.hexdigest()}
++def writej(name,x):
++    (ROOT/name).write_text(json.dumps(x,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
++def put(name,b):
++    p=ROOT/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b)
++
++assert not (ROOT/'R1_STARTING_BASELINE.json').exists(), 'Do not overwrite an existing revision intake.'
++expected={'manuscript.pdf':'1f625a35c76446769b473d01affc480c46f3a8738f9f43baef2b2e6313927f5d','manuscript.tex':'8a7c5747d77e4bfc62035381afbae236d0a1fbc9be29d5a22218bf07a717712c','SRG_VOLUME_II_SIM04_SIM05_CANDIDATE_v0.1_REVIEW.zip':'8eedae1f6b85519fed3053d592c1ca64d038135d4b9cf69fb1a8c2fbf52cc95c'}
++for p,sha in expected.items():assert identity(OLD/p)['sha256']==sha,p
++all_old=[{'path':p.relative_to(OLD).as_posix(),**identity(p)} for p in sorted(OLD.rglob('*')) if p.is_file()]
++external=json.loads((OLD/'INPUT_BASELINE.json').read_text(encoding='utf-8'))+json.loads((OLD/'HANDOFF_BASELINE.json').read_text(encoding='utf-8'))
++for row in external:
++    got=identity(row['original_path'])
++    assert all(got[k]==row[k] for k in ('bytes','sha256')),row['original_path']
++writej('R1_STARTING_BASELINE.json',{'old_candidate_root':str(OLD),'old_candidate_all_files':all_old,'external_accepted_inputs':external,'r1_order_archive':{'path':str(REVIEW),**identity(REVIEW)},'expected_starting_identities':expected})
++
++manifest=json.loads((OLD/'MANIFEST.json').read_text(encoding='utf-8'))
++with zipfile.ZipFile(OLD/'SRG_VOLUME_II_SIM04_SIM05_CANDIDATE_v0.1_REVIEW.zip') as z:
++    assert z.testzip() is None
++    assert set(z.namelist())=={r['path'] for r in manifest['files']}|{'MANIFEST.json'}
++    for r in manifest['files']:
++        b=z.read(r['path'])
++        assert len(b)==r['bytes'] and hashlib.sha256(b).hexdigest()==r['sha256']
++        assert (OLD/r['path']).read_bytes()==b
++
++regenerated={'manuscript.pdf','DOCUMENT_QA.json','PAGE_INSPECTION.json','FINAL_BUILD_RECEIPT.json','PRESERVATION_RECEIPT.json','finalize_package.py'}
++legacy_tools={'prepare_manuscript.py','receive_review.py'}
++for r in manifest['files']:
++    rel=r['path'];b=(OLD/rel).read_bytes()
++    if '/' not in rel:
++        put('provenance/v0.1/'+rel,b) if rel!='manuscript.pdf' else None
++    if rel not in regenerated|legacy_tools:
++        put(rel,b)
++put('provenance/v0.1/MANIFEST.json',(OLD/'MANIFEST.json').read_bytes())
++put('provenance/v0.1/REVIEW_ZIP_IDENTITY.json',(OLD/'REVIEW_ZIP_IDENTITY.json').read_bytes())
++
++with zipfile.ZipFile(REVIEW) as z:
++    assert z.testzip() is None
++    rm=json.loads(z.read('REVIEW_MANIFEST.json'))
++    assert set(z.namelist())=={r['path'] for r in rm['files']}|{'REVIEW_MANIFEST.json'}
++    for r in rm['files']:
++        b=z.read(r['path'])
++        assert len(b)==r['bytes'] and hashlib.sha256(b).hexdigest()==r['sha256'],r['path']
++    for n in ['SRG_VOLUME_II_CODEX_EDITORIAL_R1.md','SRG_VOLUME_II_v0.1_GPT_MANUSCRIPT_REVIEW.md','SOURCE_READBACK_EXCERPTS.md','PROPOSED_E01_E03_SOURCE_CORRECTIONS.patch','GPT_REVIEW_RECEIPT.json','REVIEW_MANIFEST.json']:
++        put('evidence/editorial/R1/'+n,z.read(n))
++    patch=z.read('PROPOSED_E01_E03_SOURCE_CORRECTIONS.patch').decode('utf-8')
++put('evidence/editorial/SRG_VOLUME_II_v0.1_GPT_REVIEW_AND_CODEX_R1.zip',REVIEW.read_bytes())
++
++def apply_exact_patch(original,chunk):
++    """Apply unified diff context literally, without Git or executable patch commands."""
++    lines=original.splitlines(keepends=True);out=[];at=0
++    h=re.compile(r'^@@ -(\d+)(?:,\d+)? \+\d+(?:,\d+)? @@.*$')
++    for item in chunk.splitlines(keepends=True)[2:]:
++        m=h.match(item.rstrip('\n'))
++        if m:
++            start=int(m[1])-1
++            assert start>=at
++            out.extend(lines[at:start]);at=start
++        elif item.startswith(' '):
++            assert lines[at]==item[1:],(at,item,lines[at]);out.append(lines[at]);at+=1
++        elif item.startswith('-'):
++            assert lines[at]==item[1:],(at,item,lines[at]);at+=1
++        elif item.startswith('+'):out.append(item[1:])
++        else:raise AssertionError(item)
++    out.extend(lines[at:]);return ''.join(out)
++
++chunks=re.split(r'(?=^--- a/)',patch,flags=re.M)
++pure=[]
++for chunk in chunks:
++    if not chunk:continue
++    name=chunk.splitlines()[0][6:]
++    assert name in ('manuscript.tex','CLAIM_EVIDENCE_MATRIX.md'),name
++    before=(OLD/name).read_text(encoding='utf-8')
++    after=apply_exact_patch(before,chunk)
++    put(name,after.encode('utf-8'))
++    pure.extend(difflib.unified_diff(before.splitlines(True),after.splitlines(True),fromfile='a/'+name,tofile='b/'+name))
++assert ''.join(pure)==patch, 'Source corrections must match the supplied patch exactly.'
++put('SOURCE_CORRECTIONS_ONLY.patch',patch.encode('utf-8'))
++
++tex=(ROOT/'manuscript.tex').read_text(encoding='utf-8')
++replacements=[
++ ('pdfsubject={Candidate v0.1 for scientific review; zero new simulations}', 'pdfsubject={Candidate v0.1.1 editorial R1, 24 October 2026, for scientific review; zero new simulations}'),
++ ('\\fancyhead[R]{\\small\\sffamily Candidate v0.1}', '\\fancyhead[R]{\\small\\sffamily Candidate v0.1.1 / R1}'),
++ ('\\textbf{Candidate manuscript v0.1 / 23 October 2026}', '\\textbf{Candidate manuscript v0.1.1 (editorial R1) / 24 October 2026}')]
++for a,b in replacements:
++    assert tex.count(a)==1,a
++    tex=tex.replace(a,b)
++put('manuscript.tex',tex.encode('utf-8'))
++guide=(ROOT/'START_HERE.md').read_text(encoding='utf-8')
++guide=guide.replace('**Candidate v0.1, dated 23 October 2026, for GPT and Hilmir review. Not publication accepted.**','**Candidate v0.1.1 (editorial R1), dated 24 October 2026, for GPT and Hilmir review. Not publication accepted.**')
++guide += '\n## Editorial R1 only\n\nGPT accepted the v0.1 scientific core subject to E01–E03. This revision corrects the two mean/tensor descriptions and the three source ranges, with no changes to equations, numerical results, four propositions or ten figure assets. Final manuscript acceptance remains pending. The original v0.1 directory is preserved unchanged.\n\nSee [correction disposition](CORRECTION_DISPOSITION.md), [exact manuscript and claim-matrix diff](DIFF_FROM_v0.1.patch), [complete document diff](DOCUMENT_ONLY_DIFF_FROM_v0.1.patch), and [R1 order](evidence/editorial/R1/SRG_VOLUME_II_CODEX_EDITORIAL_R1.md). No new simulations, scientific checker executions, RNG draws, figures, Tower II investigation or Git/publication actions were performed. Stop for GPT and Hilmir review.\n'
++put('START_HERE.md',guide.encode('utf-8'))
++build=(ROOT/'build_document.py').read_text(encoding='utf-8')
++build=build.replace("source = RESEARCH / 'PUBLICATION_PREPARATION_SIM04_SIM05_v0.1/cache/tectonic'","source = ROOT.parent / 'v0.1/cache/tectonic'")
++put('build_document.py',build.encode('utf-8'))
++writej('R1_INTAKE_RECEIPT.json',{'old_candidate_files_baselined':len(all_old),'old_payload_checked':len(manifest['files']),'old_manifest_and_zip_match':True,'r1_review_manifest_files_checked':len(rm['files']),'r1_review_crc':True,'source_patch_applied_exactly':True,'source_patch_sha256':identity(ROOT/'SOURCE_CORRECTIONS_ONLY.patch')['sha256'],'housekeeping_tex_replacements':replacements,'new_simulations':0,'scientific_runs':0,'rng_draws':0,'git_commands':0})
++print(json.dumps({'prepared':str(ROOT),'preserved_v0_1_files':len(all_old),'exact_patch':True,'new_scientific_executions':0}))
+--- a/receive_review.py
++++ b/receive_review.py
+@@ -1,35 +0,0 @@
+-"""Archive and file integrity only; does not execute any enclosed checker."""
+-from pathlib import Path,PurePosixPath
+-import json,hashlib,zipfile,io
+-from prepare_manuscript import ROOT,S4,S5,digest,dump
+-src=Path('C:/Users/Notandi/Downloads/SRG_SIM04_SIM05_MANUSCRIPT_CODEX_HANDOFF.zip')
+-assert not (ROOT/'HANDOFF_GATE.json').exists()
+-b=src.read_bytes();z=zipfile.ZipFile(io.BytesIO(b))
+-def check(z,name):
+-    manifest=json.loads(z.read(name));fs=manifest.get('files',manifest)
+-    if isinstance(fs,dict):fs=[dict(path=k,**v) for k,v in fs.items()]
+-    for f in fs:
+-        n=f.get('path',f.get('relative_path'));bb=z.read(n);assert digest(bb)['sha256']==f['sha256'],n
+-    assert z.testzip() is None
+-    return len(fs)
+-check(z,'HANDOFF_MANIFEST.json')
+-assert z.read('SRG_VOLUME_II_SIM04_SIM05_CODEX_MANUSCRIPT_WORK_ORDER.md')==(ROOT/'evidence/AUTHORITATIVE_WORK_ORDER.md').read_bytes()
+-for n in ['HANDOFF_MANIFEST.json','INPUT_MANIFEST.json','START_HERE.md']:
+-    (ROOT/'evidence'/('HANDOFF_'+n if n=='START_HERE.md' else n)).write_bytes(z.read(n))
+-mi=json.loads(z.read('INPUT_MANIFEST.json'))
+-for f in mi['files']:assert digest(z.read(f['path']))=={k:f[k] for k in ('bytes','sha256')}
+-assert z.read('inputs/SRG_SIMULATION_STUDY_04_SEED_EXPLORER_REVIEW.zip')==(ROOT/'evidence/inputs/SRG_SIMULATION_STUDY_04_SEED_EXPLORER_REVIEW.zip').read_bytes()
+-review=z.read('inputs/SIM05_GPT_REVIEW_AND_ADDITIONAL_FINDINGS.zip')
+-(ROOT/'evidence/inputs/SIM05_GPT_REVIEW_AND_ADDITIONAL_FINDINGS.zip').write_bytes(review)
+-r=zipfile.ZipFile(io.BytesIO(review));count=check(r,'GPT_REVIEW_MANIFEST.json');matched=0
+-for n in r.namelist():
+-    p=PurePosixPath(n);assert not p.is_absolute() and '..' not in p.parts
+-    if n.endswith('/'):continue
+-    if n.startswith('source_package/'):
+-        rel=n[len('source_package/'):];assert (S5/rel).read_bytes()==r.read(n),rel;matched+=1
+-    elif not n.endswith('.py'):
+-        q=ROOT/'evidence/reviews/SIM05'/n;q.parent.mkdir(parents=True,exist_ok=True);q.write_bytes(r.read(n))
+-dump('HANDOFF_BASELINE.json',[dict(original_path=str(src),candidate_path=None,**digest(b))])
+-dump('HANDOFF_GATE.json',dict(handoff=digest(b),input_manifest_matches=True,separate_work_order_matches=True,review_manifest_members=count,local_SIM05_source_package_members_match=matched,scientific_scripts_executed=0))
+-gate=json.loads((ROOT/'INPUT_GATE.json').read_text());gate['SIM05_new_GPT_review']='RECEIVED AND IDENTITY VERIFIED';dump('INPUT_GATE.json',gate)
+-print(json.dumps(dict(review_members_verified=count,local_members_match=matched,scientific_execution=0)))
+--- a/record_page_inspection.py
++++ b/record_page_inspection.py
+@@ -1,55 +0,0 @@
+-"""Record the completed visual inspection, without changing or rendering content.
+-
+-Codex viewed all 30 BUILD_04 page PNGs. Only pages 21 and 22 changed in
+-BUILD_05; both were viewed again. Every other final page is byte-identical
+-to its already inspected PNG. This script encodes that review record.
+-"""
+-from pathlib import Path
+-import hashlib, json
+-ROOT=Path(__file__).resolve().parent
+-def readj(p):return json.loads((ROOT/p).read_text(encoding='utf-8'))
+-before=readj('qa/BUILD_04_RECEIPT.json')
+-after=readj('qa/BUILD_05_RECEIPT.json')
+-assert before['pages']==after['pages']==30
+-changed=[n for n,sha in after['page_renders'].items() if sha!=before['page_renders'][n]]
+-assert changed==['page-21.png','page-22.png'],changed
+-notes={
+- 1:'Title, author accents, roles, candidate status and abstract legible.',
+- 2:'Contents references resolve and fit one page.',
+- 3:'Orientation and glossary fit; mathematical symbols and stable IDs legible.',
+- 4:'Figure1 fixed-scale 3D overview and caption fit; six-ID selection disclosed.',
+- 5:'Evidence categories and original/replay distinction clear; no clipping.',
+- 6:'Verification denominators, precision and construction introduction checked.',
+- 7:'Equations1–11 legible and in source order; no overflow.',
+- 8:'Parameter table and finite graph narrative fit.',
+- 9:'Group IDs, covariance/geometry equations and variance identity checked.',
+- 10:'Variance/rank continuation; deliberate space before landscape plates.',
+- 11:'Figure2 original metric panels and caption legible.',
+- 12:'Figure3 log diameter and endpoint-ranking caption match panels.',
+- 13:'Figure4 normalized three-dimensional views and shape diagnostics legible.',
+- 14:'Figure5 rank/pairs/echo panels and original observer timing caption match.',
+- 15:'Infinity recurrence equations16–22 and radians/cycles distinction legible.',
+- 16:'Five-group table and historical versus reproduced statements fit.',
+- 17:'Second-channel clipping, late contributions, motion and rank text checked.',
+- 18:'Figure6 whole-field plate preserves IDs/world scales; caption and group labels legible.',
+- 19:'Figure7 geometry, graph counts and nonzero motion axes/caption checked.',
+- 20:'Figure8 selected groups preserve normalization and retrospective-selection qualification.',
+- 21:'Figure9 final corrected caption explicitly distinguishes plotted c_p from full g_p=.01c_p; no overflow.',
+- 22:'Figure10 final caption uses retained heatmap; field and squared-sum scales legible.',
+- 23:'Observer formulas23–27 and mixed timing fit without clipping.',
+- 24:'Echo identity, candidate rule and proposition1 assumptions legible.',
+- 25:'Propositions2–4, affine normalization and centroid proof typeset correctly.',
+- 26:'Uniformity proof and scope; comparison/conclusion transition legible.',
+- 27:'Comparison table and source-location table opening fit; no path overflow.',
+- 28:'Continued source map and historical label audit legible.',
+- 29:'Exact membership table, evidence access and bibliography opening checked.',
+- 30:'Remaining references and relative evidence links legible; no unresolved reference markers.'}
+-pages=[]
+-for i in range(1,31):
+-    name=f'page-{i:02d}.png'
+-    sha=after['page_renders'][name]
+-    assert hashlib.sha256((ROOT/'renders/BUILD_05'/name).read_bytes()).hexdigest()==sha
+-    pages.append({'pdf_page':i,'printed_page':None if i==1 else i-1,'render_sha256':sha,'status':'PASS','inspection_basis':'Direct visual inspection BUILD_05' if name in changed else 'Direct visual inspection BUILD_04; final BUILD_05 PNG byte-identical','notes':notes[i]})
+-out={'reviewer':'Codex','method':'Individual rendered pages viewed through view_image; no screenshot montage substituted for page reading','pdf_sha256':after['pdf_sha256'],'final_build':'BUILD_05','dpi':115,'page_count':30,'pages':pages,'issues_remaining':[],'figure_bytes_edited':False,'scientific_checks_rerun':False}
+-(ROOT/'PAGE_INSPECTION.json').write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+-print('Recorded 30 final pages: 28 identical inspected pages and 2 directly re-inspected caption pages.')

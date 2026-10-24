@@ -1,0 +1,538 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm,headheight=14pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{texgyrepagella}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\setsansfont{texgyreheros}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\setmonofont{lmmono10-regular.otf}[Scale=0.85]
+\usepackage{amsmath,amssymb,amsthm,booktabs,array,longtable,tabularx}
+\usepackage{graphicx,pdflscape,caption,xcolor,fancyhdr,enumitem}
+\usepackage[unicode,colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\hypersetup{pdftitle={SRG Simulation Reconstruction - Volume II: Local Geometry and Resonance in Seed Explorer and Infinity},pdfauthor={Hilmir Frímann Halldórsson; GPT; Codex},pdfsubject={Candidate v0.1.1 editorial R1, 24 October 2026, for scientific review; zero new simulations}}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{1em}
+\setlength{\emergencystretch}{2em}
+\renewcommand{\arraystretch}{1.18}
+\setlist{nosep}
+\captionsetup{font=small,labelfont=bf}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\sffamily SRG Reconstruction / Volume II}
+\fancyhead[R]{\small\sffamily Candidate v0.1.1 / R1}
+\fancyfoot[C]{\thepage}
+\newtheorem{proposition}{Proposition}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\src}[2]{\textsf{#1}, lines #2}
+\newcommand{\ev}[1]{\textsf{\small #1}}
+\newcommand{\plate}[4]{\clearpage\begin{landscape}\begin{figure}[p]\centering\includegraphics[width=\linewidth,height=128mm,keepaspectratio]{figures/#1}\caption{#2}\label{#3}\end{figure}\end{landscape}\clearpage}
+\begin{document}
+\begin{titlepage}
+\vspace*{12mm}
+{\sffamily\large SRG SIMULATION RECONSTRUCTION\par}
+\vspace{8mm}
+{\huge\bfseries Volume II\par}
+\vspace{5mm}
+{\LARGE Local Geometry and Resonance\par}
+\vspace{3mm}
+{\LARGE in Seed Explorer and Infinity\par}
+\vspace{12mm}
+{\large Hilmir Frímann Halldórsson\par}
+Author and research director\par
+\vspace{4mm}
+GPT: scientific lead and reviewer\par
+Codex: research engineering and manuscript preparation\par
+\vspace{10mm}
+\textbf{Candidate manuscript v0.1.1 (editorial R1) / 24 October 2026}\par
+Prepared for GPT and Hilmir's scientific review. The volume designation is provisional. This candidate has not been accepted for publication.\par
+\vfill
+\begin{abstract}
+What did the original moving-point SRG programs actually calculate, and which aspects of their reported organization survive a source-and-record reconstruction? This volume explains Seed Explorer (SIM04) and Infinity (SIM05) as distinct discrete algorithms. Both combine geometry-dependent local averaging, scheduled resonance changes, a global weighted-center displacement and positional randomness. Infinity additionally evolves a second real amplitude field with asymmetric local mixing strengths and symmetric cross-channel terms. Stored velocities are displacement diagnostics in both programs.
+
+Seed Explorer's original 21 saved states show contraction, narrowing amplitudes and separation of the local graph; a minimal six-point component becomes compact while occupying the lowest amplitude ranks. Its normalized three-dimensional geometry changes as it shrinks. Infinity's accepted 200-pass replay develops five compact groups of 11, 13, 10, 10 and 6 distinct points, with nearly uniform amplitudes inside each group and different levels between groups. All 4,000 historical aggregate metrics agree within the retained tolerance, supporting attribution without replacing the missing historical trajectory. The endpoint echo and candidate masks acquire exact interpretations in the replay. Four reviewed mathematical statements explain neighborhood size, normalized averaging, the fusion centroid and conditional two-field uniformity. The account separates historical observations, reproduced states and derivations; it establishes neither an infinite-time limit nor a physical identification of the fields. No simulation or scientific numerical verification was rerun for this manuscript.
+\end{abstract}
+\end{titlepage}
+\tableofcontents
+\clearpage
+
+\section{A world of moving points and changing numbers}
+\label{sec:orientation}
+A point in these simulations is an indexed row of numbers: three coordinates and one or two real amplitudes. The same row persists as the calculation advances. Points do not become new objects when their markers overlap. ``Resonance'' is the historical name of an evolving scalar, called $R$; Infinity carries a second scalar, called $D$. Neither name supplies a physical unit or an experimental identification. The useful first question is therefore what these numbers do to one another.
+
+Each update begins by finding five nearby points for every point. The resulting local relationships determine a simultaneous positional adjustment and amplitude exchange. A separate operation then draws positions toward one center computed from the whole field. Explicit functions of the integer pass change amplitudes; a random positional increment completes the motion. On the next pass, new distances can change the local relationships. Geometry and amplitudes thus participate in a feedback process, without the program containing a stored trajectory-following instruction. The exact stages are reconstructed below from the unchanged source files \cite{source4,source5}.
+
+Three ideas must be kept separate. \emph{Spatial compactness} means that positions in a selected group are close together. \emph{Amplitude agreement} means their $R$ values, or their $D$ values, are close. \emph{Local connectivity} means the five-neighbor selections connect them. A group may be compact and internally well connected while having low amplitude. Conversely, a high amplitude rank does not make a point a leader that others are instructed to follow. This distinction is visible in the original Seed Explorer coordinates: the six highlighted points in Figure~\ref{fig:orientation} become compact, yet end as the six lowest-$R$ points.
+
+The word ``local'' matters. Even after the neighbor graph separates into groups, all points still enter the global center used by the fusion stage. The groups remain parts of one interacting calculation. The initial coordinate box is only an initialization region: neither program wraps positions into it or treats it as a physical container.
+
+\subsection{How to read this volume}
+For a conceptual route, read this section, the recorded behavior in Sections~\ref{sec:s4behavior} and \ref{sec:s5behavior}, the observer explanations in Section~\ref{sec:observers}, and the comparison in Section~\ref{sec:comparison}. For reconstruction on paper, use the notation below, the stage equations in Sections~\ref{sec:s4construction} and \ref{sec:s5construction}, and the four propositions in Section~\ref{sec:math}. Appendix~\ref{app:locators} gives exact source locations; the accompanying claim matrix resolves quantitative statements to saved results. Figures are retained research visualizations, with the origin of their data stated in each caption.
+
+\begin{table}[ht]
+\centering\small
+\caption{Compact glossary. A pass is an algorithmic update, not a calibrated duration.}
+\begin{tabularx}{\linewidth}{@{}lX@{}}\toprule
+Symbol or term & Meaning in this volume \\\midrule
+$p$, $i$ & Completed pass number; stable point identifier $i\in\{0,\ldots,49\}$.\\
+$X_p$, $R_p$, $D_p$ & Positions in $\R^{50\times3}$; real amplitude vectors. $D$ exists only in Infinity.\\
+$V_p$ & $X_p-X_{p-1}$, stored after movement; not an input momentum.\\
+$A$, $W$ & Directed neighbor selection and row-normalized inverse-distance weights.\\
+$H$, RPCO & Explicit scalar schedule; historical name of the signed log/exp clipping map $\C$.\\
+Weak component & A connected group after arrow directions are ignored.\\
+Strong component & A group with directed paths in both directions between all its members.\\
+Seed / echo & Observer selections or pair counts; not extra entities or interaction terms.\\
+$R_g$, diameter & Root mean square distance from the arithmetic center; largest pair distance.\\
+\bottomrule\end{tabularx}
+\end{table}
+
+\plate{F06_SIM04_context.png}{Early visual orientation: Seed Explorer's original saved coordinates at passes 0, 5, 10 and 20, drawn in a later accepted visualization. \ev{OBSERVED IN HISTORICAL DATA}, not an original movie. IDs 10, 15, 27, 30, 33 and 47 are highlighted; other points give whole-field context. The four views use fixed world scales and equal spatial aspect. The highlighted group's local separation begins at pass 5; shrinking marker separations do not merge identities. Source: the original \texttt{deep\_trajectory.csv}; accepted SIM04 geometry addendum \cite{addendum}.}{fig:orientation}{}
+
+\section{Evidence, attribution and the reconstruction method}
+\label{sec:evidence}
+The scientific basis is two accepted study packages and their GPT reviews, not new execution for this paper \cite{study4,review4,study5,review5}. The selected source files and their retained records are preserved byte-for-byte. We use the following evidence vocabulary throughout.
+
+\begin{description}[style=nextline,leftmargin=0pt,labelwidth=0pt,labelindent=0pt]
+\item[\ev{ORIGINAL}] A retained historical file, such as source code, a CSV or a narrative note. Original status does not make every interpretation in a note correct.
+\item[\ev{ATTRIBUTED}] A relationship between files supported by filenames, source structure, configurations or numerical agreement. This is weaker than a recovered execution environment and complete original run provenance.
+\item[\ev{OBSERVED IN HISTORICAL DATA}] A statement about quantities actually saved in original records, including reviewed measurements made from those records.
+\item[\ev{REPRODUCED}] A result of the earlier, separately authorized source-faithful replay. These states do not become original historical states through close numerical agreement.
+\item[\ev{DERIVED}] An algebraic consequence under explicit hypotheses, or a stated analysis of fixed saved data. Captions distinguish these two uses.
+\item[\ev{UNRESOLVED}] Information or an interpretation not established by the available source, records and accepted checks.
+\end{description}
+
+\subsection{Different records answer different questions}
+Seed Explorer supplies a complete short positional record: 21 state boundaries, passes 0--20, with 50 points each, totaling 1,050 rows. Its companion metrics have 20 rows and 12 non-pass values per row. These coordinates permit direct examination of local groups, their motion and their shape. They do not preserve the positional random draws or original RNG checkpoints. The inspected source and conditional amplitude checks support attribution; exact recovery of the stochastic execution remains unresolved. Its figures in this volume were generated from saved coordinates in the accepted studies, not recovered from a historical animation \cite{evidence4}.
+
+Infinity supplies the original source, a narrative note and 200 historical aggregate rows, each with 20 non-pass metrics. No complete historical state sequence or historical movie accompanies this evidence. The accepted study separately captured a 200-pass replay, including the initial state: 201 boundaries and 10,050 point rows, with full state/RNG checkpoints. The five-group trajectory described here is therefore \ev{REPRODUCED}. Its close match to the historical aggregate table supports source-output attribution, while the historical table itself already suffices to reject the note's claim of exact equality of all final $R$ values \cite{evidence5,review5}.
+
+Both original script headers name ``Claude (collaborating with pzychozen)'' and give the date 2026-03-14. These are retained source attributions, not independently certified execution dates or proof of development order. SIM04 and SIM05 number our investigations. Their shared operations do not establish that the second is the unique chronological successor of the first.
+
+\subsection{What the retained verification establishes}
+The earlier Seed Explorer checks reproduced all 240 saved metrics and all 3,000 recorded displacement components. The independent review's maximum conditional $R$ discrepancy was $4.163336\times10^{-17}$; this is floating arithmetic agreement, not recovery of unsaved noise. Its post-deterministic positional residual had standard deviation about $0.0100155$, compatible in scale with the specified $0.01$ noise, but that statistic alone neither identifies the draws nor proves their distribution \cite{review4}.
+
+Infinity's earlier reference/capture comparison found all 17 saved state/RNG arrays bitwise equal, with metric JSON byte-identical. Those executions use the same core and establish repeatability. GPT's separate review transcribed conditional equations against each saved incoming state, rather than propagating a newly calculated trajectory. It found maximum errors $5.551115\times10^{-17}$ in 10,000 $R$ values and $2.168404\times10^{-18}$ in 10,000 $D$ values. All 30,000 displacement components matched exactly. It also decoded the saved RNG checkpoints: each of 200 isolated normal draws reached the recorded post-draw RNG state, and independently assembled positions agreed to $4.440892\times10^{-16}$. That checkpoint test is stronger than merely defining a noise residual as the difference needed to match a saved position \cite{review5}.
+
+The historical comparison has two denominators that must not be conflated. Exactly \textbf{2,785 of 4,000 metric values} are equal in the retained comparison; including 200 equal pass labels gives \textbf{2,985 of 4,200 table cells}. All 4,000 metrics satisfy the retained near-comparison criterion, absolute tolerance $10^{-12}$ plus relative tolerance $10^{-10}$. The largest absolute difference is $3.352874\times10^{-14}$, in top-point curvature at pass 109. Integer identities and counts agree throughout. This does not certify the lost original environment \cite{verification5}.
+
+All these are \emph{retained results}. For this manuscript the new update budget was zero. Preparation consisted of input identity checks, reading, equation transcription, selection of unchanged figures, typesetting and document inspection. No simulator, replay driver, scientific checker or random-draw verification was executed. The accepted archives include the prior methods for audit; their inclusion is not permission to rerun them.
+
+\section{Seed Explorer: the complete selected construction}
+\label{sec:s4construction}
+We call the unchanged file \texttt{srg\_seed\_explorer.py} \textsf{S4}. Its selected deep-analysis driver constructs $N=50$ points with NumPy's legacy seed 2038 and performs 20 updates (\src{S4}{599--675}). Initialization draws $X_0$ uniformly from $[-5,5]^{50\times3}$, then $R_0$ uniformly from $[0,0.1]^{50}$, sets $V_0=0$, sets $p=0$ and records the initial state. History stores copies of positions, amplitudes and displacements. The source's movement does not consume the old velocity; it reads the last stored position only to report the newly completed displacement (\src{S4}{60--89,174--178}).
+
+The following notation denotes the incoming state by $X=X_{p-1}$, $R=R_{p-1}$. Each pass first increments the counter to $p$. All local position differences and local amplitude exchange use this incoming state, even though the source assigns the local positions before assigning the mixed amplitudes.
+
+\subsection{The common mathematical primitives}
+\label{sec:primitives}
+Let $d_{ij}=\|X_j-X_i\|_2$ and let $A_i$ contain the five selected nearest non-self neighbors. The implementation sorts the full distance row and takes entries 1 through 5; treating these as five distinct non-self neighbors assumes the self-distance occupies the first sorted slot. The accepted records have no self edges or cutoff ties. Coincident-position tie behavior is not a general theorem supplied by that slicing rule.
+\begin{align}
+ w_{ij}&=\frac{(d_{ij}+10^{-8})^{-1}}{\sum_{\ell\in A_i}(d_{i\ell}+10^{-8})^{-1}},\quad j\in A_i,\qquad w_{ij}=0\ \text{otherwise},\label{eq:weights}\\
+ \Delta_i&=\frac{1}{|A_i|}\sum_{j\in A_i}(X_j-X_i),\qquad
+ Y_i=X_i+0.05\Delta_i+0.15\tanh(\Delta_i).\label{eq:localX}
+\end{align}
+The hyperbolic tangent acts coordinate by coordinate. This is a simultaneous local displacement, using an arithmetic neighbor-position average; it does not use the inverse-distance amplitude weights. The componentwise nonlinearity also means the positional law is not generally rotation-equivariant. Euclidean measurements of its results remain rotation invariant without changing that fact about the law.
+
+Both programs use the explicit function
+\begin{equation}
+H(t)=2e^{-0.5t}\cos t+e^{-0.3t}\sin t+1.5e^{-0.7t}+e^{-0.4t},\label{eq:H}
+\end{equation}
+and the signed map historically called RPCO:
+\begin{equation}
+\C(x)=\operatorname{sign}(x)\exp\!\left[\operatorname{clip}\!\left(\log(|x|+\epsilon),-9,9\right)\right],\qquad \epsilon=10^{-9}.\label{eq:compress}
+\end{equation}
+The map is applied elementwise. At exactly zero its output is zero because the sign is zero. Away from clipping it equals $x+\epsilon\operatorname{sign}(x)$ in real arithmetic. Its lower clip raises a nonzero sufficiently small magnitude toward $e^{-9}$; it is not an inversion or a rule that eliminates a smaller competing channel. The additive $10^{-9}$ inside the logarithm differs from the $10^{-8}$ distance and center offsets.
+
+\subsection{One pass, in execution order}
+\label{sec:s4stages}
+After constructing $A,d$ and the positions $Y$ in \eqref{eq:localX}, Seed Explorer mixes the incoming amplitudes:
+\begin{equation}
+Q_i=R_i+0.15\left(\sum_jw_{ij}R_j-R_i\right).
+\label{eq:s4Q}
+\end{equation}
+This is a convex local average. Every $Q_i$ uses the same incoming $R$, not an already updated earlier row. The pass-specific normalizer is a sampled maximum, not a proven analytic supremum:
+\begin{align}
+ M_p&=\max_{t\in\operatorname{linspace}(0,10p,20000)}|H(t)|+10^{-12},\label{eq:M4}\\
+ m_p&=1+0.05H(p)/M_p,\qquad U_i=m_pQ_i.\label{eq:s4U}
+\end{align}
+All 20 retained passes have $M_p=4.500000000001$. This is an observed result of the actual grids, not an assertion that all future grids or the continuous function have been analyzed.
+
+The global target uses the post-local positions $Y$ and the post-$H$ amplitudes $U$:
+\begin{equation}
+c=\frac{\sum_i(|U_i|+\delta)Y_i}{\sum_i(|U_i|+\delta)},\qquad
+F_i=0.03U_i(c-Y_i),\qquad \delta=10^{-8}.
+\label{eq:fusion}
+\end{equation}
+Although the center weights use absolute values, the displacement coefficient uses signed $U_i$. Positive values give motion toward $c$ at this stage; a negative value would reverse that direction. Calling this term ``fusion'' preserves the source terminology; it does not mean points are deleted, combined or relabeled.
+
+The final amplitude and position operations are
+\begin{align}
+s_p&=1-0.001\sin(2\pi\,0.244p),\qquad R_{p,i}=\C(s_pU_i),\label{eq:s4R}\\
+X_{p,i}&=Y_i+F_i+\eta_{p,i},\qquad \eta_p\sim\mathcal N(0,0.01^2 I),\label{eq:s4X}\\
+V_{p,i}&=X_{p,i}-X_{p-1,i}.\label{eq:V}
+\end{align}
+The Gaussian notation describes the source draw over the $50\times3$ coordinates, not a recovered historical sample. The source draws once after fusion; its random state is carried to the next update. It records copies of the completed state. The global center does not use the final sine-modulated or compressed amplitudes; substituting those would change the construction.
+
+\begin{table}[ht]
+\centering\small\caption{Selected Seed Explorer parameters and their actual use. Source: \src{S4}{60--79,139--178}.}
+\begin{tabularx}{\linewidth}{@{}l l X@{}}\toprule
+Quantity & Value & Role\\\midrule
+$N$, seed, passes & 50, 2038, 20 & Selected deep-analysis driver.\\
+$\alpha$, $\beta$, $k$ & .05, .15, 5 & Local position linear term; tanh and amplitude mixing; neighbors.\\
+$\lambda_H$, $L$ & .05, 9 & $H$ multiplier; signed log clipping bound.\\
+$\theta_{\rm lock}$ & .244 & Cycles per pass in the $R$ sine factor.\\
+Fusion strength & .03 & Signed post-$H$ amplitude times center displacement.\\
+Noise scale & .01 & Constant positional standard deviation per coordinate.\\
+\texttt{lambda\_vp}, \texttt{gamma\_srg} & .618, .087 & Stored constructor attributes; unused in the selected update.\\
+Echo threshold & .85 & Observer-only threshold, not an interaction.\\
+\bottomrule\end{tabularx}
+\end{table}
+
+\subsection{Clock, retained information and recording}
+The time argument is $t=p$, with one increment per call. There is no physical time step and no animation callback ambiguity in the selected loop. The schedule $H(p)$ reads the pass counter, not the saved coordinate history. $X,R,p$ and the RNG state affect the next pass; $V$ is diagnostic. Earlier recorded arrays support export and the last-position subtraction, rather than a path-memory force. The parameters named above should therefore be distinguished from unused source attributes and from observer thresholds.
+
+The source includes other experiment drivers and rendering/reporting utilities. The selected original CSVs correspond to the deep-analysis driver, which records after each of its 20 updates. Its trajectory export preserves pass-major, stable-ID rows. Metrics are evaluated on the completed state; unlike Infinity, the driver rebuilds current distances for its echo report. Reading the other source sections establishes what they implement, but does not supply outcomes of unrecorded experiments.
+
+\section{Seed Explorer: contraction, separation and changing shape}
+\label{sec:s4behavior}
+The short original record shows a coherent combination of effects. Whole-field size decreases, the amplitude distribution narrows and the local neighbor graph separates. These statements concern distinct observables, not a single convergence label (Figure~\ref{fig:s4overview}). Between passes 0 and 20, $R_g$ decreases from 5.386371733 to 4.186458315, about 22.28\%. The signed $R$ standard deviation decreases from 0.028332747 to 0.007223414, about 74.51\%, while the mean rises from 0.047764939 to 0.050282090. The coherence score rises from 0.406829744 to 0.856342244. The record has strictly decreasing $R_g$, $R$ standard deviation and maximum $R$, and increasing coherence; those finite monotonic sequences are not general laws \cite{review4}.
+
+The graph of saved positions is weakly connected through pass 4. At pass 5 it divides into 44 and 6 members, with the same membership through pass 19. At pass 20 the larger set divides again, giving sizes 21, 23 and 6. Strong connectivity separates earlier, first at pass 3, and has seven components at the final boundary. A graph reconstructed at boundary $p$ would supply update $p+1$; the saved final graph is not evidence that an unrecorded pass 21 was executed.
+
+\subsection{An organized group at the bottom of the amplitude ranking}
+The six-point group is
+\begin{equation}
+G_6=\{10,15,27,30,33,47\}.\label{eq:sixIDs}
+\end{equation}
+It is weakly isolated in every saved state from pass 5 through pass 20, and all its 30 directed non-self selections are internal. Its diameter falls from 2.170026613 at pass 5 to 0.073785244 at pass 20; its $R_g$ falls from 1.036195894 to 0.035947985. Its final $R$ values lie near 0.0357, below every other point's value. Mean $R$ within this group changes little, from 0.035894275 to 0.035700720, while its internal standard deviation falls from 0.007209364 to 0.000403330. The highest amplitude is therefore not a prerequisite for compact local organization (Figure~\ref{fig:sixrank}) \cite{review4}.
+
+The minimum possible isolated size follows from the five-neighbor rule, as Proposition~\ref{prop:six} makes explicit. That graph fact does not determine a spatial solid. The accepted geometry addendum measures the shape directly instead of inferring it from six points or a complete graph \cite{addendum}.
+
+\subsection{Shrinking is not the same as keeping the same shape}
+For a fixed group $G$ of $n$ points, write
+\begin{align}
+\bar X_G&=n^{-1}\sum_{i\in G}X_i,\quad
+C_G=n^{-1}\sum_{i\in G}(X_i-\bar X_G)(X_i-\bar X_G)^T,\label{eq:cov}\\
+R_{g,G}&=\sqrt{\operatorname{tr}C_G},\quad
+\operatorname{diam}(G)=\max_{i,j\in G}\|X_i-X_j\|,\quad
+\rho_{ij}=\|X_i-X_j\|/R_{g,G}.\label{eq:geometry}
+\end{align}
+The covariance eigenvalues, divided by their sum, describe the fractions of spread along the three principal directions. The 15 identity-preserving $\rho_{ij}$ values distinguish uniform shrinking from shape changes. They are unaffected by a common translation, rotation or positive rescaling. These are measurements of output geometry, not a change to the update law.
+
+Across the 16 saved states of $G_6$ from passes 5--20, all three covariance directions have positive spread. The ordered variance fractions are approximately $(0.457176,0.276858,0.265967)$ at pass 5 and $(0.535382,0.276806,0.187813)$ at pass 20. The smallest fraction varies between about 0.073186 and 0.272665. The largest endpoint change among normalized pairs is for IDs 27 and 33: $\rho_{27,33}$ changes from 1.227644 to 1.983691, a difference of 0.756047. Thus the retained points deform while shrinking; the process is not merely a rescaled, rotated copy of one configuration (Figure~\ref{fig:s4shape}). Diameter even rises slightly from 0.104807911 at pass 18 to 0.107004762 at pass 19 before decreasing again. Whole-record contraction does not imply every group-scale measure decreases at every pass.
+
+The accepted measurement convention clamps only tiny negative numerical eigenvalues within $10^{-12}\max(1,\operatorname{tr}C_G)$, and defines zero-trace fractions at trace $\leq10^{-24}$. All inspected eigenvalues here are positive, so the positive-direction conclusion is not produced by clamping. The normalized views retain orientation rather than applying a best-fit rotation; the pair-distance changes supply the rotation-independent evidence of deformation. No named polyhedron is established.
+
+\subsection{Agreement within groups, differences between groups}
+For the fixed final partition, population variance decomposes as
+\begin{equation}
+\operatorname{Var}(R)=\sum_G\frac{|G|}{N}\operatorname{Var}_G(R)
+ +\sum_G\frac{|G|}{N}(\bar R_G-\bar R)^2.\label{eq:vardec}
+\end{equation}
+At pass 20 the reviewed total is $5.2177704\times10^{-5}$, of which $2.0781183\times10^{-5}$ is within-group and $3.1396521\times10^{-5}$ is between-group. About 60.17\% is therefore between the three final groups. Applying that fixed partition at earlier times is a retrospective measurement, not a statement that those groups were already disconnected then \cite{review4}.
+
+Rank has a different history. The maximum-$R$ identity is 3 at passes 0--2, 40 at passes 3--5 and 38 at passes 6--20. ID 38 still travels a stepwise path of about 1.03137 over passes 6--20, with endpoint displacement about 0.98612. A stable top rank can coexist with substantial movement. The top triad, IDs 38, 23 and 8, lies within a larger 23-point weak component at the endpoint; it is not an isolated three-point system. Figure~\ref{fig:s4episodes} places rank, separations and echo onset side by side without making rank a causal variable.
+
+\plate{S4_overview.png}{Seed Explorer's whole-record diagnostics, derived from the original 21 states and 20 metric rows (passes 0--20; update-only quantities begin at pass 1). \ev{OBSERVED IN HISTORICAL DATA}. Each panel retains its original metric axes; these are not interchangeable measures of convergence. Amplitude narrowing accompanies global spatial contraction while the mean amplitude rises. Source: accepted SIM04 figure F01 and original CSVs \cite{study4,evidence4}.}{fig:s4overview}{}
+\plate{S4_six_review.png}{The six-point group $G_6$ in the accepted GPT review: original saved states, passes 5--20. \ev{OBSERVED IN HISTORICAL DATA}. The left panel plots diameter on a logarithmic scale over 16 states; the right panel ranks all 50 amplitudes at pass 20 and highlights the same six IDs. Their final bottom ranks coexist with compactness and complete internal five-neighbor selection. This is an unchanged review asset, not a new measurement or recovered original rendering \cite{review4}.}{fig:sixrank}{}
+\plate{F07_SIM04_scale_and_shape.png}{Accepted SIM04 geometry addendum. \ev{OBSERVED IN HISTORICAL DATA}, visualized and measured during the accepted SIM05 study. Upper views center the same six IDs and divide coordinates by their current $R_g$ at passes 5, 10 and 20, using equal spatial aspect and a fixed normalized scale. No alignment is fitted. Lower panels retain original units for diameter/$R_g$, unitless covariance fractions, and all 15 identity-preserving normalized distances over passes 5--20. Shrinking and deformation are distinct supported observations \cite{addendum,review5}.}{fig:s4shape}{}
+\plate{S4_episodes.png}{Seed Explorer's identifiable episodes from original saved passes 0--20. \ev{OBSERVED IN HISTORICAL DATA}. The panels retain their source selections and scales: amplitudes of successive top IDs 3, 40 and 38; pair distances among IDs 38, 23 and 8 (log scale); the first detected echo pair (5,43); and echo counts. The first pair exceeds the threshold at pass 7 with distance about 0.230854 and score 0.869789. These are post-update observers, not added forces or follower instructions. The ranked triad is a subset of a larger component \cite{study4,review4}.}{fig:s4episodes}{}
+
+\section{Infinity: two real channels in the same moving geometry}
+\label{sec:s5construction}
+Let \textsf{S5} denote \texttt{srg\_infinity.py}. Its selected driver uses $N=50$, seed 2038 and 200 passes (\src{S5}{282--349}). Initial positions use the same first uniform draws in $[-5,5]^3$ as Seed Explorer. Initial amplitudes instead use $R_0\sim U(0,0.3)$; the independently sampled $D_0\sim0.01U(0,0.3)$ consumes additional random draws. $V_0=0$ and $p=0$. The phase offset is $\pi/2$. This changes the future noise stream as well as adding a second field. It is not a one-factor experiment with only $D$ switched on.
+
+\subsection{Incoming-state interaction and two scheduled responses}
+Infinity uses the same neighbor selection, weights \eqref{eq:weights} and local position rule \eqref{eq:localX}. For incoming $R=R_{p-1}$ and $D=D_{p-1}$ its mixed amplitudes are
+\begin{align}
+g_p&=0.01(0.08699)\sin(0.244p+\pi/2),\label{eq:g}\\
+Q_i&=R_i+0.15\left(\sum_jw_{ij}R_j-R_i\right)+g_pD_i,\label{eq:Q5}\\
+E_i&=D_i+0.075\left(\sum_jw_{ij}D_j-D_i\right)+g_pR_i.\label{eq:E5}
+\end{align}
+The two arrays are copied before the coupling loop. Both cross terms therefore use incoming fields; $E_i$ does not read an already updated $Q_i$. In the source's empty-neighbor branch both local exchange and cross terms are skipped. All rows in the selected run have five neighbors. The uniformity proposition below explicitly assumes nonempty rows.
+
+The source computes one normalizer at module level,
+\begin{equation}
+M=\max_{t\in\operatorname{linspace}(0,100,50000)}|H(t)|+10^{-12},\label{eq:M5}
+\end{equation}
+whose retained value is $4.500000000001$. It applies different time arguments to the channels:
+\begin{equation}
+U_i=[1+0.05H(p)/M]Q_i,\qquad
+Z_i=[1+0.05H(p+\pi/2)/M]E_i.\label{eq:UZ5}
+\end{equation}
+The same $U$ determines the global center and signed fusion displacement in \eqref{eq:fusion}. $D$ affects this pass's positional fusion indirectly through its cross contribution to $Q$, hence $U$. There is no separate $D$-weighted center. Final fields and positions are
+\begin{align}
+R_{p,i}&=\C(s_pU_i),\qquad D_{p,i}=\C(Z_i),\label{eq:RD5}\\
+X_{p,i}&=Y_i+F_i+\eta_{p,i},\qquad
+\eta_p\sim\mathcal N(0,\sigma_p^2I),\quad \sigma_p=\frac{0.01}{1+0.01p},\label{eq:X5}
+\end{align}
+followed by displacement \eqref{eq:V} and metric recording. Only $R$ receives $s_p$; the signed compressor acts separately on each channel. The Gaussian operation remains the final positional stage.
+
+\subsection{What really depends on time}
+The source has three distinct scheduled operations: cross-coupling $g_p$, the two $H$ factors, and the $R$ sine factor $s_p$. Noise strength also depends on $p$. The number 0.244 is used as \emph{radians per pass} in $g_p$ and as \emph{cycles per pass} through $2\pi$ in $s_p$. These are different schedules, even though they share a literal number. The active 0.08699 is a supplied coefficient, not a fitted or independently derived constant.
+
+Distances, neighbor selection, local position adjustment and inverse-distance mixing depend on current state. Fusion depends on that state after mixing and scheduled multiplication. $H$ does not read the recorded past; its influence can nevertheless persist because earlier changes altered the later state. A direct late $H$ increment rounding to zero does not undo that history.
+
+The evolving state needed to continue the selected recurrence is $X,R,D,p$ and the RNG state. $V$ records the last displacement and enters observers only. The source appends metrics; its allocated \texttt{seed\_history} and \texttt{grf\_history} lists are not used to steer the update. No coordinate wrapping, inertial integration, boundary reflection or frame-label reinterpretation is present. The selected loop performs one update per pass label from 1 to 200.
+
+\section{Infinity: what the accepted replay reveals}
+\label{sec:s5behavior}
+The replay gives access to structure that the historical aggregate table could not display. It begins with a dispersed field and ends with five small groups that remain separated at the scale of the whole configuration. The endpoint $R_g$ is 1.838893089, down from 5.386371733; its whole-field diameter is 3.843136409, much larger than any group's diameter (Table~\ref{tab:groups}). The whole field retains spread in three covariance directions, with normalized fractions about $(0.434617,0.354187,0.211196)$. Compact clusters in a projection do not erase the fifty stable identities.
+
+The saved weak-component changes occur at passes 0, 5, 21, 30 and 33. Their sizes are respectively $50$; $44+6$; $11+33+6$; $11+23+10+6$; and $11+13+10+10+6$. The final membership persists through every recorded boundary from pass 33 through pass 200. Internal directed neighbors and strong components can still change. The final graph describes saved positions; the record contains no update 201.
+
+\begin{table}[ht]
+\centering\small
+\caption{Infinity at pass 200: \ev{REPRODUCED} groups, summarized by the accepted GPT review. Identifiers name components by one member, not leaders. Full membership appears in Appendix~\ref{app:members}.}
+\label{tab:groups}
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+Contains ID & $n$ & Mean $R$ & Mean $D$ & Diameter & Echo pairs\\\midrule
+0 & 11 & .146059866143 & .001054256443 & .022586620394 & 55\\
+3 & 13 & .176329058651 & .000820164853 & .026140059119 & 78\\
+4 & 10 & .157485460011 & .000689955883 & .026762032629 & 45\\
+7 & 10 & .144195034910 & .001177507802 & .028064726989 & 45\\
+10 & 6 & .107404757981 & .000775993576 & .017934296849 & 15\\
+\bottomrule\end{tabular}
+\end{table}
+
+\subsection{Near agreement is local, not whole-field equality}
+The final whole-field $R$ variance is approximately $0.000417872792$, while its within-group contribution in \eqref{eq:vardec} is only $2.746587\times10^{-20}$. The within-group fraction of total $D$ variance is approximately $5.50508\times10^{-9}$. Almost all displayed field-level spread is therefore the difference between group means. The record is near the component-uniform set explained by Proposition~\ref{prop:uniform}; it is not exactly on it.
+
+The historical note's statement that all fifty points have $R\simeq0.176329$ promotes a maximum to a universal value. Its own original CSV ends with maximum 0.176329059, mean 0.151203396 and standard deviation 0.020441937. These \ev{OBSERVED IN HISTORICAL DATA} values already contradict exact whole-field equality. The replay supplies the more detailed, five-level explanation; it does not retroactively supply an original five-group movie \cite{evidence5,review5}.
+
+\subsection{A small second channel remains active}
+Throughout the recorded replay $D$ stays positive and nonzero, between about $6.87983\times10^{-5}$ and 0.00313234. No sign change occurs in either field. $R$ has no lower or upper clipping events. $D$ has three lower clipping events, all at ID 12: inputs about 0.000121300 at pass 16, 0.000070150 at pass 17 and 0.000098146 at pass 18 are raised to $e^{-9}\simeq0.000123410$. There are no upper events. Initial values may be below that floor before the first compression; the floor is a property of the nonzero clipped output, not an initializer constraint.
+
+The endpoint ratio of squared sums is $3.712091\times10^{-5}$, whereas the norm ratio is about 0.00609269 and individual $D/R$ ratios span about 0.00438101--0.00816608. These are different measures of relative size. Independent compression does not make the smaller channel lose a competition with the larger one. The retained stage budget also shows that cross-channel updates persist (Figure~\ref{fig:stages}).
+
+For passes 181--200, the recorded per-coordinate spatial RMS contributions are approximately 0.00103042 from local movement, 0.00486735 from fusion and 0.00342111 from the positional residual. In the amplitude channels, the RMS local-exchange increments are about $4.16702\times10^{-10}$ for $R$ and $4.23058\times10^{-9}$ for $D$; the cross increments remain about $9.35428\times10^{-7}$ and $9.10503\times10^{-5}$ respectively. The direct $H$ increments round to zero in that window, while the $R$ sine contribution is about $1.09610\times10^{-4}$. These are measurements along the saved trajectory, not removal experiments or causal shares that can simply be added as independent effects \cite{analysis5}.
+
+\subsection{Finite stabilization with continued motion}
+Mean displacement magnitude at pass 200 is about 0.00949221 and the maximum is 0.01599619. The source's final-ten-pass coefficient of variation is about 0.05034\% for $R_{\max}$ but 1.219\% for $R_g$. Small variation in one scalar is not a fixed point of all positions and fields. The declining noise schedule is still nonzero at the endpoint, and deterministic fusion and cross-channel operations continue.
+
+The highest-$R$ identity changes among IDs 3, 11, 31, 32 and 45 in the last twenty passes. At the endpoint the largest two $R$ values differ by only about $6.03934\times10^{-13}$, and the full thirteen-point high-$R$ group spans approximately $4.79816\times10^{-12}$. Those small differences define an \texttt{argmax}; the update has no term that reads the resulting top-ID label. ID 31, top over passes 196--200, travels about 0.040128 in stepwise path length during that interval. Stable membership, amplitude agreement, ranking changes and continued motion are compatible observations, not contradictory descriptions.
+
+\clearpage
+\begin{figure}[p]\centering
+\includegraphics[width=\linewidth,height=.77\textheight,keepaspectratio]{figures/F01_SIM05_whole_field.png}
+\caption{Infinity's whole field at saved passes 0, 20, 100 and 200 of the accepted replay. \ev{REPRODUCED}. All 50 IDs retain their colors; late labels count distinct points within overlapping world-scale markers. Fixed world limits $[-5.5,5.5]$ and equal spatial aspect distinguish whole-field contraction from rescaling. The final five groups remain spatially separated; this is not a recovered historical movie. Exact membership is given in Appendix~\ref{app:members} \cite{analysis5}.}\label{fig:world5}
+\end{figure}\clearpage
+\plate{F05_SIM05_geometry_and_motion.png}{Infinity geometry and movement across the accepted 200-pass replay, including initial-state geometry where defined. \ev{REPRODUCED}. Original metric scales are retained: whole-field $R_g$/diameter, covariance fractions, weak/strong graph counts and displacement magnitude. Graphs use positions at each saved boundary; displacement refers to the preceding completed update. The five-way weak membership persists from pass 33, while motion and internal directed reorganization remain possible. No infinite-time conclusion follows \cite{analysis5,review5}.}{fig:geometry5}{}
+\plate{F02_SIM05_selected_groups.png}{Infinity selected-group geometry at passes 20, 100 and 200. \ev{REPRODUCED}. Upper panels follow the thirteen final high-$R$ IDs; lower panels follow $G_6$. Each view is centered and divided by that group's instantaneous $R_g$, with equal aspect and fixed normalized limits, without rotational alignment. The thirteen-ID selection at pass 20 is retrospective: it is not yet an isolated thirteen-point component. Normalized detail makes distinct points visible after world-scale markers overlap; it does not show actual group sizes on a common world scale \cite{analysis5}.}{fig:groups5}{}
+\plate{F03_SIM05_stages.png}{Infinity's retained stage decomposition, \ev{DERIVED FROM REPRODUCED STATES}, passes 1--200. Amplitude panels show stage increments. The schedule panel plots $c_p=0.08699\sin(0.244p+\pi/2)$; the actual cross multiplier is $g_p=0.01c_p$. The positional panel separates local, fusion and residual increments on its stated RMS convention. Logarithmic axes are retained. Local amplitude mixing becomes small within nearly uniform groups, while cross terms and motion persist. These are saved-trajectory budgets, not ablations or new simulations \cite{analysis5}.}{fig:stages}{}
+\plate{F04_SIM05_second_field.png}{Infinity's second real channel, \ev{REPRODUCED}, with the retained heatmap, extrema/ratio traces and endpoint $R$--$D$ scatter. Heatmap rows preserve stable IDs; endpoint scatter reflects all 50 points at pass 200, whose near agreement gives five amplitude levels. The channels stay positive in this finite record. The small ratio of squared sums is not a proof that $D$ is inactive or a physical energy fraction \cite{analysis5,review5}.}{fig:second}{}
+
+\section{What the observers actually measure}
+\label{sec:observers}
+The observation functions are separate from the movement rules. Names such as ``seed'', ``echo'', ``curvature'', ``energy'' and ``coherence'' must therefore be read through their implemented definitions. None adds a new point, force or edge to the recurrence.
+
+\subsection{Amplitude summaries, diagnostic energy and GRF}
+Seed Explorer's selected deep-analysis driver reports mean $|R|$, maximum $|R|$, population standard deviation of signed $R$, and
+\begin{equation}
+\operatorname{coh}_4=1-\frac{\operatorname{std}(R)}{\operatorname{mean}|R|+10^{-8}},\label{eq:coh4}
+\end{equation}
+with a special return value 1 when standard deviation is below $10^{-12}$. Infinity uses the same displayed fraction when mean absolute amplitude exceeds $10^{-12}$, returning 0 otherwise. Both selected drivers report mean absolute $R$ (\src{S4}{623--625,637--641}; \src{S5}{245--249}); their coherence special-case branches differ as stated above. The inspected fields are positive, but the distinction between signed amplitudes in the standard deviation and absolute amplitudes in the mean remains part of the source definition. A high score measures a small relative amplitude spread, not phase synchronization of a complex field.
+
+Seed Explorer's ``kinetic energy'' is
+\begin{equation}
+K_{\rm source}=N^{-1}\sum_i\|V_i\|^2.\label{eq:K}
+\end{equation}
+It has no source mass, physical time calibration or $1/2$ prefactor. Infinity records
+\begin{equation}
+E_D=\sum_iD_i^2,\quad E_R=\sum_iR_i^2,\quad q_E=\frac{E_D}{E_R+10^{-12}}.\label{eq:energy}
+\end{equation}
+The historical labels ``dark energy'' and ``matter energy'' name these squared sums. At pass 200 they are about $4.320937\times10^{-5}$ and 1.164016984. No conserved energy or action principle is implemented by this reporting. The ratio even increases on 96 of the 199 adjacent historical transitions despite its lower final value; an endpoint decline is not monotonic decay.
+
+Infinity's GRF is $\operatorname{GRF}_i=(1+\|V_i\|)^{-1}$; the reported mean is the average of these reciprocals, not the reciprocal of one plus mean speed. It does not damp movement in this selected core. The source's explanatory docstring is less precise than its implementation on this point.
+
+\subsection{Mixed-stage curvature, echoes and candidate points}
+At completed Infinity pass $p$, angular ``curvature'' uses vectors $X_{p,j}-X_{p,i}$ for neighbors $j$ selected from $X_{p-1}$. For each unordered pair of those vectors it forms
+\begin{equation}
+\theta_{jk}=\arccos\operatorname{clip}\!\left(
+\frac{(X_{p,j}-X_{p,i})\cdot(X_{p,k}-X_{p,i})}
+{\|X_{p,j}-X_{p,i}\|\|X_{p,k}-X_{p,i}\|+10^{-10}},-1,1\right),\quad
+\kappa_i=\operatorname{std}_{j<k}\theta_{jk}.\label{eq:curv}
+\end{equation}
+Fewer than two neighbors give zero. The code takes a standard deviation in radians, despite a comment describing variance. This is a local angle-spread statistic, not differential-geometric curvature of a reconstructed manifold.
+
+Infinity's echo score at pass $p$ is
+\begin{equation}
+e_{ij}^{(p)}=\left[1-\frac{|R_{p,i}-R_{p,j}|}{\max_k|R_{p,k}|+10^{-8}}\right]
+\exp[-d_{ij}^{(p-1)}/3],\qquad i<j.\label{eq:echo5}
+\end{equation}
+It counts scores strictly greater than 0.85, using incoming distances with outgoing amplitudes. Seed Explorer's selected driver instead evaluates echoes using outgoing distances, and the source denominator is signed $\max R$ rather than $\max|R|$. Positive recorded amplitudes make the latter denominator distinction inactive in these observations, but do not justify silently rewriting the functions.
+
+GPT's accepted endpoint pair-mask check shows that Infinity's 238 detections are exactly all internal unordered pairs of the five final groups:
+\begin{equation}
+238=\binom{11}{2}+\binom{13}{2}+\binom{10}{2}+\binom{10}{2}+\binom{6}{2}
+=55+78+45+45+15.\label{eq:238}
+\end{equation}
+It found zero missing internal pairs and zero cross-group detections, using pass-199 distances and pass-200 amplitudes; both boundaries share the same partition. Agreement of the individual pair masks supports this interpretation. Equality of totals alone, especially the original historical count alone, would not recover the partition. The observer's all-pair detections differ from the interaction graph, which still selects only five outgoing neighbors per point \cite{review5}.
+
+The Infinity candidate mask is
+\begin{equation}
+\frac{|R_{p,i}|}{\max_j|R_{p,j}|+10^{-10}}>0.66
+\quad\hbox{and}\quad \kappa_i>0.012.\label{eq:candidates}
+\end{equation}
+At pass 200 every point passes the curvature threshold (minimum approximately 0.244798), while precisely the six points of $G_6$ fail the amplitude condition, with ratios about 0.609115. Thus ``44 seed candidates'' means 44 selected points in four groups, not 44 separate bodies. The omitted six form the smallest-diameter final group. Amplitude selection and geometry remain different kinds of organization.
+
+\subsection{Shape labels and other historical interpretations}
+Seed Explorer's top-quartile amplitude selection yields thirteen points in every saved state. Its classifier reports ``higher\_polyhedra'' unconditionally for more than seven selected points (\src{S4}{257--265}); the label is not a fit to a solid. Infinity's separate shape driver also uses selected high-amplitude points and angle/moment tests. Appendix~\ref{app:audit} records its mathematical limitations and other source-label corrections. Those drivers were read as text, not executed for this manuscript or substituted for the selected trajectory.
+
+The operational interpretation is positive and specific: the models organize local distances, local exchanges and amplitude levels. The retained evidence does not establish dark matter, a condensate, a gravitational law, phase orthogonality, causal path inheritance or a derivation of the inserted master coefficient. Those identifications require definitions and evidence beyond the labels used in these programs.
+
+\section{Four reviewed mathematical explanations}
+\label{sec:math}
+The following results are expanded presentations of the accepted reviews \cite{review4,review5}. They concern exact real arithmetic under stated assumptions. Numerical agreement with those conditions in a finite record is reported separately. No new theorem or unreviewed extrapolation is introduced here.
+
+\begin{proposition}[Minimum isolated five-neighbor group]\label{prop:six}
+Suppose each point chooses five distinct non-self neighbors and a weak component has no selections crossing to or from its complement. It contains at least six points. If it contains exactly six, its directed graph has all 30 possible non-self selections.
+\end{proposition}
+\begin{proof}
+Choose any member $i$. Its five distinct neighbors must lie in the same component and differ from $i$, so the component contains at least six members. With exactly six members, there are only five possible non-self choices for each $i$; all must be selected. Counting five outgoing selections for each of six members gives 30.
+\end{proof}
+This is a combinatorial consequence of the neighbor rule, requiring no special coordinates. The six-point component observed in Seed Explorer realizes the minimum. It does not prove that such a component must form, that there must be five groups in Infinity, or that a six-point configuration has a universal solid shape. The distinct-neighbor assumption also keeps coincident-point sorting behavior outside the proposition.
+
+\begin{proposition}[Seed Explorer's normalized interval cannot expand]\label{prop:averaging}
+Let every incoming neighbor row be normalized with nonnegative weights, let all compressor inputs be positive and unclipped, and let the common scalar gain $a_p=m_ps_p$ be positive. Put $P_p=0.85I+0.15W_p$. Then the real-arithmetic recurrence is
+\begin{equation}
+R_p=a_pP_pR_{p-1}+\epsilon\one.\label{eq:affine}
+\end{equation}
+Define $A_0=1$, $b_0=0$, $A_p=a_pA_{p-1}$, $b_p=a_pb_{p-1}+\epsilon$, and $z_p=(R_p-b_p\one)/A_p$. Then $z_p=P_pz_{p-1}$, so $\min_i z_{p,i}$ cannot decrease and $\max_i z_{p,i}$ cannot increase.
+\end{proposition}
+\begin{proof}
+Equations~\eqref{eq:s4Q}--\eqref{eq:s4R} give \eqref{eq:affine} because the positive unclipped compressor adds $\epsilon$. The matrix $P_p$ is row stochastic, hence $P_p\one=\one$. Substituting $R_{p-1}=A_{p-1}z_{p-1}+b_{p-1}\one$ into \eqref{eq:affine} cancels the defined common offset and gain and gives $z_p=P_pz_{p-1}$. Every component is a convex combination of previous components and lies in their common interval. Taking minimum and maximum proves the claim.
+\end{proof}
+The accepted SIM04 record meets the positive, unclipped conditions; its normalized amplitude interval narrows by about 74.5393\%. The proposition explains smoothing even when instantaneous connectivity separates. It does not require a doubly stochastic matrix and therefore does not establish conservation of unweighted mean. It supplies neither monotonic raw variance nor an asymptotic consensus theorem. Common positive gains and offsets preserve rank within a pass, so immediate rank changes in this regime originate in local exchange. However, changing the schedule can change fusion and later geometry, hence later $W_p$. The normalization is not a trajectory obtained by turning $H$ off.
+
+\begin{proposition}[Mean displacement of the positive-resonance fusion stage]\label{prop:centroid}
+For positive post-$H$ amplitudes $U_i$, the center and displacements in \eqref{eq:fusion} obey
+\begin{equation}
+\frac1N\sum_iF_i=0.03\delta(\bar Y-c),\qquad \bar Y=N^{-1}\sum_iY_i.\label{eq:centroid}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Positivity makes $|U_i|=U_i$. Multiplying the center definition by its denominator gives $c(\sum_iU_i+N\delta)=\sum_iU_iY_i+\delta\sum_iY_i$. Rearrangement yields $\sum_iU_i(c-Y_i)=N\delta(\bar Y-c)$. Multiply by 0.03 and divide by $N$.
+\end{proof}
+This exact identity explains how appreciable inward displacements can have a very small arithmetic-center shift. The factor is $0.03\delta=3\times10^{-10}$. It is a statement about one stage, not physical momentum or energy conservation. Directed local movement and positional noise can move the total centroid. For mixed-sign $U$, the source center still uses $|U|$ while the displacement uses $U$, so the displayed identity does not hold in this form. We retain the reviewed SIM04 scope rather than claiming conservation for the complete model.
+
+\begin{proposition}[Infinity preserves exact component uniformity conditionally]\label{prop:uniform}
+Suppose a group has nonempty neighbor rows whose outgoing selections stay within the group. At an incoming boundary let all its members have $R_i=r$ and $D_i=d$. Define $g_p$ by \eqref{eq:g} and
+\begin{equation}
+a_p=[1+0.05H(p)/M]s_p,\qquad b_p=1+0.05H(p+\pi/2)/M.\label{eq:ab5}
+\end{equation}
+After one Infinity update every member has the common amplitudes
+\begin{equation}
+r'=\C\big(a_p(r+g_pd)\big),\qquad
+d'=\C\big(b_p(d+g_pr)\big).\label{eq:uniform}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Normalized weights over internal neighbors sum to one. They therefore return $r$ and $d$ exactly when applied to constant fields. Both local mixing differences in \eqref{eq:Q5}--\eqref{eq:E5} vanish, irrespective of internal distances. All members share $g_p$, the two scheduled multipliers and the same compressor, giving \eqref{eq:uniform}. Fusion and positional noise alter positions after the incoming graph is chosen but do not add a member-dependent amplitude operation in this pass.
+\end{proof}
+Changing internal geometry can coexist with exact amplitude agreement under these hypotheses. Applying the statement again requires closure and nonempty rows at the next boundary; the positional dynamics are not proved to maintain those conditions forever. The replay approaches very small within-group spreads without exact equality. The result neither proves attraction to this set nor reduces the full moving-point process to five autonomous two-variable systems: the global center, future graph and stochastic positions still matter. The source-only cross matrix $\left(\begin{smallmatrix}1&g_p\\g_p&1\end{smallmatrix}\right)$ is not an orthogonal rotation for nonzero $g_p$. A shifted sine argument does not make the two real channels orthogonal phases.
+
+\section{What the comparison establishes}
+\label{sec:comparison}
+These two programs belong in one paper because their common construction can be identified precisely. Both evolve persistent indexed points using geometry-dependent local exchange and a global weighted-center term, with explicit schedules and separate observation functions. The differences are equally precise (Table~\ref{tab:comparison}). They prevent treating the retained pair as a controlled experiment isolating one cause of the observed grouping.
+
+\begin{table}[ht]
+\centering\small
+\caption{Implementation comparison. Observed behavioral differences remain finite-record statements, not consequences proved by this table.}
+\label{tab:comparison}
+\begin{tabularx}{\linewidth}{@{}p{29mm}XX@{}}\toprule
+Mechanism & Seed Explorer & Infinity\\\midrule
+Selected record & 20 historical updates; full saved states & 200 historical aggregate rows; accepted full replay\\
+Initial state & $X\in[-5,5]^3$, $R\in[0,.1]$ & Same initial $X$; $R\in[0,.3]$, extra independent $D\in[0,.003]$\\
+Local graph & Rebuilt directed five-nearest & Same selection rule\\
+Local position & $.05\Delta+.15\tanh\Delta$ & Same operation\\
+Field mixing & $.15(W-I)R$ & $.15(W-I)R$, $.075(W-I)D$, symmetric cross terms\\
+$H$ normalization & Resampled on $[0,10p]$ each pass & Fixed sampled maximum on $[0,100]$\\
+Schedules & $H(p)$ and $R$ sine & Adds $H(p+\pi/2)$ and cross sine with different angular convention\\
+Fusion & One center using $|U|+10^{-8}$; signed $.03U$ & Same operation, with $U$ affected by $D$\\
+Compression & Signed $L=9$ map on $R$ & Same map separately on $R,D$\\
+Position noise & Constant standard deviation .01 & $.01/(1+.01p)$; extra initialization draws shift stream\\
+Velocity / boundary & Displacement only; no wrapping & Displacement only; no wrapping\\
+Echo timing & Current distances, current $R$ & Incoming distances, current $R$\\
+Observed local groups & $21+23+6$ at pass 20 & $11+13+10+10+6$ from pass 33 through 200\\
+\bottomrule\end{tabularx}
+\end{table}
+
+The same six IDs appear as a compact low-amplitude group in both studies, but initial amplitude scale, extra random consumption, schedule construction and noise strength differ. The available evidence does not isolate which change explains a difference in contraction or group separation. A stage budget describes operations along one trajectory; it does not reproduce the counterfactual trajectory that would result from removing an operation.
+
+The mechanisms also differ from the carried-velocity programs documented in Volume I. This is useful historical orientation, not a re-investigation of those experiments. The retained family map distinguishes moving-point models from fixed-grid, complex-linear and action-based formulations. Tower II, the other March variants, URF and the scientific physics/memory kernels remain outside the substantive claims of this volume \cite{families}. Their shared vocabulary does not identify their states or equations with the two recurrences reconstructed here.
+
+\subsection{What is understood, and what remains open}
+The source and finite evidence now support a direct account: local geometry selects exchanges; exchanges narrow amplitudes within interacting groups; schedules and fusion alter later geometry; and points can remain in motion while group-level amplitude differences persist. The accepted endpoint masks explain the strongest Infinity observer counts, and the reviewed propositions explain several mechanisms without recasting them as physical laws.
+
+Unresolved matters include Seed Explorer's historical positional draws, the lost full Infinity historical trajectory and environment, long-time behavior beyond the captured endpoints, and which mechanisms are causally necessary for a particular grouping. The current evidence also does not establish a unique spatial solid, physical field identification or universal definition of SRG. These limits do not prevent a complete account of what the selected source programs calculate and what their retained records show.
+
+A bounded next step is scientific review of this manuscript's transcription and interpretation. Any subsequent controlled numerical comparison or another simulation study requires its own order and scope. The manuscript does not depend on first expanding into Tower II, and no such expansion is part of this candidate.
+
+\appendix
+\section{Source locations and a paper reconstruction checklist}
+\label{app:locators}
+The relative source links \href{evidence/originals/SIM04/srg_seed_explorer.py}{\texttt{srg\_seed\_explorer.py}} and \href{evidence/originals/SIM05/srg_infinity.py}{\texttt{srg\_infinity.py}} resolve to unchanged copies under \texttt{evidence/originals/}. Line numbers below refer to those exact files. The machine-readable identities and evidence index are supplied beside the manuscript. For a manual update, retain the incoming arrays, construct the neighbor rows once, follow the stages in order, and only then record observers with their original staging. No execution is required to check that sequence.
+
+\small
+\begin{longtable}{@{}p{76mm}p{29mm}p{29mm}@{}}
+\caption{Exact source map; corrected SIM04 initialization locators are used only in this new manuscript.}\label{tab:locators}\\
+\toprule Operation & \textsf{S4} lines & \textsf{S5} lines\\\midrule\endfirsthead
+\toprule Operation & \textsf{S4} lines & \textsf{S5} lines\\\midrule\endhead
+$H$, signed RPCO, normalizer & 32--47 & 43--55\\
+Constructor and initial fields & 60--79 & 70--96\\
+SIM04 $N$, $V$, history, pass & 63, 66, 67, 68 & ---\\
+SIM04 initial recording / record method & 81 / 83--89 & ---\\
+SIM04 unused .618 and .087; echo threshold & 73--74; 79 & ---\\
+Nearest-neighbor selection & 91--98 & 98--104\\
+Local position differences & 100--109 & 106--112\\
+Incoming-state amplitude coupling & 111--124 & 114--137\\
+SIM04 echo function & 126--137 & ---\\
+Pass increment, graph, local movement & 139--149 & 162--171\\
+Mixing and $H$ schedules & 151--158 & 173--183\\
+Global center and fusion & 160--163 & 185--190\\
+$R$ sine; signed compression & 165--169 & 190--195\\
+Noise; displacement; recording & 171--178 & 198--205\\
+SIM04 ranked seeds; geometry labels & 185--201; 203--266 & ---\\
+SIM04 coherence; trajectory export & 268--274; 276--293 & ---\\
+Infinity GRF; angle spread & --- & 139--142; 144--160\\
+Infinity metrics, echoes, candidate mask & --- & 207--268\\
+Selected driver & 599--675 & 282--349\\
+SIM04 mean squared displacement & 631--632 & ---\\
+Other shape / memory / golden drivers & Other source sections & 356--470 / 477--540 / 547--619\\
+Other zeta / anatomy drivers & Other source sections & 626--701 / 708--815\\
+Main block (not executed) & 733--755 & 822--837\\
+\bottomrule
+\end{longtable}
+\normalsize
+
+\section{Detailed audit of historical labels}
+\label{app:audit}
+\paragraph{Shape classification.} Infinity's separate eigengeometry driver selects twelve high-$|R|$ points, centers their positions arithmetically, multiplies each relative vector by its amplitude magnitude $|R|$ and builds $I=\sum_i(\|u_i\|^2I_3-u_iu_i^T)$ from those vectors (\src{S5}{361--371,440--445}). It therefore weights the tensor by $R_i^2$, not by $R_i$ as a physical mass. Ordered eigenvalues $I_1\geq I_2\geq I_3$ of this positive construction satisfy $I_1\leq I_2+I_3\leq2I_2$. Its strict criterion $I_1/(I_2+10^{-10})>2$ for ``prolate'' cannot hold in exact arithmetic. A sufficiently resolved line-like set instead has two large equal moments and a small third, meeting the source's ``oblate'' style of ratio test rather than that prolate branch. The numerical guards must be retained when interpreting very small configurations. Overlapping angular windows and subset selection do not fit a unique solid \cite{evidence5,review5}.
+
+\paragraph{Memory-death report.} Another driver runs a different seed and disables the $H$ coefficient after 50 passes; a defined \texttt{H\_dead} function is unused. The variable named \texttt{dark\_at\_50} is assigned after the later evolution has completed, so its reported zero change compares the same endpoint rather than demonstrating an unchanged second field (\src{S5}{477--540}, especially line 531). This static source discrepancy is not a rerun or a result of the selected 200-pass trajectory.
+
+\paragraph{Golden and zeta terminology.} Separate drivers use different point counts, seeds or ranges and apply post hoc numerical windows. The selected Infinity movement has no golden-ratio term. Its literal 0.08699 enters \eqref{eq:g}; a later diagnostic called effective gamma is $0.05H/M$, a different expression. The code does not independently derive the supplied cross coefficient or identify a zeta zero as its cause (\src{S5}{547--701}).
+
+\paragraph{Anatomy and convergence.} The anatomy driver defines a radius by a distance percentile and a body by twice that radius, despite a comment invoking standard deviations; its fitted curves and chosen subset do not identify the whole field. The selected asymptotic driver's ``converged'' label uses small final-window scalar variation. Continued endpoint motion and group-to-group amplitude differences must remain part of the interpretation (\src{S5}{282--349,708--815}).
+
+\paragraph{Phase and energy.} The $\pi/2$ shift occurs in explicit real-valued schedules. It is not a complex-phase inner-product condition. ``Dark'' and ``matter'' squared sums are operational diagnostics \eqref{eq:energy}. No action, variational update or physical conservation statement follows from these names. The independent field compression, observer staging and inserted constants are retained exactly in this transcription.
+
+\section{Endpoint membership and evidence access}
+\label{app:members}
+\begin{table}[ht]
+\centering\small\caption{Exact Infinity final weak-component membership, unchanged from saved pass 33 through 200. Source: accepted review \texttt{final\_components.csv} and \texttt{findings.json}.}
+\begin{tabularx}{\linewidth}{@{}lX@{}}\toprule
+Group & Stable IDs\\\midrule
+Contains 0 & 0, 1, 2, 14, 17, 18, 20, 24, 25, 36, 37\\
+Contains 3 & 3, 5, 8, 11, 19, 23, 28, 31, 32, 38, 39, 43, 45\\
+Contains 4 & 4, 6, 12, 29, 34, 35, 40, 41, 42, 48\\
+Contains 7 & 7, 9, 13, 16, 21, 22, 26, 44, 46, 49\\
+Contains 10 & 10, 15, 27, 30, 33, 47\\
+\bottomrule\end{tabularx}
+\end{table}
+
+The package is self-contained. \href{EVIDENCE_INDEX.md}{\texttt{EVIDENCE\_INDEX.md}} maps relative files and exact archive members; \href{CLAIM_EVIDENCE_MATRIX.md}{\texttt{CLAIM\_EVIDENCE\_MATRIX.md}} connects the main claims to source lines, fixed saved records and review derivations. The immutable SIM04 input archive supplies the full first study. The immutable accepted SIM05 review archive includes the unchanged complete submission under \texttt{source\_package/}, including captured states, RNG checkpoints, analysis tables, figure sources and earlier verification scripts. Those scripts are historical methods for inspection, not commands executed in this manuscript assignment.
+
+The candidate's build instructions rebuild only the document. Its preservation receipt covers the actual inputs used; the scoped manifest covers the review payload without temporary renders or compiler caches. The editorial notes distinguish retained scientific verification from the new identity, citation and page-layout checks. Relative links work after extracting the review ZIP with its directory structure intact; some PDF viewers may require opening the linked Markdown file separately.
+
+\input{references.tex}
+\end{document}

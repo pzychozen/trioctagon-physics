@@ -1,0 +1,60 @@
+[
+  {
+    "id": "F01_recorded_overview",
+    "title": "Contraction and resonance smoothing over 20 recorded passes",
+    "classification": "new visualization of historical data",
+    "caption": "All points are saved states; pass 0 metrics are newly calculated, while passes 1–20 reproduce the original aggregate CSV. Panel D excludes the initialization V=0 to avoid presenting its first step as spontaneous acceleration of retained momentum. No physical-energy units are implied.",
+    "inputs": [
+      "originals/deep_trajectory.csv",
+      "originals/pass_metrics.csv",
+      "analysis/state_summary.csv"
+    ],
+    "files": [
+      "F01_recorded_overview.png",
+      "F01_recorded_overview.svg"
+    ]
+  },
+  {
+    "id": "F02_position_views",
+    "title": "The same 50 points, viewed on fixed coordinate scales",
+    "classification": "new visualization of historical data",
+    "caption": "Orthographic XY/XZ projections at passes 0, 10 and 20. Color uses the fixed resonance scale 0–0.1 (dark purple to yellow); gray segments connect consecutive recorded samples and do not reveal motion between passes. Projection overlap does not imply 3D coincidence. No wrapping or per-panel rescaling is used.",
+    "inputs": [
+      "originals/deep_trajectory.csv"
+    ],
+    "files": [
+      "F02_position_views.png",
+      "F02_position_views.svg"
+    ]
+  },
+  {
+    "id": "F03_identifiable_episodes",
+    "title": "Stable rank, continued movement, and close pairs",
+    "classification": "new visualization of historical data",
+    "caption": "Rank is an observer, not leadership or a force. Final top-three IDs 38, 23, 8 have pair distances 0.0340–0.0677 at pass 20, still distinct. The first echo pair is 5/43, not the highest-resonance glyph. Echo counts do not drive the update.",
+    "inputs": [
+      "originals/deep_trajectory.csv",
+      "analysis/final_triad_history.csv",
+      "analysis/first_corridor_history.csv",
+      "analysis/state_summary.csv"
+    ],
+    "files": [
+      "F03_identifiable_episodes.png",
+      "F03_identifiable_episodes.svg"
+    ]
+  },
+  {
+    "id": "F04_terms_and_neighbors",
+    "title": "Smoothing does not make the neighbor graph one connected group",
+    "classification": "new visualization of historical data",
+    "caption": "A: algebraic terms read each stored incoming state independently; no output advances a trajectory. Residual contains the unsaved random increment and numerical/provenance uncertainty. D: newly introduced graph diagnostics; weak ignores edge direction, strong requires directed reachability. Global fusion still couples all points even when this local graph splits. Graph at pass 20 is diagnostic only; no pass-21 transition is present.",
+    "inputs": [
+      "analysis/transition_checks.csv",
+      "analysis/state_summary.csv"
+    ],
+    "files": [
+      "F04_terms_and_neighbors.png",
+      "F04_terms_and_neighbors.svg"
+    ]
+  }
+]
