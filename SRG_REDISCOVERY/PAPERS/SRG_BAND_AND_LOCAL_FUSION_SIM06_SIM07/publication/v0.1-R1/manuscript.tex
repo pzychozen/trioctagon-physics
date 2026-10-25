@@ -1,0 +1,306 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm,headheight=15pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{texgyrepagella}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\setsansfont{texgyreheros}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\setmonofont{lmmono10-regular.otf}[Scale=0.86]
+\usepackage{amsmath,amssymb,booktabs,longtable,tabularx,array,graphicx}
+\usepackage{pdflscape,caption,fancyhdr,xcolor,enumitem,float}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{hyperref,xurl}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black,
+pdftitle={SRG Simulation Reconstruction — Volume III: Band-Wide and Ordered Local Fusion},
+pdfauthor={Hilmir Frímann Halldórsson; scientific lead GPT; manuscript preparation Codex},
+pdfsubject={Candidate v0.1 for internal review; not publication-approved}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small SRG reconstruction: Tower II and Universe}
+\fancyhead[R]{\small Candidate v0.1}
+\fancyfoot[C]{\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{2em}
+\renewcommand{\arraystretch}{1.18}
+\captionsetup{font=small,labelfont=bf}
+\setlist{nosep,leftmargin=*}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\ev}[1]{\textsf{\small #1}}
+\newcommand{\src}[2]{\textsf{#1:#2}}
+\newcommand{\R}{\mathbb R}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\clip}{\operatorname{clip}}
+\newcommand{\mean}{\operatorname{mean}}
+\newcommand{\sd}{\operatorname{std}}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\plate}[3]{\par\begin{figure}[!tbp]\centering
+\includegraphics[width=\textwidth,height=.77\textheight,keepaspectratio]{#1}
+\caption{#2}\label{#3}\end{figure}\par}
+\newcommand{\wideplate}[3]{\clearpage\begin{landscape}\begin{figure}[!ht]\centering
+\includegraphics[width=\linewidth,height=140mm,keepaspectratio]{#1}
+\caption{#2}\label{#3}\end{figure}\end{landscape}\clearpage}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\vspace*{14mm}
+{\sffamily\large SRG SIMULATION RECONSTRUCTION\par}
+\vspace{7mm}{\sffamily\Huge Volume III\par}
+\vspace{8mm}{\sffamily\LARGE Band-Wide and Ordered Local Fusion\\[4pt]in Tower II and Universe\par}
+\vspace{12mm}{\large Hilmir Frímann Halldórsson\par}
+Author and research director\\
+Scientific lead and reviewer: GPT\\
+Research engineering and manuscript preparation: Codex
+\vspace{9mm}
+
+\textbf{Candidate v0.1 · 25 October 2026}\\
+For GPT and Hilmir's scientific review. Volume number provisional.\\
+This candidate has not been accepted for publication.
+
+\vspace{8mm}\textbf{Abstract}\par
+Two historical SRG programs move indexed points through local geometry changes, real-amplitude exchange, prescribed time modulation, center-directed displacement, signed compression and positional noise. Tower II calculates one weighted center for each permanently assigned band. Universe, when its horizon is finite, calculates a different local center at each ascending point ID and reads coordinates already changed earlier in that pass. This reconstruction makes those dependencies explicit and connects them to accepted records. Tower II's local graph separates while its band-center dependency union remains weakly connected throughout 600 inspected incoming boundaries. Universe's accepted 200-pass replay retains ten spatial-observer memberships from pass 16 onward, yet its selected edges and individual positions continue changing. Captured operands identify actual earlier writes in later centers; they do not measure a reversed-order alternative. Historical summaries, reproduced coordinates and reviewed mathematical identities are distinguished throughout. Results and figures are reused from three accepted internal reviews. Manuscript preparation introduces no simulation, numerical scientific rerun or new physical assumption.
+
+\vfill\small
+Historical source headers credit \emph{Claude (collaborating with pzychozen)} and state 14 March 2026. This attribution is preserved; it is not a verified execution chronology. Internal GPT acceptance of supporting studies is distinct from external peer review.
+\end{titlepage}
+\hypersetup{pageanchor=true}
+\tableofcontents\clearpage
+\section{What exists in these simulated worlds}\label{sec:orientation}
+A point has a permanent row number, three coordinates and one real number called its resonance. Each update changes coordinates and resonance. The row number stays with the point even when plotted markers overlap. A group can mean points assigned the same frequency, points that started near one another, points connected by current neighbor selections, or points joined by a separate clustering measurement. Those definitions answer different questions.
+
+The positive question of this volume is how geometry and amplitude evolution are connected by the centers that the programs actually calculate. In Tower II, all members of an assigned band contribute to a common center even when they occupy separate local neighborhoods. In finite-horizon Universe, a point uses only its selected neighbors; its center reads positions available at the instant its row is updated. Earlier rows may already have moved.
+
+Figure~\ref{fig:towerworld} distinguishes visible concentration from retained identity. The same 80 Tower II rows are drawn at every boundary. Late marker overlap is a limitation of display scale, not a deletion or merger. Universe's world view appears in Figure~\ref{fig:uworld}; its populations remain far apart while smaller pieces gather within them.
+
+\textbf{Conceptual route.} Read this section, the captions, Sections~\ref{sec:towerobs}, \ref{sec:original}, \ref{sec:umotion} and \ref{sec:comparison}. Motion episodes explain what the records establish before broader interpretation.
+
+\textbf{Exact route.} Sections~\ref{sec:common}, \ref{sec:tower}, \ref{sec:universe} and \ref{sec:observers} specify snapshot timing, branches and equations. Section~\ref{sec:fidelity} separates recording fidelity from historical agreement. Appendix~\ref{app:evidence} and the claim matrix identify source files, retained tables and archived operands.
+
+\begin{table}[H]\centering\small
+\begin{tabularx}{\textwidth}{p{30mm}X}
+\toprule Term & Meaning used here\\\midrule
+Point / ID & Persistent array row; \(X_i\in\R^3\), \(R_i\in\R\).\\
+Band & Tower II's fixed assignment \(b_i\), with supplied frequency \(\omega_i\).\\
+Population & Universe's supplied 20-ID block P0--P5, used for description, not as a coupling label.\\
+Selected neighbor & A row selected from incoming distances, at most five per point.\\
+Weak / strong component & Connected ignoring edge direction / mutually reachable through directed selections.\\
+Spatial-observer group & Universe's average-linkage partition at cut distance 2, measured after an update.\\
+Fusion & Source name for center-directed position displacement with a signed amplitude coefficient.\\
+Velocity \(V\) & Last completed displacement; never consumed as momentum by the next update.\\
+Boundary / pass & Boundary \(s\) is the state after \(s\) updates; pass \(p\) takes boundary \(p-1\) to \(p\).\\
+\bottomrule\end{tabularx}
+\caption{Definitions separating the different meanings of motion and grouping.}
+\end{table}
+
+\wideplate{evidence/S6/source_package/figures/F01_fixed_world.png}
+{\ev{REPRODUCED / DERIVED}. Tower II, seed 2038, 80 fixed IDs colored by assigned band. The accepted plot shows boundaries 0, 20, 100, 200, 400 and 600 on equal axes with fixed limits \(\pm5.5\) and camera. Boundaries 0--200 are a later reproduction under the historical configuration; 400 and 600 belong to the existing R1 extension. No original 600-pass coordinates were recovered. Late overlap hides small separations and motion. S6 F01, unchanged; retained R1 coordinates and S6 geometry~\citep{s6study,s6review}.}
+{fig:towerworld}
+
+\section{Evidence, provenance and scope}\label{sec:evidence}
+Six labels apply to prose, equations, tables and captions:
+\begin{description}[style=nextline,leftmargin=0pt,labelindent=0pt]
+\item[\ev{ORIGINAL}] Unchanged historical source, numerical file or narrative.
+\item[\ev{ATTRIBUTED}] Configuration, motivation, date or interpretation stated by a source or narrative.
+\item[\ev{OBSERVED IN HISTORICAL DATA}] Values or relationships in retained original numerical outputs.
+\item[\ev{REPRODUCED}] States and outputs from a later source-faithful execution with its recorded environment.
+\item[\ev{DERIVED}] Reviewed source transcription, identity or passive description of specified records. Its input evidence class remains explicit.
+\item[\ev{UNRESOLVED}] A question the source and finite evidence do not settle.
+\end{description}
+These labels do not imply that a reproduction replaces an original. Source determines operations; original tables determine what numbers survive; reproduced records reveal the later realization; accepted reviews qualify interpretation.
+
+The three accepted archives are S6 (Tower II construction and fixed-record analysis), S7C (Universe construction and original aggregates), and S7R (Universe finite replay). They contain submitted material unchanged together with GPT's independent review and additional findings~\citep{s6review,s7creview,s7rreview}. References are self-contained research sources. Acceptance is internal scientific review, not external peer review. This manuscript is a new candidate.
+
+\begin{table}[H]\centering\small
+\begin{tabularx}{\textwidth}{p{28mm}X X}
+\toprule & Tower II & Universe\\\midrule
+Original program & 842 lines; 34,980 bytes & 778 lines; 30,165 bytes\\
+Original data & Seven breathing-setting summary rows & Five CSVs, 233 rows; main table \(200\times15\)\\
+Selected setting & \(N=80\), four bands, seed 2038, width 2, \(\epsilon=1\), no horizon & \(N=120\), seed 1618, six populations, \(h=6\), assigned frequencies, breathing\\
+Historical duration & 200 passes; no individual coordinates & 200 passes, rows 1--200; no individual coordinates\\
+Detailed record & Existing R1 boundaries 0--600; extension after 200 & Reference and capture, each boundaries 0--200\\
+Current drafting & No new updates or scientific reruns & Same zero-execution boundary\\
+\bottomrule\end{tabularx}
+\caption{Evidence windows. Universe's twins validate recording of one setting; they are neither independent trials nor a single 400-pass trajectory.}
+\end{table}
+
+Tower II's record was selected through the retained R1 index, not a search for a preferred shape. Its 601 boundaries contain 48,080 point-state rows. The comparison window ends at 200; the same engine continues in the already existing record to 600. SIM06 only inspected that record. Its graph analysis covers incoming boundaries 0--599 supplying passes 1--600.
+
+Universe's historical main table contains no boundary-zero observer row. The accepted replay executed exactly two initializations and 400 total updates: one 200-pass reference and one matching 200-pass capture. Each contains 24,120 point-state rows. Captured incoming graphs cover 0--199. Neither boundary 200's next graph nor pass 201 was evaluated~\citep{s7rprovenance,s7rreview}.
+
+Headers and narratives state 14 March 2026 and credit Claude collaborating with pzychozen~\citep{towernote,universenote}. Names such as Part II and Infinity convey intended relationships; they do not certify invention order, runtime dates or identity of engines. Study numbers record investigation order. No wider archive chronology is manufactured here.
+
+\section{Shared state, clock and stage notation}\label{sec:common}
+Let \(X=X_{p-1}\), \(R=R_{p-1}\) denote incoming arrays. Both engines increment an integer counter once per direct update call and set \(t=\operatorname{float}(p)\). There is no separate \(dt\), animation callback clock, wrapping or boundary wall. Initialization ranges are sampling ranges. Anchors are \src{T}{129--216} and \src{U}{155--203}; T and U identify unchanged originals~\citep{towersource,universesource}.
+
+We use \(Y\) for post-local positions, \(B\) for amplitudes after exchange and model-specific additions, \(Q\) for post-\(H\), pre-compression amplitudes, and \(Z\) for post-fusion, pre-noise positions:
+\begin{equation}\label{eq:stages}
+\begin{gathered}
+(X,R)\longrightarrow(d,\mathcal N)\longrightarrow Y,\qquad
+R\longrightarrow B\longrightarrow Q,\\
+(Y,Q,\mathcal N)\longrightarrow Z,\qquad
+R_p=\operatorname{RPCO}_{L_p}(Q),\\
+X_p=Z+\xi_p,\qquad V_p=X_p-X.
+\end{gathered}
+\end{equation}
+This is conceptual ordering, not spatial geometry. Tower II obtains its bound before the graph; Universe obtains its time-only bound after fusion. Both fuse using \(Q\), not final \(R_p\).
+
+For selected neighbors \(\mathcal N_i\),
+\begin{align}
+\ell_i&=\begin{cases}
+|\mathcal N_i|^{-1}\displaystyle\sum_{j\in\mathcal N_i}(X_j-X_i),&
+\mathcal N_i\ne\varnothing,\\0,&\mathcal N_i=\varnothing,
+\end{cases}\label{eq:lap}\\
+Y_i&=X_i+0.05\ell_i+0.15\tanh(\ell_i).\label{eq:local}
+\end{align}
+Tanh is componentwise. Every \(\ell_i\) is formed from incoming \(X\) before the simultaneous array addition. No amplitude or inverse-distance weights enter this position mean.
+
+Both sources use
+\begin{align}
+H(t)&=2e^{-0.5t}\cos t+e^{-0.3t}\sin t+
+1.5e^{-0.7t}+e^{-0.4t},\label{eq:H}\\
+H_{\max}&=\max_{t\in\mathcal T}|H(t)|+10^{-12},\quad
+\mathcal T=\operatorname{linspace}(0,100,50000),\label{eq:Hmax}\\
+Q_i&=B_i[1+0.05H(p)/H_{\max}].\label{eq:Q}
+\end{align}
+This normalization is a sampled maximum; its retained value is \(4.500000000001\), not newly evaluated here. The source calls the stage memory, but it evaluates prescribed integer time, not a history convolution. \(H\)'s sine/cosine use argument \(t\); the label-specific sine uses \(2\pi\omega_i p\). These angular conventions remain distinct.
+
+The signed compressor and positional noise are
+\begin{align}
+\operatorname{RPCO}_L(q)&=\sgn(q)\exp\{\clip[\log(|q|+10^{-9}),-L,L]\},\label{eq:rpco}\\
+\xi_{p,id}&\sim\mathcal N(0,\sigma_p^2),\qquad
+\sigma_p=\frac{0.01}{1+0.01p},\quad d=1,2,3.\label{eq:noise}
+\end{align}
+The distribution describes the historical call, not draws performed here. Declining positional noise is not velocity damping. Continuation requires \(X,R,p\), fixed labels/configuration and RNG state; diagnostic \(V\) and histories do not steer the next pass. No implemented energy or action functional governs these stages.
+
+\section{Tower II: a complete pass on paper}\label{sec:tower}
+\subsection{Initialization and selection}
+The constructor \src{T}{62--109} optionally seeds NumPy's global legacy stream, draws uniform \(X\), then uniform \(R\), and sets \(V=0,p=0\). Defaults are coordinate range \([-5,5]\), amplitude range \([0,0.3]\). For \(n_b\) bands it takes the integer list from \(-\lfloor n_b/2\rfloor\) to \(+\lfloor n_b/2\rfloor\), truncated to \(n_b\) entries, and assigns frequencies \(0.244\phi^n\), where \(\phi=(1+\sqrt5)/2\). It shuffles a repeated \(i\bmod n_b\) allocation once. Selected \(N=80,n_b=4\) gives 20 IDs per band and exponents \(-2,-1,0,1\). Labels never evolve.
+
+Before distances, breathing sets
+\begin{equation}\label{eq:LT}
+L_p=9\left(1+\epsilon\,N^{-1}\sum_i|R_i|\right),\qquad
+\epsilon=1\text{ in the selected setting}.
+\end{equation}
+It reads incoming \(R_{p-1}\). Off means \(L=9\); enabled values are appended to history. \(L\) is overwritten, not integrated as an independent oscillator.
+
+Distances are \(d_{ij}=\norm{X_j-X_i}\). With finite horizon, candidates satisfy strict \(d_{ij}<h\), self is explicitly removed, and nearest five or fewer are selected. Without a horizon the source uses \texttt{argsort(dists[i])[1:6]} (\src{T}{111--127}), assuming the first sorted entry is self rather than explicitly excluding it. The accepted selected record has no self-selections or fifth/sixth cutoff ties; this does not repair the general coincidence caveat. Later loops recover selected IDs in ascending ID order with \texttt{where(adj[i]>0)}. Equations~\eqref{eq:lap}--\eqref{eq:local} give \(Y\).
+
+\subsection{Exchange, imposed sine and additive terms}
+Initialize \(B=R\). For nonempty rows,
+\begin{equation}\label{eq:TW}
+u_{ij}=\frac{\exp[-c_w\{\log(\omega_j/\omega_i)\}^2]}{d_{ij}+10^{-8}},
+\qquad S_i=\sum_{j\in\mathcal N_i}u_{ij}.
+\end{equation}
+If \(S_i<10^{-10}\), skip the entire amplitude row; equality is active. Otherwise \(W_{ij}=u_{ij}/S_i\). Selected width \(c_w=2\) differs from default 3. Decreasing width broadens the raw log-frequency preference.
+
+The first row operations are
+\begin{align}
+A_i&=R_i+0.15\left(\sum_jW_{ij}R_j-R_i\right),\\
+B_i^{(0)}&=A_i[1+0.01\sin(2\pi\omega_i p)].\label{eq:Tsine}
+\end{align}
+All right-hand sides read incoming \(R\). Additions then occur \emph{after} the sine (\src{T}{169--188}). For each selected \(j\) with \(|\omega_i-\omega_j|>0.01\), visit \(q=-2,-1,1,2\) and add
+\begin{equation}\label{eq:phi}
+M^\phi_{ijq}=\eta e^{-5\{\log(\omega_i/\omega_j)-\log(\phi^q)\}^2}R_j .
+\end{equation}
+For that same \(j\), set \(f_+=\omega_i+\omega_j\), \(f_-=|\omega_i-\omega_j|\); for every catalogue target \(f\), in catalogue order, add
+\begin{align}
+M^+_{ijf}&=\tfrac12\eta R_j\,\mathbf1_{\{|f_+-f|/f<0.2\}},\\
+M^-_{ijf}&=\tfrac12\eta R_j\,\mathbf1_{\{f_->0.01\}}
+                             \mathbf1_{\{|f_--f|/f<0.2\}}.\label{eq:sumdiff}
+\end{align}
+Thus active \(B_i=B_i^{(0)}+\sum M^\phi+\sum(M^++M^-)\), with all additions under the outer unequal-frequency condition. Selected \(\eta=0.001\) is the default. Every qualifying target accumulates; matches are not exclusive and donors are not debited. Empty or guard-skipped rows retain \(R_i\), skipping sine and additions. The array is installed after all rows.
+
+The equations retain mathematical terms; exact floating evaluation keeps the source's loop and reduction order. At frozen geometry, frequencies and pass, these terms are linear in incoming \(R\). The historical label nonlinear mixing does not override that conditional fact. The full moving system is nonlinear through geometry, selection, tanh, magnitude weights and compression. Additions do not create evolving frequency labels or establish a conserved energy transfer~\citep{s6review,s6study}.
+
+\subsection{Band centers and completed observers}
+After Equation~\eqref{eq:Q}, each fixed band \(G_b\) with at least two members computes one center:
+\begin{align}
+c_b&=\frac{\sum_{j\in G_b}(|Q_j|+10^{-8})Y_j}
+          {\sum_{j\in G_b}(|Q_j|+10^{-8})},\label{eq:Tcenter}\\
+Z_i&=Y_i+0.02Q_i(c_b-Y_i),\qquad i\in G_b.\label{eq:Tfusion}
+\end{align}
+Singletons skip this stage. A center includes self and every band member regardless of local components or horizon. It is computed once before the inner writes. Earlier bands cannot change this band's operands because the bands are disjoint. It is neither one global center nor a sequentially recomputed local center.
+
+Magnitude \(Q\) determines positive center weights; signed \(Q_i\) determines displacement direction. Positive \(Q_i\) points toward the center, but convex interpolation also requires \(0\le0.02Q_i\le1\). Negative values move away and sufficiently large positives overshoot. The retained selected record lies in the positive small-coefficient regime; the implementation allows others.
+
+Compression uses \(L_p\), noise is added, \(V=X_p-X\) is stored and completed arrays are measured (\src{T}{209--250}). Band summaries include mean/max/std of \(|R|\), count, frequency/index, coherence and mean GRF. Coherence is
+\begin{equation}\label{eq:lock}
+C_b=1-\frac{\sd_{i\in G_b}|R_{p,i}|}
+              {\mean_{i\in G_b}|R_{p,i}|+10^{-10}}.
+\end{equation}
+First \(C_b>0.7\) with mean \(|R|>0.01\) is retained as lock time. It is an amplitude threshold, not a positional stop. Global metrics include mean/max \(|R|\) and count of band means above 0.01. R1's extra squared-amplitude sum is diagnostic, not an established energy.
+
+\subsection{Other drivers in the complete source}
+The selected breathing driver (\src{T}{376--472}) uses seven \(\epsilon\) values, 200 passes each, and writes the original seven-row table. None is run here. Other sections matter because their names can be mistaken for recurrence mechanisms.
+
+The master-equation driver (\src{T}{262--368}) evolves first, then calculates
+\[
+\gamma_{\rm pred}(\omega)=
+\frac{\zeta(2\log_\phi(\omega/0.244)+3)}{\pi e\phi}
+\]
+when the zeta argument exceeds 1.01, and compares it with lock times. It is not an update coefficient. The frequency-generation driver (\src{T}{480--588}) analyzes amplitude spectra under different addition strengths; assigned labels stay fixed. Its line-552 modulo test is not a general correct fold onto a real sampled spectrum's Nyquist interval. This is a retained interpretive limit, not a new spectral audit.
+
+The tunneling driver (\src{T}{596--744}) changes bridge populations and bands, settles 50 passes, triples one population's amplitudes and records 100 more. Band centers remain available across local separation and no unperturbed paired response is supplied. The label does not establish isolated signal transmission. The phase-diagram driver (\src{T}{752--821}) summarizes band counts and widths. The main block invokes all five; the original has no animation/rendering routine. These complete-source distinctions supply context without new outcome analysis.
+
+\section{Tower II: what the saved motion establishes}\label{sec:towerobs}
+\subsection{Gathering across fixed bands}
+The accepted R1 local graph starts as one weak/strong component and first weakly splits at boundary 10. At boundary 20 its six weak components have 14,6,10,8,10,32 members and each contains all four bands. Spatial gathering does not immediately form four band objects.
+
+IDs 4,8,9 were chosen as the first three band-0 IDs, not by searching for behavior. At 20, ID 4 is in an eight-point local component; 8 and 9 are in the 32-point component. All three still enter one band-0 center. At 200, band 0's induced local graph has nine weak pieces. The whole graph has 400 directed selections: 138 same-band and 262 cross-band. That graph supplies existing R1 extension pass 201, not an additional historical update~\citep{s6study,s6review}.
+
+\begin{table}[H]\centering\small
+\begin{tabular}{rrrrr}\toprule
+Boundary & Whole \(R_g\) & Band-0 \(R_g\) & Mean \(|R|\) & Mean completed step\\\midrule
+0 & 5.2615661 & 5.1145139 & .151692819 & 0 (initial \(V\))\\
+20 & 4.2927015 & 4.2177045 & .181526538 & .05595313\\
+200 & 1.3528301 & 1.2898877 & .548983269 & .01440317\\
+600 (extension) & .05499544 & .01749509 & 2.182252330 & .00252415\\
+\bottomrule\end{tabular}
+\caption{\ev{REPRODUCED / DERIVED}. Rounded accepted summaries from S6 \protect\path{independent/FINDINGS.json}; endpoint reduction is not monotonicity.}\label{tab:Towergeometry}
+\end{table}
+
+Whole radius falls 74.29\% from 0 to 200 and 98.95\% from 0 to 600. Over 200--600, band 0's radius decreases by a factor about 73.73 while its arithmetic center translates only about 0.096678 between endpoints. Spread and center translation are different measurements. Mean completed step remains 0.00252415 at 600, maximum 0.00468384.
+
+\wideplate{evidence/S6/source_package/figures/F02_band_and_point_detail.png}
+{\ev{REPRODUCED / DERIVED}. Top: band 0 at 20,200,600 centered and divided by its current arithmetic \(R_g\), fixed normalized limits, no fitted rotation; printed radii disclose actual contraction. Bottom: IDs 4,8,9 over 0--20,20--200,200--600, equal aspect but separately disclosed world spans. Hollow markers start, filled markers end. Lines join saved samples only. Last interval wholly R1 extension. S6 F02, unchanged~\citep{s6study}.}
+{fig:towerdetail}
+
+\subsection{Local separation with persistent band dependencies}
+The late example is incoming boundary \textbf{599}, supplying pass \textbf{600}:
+\begin{table}[H]\centering\small
+\begin{tabularx}{\textwidth}{r rrrr X}\toprule
+Size & Band 0 & Band 1 & Band 2 & Band 3 & Band-0 IDs\\\midrule
+41 & 1 & 20 & 0 & 20 & 62\\
+22 & 2 & 0 & 20 & 0 & 25,74\\
+17 & 17 & 0 & 0 & 0 & 4,8,9,11,12,15,17,18,20,31,34,45,55,57,66,67,70\\
+\bottomrule\end{tabularx}
+\caption{\ev{REPRODUCED / DERIVED}. Exact accepted boundary-599 composition. Band 0 spans all three local components. Complete memberships: S6 \protect\path{independent/FINDINGS.json}, \protect\path{snapshot_graphs/599}.}\label{tab:bridge}
+\end{table}
+GPT's additional accepted analysis takes the union of local directed selections and all ordered distinct same-band pairs. That analysis-only dependency graph is weakly connected at \emph{all 600} inspected incoming boundaries. Its strong-component count ranges from one to three; at 599 it is two~\citep{s6review}.
+
+The union describes dependencies already in Equations~\eqref{eq:TW}--\eqref{eq:Tfusion}; it adds no evolution edges. It is not a full state-variable Jacobian, a measurement of every edge's nonzero influence, physical propagation speed or universal strong connectivity. Local component separation alone cannot establish independence of the full Tower II update.
+
+\subsection{Within-band spread and center separation}
+With arithmetic whole center \(\mu\), arithmetic band centers \(\mu_b\), and counts \(n_b\),
+\begin{align}
+R_g^2&=N^{-1}\sum_i\norm{X_i-\mu}^2=W+B_{\rm ctr},\label{eq:variance}\\
+W&=\sum_b\frac{n_b}{N}\frac1{n_b}\sum_{i\in G_b}\norm{X_i-\mu_b}^2,\nonumber\\
+B_{\rm ctr}&=\sum_b\frac{n_b}{N}\norm{\mu_b-\mu}^2.\nonumber
+\end{align}
+\(B_{\rm ctr}\) is descriptive variance, distinct from stage amplitude \(B_i\). Write \(X_i-\mu=(X_i-\mu_b)+(\mu_b-\mu)\), expand the square and sum within each band. The cross term vanishes since \(\sum_{i\in G_b}(X_i-\mu_b)=0\). The weights preserve point counts. These arithmetic centers differ from the \(Q\)-weighted fusion centers.
+
+The between-center fraction increases from 3.78\% initially to 6.66\% at 200 and 96.65\% at 600, while \emph{both} absolute variance terms decrease. Most remaining late spread lies between compact bands; the fraction does not show centers separating farther. Figure~\ref{fig:towerdiag} plots radii whose squares add.
+
+Lock times are band 2 at pass 3, band 3 at 4, band 1 at 5, band 0 at 7, all before the first weak split at 10. The amplitude-threshold chronology is neither a geometric formation time nor the end of motion.
+
+\plate{evidence/S6/source_package/figures/F03_geometry_and_diagnostics.png}
+{\ev{REPRODUCED / DERIVED}. S6 F03, unchanged. Shading after 200 marks R1 extension. Upper left: \(R_g,\sqrt W,\sqrt{B_{\rm ctr}}\), whose squares add. Upper right: separate axes for mean \(|R|\) and \(L_p\), which reads state \(p-1\). Middle: incoming graphs 0--599. Bottom: arithmetic-center translations and completed steps. Continued motion persists below world-marker scale~\citep{s6study,s6review}.}
+{fig:towerdiag}
+
+\subsection{Reading the original breathing row}
+The original \(\epsilon=1\) row records final mean \(|R|=0.5489832686504329\), four surviving bands, mean \(L=11.905260171214326\), population std \(0.9892193445854098\), range \(3.5626358780586127\), and dominant frequency \(1/150\). All seven rows share final mean amplitude and band count. Summary equality alone would not prove path equality.
+
+Retained R1 gives stronger path-specific evidence: selected \(\epsilon=0/1\) pairs have identical saved \(X,V,R\) paths and no clipping activation. Its dominant bin follows changed window lengths. The historical driver uses \(L[50:]\): 150 readouts at passes 51--200, reading states 50--199. Its detrending subtracts only a mean. After a std guard it flags oscillation if the largest non-DC power exceeds 1\% of total. In exact mean-zero arithmetic 75 non-DC bins have a maximum at least \(1/75>1\%\) of nonzero total. This reviewed argument identifies a weak oscillator test, not a new FFT result.
+
+The affine readout, inactive clipping on tested paths, and window-dependent bin do not establish an independent self-sustaining 150-pass field. Earlier R2 controls remain retained context for additions and compaction; none is rerun. Separate R3 material retains its review status and is not promoted to accepted science.
+\input{universe_sections}
+\input{closing_sections}
+\clearpage{\raggedright\bibliographystyle{plainnat}\bibliography{references}}
+\end{document}
+

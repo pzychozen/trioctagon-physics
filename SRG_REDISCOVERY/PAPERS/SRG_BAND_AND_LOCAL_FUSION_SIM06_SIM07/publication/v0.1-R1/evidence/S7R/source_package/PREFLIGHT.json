@@ -1,0 +1,102 @@
+{
+  "status": "READY_ZERO_INITIALIZATIONS_ZERO_UPDATES",
+  "date_utc": "2026-10-25",
+  "source_identity": "PASS",
+  "extraction_strip_check": "PASS",
+  "syntax_checks": "PASS",
+  "hook_targets_exist": [
+    "compression_after",
+    "compression_before",
+    "coupling_distance",
+    "coupling_final",
+    "coupling_guard",
+    "coupling_result",
+    "fusion_after",
+    "fusion_before",
+    "fusion_center",
+    "graph",
+    "local",
+    "noise_scale",
+    "observer_groups",
+    "post_H",
+    "post_coupling"
+  ],
+  "output_path_scope": "PASS",
+  "unused_workspace_budget": "PASS; new workspace created for this assignment, no receipts or run directories before gate",
+  "free_bytes": 3295803949056,
+  "frozen_methods": [
+    {
+      "path": "methods/capture_core.py",
+      "bytes": 12223,
+      "sha256": "a49e31f20df49e206d6e709d928735e1338077632b90d24fd9f803a751d0c3e2"
+    },
+    {
+      "path": "methods/intake.py",
+      "bytes": 1999,
+      "sha256": "5dfbf594e84e4105ff4af486962b77a0859e7b54d33cd40b07a8d8e24a55860f"
+    },
+    {
+      "path": "methods/launch_run.py",
+      "bytes": 1323,
+      "sha256": "175c368d970d3dba16aa3311d7226dfa7a2d6ed514a3cf9cee5f610eb258ca34"
+    },
+    {
+      "path": "methods/preflight.py",
+      "bytes": 2955,
+      "sha256": "b94f3f63a7670e7eac1cbd8e92f97deea7614de2370c7787f02268cc6ca2be65"
+    },
+    {
+      "path": "methods/prepare.py",
+      "bytes": 5938,
+      "sha256": "ebfb8bfc62607e2b7c6656eb7e295fd743796766c617ed4b89c9b97328187589"
+    },
+    {
+      "path": "methods/read_text.py",
+      "bytes": 297,
+      "sha256": "053da0224db42429de2219d98a5887e3d45c6f6a8ef81ef7ea632b63a9b70aed"
+    },
+    {
+      "path": "methods/recorder.py",
+      "bytes": 9336,
+      "sha256": "84f7baefba3334decf34c7662274f5f3bcc648fc049bb41fafdae9bf328213b0"
+    },
+    {
+      "path": "methods/reference_core.py",
+      "bytes": 11477,
+      "sha256": "3291951f922cf97058bf1182746adb7f5fd435e9f8881e9a8d2bf125537c031f"
+    },
+    {
+      "path": "methods/run_once.py",
+      "bytes": 3750,
+      "sha256": "17001bca1402c2d3a68d41bf7906e99bdf6b1ede5072722d866f2feb5e848ba5"
+    },
+    {
+      "path": "methods/verify_records.py",
+      "bytes": 11733,
+      "sha256": "cfcd280a7f2a1f6a13e1f7d172a440796a2d36e85beba60a146d150b09b3cade"
+    },
+    {
+      "path": "handoff/RUN_SPECIFICATION.json",
+      "bytes": 7277,
+      "sha256": "ceb52b067d18a1049b5b333054f21900580e9900aed65f3a702005a9be46b23d"
+    },
+    {
+      "path": "handoff/originals/srg_condensate_breaking.py",
+      "bytes": 30165,
+      "sha256": "a645a3bb564a2cae5e2b3ac3744f3f34f559a67132f255b3b0a97d277e68beb5"
+    },
+    {
+      "path": "handoff/originals/full_universe.csv",
+      "bytes": 45093,
+      "sha256": "f58acaf40d5bf2eae0110499c5291cea6227a70b2260386db2823821d79c1c50"
+    }
+  ],
+  "reviewed_numerical_changes": 0,
+  "recording_design": "Copy-only boundaries and random-return observation in both runs; capture hooks and actual np.average operands; source calls occur once; durable ledger before initializations and step entries",
+  "limits": {
+    "initializations": 2,
+    "attempted_updates_total": 400,
+    "per_run": 200,
+    "retry": false
+  }
+}

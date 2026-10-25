@@ -1,0 +1,120 @@
+[
+  {
+    "file": "figures/F01_world_snapshots.png",
+    "data_class": "REPRODUCED (historical aggregate overlays explicitly marked)",
+    "caption": "Boundaries 0,16,50,200; all IDs 0\u2013119. Fixed world scale and orientation. No fitted solids or surfaces.",
+    "inputs": "runs/B_CAPTURE/boundaries/boundary_{000,016,050,200}.npz",
+    "plotted_data": [
+      "figures/data/F01_snapshots.csv"
+    ],
+    "transformations": {
+      "camera_elevation": 22,
+      "camera_azimuth": -55,
+      "all_axis_limits": [
+        -13.0,
+        13.0
+      ],
+      "coordinate_alignment": "none",
+      "colors_and_markers": "six supplied population blocks"
+    },
+    "physical_units": "Unspecified source world/amplitude units; time in integer passes"
+  },
+  {
+    "file": "figures/F02_group_memberships.png",
+    "data_class": "REPRODUCED (historical aggregate overlays explicitly marked)",
+    "caption": "IDs 0\u2013119 at boundaries 16 and 199. Weak/strong partitions use the same boundary as the spatial observer; no boundary-200 graph was invented.",
+    "inputs": [
+      "analysis/same_boundary_memberships.csv"
+    ],
+    "plotted_data": [
+      "figures/data/F02_memberships.csv"
+    ],
+    "transformations": {
+      "partition_canonicalization": "member set represented by its smallest ID; fixed frequency indexed in ascending numerical order",
+      "color": "categorical and row-local; no metric encoded"
+    },
+    "physical_units": "Unspecified source world/amplitude units; time in integer passes"
+  },
+  {
+    "file": "figures/F03_geometry_and_movement.png",
+    "data_class": "REPRODUCED (historical aggregate overlays explicitly marked)",
+    "caption": "All IDs 0\u2013119, boundaries 0\u2013200 and executed passes 1\u2013200. True vector-centered geometry; no flattened-standard-deviation substitution.",
+    "inputs": [
+      "analysis/geometry.csv",
+      "analysis/population_geometry.csv",
+      "analysis/stage_movement.csv",
+      "analysis/graph_chronology.csv"
+    ],
+    "plotted_data": [
+      "analysis/population_geometry.csv",
+      "analysis/stage_movement.csv",
+      "analysis/graph_chronology.csv"
+    ],
+    "transformations": {
+      "radius": "sqrt(mean(sum((X-mean(X,axis=0))**2,axis=1)))",
+      "stage_lengths": "norm of differences of actual saved stages; logarithmic vertical axis in lower-left panel only",
+      "graph_alignment": "incoming boundary p-1, observer boundary p"
+    },
+    "physical_units": "Unspecified source world/amplitude units; time in integer passes"
+  },
+  {
+    "file": "figures/F04_actual_ordered_reads.png",
+    "data_class": "REPRODUCED (historical aggregate overlays explicitly marked)",
+    "caption": "Actual read episodes: pass 1 row 112, pass 16 row 6, pass 200 row 8; selected neighbor IDs labeled. Paths use saved boundaries only.",
+    "inputs": [
+      "analysis/ORDERED_EPISODES.json",
+      "runs/B_CAPTURE/boundaries/"
+    ],
+    "plotted_data": [
+      "figures/data/F04_episode_paths.csv",
+      "figures/data/F04_ordered_contributions.csv",
+      "analysis/ORDERED_EPISODES.json"
+    ],
+    "transformations": {
+      "paths": "subtract fixed target post-local coordinate at the selected pass; no rotation, interpolation or time-dependent recentering",
+      "contribution": "a_ij*(actual_read_j-Y_j), summed descriptively; no alternate successor",
+      "selection": "maximum realized contribution at fixed passes 1,16,200"
+    },
+    "physical_units": "Unspecified source world/amplitude units; time in integer passes"
+  },
+  {
+    "file": "figures/F05_metrics_and_amplitudes.png",
+    "data_class": "REPRODUCED (historical aggregate overlays explicitly marked)",
+    "caption": "All 200 completed passes. Original historical cells compared separately with reproduced aggregates under the frozen tolerance.",
+    "inputs": [
+      "analysis/HISTORICAL_COMPARISON.json",
+      "runs/B_CAPTURE/metrics.json",
+      "analysis/stage_movement.csv"
+    ],
+    "plotted_data": [
+      "figures/data/F05_historical_float_errors.csv",
+      "runs/B_CAPTURE/metrics.json",
+      "analysis/stage_movement.csv"
+    ],
+    "transformations": {
+      "error_ratio": "abs(replay-historical)/(1e-12+1e-10*abs(historical))",
+      "amplitudes": "unmodified original observer output; signed positivity independently checked in full saved R",
+      "clipping": "activation flags from captured inputs, not an ablation"
+    },
+    "physical_units": "Unspecified source world/amplitude units; time in integer passes"
+  },
+  {
+    "file": "figures/F06_transient_cross_population_contact.png",
+    "data_class": "REPRODUCED (historical aggregate overlays explicitly marked)",
+    "caption": "Actual selection pairs 39\u219297 (passes 1\u20133), 97\u219234 (1\u20136), 97\u219239 (1\u20138). Line direction is a read relationship, not a physical force vector.",
+    "inputs": [
+      "analysis/cross_population_distance_history.csv",
+      "analysis/cross_population_tracks.csv"
+    ],
+    "plotted_data": [
+      "analysis/cross_population_distance_history.csv",
+      "analysis/cross_population_tracks.csv"
+    ],
+    "transformations": {
+      "projection": "x-z unaligned, equal aspect; y omitted",
+      "distance": "captured incoming Euclidean distances; nearest-five cap also applies",
+      "step": "norm of actual V; no regenerated trajectory"
+    },
+    "physical_units": "Unspecified source world/amplitude units; time in integer passes"
+  }
+]

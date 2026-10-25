@@ -1,0 +1,100 @@
+{
+  "evidence": "All three figures are new passive renderings of an existing reproduced trajectory, not historical images.",
+  "F01": {
+    "file": "figures/F01_fixed_world.png",
+    "input": "records/R1_seed2038_eps1/X.npy and band_id.npy; derived/geometry.csv",
+    "states": [
+      0,
+      20,
+      100,
+      200,
+      400,
+      600
+    ],
+    "limits": [
+      -5.5,
+      5.5
+    ],
+    "equal_aspect": true,
+    "pixels": [
+      1680,
+      1080
+    ]
+  },
+  "F02": {
+    "file": "figures/F02_band_and_point_detail.png",
+    "input": "X.npy, band_id.npy; derived/band_geometry.csv, selected_points.csv",
+    "selected_ids": [
+      4,
+      8,
+      9
+    ],
+    "selection": "lowest three stable IDs in assigned band 0; not leaders or optimized cases",
+    "panels": [
+      {
+        "normalized_state": 20,
+        "band": 0,
+        "actual_band_Rg": 4.217704509509502,
+        "normalized_halfspan": 2.708686113312557,
+        "path_window": [
+          0,
+          20
+        ],
+        "path_world_center": [
+          -0.0862252834395858,
+          -0.756826468945941,
+          1.7247852831418609
+        ],
+        "path_axis_halfspan": 3.8836210406647074
+      },
+      {
+        "normalized_state": 200,
+        "band": 0,
+        "actual_band_Rg": 1.289887748896333,
+        "normalized_halfspan": 2.708686113312557,
+        "path_window": [
+          20,
+          200
+        ],
+        "path_world_center": [
+          -0.09915817973680352,
+          -0.47157719395473774,
+          0.8876573683426936
+        ],
+        "path_axis_halfspan": 3.6291588526629477
+      },
+      {
+        "normalized_state": 600,
+        "band": 0,
+        "actual_band_Rg": 0.017495091955321722,
+        "normalized_halfspan": 2.708686113312557,
+        "path_window": [
+          200,
+          600
+        ],
+        "path_world_center": [
+          -0.19457749530100893,
+          -0.6125940747091909,
+          0.3981665862257338
+        ],
+        "path_axis_halfspan": 0.908638501157732
+      }
+    ],
+    "equal_aspect": true,
+    "pixels": [
+      1680,
+      1080
+    ]
+  },
+  "F03": {
+    "file": "figures/F03_geometry_and_diagnostics.png",
+    "input": "derived/geometry.csv, band_geometry.csv, graph_boundaries.csv",
+    "pixels": [
+      1680,
+      1320
+    ]
+  },
+  "matplotlib": "3.10.9",
+  "new_state_updates": 0,
+  "rng_draws": 0
+}

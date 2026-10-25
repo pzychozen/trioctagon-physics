@@ -1,0 +1,29 @@
+--- v0.1/closing_sections.tex
++++ v0.1-R1/closing_sections.tex
+@@ -8,11 +8,12 @@
+ \end{equation}
+ or zero if the amplitude sum is zero. This is a dimensionless distribution statistic. Maximum, minimum and mean use \(|R|\), but \texttt{R\_std} uses signed \(R\). \texttt{top\_seed\_id} is the first argmax of \(|R|\), not a leader trajectory. Four-decimal frequency keys label fixed assignments, not measured instantaneous frequency.
+ 
+-Both sources' GRF observer is
++Both sources use the pointwise diagnostic \(g_i=1/(1+\norm{V_i})\). Universe records its whole-field mean (\src{U}{243--255}), while Tower II records a separate mean for each nonempty assigned band \(G_b\) (\src{T}{223--237}):
+ \begin{equation}\label{eq:grf}
+-\overline{\mathrm{GRF}}=\frac1N\sum_i\frac1{1+\norm{V_i}},
++\overline{\mathrm{GRF}}_{\mathrm{Universe}}=\frac1N\sum_{i=0}^{N-1}g_i,
++\qquad \overline{\mathrm{GRF}}_{\mathrm{Tower},b}=\frac1{|G_b|}\sum_{i\in G_b}g_i.
+ \end{equation}
+-not \(1/(1+\mean_i\norm{V_i})\). This relation to displacement defines no force law. Lock, cluster, separate, merged and condensate must be read through actual thresholds. The full-universe printout calls population centers separate when distance exceeds 3; its diversity threshold is not a proof of independence.
++Tower II does not record a whole-field GRF in its global metrics. Each recorded mean averages pointwise reciprocals, not the reciprocal of one plus mean speed over that set. This relation to displacement defines no force law. Lock, cluster, separate, merged and condensate must be read through actual thresholds. The full-universe printout calls population centers separate when distance exceeds 3; its diversity threshold is not a proof of independence.
+ 
+ \subsection{A large pooled spread can describe a tiny cloud}\label{sec:pooled}
+ The horizon and full-universe drivers use \texttt{np.std(pos\_k)} with no axis. For \(n\) points with vector mean \(\mu=(\mu_x,\mu_y,\mu_z)\), this pools \(3n\) entries around scalar mean \(m=(\mu_x+\mu_y+\mu_z)/3\). The reviewed identity is
+--- v0.1/references.bib
++++ v0.1-R1/references.bib
+@@ -3,7 +3,7 @@
+ @misc{towernote,author={{Claude (collaborating with pzychozen)}},title={The Golden Tower, Part II},year={2026},note={Historical narrative, attributed date 14 March. S6: source\_package/original/The\_Golden\_Tower\_Part\_II.md.}}
+ @misc{universenote,author={{Claude (collaborating with pzychozen)}},title={{SRG} Infinity Part II: Breaking the Condensate},year={2026},note={Historical narrative, attributed date 14 March. S7C: source\_package/original/SRG\_Infinity\_Part\_II\_Breaking\_The\_Condensate.md.}}
+ @misc{s6review,author={{GPT}},title={{SIM06} scientific review and acceptance: Tower II},year={2026},note={24 October. Internal review and independent/FINDINGS.json, combined\_dependency\_graph.csv, VERIFICATION.json. S6: SIM06\_GPT\_SCIENTIFIC\_REVIEW.md.}}
+-@misc{s7creview,author={{GPT}},title={{SIM07} scientific review and acceptance: Universe construction},year={2026},note={24 October. Internal review and independent/FINDINGS.json, SOURCE\_READBACK.md. S7C: SIM07\_GPT\_SCIENTIFIC\_REVIEW.md.}}
++@misc{s7creview,author={{GPT}},title={{SIM07} scientific review and acceptance: Universe construction},year={2026},note={25 October. Internal review and independent/FINDINGS.json, SOURCE\_READBACK.md. S7C: SIM07\_GPT\_SCIENTIFIC\_REVIEW.md.}}
+ @misc{s7rreview,author={{GPT}},title={{SIM07} replay scientific review and acceptance},year={2026},note={25 October. Internal review, independent/FINDINGS.json, GRAPH\_COUNTS.csv, ORDERED\_READ\_COUNTS.csv and three audit receipts. S7R: SIM07\_REPLAY\_GPT\_SCIENTIFIC\_REVIEW.md.}}
+ @misc{s6study,author={{Codex, under Hilmir and GPT direction}},title={{SIM06} Tower II construction and fixed-record study},year={2026},note={Accepted S6/source\_package reports: CONSTRUCTION.md; MOTION\_AND\_GEOMETRY.md; ORIGINAL\_EVIDENCE\_AND\_EXISTING\_REPLAY.md; MODEL\_RELATIONSHIPS.md; RECORD\_SELECTION.md. Existing R1 records and three figures included.}}
+ @misc{s7cstudy,author={{Codex, under Hilmir and GPT direction}},title={{SIM07} Universe construction and original evidence},year={2026},note={Accepted S7C/source\_package reports: CONSTRUCTION.md; ORIGINAL\_EVIDENCE.md; MOTION\_AND\_GEOMETRY.md; MODEL\_RELATIONSHIPS.md; RECORD\_SELECTION\_AND\_VERIFICATION.md. Five original CSVs and two figures included.}}

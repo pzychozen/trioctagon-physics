@@ -1,0 +1,46 @@
+--- v0.1/PDF_physical_page_28
++++ v0.1-R1/PDF_physical_page_28
+@@ -2,17 +2,23 @@
+ minimum and mean use |R|, but R_std uses signed R. top_seed_id is the first argmax of |R|, not a
+ leader trajectory. Four-decimal frequency keys label fixed assignments, not measured instanta-
+ neous frequency.
+-Both sources’ GRF observer is
+-GRF = 1
++Both sources use the pointwise diagnostic gi = 1/(1 + ∥Vi∥). Universe records its whole-field
++mean ( U:243–255), while T ower II records a separate mean for each nonempty assigned band
++Gb (T :223–237):
++GRFUniverse = 1
+ N
++N −1X
++i=0
++gi, GRFTower,b = 1
++|Gb|
+ X
+-i
+-1
+-1 + ∥Vi∥ , (32)
+-not 1/(1+ meani ∥Vi∥). This relation to displacement defines no force law. Lock, cluster, separate,
+-merged and condensate must be read through actual thresholds. The full-universe printout calls
+-population centers separate when distance exceeds 3; its diversity threshold is not a proof of
+-independence.
++i∈Gb
++gi. (32)
++T ower II does not record a whole-field GRF in its global metrics. Each recorded mean averages
++pointwise reciprocals, not the reciprocal of one plus mean speed over that set. This relation to
++displacement defines no force law. Lock, cluster, separate, merged and condensate must be read
++through actual thresholds. The full-universe printout calls population centers separate when
++distance exceeds 3; its diversity threshold is not a proof of independence.
+ 10.2 A large pooled spread can describe a tiny cloud
+ The horizon and full-universe drivers use np.std(pos_k) with no axis. For n points with vector
+ mean µ = ( µx, µy, µz), this pools 3n entries around scalar mean m = ( µx + µy + µz)/3. The
+--- v0.1/PDF_physical_page_33
++++ v0.1-R1/PDF_physical_page_33
+@@ -38,7 +38,7 @@
+ [10] GPT. SIM06 scientific review and acceptance: T ower ii, 2026. 24 October. Internal review
+ and independent/FINDINGS.json, combined_dependency_graph.csv ,
+ VERIFICATION.json. S6: SIM06_GPT_SCIENTIFIC_REVIEW.md.
+-[11] GPT. SIM07 scientific review and acceptance: Universe construction, 2026. 24 October.
++[11] GPT. SIM07 scientific review and acceptance: Universe construction, 2026. 25 October.
+ Internal review and independent/FINDINGS.json, SOURCE_READBACK.md. S7C:
+ SIM07_GPT_SCIENTIFIC_REVIEW.md.
+ [12] GPT. SIM07 replay scientific review and acceptance, 2026. 25 October. Internal review ,

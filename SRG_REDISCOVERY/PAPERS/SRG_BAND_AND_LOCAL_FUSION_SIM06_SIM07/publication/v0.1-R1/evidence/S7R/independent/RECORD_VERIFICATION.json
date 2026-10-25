@@ -1,0 +1,187 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "checks": {
+    "zip_identity": 1,
+    "crc": 1,
+    "unique_paths": 1,
+    "manifest_identity": 1,
+    "membership": 1,
+    "payload_hash_size": 1132,
+    "original_identity": 2,
+    "accepted_input_unchanged": 1,
+    "handoff_copy": 15,
+    "capture_strip_text": 1,
+    "original_definition_AST": 4,
+    "preflight_method_hash": 13,
+    "execution_record_hash": 1038,
+    "budget_events": 14,
+    "no_failed_events": 2,
+    "completed_pass_order": 2,
+    "boundary_keys": 201,
+    "boundary_raw_bytes": 2412,
+    "boundary_finite": 804,
+    "stable_ids": 201,
+    "pass_label": 201,
+    "initial_zero_V": 1,
+    "displacements": 200,
+    "fixed_frequencies": 200,
+    "fixed_configuration": 200,
+    "metric_raw_bytes": 15,
+    "metric_export_bytes": 2,
+    "random_call_metadata": 1,
+    "random_keys": 211,
+    "random_record_raw_bytes": 2315,
+    "consecutive_rng_checkpoints": 1050,
+    "init_call_order": 1,
+    "initial_X_from_draws": 1,
+    "initial_R_from_draw": 1,
+    "initial_freq_from_draw": 1,
+    "initial_rng_checkpoint": 5,
+    "noise_call_metadata": 200,
+    "historical_schema": 1,
+    "historical_column": 15
+  },
+  "input_zip": {
+    "bytes": 47658038,
+    "sha256": "94135f6b7cf7a362c90aa3224eaa52a0a115326ff22f6403b8cbedb979ed750d",
+    "files": 1133,
+    "payloads": 1132
+  },
+  "budget_ledger": {
+    "A_REFERENCE": {
+      "initialization_entry": 1,
+      "random_call_entry": 211,
+      "random_call_completed": 211,
+      "initialization_completed": 1,
+      "step_entry": 200,
+      "step_completed": 200,
+      "run_completed": 1
+    },
+    "B_CAPTURE": {
+      "initialization_entry": 1,
+      "random_call_entry": 211,
+      "random_call_completed": 211,
+      "initialization_completed": 1,
+      "step_entry": 200,
+      "step_completed": 200,
+      "run_completed": 1
+    }
+  },
+  "historical": {
+    "total_cells": 3000,
+    "nonpass_cells": 2800,
+    "integer_including_pass": 800,
+    "continuous": 2200,
+    "exact_total": 2312,
+    "exact_continuous": 1512,
+    "columns": {
+      "pass": {
+        "integer": true,
+        "cells": 200,
+        "exact": 200,
+        "max_absolute_error": 0.0,
+        "worst_pass": 1
+      },
+      "R_max": {
+        "integer": false,
+        "cells": 200,
+        "exact": 95,
+        "max_absolute_error": 2.7755575615628914e-16,
+        "worst_pass": 182
+      },
+      "R_min": {
+        "integer": false,
+        "cells": 200,
+        "exact": 161,
+        "max_absolute_error": 1.1102230246251565e-16,
+        "worst_pass": 180
+      },
+      "R_mean": {
+        "integer": false,
+        "cells": 200,
+        "exact": 143,
+        "max_absolute_error": 8.326672684688674e-17,
+        "worst_pass": 187
+      },
+      "R_std": {
+        "integer": false,
+        "cells": 200,
+        "exact": 63,
+        "max_absolute_error": 2.7755575615628914e-17,
+        "worst_pass": 197
+      },
+      "n_resonance_clusters": {
+        "integer": true,
+        "cells": 200,
+        "exact": 200,
+        "max_absolute_error": 0.0,
+        "worst_pass": 1
+      },
+      "n_spatial_clusters": {
+        "integer": true,
+        "cells": 200,
+        "exact": 200,
+        "max_absolute_error": 0.0,
+        "worst_pass": 1
+      },
+      "entropy": {
+        "integer": false,
+        "cells": 200,
+        "exact": 137,
+        "max_absolute_error": 1.7763568394002505e-15,
+        "worst_pass": 13
+      },
+      "mean_grf": {
+        "integer": false,
+        "cells": 200,
+        "exact": 188,
+        "max_absolute_error": 1.1102230246251565e-16,
+        "worst_pass": 90
+      },
+      "top_seed_id": {
+        "integer": true,
+        "cells": 200,
+        "exact": 200,
+        "max_absolute_error": 0.0,
+        "worst_pass": 1
+      },
+      "L_effective": {
+        "integer": false,
+        "cells": 200,
+        "exact": 200,
+        "max_absolute_error": 0.0,
+        "worst_pass": 1
+      },
+      "band_0.1508": {
+        "integer": false,
+        "cells": 200,
+        "exact": 126,
+        "max_absolute_error": 1.1102230246251565e-16,
+        "worst_pass": 179
+      },
+      "band_0.2440": {
+        "integer": false,
+        "cells": 200,
+        "exact": 126,
+        "max_absolute_error": 8.326672684688674e-17,
+        "worst_pass": 171
+      },
+      "band_0.3948": {
+        "integer": false,
+        "cells": 200,
+        "exact": 121,
+        "max_absolute_error": 8.326672684688674e-17,
+        "worst_pass": 160
+      },
+      "band_0.6388": {
+        "integer": false,
+        "cells": 200,
+        "exact": 152,
+        "max_absolute_error": 5.551115123125783e-17,
+        "worst_pass": 170
+      }
+    }
+  },
+  "scope": "Passive archive, source AST, recorded-byte and checkpoint comparisons. No new simulation, constructor, random draw or RNG restoration. No live Windows inspection."
+}

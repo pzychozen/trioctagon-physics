@@ -1,0 +1,136 @@
+\section{Observers, bounds and reviewed mathematics}\label{sec:observers}
+\subsection{What the labels measure}
+Universe sorts \(|R|\) descending, counts adjacent gaps whose magnitude exceeds \(0.05\max|R|\), and adds one. One amplitude group means no such large adjacent gap; it does not require equal extrema. Spatial groups come from average linkage of completed \(X\), cut at distance 2.0. Neither observer drives the next update.
+
+With \(\pi_i=|R_i|/\sum_j|R_j|\), entropy is
+\begin{equation}
+\mathcal S=-\sum_i\pi_i\log(\pi_i+10^{-12}),
+\end{equation}
+or zero if the amplitude sum is zero. This is a dimensionless distribution statistic. Maximum, minimum and mean use \(|R|\), but \texttt{R\_std} uses signed \(R\). \texttt{top\_seed\_id} is the first argmax of \(|R|\), not a leader trajectory. Four-decimal frequency keys label fixed assignments, not measured instantaneous frequency.
+
+Both sources' GRF observer is
+\begin{equation}\label{eq:grf}
+\overline{\mathrm{GRF}}=\frac1N\sum_i\frac1{1+\norm{V_i}},
+\end{equation}
+not \(1/(1+\mean_i\norm{V_i})\). This relation to displacement defines no force law. Lock, cluster, separate, merged and condensate must be read through actual thresholds. The full-universe printout calls population centers separate when distance exceeds 3; its diversity threshold is not a proof of independence.
+
+\subsection{A large pooled spread can describe a tiny cloud}\label{sec:pooled}
+The horizon and full-universe drivers use \texttt{np.std(pos\_k)} with no axis. For \(n\) points with vector mean \(\mu=(\mu_x,\mu_y,\mu_z)\), this pools \(3n\) entries around scalar mean \(m=(\mu_x+\mu_y+\mu_z)/3\). The reviewed identity is
+\begin{equation}\label{eq:pooled}
+s_{\rm flat}^2=\frac1{3n}\sum_{i,d}(X_{id}-m)^2
+=\frac{R_g^2}{3}+\frac13\sum_d(\mu_d-m)^2.
+\end{equation}
+Write \(X_{id}-m=(X_{id}-\mu_d)+(\mu_d-m)\). Summing deviations over \(i\) gives zero, eliminating the cross term. The squared first term gives \(R_g^2/3\), the repeated center term the remainder. This expands the accepted proof; no new statistic is calculated.
+
+A translation can change differences among the center's coordinate components without changing \(R_g\). Pooled spread need not be invariant under arbitrary translation/rotation or measure cloud size. For reproduced P3 at 200 it is \(3.238809712\), while centered \(R_g=0.066949097\) and diameter \(0.166308988\). Both definitions and numbers are retained. The centered statistic is not substituted into an old table and called original evidence.
+
+\subsection{Inactive clipping remains a scoped observation}
+Equation~\eqref{eq:rpco} sends zero to zero. For nonzero \(q\) inside its logarithmic bounds, exact real arithmetic gives
+\begin{equation}\label{eq:eps}
+\operatorname{RPCO}_L(q)=q+10^{-9}\sgn(q).
+\end{equation}
+Inactive clipping does not remove epsilon or floating \(\log/\exp\). The lower floor can raise small nonzero magnitudes and the upper limit can cap large ones.
+
+Tower II's selected conclusion is supported by retained R1 paired controls. Universe's is supported by actual flags in one replay: zero lower/upper activations among 24,000 point updates, minimum log-space margin about \(3.032068826\). All saved signed \(R\) and captured \(Q\) were positive. No Universe breathing-off control was run. This identifies the branch used on that path, not universal irrelevance or the cause of another driver's equal summaries.
+
+The identities and amplitude diagnostics introduce no energy minimum, variational law or conservation claim. They make measurements and dependencies precise enough to interpret the source terminology.
+
+\section{Comparison and historical meaning}\label{sec:comparison}
+Shared local movement, \(H\), signed compression and declining noise do not make the engines identical. Their centers and amplitude rules create different dependencies.
+
+\begin{longtable}{P{25mm}P{60mm}P{62mm}}
+\caption{\ev{DERIVED FROM ORIGINAL SOURCE}. Selected mechanisms, anchored to T:62--254 and U:60--266.}\label{tab:compare}\\
+\toprule Mechanism & Tower II & Universe\\\midrule
+\endfirsthead\toprule Mechanism & Tower II & Universe\\\midrule\endhead
+State & \(X,R,p\), fixed band/frequency; diagnostic \(V\) & \(X,R,p\), fixed frequencies; diagnostic \(V\); no band ID or second amplitude\\
+Initialization & Uniform box; \(N=80\), seed 2038; balanced shuffled bands & Six Gaussian populations; \(N=120\), seed 1618; discarded constructor draws retained; independent labels\\
+Selection & Unrestricted sort/slice assumes self first; finite branch explicitly filters self & Strict \(h=6\), explicit non-self, nearest-five cap; short/empty rows possible in general\\
+Local movement & Simultaneous \(0.05\ell+0.15\tanh\ell\) & Same simultaneous stage\\
+Amplitude weights & Inverse distance times log-ratio preference; raw-sum guard skips \(<10^{-10}\) & Normalize inverse distance; squared frequency-difference factor; second guard requires \(>10^{-10}\)\\
+Sine / additions & Assigned sine, then additive phi-target and sum/difference terms & Assigned sine when enabled; no additive mixing\\
+Center & All fixed-band members, self included; once per band & Selected neighbors, directly excludes self; recomputed per ascending ID from current coordinates\\
+Coefficient & Signed \(0.02Q_i\) & Signed \(0.03Q_i\)\\
+Global option & Selected construction has no single all-point center & None switches to all-point, once-computed center and simultaneous fusion\\
+Bound & Incoming-amplitude readout \(9(1+\epsilon\mean|R|)\) & Prescribed \(9[1+0.3\sin(2\pi0.244p)e^{-0.01p}]\)\\
+Clock / retention & Integer pass; \(V\) not consumed; no wrapping & Same; no velocity damping or inertia\\
+Observers & Fixed-band coherence/first lock, amplitude summaries and band GRF & Amplitude gaps, average linkage, entropy, frequency means and GRF\\
+Evidence & Original summary at 200; R1 0--600, extension after 200 & Original aggregates 1--200; accepted twins 0--200\\
+\bottomrule
+\end{longtable}
+
+Tower II's strong concentration and Universe's retained large-scale separation occurred under different geometry, \(N\), seeds, labels, kernels, additive terms, schedules, centers and durations. They are not a controlled one-factor experiment. Source establishes different algorithms; records establish behavior under specified settings. Contraction differences cannot be attributed solely to band-wide versus local fusion.
+
+Accepted SIM04/SIM05 context describes selected engines using one all-point center; Infinity also carries a second real amplitude and cross terms. This locates the present mechanisms without reopening Volume II. Universe's historical cross-reference to Infinity does not make it the same evolution. Shared constants and pictures do not establish one canonical SRG model.
+
+Tower II's note asks whether lock predictions, self-coupled breathing, frequency content and tunneling reveal structure. Universe's note asks how perturbations, horizons, assigned frequencies and breathing enrich a seemingly simple condensate. These are attributed motivations, preserved respectfully. The reconstruction distinguishes questions asked from outcomes established: inserted catalogues explain label persistence without proving emergence; finite amplitude-gap counts do not establish a uniform infinite-time ground state.
+
+\section{What this volume closes and leaves open}\label{sec:limits}
+Tower II is recoverable stage by stage, with its selected fixed-record motion tied to persistent IDs, radii, local components and band dependencies. Universe's source-to-output map is recoverable, and its accepted finite replay supplies actual coordinates and within-pass operands beyond original aggregates. The three reviewed identities explain band variance, ordered reads and pooled coordinate spread without replacing historical measurements.
+
+Original individual trajectories and historical runtime environments remain unrecovered. Finite reproduced paths do not prove infinite-time convergence or permanent independence. Actual ordered reads do not measure a reversed/simultaneous control. Other settings' clipping and the necessity of individual stages are not determined here. Separate R3 material retains review status.
+
+SIM06 and SIM07 are complete within accepted scopes. Published Volumes I/II remain frozen. This candidate does not reconstruct every historical SRG family. The \textbf{BreathingField/field-merger study is deferred and outside this volume}. Drafting now supersedes earlier sequencing without editing old plans. The next step is GPT and Hilmir's review, not an automatic experiment or publication.
+
+\appendix
+\section{Source and evidence navigation}\label{app:evidence}
+Paths are relative to the review package. T is
+\protect\path{evidence/S6/source_package/original/srg_golden_tower_II.py};
+U is
+\protect\path{evidence/S7C/source_package/original/srg_condensate_breaking.py}.
+They preserve original line numbering. T's SHA-256 is
+\protect\path{147a32be3b6d6aad17ada6ab7be2fbc3994c3363f74d6a2b351fb8eecda80304};
+U's is
+\protect\path{a645a3bb564a2cae5e2b3ac3744f3f34f559a67132f255b3b0a97d277e68beb5}.
+
+\begin{longtable}{P{31mm}P{49mm}P{68mm}}
+\caption{Exact source locator map.}\\
+\toprule Object & Tower II lines & Universe lines\\\midrule
+\endfirsthead\toprule Object & Tower II lines & Universe lines\\\midrule\endhead
+Helpers, constants & 31--46 & 42--54\\
+Constructor & 62--109 & 61--96\\
+Neighborhood & 111--127 & 105--125\\
+Bound & 135--138 & 98--103; used 195\\
+Local movement & 140--148 & 160--168\\
+Amplitude stage & 150--190 & 127--153; installed 171\\
+Common \(H\) & 192--194 & 173--176\\
+Fusion & 196--206 & 178--192\\
+Compression, noise, \(V\) & 209--216 & 194--203\\
+Observers/evolve & 218--254 & 205--266\\
+Selected driver & 376--472 & 663--758\\
+Other drivers & 262--368;480--821 & 273--656\\
+Main & 828--842 & 765--778\\
+\bottomrule
+\end{longtable}
+
+Three complete accepted ZIPs are in \protect\path{handoff/inputs/}. The accompanying evidence index provides relative links, archive hashes and exact member locators. Extract each archive into a separate directory to follow inherited report links; never flatten their source-package roots.
+
+In S6, arrays are under \protect\path{source_package/records/R1_seed2038_eps1/}.
+\texttt{X.npy}, \texttt{R.npy}, \texttt{V.npy} have boundaries 0--600;
+\texttt{Q.npy}, \texttt{L\_used.npy}, \texttt{positions\_at\_rpc.npy},
+\texttt{actual\_rpc\_output.npy}, \texttt{noise.npy} index passes 1--600.
+The accepted union table is \protect\path{independent/combined_dependency_graph.csv};
+geometry and selected neighbors are under \protect\path{source_package/derived/}.
+No new scientific calculation on these arrays was performed.
+
+In S7R, \protect\path{source_package/runs/A_REFERENCE/} and
+\protect\path{source_package/runs/B_CAPTURE/} each contain 201 boundary NPZs.
+Capture \protect\path{stages/pass_016.npz} retains row-6 operands; readable vectors are
+\protect\path{source_package/analysis/ORDERED_EPISODES.json}.
+GPT's counts are \protect\path{independent/GRAPH_COUNTS.csv} and
+\protect\path{independent/ORDERED_READ_COUNTS.csv}.
+The full schema is \protect\path{evidence/S7R/source_package/RECORD_SCHEMA.md}.
+Binary boundaries, actual random returns and stages remain in the archive without a second extracted trajectory tree.
+
+\protect\path{CLAIM_EVIDENCE_MATRIX.md} maps claims to originals, accepted reports, data and equations.
+\protect\path{FIGURE_REGISTER.json} records unchanged assets and original plotting specifications.
+Printed rounding never overwrites stored values.
+
+\section{Review incorporation and document reproducibility}\label{app:review}
+S6 supplies the late band-0 bridging example and all-600-boundary weak connectivity of the union, retaining the R1 extension and R3-status limits. S7C supplies driver attribution, observer/geometry distinctions and pooled-variance explanation. S7R supplies strict fidelity, cell accounting, same-boundary partition mismatch in both directions, nearest-five link loss within the horizon, and earlier/later read totals. All are retained accepted results; no scientific verification was rerun.
+
+Current work consists of source/document inspection, file identity checks, unchanged evidence copies, typesetting and document QA. The final page-QA record identifies every rendered page. Build instructions invoke document operations only. Archived simulators, scientific methods and old work orders are evidence, not new authority to execute.
+
+One process deviation is disclosed: initial attachment and instruction-file reads used PowerShell before the CMD-only provision was read. Subsequent document work used Windows CMD, with the existing torment environment for Python. No scientific operation occurred during initial reads. This does not meet the requested CMD-throughout procedure and is recorded instead of concealed or treated as reason for a scientific rerun.
+
+Preservation rechecks the actual attachment, accepted nested archives and copied evidence against recorded identities. It does not assert a fresh whole-repository audit. Historical sources, accepted studies, canonical ledger, kernels, unrelated work and published editions were not edited. Payload manifest and external ZIP identity establish review-file integrity; hashes alone do not prove non-execution.
+

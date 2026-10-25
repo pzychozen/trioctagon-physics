@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-25",
+  "scope": "PDF rendering and document layout only",
+  "pdf": {
+    "bytes": 2887352,
+    "sha256": "f0d3aa418c5355072f3cd6f67911dc71a493263484eadff0c33a544573526176"
+  },
+  "renderer": "Poppler pdftoppm",
+  "dpi": 110,
+  "page_count": 33,
+  "all_pages_scanned_on_overview_sheets": true,
+  "overview_page_ranges": [
+    [
+      1,
+      6
+    ],
+    [
+      7,
+      12
+    ],
+    [
+      13,
+      18
+    ],
+    [
+      19,
+      24
+    ],
+    [
+      25,
+      30
+    ],
+    [
+      31,
+      33
+    ]
+  ],
+  "pages_inspected_at_full_render_size": [
+    28,
+    33
+  ],
+  "raster_comparison_changed_pages": [
+    28,
+    33
+  ],
+  "raster_comparison_identical_pages": 31,
+  "rotated_figure_pages": [
+    5,
+    11,
+    22,
+    24,
+    26
+  ],
+  "result": "PASS_NO_BLOCKING_LAYOUT_REGRESSION",
+  "observations": [
+    "Changed page 28 cleanly renders the per-point diagnostic and the two averaging sets within Equation (32); following identities and qualifications fit.",
+    "Changed page 33 renders the corrected 25 October date in reference [11]; [10] retains 24 October and [12] retains 25 October.",
+    "All other pages are pixel-identical at 110 dpi, including rotated figure plates and navigation tables.",
+    "Sparse pages inherited from the accepted candidate remain unchanged; no new page-layout defect or missing glyph was observed."
+  ],
+  "method_limit": "Overview inspection is not a new full semantic rereview of every unchanged scientific passage. Scientific acceptance is carried forward with verified byte preservation."
+}

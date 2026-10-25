@@ -1,0 +1,44 @@
+{
+  "evidence": "New visualizations of unchanged ORIGINAL aggregate tables; no coordinate rendering or simulation",
+  "figures": [
+    {
+      "file": "figures/F01_original_universe_chronology.png",
+      "input": "original/full_universe.csv",
+      "data_rows": [
+        1,
+        200
+      ],
+      "physical_lines": [
+        2,
+        201
+      ],
+      "transforms": "Direct column plots; only std(R)/mean|R| is newly divided. Six-population reference comes from source lines 677\u2013689. No smoothing, fitting, interpolation of missing states or FFT. Connecting line segments guide reading between supplied samples.",
+      "axes": "Six panels: completed pass 1\u2013200 on x; each y explicitly labeled. Radius/3D geometry not available.",
+      "size_pixels": [
+        1560,
+        1320
+      ]
+    },
+    {
+      "file": "figures/F02_horizon_settings.png",
+      "input": "original/causal_horizons.csv",
+      "data_rows": [
+        1,
+        18
+      ],
+      "physical_lines": [
+        2,
+        19
+      ],
+      "transforms": "None/999 shown as categorical sixth setting; +/-0.1 categorical display offsets distinguish trials. No statistical confidence interval or time curve.",
+      "axes": "Categorical horizon; recorded count and seeded-population mean inter-center distance. Position units are uncalibrated.",
+      "size_pixels": [
+        1560,
+        672
+      ]
+    }
+  ],
+  "matplotlib_version": "3.10.9",
+  "new_state_updates": 0,
+  "rng_draws": 0
+}

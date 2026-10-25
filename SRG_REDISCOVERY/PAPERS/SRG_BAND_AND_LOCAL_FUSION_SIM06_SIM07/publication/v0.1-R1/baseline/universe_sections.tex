@@ -1,0 +1,239 @@
+\section{Universe: source-faithful construction}\label{sec:universe}
+\subsection{Initialization retains discarded random draws}
+Universe's constructor (\src{U}{60--96}) stores \(X,R,V,p\), configuration and fixed frequencies, but no Tower II band ID. With multiple frequencies enabled it independently assigns
+\begin{equation}\label{eq:Ufreq}
+\omega_i\in\{0.244,\;0.244\phi,\;0.244\phi^2,\;0.244/\phi\}.
+\end{equation}
+With the option off, every label is 0.244 and no choice draw occurs. Allocation is not balanced. Stored \texttt{gamma\_srg=0.08699} is unused throughout this file. Despite its Infinity Part II header, this is a one-real-amplitude engine, not continuation of Infinity's two-field state.
+
+The selected driver (\src{U}{675--702}) seeds with 1618 and draws six 20-point normal clouds, coordinate standard deviation 1.5, stacked in center order
+\[
+(8,0,0),\;(-8,0,0),\;(0,8,0),\;(0,-8,0),\;(0,0,8),\;(0,0,-8).
+\]
+It calls the constructor with \(N=120,h=6\), multiple frequencies and breathing enabled, \texttt{seed=None}. The constructor still consumes uniform \(X\), uniform \(R\), then frequency-choice draws. The driver replaces \(X\) by the clouds and consumes a fresh uniform amplitude draw. Discarded constructor arrays remain part of stream history; omitting them changes later draws.
+
+The accepted replay preserved this order. Counts in sorted frequency order are 29,36,28,27, and each population happens to contain all four frequencies. This is a realized allocation, not a rule. Population \(P_k\) means IDs \(20k,\ldots,20k+19\); the recurrence never consults that label.
+
+\subsection{Incoming selection and synchronous amplitude stage}
+Universe computes incoming distances once (\src{U}{105--125}). Finite \(h\) filters strict \(d_{ij}<h\), explicitly removes self, sorts eligible distances and chooses at most five. With \texttt{None}, all non-self rows are eligible and self is still explicitly removed. Finite rows may be short or empty. An unrestricted minimum-six component argument cannot be transferred to arbitrary horizon-filtered graphs.
+
+Local movement is the simultaneous Equation~\eqref{eq:local}. The amplitude helper still reads incoming \(R\) and distances, although positions have become \(Y\). A nonempty row first normalizes inverse distance:
+\begin{equation}\label{eq:Uweights}
+u_{ij}=(d_{ij}+10^{-8})^{-1},\qquad
+\bar u_{ij}=u_{ij}/\sum_{k\in\mathcal N_i}u_{ik}.
+\end{equation}
+With multiple frequencies, form
+\begin{equation}\label{eq:Uguard}
+v_{ij}=\bar u_{ij}e^{-5(\omega_j-\omega_i)^2},\quad
+s_i=\sum_jv_{ij},\qquad W_{ij}=v_{ij}/s_i
+\quad\text{only if }s_i>10^{-10}.
+\end{equation}
+Otherwise skip the row. Equality skips here, unlike Tower II's raw-sum guard. In single-frequency mode \(W=\bar u\) and the second guard is absent. There is no additional guard on the first normalization.
+
+For active rows,
+\begin{equation}\label{eq:UB}
+B_i=\left[R_i+0.15\left(\sum_jW_{ij}R_j-R_i\right)\right]
+\begin{cases}
+1+0.01\sin(2\pi\omega_i p),&\text{multiple frequencies},\\
+1,&\text{single frequency}.
+\end{cases}
+\end{equation}
+Skipped rows retain incoming \(R_i\) and skip sine. Every row reads old \(R\); installation is synchronous. There are no Tower II phi-target or sum/difference additions. Golden spacing enters the catalogue, but the kernel uses ordinary squared frequency difference rather than log ratio. Equation~\eqref{eq:Q} then supplies \(Q\).
+
+\subsection{Ascending local fusion: which coordinates are read}
+Let
+\[
+a_{ij}=\frac{|Q_j|+10^{-8}}{\sum_{k\in\mathcal N_i}(|Q_k|+10^{-8})},
+\qquad \kappa_i=0.03Q_i.
+\]
+Let \(Z_j\) denote a row's completed fusion write. For finite horizon (\src{U}{178--188}), ascending \(i=0,\ldots,N-1\) gives, for nonempty rows,
+\begin{align}
+c_i&=\sum_{\substack{j\in\mathcal N_i\\j<i}}a_{ij}Z_j
+     +\sum_{\substack{j\in\mathcal N_i\\j>i}}a_{ij}Y_j,\label{eq:orderedcenter}\\
+Z_i&=Y_i+\kappa_i(c_i-Y_i).\label{eq:orderedwrite}
+\end{align}
+Empty rows give \(Z_i=Y_i\). Direct self is excluded. Advanced indexing creates a fresh selected-coordinate operand for each center; it is not a persistent view. Later centers select again from the then-current position array.
+
+Earlier IDs are read after their writes, later IDs before them. \(Q\) and neighbor identities remain fixed through fusion. Centers use magnitude-amplitude weights with no distance factor; displacement uses signed \(Q_i\). A row's own coordinate is still \(Y_i\), because prior rows wrote only themselves.
+
+An earlier \(Z_j\) contains \(\kappa_j(c_j-Y_j)\); substitution exposes indirect selected paths within a pass. Indirect self-dependence is possible when \(i\) was selected by an earlier row, despite direct self-exclusion. This is the reviewed dependency expression, not a new convergence or general order-sensitivity theorem. Coefficients or cancellations can make a contribution vanish.
+
+The horizon restricts pairs at the incoming boundary. Distances are not re-tested after local movement or earlier writes. Selected chains can span farther than \(h\); there is no one-hop-per-pass physical speed law. For fixed selections, disconnected weak components have no additional all-point or band-center bridge in this branch. This conditional structural fact does not establish permanent isolation as geometry changes.
+
+\subsection{Global branch, prescribed bound and final record}
+With horizon \texttt{None}, one all-point center, including self, is computed before a vectorized displacement:
+\begin{equation}\label{eq:global}
+c=\frac{\sum_j(|Q_j|+10^{-8})Y_j}{\sum_j(|Q_j|+10^{-8})},
+\qquad Z_i=Y_i+0.03Q_i(c-Y_i).
+\end{equation}
+Thus switching to \texttt{None} changes fusion as well as eligibility. It does not make local amplitude exchange all-to-all.
+
+After fusion,
+\begin{equation}\label{eq:LU}
+L_p=\begin{cases}
+9[1+0.3\sin(2\pi\,0.244p)e^{-0.01p}],&\text{breathing enabled},\\
+9,&\text{otherwise}.
+\end{cases}
+\end{equation}
+Compression, noise and \(V\) follow Equations~\eqref{eq:rpco}--\eqref{eq:noise}. \(L_p\) is time-only, unlike Tower II's incoming-amplitude readout. Neither bound is a coordinate wall. Observers (\src{U}{205--259}) receive old adjacency/distances but do not use them; they measure completed arrays.
+
+\section{Universe's original outputs}\label{sec:original}
+The five historical tables have explicit source writes, matching schemas and driver settings. They contain 233 data rows, 3,307 cells: 3,291 finite numeric cells, 15 text cells and one missing decay-time value. Original strings remain unchanged~\citep{s7cstudy,s7creview}.
+
+{\small
+\begin{longtable}{P{40mm}P{28mm}P{78mm}}
+\caption{\ev{ORIGINAL / ATTRIBUTED}. All five outputs and generating drivers. Rows exclude headers; physical CSV line = row \(+1\).}\label{tab:drivers}\\
+\toprule Table & Driver / write & Configuration and meaning\\\midrule
+\endfirsthead\toprule Table & Driver / write & Configuration and meaning\\\midrule\endhead
+\protect\path{full_universe.csv} & U:663--758 / 757 & \(200\times15\). Seed 1618 selected setting; completed passes 1--200. No initial row or individual coordinates.\\
+\protect\path{causal_horizons.csv} & U:378--497 / 484 & \(18\times11\). Horizons 3,5,8,12,20,None, each seeds 42--44. Four normal populations, \(N=80\), 100-pass endpoints; frequency/breathing off.\\
+\protect\path{condensate_perturbation.csv} & U:273--371 / 358 & \(7\times7\). Seven kicks after 100-pass \(N=50\), seed-2038 preparation; 50 response passes each. Global fusion, single frequency, static bound.\\
+\protect\path{multi_frequency.csv} & U:504--576 / 575 & \(6\times7\). Single/multiple frequency, seeds 42--44, \(N=60\), 150 passes. Global fusion, static bound.\\
+\protect\path{breathing_condensate.csv} & U:583--656 / 654 & \(2\times9\). Static/breathing, \(N=50\), seed 2038 reset per setting, 200 passes. Global fusion, single frequency.\\
+\bottomrule
+\end{longtable}}
+
+\subsection{Main historical chronology}
+The spatial observer reports 49 groups at pass 1, 12 at 9, 11 at 14, and ten at 16; ten persists through 200. Before replay, this established stable count, not membership. Amplitudes remain unequal: at pass 20 the amplitude-gap observer gives one group despite max/min \(3.060341\). At 200, mean \(|R|=0.144070880527\), signed std \(0.040448472042\), ratio 0.280754. The ratio reached about 0.252569 at pass 13, so progressive exact equalization is not the recorded history.
+
+Mean GRF stays below one, ending at 0.994912594. Its definition supports some nonzero displacement each pass, not individual directions or recovered mean speed. Four frequency columns are whole-field means of supplied labels, not spatial groups. Figure~\ref{fig:orig} is the accepted later rendering of these original aggregates.
+
+\plate{evidence/S7C/source_package/figures/F01_original_universe_chronology.png}
+{\ev{OBSERVED IN HISTORICAL DATA / DERIVED}. All original main-table rows 1--200; no coordinates inferred. Panels distinguish amplitude extrema, assigned-frequency means, two grouping observers, mean reciprocal displacement, prescribed \(L_p\), and the accepted passive \(R_{\rm std}/R_{\rm mean}\) ratio. The six-population reference comes from the driver. “New” in the unchanged image refers to S7C's earlier rendering, not a present calculation. S7C F01~\citep{s7cstudy}.}
+{fig:orig}
+
+\subsection{Horizon settings are not time steps}
+The driver places 20-point normal populations with coordinate std 1 near \((5,5,5)\), \((5,-5,-5)\), \((-5,5,-5)\) and \((-5,-5,5)\). Each trial resets its seed inside each horizon setting, retains discarded constructor draws, replaces \(X,R\), then evolves 100 passes.
+
+All 15 finite-horizon rows report five spatial groups, while the three \texttt{None} rows report four. Mean pair distances between the four original-population arithmetic centers lie about 13.87555--14.25550 for finite settings and 8.22412--9.17227 for \texttt{None}. Within a trial, stored values other than horizon agree for \(h=5,8,12,20\). These are historical summary findings, not full-state or graph identity. The local/global fusion switch prevents a radius-only causal comparison.
+
+Sentinel 999 means \texttt{None}, not radius 999. The flattened-coordinate intra-spread statistic is distinguished from radius in Section~\ref{sec:pooled}.
+
+\plate{evidence/S7C/source_package/figures/F02_horizon_settings.png}
+{\ev{OBSERVED IN HISTORICAL DATA}. All 18 horizon/trial endpoints after 100 passes. The x-axis is categorical; offsets separate trials. No line represents time between settings. The division before None marks the switch from ordered local fusion to one global center. Distances are between original-population arithmetic centers in uncalibrated coordinates. S7C F02, unchanged~\citep{s7cstudy}.}
+{fig:horizons}
+
+\subsection{Perturbation, frequency and breathing summaries}
+The perturbation driver saves \(X,R\) after 100 passes, then restores those arrays, zeros \(V\), clears history and resets \(p=100\) before each kick to ID 0. It does not restore RNG state: successive strengths use successive noise segments. Initial deviation means the first recorded post-kick state at 101, not the kick itself; final deviation is absolute deviation at 150.
+
+All seven rows are \texttt{DECAYING}, with final deviation smaller than first recorded deviation. The 0.01 kick has one absolute-deviation peak above 0.001; other rows have zero. The 0.05 row leaves decay time blank because the sampled 10\% threshold was never reached. The ordered classifier tests final \(<0.001\) times maximum recorded deviation (ABSORBED), more than three peaks (OSCILLATING), final \(>0.5\) times first deviation (PERSISTENT), else DECAYING. Temporary response histories were not written, so these classifier summaries cannot now be independently reconstructed. The narrative's all-size absorption and excitation-spectrum interpretation exceeds the seven finite responses.
+
+The multi-frequency table reports four supplied labels and final band-mean ratios \(1.10766886\), \(1.27975898\) and \(1.05919374\). Label count is not a survival test or a newly generated spectrum. Toggling the option changes RNG consumption and enables sine as well as the kernel.
+
+Static/breathing rows have identical exported numbers, including \(R_{\max}=0.179158800380\), signed std \(0.019352317340\), and four amplitude-gap groups. This is equality of summaries, not all states or cause. This driver fits a quadratic to all 200 maxima, then takes an rFFT of residual rows 51--200, unlike Tower II's mean-only subtraction. Saved \(1/150\) and fraction 0.91888455 remain historical calculations, not a new oscillator diagnosis. Main replay clipping conclusions are not transferred to this distinct driver.
+
+\section{Replay fidelity and historical agreement}\label{sec:fidelity}
+The accepted reference extracted helpers, complete class and selected driver from U:42--54,60--266,663--758, with necessary imports and run-local output path. Other drivers and original main were not executed. Capture used the same operations plus copy-only hooks; removing them recovered the reference text and definitions. Original bytes remained unchanged~\citep{s7rprovenance,s7rreview}.
+
+The earlier environment used NumPy 2.4.4, pandas 3.0.3, SciPy 1.17.1 in \texttt{torment}. Records include every boundary, incoming selection, amplitude stage, center operand, row write, actual random return and observer. Each run has 211 random-interface calls: one seed, ten value-producing initialization calls, 200 noise returns. This counts API calls, not generator words. Before-seed arbitrary process state is excluded from equality; deterministic checkpoints from seed onward agree.
+
+Reference and capture match in dtype, shape, raw array bytes, original metric bits, random returns and deterministic RNG checkpoints. Their exports are byte-identical. This verifies instrumentation in one setting, not independent trials or cross-platform replication. Accepted independent reviews checked fixed-record stages without propagating a new trajectory; these checks were not rerun for this paper.
+
+Historical comparison is separate. The two main tables have 3,000 cells including 200 pass labels, hence 2,800 non-pass metric cells. All 800 integer cells match exactly. All 2,200 continuous cells satisfy
+\begin{equation}\label{eq:tolerance}
+|r-h|\le10^{-12}+10^{-10}|h|,
+\end{equation}
+where \(h\) is the historical value. Exactly 2,312 parsed cells agree: 800 integer plus 1,512 continuous. The remaining 688 differ slightly; maximum absolute discrepancy is \(1.7763568394\times10^{-15}\), in entropy. Historical/replay CSV bytes differ. Agreement does not identify later coordinates with an unavailable original path.
+
+\plate{evidence/S7R/source_package/figures/F05_metrics_and_amplitudes.png}
+{\ev{REPRODUCED}, compared with \ev{ORIGINAL} aggregates. S7R F05, unchanged, passes 1--200. Upper left is maximum historical discrepancy divided by frozen tolerance; acceptance level one is far above plotted ratios. Other panels show positive signed amplitudes, fixed-frequency means and prescribed bound. Zero clipping is a captured pointwise result, not inferred from the bound's appearance~\citep{s7rprovenance,s7rreview}.}
+{fig:fidelity}
+
+\section{Universe motion, groups and actual reads}\label{sec:umotion}
+\subsection{Concentration within separated populations}
+Whole \(R_g\) changes from \(8.316796374\) to \(8.071505534\), diameter from \(22.398761997\) to \(19.021944473\). Large spread remains because populations remain separated. At boundary 16 \(R_g\approx8.049319139\), less than the endpoint; endpoint reduction is not monotonicity.
+
+Population contraction differs: P3 at 200 has \(R_g\approx0.0669491\), diameter 0.166309; P5 has \(R_g\approx1.80620\). P5 contains two stable observer groups, so its radius includes separation between pieces. P4's arithmetic center translates about 0.898055 from initialization, P3's about 0.305873. Center translation, spread and grouping are distinct~\citep{s7rmotion,s7rreview}.
+
+\plate{evidence/S7R/source_package/figures/F01_world_snapshots.png}
+{\ev{REPRODUCED}. Universe seed 1618, boundaries 0,16,50,200, 120 persistent IDs. Same camera, equal aspect, \(\pm13\) world axes. Color/shape denotes supplied populations; labels identify selected stable rows, including 97. Overlapping markers retain different identities. S7R F01, unchanged; no original coordinate movie is implied~\citep{s7rmotion}.}
+{fig:uworld}
+
+\subsection{Stable membership does not freeze the graph}
+Ten observer member sets remain unchanged over 185 observations, passes 16--200, with sizes \(10,10,20,9,11,20,9,11,13,7\):
+\begin{center}\small
+\begin{tabular}{lrrrrrr}\toprule
+Population & P0 & P1 & P2 & P3 & P4 & P5\\\midrule
+Group sizes & \(10+10\) & 20 & \(9+11\) & 20 & \(9+11\) & \(13+7\)\\
+\bottomrule\end{tabular}
+\end{center}
+No late observer group mixes supplied populations. This adds membership information to historical count information, but remains reproduced evidence.
+
+At the \emph{same boundary 199}, observer/weak/strong counts are ten/13/14. P1's one 20-point observer group contains weak pieces \(8+6+6\); P3's contains \(12+8\). At boundary 16 the opposite mismatch also occurs: P0 has two ten-point observer groups but one weak local component of 20. At that same boundary P1 already has one observer group and three weak components. Neither partition universally refines the other.
+
+All 200 captured incoming graphs have 600 edges and no empty rows in this realization. Across 199 successive graph comparisons, 35,682 binary entries change; the final comparison, boundaries 198 to 199, changes 244. These are changes counted across time, not unique pairs or independent experiments. Stable memberships coexist with rearranged selections.
+
+\wideplate{evidence/S7R/source_package/figures/F02_group_memberships.png}
+{\ev{REPRODUCED / DERIVED}. S7R F02 compares supplied populations, frequencies, weak/strong components and spatial groups at boundaries 16 and 199. Graph at \(b\) supplies \(b+1\); observer measures \(b\). Colors are categorical within rows, not identity across definitions. P0/P1 at 16 demonstrate mismatch in both directions. No final-boundary-200 graph is claimed~\citep{s7rreview}.}
+{fig:partitions}
+
+\subsection{Brief contact and a turning path}
+Only three directed pairs cross populations: 39 selects 97 at passes 1--3, 97 selects 34 at 1--6, and 97 selects 39 at 1--8. These total 17 visits between P1 and P4. None occurs in input graphs supplying 9--200. U:693's comment that each cluster only sees itself is false for these early replay selections.
+
+GPT's additional readback separates leaving a radius from losing a nearest-five place:
+\begin{table}[H]\centering\small
+\begin{tabular}{lrrr}\toprule
+Selection & First absent pass & Pair distance & Farthest selected\\\midrule
+39 selects 97 & 4 & 3.020634879 & 2.810868773\\
+97 selects 34 & 7 & 4.836983324 & 4.808048733\\
+97 selects 39 & 9 & 4.840333657 & 4.628762859\\
+\bottomrule\end{tabular}
+\caption{\ev{REPRODUCED / DERIVED}. S7R \protect\path{independent/FINDINGS.json}, \texttt{cross\_selection\_departure}. All departing pairs remain inside \(h=6\); five closer candidates occupy the selected places.}\label{tab:depart}
+\end{table}
+This accounts for actual selection loss, not the trajectory effect of forcing a link to remain.
+
+ID 97 starts near \((-5.97170,-0.946781,5.79831)\). Its \(z\) first falls then rises while \(x\) moves toward P4: boundary 8 is near \((-4.15099,-1.16281,5.13300)\), 16 near \((-1.78667,-1.36076,6.13502)\), and 200 near \((0.394820,-1.52310,6.37897)\). Its sampled path length \(8.119170932\) is the largest among 120 IDs. It ends with IDs 83,85,86,88,91,92,94,95,96,97,99, all P4. This is a sampled turn, not wrapping or identity exchange; no explorer role follows.
+
+\wideplate{evidence/S7R/source_package/figures/F06_transient_cross_population_contact.png}
+{\ev{REPRODUCED / DERIVED}. S7R F06, unchanged. Left: sampled \(x\)--\(z\) paths of 34,39,97 over 0--30, omitting \(y\). Middle: incoming distances with actual-selection markers; radius alone does not determine selection. Right: ID 97's completed steps through 200. Joins are reading guides, not a continuous-time law. Table~\ref{tab:depart} provides first-absence distances~\citep{s7rmotion,s7rreview}.}
+{fig:cross}
+
+\subsection{Earlier writes enter later centers}
+The 24,000 fusion row visits contain 120,000 selected-coordinate reads: 60,118 earlier-written and 59,882 later-unwritten. Weighted earlier-write contribution is nonzero in 19,974 centers. Counts cover one path, not independent experiments.
+
+Let \(X^{\rm read}_{ij}\) be the actual coordinate passed for neighbor \(j\). The reviewed accounting identity is
+\begin{align}
+d_i^{\rm read}&=\sum_{j\in\mathcal N_i}a_{ij}(X^{\rm read}_{ij}-Y_j),\label{eq:dread}\\
+c_i&=\sum_{j\in\mathcal N_i}a_{ij}Y_j+d_i^{\rm read}.\label{eq:decompose}
+\end{align}
+It decomposes one actual center; floating reduction differences leave small reported residuals. It is not a simultaneously evolved alternative, nor an endpoint difference between algorithms.
+
+Accepted representative rows maximize \(\norm{d_i^{\rm read}}\) within each fixed pass 1,16,200:
+\begin{center}\small
+\begin{tabular}{rrlr}\toprule
+Pass & Row & Earlier-written selected IDs & \(\norm{d_i^{\rm read}}\)\\\midrule
+1 & 112 & 100,102,103,107,109 & .008262981568\\
+16 & 6 & 2,5 & .001045505511\\
+200 & 8 & 0,1,3,7 & .0000213994194\\
+\bottomrule\end{tabular}
+\end{center}
+This selected recorded operands, not seeds or parameters.
+
+At pass 16 row 6 selects \(2,5,11,16,18\). IDs 2 and 5 have been written; the others are still \(Y\). In that order, normalized weights are approximately 0.2408018130, 0.2448881163, 0.1692338522, 0.1773596550 and 0.1677165636. For ID 5,
+\begin{align*}
+Y_5&=(10.1642402234,-0.009263063370,-1.0188735915),\\
+X^{\rm read}_{6,5}&=(10.1645760721,-0.008571991931,-1.0211011336).
+\end{align*}
+The total earlier-write contribution is
+\[
+d_6^{\rm read}\approx(0.000063805420,\ 0.000308562427,\ -0.000996895115).
+\]
+The actual center is approximately \((10.2112525079,0.123574916694,-1.4044326301)\). With \(Q_6=0.145515333383\), row 6's fusion displacement is approximately
+\[
+(-0.000157993719,\ 0.000573960922,\ -0.000788661172).
+\]
+These are pre-noise, not completed-state quantities. Maximum accounting-residual component is \(1.77636\times10^{-15}\). Exact operands are in the stage NPZ and readable episode JSON~\citep{s7rordered,s7rreview}.
+
+\wideplate{evidence/S7R/source_package/figures/F04_actual_ordered_reads.png}
+{\ev{REPRODUCED / DERIVED}. S7R F04: pass 1 row 112, pass 16 row 6, pass 200 row 8. Upper sampled paths cover 0--6,11--21,195--200; each has one fixed translation, equal axes and a disclosed differing close-view scale. Circles start, triangles end. Lower bars are signed weighted actual-read contributions; stars mark earlier writes. Later rows contribute zero to Equation~\eqref{eq:dread}. These are not reordered controls~\citep{s7rordered}.}
+{fig:ordered}
+
+\subsection{Continuing motion and stage scales}
+All 120 points move at pass 200: mean step \(0.005118790595\), minimum about \(0.000827802018\), maximum \(0.011059750237\). Mean cumulative sampled path is \(3.481760184\). Stable membership is compatible with these small motions.
+
+At pass 1 mean lengths of local, fusion and noise increments are \(0.203511,0.00562931,0.0168112\); net mean step is 0.209809. At 200 the stage means are \(0.00156648,0.0000274445,0.00496697\), net 0.00511879. The largest endpoint stage mean is recorded noise. This describes operands, not a noise-off experiment. Vector increments add; scalar lengths generally do not.
+
+\plate{evidence/S7R/source_package/figures/F03_geometry_and_movement.png}
+{\ev{REPRODUCED / DERIVED}. S7R F03 separates centered population spread, center translation, stage lengths and grouping definitions. Geometry: boundaries 0--200; increments: passes 1--200; graphs: incoming 0--199; observers: completed 1--200. Named member sets are measurements, not rigid bodies. Small late motion persists despite stable spatial membership~\citep{s7rmotion}.}
+{fig:umotion}
+

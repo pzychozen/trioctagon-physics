@@ -1,0 +1,724 @@
+{
+  "boundary": {
+    "example_file": "runs/B_CAPTURE/boundaries/boundary_000.npz",
+    "arrays": {
+      "pass": {
+        "shape": [],
+        "dtype": "<i8",
+        "bytes": 8
+      },
+      "ids": {
+        "shape": [
+          120
+        ],
+        "dtype": "<i8",
+        "bytes": 960
+      },
+      "X": {
+        "shape": [
+          120,
+          3
+        ],
+        "dtype": "<f8",
+        "bytes": 2880
+      },
+      "R": {
+        "shape": [
+          120
+        ],
+        "dtype": "<f8",
+        "bytes": 960
+      },
+      "V": {
+        "shape": [
+          120,
+          3
+        ],
+        "dtype": "<f8",
+        "bytes": 2880
+      },
+      "frequencies": {
+        "shape": [
+          120
+        ],
+        "dtype": "<f8",
+        "bytes": 960
+      },
+      "configuration_json": {
+        "shape": [],
+        "dtype": "<U164",
+        "bytes": 656
+      },
+      "rng_name": {
+        "shape": [],
+        "dtype": "<U7",
+        "bytes": 28
+      },
+      "rng_words": {
+        "shape": [
+          624
+        ],
+        "dtype": "<u4",
+        "bytes": 2496
+      },
+      "rng_position": {
+        "shape": [],
+        "dtype": "<i8",
+        "bytes": 8
+      },
+      "rng_has_gauss": {
+        "shape": [],
+        "dtype": "<i8",
+        "bytes": 8
+      },
+      "rng_cached_gaussian": {
+        "shape": [],
+        "dtype": "<f8",
+        "bytes": 8
+      }
+    }
+  },
+  "stage": {
+    "example_file": "runs/B_CAPTURE/stages/pass_001.npz",
+    "arrays": {
+      "incoming_X": {
+        "shape": [
+          120,
+          3
+        ],
+        "dtype": "<f8",
+        "bytes": 2880
+      },
+      "incoming_R": {
+        "shape": [
+          120
+        ],
+        "dtype": "<f8",
+        "bytes": 960
+      },
+      "pass": {
+        "shape": [],
+        "dtype": "<i8",
+        "bytes": 8
+      },
+      "pass_before_name": {
+        "shape": [],
+        "dtype": "<U7",
+        "bytes": 28
+      },
+      "pass_before_words": {
+        "shape": [
+          624
+        ],
+        "dtype": "<u4",
+        "bytes": 2496
+      },
+      "pass_before_position": {
+        "shape": [],
+        "dtype": "<i8",
+        "bytes": 8
+      },
+      "pass_before_has_gauss": {
+        "shape": [],
+        "dtype": "<i8",
+        "bytes": 8
+      },
+      "pass_before_cached_gaussian": {
+        "shape": [],
+        "dtype": "<f8",
+        "bytes": 8
+      },
+      "coupling_distance_weights": {
+        "shape": [
+          120,
+          5
+        ],
+        "dtype": "<f8",
+        "bytes": 4800
+      },
+      "coupling_frequency_factors": {
+        "shape": [
+          120,
+          5
+        ],
+        "dtype": "<f8",
+        "bytes": 4800
+      },
+      "coupling_weighted_pre_guard": {
+        "shape": [
+          120,
+          5
+        ],
+        "dtype": "<f8",
+        "bytes": 4800
+      },
+      "coupling_final_weights": {
+        "shape": [
+          120,
+          5
+        ],
+        "dtype": "<f8",
+        "bytes": 4800
+      },
+      "coupling_weight_sum": {
+        "shape": [
+          120
+        ],
+        "dtype": "<f8",
+        "bytes": 960
+      },
+      "coupling_guard_visited": {
+        "shape": [
+          120
+        ],
+        "dtype": "|b1",
+        "bytes": 120
+      },
+      "coupling_guard_passed": {
+        "shape": [
+          120
+        ],
+        "dtype": "|b1",
+        "bytes": 120
+      },
+      "coupling_active": {
+        "shape": [
+          120
+        ],
+        "dtype": "|b1",
+        "bytes": 120
+      },
+      "coupling_R_neighbor": {
+        "shape": [
+          120
+        ],
+        "dtype": "<f8",
+        "bytes": 960
+      },
+      "coupling_row_result": {
+        "shape": [
+          120
+        ],
+        "dtype": "<f8",
+        "bytes": 960
+      },
+      "fusion_ids": {
+        "shape": [
+          120,
+          5
+        ],
+        "dtype": "<i8",
+        "bytes": 4800
+      },
+      "fusion_valid": {
+        "shape": [
+          120
+        ],
+        "dtype": "|b1",
+        "bytes": 120
+      },
+      "fusion_reads": {
+        "shape": [
+          120,
+          5,
+          3
+        ],
+        "dtype": "<f8",
+        "bytes": 14400
+      },
+      "fusion_weights": {
+        "shape": [
+          120,
+          5
+        ],
+        "dtype": "<f8",
+        "bytes": 4800
+      },
+      "fusion_center": {
+        "shape": [
+          120,
+          3
+        ],
+        "dtype": "<f8",
+        "bytes": 2880
+      },
+      "fusion_before": {
+        "shape": [
+          120,
+          3
+        ],
+        "dtype": "<f8",
+        "bytes": 2880
+      },
+      "fusion_after": {
+        "shape": [
+          120,
+          3
+        ],
+        "dtype": "<f8",
+        "bytes": 2880
+      },
+      "fusion_Q_neighbors": {
+        "shape": [
+          120,
+          5
+        ],
+        "dtype": "<f8",
+        "bytes": 4800
+      },
+      "fusion_visit_order": {
+        "shape": [
+          120
+        ],
+        "dtype": "<i8",
+        "bytes": 960
+      },
+      "adjacency": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "<f8",
+        "bytes": 115200
+      },
+      "distances": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "<f8",
+        "bytes": 115200
+      },
+      "neighbor_count": {
+        "shape": [
+          120
+        ],
+        "dtype": "<i8",
+        "bytes": 960
+      },
+      "empty_rows": {
+        "shape": [
+          120
+        ],
+        "dtype": "|b1",
+        "bytes": 120
+      },
+      "lap": {
+        "shape": [
+          120,
+          3
+        ],
+        "dtype": "<f8",
+        "bytes": 2880
+      },
+      "Y": {
+        "shape": [
+          120,
+          3
+        ],
+        "dtype": "<f8",
+        "bytes": 2880
+      },
+      "B": {
+        "shape": [
+          120
+        ],
+        "dtype": "<f8",
+        "bytes": 960
+      },
+      "H": {
+        "shape": [],
+        "dtype": "<f8",
+        "bytes": 8
+      },
+      "H_factor": {
+        "shape": [],
+        "dtype": "<f8",
+        "bytes": 8
+      },
+      "Q": {
+        "shape": [
+          120
+        ],
+        "dtype": "<f8",
+        "bytes": 960
+      },
+      "Z": {
+        "shape": [
+          120,
+          3
+        ],
+        "dtype": "<f8",
+        "bytes": 2880
+      },
+      "pre_compression_R": {
+        "shape": [
+          120
+        ],
+        "dtype": "<f8",
+        "bytes": 960
+      },
+      "L": {
+        "shape": [],
+        "dtype": "<f8",
+        "bytes": 8
+      },
+      "compression_magnitude": {
+        "shape": [
+          120
+        ],
+        "dtype": "<f8",
+        "bytes": 960
+      },
+      "compression_log_magnitude": {
+        "shape": [
+          120
+        ],
+        "dtype": "<f8",
+        "bytes": 960
+      },
+      "clipping_lower": {
+        "shape": [
+          120
+        ],
+        "dtype": "|b1",
+        "bytes": 120
+      },
+      "clipping_upper": {
+        "shape": [
+          120
+        ],
+        "dtype": "|b1",
+        "bytes": 120
+      },
+      "compression_zero_input": {
+        "shape": [
+          120
+        ],
+        "dtype": "|b1",
+        "bytes": 120
+      },
+      "post_compression_R": {
+        "shape": [
+          120
+        ],
+        "dtype": "<f8",
+        "bytes": 960
+      },
+      "noise_scale": {
+        "shape": [],
+        "dtype": "<f8",
+        "bytes": 8
+      },
+      "noise": {
+        "shape": [
+          120,
+          3
+        ],
+        "dtype": "<f8",
+        "bytes": 2880
+      },
+      "noise_before_name": {
+        "shape": [],
+        "dtype": "<U7",
+        "bytes": 28
+      },
+      "noise_before_words": {
+        "shape": [
+          624
+        ],
+        "dtype": "<u4",
+        "bytes": 2496
+      },
+      "noise_before_position": {
+        "shape": [],
+        "dtype": "<i8",
+        "bytes": 8
+      },
+      "noise_before_has_gauss": {
+        "shape": [],
+        "dtype": "<i8",
+        "bytes": 8
+      },
+      "noise_before_cached_gaussian": {
+        "shape": [],
+        "dtype": "<f8",
+        "bytes": 8
+      },
+      "noise_after_name": {
+        "shape": [],
+        "dtype": "<U7",
+        "bytes": 28
+      },
+      "noise_after_words": {
+        "shape": [
+          624
+        ],
+        "dtype": "<u4",
+        "bytes": 2496
+      },
+      "noise_after_position": {
+        "shape": [],
+        "dtype": "<i8",
+        "bytes": 8
+      },
+      "noise_after_has_gauss": {
+        "shape": [],
+        "dtype": "<i8",
+        "bytes": 8
+      },
+      "noise_after_cached_gaussian": {
+        "shape": [],
+        "dtype": "<f8",
+        "bytes": 8
+      },
+      "observer_membership": {
+        "shape": [
+          120
+        ],
+        "dtype": "<i4",
+        "bytes": 480
+      },
+      "observer_linkage": {
+        "shape": [
+          119,
+          4
+        ],
+        "dtype": "<f8",
+        "bytes": 3808
+      },
+      "completed_X": {
+        "shape": [
+          120,
+          3
+        ],
+        "dtype": "<f8",
+        "bytes": 2880
+      },
+      "completed_R": {
+        "shape": [
+          120
+        ],
+        "dtype": "<f8",
+        "bytes": 960
+      },
+      "completed_V": {
+        "shape": [
+          120,
+          3
+        ],
+        "dtype": "<f8",
+        "bytes": 2880
+      },
+      "pass_after_name": {
+        "shape": [],
+        "dtype": "<U7",
+        "bytes": 28
+      },
+      "pass_after_words": {
+        "shape": [
+          624
+        ],
+        "dtype": "<u4",
+        "bytes": 2496
+      },
+      "pass_after_position": {
+        "shape": [],
+        "dtype": "<i8",
+        "bytes": 8
+      },
+      "pass_after_has_gauss": {
+        "shape": [],
+        "dtype": "<i8",
+        "bytes": 8
+      },
+      "pass_after_cached_gaussian": {
+        "shape": [],
+        "dtype": "<f8",
+        "bytes": 8
+      },
+      "observer_metric_json": {
+        "shape": [],
+        "dtype": "<U445",
+        "bytes": 1780
+      }
+    }
+  },
+  "rng_initialization": {
+    "example_file": "runs/B_CAPTURE/random/call_001_normal.npz",
+    "arrays": {
+      "before_name": {
+        "shape": [],
+        "dtype": "<U7",
+        "bytes": 28
+      },
+      "before_words": {
+        "shape": [
+          624
+        ],
+        "dtype": "<u4",
+        "bytes": 2496
+      },
+      "before_position": {
+        "shape": [],
+        "dtype": "<i8",
+        "bytes": 8
+      },
+      "before_has_gauss": {
+        "shape": [],
+        "dtype": "<i8",
+        "bytes": 8
+      },
+      "before_cached_gaussian": {
+        "shape": [],
+        "dtype": "<f8",
+        "bytes": 8
+      },
+      "after_name": {
+        "shape": [],
+        "dtype": "<U7",
+        "bytes": 28
+      },
+      "after_words": {
+        "shape": [
+          624
+        ],
+        "dtype": "<u4",
+        "bytes": 2496
+      },
+      "after_position": {
+        "shape": [],
+        "dtype": "<i8",
+        "bytes": 8
+      },
+      "after_has_gauss": {
+        "shape": [],
+        "dtype": "<i8",
+        "bytes": 8
+      },
+      "after_cached_gaussian": {
+        "shape": [],
+        "dtype": "<f8",
+        "bytes": 8
+      },
+      "value": {
+        "shape": [
+          20,
+          3
+        ],
+        "dtype": "<f8",
+        "bytes": 480
+      }
+    }
+  },
+  "metrics": {
+    "example_file": "runs/B_CAPTURE/metrics.npz",
+    "arrays": {
+      "pass": {
+        "shape": [
+          200
+        ],
+        "dtype": "<i8",
+        "bytes": 1600
+      },
+      "R_max": {
+        "shape": [
+          200
+        ],
+        "dtype": "<f8",
+        "bytes": 1600
+      },
+      "R_min": {
+        "shape": [
+          200
+        ],
+        "dtype": "<f8",
+        "bytes": 1600
+      },
+      "R_mean": {
+        "shape": [
+          200
+        ],
+        "dtype": "<f8",
+        "bytes": 1600
+      },
+      "R_std": {
+        "shape": [
+          200
+        ],
+        "dtype": "<f8",
+        "bytes": 1600
+      },
+      "n_resonance_clusters": {
+        "shape": [
+          200
+        ],
+        "dtype": "<i8",
+        "bytes": 1600
+      },
+      "n_spatial_clusters": {
+        "shape": [
+          200
+        ],
+        "dtype": "<i8",
+        "bytes": 1600
+      },
+      "entropy": {
+        "shape": [
+          200
+        ],
+        "dtype": "<f8",
+        "bytes": 1600
+      },
+      "mean_grf": {
+        "shape": [
+          200
+        ],
+        "dtype": "<f8",
+        "bytes": 1600
+      },
+      "top_seed_id": {
+        "shape": [
+          200
+        ],
+        "dtype": "<i8",
+        "bytes": 1600
+      },
+      "L_effective": {
+        "shape": [
+          200
+        ],
+        "dtype": "<f8",
+        "bytes": 1600
+      },
+      "band_0.1508": {
+        "shape": [
+          200
+        ],
+        "dtype": "<f8",
+        "bytes": 1600
+      },
+      "band_0.2440": {
+        "shape": [
+          200
+        ],
+        "dtype": "<f8",
+        "bytes": 1600
+      },
+      "band_0.3948": {
+        "shape": [
+          200
+        ],
+        "dtype": "<f8",
+        "bytes": 1600
+      },
+      "band_0.6388": {
+        "shape": [
+          200
+        ],
+        "dtype": "<f8",
+        "bytes": 1600
+      }
+    }
+  }
+}
