@@ -71,3 +71,8 @@ The v0.1 chapter gives the exact two-step access criterion and sharp singleton a
 ## SRG Attractor Dynamics
 
 [SRG Attractor Dynamics: Selective Retention and Certified Convergence under Returning Drive — publication v0.1](PAPERS/SRG_ATTRACTOR_DYNAMICS/publication/v0.1/README.md).
+
+
+## SRG Final Mathematical Bridge
+
+[SRG Final Mathematical Bridge: From Lens Geometry to Recurrence and Known Equations - publication v0.1](FINAL_MATHEMATICAL_BRIDGE/publication/v0.1/README.md) presents the accepted source-linked synthesis of lens preparation, fixed SRG transfer, nonlinear recurrence and the quantum-ring spectral correspondence. All 32 equations are retained; the documented historical coupling-selection question remains unresolved. No new simulation, kernel change or physical validation is claimed.

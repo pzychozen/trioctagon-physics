@@ -1,0 +1,62 @@
+--- accepted_attempt_002/build_manuscript.py
++++ publication/v0.1/build/build_publication.py
+@@ -1,13 +1,14 @@
+-"""Render the FB02 Markdown as a review PDF. No scientific project code is imported."""
++"""Render the accepted Final Mathematical Bridge publication v0.1. No scientific project code is imported."""
+ import os,sys,re,json,html
+ from pathlib import Path
+ sys.dont_write_bytecode=True
+-from fb02_io import ROOT,safe,write,save
+-for name in ('tmp','tmp/matplotlib','tmp/pdfs','output/pdf'):
++from publication_io import ROOT,safe,write,save
++for name in ('tmp','tmp/matplotlib','tmp/pdfs'):
+     safe(name).mkdir(parents=True,exist_ok=True)
+ os.environ['MPLCONFIGDIR']=str(safe('tmp/matplotlib'))
+ os.environ['TEMP']=os.environ['TMP']=str(safe('tmp'))
+-sys.path.append('C:/Users/Notandi/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/Lib/site-packages')
++extra_packages=os.environ.get('SRG_DOCUMENT_SITE_PACKAGES')
++if extra_packages:sys.path.append(extra_packages)
+ import matplotlib
+ from matplotlib.mathtext import MathTextParser
+ from matplotlib.font_manager import FontProperties
+@@ -50,7 +51,8 @@
+     def link(m):
+         label,url=m.group(1),m.group(2)
+         if url.startswith('http'):return f'<link href="{url}" color="#176779">{label}</link>'
+-        return label
++        url='https://github.com/pzychozen/trioctagon-physics/blob/main/SRG_REDISCOVERY/FINAL_MATHEMATICAL_BRIDGE/publication/v0.1/'+url
++        return f'<link href="{url}" color="#176779">{label}</link>'
+     s=re.sub(r'\[([^\]]+)\]\(([^)]+)\)',link,s)
+     s=re.sub(r'\*\*(.+?)\*\*',r'<b>\1</b>',s)
+     s=re.sub(r'`([^`]+)`',r'<font name="UI" size="9.0">\1</font>',s)
+@@ -133,12 +135,12 @@
+ def furniture(c,d):
+     c.saveState();c.setFillColor(MUTED);c.setFont('UI',7.7)
+     c.drawString(MARGIN,H-30,'SRG FINAL MATHEMATICAL BRIDGE')
+-    c.drawRightString(W-MARGIN,H-30,'FB02 • REVIEW DRAFT • 27 OCT 2026')
++    c.drawRightString(W-MARGIN,H-30,'PUBLICATION v0.1 • 27 OCT 2026')
+     c.setStrokeColor(RULE);c.setLineWidth(.5);c.line(MARGIN,H-37,W-MARGIN,H-37)
+-    c.drawString(MARGIN,28,'Source-linked explanatory synthesis • Not a publication release')
++    c.drawString(MARGIN,28,'Source-linked explanatory synthesis • Publication edition v0.1')
+     c.drawRightString(W-MARGIN,28,str(d.page));c.restoreState()
+ 
+-story=[];lines=safe('SRG_FB02_EXPLANATORY_SYNTHESIS_DRAFT.md').read_text('utf-8').splitlines();i=0;appendix=False
++story=[];lines=safe('SRG_FINAL_MATHEMATICAL_BRIDGE_v0.1.md').read_text('utf-8').splitlines();i=0;appendix=False
+ while i<len(lines):
+     line=lines[i].strip()
+     if not line:i+=1;continue
+@@ -175,11 +177,11 @@
+     elif s.startswith('**GPT_REVIEW**'):anchor='<a name="src_GPT_REVIEW"/>'
+     story.append(Paragraph(anchor+markup(s,link_refs=not bool(anchor)),styles['quote' if quote else 'ref' if appendix else 'body']))
+ 
+-pdf=safe('output/pdf/SRG_FB02_EXPLANATORY_SYNTHESIS_DRAFT.pdf')
+-doc=SimpleDocTemplate(str(pdf),pagesize=A4,rightMargin=MARGIN,leftMargin=MARGIN,topMargin=53,bottomMargin=48,title='SRG Final Mathematical Bridge: From Lens Geometry to Recurrence and Known Equations',author='Prepared for Hilmir Frímann Halldórsson; FB02 explanatory review draft',subject='Source-linked synthesis for GPT review, 27 October 2026',pageCompression=1)
++pdf=safe('SRG_FINAL_MATHEMATICAL_BRIDGE_v0.1.pdf')
++doc=SimpleDocTemplate(str(pdf),pagesize=A4,rightMargin=MARGIN,leftMargin=MARGIN,topMargin=53,bottomMargin=48,title='SRG Final Mathematical Bridge: From Lens Geometry to Recurrence and Known Equations',author='Prepared for Hilmir Frímann Halldórsson; publication edition v0.1',subject='Accepted source-linked synthesis, publication v0.1, 27 October 2026',pageCompression=1)
+ doc.build(story,onFirstPage=furniture,onLaterPages=furniture)
+ r=PdfReader(pdf)
+ page_text=[p.extract_text() for p in r.pages]
+ write('tmp/pdf_extracted_text.txt','\n\n'.join(f'PAGE {j+1}\n{s}' for j,s in enumerate(page_text)))
+-save('PDF_BUILD_REPORT.json',{'pdf':str(pdf.relative_to(ROOT)),'pages':len(r.pages),'equations':math_log,'text_characters_by_page':[len(s) for s in page_text],'method':'ReportLab text and vector math glyphs; vector explanatory diagram; no scientific execution','fonts':['DejaVu Serif','DejaVu Sans'],'note':'Formula glyph outlines are vector paths; editable exact formulas are in the Markdown source. PDF text extraction therefore covers prose and labels, not every formula glyph.'})
++save('records/PDF_BUILD_REPORT.json',{'pdf':str(pdf.relative_to(ROOT)),'pages':len(r.pages),'equations':math_log,'text_characters_by_page':[len(s) for s in page_text],'method':'ReportLab text and vector math glyphs; vector explanatory diagram; no scientific execution','fonts':['DejaVu Serif','DejaVu Sans'],'note':'Formula glyph outlines are vector paths; editable exact formulas are in the Markdown source. PDF text extraction therefore covers prose and labels, not every formula glyph.'})
+ print(json.dumps({'pdf':str(pdf),'pages':len(r.pages),'equations':len(math_log),'smallest_equation_font':min(e['effective_font_pt'] for e in math_log)},indent=2))
