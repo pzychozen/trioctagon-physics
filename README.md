@@ -324,3 +324,8 @@ The accepted P1R1 Spherical Edge Observer and its required export repair are ava
 Author-authorized repository research edition **v0.3**; the reviewed manuscript is preserved unchanged, with project-internal review and a completed scoped numerical audit and replay. No external peer review is claimed.
 [PDF](papers/CENTRAL_GEOMETRY_Z_CHIRAL_RESPONSE/publication/v0.3/CENTRAL_GEOMETRY_Z_CHIRAL_RESPONSE_v0.3.pdf) · [Edition and supporting evidence](papers/CENTRAL_GEOMETRY_Z_CHIRAL_RESPONSE/publication/v0.3/README.md) · [Publication disposition](papers/CENTRAL_GEOMETRY_Z_CHIRAL_RESPONSE/publication/v0.3/PUBLICATION_DISPOSITION.md).
 No runtime or kernel changes.
+
+
+## Collective turning and coherent relaxation
+
+[Transient Collective Turning and Coherent Relaxation in the Native Triad — v0.1](papers/COLLECTIVE_TURNING_AND_COHERENT_RELAXATION/v0.1/README.md), by **Hilmir Frímann Halldórsson**. Author-authorized repository research edition with completed GPT project-internal scientific review and author review; no external peer review is claimed. [Published PDF](papers/COLLECTIVE_TURNING_AND_COHERENT_RELAXATION/v0.1/REVIEW.pdf). Turning, delayed graph response, and a separate finite-domain convergence theorem; no kernel changes.

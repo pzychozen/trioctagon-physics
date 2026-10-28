@@ -1,0 +1,632 @@
+# Tri-Octagon Physics — Manuscript Preparation Work Order
+
+**Date:** 28 October 2026
+**Phase:** Detailed scientific synthesis and local review draft
+**Working title:** *Transient Collective Turning and Coherent Relaxation in the Native Triad*
+
+## 1. Authorization and intended outcome
+
+The author has approved preparation of a detailed, documented analysis of the geometric observation and the mathematics developed in the completed investigation.
+
+Write the document now. Produce a complete manuscript suitable for GPT scientific review and subsequent author review.
+
+The scientific purpose is to bring the completed results into one coherent account:
+
+> The existing native recurrence permits internal graph redistribution to redirect collective complex-state evolution through the nonlinear onsite response. Separately, an explicit finite domain of the full ordered map converges to an unequal aligned fixed profile, with quantitative decay of the signed-area observables.
+
+The word **separately** is essential. The earlier turning entrance is outside the proved convergence domain. The document must not present these results as one demonstrated trajectory that turns, enters the domain, and settles.
+
+This is a writing and documentation assignment using completed mathematics. It is not an invitation to extend the investigation.
+
+### Publication sequence
+
+The agreed sequence is:
+
+1. Codex prepares the complete draft and supporting material.
+2. GPT reviews scientific correctness, scope, provenance, and presentation.
+3. Codex resolves concrete review findings.
+4. The author reviews the resulting version.
+5. The reviewed version is then prepared for GitHub publication.
+
+**Stop this work order at the review handoff.** Do not stage, commit, push, tag, open a publication PR, or mark the document approved for publication during this phase. The agreed review conditions have not yet been completed.
+
+## 2. Source baseline and protected work
+
+Use repository:
+
+`pzychozen/trioctagon-physics`
+
+Pin the mathematical source baseline to:
+
+`ad8a6e88b4a78d8b1955b34d5ff80b6c21713ade`
+
+Treat the completed reports from this investigation as inputs to the manuscript. Their new propositions have received project-internal mathematical review in this conversation; they are not thereby already repository publications or externally peer-reviewed results.
+
+Relevant accepted sources include:
+
+* `kernel_physics/dynamics.py`
+* `papers/PAPER_A/publication/paper_A_publication.md`
+* `papers/NATIVE_RESPONSE_GEOMETRY/manuscript/response.tex`
+* `papers/NATIVE_RESPONSE_GEOMETRY/manuscript/spectral.tex`
+* `papers/NATIVE_RESPONSE_GEOMETRY/manuscript/observables_closure.tex`
+* `papers/MEASUREMENT_AND_CHIRAL_DRIFT/v0.1/drift/manuscript.tex`
+* `papers/PAPER_G/v0.1.1/source/paper_g.tex`
+* `SRG_REDISCOVERY/FINAL_MATHEMATICAL_BRIDGE/publication/v0.1/SRG_FINAL_MATHEMATICAL_BRIDGE_v0.1.md`
+
+Consult only the passages needed to establish definitions, inherited results, and the manuscript’s position relative to prior work.
+
+The production TORMENT kernel and accepted physics kernels are protected. Completed SRG simulations, historical reconstruction, and publication audits remain closed.
+
+Preserve existing unrelated work. Do not reset, stash, overwrite, or reorganize the checkout to prepare this draft.
+
+## 3. Deliverable format and location
+
+Follow the relevant existing paper conventions.
+
+Use **one authoritative manuscript source**, preferably LaTeX consistent with the nearby mathematical papers, and generate a readable PDF from it. Do not maintain independently edited full Markdown and LaTeX manuscripts.
+
+A proposed new draft location is:
+
+`papers/COLLECTIVE_TURNING_AND_COHERENT_RELAXATION/v0.1/`
+
+Check for an existing task-specific location before creating a duplicate. Keep all new work isolated to the chosen draft directory.
+
+Provide:
+
+* Canonical manuscript source and bibliography.
+* A rendered review PDF.
+* A short `README.md` describing the document, source baseline, draft status, and build command.
+* A compact `CLAIM_SOURCE_MAP.md`.
+* A concise `REVIEW_HANDOFF.md`.
+* Figures and selected supporting evidence needed by the document.
+
+Use a status such as:
+
+**WORKING REVIEW DRAFT — prepared for GPT scientific review and author review; publication pending those reviews.**
+
+Do not assign a new letter in the Paper A–G sequence, claim a DOI, or invent a journal or external review status.
+
+Follow the repository’s established author attribution and AI-assistance conventions. Credit the author’s observation, GPT’s scientific steering and review, and Codex’s mathematical/drafting assistance accurately.
+
+The manuscript should be detailed enough to stand alone. Approximately 6,000–9,000 words, with mathematical appendices as needed, is a useful planning range rather than a quota. Prefer complete reasoning over padding.
+
+If the existing PDF toolchain is unavailable, finish the canonical source and provide a readable derived version for review, identifying the specific build limitation. Do not stop at an outline.
+
+## 4. Writing requirements
+
+Write a connected scientific analysis, not a transcript of the conversation or a chronological list of work orders.
+
+For each principal result, explain:
+
+* The question it answers.
+* The assumptions and domain.
+* The mathematical argument.
+* Its relationship to the other results.
+* The conclusions that follow and the limits that remain.
+
+Include an accessible opening overview explaining the main findings before the formal development.
+
+Use consistent notation and a notation table. Resolve collisions between:
+
+* Dispersion and Paper G’s Gram-matrix notation.
+* Synchronization contributions and spread variables.
+* The channel-area vector \(C\) and a residual-bound constant.
+* The complex mean \(m\) and any physical mass used in a comparison.
+* Parameter heterogeneity and relative-state deviations.
+
+A notation change is allowed when it improves clarity, but provide a clear correspondence with the source reports.
+
+Distinguish exact algebra, analytical theorems, existing computer-assisted certificates, rounded numerical displays, interpretation, and unresolved research leads.
+
+## 5. Record the author’s observation faithfully
+
+Begin with the actual research motivation.
+
+The initial recollection involved:
+
+* One component appearing to drift.
+* Two components appearing to rotate around one another.
+* The combined size of those two appearing equal to the first.
+* Their interaction appearing capable of producing a newly directed path.
+
+Then record the later clarification:
+
+1. There were three very small numbers, with two apparently adding to the third.
+2. “Size” referred to the numerical magnitude.
+3. They appeared to travel toward the center.
+
+The author explicitly expressed uncertainty about this memory.
+
+Present this as an author-supplied research lead. It is not a verified physical observation or a recovered historical equation.
+
+Do not silently identify the remembered quantities with:
+
+* The three native channels.
+* The mean and two relative modes.
+* Graph corrections.
+* Synchronization kicks.
+* Three physical forces.
+* Particular SRG constants.
+
+A short table should distinguish the recollection, mathematical candidates examined, and the identification status.
+
+The selected turning witness is a constructed mathematical example. Its values must not be presented as a recovery of the historical display.
+
+## 6. Establish the native mathematical setting
+
+State the exact ordered recurrence:
+
+$$
+v_{i,n}
+=
+\Omega_{i,n}
++\epsilon\Omega_{i,n}(k_i-|\Omega_{i,n}|^2)
++g(L_3\Omega_n)_i,
+\qquad
+L_3=\mathbf1\mathbf1^T-3I,
+$$
+
+$$
+\delta_{i,n}
+=
+\lambda\sum_{j\ne i}
+\sin3\!\left(
+\operatorname{Arg}_0v_{j,n}
+-\operatorname{Arg}_0v_{i,n}
+\right),
+\qquad
+\Omega_{i,n+1}=v_{i,n}e^{i\delta_{i,n}}.
+$$
+
+Explain that all synchronization kicks use the same prestage.
+
+Retain the native convention \(\operatorname{Arg}_0(0)=0\), and state regular-domain assumptions wherever smoothness, phases, or equivariance require them.
+
+Define the complex mean, relative state, and dispersion:
+
+$$
+m_n=\frac13\sum_i\Omega_{i,n},
+\qquad
+\eta_n=\Omega_n-m_n\mathbf1,
+$$
+
+$$
+E_n=\|\eta_n\|_2,
+\qquad
+E_n^2
+=
+\frac13\sum_{i<j}|\Omega_{i,n}-\Omega_{j,n}|^2.
+$$
+
+Define \(C,W,\Gamma\) from their accepted sources, including the fixed attachment \(T\). Explain their mathematical spaces and passive-observable status.
+
+The kernel has no physical clock, mass assignment, charge assignment, or geometry-feedback law. Keep those facts attached to the interpretation rather than repeating a general disclaimer after every equation.
+
+## 7. Present the exact collective accounting
+
+Include the established mean decomposition:
+
+$$
+m_{n+1}-m_n=B_n+S_n,
+$$
+
+$$
+B_n=\frac{\epsilon}{3}
+\sum_i\Omega_{i,n}(k_i-|\Omega_{i,n}|^2),
+\qquad
+S_n=\frac13
+\sum_i v_{i,n}(e^{i\delta_{i,n}}-1).
+$$
+
+Explain why the graph contribution cancels directly from the prestage mean:
+
+$$
+\sum_i(L_3\Omega)_i=0.
+$$
+
+Then explain why this does not remove its influence on collective evolution: graph redistribution changes the prestage, the synchronization response, and the later nonlinear onsite terms.
+
+Preserve the distinction between:
+
+* Zero direct graph contribution to the prestage mean.
+* Independence of the first complete mean step from \(g\) in the matched \(\lambda=0\) comparison.
+* Possible immediate indirect graph effects through synchronization when \(\lambda\ne0\).
+
+Do not extend the phase-off cancellation statement to the full map without its conditions.
+
+## 8. Present the completed full-map turning witness
+
+Use the documented coefficients:
+
+$$
+\epsilon=\frac1{10},\qquad
+g=\frac1{60},\qquad
+\lambda=\frac1{300},\qquad
+k=(0.999,1,1.001),
+$$
+
+and entrance:
+
+$$
+\Omega_0=(1+i,\ 1+i,\ 1-2i).
+$$
+
+Present the two-step mean increments, the signed-turn definition, and the existing certified bound:
+
+$$
+0.0110760731\le K_m\le0.0110760732.
+$$
+
+Include the exact first-step amplitude-ratio change:
+
+$$
+\frac{|\Omega_{A,0}|^2}{|\Omega_{C,0}|^2}
+=\frac25,
+\qquad
+\frac{|\Omega_{A,1}|^2}{|\Omega_{C,1}|^2}
+=\frac{153215002}{157056005}.
+$$
+
+Explain why this excludes a rigid common-phase relative equilibrium for the witness.
+
+Use the retained mean-contribution and \(W\)-observable values where they help the argument. Keep precision consistent with the recorded enclosures.
+
+Include the single phase-off comparison:
+
+$$
+K_m^{\rm off}
+=
+\frac{3158587023292997}
+{300000000000000000}>0.
+$$
+
+State what this comparison establishes: synchronization is not necessary for this witness’s turning. It does not separately establish the necessity of graph coupling or unequal \(k_i\).
+
+Turning alone does not establish its causal mechanism. Where useful, include the already derived onsite-only, fixed-channel-phase counterexample from the completed reasoning, with its exact calculation. Do not invent a new numerical example to make this point.
+
+Explain that conjugation reverses the signed-turn and area observables by symmetry; this is not itself a magnetic-field identification.
+
+## 9. Develop the exact delayed graph-response result
+
+Label this section clearly:
+
+**Matched graph-coupling comparison on \(\lambda=0\).**
+
+Define
+
+$$
+f_i(z)=z(k_i-|z|^2),\qquad
+a_i=\Omega_{i,0}+\epsilon f_i(\Omega_{i,0}),
+\qquad
+d=L_3\Omega_0.
+$$
+
+Derive the completed exact response law:
+
+$$
+D(g)=m_2(g)-m_2(0)
+=gP_1+g^2P_2+g^3P_3.
+$$
+
+Give the complete coefficient formulas, their derivation, and the separation between the linear-\(k\) and cubic contributions. State that there is no omitted remainder.
+
+Explain the real directional derivative and its different radial and tangential factors. Do not call it a holomorphic derivative.
+
+Define the directional diagnostics before interpreting them:
+
+$$
+s=m_1-m_0,\qquad
+t(g)=m_2(g)-m_1,
+$$
+
+$$
+K(g)=\operatorname{Im}(\bar s\,t(g)),
+$$
+
+$$
+J(g)=K(g)-K(0),
+\qquad
+R(g)=\operatorname{Im}(\overline{t(0)}\,t(g)),
+\qquad
+Q(g)=\operatorname{Re}(\overline{t(0)}\,t(g)).
+$$
+
+Present the exact prescribed comparison at \(g=1/60\), including:
+
+$$
+J<0,\qquad R>0,\qquad Q>0.
+$$
+
+Explain the main finding:
+
+**Graph coupling changes the second mean step’s direction, although the signed-turn statistic decreases because that statistic also depends on increment lengths.**
+
+Retain the zero-increment, reversal, coefficient-cancellation, common-line, and synchronization qualifications needed to interpret these diagnostics correctly.
+
+Put long exact fractions or secondary coefficient tables in an appendix if that improves readability.
+
+## 10. Give the complete invariant-domain and convergence argument
+
+Use the same full-map coefficients and the domain
+
+$$
+0.9\le|\Omega_i|\le1.1,
+$$
+
+with ordinary phases in one interval of width at most \(\pi/12\).
+
+Do not replace ordinary phase alignment by alignment modulo \(2\pi/3\).
+
+Present the proofs in this order:
+
+### A. Phase-stage lemma
+
+Use
+
+$$
+G(x)=x+\lambda\sum_{k=1}^3\sin3(\theta_k-x)
+$$
+
+and its derivative bounds to establish ordering preservation, interval preservation, and contraction of ordinary phase separations.
+
+Explain why unequal positive moduli do not invalidate the spread comparison.
+
+Retain the counterexample outside the narrow-sector condition, \(v=(1,i,i)\), to prevent a global contraction interpretation.
+
+### B. Domain invariance
+
+Show positivity of the prestage coefficients, cone preservation, and the radial bounds:
+
+$$
+0.915987774788\ldots\le |v_i|\le1.07701.
+$$
+
+Synchronization preserves moduli and the containing angular interval.
+
+### C. Dispersion with mismatch
+
+Present the convex-hull argument explicitly. The annulus itself is not convex.
+
+Derive
+
+$$
+E^+\le qE+\epsilon|m|\sigma_k,
+$$
+
+with
+
+$$
+q=
+\frac{10501}{10000}
+-\frac{81}{1000}\cos^2(\pi/24)
+=
+0.970480004035\ldots,
+$$
+
+and
+
+$$
+\sigma_k=\frac{\sqrt2}{1000}.
+$$
+
+Give the iterated bound and
+
+$$
+C_{\rm disp}=0.00526976670481\ldots.
+$$
+
+Explain that this is an upper bound, not the exact limiting spread or a pointwise lower bound. Include why unequal coefficients can generate spread from an initially equal-channel state.
+
+### D. Full convergence
+
+Present the nested phase intervals and
+
+$$
+\Delta_n\le c^n\Delta_0,
+\qquad
+c=1-\frac{3\sqrt2}{200}.
+$$
+
+Define the aligned amplitude map \(\mathcal A\), establish its invariant cube, and prove its infinity-norm contraction with
+
+$$
+\beta=\frac{8571}{10000}.
+$$
+
+Use the bisector estimate to connect the actual modulus update to \(\mathcal A\):
+
+$$
+0\le\mathcal A_i(r_n)-r_{i,n+1}
+\le
+\frac{1.07701\,\Delta_0^2}{8}c^{2n}.
+$$
+
+Include the explicit geometric-sum estimate and conclude:
+
+$$
+\boxed{\Omega_n\to e^{i\theta_\infty}r_*}.
+$$
+
+Keep uniqueness restricted to the positive amplitude profile in \(Q=[0.9,1.1]^3\).
+
+### E. Consequences and connection to prior work
+
+Prove:
+
+$$
+m_n\to e^{i\theta_\infty}\bar r_*,
+\qquad
+E_n\to E_*=\|Pr_*\|>0,
+$$
+
+and
+
+$$
+C_n,W_n,\Gamma_n\to0.
+$$
+
+Include the exclusion of nonconstant periodic and nontrivial common-phase relative-periodic motion within this domain.
+
+Explain why convergence does not imply a finite number of diminishing directional changes.
+
+Include the uniform continuation along
+
+$$
+k(t)=\mathbf1+t(-0.001,0,0.001)
+$$
+
+that identifies this fixed profile with continuation of the accepted unequal branch.
+
+State prominently that no capture of the earlier turning entrance has been proved.
+
+## 11. Explain the geometry and coefficient roles
+
+Connect the mathematics back to the author’s questions.
+
+For graph corrections,
+
+$$
+b_i=3g(m-\Omega_i),
+\qquad
+\sum_i b_i=0,
+$$
+
+explain the direction toward the channel mean.
+
+A magnitude-addition relation requires the relevant collinearity and sign conditions. Complex vector cancellation alone does not imply that two magnitudes sum to the third.
+
+Also discuss the exact balance
+
+$$
+\sum_i\delta_i=0
+$$
+
+for the real synchronization kicks as another mathematical candidate for a three-number relation. Keep it distinct from the graph corrections.
+
+Neither candidate establishes historical identification.
+
+Explain how nonzero individual graph and onsite contributions can cancel at a stationary complete update.
+
+Reduce the aligned fixed equation to
+
+$$
+r_i(k_i-r_i^2)+\frac g\epsilon(L_3r)_i=0.
+$$
+
+Identify \(g/\epsilon=1/6\) as the relevant relative strength for the stationary amplitude balance at the prescribed coefficients.
+
+Explain why \(\lambda\) vanishes from that aligned fixed equation but remains relevant to the evolution. Do not claim that common scaling of \(\epsilon\) and \(g\) preserves the discrete dynamics.
+
+## 12. Physical comparison, SRG context, and open interfaces
+
+Provide a focused comparison with established equations where it illuminates the question.
+
+For Newtonian attraction and Lorentz-force dynamics:
+
+* State the comparison equations and their assumptions.
+* Define physical position, time, mass, charge, and field quantities separately from native variables.
+* Explain which mathematical features are being compared.
+* Identify the missing correspondences required for an actual force-law interpretation.
+* Use authoritative primary or established textbook sources for substantive external physics claims.
+
+A curved complex-mean path does not alone establish a Lorentz response. Contraction of channel dispersion does not alone establish gravitational attraction.
+
+Keep the comparison proportional to the results; avoid a broad survey of fundamental physics.
+
+Include a short SRG context section using the completed Final Mathematical Bridge:
+
+* Preserve the author’s interest in \(\pi e\varphi\approx13.81758\).
+* State its documented role in the SRG coupling construction accurately.
+* Explain that the present theorems neither derive the selected native coefficients from that product nor establish a physical connection to calendars or accelerators.
+* Do not fit parameters to obtain a desired number or reopen completed SRG investigations.
+
+Briefly position the results against accepted common-phase drift and alternating-cycle results where relevant. Do not claim an unproved continuation between them.
+
+Preserve the wider research directions in a compact closing section: natural core motion, gravity–magnetism comparisons, central Z transport, the outer geometric structure, legitimate SRG integration, and the separate TORMENT/intelligence/embodiment programme. Three-Way remains parked.
+
+These are programme directions, not new assignments within this manuscript order.
+
+## 13. Figures and tables
+
+Use figures only where they clarify the completed mathematics.
+
+Suitable figures include:
+
+* The recorded two-step complex-mean path, with discrete points and increments.
+* The matched phase-off second-step vectors, showing directional change and shortening.
+* A schematic of the invariant sector and the aligned limiting configuration.
+
+Use retained numerical data or exact formulas. Label schematic figures as schematic.
+
+Do not:
+
+* Generate a new trajectory for illustration.
+* Draw the turning entrance entering the convergence region.
+* Smooth a two-step example into an implied physical orbit.
+* Label complex-state coordinates as spatial position.
+* Depict \(W\) as a physical magnetic field.
+
+Use standard scientific plotting or vector tools. Include figure sources when practical.
+
+Provide a compact table of results, parameter slices, initial-state domains, and evidence types.
+
+## 14. Evidence and source handling
+
+Locate and inspect the existing reports, checkers, and receipts used in this investigation.
+
+Known retained artifact names include:
+
+* `turning_witness_20261028.py`
+* `turning_witness_20261028.json`
+* `delayed_graph_response_20261028.py`
+* `delayed_graph_response_20261028.json`
+* `moving_mean_domain_constants_20261028.py`
+* `moving_mean_domain_constants_20261028.json`
+
+Earlier reports located these under the task’s Windows-local visualization directory. Those machine-local paths are not suitable publication references.
+
+Where appropriate, include unchanged copies of the specific supporting files in the new draft’s evidence directory and document their origin. Do not copy unrelated session material.
+
+Use portable relative references in the manuscript package.
+
+Do not invent missing receipts, reconstruct purported original logs, or claim an artifact was inspected when it was unavailable. If an evidence file cannot be located, identify the specific gap and continue drafting the unaffected material.
+
+The analytical convergence proof does not require a trajectory experiment or a numerical root solve.
+
+The claim/source map should distinguish:
+
+* Inherited definitions and accepted prior results.
+* Newly completed propositions.
+* Existing computer-assisted witness claims.
+* Rounded displays derived from those records.
+* Author recollections.
+* Interpretations and unresolved identifications.
+
+Keep this map compact and useful. Do not turn it into another publication audit.
+
+## 15. Validation and review handoff
+
+Perform only checks that materially support this writing task:
+
+* Verify faithful transcription of formulas, exact constants, domains, and stage order.
+* Check equation references, citations, notation, and source links.
+* Check that numerical precision matches the supporting records.
+* Build the document and visually inspect the rendered PDF.
+* Confirm that changes are confined to the intended new draft and supporting files.
+
+Do not rerun the completed simulation programme, broaden interval certification, optimize constants, solve for \(r_*\), or search for new attractors.
+
+If a genuine mathematical inconsistency emerges during drafting, identify it precisely, preserve the unaffected work, and report it for scientific review. Do not quietly change the model or expand the research scope to repair the narrative.
+
+Return the actual review package, not merely a summary saying that it exists.
+
+The final handoff should include:
+
+1. Paths or links to the manuscript source, review PDF, and supporting documentation.
+2. A concise summary of the document’s central claims.
+3. A list of reused evidence and any unavailable item.
+4. Any concrete issues requiring GPT review, or an explicit statement that none were found during drafting.
+5. The document build status and the bounded checks actually performed.
+6. Confirmation that no protected kernel, accepted paper, branch, commit, or remote publication was changed.
+
+**The stopping point is a complete, reviewable manuscript. GPT scientific review and the author’s review come next; GitHub publication follows those agreed reviews.**
