@@ -1,0 +1,76 @@
+--- a/manuscript/build_manuscript.py
++++ b/manuscript/build_manuscript.py
+@@ -145,7 +145,7 @@
+             ('LEFTPADDING',(0,0),(-1,-1),6),('RIGHTPADDING',(0,0),(-1,-1),6),
+             ('TOPPADDING',(0,0),(-1,-1),6),('BOTTOMPADDING',(0,0),(-1,-1),6)]))
+         story.extend([Paragraph(rich(caption,9),styles['caption']),t,Spacer(1,11)])
+-        tex.extend([r'\par\textit{'+tex_inline(caption)+'}',r'\begingroup\small',
++        tex.extend([r'\par\textit{'+tex_inline(caption)+r'}\par',r'\begingroup\small',
+                     r'\begin{tabularx}{\textwidth}{'+'X'*len(heads)+'}',r'\toprule',
+                     ' & '.join(tex_inline(v) for v in heads)+r'\\\midrule'])
+         for row in rows: tex.append(' & '.join(tex_inline(v) for v in row)+r'\\')
+--- a/manuscript/main.tex
++++ b/manuscript/main.tex
+@@ -29,7 +29,7 @@
+ 
+ Several kinds of evolution already exist in the project. The native map changes complex amplitudes and phases at integer updates. The separate SRG transfer acts on a six-component complex state. Decoded channel vectors change within fixed face planes. The staged and placed uppercase Z observations depend on their specified observer settings, and the EMA variant carries memory. Prescribed cone progress and display playback supply still other indices. A missing correspondence to cone-body pose does not imply that these earlier evolutions are absent. \cite{DYN} \cite{OBS} \cite{Z} \cite{BRIDGE}
+ 
+-\par\textit{Table 1. Distinct evolution and observation indices. Definitions and inherited context, not equivalences.}
++\par\textit{Table 1. Distinct evolution and observation indices. Definitions and inherited context, not equivalences.}\par
+ \begingroup\small
+ \begin{tabularx}{\textwidth}{XXX}
+ \toprule
+@@ -201,7 +201,7 @@
+ 
+ The line search tried 21 lengths $2^{-j}$, $0\leq j\leq20$, for the prescribed Armijo decrease. Trials outside $B_3$, with nonpositive real pivot, or nonfinite coordinates were rejected before a native call. Exact-zero prestages were refused without repair. Limits were 80 iteration passes per start and 120,000 discovery call attempts. Failed starts were not replaced.
+ 
+-\par\textit{Table 2. Frozen numerical screens. These are acceptance criteria, not existence certificates.}
++\par\textit{Table 2. Frozen numerical screens. These are acceptance criteria, not existence certificates.}\par
+ \begingroup\small
+ \begin{tabularx}{\textwidth}{XX}
+ \toprule
+@@ -220,7 +220,7 @@
+ 
+ \clearpage
+ \section*{7.1. Complete retained outcomes}
+-\par\textit{Table 3. Final classification of all 60 prescribed starts, extracted from the retained ledger.}
++\par\textit{Table 3. Final classification of all 60 prescribed starts, extracted from the retained ledger.}\par
+ \begingroup\small
+ \begin{tabularx}{\textwidth}{XXX}
+ \toprule
+@@ -234,7 +234,7 @@
+ \bottomrule\end{tabularx}\endgroup\par
+ The seven numerical common-phase/cyclic-start groups are not certified unique roots, certified branches of the drift theorem, or basins of forward attraction. Root-finder convergence differs from attraction under the native map. Conjugate groups were kept distinct. \cite{D03}
+ 
+-\par\textit{Table 4. Retained representatives, rounded for display. Phase is the three-step remainder angle in radians; no exact order is inferred. Small values are not certified zero.}
++\par\textit{Table 4. Retained representatives, rounded for display. Phase is the three-step remainder angle in radians; no exact order is inferred. Small values are not certified zero.}\par
+ \begingroup\small
+ \begin{tabularx}{\textwidth}{XXXXXX}
+ \toprule
+@@ -253,7 +253,7 @@
+ 
+ \clearpage
+ \section*{7.2. Verification ownership and limitations}
+-\par\textit{Table 5. Native evaluations in the original study versus this manuscript task.}
++\par\textit{Table 5. Native evaluations in the original study versus this manuscript task.}\par
+ \begingroup\small
+ \begin{tabularx}{\textwidth}{XXX}
+ \toprule
+@@ -331,7 +331,7 @@
+ 
+ \clearpage
+ \section*{Appendix A. Exact constants and proof dependencies}
+-\par\textit{Table A1. Exact arithmetic supporting the proofs. Symbolic checks support identities; written proofs supply the universal arguments.}
++\par\textit{Table A1. Exact arithmetic supporting the proofs. Symbolic checks support identities; written proofs supply the universal arguments.}\par
+ \begingroup\small
+ \begin{tabularx}{\textwidth}{XXX}
+ \toprule
+@@ -363,7 +363,7 @@
+ 
+ The genuine helicity extraction $\chi^\dagger\otimes I$ intertwines $U$ with $\lambda_\chi A$ under its eigenvector hypothesis. That linear extraction and the separate native initializer do not establish a conjugacy to $F$. A shared threefold pattern or matching dimensions does not equate their updates.
+ 
+-\par\textit{Table B1. Retained prescribed cone return counts, in repeated legs. Branches are retained choices, not native periods.}
++\par\textit{Table B1. Retained prescribed cone return counts, in repeated legs. Branches are retained choices, not native periods.}\par
+ \begingroup\small
+ \begin{tabularx}{\textwidth}{XXX}
+ \toprule

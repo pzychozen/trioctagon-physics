@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "C:\TORMENT\TRIOCTAGON_new\research\NATURAL_CORE_MOTION_COHERENCE_PAPER_01\manuscript\build_manuscript.py", line 115, in <module>
+    story.append(Paragraph(rich(block[1]),styles[sty]))
+                           ^^^^^^^^^^^^^^
+  File "C:\TORMENT\TRIOCTAGON_new\research\NATURAL_CORE_MOTION_COHERENCE_PAPER_01\manuscript\build_manuscript.py", line 72, in rich
+    target,rec=math_asset(part,size)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\TORMENT\TRIOCTAGON_new\research\NATURAL_CORE_MOTION_COHERENCE_PAPER_01\manuscript\build_manuscript.py", line 60, in math_asset
+    mathtext.math_to_image('$'+expr+'$',str(target),prop=prop,dpi=360,format='png',color='#111111')
+  File "C:\Users\Notandi\miniconda3\envs\torment\Lib\site-packages\matplotlib\mathtext.py", line 134, in math_to_image
+    width, height, depth, _, _ = parser.parse(s, dpi=72, prop=prop)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Notandi\miniconda3\envs\torment\Lib\site-packages\matplotlib\mathtext.py", line 86, in parse
+    return self._parse_cached(s, dpi, prop, antialiased, load_glyph_flags)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Notandi\miniconda3\envs\torment\Lib\site-packages\matplotlib\mathtext.py", line 100, in _parse_cached
+    box = self._parser.parse(s, fontset, fontsize, dpi)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Notandi\miniconda3\envs\torment\Lib\site-packages\matplotlib\_mathtext.py", line 2160, in parse
+    raise ValueError("\n" + ParseException.explain(err, 0)) from None
+ValueError: 
+B_{\sqrt K}
+         ^
+ParseSyntaxException: Expected \sqrt{value}, found 'K'  (at char 9), (line:1, col:10)

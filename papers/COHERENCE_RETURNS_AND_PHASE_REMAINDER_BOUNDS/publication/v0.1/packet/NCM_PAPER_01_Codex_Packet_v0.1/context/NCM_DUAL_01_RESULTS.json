@@ -1,0 +1,4193 @@
+{
+  "schema": "NCM_DUAL_01_RESULTS_V1",
+  "author_stations": [
+    [
+      "x",
+      "y"
+    ],
+    [
+      "y",
+      "z"
+    ],
+    [
+      "z",
+      "x"
+    ]
+  ],
+  "frame": {
+    "chart": "x right, y up, z far; left-handed",
+    "computational": "X=x, Y=y, Z=-z; right-handed",
+    "H": [
+      [
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "-1"
+      ]
+    ],
+    "rotation_conversion": "R_computational=H R_chart H"
+  },
+  "assumptions": [
+    "Same inward quarter-turn for green following orange",
+    "Independent trial: same progress u and theta=pi*u/2 per leg",
+    "Coordinate-plane routing repeated beyond station 2 is a tested extension, not author-prescribed return",
+    "Rigid comparator uses shortest positive 120-degree SO(3) rotation between the completed signed frames",
+    "Fixed center and one schematic cone size; no body attachment or physical time"
+  ],
+  "branches": {
+    "1": {
+      "s": 1,
+      "stations": [
+        {
+          "station": 0,
+          "g": "+x",
+          "g_partner": "-x",
+          "o": "+y",
+          "o_partner": "-y",
+          "g_chart": [
+            [
+              "1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "both_labels_return": true,
+          "color_pair_axes_return": true,
+          "uncolored_axis_set_return": true,
+          "independent_full_frames_return": true,
+          "rigid_full_frame_return": true
+        },
+        {
+          "station": 1,
+          "g": "-y",
+          "g_partner": "+y",
+          "o": "+z",
+          "o_partner": "-z",
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "-1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "1"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": false,
+          "uncolored_axis_set_return": false,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 2,
+          "g": "-z",
+          "g_partner": "+z",
+          "o": "+x",
+          "o_partner": "-x",
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "-1"
+            ]
+          ],
+          "o_chart": [
+            [
+              "1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": false,
+          "uncolored_axis_set_return": false,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 3,
+          "g": "-x",
+          "g_partner": "+x",
+          "o": "-y",
+          "o_partner": "+y",
+          "g_chart": [
+            [
+              "-1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "-1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": true,
+          "uncolored_axis_set_return": true,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 4,
+          "g": "+y",
+          "g_partner": "-y",
+          "o": "-z",
+          "o_partner": "+z",
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "-1"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": false,
+          "uncolored_axis_set_return": false,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 5,
+          "g": "+z",
+          "g_partner": "-z",
+          "o": "-x",
+          "o_partner": "+x",
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "1"
+            ]
+          ],
+          "o_chart": [
+            [
+              "-1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "0",
+              "-1",
+              "0"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": false,
+          "uncolored_axis_set_return": false,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 6,
+          "g": "+x",
+          "g_partner": "-x",
+          "o": "+y",
+          "o_partner": "-y",
+          "g_chart": [
+            [
+              "1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "both_labels_return": true,
+          "color_pair_axes_return": true,
+          "uncolored_axis_set_return": true,
+          "independent_full_frames_return": true,
+          "rigid_full_frame_return": true
+        },
+        {
+          "station": 7,
+          "g": "-y",
+          "g_partner": "+y",
+          "o": "+z",
+          "o_partner": "-z",
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "-1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "1"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": false,
+          "uncolored_axis_set_return": false,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 8,
+          "g": "-z",
+          "g_partner": "+z",
+          "o": "+x",
+          "o_partner": "-x",
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "-1"
+            ]
+          ],
+          "o_chart": [
+            [
+              "1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": false,
+          "uncolored_axis_set_return": false,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 9,
+          "g": "-x",
+          "g_partner": "+x",
+          "o": "-y",
+          "o_partner": "+y",
+          "g_chart": [
+            [
+              "-1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "-1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": true,
+          "uncolored_axis_set_return": true,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 10,
+          "g": "+y",
+          "g_partner": "-y",
+          "o": "-z",
+          "o_partner": "+z",
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "-1"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": false,
+          "uncolored_axis_set_return": false,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 11,
+          "g": "+z",
+          "g_partner": "-z",
+          "o": "-x",
+          "o_partner": "+x",
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "1"
+            ]
+          ],
+          "o_chart": [
+            [
+              "-1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "0",
+              "-1",
+              "0"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": false,
+          "uncolored_axis_set_return": false,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 12,
+          "g": "+x",
+          "g_partner": "-x",
+          "o": "+y",
+          "o_partner": "-y",
+          "g_chart": [
+            [
+              "1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "both_labels_return": true,
+          "color_pair_axes_return": true,
+          "uncolored_axis_set_return": true,
+          "independent_full_frames_return": true,
+          "rigid_full_frame_return": true
+        }
+      ],
+      "first_returns_legs": {
+        "uncolored_axis_set_return": 3,
+        "color_pair_axes_return": 3,
+        "both_labels_return": 6,
+        "independent_full_frames_return": 6,
+        "rigid_full_frame_return": 6
+      },
+      "legs": [
+        {
+          "leg": 0,
+          "g_chart": [
+            [
+              "cos(theta)"
+            ],
+            [
+              "-sin(theta)"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "cos(theta)"
+            ],
+            [
+              "sin(theta)"
+            ]
+          ],
+          "dot": "-sin(2*theta)/2",
+          "rigid_Q_computational": [
+            [
+              "0",
+              "0",
+              "1"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ]
+          ],
+          "rigid_angle": "2*pi/3",
+          "rigid_axis_computational": [
+            [
+              "-sqrt(3)/3"
+            ],
+            [
+              "sqrt(3)/3"
+            ],
+            [
+              "-sqrt(3)/3"
+            ]
+          ],
+          "rigid_axis_chart": [
+            [
+              "-sqrt(3)/3"
+            ],
+            [
+              "sqrt(3)/3"
+            ],
+            [
+              "sqrt(3)/3"
+            ]
+          ]
+        },
+        {
+          "leg": 1,
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "-cos(theta)"
+            ],
+            [
+              "-sin(theta)"
+            ]
+          ],
+          "o_chart": [
+            [
+              "sin(theta)"
+            ],
+            [
+              "0"
+            ],
+            [
+              "cos(theta)"
+            ]
+          ],
+          "dot": "-sin(2*theta)/2",
+          "rigid_Q_computational": [
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ]
+          ],
+          "rigid_angle": "2*pi/3",
+          "rigid_axis_computational": [
+            [
+              "-sqrt(3)/3"
+            ],
+            [
+              "-sqrt(3)/3"
+            ],
+            [
+              "sqrt(3)/3"
+            ]
+          ],
+          "rigid_axis_chart": [
+            [
+              "-sqrt(3)/3"
+            ],
+            [
+              "-sqrt(3)/3"
+            ],
+            [
+              "-sqrt(3)/3"
+            ]
+          ]
+        },
+        {
+          "leg": 2,
+          "g_chart": [
+            [
+              "-sin(theta)"
+            ],
+            [
+              "0"
+            ],
+            [
+              "-cos(theta)"
+            ]
+          ],
+          "o_chart": [
+            [
+              "cos(theta)"
+            ],
+            [
+              "-sin(theta)"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "dot": "-sin(2*theta)/2",
+          "rigid_Q_computational": [
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ]
+          ],
+          "rigid_angle": "2*pi/3",
+          "rigid_axis_computational": [
+            [
+              "sqrt(3)/3"
+            ],
+            [
+              "-sqrt(3)/3"
+            ],
+            [
+              "-sqrt(3)/3"
+            ]
+          ],
+          "rigid_axis_chart": [
+            [
+              "sqrt(3)/3"
+            ],
+            [
+              "-sqrt(3)/3"
+            ],
+            [
+              "sqrt(3)/3"
+            ]
+          ]
+        }
+      ],
+      "quarter_maps_chart": {
+        "A": [
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "-1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "B_s": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ]
+        ],
+        "C": [
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "-1",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "quarter_maps_computational": {
+        "A": [
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "-1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "B_s": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "-1",
+            "0"
+          ]
+        ],
+        "C": [
+          [
+            "0",
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "quarter_axes_computational": {
+        "A": [
+          0,
+          0,
+          -1
+        ],
+        "B_s": [
+          -1,
+          0,
+          0
+        ],
+        "C": [
+          0,
+          -1,
+          0
+        ]
+      },
+      "three_leg_products": {
+        "G_forward_CBA": [
+          [
+            "-1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "-1",
+            "0"
+          ]
+        ],
+        "O_forward_ACB": [
+          [
+            "0",
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "-1",
+            "0"
+          ],
+          [
+            "-1",
+            "0",
+            "0"
+          ]
+        ],
+        "G_reversed_ABC": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ]
+        ],
+        "O_reversed_BCA": [
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "-1",
+            "0",
+            "0"
+          ]
+        ],
+        "G_forward_order": 2,
+        "O_forward_order": 2,
+        "G_reversed_order": 4,
+        "O_reversed_order": 4
+      },
+      "noncommutation_example": {
+        "A_B_ex": [
+          [
+            "0"
+          ],
+          [
+            "-1"
+          ],
+          [
+            "0"
+          ]
+        ],
+        "B_A_ex": [
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "-1"
+          ]
+        ]
+      },
+      "diagnostic_markers": {
+        "green_initial_generator": "+y",
+        "orange_initial_generator": "+z",
+        "green_after_three": "-z",
+        "orange_after_three": "-x",
+        "qualification": "Deliberate roll diagnostics, not author-supplied cone features or a material period."
+      }
+    },
+    "-1": {
+      "s": -1,
+      "stations": [
+        {
+          "station": 0,
+          "g": "+x",
+          "g_partner": "-x",
+          "o": "+y",
+          "o_partner": "-y",
+          "g_chart": [
+            [
+              "1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "both_labels_return": true,
+          "color_pair_axes_return": true,
+          "uncolored_axis_set_return": true,
+          "independent_full_frames_return": true,
+          "rigid_full_frame_return": true
+        },
+        {
+          "station": 1,
+          "g": "-y",
+          "g_partner": "+y",
+          "o": "-z",
+          "o_partner": "+z",
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "-1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "-1"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": false,
+          "uncolored_axis_set_return": false,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 2,
+          "g": "+z",
+          "g_partner": "-z",
+          "o": "-x",
+          "o_partner": "+x",
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "1"
+            ]
+          ],
+          "o_chart": [
+            [
+              "-1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "0",
+              "-1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": false,
+          "uncolored_axis_set_return": false,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 3,
+          "g": "+x",
+          "g_partner": "-x",
+          "o": "+y",
+          "o_partner": "-y",
+          "g_chart": [
+            [
+              "1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "0",
+              "0",
+              "1"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ]
+          ],
+          "both_labels_return": true,
+          "color_pair_axes_return": true,
+          "uncolored_axis_set_return": true,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": true
+        },
+        {
+          "station": 4,
+          "g": "-y",
+          "g_partner": "+y",
+          "o": "-z",
+          "o_partner": "+z",
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "-1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "-1"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "0",
+              "0",
+              "1"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "0",
+              "0",
+              "1"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": false,
+          "uncolored_axis_set_return": false,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 5,
+          "g": "+z",
+          "g_partner": "-z",
+          "o": "-x",
+          "o_partner": "+x",
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "1"
+            ]
+          ],
+          "o_chart": [
+            [
+              "-1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "0",
+              "0",
+              "1"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "0",
+              "-1",
+              "0"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": false,
+          "uncolored_axis_set_return": false,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 6,
+          "g": "+x",
+          "g_partner": "-x",
+          "o": "+y",
+          "o_partner": "-y",
+          "g_chart": [
+            [
+              "1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1"
+            ]
+          ],
+          "both_labels_return": true,
+          "color_pair_axes_return": true,
+          "uncolored_axis_set_return": true,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": true
+        },
+        {
+          "station": 7,
+          "g": "-y",
+          "g_partner": "+y",
+          "o": "-z",
+          "o_partner": "+z",
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "-1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "-1"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "0",
+              "-1",
+              "0"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": false,
+          "uncolored_axis_set_return": false,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 8,
+          "g": "+z",
+          "g_partner": "-z",
+          "o": "-x",
+          "o_partner": "+x",
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "1"
+            ]
+          ],
+          "o_chart": [
+            [
+              "-1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "0",
+              "-1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "0",
+              "-1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": false,
+          "uncolored_axis_set_return": false,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 9,
+          "g": "+x",
+          "g_partner": "-x",
+          "o": "+y",
+          "o_partner": "-y",
+          "g_chart": [
+            [
+              "1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ]
+          ],
+          "both_labels_return": true,
+          "color_pair_axes_return": true,
+          "uncolored_axis_set_return": true,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": true
+        },
+        {
+          "station": 10,
+          "g": "-y",
+          "g_partner": "+y",
+          "o": "-z",
+          "o_partner": "+z",
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "-1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "-1"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": false,
+          "uncolored_axis_set_return": false,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 11,
+          "g": "+z",
+          "g_partner": "-z",
+          "o": "-x",
+          "o_partner": "+x",
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "1"
+            ]
+          ],
+          "o_chart": [
+            [
+              "-1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "0",
+              "-1",
+              "0"
+            ],
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "both_labels_return": false,
+          "color_pair_axes_return": false,
+          "uncolored_axis_set_return": false,
+          "independent_full_frames_return": false,
+          "rigid_full_frame_return": false
+        },
+        {
+          "station": 12,
+          "g": "+x",
+          "g_partner": "-x",
+          "o": "+y",
+          "o_partner": "-y",
+          "g_chart": [
+            [
+              "1"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "1"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "G_transport_chart": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "O_transport_chart": [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "both_labels_return": true,
+          "color_pair_axes_return": true,
+          "uncolored_axis_set_return": true,
+          "independent_full_frames_return": true,
+          "rigid_full_frame_return": true
+        }
+      ],
+      "first_returns_legs": {
+        "uncolored_axis_set_return": 3,
+        "color_pair_axes_return": 3,
+        "both_labels_return": 3,
+        "independent_full_frames_return": 12,
+        "rigid_full_frame_return": 3
+      },
+      "legs": [
+        {
+          "leg": 0,
+          "g_chart": [
+            [
+              "cos(theta)"
+            ],
+            [
+              "-sin(theta)"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "o_chart": [
+            [
+              "0"
+            ],
+            [
+              "cos(theta)"
+            ],
+            [
+              "-sin(theta)"
+            ]
+          ],
+          "dot": "-sin(2*theta)/2",
+          "rigid_Q_computational": [
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ]
+          ],
+          "rigid_angle": "2*pi/3",
+          "rigid_axis_computational": [
+            [
+              "sqrt(3)/3"
+            ],
+            [
+              "-sqrt(3)/3"
+            ],
+            [
+              "-sqrt(3)/3"
+            ]
+          ],
+          "rigid_axis_chart": [
+            [
+              "sqrt(3)/3"
+            ],
+            [
+              "-sqrt(3)/3"
+            ],
+            [
+              "sqrt(3)/3"
+            ]
+          ]
+        },
+        {
+          "leg": 1,
+          "g_chart": [
+            [
+              "0"
+            ],
+            [
+              "-cos(theta)"
+            ],
+            [
+              "sin(theta)"
+            ]
+          ],
+          "o_chart": [
+            [
+              "-sin(theta)"
+            ],
+            [
+              "0"
+            ],
+            [
+              "-cos(theta)"
+            ]
+          ],
+          "dot": "-sin(2*theta)/2",
+          "rigid_Q_computational": [
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ]
+          ],
+          "rigid_angle": "2*pi/3",
+          "rigid_axis_computational": [
+            [
+              "sqrt(3)/3"
+            ],
+            [
+              "-sqrt(3)/3"
+            ],
+            [
+              "-sqrt(3)/3"
+            ]
+          ],
+          "rigid_axis_chart": [
+            [
+              "sqrt(3)/3"
+            ],
+            [
+              "-sqrt(3)/3"
+            ],
+            [
+              "sqrt(3)/3"
+            ]
+          ]
+        },
+        {
+          "leg": 2,
+          "g_chart": [
+            [
+              "sin(theta)"
+            ],
+            [
+              "0"
+            ],
+            [
+              "cos(theta)"
+            ]
+          ],
+          "o_chart": [
+            [
+              "-cos(theta)"
+            ],
+            [
+              "sin(theta)"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "dot": "-sin(2*theta)/2",
+          "rigid_Q_computational": [
+            [
+              "0",
+              "0",
+              "-1"
+            ],
+            [
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0"
+            ]
+          ],
+          "rigid_angle": "2*pi/3",
+          "rigid_axis_computational": [
+            [
+              "sqrt(3)/3"
+            ],
+            [
+              "-sqrt(3)/3"
+            ],
+            [
+              "-sqrt(3)/3"
+            ]
+          ],
+          "rigid_axis_chart": [
+            [
+              "sqrt(3)/3"
+            ],
+            [
+              "-sqrt(3)/3"
+            ],
+            [
+              "sqrt(3)/3"
+            ]
+          ]
+        }
+      ],
+      "quarter_maps_chart": {
+        "A": [
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "-1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "B_s": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "-1",
+            "0"
+          ]
+        ],
+        "C": [
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "-1",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "quarter_maps_computational": {
+        "A": [
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "-1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "B_s": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ]
+        ],
+        "C": [
+          [
+            "0",
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "quarter_axes_computational": {
+        "A": [
+          0,
+          0,
+          -1
+        ],
+        "B_s": [
+          1,
+          0,
+          0
+        ],
+        "C": [
+          0,
+          -1,
+          0
+        ]
+      },
+      "three_leg_products": {
+        "G_forward_CBA": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "-1",
+            "0"
+          ]
+        ],
+        "O_forward_ACB": [
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "-1",
+            "0",
+            "0"
+          ]
+        ],
+        "G_reversed_ABC": [
+          [
+            "-1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "-1",
+            "0"
+          ]
+        ],
+        "O_reversed_BCA": [
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "-1",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ]
+        ],
+        "G_forward_order": 4,
+        "O_forward_order": 4,
+        "G_reversed_order": 2,
+        "O_reversed_order": 2
+      },
+      "noncommutation_example": {
+        "A_B_ex": [
+          [
+            "0"
+          ],
+          [
+            "-1"
+          ],
+          [
+            "0"
+          ]
+        ],
+        "B_A_ex": [
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "1"
+          ]
+        ]
+      },
+      "diagnostic_markers": {
+        "green_initial_generator": "+y",
+        "orange_initial_generator": "+z",
+        "green_after_three": "-z",
+        "orange_after_three": "+x",
+        "qualification": "Deliberate roll diagnostics, not author-supplied cone features or a material period."
+      }
+    }
+  },
+  "dot_formula": "-sin(theta)*cos(theta) = -sin(2*theta)/2",
+  "dot_range": [
+    -0.5,
+    0.0
+  ],
+  "directed_angle_degrees": [
+    90,
+    120
+  ],
+  "unoriented_angle_degrees": [
+    60,
+    90
+  ],
+  "unequal_progress_dot": "-sin(theta_G)*cos(theta_O)",
+  "unequal_progress_example": {
+    "theta_G": "pi/2",
+    "theta_O": "0",
+    "directed_degrees": 180,
+    "unoriented_degrees": 0
+  },
+  "sphere": {
+    "formula": "sqrt(13/12 - sqrt(2)/2)",
+    "radius_width_one": 0.6133730937584284,
+    "proxy_max_radius_fraction": 0.8508818954473059,
+    "proof": "Ball convexity plus apex radius 0.10*rho and base-rim radius sqrt(181/250)*rho; proper rotations preserve norm. No collision claim."
+  },
+  "golden_ratio_comparison": {
+    "historical_literal": "0.618 = 309/500",
+    "exact_phi_inverse": "(sqrt(5)-1)/2",
+    "difference_exact": "-559/500 + sqrt(5)/2",
+    "difference_numeric": 3.3988749894848204e-05,
+    "binding": "No green-cone orientation/controller binding documented in the bounded sources read"
+  },
+  "visualization": {
+    "width": 1.0,
+    "sphere_radius_exact": "sqrt(13/12 - sqrt(2)/2)",
+    "sphere_radius": 0.6133730937584284,
+    "apex_radius_fraction": 0.1,
+    "base_center_radius_fraction": 0.78,
+    "base_radius_fraction": 0.34,
+    "cone_azimuth_segments": 48,
+    "opacity": 0.52,
+    "center_chart": [
+      0,
+      0,
+      0
+    ],
+    "colors": {
+      "green": "#1eaa54",
+      "orange": "#ef842c"
+    },
+    "qualification": "Schematic display parameters; no sketch measurements, phi fit, or material contact model",
+    "view_label": "Prescribed kinematic interpretation — not a native trajectory or field map.",
+    "camera_oblique": {
+      "azimuth_degrees": 28,
+      "elevation_degrees": 18,
+      "projection": "fixed orthographic"
+    },
+    "frame": "chart x right, y up, z far is left-handed; computational (X,Y,Z)=(x,y,-z) is right-handed"
+  },
+  "preview_rotations": {
+    "1": [
+      {
+        "G0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "O0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "F0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "rigid_axis": [
+          -0.5773502691896257,
+          0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "O0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "F0": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "rigid_axis": [
+          -0.5773502691896257,
+          -0.5773502691896257,
+          0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "O0": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "F0": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "rigid_axis": [
+          0.5773502691896257,
+          -0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "O0": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "F0": [
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "rigid_axis": [
+          -0.5773502691896257,
+          0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "O0": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "F0": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "rigid_axis": [
+          -0.5773502691896257,
+          -0.5773502691896257,
+          0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "O0": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "F0": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "rigid_axis": [
+          0.5773502691896257,
+          -0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "O0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "F0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "rigid_axis": [
+          -0.5773502691896257,
+          0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "O0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "F0": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "rigid_axis": [
+          -0.5773502691896257,
+          -0.5773502691896257,
+          0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "O0": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "F0": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "rigid_axis": [
+          0.5773502691896257,
+          -0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "O0": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "F0": [
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "rigid_axis": [
+          -0.5773502691896257,
+          0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "O0": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "F0": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "rigid_axis": [
+          -0.5773502691896257,
+          -0.5773502691896257,
+          0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "O0": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "F0": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "rigid_axis": [
+          0.5773502691896257,
+          -0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      }
+    ],
+    "-1": [
+      {
+        "G0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "O0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "F0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "rigid_axis": [
+          0.5773502691896257,
+          -0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "O0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "F0": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "rigid_axis": [
+          0.5773502691896257,
+          -0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "O0": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "F0": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "rigid_axis": [
+          0.5773502691896257,
+          -0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "O0": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "F0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "rigid_axis": [
+          0.5773502691896257,
+          -0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "O0": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "F0": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "rigid_axis": [
+          0.5773502691896257,
+          -0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "O0": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "F0": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "rigid_axis": [
+          0.5773502691896257,
+          -0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "O0": [
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "F0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "rigid_axis": [
+          0.5773502691896257,
+          -0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "O0": [
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "F0": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "rigid_axis": [
+          0.5773502691896257,
+          -0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "O0": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "F0": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "rigid_axis": [
+          0.5773502691896257,
+          -0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "O0": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "F0": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "rigid_axis": [
+          0.5773502691896257,
+          -0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "O0": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "F0": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "rigid_axis": [
+          0.5773502691896257,
+          -0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      },
+      {
+        "G0": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "O0": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "F0": [
+          [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "rigid_axis": [
+          0.5773502691896257,
+          -0.5773502691896257,
+          -0.5773502691896257
+        ],
+        "rigid_angle": 2.0943951023931957
+      }
+    ]
+  },
+  "tests": {
+    "run": 18,
+    "passed": 18,
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "successful": true
+  },
+  "prohibited_imports_present": [],
+  "limitations": [
+    "No actual elapsed time, native trajectory, energy/force interpretation or physical feasibility determination",
+    "Received clipboard sketch does not match the work-order byte identity; original specified stream unavailable",
+    "The toroid is excluded; full Tri-Octagon cone attachment and native/observer binding remain absent",
+    "Numeric illustrations are not interval certificates; prescribed paths continuous with angular-velocity changes at leg joints"
+  ]
+}

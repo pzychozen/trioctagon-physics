@@ -329,3 +329,8 @@ No runtime or kernel changes.
 ## Collective turning and coherent relaxation
 
 [Transient Collective Turning and Coherent Relaxation in the Native Triad — v0.1](papers/COLLECTIVE_TURNING_AND_COHERENT_RELAXATION/v0.1/README.md), by **Hilmir Frímann Halldórsson**. Author-authorized repository research edition with completed GPT project-internal scientific review and author review; no external peer review is claimed. [Published PDF](papers/COLLECTIVE_TURNING_AND_COHERENT_RELAXATION/v0.1/REVIEW.pdf). Turning, delayed graph response, and a separate finite-domain convergence theorem; no kernel changes.
+
+
+## Coherence returns and phase-remainder bounds
+
+[Coherence Returns and Phase-Remainder Bounds in the Native Tri-Octagon Map — v0.1](papers/COHERENCE_RETURNS_AND_PHASE_REMAINDER_BOUNDS/publication/v0.1/README.md), by **Hilmir Frímann Halldórsson**. Author-authorized repository research edition with project-internal review; [canonical 19-page PDF](papers/COHERENCE_RETURNS_AND_PHASE_REMAINDER_BOUNDS/publication/v0.1/manuscript/REVIEW.pdf) preserved unchanged. Regular coherence returns and fixed-parameter amplitude, 60-degree phase-sector and phase-remainder bounds, with the complete retained finite-search account; no external peer review, physical motion law or runtime change is claimed.

@@ -1,0 +1,185 @@
+{
+  "kind": "exact algebra and endpoint identities, not a numerical existence certificate",
+  "native_F_evaluations": 0,
+  "old_scientific_scripts_executed": 0,
+  "python": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+  "sympy": "1.14.0",
+  "checks": [
+    {
+      "name": "minimum diagonal coefficient",
+      "passed": true,
+      "actual": "31997/30000",
+      "expected": "31997/30000"
+    },
+    {
+      "name": "maximum diagonal coefficient",
+      "passed": true,
+      "actual": "32003/30000",
+      "expected": "32003/30000"
+    },
+    {
+      "name": "positive self coefficient on B3",
+      "passed": true,
+      "actual": "4997/30000",
+      "expected": "4997/30000"
+    },
+    {
+      "name": "sharp envelope peak squared below 49/25",
+      "passed": true,
+      "actual": "True",
+      "expected": "True"
+    },
+    {
+      "name": "looser peak squared",
+      "passed": true,
+      "actual": "5832/3125",
+      "expected": "5832/3125"
+    },
+    {
+      "name": "looser peak margin",
+      "passed": true,
+      "actual": "293/3125",
+      "expected": "293/3125"
+    },
+    {
+      "name": "upper-envelope derivative minimum on [0,3/2]",
+      "passed": true,
+      "actual": "11753/30000",
+      "expected": "11753/30000"
+    },
+    {
+      "name": "individual minimum derivative on [0,3/2]",
+      "passed": true,
+      "actual": "11747/30000",
+      "expected": "11747/30000"
+    },
+    {
+      "name": "T(3/2) below 3/2",
+      "passed": true,
+      "actual": "True",
+      "expected": "True"
+    },
+    {
+      "name": "T(sqrt K) equals sqrt K",
+      "passed": true,
+      "actual": "sqrt(10010)/100",
+      "expected": "sqrt(10010)/100"
+    },
+    {
+      "name": "self coefficient on returning block",
+      "passed": true,
+      "actual": "14497/15000",
+      "expected": "14497/15000"
+    },
+    {
+      "name": "maximum off-diagonal phase weight",
+      "passed": true,
+      "actual": "1/100",
+      "expected": "1/100"
+    },
+    {
+      "name": "minimum phase diagonal weight",
+      "passed": true,
+      "actual": "49/50",
+      "expected": "49/50"
+    },
+    {
+      "name": "continuous equal-phase weight",
+      "passed": true,
+      "actual": "1/100",
+      "expected": "1/100"
+    },
+    {
+      "name": "positive endpoint weight is zero",
+      "passed": true,
+      "actual": "0",
+      "expected": "0"
+    },
+    {
+      "name": "negative endpoint weight is zero",
+      "passed": true,
+      "actual": "0",
+      "expected": "0"
+    },
+    {
+      "name": "signed weights are even",
+      "passed": true,
+      "actual": "0",
+      "expected": "0"
+    },
+    {
+      "name": "branch changes leave harmonic sine unchanged",
+      "passed": true,
+      "actual": "-4*sin(d)**3 + 3*sin(d) - sin(3*d)",
+      "expected": "0"
+    },
+    {
+      "name": "convex update equals difference update",
+      "passed": true,
+      "actual": "a*y - a*(-x + y) + b*z - b*(-x + z) + x*(-a - b + 1) - x",
+      "expected": "0"
+    },
+    {
+      "name": "aligned Hessian upper bound",
+      "passed": true,
+      "actual": "313/1250",
+      "expected": "313/1250"
+    },
+    {
+      "name": "aligned potential descent coefficient",
+      "passed": true,
+      "actual": "2187/2500",
+      "expected": "2187/2500"
+    },
+    {
+      "name": "prestage perturbation lower bound",
+      "passed": true,
+      "actual": "-251/5000",
+      "expected": "-251/5000"
+    },
+    {
+      "name": "prestage perturbation upper bound",
+      "passed": true,
+      "actual": "1001/10000",
+      "expected": "1001/10000"
+    },
+    {
+      "name": "one-step chord coefficient",
+      "passed": true,
+      "actual": "53717/500000",
+      "expected": "53717/500000"
+    },
+    {
+      "name": "three-step multiplier chord bound",
+      "passed": true,
+      "actual": "161151/500000",
+      "expected": "161151/500000"
+    },
+    {
+      "name": "quarter-phase chord is outside bound",
+      "passed": true,
+      "actual": "True",
+      "expected": "True"
+    },
+    {
+      "name": "retained second amplitude arithmetic",
+      "passed": true,
+      "actual": "2947693/5120000",
+      "expected": "2947693/5120000"
+    },
+    {
+      "name": "retained repeated-scale comparator",
+      "passed": true,
+      "actual": "1849/3200",
+      "expected": "1849/3200"
+    },
+    {
+      "name": "projector counterexample amplitudes differ",
+      "passed": true,
+      "actual": "True",
+      "expected": "True"
+    }
+  ],
+  "phase_bound_degrees_formatting_only": "18.547421362807274469",
+  "continuous_sign_proof": "For |d|<=pi/3, x=3d lies in [-pi,pi]; sin(x)/x is nonnegative and <=1. Endpoints give zero, the limit at zero is one. See written proof."
+}

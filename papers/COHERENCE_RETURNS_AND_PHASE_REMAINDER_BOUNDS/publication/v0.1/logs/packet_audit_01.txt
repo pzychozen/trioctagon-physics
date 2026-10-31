@@ -1,0 +1,5 @@
+The first current-draft metadata audit stopped before any reconciliation because
+audit_packet.py expected MANIFEST.json's collection key to be 'files'. The actual
+packet uses 'members'. Python raised KeyError: 'files'. No source or evidence was
+changed and no scientific evaluation was attempted. The local metadata reader
+was corrected to the observed schema; the successful rerun is logged separately.
