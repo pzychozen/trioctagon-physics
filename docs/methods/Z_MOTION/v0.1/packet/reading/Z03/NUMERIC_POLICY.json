@@ -1,0 +1,61 @@
+{
+  "task": "NCM-Z-03 v0.1",
+  "input_sha256": "a294a4b0bf181adaa2054aa52379c1832a7833e3faa7614d0785aecd709ea09c",
+  "actual_indices": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "native_exact": {
+    "epsilon": "1/10",
+    "g": "1/5",
+    "lambda_phase": "17/100",
+    "k": [
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  "observer_binary64_literals": {
+    "0.618": {
+      "hex": "0x1.3c6a7ef9db22dp-1",
+      "ratio": [
+        5566449139429933,
+        9007199254740992
+      ]
+    },
+    "0.577": {
+      "hex": "0x1.276c8b4395810p-1",
+      "ratio": [
+        324822123124097,
+        562949953421312
+      ]
+    },
+    "0.244": {
+      "hex": "0x1.f3b645a1cac08p-3",
+      "ratio": [
+        1098878309078401,
+        4503599627370496
+      ]
+    }
+  },
+  "anchor": {
+    "theta": "0",
+    "time": "0",
+    "alpha": "1",
+    "beta": "1/2",
+    "placement_scale": "1",
+    "placement_rotation": "0"
+  },
+  "precisions": [
+    80,
+    120
+  ],
+  "screen": "abs residual <= 1e-65 * max(1,sum absolute compared terms); actual per-check scales retained",
+  "comparison_to_Z02_binary64": "5e-12 scaled; no primary binary64 budget evaluations",
+  "evidence_class": "NUMERICAL_CORROBORATION_ONLY",
+  "not_interval_certificate": true,
+  "notation": "r=X-O; centered y=beta*C_y; absolute X_y=O_y+beta*C_y"
+}

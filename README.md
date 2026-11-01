@@ -334,3 +334,8 @@ No runtime or kernel changes.
 ## Coherence returns and phase-remainder bounds
 
 [Coherence Returns and Phase-Remainder Bounds in the Native Tri-Octagon Map — v0.1](papers/COHERENCE_RETURNS_AND_PHASE_REMAINDER_BOUNDS/publication/v0.1/README.md), by **Hilmir Frímann Halldórsson**. Author-authorized repository research edition with project-internal review; [canonical 19-page PDF](papers/COHERENCE_RETURNS_AND_PHASE_REMAINDER_BOUNDS/publication/v0.1/manuscript/REVIEW.pdf) preserved unchanged. Regular coherence returns and fixed-parameter amplitude, 60-degree phase-sector and phase-remainder bounds, with the complete retained finite-search account; no external peer review, physical motion law or runtime change is claimed.
+
+
+### Understanding Z motion — methods guide
+
+[Understanding Z Motion in the Tri-Octagon Model](docs/methods/Z_MOTION/README.md) explains native changes, observer effects and source accounting against fixed geometry. Start with the [two-page reading companion](docs/methods/Z_MOTION/v0.1/PLAIN_LANGUAGE_GUIDE_v0.1.pdf), then the [18-page methods note](docs/methods/Z_MOTION/v0.1/manuscript/NCM_Z_DOCUMENTATION_v0.1.pdf). Author-authorized project documentation with retained evidence and internal review; no new runtime feature or physical-motion claim.

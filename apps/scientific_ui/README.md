@@ -776,3 +776,8 @@ orchestration is external and never part of unittest discovery. Real supported
 Windows mouse/keyboard/dialog review, with offscreen mode cleared, is a separate
 required gate. Programmatic tests alone do not establish full application
 acceptance. No commit, release or normal-launcher replacement is part of P1.
+
+
+### Reading Z observations
+
+The [Z-motion methods guide](../../docs/methods/Z_MOTION/README.md) distinguishes native-state changes, observer scheduling, geometric placement and the accounting behind frozen-readout displacements. The [two-page companion](../../docs/methods/Z_MOTION/v0.1/PLAIN_LANGUAGE_GUIDE_v0.1.pdf) is the quickest introduction; the [full methods note](../../docs/methods/Z_MOTION/v0.1/manuscript/NCM_Z_DOCUMENTATION_v0.1.pdf) provides equations, examples and evidence. This is reading documentation only: it does not install or announce a new UI feature, change the admitted kernel/UI pairing, or convert displayed points into physical trajectories.

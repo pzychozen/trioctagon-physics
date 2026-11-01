@@ -1,0 +1,915 @@
+{
+  "scope": {
+    "source_locator": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\CENTRAL_GEOMETRY_Z_CHIRAL_RESPONSE\\publication\\v0.3\\evidence\\CENTRAL_GEOMETRY_Z_CHIRAL_RESPONSE_NUMERICAL_AUDIT_v0.1_REVIEW_BUNDLE.zip!NOMINAL_CROSSCHECK.json",
+    "file_sha256": "a294a4b0bf181adaa2054aa52379c1832a7833e3faa7614d0785aecd709ea09c",
+    "bytes": 8871,
+    "packaged_copy": "inputs/SELECTED_HISTORY.json",
+    "record_description": "NOMINAL_CROSSCHECK mpmath native-triad nominal sequence; not a modern Core record",
+    "source_lineage": {
+      "historical_source_revision_locator": "3b4aa9cb64b7c218ca82962dbf3caea39d9f7d34",
+      "data_producer": "verification.py:nominal_crosscheck, lines 120–171; called and serialized by audit.py lines 551–552",
+      "original_precision_dps": 120,
+      "output_precision_significant_digits": 100,
+      "fixed_coefficients": {
+        "epsilon": ".1",
+        "g": ".2",
+        "lambda_phase": ".17",
+        "k": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "prior_execution_account": "INDEPENDENT_NUMERICAL_AUDIT_REPORT.md line 99; ENVIRONMENT_AND_REPLAY.md lines 38–45; logs/audit-console.txt line 7",
+      "source_members_verified": [
+        {
+          "member": "verification.py",
+          "sha256": "87bc4f16adc72a8cbfbac8a7d49d418fc77b0aaa1a227f1a94622205407de6f7",
+          "copy": "sources\\arch_verification.py"
+        },
+        {
+          "member": "audit.py",
+          "sha256": "2a519035cbfa96d56c858d72fe21f783264859524d8419b5068635b9f0d2a2f9",
+          "copy": "sources\\arch_audit.py"
+        },
+        {
+          "member": "supplement.py",
+          "sha256": "5f8295123a570668a0779880c001abab42888a0a726f2d8bed805fabbd1b884e",
+          "copy": "sources\\arch_supplement.py"
+        },
+        {
+          "member": "ENVIRONMENT_AND_REPLAY.md",
+          "sha256": "0ce8ade915695c23bbe8c243a02558f33899799d6a5de18be2ab05f28ed08f58",
+          "copy": "sources\\arch_ENVIRONMENT_AND_REPLAY.md"
+        },
+        {
+          "member": "logs/audit-console.txt",
+          "sha256": "d73119e9812752dd86e94d3e19638d0a694288eb6deb40968721073b3f0ea6c6",
+          "copy": "sources\\arch_logs_audit-console.txt"
+        },
+        {
+          "member": "INDEPENDENT_NUMERICAL_AUDIT_REPORT.md",
+          "sha256": "877b97fcb51a1b3abf9dc4d6cdb8168ef7a6c153eecba10d5b240aa676765d60",
+          "copy": "sources\\arch_INDEPENDENT_NUMERICAL_AUDIT_REPORT.md"
+        }
+      ]
+    },
+    "comparison_to_Z01": "Different initialization and native coefficients: epsilon .1 instead of .05, phase .17 instead of .001, k=(2,3,4) instead of (1,1,1); g=.2 shared. Not an extension or same-parameter replication.",
+    "evidence_limits": "Retained nominal numerical producer values with file integrity and source account; not producer authentication, a new native replay certificate, exact ideal-map solutions or propagated certified intervals."
+  },
+  "anchor": {
+    "actual_index_for_angle": 0,
+    "actual_index_for_time": 0,
+    "q": 0,
+    "theta": 0.0,
+    "t": 0.0
+  },
+  "config": {
+    "N": 12,
+    "q0": 0,
+    "q_step": 1,
+    "time0": 0.0,
+    "dt": 0.1,
+    "lambda_vp": 0.618,
+    "gamma": 0.577,
+    "lock_angle": 0.244,
+    "alpha": 1.0,
+    "beta": 0.5,
+    "mu_place": 1.0,
+    "psi": 0.0
+  },
+  "token_ledger": "ORIGINAL_TOKEN_LEDGER.json",
+  "samples": [
+    {
+      "ordinal": 0,
+      "index": 0,
+      "scheduled": {
+        "id": "S0",
+        "kind": "scheduled",
+        "sample_ordinal": 0,
+        "native_update_index": 0,
+        "readout": {
+          "kappa": 3.0,
+          "C": [
+            -0.604987924578886,
+            -0.3388966991366015,
+            -0.08006320569303724
+          ],
+          "K": 0.4635,
+          "E": 1.0,
+          "H": [
+            0.7438391736157145,
+            0.0,
+            0.7438391736157145
+          ],
+          "macro": [
+            0.3447694569708837,
+            0.0,
+            0.3447694569708837
+          ],
+          "alpha_macro": [
+            0.3447694569708837,
+            0.0,
+            0.3447694569708837
+          ],
+          "beta_C": [
+            -0.302493962289443,
+            -0.16944834956830074,
+            -0.04003160284651862
+          ],
+          "Z": [
+            0.042275494681440706,
+            -0.16944834956830074,
+            0.30473785412436505
+          ],
+          "X": [
+            0.042275494681440706,
+            0.11922678502651213,
+            0.30473785412436505
+          ],
+          "centered": [
+            0.042275494681440706,
+            -0.16944834956830074,
+            0.30473785412436505
+          ],
+          "clock": {
+            "actual_index_for_angle": 0,
+            "actual_index_for_time": 0,
+            "q": 0,
+            "theta": 0.0,
+            "t": 0.0
+          },
+          "envelope_underflow_to_zero": false
+        },
+        "spatial": {
+          "radius": 0.35123371187615854,
+          "horizontal_radius": 0.1746423792267546,
+          "height": 0.30473785412436505,
+          "azimuth_degrees": -75.99131720868007,
+          "elevation_degrees": 60.18338631639152,
+          "direction_defined": true,
+          "azimuth_defined": true,
+          "direction_numerically_small": false,
+          "sphere_signed_margin": -0.26213938188226976,
+          "sphere_status": "inside"
+        }
+      },
+      "frozen": {
+        "id": "F0",
+        "kind": "frozen",
+        "sample_ordinal": 0,
+        "native_update_index": 0,
+        "readout": {
+          "kappa": 3.0,
+          "C": [
+            -0.604987924578886,
+            -0.3388966991366015,
+            -0.08006320569303724
+          ],
+          "K": 0.4635,
+          "E": 1.0,
+          "H": [
+            0.7438391736157145,
+            0.0,
+            0.7438391736157145
+          ],
+          "macro": [
+            0.3447694569708837,
+            0.0,
+            0.3447694569708837
+          ],
+          "alpha_macro": [
+            0.3447694569708837,
+            0.0,
+            0.3447694569708837
+          ],
+          "beta_C": [
+            -0.302493962289443,
+            -0.16944834956830074,
+            -0.04003160284651862
+          ],
+          "Z": [
+            0.042275494681440706,
+            -0.16944834956830074,
+            0.30473785412436505
+          ],
+          "X": [
+            0.042275494681440706,
+            0.11922678502651213,
+            0.30473785412436505
+          ],
+          "centered": [
+            0.042275494681440706,
+            -0.16944834956830074,
+            0.30473785412436505
+          ],
+          "clock": {
+            "actual_index_for_angle": 0,
+            "actual_index_for_time": 0,
+            "q": 0,
+            "theta": 0.0,
+            "t": 0.0
+          },
+          "envelope_underflow_to_zero": false
+        },
+        "spatial": {
+          "radius": 0.35123371187615854,
+          "horizontal_radius": 0.1746423792267546,
+          "height": 0.30473785412436505,
+          "azimuth_degrees": -75.99131720868007,
+          "elevation_degrees": 60.18338631639152,
+          "direction_defined": true,
+          "azimuth_defined": true,
+          "direction_numerically_small": false,
+          "sphere_signed_margin": -0.26213938188226976,
+          "sphere_status": "inside"
+        }
+      }
+    },
+    {
+      "ordinal": 1,
+      "index": 1,
+      "scheduled": {
+        "id": "S1",
+        "kind": "scheduled",
+        "sample_ordinal": 1,
+        "native_update_index": 1,
+        "readout": {
+          "kappa": 0.5434121599753204,
+          "C": [
+            -0.02622837316762528,
+            -0.08993836434959093,
+            0.060620006519993434
+          ],
+          "K": 0.21758848580674522,
+          "E": 0.9439330848895239,
+          "H": [
+            0.578815568938862,
+            0.33417932453799826,
+            0.6683586490759966
+          ],
+          "macro": [
+            0.11888233389707491,
+            0.06863674747736714,
+            0.13727349495473432
+          ],
+          "alpha_macro": [
+            0.11888233389707491,
+            0.06863674747736714,
+            0.13727349495473432
+          ],
+          "beta_C": [
+            -0.01311418658381264,
+            -0.044969182174795466,
+            0.030310003259996717
+          ],
+          "Z": [
+            0.10576814731326227,
+            0.023667565302571678,
+            0.16758349821473104
+          ],
+          "X": [
+            0.10576814731326227,
+            0.31234269989738456,
+            0.16758349821473104
+          ],
+          "centered": [
+            0.10576814731326227,
+            0.02366756530257169,
+            0.16758349821473104
+          ],
+          "clock": {
+            "actual_index_for_angle": 1,
+            "actual_index_for_time": 1,
+            "q": 1,
+            "theta": 0.5235987755982988,
+            "t": 0.1
+          },
+          "envelope_underflow_to_zero": false
+        },
+        "spatial": {
+          "radius": 0.19957776305820799,
+          "horizontal_radius": 0.10838383012899777,
+          "height": 0.16758349821473104,
+          "azimuth_degrees": 12.613198604358548,
+          "elevation_degrees": 57.1074233554697,
+          "direction_defined": true,
+          "azimuth_defined": true,
+          "direction_numerically_small": false,
+          "sphere_signed_margin": -0.41379533070022034,
+          "sphere_status": "inside"
+        }
+      },
+      "frozen": {
+        "id": "F1",
+        "kind": "frozen",
+        "sample_ordinal": 1,
+        "native_update_index": 1,
+        "readout": {
+          "kappa": 0.5434121599753204,
+          "C": [
+            -0.02622837316762528,
+            -0.08993836434959093,
+            0.060620006519993434
+          ],
+          "K": 0.21758848580674522,
+          "E": 1.0,
+          "H": [
+            0.7438391736157145,
+            0.0,
+            0.7438391736157145
+          ],
+          "macro": [
+            0.161850839470784,
+            0.0,
+            0.161850839470784
+          ],
+          "alpha_macro": [
+            0.161850839470784,
+            0.0,
+            0.161850839470784
+          ],
+          "beta_C": [
+            -0.01311418658381264,
+            -0.044969182174795466,
+            0.030310003259996717
+          ],
+          "Z": [
+            0.14873665288697135,
+            -0.044969182174795466,
+            0.1921608427307807
+          ],
+          "X": [
+            0.14873665288697135,
+            0.2437059524200174,
+            0.1921608427307807
+          ],
+          "centered": [
+            0.14873665288697135,
+            -0.04496918217479545,
+            0.1921608427307807
+          ],
+          "clock": {
+            "actual_index_for_angle": 0,
+            "actual_index_for_time": 0,
+            "q": 0,
+            "theta": 0.0,
+            "t": 0.0
+          },
+          "envelope_underflow_to_zero": false
+        },
+        "spatial": {
+          "radius": 0.24712468257236705,
+          "horizontal_radius": 0.1553860330193462,
+          "height": 0.1921608427307807,
+          "azimuth_degrees": -16.82221713754155,
+          "elevation_degrees": 51.04013519229267,
+          "direction_defined": true,
+          "azimuth_defined": true,
+          "direction_numerically_small": false,
+          "sphere_signed_margin": -0.3662484111860612,
+          "sphere_status": "inside"
+        }
+      }
+    },
+    {
+      "ordinal": 2,
+      "index": 2,
+      "scheduled": {
+        "id": "S2",
+        "kind": "scheduled",
+        "sample_ordinal": 2,
+        "native_update_index": 2,
+        "readout": {
+          "kappa": 0.47738182497201614,
+          "C": [
+            0.0021472783047436217,
+            -0.05800994086269069,
+            0.047000798651242334
+          ],
+          "K": 0.19969243078937576,
+          "E": 0.8910096687490532,
+          "H": [
+            -0.3719195868078572,
+            -0.644183620681232,
+            -0.7438391736157143
+          ],
+          "macro": [
+            -0.06617486606933912,
+            -0.11461823021616108,
+            -0.1323497321386782
+          ],
+          "alpha_macro": [
+            -0.06617486606933912,
+            -0.11461823021616108,
+            -0.1323497321386782
+          ],
+          "beta_C": [
+            0.0010736391523718108,
+            -0.029004970431345346,
+            0.023500399325621167
+          ],
+          "Z": [
+            -0.0651012269169673,
+            -0.14362320064750642,
+            -0.10884933281305703
+          ],
+          "X": [
+            -0.0651012269169673,
+            0.14505193394730645,
+            -0.10884933281305703
+          ],
+          "centered": [
+            -0.0651012269169673,
+            -0.14362320064750642,
+            -0.10884933281305703
+          ],
+          "clock": {
+            "actual_index_for_angle": 2,
+            "actual_index_for_time": 2,
+            "q": 2,
+            "theta": 1.0471975511965976,
+            "t": 0.2
+          },
+          "envelope_underflow_to_zero": false
+        },
+        "spatial": {
+          "radius": 0.19160890053485513,
+          "horizontal_radius": 0.15768891372042726,
+          "height": -0.10884933281305703,
+          "azimuth_degrees": -114.3837377688529,
+          "elevation_degrees": -34.61650054045532,
+          "direction_defined": true,
+          "azimuth_defined": true,
+          "direction_numerically_small": false,
+          "sphere_signed_margin": -0.42176419322357317,
+          "sphere_status": "inside"
+        }
+      },
+      "frozen": {
+        "id": "F2",
+        "kind": "frozen",
+        "sample_ordinal": 2,
+        "native_update_index": 2,
+        "readout": {
+          "kappa": 0.47738182497201614,
+          "C": [
+            0.0021472783047436217,
+            -0.05800994086269069,
+            0.047000798651242334
+          ],
+          "K": 0.19969243078937576,
+          "E": 1.0,
+          "H": [
+            0.7438391736157145,
+            0.0,
+            0.7438391736157145
+          ],
+          "macro": [
+            0.14853905269568252,
+            0.0,
+            0.14853905269568252
+          ],
+          "alpha_macro": [
+            0.14853905269568252,
+            0.0,
+            0.14853905269568252
+          ],
+          "beta_C": [
+            0.0010736391523718108,
+            -0.029004970431345346,
+            0.023500399325621167
+          ],
+          "Z": [
+            0.1496126918480543,
+            -0.029004970431345346,
+            0.1720394520213037
+          ],
+          "X": [
+            0.1496126918480543,
+            0.2596701641634675,
+            0.1720394520213037
+          ],
+          "centered": [
+            0.1496126918480543,
+            -0.029004970431345367,
+            0.1720394520213037
+          ],
+          "clock": {
+            "actual_index_for_angle": 0,
+            "actual_index_for_time": 0,
+            "q": 0,
+            "theta": 0.0,
+            "t": 0.0
+          },
+          "envelope_underflow_to_zero": false
+        },
+        "spatial": {
+          "radius": 0.22983215380693478,
+          "horizontal_radius": 0.15239831321817207,
+          "height": 0.1720394520213037,
+          "azimuth_degrees": -10.971660081073104,
+          "elevation_degrees": 48.46440117938528,
+          "direction_defined": true,
+          "azimuth_defined": true,
+          "direction_numerically_small": false,
+          "sphere_signed_margin": -0.3835409399514935,
+          "sphere_status": "inside"
+        }
+      }
+    },
+    {
+      "ordinal": 3,
+      "index": 3,
+      "scheduled": {
+        "id": "S3",
+        "kind": "scheduled",
+        "sample_ordinal": 3,
+        "native_update_index": 3,
+        "readout": {
+          "kappa": 0.48522426028124216,
+          "C": [
+            0.0018243515020760909,
+            -0.05167133393475399,
+            0.0405453200116343
+          ],
+          "K": 0.20190122183772066,
+          "E": 0.8410535052886866,
+          "H": [
+            -4.0925164013668433e-17,
+            -0.6683586490759968,
+            -0.6683586490759968
+          ],
+          "macro": [
+            -6.94949106563669e-18,
+            -0.11349380197580552,
+            -0.11349380197580552
+          ],
+          "alpha_macro": [
+            -6.94949106563669e-18,
+            -0.11349380197580552,
+            -0.11349380197580552
+          ],
+          "beta_C": [
+            0.0009121757510380454,
+            -0.025835666967376995,
+            0.02027266000581715
+          ],
+          "Z": [
+            0.0009121757510380385,
+            -0.13932946894318252,
+            -0.09322114196998837
+          ],
+          "X": [
+            0.0009121757510380385,
+            0.14934566565163035,
+            -0.09322114196998837
+          ],
+          "centered": [
+            0.0009121757510380385,
+            -0.13932946894318252,
+            -0.09322114196998837
+          ],
+          "clock": {
+            "actual_index_for_angle": 3,
+            "actual_index_for_time": 3,
+            "q": 3,
+            "theta": 1.5707963267948966,
+            "t": 0.30000000000000004
+          },
+          "envelope_underflow_to_zero": false
+        },
+        "spatial": {
+          "radius": 0.16764162457688953,
+          "horizontal_radius": 0.13933245487175644,
+          "height": -0.09322114196998837,
+          "azimuth_degrees": -89.62489576386125,
+          "elevation_degrees": -33.78471834878288,
+          "direction_defined": true,
+          "azimuth_defined": true,
+          "direction_numerically_small": false,
+          "sphere_signed_margin": -0.4457314691815388,
+          "sphere_status": "inside"
+        }
+      },
+      "frozen": {
+        "id": "F3",
+        "kind": "frozen",
+        "sample_ordinal": 3,
+        "native_update_index": 3,
+        "readout": {
+          "kappa": 0.48522426028124216,
+          "C": [
+            0.0018243515020760909,
+            -0.05167133393475399,
+            0.0405453200116343
+          ],
+          "K": 0.20190122183772066,
+          "E": 1.0,
+          "H": [
+            0.7438391736157145,
+            0.0,
+            0.7438391736157145
+          ],
+          "macro": [
+            0.1501820380037732,
+            0.0,
+            0.1501820380037732
+          ],
+          "alpha_macro": [
+            0.1501820380037732,
+            0.0,
+            0.1501820380037732
+          ],
+          "beta_C": [
+            0.0009121757510380454,
+            -0.025835666967376995,
+            0.02027266000581715
+          ],
+          "Z": [
+            0.15109421375481125,
+            -0.025835666967376995,
+            0.17045469800959034
+          ],
+          "X": [
+            0.15109421375481125,
+            0.2628394676274359,
+            0.17045469800959034
+          ],
+          "centered": [
+            0.15109421375481125,
+            -0.02583566696737699,
+            0.17045469800959034
+          ],
+          "clock": {
+            "actual_index_for_angle": 0,
+            "actual_index_for_time": 0,
+            "q": 0,
+            "theta": 0.0,
+            "t": 0.0
+          },
+          "envelope_underflow_to_zero": false
+        },
+        "spatial": {
+          "radius": 0.22924167856516503,
+          "horizontal_radius": 0.15328712639303343,
+          "height": 0.17045469800959034,
+          "azimuth_degrees": -9.703190676555154,
+          "elevation_degrees": 48.03547109989408,
+          "direction_defined": true,
+          "azimuth_defined": true,
+          "direction_numerically_small": false,
+          "sphere_signed_margin": -0.38413141519326327,
+          "sphere_status": "inside"
+        }
+      }
+    },
+    {
+      "ordinal": 4,
+      "index": 4,
+      "scheduled": {
+        "id": "S4",
+        "kind": "scheduled",
+        "sample_ordinal": 4,
+        "native_update_index": 4,
+        "readout": {
+          "kappa": 0.5633731100535336,
+          "C": [
+            0.00048426309665602907,
+            -0.009365954067151766,
+            0.007194280746805667
+          ],
+          "K": 0.22270088936169674,
+          "E": 0.7938982298042975,
+          "H": [
+            -0.3719195868078569,
+            0.644183620681232,
+            0.7438391736157142
+          ],
+          "macro": [
+            -0.06575606796403573,
+            0.11389285061966212,
+            0.1315121359280715
+          ],
+          "alpha_macro": [
+            -0.06575606796403573,
+            0.11389285061966212,
+            0.1315121359280715
+          ],
+          "beta_C": [
+            0.00024213154832801453,
+            -0.004682977033575883,
+            0.0035971403734028334
+          ],
+          "Z": [
+            -0.06551393641570771,
+            0.10920987358608623,
+            0.13510927630147435
+          ],
+          "X": [
+            -0.06551393641570771,
+            0.3978850081808991,
+            0.13510927630147435
+          ],
+          "centered": [
+            -0.06551393641570771,
+            0.10920987358608625,
+            0.13510927630147435
+          ],
+          "clock": {
+            "actual_index_for_angle": 4,
+            "actual_index_for_time": 4,
+            "q": 4,
+            "theta": 2.0943951023931953,
+            "t": 0.4
+          },
+          "envelope_underflow_to_zero": false
+        },
+        "spatial": {
+          "radius": 0.18567010770740255,
+          "horizontal_radius": 0.1273533366401145,
+          "height": 0.13510927630147435,
+          "azimuth_degrees": 120.95913186984264,
+          "elevation_degrees": 46.6926346976377,
+          "direction_defined": true,
+          "azimuth_defined": true,
+          "direction_numerically_small": false,
+          "sphere_signed_margin": -0.42770298605102575,
+          "sphere_status": "inside"
+        }
+      },
+      "frozen": {
+        "id": "F4",
+        "kind": "frozen",
+        "sample_ordinal": 4,
+        "native_update_index": 4,
+        "readout": {
+          "kappa": 0.5633731100535336,
+          "C": [
+            0.00048426309665602907,
+            -0.009365954067151766,
+            0.007194280746805667
+          ],
+          "K": 0.22270088936169674,
+          "E": 1.0,
+          "H": [
+            0.7438391736157145,
+            0.0,
+            0.7438391736157145
+          ],
+          "macro": [
+            0.16565364550628917,
+            0.0,
+            0.16565364550628917
+          ],
+          "alpha_macro": [
+            0.16565364550628917,
+            0.0,
+            0.16565364550628917
+          ],
+          "beta_C": [
+            0.00024213154832801453,
+            -0.004682977033575883,
+            0.0035971403734028334
+          ],
+          "Z": [
+            0.16589577705461717,
+            -0.004682977033575883,
+            0.169250785879692
+          ],
+          "X": [
+            0.16589577705461717,
+            0.28399215756123697,
+            0.169250785879692
+          ],
+          "centered": [
+            0.16589577705461717,
+            -0.004682977033575897,
+            0.169250785879692
+          ],
+          "clock": {
+            "actual_index_for_angle": 0,
+            "actual_index_for_time": 0,
+            "q": 0,
+            "theta": 0.0,
+            "t": 0.0
+          },
+          "envelope_underflow_to_zero": false
+        },
+        "spatial": {
+          "radius": 0.23704254394379418,
+          "horizontal_radius": 0.1659618604332099,
+          "height": 0.169250785879692,
+          "azimuth_degrees": -1.6169404069950692,
+          "elevation_degrees": 45.562137207170636,
+          "direction_defined": true,
+          "azimuth_defined": true,
+          "direction_numerically_small": false,
+          "sphere_signed_margin": -0.3763305498146341,
+          "sphere_status": "inside"
+        }
+      }
+    }
+  ],
+  "historical_readout_comparison": [
+    {
+      "native_index": 0,
+      "numeric_semantics": "historical exact-decimal ideal readout versus binary64-coefficient overlay; rounding differences expected",
+      "kappa_residual": 0.0,
+      "C_residual": 0.0,
+      "Z_residual": 5.551115123125783e-17
+    },
+    {
+      "native_index": 1,
+      "numeric_semantics": "historical exact-decimal ideal readout versus binary64-coefficient overlay; rounding differences expected",
+      "kappa_residual": 0.0,
+      "C_residual": 0.0,
+      "Z_residual": 4.163336342344337e-17
+    },
+    {
+      "native_index": 2,
+      "numeric_semantics": "historical exact-decimal ideal readout versus binary64-coefficient overlay; rounding differences expected",
+      "kappa_residual": 5.551115123125783e-17,
+      "C_residual": 5.637851296924623e-18,
+      "Z_residual": 5.551115123125783e-17
+    },
+    {
+      "native_index": 3,
+      "numeric_semantics": "historical exact-decimal ideal readout versus binary64-coefficient overlay; rounding differences expected",
+      "kappa_residual": 0.0,
+      "C_residual": 8.890457814381136e-18,
+      "Z_residual": 5.551115123125783e-17
+    },
+    {
+      "native_index": 4,
+      "numeric_semantics": "historical exact-decimal ideal readout versus binary64-coefficient overlay; rounding differences expected",
+      "kappa_residual": 0.0,
+      "C_residual": 8.673617379884035e-18,
+      "Z_residual": 8.326672684688674e-17
+    }
+  ],
+  "prior_two_state_regression": [
+    {
+      "native_index": 0,
+      "kappa": 0.0,
+      "C": 0.0,
+      "scheduled": {
+        "macro": 0.0,
+        "Z": 0.0,
+        "X": 0.0
+      },
+      "frozen": {
+        "macro": 0.0,
+        "Z": 0.0,
+        "X": 0.0
+      }
+    },
+    {
+      "native_index": 1,
+      "kappa": 0.0,
+      "C": 0.0,
+      "scheduled": {
+        "macro": 0.0,
+        "Z": 0.0,
+        "X": 0.0
+      },
+      "frozen": {
+        "macro": 0.0,
+        "Z": 0.0,
+        "X": 0.0
+      }
+    }
+  ],
+  "summary": {
+    "states": 5,
+    "indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "spans": 4,
+    "total_native_index_span": 4,
+    "frozen_switches": 0,
+    "scheduled_switches": 3,
+    "transition_categories": {
+      "neither": 1,
+      "scheduled_only": 3
+    },
+    "same_index_disagreements": [
+      2,
+      3,
+      4
+    ],
+    "primary_tie_or_unresolved_evaluations": [],
+    "high_precision_evaluations": 18,
+    "high_precision_classification_disagreements": 0,
+    "numerically_sufficient_margin_indices": [
+      0,
+      1
+    ],
+    "native_evaluations": 0,
+    "ema_advances": 0
+  }
+}

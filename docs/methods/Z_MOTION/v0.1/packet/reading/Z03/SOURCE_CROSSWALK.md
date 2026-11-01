@@ -1,0 +1,15 @@
+| Definition | Snapshot | Lines |
+| --- | --- | --- |
+| Native prestage, Arg0 and lambda-zero bypass | [sources/kernel_physics/dynamics.py](C:/TORMENT/TRIOCTAGON_new/research/NATURAL_CORE_MOTION_Z_SOURCE_ACCOUNTING_01/sources/kernel_physics/dynamics.py) | 56–99 |
+| Intensity and finite square; observed_delta is prestage-only | [sources/kernel_physics/z_diagnostics.py](C:/TORMENT/TRIOCTAGON_new/research/NATURAL_CORE_MOTION_Z_SOURCE_ACCOUNTING_01/sources/kernel_physics/z_diagnostics.py) | 219–287 |
+| S/A and cyclic extraction | [sources/kernel_physics/axial_observables.py](C:/TORMENT/TRIOCTAGON_new/research/NATURAL_CORE_MOTION_Z_SOURCE_ACCOUNTING_01/sources/kernel_physics/axial_observables.py) | 158–178 |
+| Seven native area terms and reconstructed quantities | [sources/kernel_physics/axial_observables.py](C:/TORMENT/TRIOCTAGON_new/research/NATURAL_CORE_MOTION_Z_SOURCE_ACCOUNTING_01/sources/kernel_physics/axial_observables.py) | 220–269 |
+| Independent canonical C orientation | [sources/kernel_physics/readouts.py](C:/TORMENT/TRIOCTAGON_new/research/NATURAL_CORE_MOTION_Z_SOURCE_ACCOUNTING_01/sources/kernel_physics/readouts.py) | 7–17 |
+| Area sign and fixed W attachment | [sources/papers/PAPER_G/v0.1.1/source/paper_g.tex](C:/TORMENT/TRIOCTAGON_new/research/NATURAL_CORE_MOTION_Z_SOURCE_ACCOUNTING_01/sources/papers/PAPER_G/v0.1.1/source/paper_g.tex) | 66–103 |
+| Congruence/cofactor and phase-pair budget | [sources/papers/PAPER_G/v0.1.1/source/paper_g.tex](C:/TORMENT/TRIOCTAGON_new/research/NATURAL_CORE_MOTION_Z_SOURCE_ACCOUNTING_01/sources/papers/PAPER_G/v0.1.1/source/paper_g.tex) | 123–145 |
+| Frozen placement and inherited constants | [packet/NCM_Z_03_Packet_v0.1/source_text/motion_observer.py.txt](C:/TORMENT/TRIOCTAGON_new/research/NATURAL_CORE_MOTION_Z_SOURCE_ACCOUNTING_01/packet/NCM_Z_03_Packet_v0.1/source_text/motion_observer.py.txt) | 20–36 |
+| Preset | [packet/NCM_Z_03_Packet_v0.1/source_text/motion_observer.py.txt](C:/TORMENT/TRIOCTAGON_new/research/NATURAL_CORE_MOTION_Z_SOURCE_ACCOUNTING_01/packet/NCM_Z_03_Packet_v0.1/source_text/motion_observer.py.txt) | 84–101 |
+| Placement, envelope, H, K and Z | [packet/NCM_Z_03_Packet_v0.1/source_text/motion_observer.py.txt](C:/TORMENT/TRIOCTAGON_new/research/NATURAL_CORE_MOTION_Z_SOURCE_ACCOUNTING_01/packet/NCM_Z_03_Packet_v0.1/source_text/motion_observer.py.txt) | 177–204 |
+| Historical exact-decimal coefficients and rounded serialization; read only | [packet/NCM_Z_03_Packet_v0.1/source_text/historical_nominal_producer.py.txt](C:/TORMENT/TRIOCTAGON_new/research/NATURAL_CORE_MOTION_Z_SOURCE_ACCOUNTING_01/packet/NCM_Z_03_Packet_v0.1/source_text/historical_nominal_producer.py.txt) | 120–171 |
+
+All copied project/producer source was read as text. None was imported or executed. The native and axial identities are inherited definitions; the finite-gain and radial composition below are elementary bookkeeping identities. No Paper G example coefficients were substituted. Local axial and Paper G blob digests agree with SOURCE_ROUTE; diagnostics had no recorded baseline digest, so only its actual local SHA-256 and matching definitions are claimed.

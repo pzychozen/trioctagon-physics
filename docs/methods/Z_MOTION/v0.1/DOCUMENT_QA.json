@@ -1,0 +1,279 @@
+{
+  "utc": "2026-11-01T06:27:02.728038+00:00",
+  "task": "NCM-Z-DOC-01 v0.1",
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "bounded original and copied-input hash preservation",
+      "passed": true,
+      "detail": {
+        "originals": 2,
+        "copies": 70,
+        "whole_repository_audit": false
+      }
+    },
+    {
+      "check": "extracted members byte-equal to original archives",
+      "passed": true,
+      "detail": 38
+    },
+    {
+      "check": "six direct retained review/evidence archives safety and CRC",
+      "passed": true,
+      "detail": [
+        {
+          "file": "packet/evidence/NCM_Z_01_v0.1_REVIEW.zip",
+          "members": 74,
+          "CRC": true,
+          "safe_unique_casefold_names": true
+        },
+        {
+          "file": "packet/evidence/NCM_Z_02_v0.1_REVIEW.zip",
+          "members": 99,
+          "CRC": true,
+          "safe_unique_casefold_names": true
+        },
+        {
+          "file": "packet/evidence/NCM_Z_03_v0.1_REVIEW.zip",
+          "members": 84,
+          "CRC": true,
+          "safe_unique_casefold_names": true
+        },
+        {
+          "file": "packet/reviews/NCM_Z_01_GPT_Review_Evidence.zip",
+          "members": 15,
+          "CRC": true,
+          "safe_unique_casefold_names": true
+        },
+        {
+          "file": "packet/reviews/NCM_Z_02_GPT_Review_Evidence.zip",
+          "members": 14,
+          "CRC": true,
+          "safe_unique_casefold_names": true
+        },
+        {
+          "file": "packet/reviews/NCM_Z_03_GPT_Review_Evidence.zip",
+          "members": 10,
+          "CRC": true,
+          "safe_unique_casefold_names": true
+        }
+      ]
+    },
+    {
+      "check": "generated table scalar pointers, original tokens, rounding and cell positions",
+      "passed": true,
+      "detail": {
+        "tables": 7,
+        "cells": 83
+      }
+    },
+    {
+      "check": "eight rounded table totals; ordinary addition only",
+      "passed": true,
+      "detail": [
+        {
+          "table": "intensity",
+          "row": 0,
+          "rounded_sum_minus_rounded_total": "0.000000",
+          "rounding_allowance": "0.000002"
+        },
+        {
+          "table": "intensity",
+          "row": 1,
+          "rounded_sum_minus_rounded_total": "0.000000",
+          "rounding_allowance": "0.000002"
+        },
+        {
+          "table": "intensity",
+          "row": 2,
+          "rounded_sum_minus_rounded_total": "0.000000",
+          "rounding_allowance": "0.000002"
+        },
+        {
+          "table": "intensity",
+          "row": 3,
+          "rounded_sum_minus_rounded_total": "0.000000",
+          "rounding_allowance": "0.000002"
+        },
+        {
+          "table": "radial",
+          "row": 0,
+          "rounded_sum_minus_rounded_total": "1E-9",
+          "rounding_allowance": "2E-9"
+        },
+        {
+          "table": "radial",
+          "row": 1,
+          "rounded_sum_minus_rounded_total": "0E-9",
+          "rounding_allowance": "2E-9"
+        },
+        {
+          "table": "radial",
+          "row": 2,
+          "rounded_sum_minus_rounded_total": "1E-9",
+          "rounding_allowance": "2E-9"
+        },
+        {
+          "table": "radial",
+          "row": 3,
+          "rounded_sum_minus_rounded_total": "0E-9",
+          "rounding_allowance": "2E-9"
+        }
+      ]
+    },
+    {
+      "check": "manual history and inherited-verification table provenance",
+      "passed": true,
+      "detail": 25
+    },
+    {
+      "check": "supplemental prose numeric transcription and rounding",
+      "passed": true,
+      "detail": 23
+    },
+    {
+      "check": "central claim coverage, report headings and exact JSON locators",
+      "passed": true,
+      "detail": {
+        "claims": 51,
+        "ledger_pointers": 77
+      }
+    },
+    {
+      "check": "separate history identities, five-state reuse and full admitted window",
+      "passed": true,
+      "detail": "History table and exact native/observer constants reconciled to manual-table provenance and accepted source presets; no state evaluation."
+    },
+    {
+      "check": "original figures unchanged and uncropped",
+      "passed": true,
+      "detail": 3
+    },
+    {
+      "check": "final PDF hashes, page counts and individual full-page visual review",
+      "passed": true,
+      "detail": {
+        "PDFs": 2,
+        "pages": 20
+      }
+    },
+    {
+      "check": "display equations transcribed exactly from canonical editable source",
+      "passed": true,
+      "detail": {
+        "display_blocks": 30,
+        "definition_review": "Compared by reading source/report identities and mapped C07-C39; notation changes explicit. No symbolic/numeric scientific evaluation."
+      }
+    },
+    {
+      "check": "layout and glyph diagnostics",
+      "passed": true,
+      "detail": "Page bottoms above 46 pt; no missing glyph warnings; table column counts and text/equation widths checked by builder."
+    },
+    {
+      "check": "portable authored-document links resolve inside review tree",
+      "passed": true,
+      "detail": 305
+    },
+    {
+      "check": "no unfinished narrative placeholders",
+      "passed": true,
+      "detail": 2
+    },
+    {
+      "check": "new helper imports inspected; no project or historical modules imported",
+      "passed": true,
+      "detail": {
+        "intake.py": [
+          "pathlib",
+          "json",
+          "hashlib",
+          "zipfile",
+          "sys",
+          "shutil",
+          "importlib.util",
+          "datetime"
+        ],
+        "verify_extract.py": [
+          "pathlib",
+          "json",
+          "hashlib",
+          "zipfile",
+          "datetime"
+        ],
+        "inspect_ledgers.py": [
+          "pathlib",
+          "json"
+        ],
+        "extract_document_data.py": [
+          "pathlib",
+          "json",
+          "hashlib",
+          "shutil",
+          "decimal"
+        ],
+        "manuscript/build_document.py": [
+          "pathlib",
+          "os",
+          "re",
+          "json",
+          "hashlib",
+          "subprocess",
+          "shutil",
+          "sys",
+          "datetime",
+          "warnings",
+          "matplotlib",
+          "matplotlib.pyplot",
+          "matplotlib.backends.backend_pdf",
+          "matplotlib.font_manager",
+          "matplotlib.patches",
+          "PIL"
+        ],
+        "make_review_documents.py": [
+          "pathlib",
+          "decimal",
+          "json",
+          "hashlib",
+          "re",
+          "zipfile",
+          "datetime"
+        ],
+        "document_qa.py": [
+          "pathlib",
+          "decimal",
+          "json",
+          "hashlib",
+          "re",
+          "zipfile",
+          "datetime",
+          "ast"
+        ],
+        "package_review.py": [
+          "pathlib",
+          "json",
+          "hashlib",
+          "zipfile",
+          "datetime"
+        ]
+      }
+    }
+  ],
+  "group_count": 16,
+  "scientific_evaluations": {
+    "native": 0,
+    "prestage": 0,
+    "kick": 0,
+    "budget": 0,
+    "observer": 0,
+    "EMA": 0,
+    "new_states": 0,
+    "historical_science_replays": 0
+  },
+  "counter_basis": "Executed operations were current document helpers and direct file/image reads; no scientific modules or historical scripts were run. Counts are task execution accounting, not instrumented native-kernel counters.",
+  "limitations": [
+    "No pdftotext; source/renderer/visual QA used.",
+    "No current live producer authenticity or whole-repository audit.",
+    "Retained scientific assertions were not rerun."
+  ]
+}

@@ -1,0 +1,841 @@
+{
+  "policy": "Stored tokens parsed directly; only deterministic decimal rounding and table sums; no endpoint or budget computation",
+  "cells": [
+    {
+      "table": "z01_points",
+      "row": "F0=S0",
+      "column": "radius",
+      "source_file": "evidence/Z01/OBSERVATIONS.json",
+      "json_pointer": "/samples/0/derived/frozen/spatial/radius",
+      "original_token": "0.3187878276492384",
+      "display": "0.318787828",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; ordinary sign"
+    },
+    {
+      "table": "z01_points",
+      "row": "F0=S0",
+      "column": "nearest",
+      "source_file": "evidence/Z01/GAP_COMPARISON.json",
+      "json_pointer": "/references/0/points/0/nearest_arc_labels",
+      "original_token": [
+        "G+0"
+      ],
+      "display": "G+0",
+      "rule": "exact categorical list"
+    },
+    {
+      "table": "z01_points",
+      "row": "F0=S0",
+      "column": "distance",
+      "source_file": "evidence/Z01/GAP_COMPARISON.json",
+      "json_pointer": "/references/0/points/0/nearest_arc_distance",
+      "original_token": "0.08082361053560708",
+      "display": "0.080823611",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; ordinary sign"
+    },
+    {
+      "table": "z01_points",
+      "row": "F1",
+      "column": "radius",
+      "source_file": "evidence/Z01/OBSERVATIONS.json",
+      "json_pointer": "/samples/1/derived/frozen/spatial/radius",
+      "original_token": "0.16294300084265684",
+      "display": "0.162943001",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; ordinary sign"
+    },
+    {
+      "table": "z01_points",
+      "row": "F1",
+      "column": "nearest",
+      "source_file": "evidence/Z01/GAP_COMPARISON.json",
+      "json_pointer": "/references/0/points/3/nearest_arc_labels",
+      "original_token": [
+        "G+0"
+      ],
+      "display": "G+0",
+      "rule": "exact categorical list"
+    },
+    {
+      "table": "z01_points",
+      "row": "F1",
+      "column": "distance",
+      "source_file": "evidence/Z01/GAP_COMPARISON.json",
+      "json_pointer": "/references/0/points/3/nearest_arc_distance",
+      "original_token": "0.1158533653869903",
+      "display": "0.115853365",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; ordinary sign"
+    },
+    {
+      "table": "z01_points",
+      "row": "S1",
+      "column": "radius",
+      "source_file": "evidence/Z01/OBSERVATIONS.json",
+      "json_pointer": "/samples/1/derived/scheduled/spatial/radius",
+      "original_token": "0.14175678968162084",
+      "display": "0.141756790",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; ordinary sign"
+    },
+    {
+      "table": "z01_points",
+      "row": "S1",
+      "column": "nearest",
+      "source_file": "evidence/Z01/GAP_COMPARISON.json",
+      "json_pointer": "/references/0/points/2/nearest_arc_labels",
+      "original_token": [
+        "G+1"
+      ],
+      "display": "G+1",
+      "rule": "exact categorical list"
+    },
+    {
+      "table": "z01_points",
+      "row": "S1",
+      "column": "distance",
+      "source_file": "evidence/Z01/GAP_COMPARISON.json",
+      "json_pointer": "/references/0/points/2/nearest_arc_distance",
+      "original_token": "0.16145517279913985",
+      "display": "0.161455173",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; ordinary sign"
+    },
+    {
+      "table": "z02_points",
+      "row": 0,
+      "column": "frozen_radius",
+      "source_file": "evidence/Z02/OBSERVATIONS.json",
+      "json_pointer": "/samples/0/frozen/spatial/radius",
+      "original_token": "0.35123371187615854",
+      "display": "0.351233712",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; ordinary sign"
+    },
+    {
+      "table": "z02_points",
+      "row": 0,
+      "column": "frozen_label",
+      "source_file": "evidence/Z02/GAP_COMPARISON.json",
+      "json_pointer": "/evaluations/F0/gap/unique_winner",
+      "original_token": "G+0",
+      "display": "G+0",
+      "rule": "exact category"
+    },
+    {
+      "table": "z02_points",
+      "row": 0,
+      "column": "scheduled_radius",
+      "source_file": "evidence/Z02/OBSERVATIONS.json",
+      "json_pointer": "/samples/0/scheduled/spatial/radius",
+      "original_token": "0.35123371187615854",
+      "display": "0.351233712",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; ordinary sign"
+    },
+    {
+      "table": "z02_points",
+      "row": 0,
+      "column": "scheduled_label",
+      "source_file": "evidence/Z02/GAP_COMPARISON.json",
+      "json_pointer": "/evaluations/S0/gap/unique_winner",
+      "original_token": "G+0",
+      "display": "G+0",
+      "rule": "exact category"
+    },
+    {
+      "table": "z02_points",
+      "row": 1,
+      "column": "frozen_radius",
+      "source_file": "evidence/Z02/OBSERVATIONS.json",
+      "json_pointer": "/samples/1/frozen/spatial/radius",
+      "original_token": "0.24712468257236705",
+      "display": "0.247124683",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; ordinary sign"
+    },
+    {
+      "table": "z02_points",
+      "row": 1,
+      "column": "frozen_label",
+      "source_file": "evidence/Z02/GAP_COMPARISON.json",
+      "json_pointer": "/evaluations/F1/gap/unique_winner",
+      "original_token": "G+0",
+      "display": "G+0",
+      "rule": "exact category"
+    },
+    {
+      "table": "z02_points",
+      "row": 1,
+      "column": "scheduled_radius",
+      "source_file": "evidence/Z02/OBSERVATIONS.json",
+      "json_pointer": "/samples/1/scheduled/spatial/radius",
+      "original_token": "0.19957776305820799",
+      "display": "0.199577763",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; ordinary sign"
+    },
+    {
+      "table": "z02_points",
+      "row": 1,
+      "column": "scheduled_label",
+      "source_file": "evidence/Z02/GAP_COMPARISON.json",
+      "json_pointer": "/evaluations/S1/gap/unique_winner",
+      "original_token": "G+0",
+      "display": "G+0",
+      "rule": "exact category"
+    },
+    {
+      "table": "z02_points",
+      "row": 2,
+      "column": "frozen_radius",
+      "source_file": "evidence/Z02/OBSERVATIONS.json",
+      "json_pointer": "/samples/2/frozen/spatial/radius",
+      "original_token": "0.22983215380693478",
+      "display": "0.229832154",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; ordinary sign"
+    },
+    {
+      "table": "z02_points",
+      "row": 2,
+      "column": "frozen_label",
+      "source_file": "evidence/Z02/GAP_COMPARISON.json",
+      "json_pointer": "/evaluations/F2/gap/unique_winner",
+      "original_token": "G+0",
+      "display": "G+0",
+      "rule": "exact category"
+    },
+    {
+      "table": "z02_points",
+      "row": 2,
+      "column": "scheduled_radius",
+      "source_file": "evidence/Z02/OBSERVATIONS.json",
+      "json_pointer": "/samples/2/scheduled/spatial/radius",
+      "original_token": "0.19160890053485513",
+      "display": "0.191608901",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; ordinary sign"
+    },
+    {
+      "table": "z02_points",
+      "row": 2,
+      "column": "scheduled_label",
+      "source_file": "evidence/Z02/GAP_COMPARISON.json",
+      "json_pointer": "/evaluations/S2/gap/unique_winner",
+      "original_token": "G-2",
+      "display": "G-2",
+      "rule": "exact category"
+    },
+    {
+      "table": "z02_points",
+      "row": 3,
+      "column": "frozen_radius",
+      "source_file": "evidence/Z02/OBSERVATIONS.json",
+      "json_pointer": "/samples/3/frozen/spatial/radius",
+      "original_token": "0.22924167856516503",
+      "display": "0.229241679",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; ordinary sign"
+    },
+    {
+      "table": "z02_points",
+      "row": 3,
+      "column": "frozen_label",
+      "source_file": "evidence/Z02/GAP_COMPARISON.json",
+      "json_pointer": "/evaluations/F3/gap/unique_winner",
+      "original_token": "G+0",
+      "display": "G+0",
+      "rule": "exact category"
+    },
+    {
+      "table": "z02_points",
+      "row": 3,
+      "column": "scheduled_radius",
+      "source_file": "evidence/Z02/OBSERVATIONS.json",
+      "json_pointer": "/samples/3/scheduled/spatial/radius",
+      "original_token": "0.16764162457688953",
+      "display": "0.167641625",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; ordinary sign"
+    },
+    {
+      "table": "z02_points",
+      "row": 3,
+      "column": "scheduled_label",
+      "source_file": "evidence/Z02/GAP_COMPARISON.json",
+      "json_pointer": "/evaluations/S3/gap/unique_winner",
+      "original_token": "G-0",
+      "display": "G-0",
+      "rule": "exact category"
+    },
+    {
+      "table": "z02_points",
+      "row": 4,
+      "column": "frozen_radius",
+      "source_file": "evidence/Z02/OBSERVATIONS.json",
+      "json_pointer": "/samples/4/frozen/spatial/radius",
+      "original_token": "0.23704254394379418",
+      "display": "0.237042544",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; ordinary sign"
+    },
+    {
+      "table": "z02_points",
+      "row": 4,
+      "column": "frozen_label",
+      "source_file": "evidence/Z02/GAP_COMPARISON.json",
+      "json_pointer": "/evaluations/F4/gap/unique_winner",
+      "original_token": "G+0",
+      "display": "G+0",
+      "rule": "exact category"
+    },
+    {
+      "table": "z02_points",
+      "row": 4,
+      "column": "scheduled_radius",
+      "source_file": "evidence/Z02/OBSERVATIONS.json",
+      "json_pointer": "/samples/4/scheduled/spatial/radius",
+      "original_token": "0.18567010770740255",
+      "display": "0.185670108",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; ordinary sign"
+    },
+    {
+      "table": "z02_points",
+      "row": 4,
+      "column": "scheduled_label",
+      "source_file": "evidence/Z02/GAP_COMPARISON.json",
+      "json_pointer": "/evaluations/S4/gap/unique_winner",
+      "original_token": "G+1",
+      "display": "G+1",
+      "rule": "exact category"
+    },
+    {
+      "table": "chords",
+      "row": 1,
+      "column": "F",
+      "source_file": "evidence/Z02/TRANSITIONS.json",
+      "json_pointer": "/intervals/1/turn_at_middle_stored_index/F/angle_degrees",
+      "original_token": "31.704824125981858",
+      "display": "31.704824",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; ordinary sign"
+    },
+    {
+      "table": "chords",
+      "row": 1,
+      "column": "S",
+      "source_file": "evidence/Z02/TRANSITIONS.json",
+      "json_pointer": "/intervals/1/turn_at_middle_stored_index/S/angle_degrees",
+      "original_token": "93.3524114399545",
+      "display": "93.352411",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; ordinary sign"
+    },
+    {
+      "table": "chords",
+      "row": 2,
+      "column": "F",
+      "source_file": "evidence/Z02/TRANSITIONS.json",
+      "json_pointer": "/intervals/2/turn_at_middle_stored_index/F/angle_degrees",
+      "original_token": "31.919418190099883",
+      "display": "31.919418",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; ordinary sign"
+    },
+    {
+      "table": "chords",
+      "row": 2,
+      "column": "S",
+      "source_file": "evidence/Z02/TRANSITIONS.json",
+      "json_pointer": "/intervals/2/turn_at_middle_stored_index/S/angle_degrees",
+      "original_token": "131.05576007134673",
+      "display": "131.055760",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; ordinary sign"
+    },
+    {
+      "table": "chords",
+      "row": 3,
+      "column": "F",
+      "source_file": "evidence/Z02/TRANSITIONS.json",
+      "json_pointer": "/intervals/3/turn_at_middle_stored_index/F/angle_degrees",
+      "original_token": "23.722089303835563",
+      "display": "23.722089",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; ordinary sign"
+    },
+    {
+      "table": "chords",
+      "row": 3,
+      "column": "S",
+      "source_file": "evidence/Z02/TRANSITIONS.json",
+      "json_pointer": "/intervals/3/turn_at_middle_stored_index/S/angle_degrees",
+      "original_token": "89.38604445098196",
+      "display": "89.386044",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; ordinary sign"
+    },
+    {
+      "table": "intensity",
+      "row": 0,
+      "column": "onsite",
+      "source_file": "evidence/Z03/NATIVE_INTENSITY_BUDGET.json",
+      "json_pointer": "/runs/120/0/intensity/parent/onsite",
+      "original_token": "-5.20352301431996128791458547222783884786769737356994754820977360084487839029669500291251043931909410449260581662014523178",
+      "display": "-5.203523",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; explicit sign"
+    },
+    {
+      "table": "intensity",
+      "row": 0,
+      "column": "coupling",
+      "source_file": "evidence/Z03/NATIVE_INTENSITY_BUDGET.json",
+      "json_pointer": "/runs/120/0/intensity/parent/coupling",
+      "original_token": "-10.2578508884980075586010401786681586650637068419332099164097573137740704172458217023258341906820965366755612117005091525",
+      "display": "-10.257851",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; explicit sign"
+    },
+    {
+      "table": "intensity",
+      "row": 0,
+      "column": "finite_increment_square",
+      "source_file": "evidence/Z03/NATIVE_INTENSITY_BUDGET.json",
+      "json_pointer": "/runs/120/0/intensity/parent/finite_increment_square",
+      "original_token": "6.75667067842701206808499633032007788127095913992890475745232088863676673029341413615034227927590050810044289678376781335",
+      "display": "+6.756671",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; explicit sign"
+    },
+    {
+      "table": "intensity",
+      "row": 0,
+      "column": "total",
+      "source_file": "evidence/Z03/NATIVE_INTENSITY_BUDGET.json",
+      "json_pointer": "/runs/120/0/intensity/actual_delta_I",
+      "original_token": "-8.70470322439095677843062932057591963166044507557425270716721002598218207724910256908800235072529013319475018795772849753",
+      "display": "-8.704703",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; explicit sign"
+    },
+    {
+      "table": "intensity",
+      "row": 1,
+      "column": "onsite",
+      "source_file": "evidence/Z03/NATIVE_INTENSITY_BUDGET.json",
+      "json_pointer": "/runs/120/1/intensity/parent/onsite",
+      "original_token": "0.169118680682794746105172509592574189151043649414141818043999662495530464559793636460094049080154155259535387954389111368",
+      "display": "+0.169119",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; explicit sign"
+    },
+    {
+      "table": "intensity",
+      "row": 1,
+      "column": "coupling",
+      "source_file": "evidence/Z03/NATIVE_INTENSITY_BUDGET.json",
+      "json_pointer": "/runs/120/1/intensity/parent/coupling",
+      "original_token": "-0.272960940315895117487348238717389873497092269773187294048426375288691688126237075551236362897406362888000137243206334685",
+      "display": "-0.272961",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; explicit sign"
+    },
+    {
+      "table": "intensity",
+      "row": 1,
+      "column": "finite_increment_square",
+      "source_file": "evidence/Z03/NATIVE_INTENSITY_BUDGET.json",
+      "json_pointer": "/runs/120/1/intensity/parent/finite_increment_square",
+      "original_token": "0.0364388908376698359532106616702459009529472412191551301026472025193216640647685449174784996620456058096983475979898301379",
+      "display": "+0.036439",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; explicit sign"
+    },
+    {
+      "table": "intensity",
+      "row": 1,
+      "column": "total",
+      "source_file": "evidence/Z03/NATIVE_INTENSITY_BUDGET.json",
+      "json_pointer": "/runs/120/1/intensity/actual_delta_I",
+      "original_token": "-0.0674033687954305354289650674545697833931013791398903459017795102738395595016748941736638141552066017773881122051872957771",
+      "display": "-0.067403",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; explicit sign"
+    },
+    {
+      "table": "intensity",
+      "row": 2,
+      "column": "onsite",
+      "source_file": "evidence/Z03/NATIVE_INTENSITY_BUDGET.json",
+      "json_pointer": "/runs/120/2/intensity/parent/onsite",
+      "original_token": "0.146816274115060978572015712716587896331813714392565918243819463825484443690387521027191785297805173643452801054771755421",
+      "display": "+0.146816",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; explicit sign"
+    },
+    {
+      "table": "intensity",
+      "row": 2,
+      "column": "coupling",
+      "source_file": "evidence/Z03/NATIVE_INTENSITY_BUDGET.json",
+      "json_pointer": "/runs/120/2/intensity/parent/coupling",
+      "original_token": "-0.164628105599217125047175930889586541282124359507214755592467271840794749109859154546583432721991189347409532413803104498",
+      "display": "-0.164628",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; explicit sign"
+    },
+    {
+      "table": "intensity",
+      "row": 2,
+      "column": "finite_increment_square",
+      "source_file": "evidence/Z03/NATIVE_INTENSITY_BUDGET.json",
+      "json_pointer": "/runs/120/2/intensity/parent/finite_increment_square",
+      "original_token": "0.0253610074360221002852492975601580084570770928883767015566668280492607096953126724541254544117412265335110056976781918947",
+      "display": "+0.025361",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; explicit sign"
+    },
+    {
+      "table": "intensity",
+      "row": 2,
+      "column": "total",
+      "source_file": "evidence/Z03/NATIVE_INTENSITY_BUDGET.json",
+      "json_pointer": "/runs/120/2/intensity/actual_delta_I",
+      "original_token": "0.00754917595186595381008907938715936350676644777372786420801902003395040427584103893473380698755521077402881466197455882965",
+      "display": "+0.007549",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; explicit sign"
+    },
+    {
+      "table": "intensity",
+      "row": 3,
+      "column": "onsite",
+      "source_file": "evidence/Z03/NATIVE_INTENSITY_BUDGET.json",
+      "json_pointer": "/runs/120/3/intensity/parent/onsite",
+      "original_token": "0.158907581969237974982118587197977450667387354003816456232621247809596544728281868227563916520038276941293760115205156359",
+      "display": "+0.158908",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; explicit sign"
+    },
+    {
+      "table": "intensity",
+      "row": 3,
+      "column": "coupling",
+      "source_file": "evidence/Z03/NATIVE_INTENSITY_BUDGET.json",
+      "json_pointer": "/runs/120/3/intensity/parent/coupling",
+      "original_token": "-0.100757749736030315773439046193670419959735055252379438417635644363201582772431050942035029012932619421153374424641097541",
+      "display": "-0.100758",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; explicit sign"
+    },
+    {
+      "table": "intensity",
+      "row": 3,
+      "column": "finite_increment_square",
+      "source_file": "evidence/Z03/NATIVE_INTENSITY_BUDGET.json",
+      "json_pointer": "/runs/120/3/intensity/parent/finite_increment_square",
+      "original_token": "0.023796846132704611293819588389297826467604203955335461781208777986841523881713074973253999393749944723165902758166145349",
+      "display": "+0.023797",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; explicit sign"
+    },
+    {
+      "table": "intensity",
+      "row": 3,
+      "column": "total",
+      "source_file": "evidence/Z03/NATIVE_INTENSITY_BUDGET.json",
+      "json_pointer": "/runs/120/3/intensity/actual_delta_I",
+      "original_token": "0.0819466783659122705024991293936048571752565027067724795961943814332364858375638922587828869008556022684195608870506398554",
+      "display": "+0.081947",
+      "rule": "Decimal ROUND_HALF_EVEN, 6 places; explicit sign"
+    },
+    {
+      "table": "radial",
+      "row": 0,
+      "column": "macro_magnitude",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/0/radial_transverse/coarse_endpoint_difference/macro_magnitude",
+      "original_token": "-0.185340568445200992276601077743528895251129971072022949143045369076841499400957264009536602454460473182384797868355754143",
+      "display": "-0.185340568",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "radial",
+      "row": 0,
+      "column": "chiral_magnitude",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/0/radial_transverse/coarse_endpoint_difference/chiral_magnitude",
+      "original_token": "-0.118704964086603371975904693523644767195163199513580604697461702629421679613021305208074984812825473045102896544935963328",
+      "display": "-0.118704964",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "radial",
+      "row": 0,
+      "column": "cross_alignment",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/0/radial_transverse/coarse_endpoint_difference/cross_alignment",
+      "original_token": "0.241751020909993200565561821848058194825507769938359698346854002280865471803303410470909898938543009525866259680677185659",
+      "display": "+0.241751021",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "radial",
+      "row": 0,
+      "column": "total",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/0/radial_transverse/actual_delta_radius_squared",
+      "original_token": "-0.0622945116218111636869439494191154676207854006472438554936530694253977072106751587467016883287429367016214347326145318116",
+      "display": "-0.062294512",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "radial",
+      "row": 1,
+      "column": "macro_magnitude",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/1/radial_transverse/coarse_endpoint_difference/macro_magnitude",
+      "original_token": "-0.00826368812333347994939906453322682703495297527402492380056760591538440249467666175739656816020432125735439502029170147794",
+      "display": "-0.008263688",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "radial",
+      "row": 1,
+      "column": "chiral_magnitude",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/1/radial_transverse/coarse_endpoint_difference/chiral_magnitude",
+      "original_token": "-0.00171819575362962604662480436813328190870879923770626985639327724586385748983781285357183754049889482325709700672796758855",
+      "display": "-0.001718196",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "radial",
+      "row": 1,
+      "column": "cross_alignment",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/1/radial_transverse/coarse_endpoint_difference/cross_alignment",
+      "original_token": "0.00173409406400445942822316388893127192992082453896839556699050196510729798618014612942726204770412304231313909947369681956",
+      "display": "+0.001734094",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "radial",
+      "row": 1,
+      "column": "total",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/1/radial_transverse/actual_delta_radius_squared",
+      "original_token": "-0.00824778981295864656780070501242883701374094997276279808997038119614096199833432848154114365299909303829835292754597224693",
+      "display": "-0.008247790",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "radial",
+      "row": 2,
+      "column": "macro_magnitude",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/2/radial_transverse/coarse_endpoint_difference/macro_magnitude",
+      "original_token": "0.000981588726472047963129401793877889032390132369464814764648329072893804825601206895910423179868130568180014915536308384577",
+      "display": "+0.000981589",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "radial",
+      "row": 2,
+      "column": "chiral_magnitude",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/2/radial_transverse/coarse_endpoint_difference/chiral_magnitude",
+      "original_token": "-0.000315415283254924495961430187398371629378017894369088144730658421492403372320050699886404256339629927261235963522628406274",
+      "display": "-0.000315415",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "radial",
+      "row": 2,
+      "column": "cross_alignment",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/2/radial_transverse/coarse_endpoint_difference/cross_alignment",
+      "original_token": "-0.000937245175377219225842056791727702648848487310934367252625522187950510610380462399810736130172983171099435849079762169455",
+      "display": "-0.000937245",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "radial",
+      "row": 2,
+      "column": "total",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/2/radial_transverse/actual_delta_radius_squared",
+      "original_token": "-0.000271071732160095758674085185248185245836372835838640632707851536549109157099306203786717206644482530180656897066082191154",
+      "display": "-0.000271072",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "radial",
+      "row": 3,
+      "column": "macro_magnitude",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/3/radial_transverse/coarse_endpoint_difference/macro_magnitude",
+      "original_token": "0.00977297146111309695207327664525617244705544400586928867532252950040430134207201981955786588047140713681274726754459999539",
+      "display": "+0.009772971",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "radial",
+      "row": 3,
+      "column": "chiral_magnitude",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/3/radial_transverse/coarse_endpoint_difference/chiral_magnitude",
+      "original_token": "-0.00104436617551179517515041303683223255798145098273493859946204894968514873168270155463029988802551721440441305222134399654",
+      "display": "-0.001044366",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "radial",
+      "row": 3,
+      "column": "cross_alignment",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/3/radial_transverse/coarse_endpoint_difference/cross_alignment",
+      "original_token": "-0.00509118483763013708603816541415794060475566201971502449690068462887584501907408968742480437892497234415056764715786652364",
+      "display": "-0.005091185",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "radial",
+      "row": 3,
+      "column": "total",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/3/radial_transverse/actual_delta_radius_squared",
+      "original_token": "0.00363742044797116469088469819426599928431833100341932557895979592184330759131522857750276161352091757825776656816538947522",
+      "display": "+0.003637420",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "displacements_early",
+      "row": 0,
+      "column": "x",
+      "source_file": "evidence/Z03/FROZEN_Z_SOURCE_BUDGET.json",
+      "json_pointer": "/runs/120/0/frozen/actual_displacement/0",
+      "original_token": "0.106461158205530655578872353485929794952742229681640723152788784687193771788743936856318069660556684183182758495509835119",
+      "display": "+0.106461158",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "displacements_early",
+      "row": 0,
+      "column": "y",
+      "source_file": "evidence/Z03/FROZEN_Z_SOURCE_BUDGET.json",
+      "json_pointer": "/runs/120/0/frozen/actual_displacement/1",
+      "original_token": "0.124479167393505280984193617487244098981129870976214871551291099441724923548128305155126937650379756783513109958347470824",
+      "display": "+0.124479167",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "displacements_early",
+      "row": 0,
+      "column": "z",
+      "source_file": "evidence/Z03/FROZEN_Z_SOURCE_BUDGET.json",
+      "json_pointer": "/runs/120/0/frozen/actual_displacement/2",
+      "original_token": "-0.112577011393584317342785826927738830757229110973033890284312987144337876175777412129695026770097353996337931945696401221",
+      "display": "-0.112577011",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "displacements_early",
+      "row": 0,
+      "column": "radius",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/0/radial_transverse/actual_delta_radius",
+      "original_token": "-0.104109029303791468341602057523074901311918687086038142707800613428411528125301953274231314381605380694819680682266359061",
+      "display": "-0.104109029",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "displacements_early",
+      "row": 1,
+      "column": "x",
+      "source_file": "evidence/Z03/FROZEN_Z_SOURCE_BUDGET.json",
+      "json_pointer": "/runs/120/1/frozen/actual_displacement/0",
+      "original_token": "0.000876038961082983881508685654110845794146019674652175744404889004907612247451661405075627238677812323225278530338242041916",
+      "display": "+0.000876039",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "displacements_early",
+      "row": 1,
+      "column": "y",
+      "source_file": "evidence/Z03/FROZEN_Z_SOURCE_BUDGET.json",
+      "json_pointer": "/runs/120/1/frozen/actual_displacement/1",
+      "original_token": "0.015964211743450120244659106294594381399557606261855084800997636584493032743785095860807419803572558975667672520863476297",
+      "display": "+0.015964212",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "displacements_early",
+      "row": 1,
+      "column": "z",
+      "source_file": "evidence/Z03/FROZEN_Z_SOURCE_BUDGET.json",
+      "json_pointer": "/runs/120/1/frozen/actual_displacement/2",
+      "original_token": "-0.0201213907094770202268495748813930515179008789077319615455239001800496635210682510322259296871364058867237145867783701523",
+      "display": "-0.020121391",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "displacements_early",
+      "row": 1,
+      "column": "radius",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/1/radial_transverse/actual_delta_radius",
+      "original_token": "-0.0172925287654322632935967166156822245049664392100297315285060360232814144742535474042155145229352838887210111299117129204",
+      "display": "-0.017292529",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "displacements_late",
+      "row": 2,
+      "column": "x",
+      "source_file": "evidence/Z03/FROZEN_Z_SOURCE_BUDGET.json",
+      "json_pointer": "/runs/120/2/frozen/actual_displacement/0",
+      "original_token": "0.00148152190675689000179827640582400243726362867429099902238160123390192375967974152935966468060756073859822524799022270984",
+      "display": "+0.001481522",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "displacements_late",
+      "row": 2,
+      "column": "y",
+      "source_file": "evidence/Z03/FROZEN_Z_SOURCE_BUDGET.json",
+      "json_pointer": "/runs/120/2/frozen/actual_displacement/1",
+      "original_token": "0.00316930346396835345119446088903678543199782872944154354289134715039269739373582566771899517273849828094406450395665799614",
+      "display": "+0.003169303",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "displacements_late",
+      "row": 2,
+      "column": "z",
+      "source_file": "evidence/Z03/FROZEN_Z_SOURCE_BUDGET.json",
+      "json_pointer": "/runs/120/2/frozen/actual_displacement/2",
+      "original_token": "-0.00158475401171335251941780988647740718944042961608318497579956220775410823998567310648901231618691016233976740066754544777",
+      "display": "-0.001584754",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "displacements_late",
+      "row": 2,
+      "column": "radius",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/2/radial_transverse/actual_delta_radius",
+      "original_token": "-0.000590475241769781463289583022248772913605580146352247066334438461052820357636693954920627531504135119374709028447371432481",
+      "display": "-0.000590475",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "displacements_late",
+      "row": 3,
+      "column": "x",
+      "source_file": "evidence/Z03/FROZEN_Z_SOURCE_BUDGET.json",
+      "json_pointer": "/runs/120/3/frozen/actual_displacement/0",
+      "original_token": "0.0148015632998059700408692018583770688985713124121950502279699586681857155844973613166037485637605095855844361062759837859",
+      "display": "+0.014801563",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "displacements_late",
+      "row": 3,
+      "column": "y",
+      "source_file": "evidence/Z03/FROZEN_Z_SOURCE_BUDGET.json",
+      "json_pointer": "/runs/120/3/frozen/actual_displacement/1",
+      "original_token": "0.021152689933801111527409570569691272099224267575154060452918435205452396959463997126423125739223482956229310754851443389",
+      "display": "+0.021152690",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "displacements_late",
+      "row": 3,
+      "column": "z",
+      "source_file": "evidence/Z03/FROZEN_Z_SOURCE_BUDGET.json",
+      "json_pointer": "/runs/120/3/frozen/actual_displacement/2",
+      "original_token": "-0.0012039121298983250972063051498737091549633894276147747181779302165810823762020464991559241073949684157858813906888416393",
+      "display": "-0.001203912",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    },
+    {
+      "table": "displacements_late",
+      "row": 3,
+      "column": "radius",
+      "source_file": "evidence/Z03/RADIAL_TRANSVERSE_ACCOUNTING.json",
+      "json_pointer": "/runs/120/3/radial_transverse/actual_delta_radius",
+      "original_token": "0.0078008653786291797086426038951285454683545088591890860533470370809219160962309638575435680342089199197014051877999372274",
+      "display": "+0.007800865",
+      "rule": "Decimal ROUND_HALF_EVEN, 9 places; explicit sign"
+    }
+  ]
+}

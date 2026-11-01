@@ -1,0 +1,811 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm,headheight=15pt]{geometry}
+\usepackage{amsmath,amsthm,mathtools}
+\usepackage{fontspec,unicode-math}
+\setmainfont{lmroman10-regular.otf}[
+  BoldFont=lmroman10-bold.otf,
+  ItalicFont=lmroman10-italic.otf,
+  BoldItalicFont=lmroman10-bolditalic.otf]
+\setmathfont{latinmodern-math.otf}
+\setmonofont{lmmono10-regular.otf}
+\usepackage{booktabs,array,tabularx,enumitem,microtype,xcolor,graphicx}
+\usepackage[unicode=true,colorlinks=true,linkcolor=blue!45!black,
+  citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\usepackage{xurl,fancyhdr,needspace}
+\hypersetup{
+ pdftitle={Natural Core Motion: Face-Local Turning and Conditional Z Displacement},
+ pdfauthor={Hilmir Frímann Halldórsson},
+ pdfsubject={Research draft v0.1 - not yet author-approved or published}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Natural core motion: correspondence}
+\fancyhead[R]{\small Research draft v0.1}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlength{\emergencystretch}{3em}
+\setlist{itemsep=2pt,topsep=4pt,leftmargin=*}
+\raggedbottom
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\allowdisplaybreaks[2]
+\numberwithin{equation}{section}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}[proposition]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[proposition]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[proposition]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\iu}{\mathrm i}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\eps}{\epsilon}
+\newcommand{\Argz}{\operatorname{Arg}_0}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\Dnat}{\mathcal D_{\rm native}}
+\newcommand{\Denv}{\mathcal D_{\rm envelope}}
+\newcommand{\Dclock}{\mathcal D_{\rm clock}}
+\newcommand{\envelope}{\mathcal E}
+\newcommand{\muplace}{\mu_{\rm place}}
+
+\begin{document}
+\begin{center}
+{\small\color{blue!45!black} TRI-OCTAGON MATHEMATICAL RESEARCH}\\[5mm]
+{\LARGE\bfseries Natural Core Motion:\\[1mm]
+Face-Local Turning and Conditional Z Displacement\par}
+\vspace{5mm}
+{\large Hilmir Frímann Halldórsson}\\[3mm]
+29 October 2026\\[2mm]
+{\small\bfseries Research draft v0.1 - not yet author-approved or published}
+\end{center}
+
+\begin{abstract}
+The accepted Tri-Octagon recurrence evolves three complex channel values,
+while its face decoder, axial attachment, and conditional Z placement assign
+different geometric meanings to that state. We derive the motion consequences
+of these existing maps without adding a material-core law. Matched transport
+makes the decoded complex mean the collective vector in each face frame, and
+its signed two-step turn transfers exactly to the corresponding outward face
+normal. Common complex phase produces rotations within the three fixed face
+planes; a pairwise-dot-product obstruction prevents a general interpretation
+as one rigid ambient rotation. The staged Z placement is invariant under
+that same common phase when observer settings are held fixed. An exact
+telescoping identity separates native, envelope, and clock contributions to
+its displacement. The completed coherent-domain theorem implies stationary
+nonzero face vectors and a generally nonzero frozen-observer limit, whereas
+the running staged envelope makes the placed point approach the center.
+The accepted M3 cycle gives two alternating placed points at fixed observer
+settings. These are deductions from inherited definitions and results. An
+observer-only application design exposes the distinctions; the missing
+relationship remains the assignment of native state information to the pose
+of the central surface.
+\end{abstract}
+
+\textbf{Scientific status.}
+This candidate develops exact algebraic consequences of accepted source
+definitions and explicitly attributed prior theorems. It does not reopen
+their certificates or publication dispositions. Software validation is
+reported only when measured; Section~\ref{sec:implementation} records the
+source implementation and its validation limits. No physical units, force identification, material
+trajectory, or geometry-to-native feedback are adopted.
+
+\section{Question, source scope, and distinct objects}\label{sec:question}
+
+The current question is what motion within the accepted geometric
+representation is already justified by the native equations. The recent
+collective-turning investigation establishes a changing complex mean and,
+on a separate domain, convergence to an unequal aligned profile
+\cite{Collective}. Earlier work establishes the adopted face decoder and
+matched connection \cite{Attachment}, the axial attachment and a certified
+alternating cycle \cite{PaperG}, common-phase advance on a local chiral branch
+\cite{Drift}, and a conditional placement of Z relative to the central
+geometry \cite{Central}. Those results supply the starting maps.
+
+Three objects must remain distinct. The collective native coordinate is
+$m\in\C$. The refined central surface is a finite triangulated geometric
+object $\Sigma_\tau$ in a fixed host, with a shape parameter $\tau$. A placed
+observer is a point $X=\Phi(Z)\in\R^3$ obtained under a declared coordinate
+placement. Neither the word ``core'' nor the common number of coordinates
+identifies these objects with each other.
+
+The scientific source snapshot used throughout is repository
+\texttt{pzychozen/trioctagon-physics} at commit
+\begin{center}\small
+\texttt{7cc1fa03af589818bcdcfaaac51838cc36c84253}.
+\end{center}
+The references link to specific files at that commit. It is a reading
+baseline, not a statement about a later working checkout. All simulations,
+certificates, and publication results cited from earlier work retain their
+original scopes. Our additions are the correspondence deductions and the
+application contract below.
+
+\section{Native state and the adopted geometric maps}\label{sec:definitions}
+
+\subsection{Ordered native update}
+Let $\Omega=x+\iu y\in\C^3$, with real channel triples $x,y$, and define
+\begin{equation}
+L_3=\one\one^T-3I,
+\qquad m=\tfrac13\one^T\Omega,
+\qquad \Pi=I-\tfrac13\one\one^T.
+\end{equation}
+For real native coefficients, the ordered map is
+\begin{align}
+V_i&=\Omega_i+\eps\Omega_i(k_i-|\Omega_i|^2)
+                   +g(L_3\Omega)_i,\label{eq:pre}\\
+\delta_i&=\lambda\sum_{j\ne i}
+           \sin 3(\Argz V_j-\Argz V_i),\label{eq:kicks}\\
+F_i(\Omega)&=V_i e^{\iu\delta_i}.\label{eq:post}
+\end{align}
+Every kick uses the same prestage $V$. The ideal convention is
+$\Argz(0)=0$; synchronization is bypassed when $\lambda=0$. The native
+update has no factor supplied by the observer's clock increment
+\cite{Collective,Central}.
+
+Common-phase covariance of $F$ is valid on the regular domain where the
+relevant prestage entries are nonzero, and globally for the phase-off map.
+It must not be extended through the native zero stratum without additional
+analysis. In contrast, the pointwise decoder and readout identities proved
+below apply to all finite channel states, including zeros.
+
+\subsection{Fixed face frames and channel-area attachment}
+The fixed outward unit normals and horizontal unit tangents are the columns
+of the accepted matrices
+\begin{equation}\label{eq:frames}
+N=\begin{pmatrix}
+-\sqrt3/2&0&\sqrt3/2\\
+1/2&-1&1/2\\0&0&0
+\end{pmatrix},\qquad
+T=\begin{pmatrix}
+-1/2&1&-1/2\\
+-\sqrt3/2&0&\sqrt3/2\\0&0&0
+\end{pmatrix}.
+\end{equation}
+With $e_z=(0,0,1)^T$, they satisfy
+$t_i=e_z\times n_i$, $t_i\times e_z=n_i$, and
+$t_i\cdot t_j=-1/2$ for distinct faces. The selected face centers $c_i$ are
+fixed. The adopted decoder and matched transport are
+\begin{equation}\label{eq:decoder}
+D_i(z)=\re z\,t_i+\im z\,e_z\in W_i:=n_i^\perp,
+\qquad T_{ij}=t_it_j^T+e_ze_z^T.
+\end{equation}
+The inverse on $W_i$ is
+$E_i(v)=t_i\cdot v+\iu e_z\cdot v$. Thus $D$ retains the full native state.
+Basing a vector at $c_i$ gives an attached arrow; its endpoint $c_i+D_i(z)$
+need not belong to the finite polygon. The tangent plane is unbounded
+\cite{Attachment}.
+
+The signed channel area and its accepted attachment are
+\begin{equation}\label{eq:chiral}
+C=x\times y,\qquad W=TC,\qquad \Gamma=\one^TC.
+\end{equation}
+The vector $C$ lives in channel-index space. The specified $T$ gives $W$
+its ambient planar axial-vector transformation law, while $\Gamma$ retains
+the complementary common component. In particular,
+\begin{equation}
+T^TT=\tfrac32\Pi,\qquad
+C=\tfrac23T^TW+\tfrac13\Gamma\one.
+\end{equation}
+The area convention is parallelogram area, with no extra factor $1/2$
+\cite{PaperG}. These observables add no state variables or feedback.
+
+\subsection{Staged Z and its conditional placement}
+For the staged observer define
+\begin{gather}
+\kappa=\norm{\Omega},\qquad
+K(\kappa)=a_{\rm vp}\frac{\kappa}{1+\kappa},\qquad
+\envelope(t_c)=e^{-\gamma t_c},\label{eq:macrodefs}\\
+d_\theta=(\cos\theta,\sin\theta,1)^T,\quad
+f(\theta)=\cos3(\theta-\ell),\quad h_\theta=f(\theta)d_\theta,\notag\\
+M=K(\kappa)\envelope(t_c)h_\theta,
+\qquad Z=\alpha M+\beta C,\qquad
+X=O+\muplace R_\psi Z.\label{eq:placement}
+\end{gather}
+Here $R_\psi$ is a fixed axial rotation and $\muplace>0$. The inherited
+staged values are $a_{\rm vp}=0.618$, $\gamma=0.577$, $\ell=0.244$,
+$\alpha=1$, and $\beta=1/2$, with
+$\theta_n=(n\bmod12)\pi/6$ and $t_{c,n}=0.1n$. These decimal constants
+remain the declared source parameters. The clock angle is distinct from the
+native common phase. The historical EMA observer has a different scalar law
+and is not substituted here \cite{Central,PaperE}.
+
+The placement in \eqref{eq:placement} already supplies spatial points.
+Its declaration does not make the raw channel action on $C$ an ambient
+vector action under every shell symmetry; the accepted central analysis
+computes the relevant residuals. Replacing $C$ by $W$ inside Z would define
+a different observer \cite{Central}.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Correspondence and update dependence. No row introduces
+geometry-to-native feedback.}
+\begin{tabularx}{\linewidth}{@{}p{.19\linewidth}XXX@{}}
+\toprule
+Map and input & Output & Fixed data & What evolves\\\midrule
+$D:\Omega\mapsto(v_i)$ & Three tangent vectors & Face frames and centers
+  & Native state in an invertible representation\\
+$T_{ij}:W_j\to W_i$ & Matched coefficients & Two face frames
+  & Operator is fixed; no material carrier travels\\
+$C\mapsto(W,\Gamma)$ & Axial plane vector and scalar & Matrix $T$
+  & Passive native area readouts\\
+$(\Omega,\theta,t_c)\mapsto X$ & Placed spatial point & $O,\muplace,R_\psi$
+  & Native norm/area and observer schedule\\
+$\tau\mapsto\Sigma_\tau$ & Refined finite surface & Declared host registration
+  & No native update of $\tau$ or pose is defined\\
+\bottomrule
+\end{tabularx}
+\label{tab:types}
+\end{table}
+
+\section{Collective turning transfers exactly to the face frames}
+\label{sec:turn}
+
+\begin{proposition}[Matched collective representation]\label{prop:mean}
+For every finite state, if $v_i=D_i(\Omega_i)$, then
+\begin{equation}\label{eq:matchedmean}
+\boxed{D_i(m)=\frac13\sum_jT_{ij}v_j.}
+\end{equation}
+Moreover $T_{ij}T_{jk}=T_{ik}$ on $W_k$, and $D_i$ preserves the real
+Euclidean norm and inner product of complex coefficients.
+\end{proposition}
+\begin{proof}
+Orthonormality of $t_j,e_z$ gives $T_{ij}D_j(z)=D_i(z)$. Summing this
+identity and using real linearity of $D_i$ proves \eqref{eq:matchedmean}.
+Applying two transports retains the same two coefficients, proving the
+composition identity. Finally
+$D_i(z)\cdot D_i(w)=\re(\bar z w)$.
+\end{proof}
+
+Thus the mean is represented by transporting all face states into one
+chosen frame and averaging. The raw ambient average is a different map:
+\begin{equation}
+\frac13\sum_iD_i(\Omega_i)
+=\frac13Tx+(\im m)e_z.
+\end{equation}
+Since $T\one=0$, this ambient average discards the common real component.
+It must not replace the matched average in a claim about $m$.
+
+\begin{proposition}[Signed-turn transfer]\label{prop:turn}
+For any $s,t\in\C$,
+\begin{equation}\label{eq:turnidentity}
+\boxed{D_i(s)\times D_i(t)=\im(\bar s t)\,n_i.}
+\end{equation}
+Consequently the signed two-increment turn of $m_n$ transfers exactly to
+the matched collective vectors on every face, about that face's normal.
+\end{proposition}
+\begin{proof}
+Write $s=a+\iu b$ and $t=c+\iu d$. The cross product is
+$(ad-bc)t_i\times e_z=(ad-bc)n_i$, while $ad-bc=\im(\bar s t)$.
+Apply the result to $s=m_{n+1}-m_n$ and $t=m_{n+2}-m_{n+1}$.
+\end{proof}
+
+The completed witness uses
+\begin{equation}\label{eq:witness}
+\eps=\frac1{10},\quad g=\frac1{60},\quad\lambda=\frac1{300},\quad
+k=(0.999,1,1.001),\quad
+\Omega_0=(1+\iu,1+\iu,1-2\iu).
+\end{equation}
+Its retained certificate gives
+\begin{equation}
+0.0110760731\le
+\im\!\left[\overline{(m_1-m_0)}(m_2-m_1)\right]
+\le0.0110760732.
+\end{equation}
+Proposition~\ref{prop:turn} therefore gives three corresponding positive
+face-local turns. This application reuses the certified value; it neither
+reruns the certificate nor recovers a historical trajectory
+\cite{Collective}. The three normals are different axes in ambient space.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/collective_turn.pdf}
+\caption{The retained collective-turn witness and its exact face representation.
+The numerical coordinates use midpoints of the published increment enclosures;
+the inherited certificate supplies the sign. Face arrows use one fixed display
+scale. Segments only connect sampled endpoints. No recurrence or certificate
+was rerun to generate this illustration.}
+\label{fig:turn}
+\end{figure}
+
+The statistic is oriented area, not angle alone. For nonzero increments it
+equals the product of their lengths and the sine of their oriented angle.
+If either increment is zero, the area remains defined but the angle is
+undefined. Drawing lines between sampled vectors is a display convention;
+the identity does not choose a continuous intervening trajectory.
+
+\section{Local phase rotation and the rigid-congruence obstruction}
+\label{sec:phase}
+
+\begin{proposition}[Exact face-local phase action]\label{prop:phase}
+For all $z\in\C$ and $\chi\in\R$,
+\begin{equation}\label{eq:localphase}
+\boxed{D_i(e^{\iu\chi}z)=
+\cos\chi\,D_i(z)+\sin\chi\,n_i\times D_i(z).}
+\end{equation}
+The right side is the rotation of the tangent vector through $\chi$ about
+the fixed normal $n_i$.
+\end{proposition}
+\begin{proof}
+Since $n_i\times t_i=e_z$ and $n_i\times e_z=-t_i$, the right side has
+coefficients $(\re z\cos\chi-\im z\sin\chi,
+\re z\sin\chi+\im z\cos\chi)$ in the frame $(t_i,e_z)$. These are the
+real and imaginary parts of $e^{\iu\chi}z$.
+\end{proof}
+
+In particular, the exact decoded native update is the already accepted
+conjugate recurrence
+\begin{align}
+\widetilde v_i&=v_i+\eps(k_i-\norm{v_i}^2)v_i
+       +g\sum_{j\ne i}(T_{ij}v_j-v_i),\label{eq:facepre}\\
+v_i^+&=\cos\delta_i\,\widetilde v_i
+       +\sin\delta_i\,n_i\times\widetilde v_i.\label{eq:facepost}
+\end{align}
+The phase kicks are those of the original prestage. This is $DFE$ on the
+selected tangent-state space, not a second independently evolved model
+\cite{Attachment}. It describes amplitude change, matched graph mixing,
+and local rotation of attached vectors.
+
+\begin{proposition}[No general rigid ambient phase action]
+\label{prop:rigid}
+The adopted decoder does not identify arbitrary common complex phase with
+one rigid ambient rotation of the three decoded vectors. More strongly,
+for any fixed state with at least two nonzero components, its full
+continuous common-phase family is not a family of ambiently congruent
+decoded vector triples.
+\end{proposition}
+\begin{proof}
+A rigid ambient rotation preserves pairwise dot products. The state
+$(1,1,1)$ decodes to $(t_1,t_2,t_3)$, whose distinct pairwise products are
+$-1/2$. Multiplication by $\iu$ gives $(e_z,e_z,e_z)$, whose pairwise
+products are $1$. This already disproves a general identification.
+
+For the stronger statement, write $\Omega_i=r_ie^{\iu\phi_i}$ for each
+nonzero component. For distinct $i,j$, elementary product-to-sum identities
+give
+\begin{align}
+&D_i(e^{\iu\chi}\Omega_i)\cdot D_j(e^{\iu\chi}\Omega_j)\notag\\
+&\quad =r_ir_j\left[
+\frac14\cos(\phi_i-\phi_j)
+-\frac34\cos(\phi_i+\phi_j+2\chi)\right].\label{eq:phasegram}
+\end{align}
+If $r_ir_j>0$, this is nonconstant as $\chi$ ranges continuously. No
+orthogonal ambient transformation can change that pairwise product.
+\end{proof}
+
+This is a kinematic obstruction for the decoded vector configuration.
+It is not an assertion that the native map takes the first example state
+to the second, nor an exclusion of every special discrete rigid match.
+It also does not prohibit a future, separately defined map from phase to
+the pose of another geometric object. It establishes why such a map is not
+already supplied by the face decoder.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/phase_comparison.pdf}
+\caption{A common-phase probe of the equal real state. The arrows rotate in
+separate face planes; their pairwise dot products change, while the frozen Z
+placement is invariant. The central surface is the fixed declared PLUS zero
+member. This is a kinematic comparison, not a native trajectory.}
+\label{fig:phase}
+\end{figure}
+
+\section{Common-phase advance and stationary placed observations}
+\label{sec:invariance}
+
+\begin{proposition}[Pointwise phase invariance]\label{prop:invariance}
+For every finite state and every real $\chi$,
+\begin{equation}
+\kappa(e^{\iu\chi}\Omega)=\kappa(\Omega),\qquad
+C(e^{\iu\chi}\Omega)=C(\Omega).
+\end{equation}
+Hence $W,\Gamma$, and the staged placement at fixed observer settings obey
+\begin{equation}\label{eq:Xinvariant}
+\boxed{X(e^{\iu\chi}\Omega;\theta,t_c)=X(\Omega;\theta,t_c).}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The norm identity is immediate. Put $c=\cos\chi$ and $s=\sin\chi$.
+The transformed real and imaginary triples are $x'=cx-sy$ and $y'=sx+cy$.
+Their cross product is $(c^2+s^2)x\times y=C$. The remaining statements
+follow by substitution into \eqref{eq:chiral} and
+\eqref{eq:macrodefs}--\eqref{eq:placement}.
+\end{proof}
+
+The algebra includes zero components and does not use covariance of $F$.
+This distinction is essential: a readout identity valid on the whole state
+space does not repair a failure of native equivariance at a zero prestage.
+Common-phase-invariant coherences and chiral observations on the regular
+relative-equilibrium branch are already discussed in the drift source
+\cite{Drift}. Equation~\eqref{eq:Xinvariant} is their direct consequence
+under the existing staged placement.
+
+On the accepted regular D1 branch,
+$F(\Omega)=e^{\iu\omega}\Omega$. The decoded face vectors therefore
+rotate locally, while their norm, chirality and frozen-observer Z remain
+constant. If the observer schedule advances, its Z points can still change
+through the envelope and clock. D1 concerns a specified local chiral branch
+with a saddle reference; it supplies neither attraction of arbitrary inputs
+nor a material-core rotation law \cite{Drift}.
+
+The face representation and the placed observer retain different
+information. A constant placed point does not imply a stationary native
+state. Conversely, a nonzero value of an axial observable is not already an
+angular velocity or displacement per update. The full native state remains
+the object that is stepped.
+
+\section{Exact attribution of placed displacement}\label{sec:attribution}
+
+Let $K_n=K(\kappa_n)$, $E_n=\envelope(t_{c,n})$, and
+$h_n=h_{\theta_n}$. Keep $O,\muplace,R_\psi,\alpha,\beta$ fixed during a
+comparison.
+
+\begin{proposition}[Native, envelope, and clock telescope]
+\label{prop:telescope}
+For finite states with $\Omega_{n+1}=F(\Omega_n)$,
+\begin{equation}\label{eq:telescope}
+\boxed{X_{n+1}-X_n=
+\muplace R_\psi(\Dnat+\Denv+\Dclock),}
+\end{equation}
+where
+\begin{align}
+\Dnat&=\alpha E_nh_n(K_{n+1}-K_n)
+                    +\beta(C_{n+1}-C_n),\label{eq:nativepart}\\
+\Denv&=\alpha K_{n+1}(E_{n+1}-E_n)h_n,\label{eq:envelopepart}\\
+\Dclock&=\alpha K_{n+1}E_{n+1}(h_{n+1}-h_n).
+\label{eq:clockpart}
+\end{align}
+The native term is precisely
+\begin{equation}\label{eq:nativedifference}
+\muplace R_\psi\Dnat
+=X(F\Omega_n;\theta_n,t_{c,n})
+ -X(\Omega_n;\theta_n,t_{c,n}).
+\end{equation}
+\end{proposition}
+\begin{proof}
+Subtract the two instances of \eqref{eq:placement}, and insert intermediate
+macro products $K_{n+1}E_nh_n$ and $K_{n+1}E_{n+1}h_n$. The three
+differences are \eqref{eq:nativepart}--\eqref{eq:clockpart}. Holding the
+observer settings fixed gives \eqref{eq:nativedifference} directly.
+\end{proof}
+
+This is the placed, general-weight form of the existing staged attribution
+\cite[Section 8.2]{Central}. Its order is explicit: first change the native
+state, then the envelope, then the angle. Another telescoping order can
+allocate mixed finite changes differently, while leaving the total
+unchanged. Thus the stated native contribution is a well-defined
+fixed-observer comparison; the three labels do not claim an order-free
+physical force decomposition.
+
+For pure common-phase advance, Proposition~\ref{prop:invariance} makes
+$\Dnat=0$. For a general orbit, both its norm and channel area contribute.
+Those contributions can cancel. The value of $\Dnat$ alone does not
+reconstruct the full state change. If placement or display parameters are
+changed between samples, \eqref{eq:telescope} no longer accounts for the
+whole displayed difference unless that additional change is included
+separately or the trace is restarted.
+
+\section{Consequences of the completed convergence and cycle results}
+\label{sec:consequences}
+
+\subsection{The coherent domain}
+The completed collective paper proves the following inherited result at
+the coefficients in \eqref{eq:witness}. The domain with
+$0.9\le|\Omega_i|\le1.1$ and all ordinary phase lifts in one interval of
+width at most $\pi/12$ is invariant. Every orbit there converges to
+\begin{equation}\label{eq:inheritedlimit}
+\Omega_n\longrightarrow e^{\iu\theta_\infty}r_*.
+\end{equation}
+Here $r_*$ is the unique positive aligned fixed amplitude profile in
+$[0.9,1.1]^3$, its entries are unequal, and $\theta_\infty$ depends on the
+initial state. Moreover, if $\Delta_0$ is the initial ordinary phase width,
+\begin{equation}\label{eq:Cbound}
+|C_{i,n}|\le1.1^2\Delta_0 c^n,
+\qquad c=1-\frac{3\sqrt2}{200}<1.
+\end{equation}
+These are reused theorem hypotheses and bounds, not new certificates
+\cite{Collective}. The turning entrance of \eqref{eq:witness} is outside
+that domain; no capture connection is assumed.
+
+\begin{corollary}[Face and placed-observer limits]\label{cor:limits}
+Under the preceding coherent-domain hypotheses,
+\begin{equation}\label{eq:facelimit}
+D_i(\Omega_{i,n})\longrightarrow
+r_{*,i}(\cos\theta_\infty\,t_i+\sin\theta_\infty\,e_z).
+\end{equation}
+Thus all decoded vectors settle to fixed nonzero values, while
+$C_n,W_n,\Gamma_n\to0$.
+For fixed observer settings,
+\begin{equation}\label{eq:frozenlimit}
+X_n\longrightarrow
+O+\muplace R_\psi
+ \left[\alpha K(\norm{r_*})\envelope(t_c)h_\theta\right].
+\end{equation}
+If instead $\gamma>0$ and $t_{c,n}\to+\infty$, the staged placement
+satisfies $X_n\to O$, regardless of whether its angle sequence converges.
+\end{corollary}
+\begin{proof}
+Continuity and real linearity of $D_i$ give \eqref{eq:facelimit}.
+At the aligned limit, the real and imaginary channel triples are scalar
+multiples of $r_*$, so their cross product is zero. Equation
+\eqref{eq:Cbound} gives the explicit decay, and the fixed attachments are
+continuous. Substitution gives \eqref{eq:frozenlimit}.
+
+For the running envelope, $K(\kappa_n)\le a_{\rm vp}$ and
+$\norm{h_{\theta_n}}\le\sqrt2$. Since $R_\psi$ is orthogonal,
+\begin{equation}\label{eq:placedbound}
+\norm{X_n-O}\le\muplace\left[
+ |\alpha|\sqrt2\,a_{\rm vp}e^{-\gamma t_{c,n}}
+ +|\beta|\sqrt3\,(1.1)^2\Delta_0c^n\right].
+\end{equation}
+Both terms tend to zero.
+\end{proof}
+
+The frozen-observer limit is generally a nonzero macro offset. Every
+possible limiting common phase gives the same point in
+\eqref{eq:frozenlimit}, although it gives different tilts in
+\eqref{eq:facelimit}. Under the staged schedule, approach of $X_n$ to the
+center combines native area decay with the imposed macro envelope. It
+does not show that the central surface translates inward. The positive
+residual spread $\norm{\Pi r_*}>0$ is also compatible with zero area:
+unequal collinear complex coefficients have those two properties.
+
+\subsection{The M3 limiting two-cycle}
+Paper G separately proves capture, under its own specified coefficients
+and entrance, by a full-state cycle with
+\begin{equation}\label{eq:M3}
+\Omega^-=F(\Omega^+)=e^{\iu\vartheta}\overline{\Omega^+},
+\qquad F(\Omega^-)=\Omega^+.
+\end{equation}
+Its limiting $W$ and $\Gamma$ are nonzero and change sign at each step.
+The approaching orbit converges by parity; it is not an exact two-cycle at
+every earlier sample. The local onset theorem and this finite capture
+theorem retain their separate scopes \cite{PaperG}.
+
+\begin{corollary}[Two placed snapshots at a fixed observer]
+\label{cor:M3}
+On the exact cycle \eqref{eq:M3}, let $C^+=C(\Omega^+)$ and
+$\kappa_*=\norm{\Omega^+}$. With observer settings fixed, put
+\begin{equation}
+X_{\rm macro}=O+\muplace R_\psi
+     [\alpha K(\kappa_*)\envelope(t_c)h_\theta].
+\end{equation}
+Then
+\begin{equation}\label{eq:twopoints}
+\boxed{X^\pm=X_{\rm macro}\pm\muplace\beta R_\psi C^+,}
+\qquad
+\norm{X^+-X^-}=2\muplace|\beta|\norm{C^+}.
+\end{equation}
+\end{corollary}
+\begin{proof}
+Conjugation preserves the norm and reverses $C$; a subsequent common phase
+preserves both norm and $C$. Hence the two macro values agree and the
+chiral terms are opposite. Orthogonality of $R_\psi$ gives the distance.
+\end{proof}
+
+Equation~\eqref{eq:twopoints} supplies two alternating points and their
+separation. It supplies no continuous half-turn, gap-crossing path, or
+accumulated spatial rotation. An advancing observer can change the macro
+offset, so its scheduled total need not itself be a two-cycle. Likewise,
+the reversal $W\mapsto-W$ is a signed observable reversal, not a measured
+angular velocity.
+
+\section{Central geometry and the missing pose correspondence}
+\label{sec:pose}
+
+The accepted folded host, refined family $\Sigma_\tau$, and preserved
+historical intersecting mesh are different constructions. The central
+analysis declares the refined finite faces and their registration; this
+paper uses that geometry as context and does not replace its connectivity
+\cite{Central}. In particular, $\tau$ is a shape parameter, not the native
+update index, observer time, or common phase.
+
+An inherited contact constraint is already informative. An axial rotation
+and translation preserving all three exact upper contacts of the registered
+surface has zero translation and angle in $2\pi\mathbb Z/3$. A continuous
+motion in that class is therefore constant. This is a conditional geometric
+constraint, not an assertion that contacts are welded. The proper half-turn
+symmetry at the zero family member is an endpoint operation and does not
+provide a continuous registered path \cite[Section 5]{Central}.
+
+The central fan openings and finite host-notch patches are distinct sets.
+Matching azimuth, meeting an infinite plane, membership in a finite
+triangle, and passage through an opening are different claims. Neither the
+discrete native update nor the affine placement chooses an interpolation
+or a transport law through those openings. Contact claims must continue to
+use the accepted finite-region tests.
+
+The smallest remaining relationship is the response of central orientation
+to common native phase. The decoder retains that phase as a local directional
+pattern, whereas the staged Z placement discards it at fixed observer
+settings. If the central surface is intended to turn under pure common-phase
+advance, a phase-sensitive pose assignment must be supplied and checked
+against its geometry and contacts. If its pose is intended to remain
+unchanged, amplitude and relative-state changes are the relevant inputs.
+The present mathematics distinguishes these choices but does not select
+one on the author's behalf.
+
+A passive pose assignment would itself still differ from material dynamics
+and from feedback into $F$. No such assignment, physical force, or change
+to the native recurrence is made in this work. The established result is
+the exact face-motion correspondence together with conditional observer
+displacement.
+
+\section{Observer-only application design and verification scope}
+\label{sec:implementation}
+
+The application feature specified by this paper is a motion-correspondence
+view of the existing recurrence. Its canonical evolving value is $\Omega$,
+stepped through the existing native implementation. The geometry and
+readouts are derived from that state. The feature is intended to show:
+\begin{enumerate}
+\item decoded channel arrows and optional matched collective arrows on the
+fixed face frames;
+\item the sampled complex mean and its signed-turn diagnostic;
+\item conditional placed Z samples, including a fixed-observer comparison;
+\item the three contributions in \eqref{eq:telescope}; and
+\item a separately labeled common-phase probe applied to a display copy.
+\end{enumerate}
+The central surface serves as fixed geometric reference. The phase probe
+demonstrates \eqref{eq:localphase} and \eqref{eq:Xinvariant}; it is not a
+native trajectory and must not silently modify the stored evolving state.
+An implementation can expose meaningful geometric motion without adding
+an unsupported animation of a solid core.
+
+The plotted samples must retain the distinction between logical vectors
+and display scaling. A fixed common arrow scale multiplies the displayed
+turn area by its square; reported scientific statistics should use the
+unscaled values. Per-sample normalization can change apparent paths and
+does not preserve the turn calculation. At a zero vector, direction is
+undefined. At a zero increment, its inter-increment angle is undefined.
+These cases should be reported explicitly rather than assigned a fictitious
+orientation.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Bounded verification protocol. These are required comparisons,
+not a report of executed tests.}
+\begin{tabularx}{\linewidth}{@{}p{.31\linewidth}X@{}}
+\toprule
+Comparison & Expected mathematical property\\\midrule
+Actual face frames & $t_i\times e_z=n_i$ and the accepted Gram products\\
+Collective arrows & Agreement of decoded mean and matched transported average\\
+Signed turn & Agreement of complex area and each decoded cross product\\
+Phase probe & Moving local arrows with invariant $\kappa,C,W,\Gamma,X$ at fixed observer\\
+Rigid-congruence example & Pairwise dot products distinguish the two triples\\
+Displacement attribution & Native, envelope and clock contributions sum to the placed difference\\
+State ownership & Probe and observer operations leave native state and later native stepping unchanged\\
+Degenerate readouts & Undefined directions and angles remain distinct from numerical zero\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Implemented component and measured validation}
+The source candidate adds \texttt{motion\_observer.py},
+\texttt{motion\_panel.py}, and \texttt{motion\_view.py} to the existing
+scientific application, with a small integration in \texttt{app.py}. The
+new panel is in workspace B, Observers and Diagnostics. It computes only
+after explicit analysis of a selected, already validated three-channel
+Core RunRecord. The cached result is a separate application observation;
+it is not inserted into the Core record history. Scrubbing selects cached
+rows. The kernel, worker protocol, distribution locks, and prior papers
+are not modified.
+
+The component preserves the actual stored update indices, including gaps.
+Its interval quantities are endpoint differences over the reported update
+span. For a sparse interval, the native counterfactual replaces the old
+state by the later stored state at fixed observer settings; it need not be
+one application of $F$. Its display observer is recomputed at every stored
+state, including the first. This is explicitly separate from historical
+constructor-zero rows and from all recorded staged or EMA outputs.
+
+The view uses the hash-checked existing folded-host reference and the
+fixed PLUS $\tau=0$ central surface. One arrow scale is chosen for the full
+analyzed history. Placement is fixed within a completed observation;
+changing its scale or rotation requires explicit reanalysis. A common-phase
+probe transforms a copy of the whole cached history. Source changes and
+pending placement edits disable export; the old cache remains identifiable.
+Exports use the application's existing Windows file-handle publication
+mechanism and do not overwrite occupied destinations.
+
+The independent numerical suite has 23 passing tests, and the offscreen
+panel suite has 13 passing tests, including synchronous rendering of all
+three plot views with and without a phase probe. These counts denote
+software checks, not independent mathematical theorems. The algebra tests
+include a hand-calculated signed-turn example, midpoint consistency with
+the retained witness enclosure, phase-invariant zero-component states,
+independently evaluated ordered counterfactual positions, sparse indices,
+degenerate directions, the 18-vertex/42-edge/24-triangle fixed surface,
+immutable caches, source preservation, input refusal, and export lineage.
+The panel tests cover explicit calculation, cached-only navigation,
+source-context guards, pending settings, failed operations, exports, and
+accessible numerical alternatives.
+
+On the tested phase examples, the largest absolute residual was
+$8.89\times10^{-16}$ for $\Gamma$, and at most $1.12\times10^{-16}$
+for the placed points. Attribution reconstruction had residual at most
+$1.12\times10^{-16}$; comparison with separately evaluated ordered
+counterfactual positions had residual at most $4.45\times10^{-16}$.
+These rounded-up descriptions summarize measured binary64 residuals;
+they are not interval certificates or universal error bounds.
+
+The executed environment is Linux x86-64, Python 3.12.14, and
+PySide6 Essentials 6.11.2 with offscreen Qt. Plot checks used Matplotlib
+3.10.8; the unchanged Windows application pin is 3.11.2 and remains to be
+tested in its supported lane. A main-window integration
+smoke check used the archived application fixture and a test-only lock-loader
+stub; it preserved the dynamics draft and submitted no scientific job.
+The supported Windows/Python 3.11 installed lane and real Windows
+file-handle export behavior have not been executed in this environment.
+The delivered candidate includes targeted Windows validation instructions.
+This source integration is not a certified wheel, an installed application
+replacement, or a publication release.
+
+\section{Conclusions and retained programme directions}
+
+The existing maps provide several mathematically distinct kinds of motion.
+The complex collective turn is exactly a matched local turn in every face
+frame. Phase is a local rotation operation on those vectors, with a direct
+obstruction to a general rigid ambient interpretation. The staged placed
+observer is insensitive to common phase, and its finite displacement has
+an exact native/envelope/clock decomposition. Completed convergence and
+cycle theorems consequently produce different geometric readout behavior:
+stationary nonzero face vectors, conditional approach of Z to the center,
+or two alternating placed snapshots under a frozen observer.
+
+These results support a faithful observational application feature and
+locate the next mathematical choice precisely: the map from native state
+information to the central surface's pose. They do not yet select that map.
+The broader gravity--magnetism question, central Z transport, the proposed
+outer geometric structure, legitimate SRG integration, and the separate
+TORMENT and embodiment programme remain standing directions. Three-Way
+remains parked. No result here integrates those directions automatically.
+
+\Needspace{7\baselineskip}
+\paragraph{AI-assisted preparation disclosure.}
+This research candidate was prepared through human--AI collaboration,
+including AI-assisted mathematical exposition, source reconciliation and
+LaTeX drafting. The author supplies the original geometric direction and
+retains scientific design and publication judgment. This document is not
+yet author-approved or published, and no independent peer review is claimed.
+
+\begin{thebibliography}{9}
+\small
+\bibitem{Attachment}
+H. F. Halldórsson, \emph{Native Response Geometry: equivariant spatial
+observables, state--shell attachment, and closure}, accepted source chapters,
+2026. Pinned source:
+\url{https://github.com/pzychozen/trioctagon-physics/blob/7cc1fa03af589818bcdcfaaac51838cc36c84253/papers/NATIVE_RESPONSE_GEOMETRY/manuscript/observables_closure.tex}.
+
+\bibitem{Collective}
+H. F. Halldórsson, \emph{Transient Collective Turning and Coherent
+Relaxation in the Native Triad}, v0.1, 2026. Published source:
+\url{https://github.com/pzychozen/trioctagon-physics/blob/7cc1fa03af589818bcdcfaaac51838cc36c84253/papers/COLLECTIVE_TURNING_AND_COHERENT_RELAXATION/v0.1/main.tex}.
+
+\bibitem{Central}
+H. F. Halldórsson, \emph{Central Geometry, Z Readouts, and Chiral Response
+in the Tri-Octagon Model}, publication v0.3, 2026. Pinned source:
+\url{https://github.com/pzychozen/trioctagon-physics/blob/7cc1fa03af589818bcdcfaaac51838cc36c84253/papers/CENTRAL_GEOMETRY_Z_CHIRAL_RESPONSE/publication/v0.3/manuscript.tex}.
+
+\bibitem{PaperG}
+H. F. Halldórsson, \emph{Geometry-Attached Axial Observables,
+Period-Doubling, and Certified Entrance Capture in the Tri-Octagon Map},
+Paper G v0.1.1, 2026. Pinned source:
+\url{https://github.com/pzychozen/trioctagon-physics/blob/7cc1fa03af589818bcdcfaaac51838cc36c84253/papers/PAPER_G/v0.1.1/source/paper_g.tex}.
+
+\bibitem{Drift}
+H. F. Halldórsson, \emph{Cubic Common-Phase Drift on a Chiral Branch of
+the Tri-Octagon Map}, research publication v0.1, 2026. Pinned source:
+\url{https://github.com/pzychozen/trioctagon-physics/blob/7cc1fa03af589818bcdcfaaac51838cc36c84253/papers/MEASUREMENT_AND_CHIRAL_DRIFT/v0.1/drift/manuscript.tex}.
+
+\bibitem{PaperE}
+H. F. Halldórsson, \emph{Paper E: the historical Z manifold and its
+distinct observer definitions}, v0.1.1, 2026. Pinned source:
+\url{https://github.com/pzychozen/trioctagon-physics/blob/7cc1fa03af589818bcdcfaaac51838cc36c84253/papers/PAPER_E/v0.1.1/PAPER_E_Z_MANIFOLD_v0.1.1.md}.
+\end{thebibliography}
+\end{document}

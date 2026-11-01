@@ -1,0 +1,218 @@
+{
+  "task": "NCM-Z-02 v0.1",
+  "frozen_utc": "2026-11-01T02:31:20.882933+00:00",
+  "status": "ADMITTED; definitions and window frozen before opening calculations",
+  "candidate_inventory": {
+    "limit_distinct": 12,
+    "limit_each_bytes": 33554432,
+    "limit_total_bytes": 134217728,
+    "artifacts": [
+      {
+        "candidate_id": 1,
+        "locators": [
+          "C:\\TORMENT\\trioctagon_motion_validation_20261029_01\\test-suite\\fixtures\\axial_old_run.json"
+        ],
+        "bytes": 10435,
+        "sha256": "d0f963cc4160f2aa565e90e5d1d0c9af530aa8f6c5d0a20e033be1b02fb8f764",
+        "copy": "inputs/candidate_01_axial_old_run.json",
+        "read_utc": "2026-11-01T02:29:04.402683+00:00",
+        "status": "EXCLUDED_TOO_SHORT",
+        "reason": "Two states at indices 0 and 1; no continuation in the inspected Windows record/fixture inventory",
+        "integrity": "canonical/file identity and deterministic digest verified",
+        "rank_if_longer": 1
+      },
+      {
+        "candidate_id": 2,
+        "locators": [
+          "C:\\TORMENT\\trioctagon_motion_validation_20261029_01\\exports\\pre-existing.motion.json"
+        ],
+        "bytes": 55,
+        "sha256": "0bc99faae364e45171b492b3da3217b0da481f53b59c592a9f6d5cbc4c8de137",
+        "copy": "inputs/candidate_02_pre-existing.motion.json",
+        "read_utc": "2026-11-01T02:29:05.823168+00:00",
+        "status": "EXCLUDED_NOT_HISTORY",
+        "reason": "55-byte overwrite-protection sentinel, not JSON or scientific samples"
+      },
+      {
+        "candidate_id": 3,
+        "locators": [
+          "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\CENTRAL_GEOMETRY_Z_CHIRAL_RESPONSE\\publication\\v0.3\\evidence\\CENTRAL_GEOMETRY_Z_CHIRAL_RESPONSE_NUMERICAL_AUDIT_v0.1_REVIEW_BUNDLE.zip!NOMINAL_CROSSCHECK.json"
+        ],
+        "bytes": 8871,
+        "sha256": "a294a4b0bf181adaa2054aa52379c1832a7833e3faa7614d0785aecd709ea09c",
+        "copy": "inputs/candidate_03_NOMINAL_CROSSCHECK.json",
+        "read_utc": "2026-11-01T02:29:07.248428+00:00",
+        "status": "ADMITTED_SELECTED",
+        "reason": "Five stored native triad states from the documented prior 120-digit nominal producer, at fixed parameters, with manifest-bound source and execution account",
+        "selection_rank": 3,
+        "source_route_position": 1,
+        "internal_content_seal": "none; file member size/SHA-256 verified against historical OUTPUT_HASH_MANIFEST"
+      }
+    ],
+    "distinct_artifacts_read": 3,
+    "total_candidate_bytes": 19361,
+    "metadata_exclusions": [
+      {
+        "locator": "Windows exports/interactive.motion.json and natural-motion.motion.json",
+        "reason": "Known identical two-state detached observations; no additional independent history. Packet original copy already verified."
+      },
+      {
+        "locator": "central manuscript and R6 rational comparison-center tables",
+        "reason": "Explicitly enclosure comparison centers, not stored native history. Rejected by source description; not decoded as candidate state data."
+      },
+      {
+        "locator": "central audit AUDIT_RESULTS.json and tmp/direct_enclosures.json",
+        "reason": "Interval proof/enclosure artifacts, not selected as point history; not read as candidate state data."
+      }
+    ],
+    "selection_stop": "First eligible history in ordered A1 route after no longer old-run continuation/old initialization match in the Windows fixture route. No candidate selected on opening results; later lower-priority route directories were filename-listed only, no state data inspected. No search after freeze."
+  },
+  "selected": {
+    "source_locator": "C:\\TORMENT\\TRIOCTAGON_new\\trioctagon-physics\\papers\\CENTRAL_GEOMETRY_Z_CHIRAL_RESPONSE\\publication\\v0.3\\evidence\\CENTRAL_GEOMETRY_Z_CHIRAL_RESPONSE_NUMERICAL_AUDIT_v0.1_REVIEW_BUNDLE.zip!NOMINAL_CROSSCHECK.json",
+    "file_sha256": "a294a4b0bf181adaa2054aa52379c1832a7833e3faa7614d0785aecd709ea09c",
+    "bytes": 8871,
+    "packaged_copy": "inputs/SELECTED_HISTORY.json",
+    "record_description": "NOMINAL_CROSSCHECK mpmath native-triad nominal sequence; not a modern Core record",
+    "source_lineage": {
+      "historical_source_revision_locator": "3b4aa9cb64b7c218ca82962dbf3caea39d9f7d34",
+      "data_producer": "verification.py:nominal_crosscheck, lines 120–171; called and serialized by audit.py lines 551–552",
+      "original_precision_dps": 120,
+      "output_precision_significant_digits": 100,
+      "fixed_coefficients": {
+        "epsilon": ".1",
+        "g": ".2",
+        "lambda_phase": ".17",
+        "k": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "prior_execution_account": "INDEPENDENT_NUMERICAL_AUDIT_REPORT.md line 99; ENVIRONMENT_AND_REPLAY.md lines 38–45; logs/audit-console.txt line 7",
+      "source_members_verified": [
+        {
+          "member": "verification.py",
+          "sha256": "87bc4f16adc72a8cbfbac8a7d49d418fc77b0aaa1a227f1a94622205407de6f7",
+          "copy": "sources\\arch_verification.py"
+        },
+        {
+          "member": "audit.py",
+          "sha256": "2a519035cbfa96d56c858d72fe21f783264859524d8419b5068635b9f0d2a2f9",
+          "copy": "sources\\arch_audit.py"
+        },
+        {
+          "member": "supplement.py",
+          "sha256": "5f8295123a570668a0779880c001abab42888a0a726f2d8bed805fabbd1b884e",
+          "copy": "sources\\arch_supplement.py"
+        },
+        {
+          "member": "ENVIRONMENT_AND_REPLAY.md",
+          "sha256": "0ce8ade915695c23bbe8c243a02558f33899799d6a5de18be2ab05f28ed08f58",
+          "copy": "sources\\arch_ENVIRONMENT_AND_REPLAY.md"
+        },
+        {
+          "member": "logs/audit-console.txt",
+          "sha256": "d73119e9812752dd86e94d3e19638d0a694288eb6deb40968721073b3f0ea6c6",
+          "copy": "sources\\arch_logs_audit-console.txt"
+        },
+        {
+          "member": "INDEPENDENT_NUMERICAL_AUDIT_REPORT.md",
+          "sha256": "877b97fcb51a1b3abf9dc4d6cdb8168ef7a6c153eecba10d5b240aa676765d60",
+          "copy": "sources\\arch_INDEPENDENT_NUMERICAL_AUDIT_REPORT.md"
+        }
+      ]
+    },
+    "comparison_to_Z01": "Different initialization and native coefficients: epsilon .1 instead of .05, phase .17 instead of .001, k=(2,3,4) instead of (1,1,1); g=.2 shared. Not an extension or same-parameter replication.",
+    "evidence_limits": "Retained nominal numerical producer values with file integrity and source account; not producer authentication, a new native replay certificate, exact ideal-map solutions or propagated certified intervals."
+  },
+  "window": {
+    "all_original_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "included_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "original_rows": 5,
+    "included_rows": 5,
+    "excluded_suffix_rows": 0,
+    "rule": "all rows if <=4096; otherwise earliest 4096 stored rows; no reindexing"
+  },
+  "observer": {
+    "N": 12,
+    "q0": 0,
+    "q_step": 1,
+    "time0": 0.0,
+    "dt": 0.1,
+    "lambda_vp": 0.618,
+    "gamma": 0.577,
+    "lock_angle": 0.244,
+    "alpha": 1.0,
+    "beta": 0.5,
+    "mu_place": 1.0,
+    "psi": 0.0
+  },
+  "freeze_anchor": {
+    "actual_native_index": 0,
+    "rule": "scheduled angle/time of first included sample; here theta=time=0"
+  },
+  "geometry": {
+    "branch": "PLUS",
+    "tau": 0,
+    "width": 1,
+    "origin": "(0,sqrt(3)/6,0)",
+    "sphere": "sqrt(13/12-sqrt(2)/2)",
+    "six_arc_labels": [
+      "G+0",
+      "G+1",
+      "G+2",
+      "G-0",
+      "G-1",
+      "G-2"
+    ],
+    "finite_notches": "Separate N+0..N+2,N-0..N-2"
+  },
+  "numeric": {
+    "primary": "binary64 detached overlay from explicitly converted retained tokens; source observer operation order; exact original tokens retained",
+    "independent": "80-decimal formulas from original decimal state tokens, exact binary64 coefficient constants lifted to high precision, exact pi/radical geometry",
+    "geometry_tie_tolerance": 1e-12,
+    "reproduction_tolerance": "2e-13*max(1,magnitudes)",
+    "unique_winner": "lead over second-best >1e-12; preserve tied sets and compare independent high-precision decision",
+    "direction": "exact zero undefined; displacement norm <=1e-12 classified numerically unresolved for chord-angle diagnostics without setting its actual value to zero",
+    "borderline": "within 10*1e-12 of a geometry/tie/zero threshold; high precision comparison, no interval claim",
+    "robustness": "unique frozen winner and numerical slack m-2*b-4e-12>0; allowance is heuristic, not rigorous error enclosure"
+  },
+  "evaluation_limits": {
+    "native_map_calls": 0,
+    "ema_advances": 0,
+    "histories": 1,
+    "primary_points": 10,
+    "telescope_intermediate_points": 8,
+    "high_precision": "All 18 primary/intermediate evaluations, covering every mandatory switch/disagreement/borderline and first/middle/last case; no extra settings",
+    "geometry_sensitivity_cases": 0,
+    "regression_fixture": "Old two-state input once per script run, separate from primary result counts",
+    "figures_max": 4
+  },
+  "tests": [
+    "packet/source input integrity",
+    "prior two-state regression",
+    "global vs local freeze",
+    "sparse actual indices",
+    "ordered telescope",
+    "six labels and opposite cameras",
+    "common-phase frozen invariance",
+    "segment endpoints/ties",
+    "zero/axis and zero displacement",
+    "positive/negative and inconclusive robustness margins",
+    "independent 80-decimal point/distances/classifications",
+    "original source/input preservation"
+  ],
+  "no_outcome_calculation_before_this_receipt": true
+}

@@ -1,0 +1,403 @@
+Native prestage, Arg0 and lambda-zero bypass
+sources/kernel_physics/dynamics.py
+56: 
+57: def arg0(values) -> np.ndarray:
+58:     """Componentwise Arg for nonzero entries; +0 for every exact complex zero.
+59: 
+60:     Signed IEEE zeros do not select a phase at zero.
+61:     """
+62:     values = np.asarray(values, dtype=np.complex128)
+63:     return np.where(values == 0, 0.0, np.angle(values))
+64: 
+65: 
+66: def phase_sync(values, phase_strength: float) -> np.ndarray:
+67:     """Simultaneous harmonic-3 neighbor synchronization on a cycle of size >=3.
+68: 
+69:     For size three, the two cyclic neighbors are precisely the other two nodes.
+70:     lambda=0 returns a copy directly, without phase extraction/reconstruction.
+71:     """
+72:     state = _state(values)
+73:     strength = _finite_real(phase_strength, "phase_strength")
+74:     if strength == 0:
+75:         return state
+76:     phases = arg0(state)
+77:     increment = strength * (
+78:         np.sin(3 * (np.roll(phases, 1) - phases))
+79:         + np.sin(3 * (np.roll(phases, -1) - phases))
+80:     )
+81:     with np.errstate(over="raise", invalid="raise"):
+82:         result = np.abs(state) * np.exp(1j * (phases + increment))
+83:     result[state == 0] = 0j
+84:     return result
+85: 
+86: 
+87: def _advance(state: np.ndarray, config: DynamicsConfig) -> np.ndarray:
+88:     coefficients = np.tile(config.k, len(state) // 3)
+89:     with np.errstate(over="raise", invalid="raise"):
+90:         if len(state) == 3:
+91:             coupling = np.asarray(L3) @ state
+92:         else:
+93:             coupling = np.roll(state, 1) + np.roll(state, -1) - 2 * state
+94:         updated = (state + config.eps * state * (coefficients - np.abs(state) ** 2)
+95:                    + config.g * coupling)
+96:     return phase_sync(updated, config.phase_strength)
+97: 
+98: 
+99: def step3(omega, config: DynamicsConfig) -> np.ndarray:
+
+Intensity and finite square; observed_delta is prestage-only
+sources/kernel_physics/z_diagnostics.py
+219: def _state_parameters(omega, config):
+220:     if not isinstance(config, DynamicsConfig):
+221:         raise TypeError("config must be DynamicsConfig")
+222:     # Validate stored values, not the pre-construction inputs already coerced.
+223:     eps, g = _real(config.eps, "eps"), _real(config.g, "g")
+224:     _real(config.phase_strength, "phase_strength")
+225:     k = _array(config.k, "k", shape=(3,))
+226:     v = complex_vector(omega, 3, "omega")
+227:     s = [total((_square(z.real), _square(z.imag)), "component intensity") for z in v]
+228:     pair_terms = []
+229:     for i, j in ((0, 1), (0, 2), (1, 2)):
+230:         pair_terms.append(total((_square(_difference(v[i].real, v[j].real)),
+231:                                  _square(_difference(v[i].imag, v[j].imag))),
+232:                                 "pair distance squared"))
+233:     return v, eps, g, k, s, total(pair_terms, "P")
+234: 
+235: 
+236: @dataclass(frozen=True, slots=True, eq=False)
+237: class IntensityBudget:
+238:     component_intensities: np.ndarray
+239:     intensity_before: float
+240:     increment: np.ndarray
+241:     diagnostic_pre_sync_prediction: np.ndarray
+242:     intensity_pre_sync: float
+243:     pair_distance_sum: float
+244:     onsite: float
+245:     coupling: float
+246:     remainder: float
+247:     predicted_delta: float
+248:     observed_delta: float
+249:     residual: float
+250: 
+251:     def __post_init__(self):
+252:         _seal(self, ("component_intensities", "increment",
+253:                      "diagnostic_pre_sync_prediction"))
+254: 
+255: 
+256: def intensity_budget(omega, config):
+257:     """Unforced finite-map accounting. Prediction is not an evolved state.
+258: 
+259:     D is built from its defining terms using the imported existing L3.
+260:     No dt, forcing, phase operation or advancement occurs here.
+261:     """
+262:     v, eps, g, k, s, pairs = _state_parameters(omega, config)
+263:     increments = []
+264:     for i in range(3):
+265:         graph = _complex_sum(scale_complex(coef, z, "L3 term")
+266:                              for coef, z in zip(L3[i], v))
+267:         onsite_increment = scale_complex(
+268:             product(eps, _difference(k[i], s[i]), "onsite coefficient"),
+269:             v[i], "onsite increment")
+270:         increments.append(_complex_sum((onsite_increment,
+271:                                         scale_complex(g, graph, "graph increment"))))
+272:     prediction = [_complex_sum((z, d)) for z, d in zip(v, increments)]
+273:     before = total(s, "intensity before")
+274:     after = total((_square(z.real) for z in prediction), "pre real intensity")
+275:     after = total((after, *(_square(z.imag) for z in prediction)), "intensity pre")
+276:     onsite_terms = [_difference(product(ki, si, "k s"), _square(si))
+277:                     for ki, si in zip(k, s)]
+278:     onsite = product(2, product(eps, total(onsite_terms, "onsite sum"),
+279:                                 "eps onsite"), "onsite")
+280:     coupling = product(-2, product(g, pairs, "g P"), "coupling")
+281:     remainder = total((_square(c) for d in increments for c in (d.real, d.imag)),
+282:                       "increment norm squared")
+283:     predicted_delta = total((onsite, coupling, remainder), "predicted delta")
+284:     observed_delta = _difference(after, before)
+285:     return IntensityBudget(s, before, increments, prediction, after, pairs,
+286:                            onsite, coupling, remainder, predicted_delta,
+287:                            observed_delta, _difference(observed_delta, predicted_delta))
+
+S/A and cyclic extraction
+sources/kernel_physics/axial_observables.py
+158: def _sa(omega):
+159:     x, y = tuple(z.real for z in omega), tuple(z.imag for z in omega)
+160:     S = _matrix(lambda i, j: _sum((_mul(x[i], x[j]), _mul(y[i], y[j]))))
+161:     A = _matrix(lambda i, j: _sub(_mul(x[i], y[j]), _mul(y[i], x[j])))
+162:     return S, A
+163: 
+164: 
+165: def _attach(c):
+166:     return tuple(_dot(row, c) for row in _T), _sum(c)
+167: 
+168: 
+169: def _area(A):
+170:     # Linear extraction from an area term; C snapshots use canonical readouts.
+171:     C = (A[1][2], A[2][0], A[0][1])
+172:     W, Gamma = _attach(C)
+173:     return _Area(A, C, W, Gamma)
+174: 
+175: 
+176: def _term(name, A):
+177:     r = _area(A)
+178:     return _Term(name, r.A, r.C, r.W, r.Gamma)
+
+Seven native area terms and reconstructed quantities
+sources/kernel_physics/axial_observables.py
+220: def axial_source_budget(omega, config, *, before_index, after_omega=None, after_index=None):
+221:     """Algebraic one-step area accounting; facade owns State/Parameters checks.
+222: 
+223:     This reconstructs only the pre-sync complex expression and post-sync area
+224:     identities. It does not invoke a dynamics update or return an evolved State.
+225:     """
+226:     before = axial_snapshot(omega)
+227:     v = tuple(complex(z) for z in omega)
+228:     eps, g, strength = config.eps, config.g, config.phase_strength
+229:     D = _matrix(lambda i, j: _sub(config.k[i], before.S[i][i]) if i == j else 0.)
+230:     M = _add(_matrix(lambda i, j: 1. if i == j else 0.), _scale(eps, D), _scale(g, L3))
+231:     A = before.A
+232:     terms = (
+233:         _term("onsite_first", _scale(eps, _add(_mm(D, A), _mm(A, D)))),
+234:         _term("coupling_first", _scale(g, _add(_mm(L3, A), _mm(A, L3)))),
+235:         _term("onsite_squared", _scale(_mul(eps, eps), _mm(_mm(D, A), D))),
+236:         _term("mixed", _scale(_mul(eps, g), _add(_mm(_mm(D, A), L3), _mm(_mm(L3, A), D)))),
+237:         _term("coupling_squared", _scale(_mul(g, g), _mm(_mm(L3, A), L3))))
+238:     pre = []
+239:     for i in range(3):
+240:         onsite = scale_complex(eps, scale_complex(D[i][i], v[i], "onsite"), "onsite")
+241:         coupled = complex(_dot(L3[i], tuple(z.real for z in v)), _dot(L3[i], tuple(z.imag for z in v)))
+242:         coupled = scale_complex(g, coupled, "coupling")
+243:         pre.append(complex(_sum((v[i].real, onsite.real, coupled.real)),
+244:                            _sum((v[i].imag, onsite.imag, coupled.imag))))
+245:     pre = tuple(pre)
+246:     S_tilde, A_tilde = _sa(pre)
+247:     phases = tuple(checked_real(float(x), "Arg0") for x in arg0(pre))
+248:     delta = tuple(_mul(strength, _sum(checked_real(math.sin(_mul(3., _sub(phases[j], phases[i]))), "phase sine")
+249:                                    for j in ((i-1) % 3, (i+1) % 3))) for i in range(3))
+250:     d = _matrix(lambda i, j: _sub(delta[j], delta[i]))
+251:     cos = _matrix(lambda i, j: checked_real(math.cos(d[i][j]), "pair cosine"))
+252:     sin = _matrix(lambda i, j: checked_real(math.sin(d[i][j]), "pair sine"))
+253:     phase_terms = (
+254:         _term("phase_existing_area", _matrix(lambda i, j: _mul(A_tilde[i][j], _sub(cos[i][j], 1.)))),
+255:         _term("phase_symmetric_pair", _matrix(lambda i, j: _mul(S_tilde[i][j], sin[i][j]))))
+256:     amplitude_sum = _add(A, *(t.A for t in terms))
+257:     predicted = _area(_add(amplitude_sum, *(t.A for t in phase_terms)))
+258:     # M is symmetric; congruence needs no inverse, including singular M.
+259:     congruence = _area(_mm(_mm(M, A), M))
+260:     pair = _area(_matrix(lambda i, j: _sum((_mul(A_tilde[i][j], cos[i][j]), _mul(S_tilde[i][j], sin[i][j])))))
+261:     actual = None if after_omega is None else axial_snapshot(after_omega)
+262:     return AxialSourceBudget(AXIAL_OBSERVER_REVISION, _SOURCE, _POLICY, before_index,
+263:         after_index, _Parameters(eps, g, strength, tuple(config.k)), before, terms,
+264:         _PreSync(pre, S_tilde, A_tilde, phases, delta, d), phase_terms, predicted,
+265:         _difference(congruence, _area(amplitude_sum)), _difference(pair, predicted),
+266:         actual, None if actual is None else _difference(actual, predicted),
+267:         "PREDICTION_ONLY" if actual is None else "SUPPLIED_ADJACENT_PAIR",
+268:         "Binary64 reconstruction of exact model identities; no advancement, stored intermediate, "
+269:         "same-parent provenance, interval certificate or physical field claim.")
+
+Independent canonical C orientation
+sources/kernel_physics/readouts.py
+7: def z_chiral(omega):
+8:     """Re(omega) cross Im(omega); a fresh real three-vector, without normalization.
+9: 
+10:     Checked real products reject subnormal/overflowing intermediates. Near
+11:     cancellation, a zero or small computed value is not an exact-zero proof.
+12:     """
+13:     v = complex_vector(omega, 3, "omega")
+14:     return np.array([total((product(v[j].real, v[k].imag, "z_chiral product"),
+15:                             -product(v[k].real, v[j].imag, "z_chiral product")),
+16:                            "z_chiral difference")
+17:                      for j, k in ((1, 2), (2, 0), (0, 1))])
+
+Area sign and fixed W attachment
+sources/papers/PAPER_G/v0.1.1/source/paper_g.tex
+66: \section{From transported area to an axial observable}
+67: \subsection{Areas and the Paper B attachment}
+68: Writing $\Om=x+\iu y$ with $x,y\in\R^3$, set
+69: \begin{equation}
+70:  S=xx^T+yy^T,\quad A=xy^T-yx^T,\quad
+71:  C=x\times y=(A_{BC},A_{CA},A_{AB})^T.\label{eq:SA}
+72: \end{equation}
+73: Thus $A=-[C]_\times$, $\Om\Om^\dagger=S-\iu A$, while $\overline\Om\Om^T=S+\iu A$. The sign distinction matters in phase transport. Paper B identifies $A_{ij}$ with the signed parallelogram area of two face-state vectors after the matched transport $T_{ij}=t_it_j^T+e_ze_z^T$. No factor $1/2$ occurs.
+74: 
+75: The fixed outward normals and horizontal tangents are
+76: \begin{equation}
+77:  N=\begin{pmatrix}-\sqrt3/2&0&\sqrt3/2\\1/2&-1&1/2\\0&0&0\end{pmatrix},\quad
+78:  T=\begin{pmatrix}-1/2&1&-1/2\\-\sqrt3/2&0&\sqrt3/2\\0&0&0\end{pmatrix},\label{eq:T}
+79: \end{equation}
+80: whose columns are $n_i$ and $t_i=e_z\times n_i$. The actual face centers are $(-1/4,\sqrt3/4,0)$, $(0,0,0)$ and $(1/4,\sqrt3/4,0)$. A complex entry is encoded as the tangent vector $x_it_i+y_ie_z$. The panels are fixed; the encoding adds no material dynamics. Define
+81: \begin{equation}
+82:  W=TC,\qquad \Gamma=e^TC,\qquad
+83:  C_\parallel=\frac{\Gamma}{3}e,\quad C_\perp=C-C_\parallel.\label{eq:W}
+84: \end{equation}
+85: These have the algebraic scale of squared state amplitude, not tesla or another physical unit. The orientation of $C$ lives in channel space. Equation \eqref{eq:W} is the specified map from that space into the ambient geometry.
+86: 
+87: \begin{proposition}[Attachment, reconstruction and symmetry]\label{prop:attach}
+88: The attachment has rank two, kernel $\R e$, and
+89: \begin{equation}
+90:  T^TT=\frac32\left(I-\frac{ee^T}{3}\right),\qquad
+91:  C=\frac23T^TW+\frac{\Gamma}{3}e,\qquad
+92:  |C|^2=\frac23|W|^2+\frac{\Gamma^2}{3}.\label{eq:reconstruct}
+93: \end{equation}
+94: Under the specified $D_{3h}$ geometry action, $W$ is an ambient axial vector. Up to a real scalar, $T$ is the only real-linear equivariant map from this representation of $C$ to an ambient axial vector.
+95: \end{proposition}
+96: \begin{proof}
+97: The three columns of $T$ sum to zero and have mutual inner products $-1/2$; their squared lengths are one. This proves the matrix identity and rank. Applying it to $C_\perp$ gives reconstruction; orthogonality gives the norm identity.
+98: 
+99: For a spatial orthogonal symmetry $G$ with channel permutation $Q$, Paper B's area action is $A'=\det(G)QAQ^T$, so
+100: \begin{equation}
+101:  C'=\det(G)\det(Q)QC.\label{eq:Ccov}
+102: \end{equation}
+103: The frame matrices obey $T\det(Q)Q=GT$, verified on the cyclic rotation, horizontal mirror $H_s=\diag(1,1,-1)$ and vertical mirror $V_s=\diag(-1,1,1)$ (which swaps the channel labels $A$ and $C$). Consequently $W'=\det(G)GW$. In contrast $\Gamma$ has generator signs $(+,-,+)$; $\Gamma e_z$ is polar-$z$-like, not axial. The distinct transformation laws forbid replacing $T$ by $N$.
+
+Congruence/cofactor and phase-pair budget
+sources/papers/PAPER_G/v0.1.1/source/paper_g.tex
+123: \section{Exact finite-step source and entrance conversion}
+124: \subsection{Amplitude congruence and phase-pair rotation}
+125: For the current state define $D=\diag(k_i-|\Om_i|^2)$ and $M=I+\epsilon D+gL$. Since $M$ is real,
+126: \begin{equation}
+127:  \widetilde S=MSM^T,\qquad\widetilde A=MAM^T,\qquad
+128:  \widetilde C=\cof(M)C.\label{eq:cof}
+129: \end{equation}
+130: The cross-product identity is polynomial in the entries of $M$. Thus it remains valid at singular $M$; an inverse formula is unnecessary. Although $M$ acts linearly on the two supplied vectors during this evaluation, its dependence on their intensities makes the underlying amplitude map nonlinear.
+131: 
+132: Expanding the congruence, using symmetric $D,L$, yields the exact budget
+133: \begin{align}
+134:  \widetilde A-A={}&\epsilon(DA+AD)+g(LA+AL)+\epsilon^2DAD\nonumber\\
+135:  &+\epsilon g(DAL+LAD)+g^2LAL.\label{eq:budget}
+136: \end{align}
+137: The mixed and squared terms are finite-step contributions. Omitting them is a small-step approximation, not an alternative exact source law. Each term has a corresponding $C$ triple, $W$ vector and $\Gamma$ scalar by the fixed linear maps in \eqref{eq:SA} and \eqref{eq:W}.
+138: 
+139: For $d_{ij}=\delta_j-\delta_i$, complex multiplication of the pair product gives
+140: \begin{align}
+141:  A_{ij}^+&=\widetilde A_{ij}\cos d_{ij}+\widetilde S_{ij}\sin d_{ij},\label{eq:rotateA}\\
+142:  S_{ij}^+&=\widetilde S_{ij}\cos d_{ij}-\widetilde A_{ij}\sin d_{ij}.\label{eq:rotateS}
+143: \end{align}
+144: Hence the phase contribution to $\Delta A_{ij}$ is precisely
+145: $\widetilde A_{ij}(\cos d_{ij}-1)+\widetilde S_{ij}\sin d_{ij}$. These are entrywise trigonometric products; they are not matrix sine or cosine. The definition via \eqref{eq:phase} is valid at zero components too. Phase synchronization preserves each post-amplitude modulus but need not preserve the area vector.
+
+Frozen placement and inherited constants
+packet/NCM_Z_03_Packet_v0.1/source_text/motion_observer.py.txt
+20: MAX_SOURCE_BYTES = 32_000_000
+21: SQRT3 = math.sqrt(3.0)
+22: ORIGIN = (0.0, SQRT3 / 6.0, 0.0)
+23: FACE_CENTERS = ((-.25, SQRT3 / 4.0, 0.0), (0.0, 0.0, 0.0),
+24:                 (.25, SQRT3 / 4.0, 0.0))
+25: NORMALS = ((-SQRT3 / 2.0, .5, 0.0), (0.0, -1.0, 0.0),
+26:            (SQRT3 / 2.0, .5, 0.0))
+27: TANGENTS = ((-.5, -SQRT3 / 2.0, 0.0), (1.0, 0.0, 0.0),
+28:             (-.5, SQRT3 / 2.0, 0.0))
+29: VERTICAL = (0.0, 0.0, 1.0)
+30: SOURCES = {
+31:     "decoder": "papers/NATIVE_RESPONSE_GEOMETRY/manuscript/observables_closure.tex",
+32:     "placement": "papers/CENTRAL_GEOMETRY_Z_CHIRAL_RESPONSE/publication/v0.3/manuscript.tex",
+33:     "turning": "papers/COLLECTIVE_TURNING_AND_COHERENT_RELAXATION/v0.1/main.tex",
+34:     "axial": "papers/PAPER_G/v0.1.1/source/paper_g.tex",
+35: }
+36: 
+
+Preset
+packet/NCM_Z_03_Packet_v0.1/source_text/motion_observer.py.txt
+84:     return _canonical(data)
+85: 
+86: 
+87: @dataclass(frozen=True)
+88: class MotionConfig:
+89:     mu_place: float = 1.0
+90:     psi: float = 0.0
+91:     alpha: float = 1.0
+92:     beta: float = .5
+93:     lambda_vp: float = .618
+94:     gamma: float = .577
+95:     lock_angle: float = .244
+96:     N: int = 12
+97:     q0: int = 0
+98:     q_step: int = 1
+99:     time0: float = 0.0
+100:     dt: float = .1
+101: 
+
+Placement, envelope, H, K and Z
+packet/NCM_Z_03_Packet_v0.1/source_text/motion_observer.py.txt
+177: def _linear_place(vector, config):
+178:     c, s = math.cos(config.psi), math.sin(config.psi)
+179:     return (config.mu_place * (c * vector[0] - s * vector[1]),
+180:             config.mu_place * (s * vector[0] + c * vector[1]),
+181:             config.mu_place * vector[2])
+182: 
+183: 
+184: def _clock(index, config):
+185:     sector = (config.q0 + index * config.q_step) % config.N
+186:     time = config.time0 + index * config.dt
+187:     theta = 2.0 * math.pi * sector / config.N
+188:     _check_finite((time, theta))
+189:     return {"sector": sector, "theta": theta, "time": time}
+190: 
+191: 
+192: def _envelope_and_direction(clock, config):
+193:     theta = clock["theta"]
+194:     amplitude = math.cos(3.0 * (theta - config.lock_angle))
+195:     H = (amplitude * math.cos(theta), amplitude * math.sin(theta), amplitude)
+196:     return math.exp(-config.gamma * clock["time"]), H
+197: 
+198: 
+199: def _placed(kappa, C, clock, config):
+200:     K = config.lambda_vp * (kappa / (1.0 + kappa))
+201:     E, H = _envelope_and_direction(clock, config)
+202:     macro = _scale(H, K * E)
+203:     Z = _add(_scale(macro, config.alpha), _scale(C, config.beta))
+204:     return {"macro": macro, "Z": Z, "point": _add(ORIGIN, _linear_place(Z, config))}
+
+Historical exact-decimal coefficients and rounded serialization; read only
+packet/NCM_Z_03_Packet_v0.1/source_text/historical_nominal_producer.py.txt
+120: def nominal_crosscheck(a,data):
+121:     import mpmath as mp
+122:     mp.mp.dps=120
+123:     f=mp.mpf
+124:     root2,root3=mp.sqrt(2),mp.sqrt(3)
+125:     aa=(1-root2/2)/2;hh=(root2-1)/2;rr=root3/6
+126:     P=[root3*aa/6,-aa/2-rr/3,(2*hh+f(".5"))/3]
+127:     c=[2*(P[j]-(f(".4635")*mp.cos(f(".732")) if j!=1 else 0)) for j in range(3)]
+128:     dot=lambda x,y:sum(t*w for t,w in zip(x,y))
+129:     cr=lambda x,y:[x[1]*y[2]-x[2]*y[1],x[2]*y[0]-x[0]*y[2],x[0]*y[1]-x[1]*y[0]]
+130:     b=mp.sqrt(c[0]**2+c[1]**2);ell=mp.sqrt(dot(c,c))
+131:     X=mp.sqrt((9+mp.sqrt(81-4*ell**2))/2);Y=mp.sqrt((9-mp.sqrt(81-4*ell**2))/2)
+132:     p=[-c[1]/b,c[0]/b,0];q=[t/ell for t in cr(c,p)]
+133:     z=[X*p[j]+1j*Y*q[j] for j in range(3)]
+134:     states=[z];pre=[None]
+135:     eps,gg,ll=f(".1"),f(".2"),f(".17");kk=[2,3,4]
+136:     # Independent polynomial expression and branch-independent pair cubic.
+137:     for n in range(1,5):
+138:         w=[z[j]+eps*z[j]*(kk[j]-abs(z[j])**2)+gg*(z[(j+1)%3]+z[(j+2)%3]-2*z[j]) for j in range(3)]
+139:         units=[x/abs(x) for x in w]
+140:         inc=[ll*sum(3*mp.im(mp.conj(units[j])*units[k])-4*mp.im(mp.conj(units[j])*units[k])**3 for k in range(3) if k!=j) for j in range(3)]
+141:         z=[abs(w[j])*mp.exp(1j*(mp.arg(w[j])+inc[j])) for j in range(3)]
+142:         states.append(z);pre.append(w)
+143:     output=[];contained=True
+144:     for n,z in enumerate(states):
+145:         C=cr([mp.re(t) for t in z],[mp.im(t) for t in z])
+146:         pair=[mp.im(mp.conj(z[1])*z[2]),mp.im(mp.conj(z[2])*z[0]),mp.im(mp.conj(z[0])*z[1])]
+147:         assert max(abs(v-w) for v,w in zip(C,pair))<f("1e-110")
+148:         kap=mp.sqrt(sum(abs(t)**2 for t in z));K=f(".618")*kap/(1+kap)
+149:         amp=K*mp.exp(-f(".0577")*n)*mp.cos(n*mp.pi/2-f(".732"))
+150:         direction=[mp.cos(n*mp.pi/6),mp.sin(n*mp.pi/6),1]
+151:         Z=[amp*direction[j]+C[j]/2 for j in range(3)]
+152:         values=[[mp.re(t),mp.im(t)] for t in z]
+153:         checks=[]
+154:         for j in range(3):
+155:             for k in range(2):
+156:                 numeric=Fraction(mp.nstr(values[j][k],110))
+157:                 rigorous=data[0][n][j][k]
+158:                 checks.append(rigorous.lower()<=numeric<=rigorous.upper())
+159:         rigorousZ,_=observe(data[0][n],n,data[4],data[2][n])
+160:         for j in range(3):
+161:             numeric=Fraction(mp.nstr(Z[j],110))
+162:             checks.append(rigorousZ[j].lower()<=numeric<=rigorousZ[j].upper())
+163:         contained=contained and all(checks)
+164:         stringify=lambda x:mp.nstr(x,100)
+165:         output.append(dict(n=n,omega=[[stringify(t) for t in row] for row in values],norm=stringify(kap),
+166:                            chiral=[stringify(t) for t in C],Z=[stringify(t) for t in Z],
+167:                            agrees_with_rigorous_nominal_enclosure=all(checks)))
+168:     assert contained,"High-precision cross-check disagrees with rigorous point enclosure"
+169:     return dict(status="NUMERICAL_CORROBORATION_ONLY",backend="mpmath",version=mp.__version__,
+170:                 decimal_precision=120,scientific_horizon="n=0..4 exactly",observations=output,
+171:                 note="Rounded high-precision values are not interval proofs and are never used to accept whole-domain claims.")

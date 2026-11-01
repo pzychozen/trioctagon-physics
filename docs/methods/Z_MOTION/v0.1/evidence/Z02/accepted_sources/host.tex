@@ -1,0 +1,735 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+\documentclass[
+  11pt,
+  a4paper,
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=24mm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[BoldFont=texgyrepagella-bold.otf,ItalicFont=texgyrepagella-italic.otf,BoldItalicFont=texgyrepagella-bolditalic.otf]{texgyrepagella-regular.otf}
+  \setmonofont[BoldFont=lmmonolt10-bold.otf]{lmmono10-regular.otf}
+  \setmathfont[]{texgyrepagella-math.otf}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{longtable,booktabs,array}
+\usepackage{caption}
+\captionsetup[table]{skip=6pt}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+% Publication-only layout. Scientific tokens remain in the generated source.
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{pdflscape}
+\usepackage{needspace}
+\usepackage{xurl}
+\usepackage{etoolbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+% Glyph fallback for the unchanged source command \setminus (U+29F5).
+\setmathfont[range=\setminus]{STIXTwoMath-Regular.otf}
+\setmathfont[range={\underbrace,\overbrace}]{STIXTwoMath-Regular.otf}
+\newcommand{\paperdoi}[1]{\begingroup\urlstyle{same}\href{https://doi.org/#1}{\nolinkurl{#1}}\endgroup}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5.5pt plus 1pt minus 1pt}
+\setlength{\emergencystretch}{2em}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\raggedbottom
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\titleformat{\section}{\normalfont\Large\bfseries}{}{0pt}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{18pt plus 4pt minus 2pt}{8pt}
+\titlespacing*{\subsection}{0pt}{12pt plus 3pt minus 2pt}{6pt}
+\let\oldsection\section
+\pretocmd{\section}{\Needspace{6\baselineskip}}{}{}
+\pretocmd{\subsection}{\Needspace{5\baselineskip}}{}{}
+\AtBeginDocument{\hypersetup{pdftitle={Exact Geometry of the Folded Tri-Octagon Module},
+ pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={Publication revision v1.0.1; scientific baseline v0.3.1; approved scope additions},
+ pdfkeywords={polyhedral surface, regular octagon, folded geometry, piecewise-linear surface, surface with boundary, dihedral angle, D3h symmetry, computational geometry, exact arithmetic},
+ pdfcreator={Pandoc 3.11 and Tectonic 0.17.0; publication build 2026-09-23}}}
+\makeatletter
+\def\@maketitle{%
+ \newpage\null\vskip 0.1em%
+ \begin{center}{\LARGE\bfseries\@title\par}\vskip 0.9em
+ {\large\@author\par}\vskip 0.2em
+ {\small\href{mailto:pzychozen@gmail.com}{pzychozen@gmail.com}\par}\vskip .4em{\small\@date\par}\end{center}%
+ \par\vskip 0.5em}
+\makeatother
+\newsavebox{\papereqbox}
+\newcommand{\paperdisplay}[2][]{%
+ \par\begingroup
+ \sbox{\papereqbox}{$\displaystyle #2$}%
+ \typeout{PAPER-EQUATION-WIDTH: \the\wd\papereqbox; available \the\linewidth; tag #1}%
+ \begin{equation*}
+ \ifdim\wd\papereqbox>.90\linewidth
+   \resizebox{.90\linewidth}{!}{\usebox{\papereqbox}}%
+ \else
+   \usebox{\papereqbox}%
+ \fi
+ \ifstrempty{#1}{}{\tag{#1}}%
+ \end{equation*}
+ \endgroup\par}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={Exact Geometry of the Folded Tri-Octagon Module},
+  pdfauthor={Hilmir Frímann Halldórsson},
+  colorlinks=true,
+  linkcolor={MidnightBlue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={MidnightBlue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Exact Geometry of the Folded Tri-Octagon Module}
+\author{Hilmir Frímann Halldórsson}
+\date{Publication revision v1.0.1 - 23 September 2026}
+
+\begin{document}
+\maketitle
+
+\section{Abstract}\label{abstract}
+
+Three identical regular octagons, each normalized to flat-to-flat width \(1\) (edge \(s=\sqrt2-1\)), admit an exact symmetric folded realization. The middle panel is held fixed; the two outer panels are attached along the middle panel\textquotesingle s vertical hinge edges in a reversed local orientation and rotated by a fold magnitude \(\beta=60^\circ\) about those hinges. The two free outer-panel edges then coincide, completing a third seam alongside the two prescribed hinges and producing a welded lateral shell with \(V=18\) vertices, \(E=21\) edges, and \(F=3\) octagonal faces, Euler characteristic \(\chi=0\), one connected component, three vertical seam edges, and \textbf{two open nine-edge boundary rims} (\(9s+9s\)). The shell is a connected, compact, orientable \(2\)-manifold with boundary and two boundary components; applying \(\chi=2-2g-b\) gives \(g=0\), so it is an \textbf{annulus (a sphere with two disjoint open discs removed)}, \textbf{not} a punctured torus --- the vanishing \(\chi\) alone does not classify it, and the boundary is the deciding datum. Every horizontal cross-section through the central band (\(|z|\le s/2\)) meets the shell in the \textbf{perimeter} of an equilateral triangle of side exactly \(1\) (the enclosed planar region, to which area/inradius/circumradius belong, is that filled triangle). The interior dihedral along each hinge is \(60^\circ\) and the angle between outward face normals is \(120^\circ\). The twelve chamfer boundary edges have exact \(45^\circ\) inclination to the horizontal, while the panel planes themselves are vertical. The spatial notch at each rim tip has tip angle \(\arccos(3/4)\approx41.4096^\circ\), distinct from its axial projection, which is equilateral and therefore \(60^\circ\). The exact Euclidean symmetry group of the welded shell surface is \(D_{3h}\) (order \(12\)). All coordinates and derived quantities are available in closed form.
+
+\clearpage
+
+\section{Scope and verification provenance}\label{scope-and-verification-provenance}
+
+This paper gives the exact closed-form geometry of a single rigid module: three identical regular octagonal panels welded along vertical hinge edges and folded into a \textbf{polyhedral surface with boundary} (informally, an open lateral shell). Everything is coordinates, lengths, and angles in closed form, independently recomputed from the construction. The width \(w=1\) is a \textbf{normalization only} and carries no physical meaning. The paper makes \textbf{no} physical, quantum-mechanical, particle, propulsion, memory-system, or symmetry-as-physics claim, and it does not use the historical "\(D_{24}\)" or "\(\mathbb Z_{24}\)" descriptions, which refer to different (concentric) constructions and are addressed only to separate them from the welded surface (§10).
+
+Authoritative construction input: \path{TRIOCTAGON_ACTUAL_GEOMETRY_SPEC_v0.2.md} and the width-1 verification package \path{verification/actual_geometry/width_1/}. The analytic results below are \textbf{supported} by \path{verification/paperC/paperC_geometry_audit_v0_2_1.py}, which executes \textbf{51 symbolic/combinatorial regression predicates across all 19 numbered coverage groups} the referee identified (no tautological or expected-minus-itself checks). These finite checks \textbf{supplement, but do not replace, the analytic proofs}: this is an execution count of finite predicates, not a count of independent theorems, and the general-angle closure solution family and the full \(D_{3h}\) upper bound remain analytic proofs (§§5, 9). See §10 and the companion \path{PAPER_C_PROOF_AUDIT_v0.2.2.md}, which separates analytic proof from executed regression from preserved historical validation.
+
+\section{1. Introduction}\label{introduction}
+
+The object of study is a single geometric module: a \textbf{folded three-octagon polyhedral surface with boundary} (informally, an open lateral \emph{shell}). It is built from three congruent regular octagonal panels of zero thickness, welded edge-to-edge along vertical hinge lines and folded so that their far edges meet. The polygonal construction is polyhedral {[}\hyperlink{ref-RS72}{RS72}, \hyperlink{ref-Cox73}{Cox73}{]}; §5 establishes that this particular object is a piecewise-linear surface with boundary (the polygon union alone does not establish the local manifold hypotheses --- those are verified for this object in §5). The result is a short open-ended prism-like band whose lateral wall is made of the three octagons. We take "surface" or "polyhedral surface" as the formal term and retain "shell" only where it aids readability.
+
+This welded realization is one specified geometric object within the broader Tri-Octagon research. The author\textquotesingle s later reference-scaffold clarification does not require the octagons to form a connected material surface. Paper D {[}\hyperlink{ref-PD}{PD}{]} formalizes that reference construction and its conditional coordinate comparison with the present module. The definitions and proofs here continue to concern the welded surface fixed by Sections 2-4.
+
+This paper does one thing: it states the construction unambiguously and derives, in closed form, every coordinate, length, angle, area, and topological invariant of the resulting mesh, then verifies each independently from the coordinates. Three cautions are built into the presentation from the start.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{The width is a normalization.} We set the octagon flat-to-flat width (equivalently the side of the central equilateral cross-section) to \(w=1\). This fixes a unit; it is \textbf{not} a physical scale, and nothing in this paper depends on the choice beyond overall scaling.
+\item
+  \textbf{Three distinct angles must not be conflated.} The \emph{fold magnitude} (\(\beta=60^\circ\), the rotation applied to each outer panel from its reversed stacked-flat start), the \emph{interior dihedral} (\(60^\circ\), the wedge angle between two adjacent panels measured inside the shell), and the \emph{outward-normal separation} (\(120^\circ\), the angle between the two outward face normals) are related but different quantities (§7).
+\item
+  \textbf{A spatial angle is not its projection.} The notch angle in \(3\)-space, \(\arccos(3/4)\), differs from the \(60^\circ\) one measures in the axial projection (§8).
+\end{itemize}
+
+Sections 2--4 fix the octagon, the hinged construction, and the exact coordinates. Sections 5--8 derive the topology, the central-band cross-section, the dihedral/normal relations, and the wall/notch geometry. Section 9 establishes the symmetry group; §10 records verification and separates the welded surface from older, different constructions; §§11--12 give limitations and the conclusion.
+
+\subsection{1.1 Relation to established results}\label{relation-to-established-results}
+
+The general tools used here are standard, and we cite them as background rather than as new results. Regular-polygon metric relations are elementary Euclidean geometry {[}\hyperlink{ref-Cox73}{Cox73}, \hyperlink{ref-Cox69}{Cox69}{]}; folding rigid polygonal panels about hinge/crease lines is the setting of geometric folding and rigid-origami theory {[}\hyperlink{ref-DO07}{DO07}, \hyperlink{ref-Tachi09}{Tachi09}{]}; the object is a polyhedral (piecewise-linear) surface with boundary {[}\hyperlink{ref-RS72}{RS72}{]}; the Euler characteristic and the classification of compact orientable surfaces with boundary via \(\chi=2-2g-b\) are standard topology {[}\hyperlink{ref-Massey91}{Massey91}, \hyperlink{ref-GX13}{GX13}, \hyperlink{ref-Hatcher02}{Hatcher02}{]}; the interior-dihedral / outward-normal angle conventions are standard Euclidean geometry {[}\hyperlink{ref-Cox73}{Cox73}{]}, and the Schoenflies point group \(D_{3h}\cong D_3\times C_s\) is standard point-group theory {[}\hyperlink{ref-Cotton90}{Cotton90}, \hyperlink{ref-AH94}{AH94}{]}; and exact/robust arithmetic for geometric predicates is the exact-computation paradigm of computational geometry {[}\hyperlink{ref-Yap97}{Yap97}, \hyperlink{ref-KMPSY08}{KMPSY08}, \hyperlink{ref-Shewchuk97}{Shewchuk97}{]}. In every case the cited source supplies the \emph{general} framework, terminology, or theorem; the hypotheses, coordinates, and results \textbf{for this specific surface are established here}.
+
+\subsection{1.2 Contribution (what is model-specific)}\label{contribution-what-is-model-specific}
+
+The contribution is \textbf{not} any of the standard background just listed --- not the regular-octagon formulas, the Euler characteristic, the surface-classification theorem, the vertex-link manifold criterion, the dihedral-angle convention, \(D_{3h}\) group theory, or the exact-arithmetic methodology. The model-specific contribution is the \textbf{exact closed-form construction and complete geometric characterization of this particular three-octagon polyhedral surface}, namely: the \(18\) exact welded vertices (§4); the general-\(\beta\) closure relation and its \(\beta=\tfrac{\pi}{3}\) solution (§5); the topology and annulus classification \emph{for this surface}, with its hypotheses verified (§5); the exact equilateral central section (§6); the exact interior-dihedral and outward-normal values (§7); the chamfer-edge geometry (§6); the spatial and projected notch geometry (§8); the rim/hexagon decomposition (§8); and the proof that the exact Euclidean symmetry group of this surface is \(D_{3h}\), with a matching upper bound (§9). A focused literature search did not locate a close precedent for this specific three-octagon polyhedral surface; its novelty is therefore left unresolved and \textbf{no priority claim is made}.
+
+\section{2. Normalization and the regular octagon}\label{normalization-and-the-regular-octagon}
+
+We work with a regular octagon of zero thickness, normalized so that its \textbf{flat-to-flat width} (the distance between a pair of opposite edges) is \(w=1\). To avoid the single most common error --- silently changing which measure is "the size" --- we distinguish four different size measures of a regular octagon and give each in closed form. Standard regular-polygon metric relations supply these identities {[}\hyperlink{ref-Cox73}{Cox73}{]}; we simply choose the normalization \(w=1\), under which the octagon edge is \(s=\sqrt2-1\). That value is elementary background under the chosen normalization, not a contribution.
+
+Let the octagon have edge length \(s\). For a regular octagon,
+\paperdisplay[]{
+w \;=\; (1+\sqrt2)\,s \qquad(\text{flat-to-flat width}).
+}
+Setting \(w=1\) gives the fundamental constant of the whole construction,
+\paperdisplay[]{
+\boxed{\,s=\sqrt2-1\,}\qquad\bigl(s=1/(1+\sqrt2),\ \ s(1+\sqrt2)=1\bigr).
+}
+The four measures, all in the \(w=1\) normalization:
+
+\begingroup\fontsize{9.3}{12}\selectfont\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.3}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2600}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.0750}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.4350}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2300}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Quantity
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Symbol
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Exact value
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Numerical
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+edge length & \(s\) & \(\sqrt2-1\) & \(0.41421356\ldots\) \\
+apothem (inradius, center→edge) & \(a\) & \(\tfrac12\) & \(0.5\) \\
+\textbf{flat-to-flat width} & \(w=2a\) & \(1\) & \(1\) \\
+vertex radius (circumradius, center→vertex) & \(R\) & \(\tfrac{s}{2}\sqrt{4+2\sqrt2}=\tfrac{(2-\sqrt2)\sqrt{2+\sqrt2}}{2}\) & \(0.54119610\ldots\) \\
+\end{longtable}
+}
+
+\endgroup
+
+The apothem follows from \(a=\tfrac{s}{2}\cot(\pi/8)=\tfrac{s}{2}(1+\sqrt2)=\tfrac12\), and the circumradius from \(R=\tfrac{s}{2}\csc(\pi/8)\). The interior angle at every vertex is \(135^\circ\). A quantity used repeatedly below is the \textbf{chamfer cutback}
+\paperdisplay[]{
+d=\frac{s}{\sqrt2}=1-\frac{\sqrt2}{2}=0.29289321\ldots,
+}
+the distance a \(45^\circ\) corner edge advances along each flat direction.
+
+\textbf{Local coordinates.} Place the octagon in a local frame \((u,z)\) with the two vertical flats at \(u=\pm\tfrac12\) and the two horizontal flats at \(z=\pm\tfrac12\); the four corners are chamfered by \(45^\circ\) cuts. The eight vertices, in the material order used throughout, are
+\paperdisplay[]{
+\begin{array}{llll}
+v_0=(-\tfrac12,\,-\tfrac{s}{2}), & v_1=(-\tfrac{s}{2},\,-\tfrac12), & v_2=(\tfrac{s}{2},\,-\tfrac12), & v_3=(\tfrac12,\,-\tfrac{s}{2}),\\[2pt]
+v_4=(\tfrac12,\,\tfrac{s}{2}), & v_5=(\tfrac{s}{2},\,\tfrac12), & v_6=(-\tfrac{s}{2},\,\tfrac12), & v_7=(-\tfrac12,\,\tfrac{s}{2}),
+\end{array}
+}
+where \(\tfrac{s}{2}=-\tfrac12+\tfrac{\sqrt2}{2}=\tfrac{\sqrt2-1}{2}\). All eight edges have length \(s\); the four edges \(v_0v_1,\,v_2v_3,\,v_4v_5,\,v_6v_7\) are the \(45^\circ\) chamfers. The two vertical edges \(v_3v_4\) (at \(u=\tfrac12\)) and \(v_7v_0\) (at \(u=-\tfrac12\)) are the \textbf{hinge edges}; each has length \(s\) and spans \(|z|\le s/2\).
+
+\section{3. The three-face hinged construction}\label{the-three-face-hinged-construction}
+
+Hinged rigid-panel constructions --- polygonal panels joined along hinge/crease lines and folded --- are standard objects in geometric folding and rigid-origami theory {[}\hyperlink{ref-DO07}{DO07}, \hyperlink{ref-Tachi09}{Tachi09}{]}. The three-octagon assembly studied here is the specific construction defined below; the cited works establish the general setting and vocabulary, not this assembly, its closure, or its properties.
+
+Take three congruent copies of the octagon of §2, labelled \(P_1\) (left), \(P_2\) (middle), \(P_3\) (right). Embed them in \(\mathbb R^3\) with coordinates \((x,y,z)\); the fold axis (prism axis) is \(z\), and folding happens in the \(xy\)-plane.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Stacked-flat reference.} All three panels start coplanar in the plane \(y=0\). The middle panel keeps its local orientation, \(P_2^{0}(u,z)=(u,\,0,\,z)\). The two outer panels start in the \textbf{reversed local-\(u\)} orientation, \(P_1^{0}(u,z)=P_3^{0}(u,z)=(-u,\,0,\,z)\); i.e. each outer panel is laid over the middle panel with its local \(u\)-axis reversed. (This reversed start is what makes the subsequent fold magnitude \(60^\circ\); see §7.)
+\item
+  \textbf{Fixed centre.} \(P_2\) is held fixed for the entire construction.
+\item
+  \textbf{Hinge attachment.} \(P_1\) is attached to the middle panel\textquotesingle s \textbf{left} vertical edge and \(P_3\) to its \textbf{right} vertical edge:
+  \paperdisplay[]{
+  H_1=\{(-\tfrac12,\,0,\,z):|z|\le s/2\},\qquad
+  H_2=\{(\tfrac12,\,0,\,z):|z|\le s/2\}.
+  }
+  Each hinge is a segment of length \(s\), shared over its full length before and after folding.
+\item
+  \textbf{Fold.} Rotate each outer panel about its hinge line (an axis parallel to \(z\)) by the fold magnitude \(\beta\), in opposite senses. With hinge feet \(c_1=(-\tfrac12,0,0)\) and \(c_2=(\tfrac12,0,0)\) and \(R_z(\cdot)\) the rotation about the \(z\)-direction,
+  \paperdisplay[]{
+  P_1^{\beta}=c_1+R_z(\beta)\,(P_1^{0}-c_1),\qquad
+  P_3^{\beta}=c_2+R_z(-\beta)\,(P_3^{0}-c_2).
+  }
+\item
+  \textbf{Fold magnitude.} Take \(\beta=60^\circ\). At this value the two far edges close (Theorem 2, §5) and the shell is complete.
+\end{enumerate}
+
+This is a kinematic description of the final configuration, not a claim of collision-free physical motion: the reversed stacked start overlaps the middle panel, and the intermediate stages intersect. No physical motion is asserted.
+
+\clearpage
+
+\section{4. Exact coordinate realization}\label{exact-coordinate-realization}
+
+Carrying out §3 with \(\beta=60^\circ\) gives the closed-form panel maps (derived directly from \(R_z(\pm60^\circ)\); independently verified in Appendix C):
+\paperdisplay[]{
+\begin{aligned}
+P_1'(u,z)&=\bigl(-\tfrac14-\tfrac{u}{2},\ \tfrac{\sqrt3}{4}-\tfrac{\sqrt3}{2}u,\ z\bigr),\\
+P_2'(u,z)&=(u,\ 0,\ z),\\
+P_3'(u,z)&=\bigl(\tfrac14-\tfrac{u}{2},\ \tfrac{\sqrt3}{4}+\tfrac{\sqrt3}{2}u,\ z\bigr).
+\end{aligned}
+}
+Each map is an isometry, so each placed panel is still a regular octagon with edges \(s\) and interior angles \(135^\circ\) (verified). Evaluating at the eight local vertices and welding coincident images gives the \textbf{18 welded vertices} of the shell. The exact table (zero-based welded index; material aliases showing the welds):
+
+\begingroup\fontsize{10.2}{13.5}\selectfont\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.3}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.0450}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2850}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2100}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2400}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2200}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedleft
+\(i\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+aliases
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(x\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(y\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(z\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0 & \(P_1.v_0=P_3.v_3\) & \(0\) & \(\tfrac{\sqrt3}{2}\) & \(\tfrac12-\tfrac{\sqrt2}{2}\) \\
+1 & \(P_1.v_1\) & \(-\tfrac12+\tfrac{\sqrt2}{4}\) & \(\tfrac{\sqrt6}{4}\) & \(-\tfrac12\) \\
+2 & \(P_1.v_2\) & \(-\tfrac{\sqrt2}{4}\) & \(\tfrac{\sqrt3}{2}-\tfrac{\sqrt6}{4}\) & \(-\tfrac12\) \\
+3 & \(P_1.v_3=P_2.v_0\) & \(-\tfrac12\) & \(0\) & \(\tfrac12-\tfrac{\sqrt2}{2}\) \\
+4 & \(P_1.v_4=P_2.v_7\) & \(-\tfrac12\) & \(0\) & \(-\tfrac12+\tfrac{\sqrt2}{2}\) \\
+5 & \(P_1.v_5\) & \(-\tfrac{\sqrt2}{4}\) & \(\tfrac{\sqrt3}{2}-\tfrac{\sqrt6}{4}\) & \(\tfrac12\) \\
+6 & \(P_1.v_6\) & \(-\tfrac12+\tfrac{\sqrt2}{4}\) & \(\tfrac{\sqrt6}{4}\) & \(\tfrac12\) \\
+7 & \(P_1.v_7=P_3.v_4\) & \(0\) & \(\tfrac{\sqrt3}{2}\) & \(-\tfrac12+\tfrac{\sqrt2}{2}\) \\
+8 & \(P_2.v_1\) & \(\tfrac12-\tfrac{\sqrt2}{2}\) & \(0\) & \(-\tfrac12\) \\
+9 & \(P_2.v_2\) & \(-\tfrac12+\tfrac{\sqrt2}{2}\) & \(0\) & \(-\tfrac12\) \\
+10 & \(P_2.v_3=P_3.v_0\) & \(\tfrac12\) & \(0\) & \(\tfrac12-\tfrac{\sqrt2}{2}\) \\
+11 & \(P_2.v_4=P_3.v_7\) & \(\tfrac12\) & \(0\) & \(-\tfrac12+\tfrac{\sqrt2}{2}\) \\
+12 & \(P_2.v_5\) & \(-\tfrac12+\tfrac{\sqrt2}{2}\) & \(0\) & \(\tfrac12\) \\
+13 & \(P_2.v_6\) & \(\tfrac12-\tfrac{\sqrt2}{2}\) & \(0\) & \(\tfrac12\) \\
+14 & \(P_3.v_1\) & \(\tfrac{\sqrt2}{4}\) & \(\tfrac{\sqrt3}{2}-\tfrac{\sqrt6}{4}\) & \(-\tfrac12\) \\
+15 & \(P_3.v_2\) & \(\tfrac12-\tfrac{\sqrt2}{4}\) & \(\tfrac{\sqrt6}{4}\) & \(-\tfrac12\) \\
+16 & \(P_3.v_5\) & \(\tfrac12-\tfrac{\sqrt2}{4}\) & \(\tfrac{\sqrt6}{4}\) & \(\tfrac12\) \\
+17 & \(P_3.v_6\) & \(\tfrac{\sqrt2}{4}\) & \(\tfrac{\sqrt3}{2}-\tfrac{\sqrt6}{4}\) & \(\tfrac12\) \\
+\end{longtable}
+}
+
+\endgroup
+
+The three outward-oriented octagonal faces are
+\paperdisplay[]{
+P_1=(0,1,2,3,4,5,6,7),\quad P_2=(3,8,9,10,11,12,13,4),\quad P_3=(10,14,15,0,7,16,17,11).
+}
+These coordinates are the primary object of the paper; renders and projection drawings are secondary and never override them.
+
+\clearpage
+
+\section{5. Mesh topology and boundary}\label{mesh-topology-and-boundary}
+
+The welds are exactly the three shared vertical edges (seams):
+\paperdisplay[]{
+\underbrace{P_1.v_3v_4=P_2.v_0v_7}_{H_1,\ x=-1/2},\quad
+\underbrace{P_2.v_3v_4=P_3.v_0v_7}_{H_2,\ x=1/2},\quad
+\underbrace{P_1.v_0v_7=P_3.v_3v_4}_{\text{apex},\ (0,\sqrt3/2)} .
+}
+
+\begin{quote}
+\textbf{Theorem 1 (topology).} The welded shell has
+\paperdisplay[]{
+F=3,\quad V=18,\quad E=21,\quad \chi=V-E+F=0,
+}
+one connected component, three seam edges (each shared by two faces), and \(18\) boundary edges forming \textbf{two disjoint nine-edge loops}.
+\end{quote}
+
+\textbf{Proof.} Three octagons carry \(3\times8=24\) material vertices and \(3\times8=24\) edges. Each of the three seams welds one vertical edge of one panel to one vertical edge of another; a vertical edge has two endpoints, so each seam merges two vertex pairs and one edge pair. Thus
+\paperdisplay[]{
+V=24-3\cdot2=18,\qquad E=24-3\cdot1=21,\qquad \chi=18-21+3=0 .
+}
+The three welds connect \(P_1\!-\!P_2\), \(P_2\!-\!P_3\), and \(P_1\!-\!P_3\), so the panel adjacency graph is connected: one component. Each panel has two vertical edges (both welded) and six non-vertical edges (unwelded); the \(3\times6=18\) unwelded edges are the boundary edges, each in exactly one face (the other \(3\) edges lie in two faces each). Tracing incidences, the boundary edges split by the sign of \(z\): the six vertices at \(z=+\tfrac12\) together with the three tips at \(z=+\tfrac{s}{2}\) form one nine-edge loop, and the mirror set at \(z<0\) forms the other. \(\blacksquare\)
+
+\begin{quote}
+\textbf{Theorem 2 (closure, general fold angle).} Let the fold magnitude range over \(0\le\beta\le\pi\), with the general-angle panel maps (derived by rotating the reversed start \((-u,0,z)\) about the hinge feet \(c_1,c_2\))
+\paperdisplay[]{\begin{gathered}
+P_1^\beta(u,z)=\Bigl(-\tfrac12+\bigl(\tfrac12-u\bigr)\cos\beta,\ \bigl(\tfrac12-u\bigr)\sin\beta,\ z\Bigr),\quad\\[4pt]
+P_3^\beta(u,z)=\Bigl(\tfrac12-\bigl(\tfrac12+u\bigr)\cos\beta,\ \bigl(\tfrac12+u\bigr)\sin\beta,\ z\Bigr).
+\end{gathered}}
+The two free outer edges (at \(u=-\tfrac12\) for \(P_1\), \(u=+\tfrac12\) for \(P_3\)) are
+\paperdisplay[]{
+F_1^\beta(z)=\bigl(-\tfrac12+\cos\beta,\ \sin\beta,\ z\bigr),\qquad
+F_3^\beta(z)=\bigl(\tfrac12-\cos\beta,\ \sin\beta,\ z\bigr),
+}
+so \(F_3^\beta(z)-F_1^\beta(z)=(1-2\cos\beta,\,0,\,0)\). On the domain \(0\le\beta\le\pi\) the unique closure is \(\beta=\tfrac{\pi}{3}\), giving the single seam
+\paperdisplay[]{
+F_1=F_3=\{(0,\tfrac{\sqrt3}{2},z):|z|\le s/2\}.
+}
+(For unrestricted real \(\beta\) the full solution set is \(\beta=2k\pi\pm\tfrac{\pi}{3}\), \(k\in\mathbb Z\); the \(-\tfrac{\pi}{3}\) branch gives the reflected configuration at \(y=-\tfrac{\sqrt3}{2}\).)
+\end{quote}
+
+\textbf{Proof.} Each \(P_i^\beta\) has orthonormal \(u,z\) derivative columns, hence is an isometric planar embedding, and fixes its hinge pointwise for \textbf{every} \(\beta\) (substituting \(u=\tfrac12\) in \(P_1^\beta\) gives \((-\tfrac12,0,z)=H_1\), and \(u=-\tfrac12\) in \(P_3^\beta\) gives \((\tfrac12,0,z)=H_2\)). The two free edges are parametrized by the \textbf{same} \(z\in[-\tfrac{s}{2},\tfrac{s}{2}]\), and their \(y\)-coordinates coincide identically (\(\sin\beta\)) while their \(z\)-coordinates agree pointwise; therefore the vanishing of the \(x\)-gap \(1-2\cos\beta\) is not merely a necessary condition but implies \textbf{full edge coincidence}. On \(0\le\beta\le\pi\), \(\cos\) is strictly decreasing, so \(1-2\cos\beta=0\) has the sole root \(\beta=\tfrac{\pi}{3}\) (where \(\cos\beta=\tfrac12\), \(\sin\beta=\tfrac{\sqrt3}{2}\)); the unrestricted-\(\beta\) family follows from periodicity and evenness of \(\cos\). At \(\beta=\tfrac{\pi}{3}\) the maps reduce to the printed \(P_1',P_3'\) of §4. \(\blacksquare\)
+
+The earlier draft\textquotesingle s "\(1-2\cos\beta\) vanishes iff \(\beta=60^\circ\)" was \textbf{false without a stated domain} (e.g. \(\beta=\tfrac{5\pi}{3}\) also closes, at \(y=-\tfrac{\sqrt3}{2}\)); the corrected statement fixes the fold-magnitude domain and establishes the \(y,z\) agreement that makes the zero \(x\)-gap a genuine coincidence.
+
+\begin{quote}
+\textbf{Theorem 1b (surface type).} The shell is a connected, compact, orientable \(2\)-manifold with boundary, with \(b=2\) boundary components; hence by \(\chi=2-2g-b\) it has genus \(g=0\) and is an \textbf{annulus/cylinder --- equivalently a sphere with two disjoint open discs removed.} It is not a torus, and not a punctured torus.
+\end{quote}
+
+\textbf{Proof.} The classification of compact orientable surfaces with boundary and the formula \(\chi=2-2g-b\) are standard {[}\hyperlink{ref-Massey91}{Massey91}, \hyperlink{ref-GX13}{GX13}{]}. For a two-dimensional simplicial triangulation, the standard PL surface criterion requires each vertex link to be a PL circle or a PL closed interval, corresponding respectively to interior and boundary vertices {[}\hyperlink{ref-RS72}{RS72}, Exercise 2.21(1){]}. These sources supply the general theorem and criterion; the actual vertex links and hypotheses \textbf{for this surface} are established here (below, every vertex link is an arc, so all \(18\) vertices are boundary vertices). The classification formula requires those hypotheses, which we verify before applying it.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Compact.} \(S\) is a finite union of closed bounded polygonal faces.
+\item
+  \textbf{Manifold with boundary (vertex links).} A point in a face interior has a disk neighbourhood. An interior point of a seam edge is shared by exactly two faces whose half-disks glue along the seam into a full disk (the nonzero dihedral is not a topological singularity). An interior point of a boundary edge (one face) has a half-disk neighbourhood. At each vertex the link is a single arc (interval): the \(12\) single-panel vertices have a one-edge link, and at each of the six seam-endpoint vertices (\(0,3,4,7,10,11\)) the two incident face-corners share the seam edge, giving a three-vertex/two-edge link path --- an interval, not a branching or disconnected link. So every point has a neighbourhood homeomorphic to a disk or half-disk: a manifold with boundary. The face planes meet only along their seam corner-lines (no spurious intersections), so \(S\) is embedded.
+\item
+  \textbf{Connected.} The face-adjacency graph is a triangle (\(P_1\!-\!P_2\!-\!P_3\!-\!P_1\)); the \(1\)-skeleton is connected.
+\item
+  \textbf{Orientable.} The three face cycles traverse every shared seam edge in \textbf{opposite} directions, so they induce a coherent orientation.
+\item
+  \textbf{Boundary.} \(b=2\): the two nine-edge rims of Theorem 1, each a degree-two cycle, one wholly at \(z>0\) and one wholly at \(z<0\).
+\end{itemize}
+
+Only now apply \(\chi=2-2g-b\): \(0=2-2g-2\) gives \(g=0\). A genus-\(0\) surface with two boundary circles is an annulus/cylinder, i.e. a sphere with two disjoint open discs removed. \(\blacksquare\)
+
+\textbf{Open lateral shell, deciding datum.} The vanishing \(\chi\) does \textbf{not} by itself indicate a torus: a torus is the \emph{closed} (\(b=0\)) genus-\(1\) surface, whereas a torus with two open discs removed has \(g=1,b=2,\chi=-2\ne0\). The boundary count is what distinguishes the cases. The shell is exactly the three side walls of a triangular prism-like band with both ends open; no cap faces close the two rims.
+
+\section{6. Central-band geometry}\label{central-band-geometry}
+
+\begin{quote}
+\textbf{Theorem 3 (principal cross-section).} Let \(T\) be the \textbf{filled} equilateral triangle with corners
+\paperdisplay[]{
+C_1=(-\tfrac12,0),\quad C_2=(\tfrac12,0),\quad C_3=(0,\tfrac{\sqrt3}{2}).
+}
+For every height \(|z_0|\le s/2\), the shell meets the plane \(z=z_0\) in the \textbf{triangle perimeter},
+\paperdisplay[]{
+S\cap\{z=z_0\}=\partial T\times\{z_0\},
+}
+a closed curve of three unit segments and zero planar area. The \textbf{enclosed} planar region is \(T\), with side exactly \(1\), altitude \(\tfrac{\sqrt3}{2}\), area \(\tfrac{\sqrt3}{4}\), inradius \(\tfrac{\sqrt3}{6}\), and circumradius \(\tfrac{\sqrt3}{3}\); these belong to \(T\), not to the zero-thickness section curve.
+\end{quote}
+
+\textbf{Proof.} For \(|z_0|\le s/2\) each panel is full-width there (the section cuts the central rectangular band of each octagon, between its chamfers). Panel \(P_2\) contributes the segment \([C_1,C_2]\); the folded panels \(P_1,P_3\) contribute \([C_3,C_1]\) and \([C_2,C_3]\), where \(C_3=(0,\tfrac{\sqrt3}{2})\) is the closed far seam of Theorem 2. Their union is \(\partial T\). The interior point \((0,\tfrac{\sqrt3}{6},z_0)\) (the centroid) lies in \(T\) but is \textbf{not} on \(S\), confirming the section is the boundary curve, of planar measure zero --- not a filled region. The side lengths \(|C_1C_2|=|C_2C_3|=|C_3C_1|=1\) follow from the coordinates; the altitude is the point-to-line distance from \(C_3\) to \(C_1C_2\), the area the shoelace value \(\tfrac{\sqrt3}{4}\), and the inradius/circumradius the area-over-semiperimeter and \(abc/4A\) values --- all computed from the corner coordinates. \(\blacksquare\)
+
+\textbf{Central-band height.} The band of each octagon between its upper and lower chamfers spans \(|z|\le s/2\), so its height is
+\paperdisplay[]{
+2\cdot\tfrac{s}{2}=s=\sqrt2-1 .
+}
+This is the length of each hinge/seam edge and the height of the equilateral-section region.
+
+\textbf{\(45^\circ\) chamfer-edge inclination.} Above the band (\(s/2<|z|\le\tfrac12\)) each panel narrows through its four \(45^\circ\) chamfer edges. In local coordinates a chamfer edge advances equal amounts \(d=\tfrac{s}{\sqrt2}\) along \(u\) and along \(z\) (slope \(1\)). Folding is a rotation about a \(z\)-axis and preserves \(z\), so every folded chamfer boundary edge still has equal vertical rise and horizontal run,
+\paperdisplay[]{
+|\Delta z|=\sqrt{\Delta x^2+\Delta y^2}=d,
+}
+i.e. \textbf{exact \(45^\circ\) inclination to the horizontal} (verified for all twelve chamfer edges). This is an \emph{edge} inclination: each panel plane is itself \textbf{vertical} (its normal has zero \(z\)-component), so its plane inclination to the horizontal is \(90^\circ\), not \(45^\circ\); and the virtual notch plane (§8) has yet another inclination, \(\arctan(2/\sqrt3)\). We therefore say "\(45^\circ\) chamfer-edge inclination," never "\(45^\circ\) wall."
+
+\section{7. Dihedral and normal-angle relations}\label{dihedral-and-normal-angle-relations}
+
+The interior-dihedral and outward-normal angle conventions used here --- the interior wedge between two faces, and its supplement, the angle between outward face normals --- are standard {[}\hyperlink{ref-Cox73}{Cox73}, §10.7{]}. The convention is background; the specific values \(60^\circ\) and \(120^\circ\) below come from this surface\textquotesingle s coordinates (§4), not from the literature.
+
+Three angles occur here and must be kept separate.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Fold magnitude \(\beta=60^\circ\).} This is the rotation applied to each outer panel about its hinge, measured from the \textbf{reversed stacked-flat start} (§3). The reversed start places the outer panel\textquotesingle s far-edge direction antiparallel to the middle panel (at \(180^\circ\) in the \(xy\)-plane, relative to the outward middle direction); a rotation of \(\beta=60^\circ\) brings it to the closed apex. Equivalently, measured from the \emph{unfolded coplanar} configuration (outer panel co-directional with the middle panel, at \(0^\circ\)), the rotation about the hinge is \(180^\circ-60^\circ=120^\circ\). The magnitude "\(\pm60^\circ\)" names the fold from the reversed start, and this is why the reversed local-\(u\) orientation is part of the construction.
+\item
+  \textbf{Interior dihedral \(=60^\circ\).} Along each hinge the two adjacent panels meet at an interior wedge angle --- the angle, measured inside the shell, between the two half-planes. This equals the interior angle of the equilateral cross-section, \(60^\circ\).
+\item
+  \textbf{Outward-normal separation \(=120^\circ\).} The angle between the two outward face normals is the supplement of the interior dihedral, \(180^\circ-60^\circ=120^\circ\).
+\end{itemize}
+
+\begin{quote}
+\textbf{Theorem 4 (dihedral/normal).} Let \(n_1,n_2,n_3\) be the outward unit normals of \(P_1,P_2,P_3\). For each adjacent pair,
+\paperdisplay[]{
+n_i\cdot n_j=-\tfrac12,\qquad\text{so the outward normals separate by }120^\circ,
+}
+and the interior dihedral along each hinge is the supplement, \(60^\circ\).
+\end{quote}
+
+\textbf{Proof.} From the coordinates of §4, the outward normals are (up to the common orientation away from the prism axis through \((0,\tfrac{\sqrt3}{6})\))
+\paperdisplay[]{
+n_2=(0,-1,0),\quad n_1=(-\tfrac{\sqrt3}{2},\tfrac12,0),\quad n_3=(\tfrac{\sqrt3}{2},\tfrac12,0),
+}
+each pair having dot product \(-\tfrac12\). The interior wedge is measured between the inward rays and equals \(\arccos(\tfrac12)=60^\circ\), the supplement of \(\arccos(-\tfrac12)=120^\circ\). \(\blacksquare\)
+
+The earlier request, in the pre-normalization history, for a "\(120^\circ\) interior dihedral" is an angle-convention statement: \(120^\circ\) is the outward-normal separation, and the interior dihedral is its supplement \(60^\circ\). No geometry differs; only the label. This paper reports the interior dihedral as \(60^\circ\) and the normal separation as \(120^\circ\), consistently.
+
+\section{8. Chamfer notch and rim geometry}\label{chamfer-notch-and-rim-geometry}
+
+Above each rim tip the two flanking chamfer edges form a spatial \textbf{notch}. Take the upper apex tip \(A=V_7=(0,\tfrac{\sqrt3}{2},\tfrac{s}{2})\) and its two actual boundary neighbours \(B=V_6\) and \(C=V_{16}\) (the high vertices at \(z=\tfrac12\)). The two incident boundary-edge vectors, computed exactly as differences of the §4 coordinates, are
+\paperdisplay[]{
+e_1=B-A=d\bigl(-\tfrac12,-\tfrac{\sqrt3}{2},1\bigr),\qquad
+e_2=C-A=d\bigl(\tfrac12,-\tfrac{\sqrt3}{2},1\bigr),\qquad d=\tfrac{s}{\sqrt2}.
+}
+
+\begin{quote}
+\textbf{Theorem 5 (notch).} Each notch is a triangle with side lengths \(s,s,d\), tip angle
+\paperdisplay[]{
+\alpha_{\mathrm{notch}}=\arccos\!\Bigl(\tfrac34\Bigr)\approx41.4096221093^\circ,
+}
+and base angles \(\arccos\!\bigl(\tfrac{\sqrt2}{4}\bigr)=\tfrac{\pi-\arccos(3/4)}{2}\approx69.2951889454^\circ\). Its \textbf{axial projection} (dropping the \(z\)-component) is an equilateral triangle of side \(d\) with \(60^\circ\) angles. The notch plane meets the horizontal at \(\arctan(2/\sqrt3)\approx49.1066053509^\circ\), and the areas are
+\paperdisplay[]{
+A_{\mathrm{notch,\,spatial}}=\tfrac{\sqrt7}{8}\,s^2,\qquad
+A_{\mathrm{notch,\,projected}}=\tfrac{\sqrt3}{8}\,s^2 .
+}
+\end{quote}
+
+\textbf{Proof.} From the exact vectors above,
+\paperdisplay[]{\begin{gathered}
+|e_1|^2=|e_2|^2=d^2\bigl(\tfrac14+\tfrac34+1\bigr)=2d^2=s^2,\qquad\\[3pt]
+e_1-e_2=(-d,0,0),\qquad\\[3pt]
+e_1\cdot e_2=d^2\bigl(-\tfrac14+\tfrac34+1\bigr)=\tfrac32 d^2=\tfrac34 s^2,
+\end{gathered}}
+so the two legs have length \(s\), the base \(|e_1-e_2|=d\), and the tip cosine is \(\dfrac{e_1\cdot e_2}{|e_1||e_2|}=\dfrac{3}{4}\). The base angle is computed directly (not inferred from the angle sum): at \(B\) the incident notch edges are \(-e_1\) (toward \(A\)) and \(e_2-e_1\) (toward \(C\)), and
+\paperdisplay[]{
+\frac{(-e_1)\cdot(e_2-e_1)}{s\,d}=\frac{\sqrt2}{4}=\sin\!\tfrac{\alpha_{\mathrm{notch}}}{2},
+}
+symmetrically at \(C\); both base angles are the unique acute \(\arccos(\tfrac{\sqrt2}{4})\). Dropping \(z\) gives \(e_1^\perp=d(-\tfrac12,-\tfrac{\sqrt3}{2})\), \(e_2^\perp=d(\tfrac12,-\tfrac{\sqrt3}{2})\) with \(|e_1^\perp|=|e_2^\perp|=|e_1^\perp-e_2^\perp|=d\): the projection is equilateral, all \(60^\circ\). The cross product \(e_1\times e_2=d^2(0,1,\tfrac{\sqrt3}{2})\) gives \(A_{\mathrm{spatial}}=\tfrac12|e_1\times e_2|=\tfrac{\sqrt7}{4}d^2=\tfrac{\sqrt7}{8}s^2\) and \(A_{\mathrm{projected}}=\tfrac12|e_1^\perp\times e_2^\perp|=\tfrac{\sqrt3}{4}d^2=\tfrac{\sqrt3}{8}s^2\); its normal \((0,1,\tfrac{\sqrt3}{2})\) has horizontal-to-vertical component ratio \(2/\sqrt3\), so the notch-plane inclination is \(\arctan(2/\sqrt3)\). \(\blacksquare\)
+
+(The earlier draft\textquotesingle s displayed "\(e_1\)-type" vector was not an incident edge difference --- for that vector \(|v|^2-s^2=s/4\ne0\); the exact vectors above replace it. The notch identities themselves are unchanged.)
+
+\textbf{Spatial angle \(\ne\) projected angle.} This is the key distinction: the true three-dimensional notch angle is \(\arccos(3/4)\approx41.41^\circ\), while its shadow in the axial (\(xy\)) plane is the equilateral \(60^\circ\). A drawing that shows only the axial projection therefore reads \(60^\circ\) and hides the actual \(41.41^\circ\) spatial opening. The notch plane meets the horizontal at \(\arctan(2/\sqrt3)\approx49.1066^\circ\).
+
+\textbf{Rim decomposition (curve vs enclosed region).} Each open rim is a nonplanar nine-edge \textbf{closed curve} of edge length \(s\), perimeter \(9s\); it is not contained in the plane \(z=\pm\tfrac12\) (its corner tips sit at \(z=\pm\tfrac{s}{2}\)). Its axial \textbf{projection} is the perimeter of the triangle \(T\), each side split \(d,s,d\) (with \(2d+s=1\)) --- again a curve of zero planar area. The associated \textbf{enclosed} projected regions decompose \(T\): the six high rim vertices, in cyclic order \((5,6,16,17,12,13)\), bound a central equiangular hexagon (six \(120^\circ\) angles, sides alternating \(s,d\)), and the three corners of \(T\) are cut off by the three projected notch triangles (equilateral, side \(d\); disjoint interiors since \(0<d<\tfrac12\)). The hexagon area, by shoelace and equivalently by removing the three corner triangles, is
+\paperdisplay[]{
+A_{\mathrm{hexagon}}=\tfrac{\sqrt3}{4}\bigl(1-3d^2\bigr)=\tfrac{\sqrt3(3+4\sqrt2)}{8}s^2=-\tfrac{7\sqrt3}{8}+\tfrac{3\sqrt6}{4},
+}
+and the partition of the enclosed region is exact:
+\paperdisplay[]{
+A_{\mathrm{hexagon}}+3\,A_{\mathrm{notch,\,projected}}=\tfrac{\sqrt3}{4}=A_{T}.
+}
+These are \textbf{virtual enclosed measurement regions}, not mesh or cap faces: the rim curve itself has planar area zero, and the shell has no caps. The lower rim follows by the reflection \(z\mapsto-z\).
+
+In Paper D\textquotesingle s aligned measurement family, these six high vertices give the member with connector length \(g_{\mathrm{gap}}=d=s/\sqrt2\) {[}\hyperlink{ref-PD}{PD}{]}. Its equiangular hexagon has alternating lengths \(s,d\) and is not the equal-sided member. Paper D, Sections 12-14, distinguishes that planar measurement polygon from this nonplanar nine-edge rim and describes two changes that reach the equal-sided member. Neither is a common rescaling of this welded module. In the fixed-vertical-face-centre shrink of the original width-one module, the six measurement sides become \(1/3\), the octagon width becomes \((1+\sqrt2)/3\), and the top height becomes \((1+\sqrt2)/6\); the original seams are lost. Those consequences do not change the width-one definition, rim or mesh of the present paper.
+
+\section{9. Symmetry}\label{symmetry}
+
+\(D_{3h}\) is a standard Schoenflies point group: order \(12\), with a \(C_3\) principal axis, three \(C_2'\) axes, three vertical mirror planes \(\sigma_v\), a horizontal mirror plane \(\sigma_h\), and two \(S_3\) operations, and \(D_{3h}\cong D_3\times C_s\) {[}\hyperlink{ref-Cotton90}{Cotton90}, \hyperlink{ref-AH94}{AH94}{]}. That is the group\textquotesingle s standard description and terminology. The theorem below is the separate, model-specific statement that \textbf{this particular surface realizes exactly \(D_{3h}\)}; it is proved here by a lower bound (twelve exhibited symmetries) and a matching upper bound, not quoted from the group tables.
+
+\begin{quote}
+\textbf{Theorem 6 (symmetry group).} The Euclidean symmetry group of the unlabelled welded surface \(S\) (equivalently of its geometric face complex) is \(\operatorname{Sym}(S)=D_3\times C_s\cong D_{3h}\), of order \(12\).
+\end{quote}
+
+\textbf{Proof --- lower bound (twelve symmetries).} Three generators, each an isometry mapping the three octagonal \textbf{faces} (each the convex hull of its vertex cycle) onto faces:
+
+\begin{itemize}
+\tightlist
+\item
+  \(C_3\): rotation by \(120^\circ\) about the vertical axis through the cross-section centroid \((0,\tfrac{\sqrt3}{6})\). It cyclically permutes the panels and the seams \(C_1\to C_2\to C_3\to C_1\).
+\item
+  \(\sigma_v\): reflection through \(x=0\); fixes \(P_2\) and swaps \(P_1\leftrightarrow P_3\).
+\item
+  \(\sigma_h\): reflection through \(z=0\); swaps the top and bottom rims (each octagon is symmetric about \(z=0\)).
+  Since each generator maps each octagon\textquotesingle s vertex cycle onto another octagon\textquotesingle s vertex cycle and a face is the convex hull of its cycle, the generators map \textbf{whole faces} to faces (and edges to edges). \(\langle C_3,\sigma_v\rangle\cong D_3\) (order \(6\)); adjoining \(\sigma_h\), which commutes with both, gives \(D_3\times\{E,\sigma_h\}=D_{3h}\) of order \(12\), elements \(\{E,2C_3,3\sigma_v,\sigma_h,2S_3,3C_2'\}\), with \(S_3=\sigma_h C_3\).
+\end{itemize}
+
+\textbf{Proof --- upper bound (no further symmetries).} In the topological interior of \(S\) the points lacking a flat (planar) neighbourhood are exactly the interiors of the three non-flat seams (face interiors are flat; a two-face seam wedge is not; the embedding argument of Theorem 1b excludes any other coincidences). These three intrinsic crease components close to three \textbf{equal, parallel, vertical segments} \(K_i=\{(C_i,z):|z|\le\tfrac{s}{2}\}\). Any Euclidean symmetry of \(S\) must permute \(\{K_1,K_2,K_3\}\); hence it preserves their common (unoriented) vertical direction and fixes their midpoint centroid \(O_c=(0,\tfrac{\sqrt3}{6},0)\). In coordinates centred at \(O_c\) it therefore has the block form \((r,z)\mapsto(Br,\varepsilon z)\) with \(B\in O(2)\), \(\varepsilon\in\{+1,-1\}\). The three midpoint footprints form an equilateral triangle, so \(B\) is one of its six planar dihedral symmetries; \(\varepsilon\) is independent. Thus \(|\operatorname{Sym}(S)|\le 6\times2=12\). The twelve maps above are distinct and all preserve \(S\), so the bounds meet:
+\paperdisplay[]{
+\operatorname{Sym}(S)=D_3\times C_s\cong D_{3h},\qquad |\operatorname{Sym}(S)|=12. \qquad\blacksquare
+}
+
+This is the symmetry of the unlabelled surface/face complex (panel permutation allowed), not a claim that material labels are fixed. The \textbf{finite 18-vertex set} has the same group here, but by its own argument, not automatically: its centroid is \(O_c\) and its covariance matrix in centred coordinates is \(\operatorname{diag}\bigl(\tfrac{1+s^2}{12},\tfrac{1+s^2}{12},\tfrac{2+s^2}{12}\bigr)\), whose distinct vertical eigenvalue forces every vertex-set symmetry to preserve the vertical axis; the six vertices at \(|z|=\tfrac{s}{2}\) (footprints \(C_1,C_2,C_3\)) then give the same \(6\times2\) bound, and the twelve maps realize it. The group is \(D_{3h}\), not a higher cyclic or dihedral group, and specifically \textbf{not} the historical \(D_{24}\) (see §10). The independent audit confirms \(C_3^3=\mathrm{id}\) pointwise, \(C_3\ne\mathrm{id}\), \(\sigma_v^2=\sigma_h^2=\mathrm{id}\), the conjugation \(\sigma_vC_3\sigma_v=C_3^{-1}\), the commutation \(\sigma_hC_3=C_3\sigma_h\), and the face/edge permutation action (§10, Appendix C).
+
+The upper-bound argument above uses the three intrinsic crease components of the welded surface. It therefore remains tied to that surface and is not transferred by name to separated panels or reference frames. Paper D {[}\hyperlink{ref-PD}{PD}{]}, Section 10, distinguishes the \(D_6\) symmetry of an unmarked regular planar hexagon from its \(D_3\) edge/connector-role symmetry; these are symmetries of different objects from the welded surface studied here.
+
+\section{10. Verification and historical separation}\label{verification-and-historical-separation}
+
+Exact arithmetic and robust geometric predicates are standard tools for avoiding floating-point ambiguity in computational geometry {[}\hyperlink{ref-Yap97}{Yap97}, \hyperlink{ref-KMPSY08}{KMPSY08}, \hyperlink{ref-Shewchuk97}{Shewchuk97}{]}; the verification here uses exact symbolic arithmetic in that spirit. These references support the \emph{methodology}, not the specific predicate suite. The verification is stated in three cleanly separated registers (see \path{PAPER_C_PROOF_AUDIT_v0.2.2.md}): \textbf{analytic proofs} (Theorems 1, 1b, 2--6, in the text), \textbf{executed regression predicates} (finite symbolic/combinatorial checks), and \textbf{preserved historical/export validation} (the read-only width-1 package). These are not merged into a single "check count."
+
+\textbf{Executed regression (this paper).} \path{verification/paperC/paperC_geometry_audit_v0_2_1.py} reconstructs the shell from the octagon and the general-angle fold transforms and executes \textbf{51 predicates, all PASS, spanning all 19 numbered coverage groups}. These finite checks \textbf{supplement} the analytic proofs; they do not replace them. Described faithfully by what each predicate actually executes:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{(1--2)} apothem as support-line distance and the circumradius radical chain; octagon area by shoelace with the identity chain \(4as=2(1+\sqrt2)s^2=8(\sqrt2-1)a^2=2(\sqrt2-1)w^2\) and refutation of the bad apothem formula.
+\item
+  \textbf{(3)} symbolic free-edge gap and \(y,z\) agreement; the exact restricted solve on \([0,\pi]\) (unique \(\beta=\tfrac\pi3\)); and finite checks at two closing-angle representatives and one non-closing angle. \textbf{The complete unrestricted solution family is proved analytically in Theorem 2.}
+\item
+  \textbf{(4)} hinges fixed for all \(\beta\) (symbolic) and map isometry.
+\item
+  \textbf{(5)} connectivity of the \(1\)-skeleton and panel-adjacency triangle.
+\item
+  \textbf{(6)} interval vertex links and edge incidence.
+\item
+  \textbf{(7)} coherent orientation via each directed edge used once and each seam traversed oppositely.
+\item
+  \textbf{(8)} Euler characteristic, two degree-two boundary components, and the genus arithmetic \(g=(2-b-\chi)/2=0\) --- \textbf{used alongside} the analytic manifold/orientability/boundary proof of Theorem 1b (the surface hypotheses themselves are proved there, not asserted by these counts).
+\item
+  \textbf{(9)} projected endpoint comparisons for \(P_1\) and \(P_2\), centroid exclusion (the section is a curve, not a region), and width-formula evaluations at \(z=h\) and \(z=a\). \textbf{The quantified all-height cross-section and the maximal-band statement are proved analytically in §6.}
+\item
+  \textbf{(10--12)} coordinate-derived triangle altitude (point-to-line), shoelace area, inradius, and circumradius.
+\item
+  \textbf{(13)} the co-directional-strip \(120^\circ\) rotation reproducing the final \(P_1'\).
+\item
+  \textbf{(14--16)} the exact notch vectors, tip cosine \(\tfrac34\), derived base cosine \(\tfrac{\sqrt2}{4}\), three projected sides \(=d\), plane inclination \(\arctan(2/\sqrt3)\), and spatial/projected areas.
+\item
+  \textbf{(17)} the hexagon\textquotesingle s alternating sides, six \(120^\circ\) angle cosines, exact area, and the partition identity \(A_{\mathrm{hex}}+3A_{\mathrm{notch,proj}}=\tfrac{\sqrt3}{4}\).
+\item
+  \textbf{(18--19)} \(C_3^3=\mathrm{id}\) pointwise, \(C_3\ne\mathrm{id}\), reflection squares, the \(D_3\) conjugation and \(\sigma_h\)-commutation relations, and the face/edge permutation action of each generator.
+\item
+  plus the regression against the authoritative spec welded-coordinate table.
+\end{itemize}
+
+Every predicate executes a real computation on reconstructed data --- \textbf{no literal-\path{True} and no expected-minus-itself checks}. The suite does \textbf{not} by itself prove the complete closure family, the quantified all-\(z\) section / maximal-band statement, the interior-dihedral theorem, the boundary sign separation, the chamfer-edge theorem, or the full \(D_{3h}\) upper bound; each of those is the analytic argument of §§5--9 (finite sampling does not prove them). The v0.1 harness, by contrast, advertised "46/46 independent checks" but contained \(3\) tautological and \(10\) weak predicates and left \(19\) coverage groups untested; that claim is withdrawn.
+
+\textbf{Preserved historical/export validation.} The read-only width-1 package records \textbf{26 construction entries and 46 export-validation predicates}. Of the 26 construction entries, \textbf{24 execute conditions and two are informational PASS records} (a printed dihedral cosine and a printed closure-gap expression, each without a comparison; the value is tested by a neighbouring record). The export validator reads the serialized OBJ/CSV/JSON \textbf{without importing the builder}, but its predicates overlap in purpose: they combine direct numerical geometry checks, exact scaling/serialization consistency, metadata/status validation (one predicate merely reads the 26 builder statuses), and archive-hash preservation. They are \textbf{not 72 mathematically independent confirmations}; the total is a useful, partly overlapping record set, and its historical files are unchanged.
+
+\textbf{Historical separation (brief).} The welded folded shell of this paper is a specific object and should not be conflated with older, different constructions:
+
+\begin{itemize}
+\tightlist
+\item
+  Concentric three-octagon "\(\mathbb Z_{24}\)/\(D_{24}\)" pictures are \emph{not} this welded shell; they describe a different (nested, planar) arrangement and a different symmetry label. The symmetry group established here is \(D_{3h}\) (§9).
+\item
+  The folded shell has \textbf{18 actual welded vertices}, not a uniform \(24\)-point angular lattice; the count follows from the three seam welds (§5).
+\item
+  Earlier projection drawings (which show the \(60^\circ\) axial notch and the concentric outline) do not override the exact coordinates of §4; where a projection and the coordinates disagree, the coordinates govern. This is recorded to keep the labels straight, not to dispute the older diagrams as diagrams.
+\end{itemize}
+
+\section{11. Limitations}\label{limitations}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{The unit width is a normalization, not a physical scale.} All lengths scale uniformly with the chosen unit; no metric, material, or physical dimension is attached.
+\item
+  \textbf{Zero thickness.} Panels are ideal zero-thickness polygons; no material, offset, or self-intersection-avoiding motion is modelled. The stacked-flat start overlaps, and intermediate fold stages intersect; no collision-free physical folding is asserted.
+\item
+  \textbf{Open shell, no volume.} The shell has two open rims; no enclosed volume is assigned.
+\item
+  \textbf{No inner geometry.} Only the three-panel outer shell is treated. Any inner mechanism is out of scope.
+\item
+  \textbf{No physical/interpretive content.} No quantum, particle, propulsion, spacetime, memory-system, or symmetry-as-physics claim is made or implied; the geometry stands alone.
+\end{itemize}
+
+\section{12. Conclusion}\label{conclusion}
+
+Three regular octagonal panels, each normalized to flat-to-flat width \(1\) (edge \(s=\sqrt2-1\)), admit an exact symmetric folded realization whose welded lateral shell has \(V=18\), \(E=21\), \(F=3\), Euler characteristic \(0\), one connected component, three vertical seams, and \textbf{two open nine-edge boundaries} (\(9s\) each). As a connected, compact, orientable \(2\)-manifold with boundary and two boundary components, it has genus \(0\) and is an \textbf{annulus --- a sphere with two disjoint open discs removed} --- not a closed polyhedron and not a (punctured) torus: the boundary is the deciding datum. Every horizontal section through the central band meets the shell in the \textbf{perimeter} of an equilateral triangle of side exactly \(1\) (area, inradius, and circumradius belong to the enclosed filled triangle, not to the section curve); the interior dihedral is \(60^\circ\) and the outward-normal separation is \(120^\circ\); the twelve chamfer boundary edges have exact \(45^\circ\) inclination to the horizontal while the panel planes are vertical; the spatial notch angle is \(\arccos(3/4)\approx41.4096^\circ\), distinct from its equilateral \(60^\circ\) axial projection; and the exact Euclidean symmetry group of the surface is \(D_{3h}\), established with both a twelve-element realization and a matching upper bound. All coordinates and derived angles are available in closed form. The analytic results are supported by \(51\) executed symbolic/combinatorial regression predicates spanning \(19\) numbered coverage groups; these finite checks supplement, but do not replace, the analytic proofs. No physical interpretation is claimed.
+
+\Needspace{8\baselineskip}
+
+\section{\texorpdfstring{Appendix A --- Exact dimension table (normalization \(w=1\))}{Appendix A --- Exact dimension table (normalization w=1)}}\label{appendix-a-exact-dimension-table-normalization-w1}
+
+\begingroup\fontsize{9.3}{12}\selectfont\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.3}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4300}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3000}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2700}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Quantity
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Exact
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Numerical
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+octagon edge \(s\) & \(\sqrt2-1\) & \(0.414213562373095\) \\
+flat-to-flat width \(w\) & \(1\) & \(1\) \\
+apothem & \(\tfrac12\) & \(0.5\) \\
+circumradius \(R\) & \(\tfrac{(2-\sqrt2)\sqrt{2+\sqrt2}}{2}\) & \(0.541196100146197\) \\
+chamfer cutback \(d\) & \(1-\tfrac{\sqrt2}{2}\) & \(0.292893218813452\) \\
+hinge / seam length & \(\sqrt2-1\) & \(0.414213562373095\) \\
+central-band height & \(\sqrt2-1\) & \(0.414213562373095\) \\
+principal equilateral side & \(1\) & \(1\) \\
+principal equilateral altitude & \(\tfrac{\sqrt3}{2}\) & \(0.866025403784439\) \\
+principal equilateral inradius & \(\tfrac{\sqrt3}{6}\) & \(0.288675134594813\) \\
+principal equilateral circumradius & \(\tfrac{\sqrt3}{3}\) & \(0.577350269189626\) \\
+interior dihedral & \(60^\circ\) & \(60\) \\
+outward-normal separation & \(120^\circ\) & \(120\) \\
+chamfer-edge inclination to horizontal & \(45^\circ\) & \(45\) \\
+panel-plane inclination to horizontal & \(90^\circ\) & \(90\) \\
+notch tip angle & \(\arccos(3/4)\) & \(41.4096221093\) \\
+notch base angles & \(\tfrac{\pi-\arccos(3/4)}{2}\) & \(69.2951889454\) \\
+notch plane vs horizontal & \(\arctan(2/\sqrt3)\) & \(49.1066053509\) \\
+rim perimeter (each) & \(9(\sqrt2-1)\) & \(3.72792206135786\) \\
+total boundary length & \(18(\sqrt2-1)\) & \(7.45584412271571\) \\
+octagon area & \(2\sqrt2-2\) & \(0.82842712474619\) \\
+principal equilateral area & \(\tfrac{\sqrt3}{4}\) & \(0.433012701892219\) \\
+spatial notch area & \(\tfrac{\sqrt7}{8}(\sqrt2-1)^2\) & \(0.0567423949557361\) \\
+projected notch area & \(\tfrac{\sqrt3}{8}(\sqrt2-1)^2\) & \(0.0371466171425345\) \\
+\end{longtable}
+}
+
+\endgroup
+
+\section{Appendix B --- Boundary loops (welded indices)}\label{appendix-b-boundary-loops-welded-indices}
+
+Top rim (\(z>0\)): \(4\to5\to6\to7\to16\to17\to11\to12\to13\to4\).
+Bottom rim (\(z<0\)): \(0\to1\to2\to3\to8\to9\to10\to14\to15\to0\).
+Each is a \(9\)-cycle of edges of length \(s\); the two loops are disjoint and are exchanged by \(\sigma_h\).
+
+\section{Appendix C --- Independent audit summary}\label{appendix-c-independent-audit-summary}
+
+\path{verification/paperC/paperC_geometry_audit_v0_2_1.py} (pure sympy; no source, kernel, or builder import) reconstructs the shell from the octagon and the \textbf{general-angle} fold transforms and executes \textbf{51 regression predicates across all 19 numbered coverage groups} (§10), all PASS, including the regression against the authoritative welded coordinate table. Every predicate is a real computation on reconstructed data (no literal-\path{True}, no expected-minus-itself); nested-radical equalities use sympy\textquotesingle s exact symbolic prover. The count is an execution count of finite symbolic/combinatorial predicates that \textbf{supplement} the analytic proofs --- it is \textbf{not} a count of independent theorems. Several results are owned by the analytic arguments, not by these finite checks: the complete closure solution family (§5), the quantified all-\(z\) section and maximal-band statement (§6), the interior-dihedral relation (§7), the boundary sign separation (§5), the chamfer-edge inclination (§6), and the full-group \(D_{3h}\) upper bound (§9). v0.2.1 changed only two predicate names and several descriptions from v0.2; the predicate logic is unchanged. The original \path{paperC_geometry_audit.py} (v0.1) and \path{paperC_geometry_audit_v0_2.py} (v0.2) are preserved unchanged.
+
+\section{Acknowledgements}\label{acknowledgements}
+
+The author used Claude Fable 5.1, GPT-5.6 Sol, and Codex Astra as AI-assisted research tools for mathematical reconstruction, adversarial review, verification, drafting, and publication preparation. All scientific claims, interpretations, and publication decisions remain the responsibility of the author.
+
+\Needspace{6\baselineskip}
+
+\begingroup\fontsize{10}{12}\selectfont
+
+\section{References}\label{references}
+
+The existing background references and their verification note remain in the companion \href{../../PAPER_C_REFERENCES_v0.2.md}{bibliography}. These references supply background and terminology, not a model-specific theorem of this paper. The added {[}\hyperlink{ref-PD}{PD}{]} reference identifies the approved scaffold comparison and its separate construction.
+
+\begin{itemize}
+\tightlist
+\item
+  \hypertarget{ref-Cox73}{}\textbf{{[}\hyperlink{ref-Cox73}{Cox73}{]}} H. S. M. Coxeter. \emph{Regular Polytopes.} 3rd ed., Dover, 1973. ISBN 0-486-61480-8.
+\item
+  \hypertarget{ref-Cox69}{}\textbf{{[}\hyperlink{ref-Cox69}{Cox69}{]}} H. S. M. Coxeter. \emph{Introduction to Geometry.} 2nd ed., John Wiley \& Sons, 1969.
+\item
+  \hypertarget{ref-DO07}{}\textbf{{[}\hyperlink{ref-DO07}{DO07}{]}} E. D. Demaine, J. O\textquotesingle Rourke. \emph{Geometric Folding Algorithms: Linkages, Origami, Polyhedra.} Cambridge University Press, 2007. DOI \paperdoi{10.1017/CBO9780511735172}.
+\item
+  \hypertarget{ref-Tachi09}{}\textbf{{[}\hyperlink{ref-Tachi09}{Tachi09}{]}} T. Tachi. "Simulation of Rigid Origami." In R. J. Lang (ed.), \emph{Origami 4: Fourth International Meeting of Origami Science, Mathematics, and Education}, A K Peters, 2009, pp. 175--187.
+\item
+  \hypertarget{ref-Massey91}{}\textbf{{[}\hyperlink{ref-Massey91}{Massey91}{]}} W. S. Massey. \emph{A Basic Course in Algebraic Topology.} Springer GTM 127, 1991. ISBN 978-0-387-97430-9.
+\item
+  \hypertarget{ref-GX13}{}\textbf{{[}\hyperlink{ref-GX13}{GX13}{]}} J. Gallier, D. Xu. \emph{A Guide to the Classification Theorem for Compact Surfaces.} Springer, Geometry and Computing 9, 2013. DOI \paperdoi{10.1007/978-3-642-34364-3}.
+\item
+  \hypertarget{ref-Hatcher02}{}\textbf{{[}\hyperlink{ref-Hatcher02}{Hatcher02}{]}} A. Hatcher. \emph{Algebraic Topology.} Cambridge University Press, 2002. ISBN 978-0-521-79540-1.
+\item
+  \hypertarget{ref-RS72}{}\textbf{{[}\hyperlink{ref-RS72}{RS72}{]}} C. P. Rourke, B. J. Sanderson. \emph{Introduction to Piecewise-Linear Topology.} Springer, Ergebnisse der Mathematik 69, 1972; 1982 revised Study Edition printing, DOI \paperdoi{10.1007/978-3-642-81735-9}.
+\item
+  \hypertarget{ref-Cotton90}{}\textbf{{[}\hyperlink{ref-Cotton90}{Cotton90}{]}} F. A. Cotton. \emph{Chemical Applications of Group Theory.} 3rd ed., Wiley, 1990. ISBN 0-471-51094-7.
+\item
+  \hypertarget{ref-AH94}{}\textbf{{[}\hyperlink{ref-AH94}{AH94}{]}} S. L. Altmann, P. Herzig. \emph{Point-Group Theory Tables.} Clarendon Press, Oxford, 1994.
+\item
+  \hypertarget{ref-Yap97}{}\textbf{{[}\hyperlink{ref-Yap97}{Yap97}{]}} C. K. Yap. "Towards exact geometric computation." \emph{Comput. Geom.} \textbf{7}(1--2):3--23, 1997. DOI \paperdoi{10.1016/0925-7721(95)00040-2}.
+\item
+  \hypertarget{ref-KMPSY08}{}\textbf{{[}\hyperlink{ref-KMPSY08}{KMPSY08}{]}} L. Kettner, K. Mehlhorn, S. Pion, S. Schirra, C. Yap. "Classroom examples of robustness problems in geometric computations." \emph{Comput. Geom.} \textbf{40}(1):61--78, 2008. DOI \paperdoi{10.1016/j.comgeo.2007.06.003}.
+\item
+  \hypertarget{ref-Shewchuk97}{}\textbf{{[}\hyperlink{ref-Shewchuk97}{Shewchuk97}{]}} J. R. Shewchuk. "Adaptive precision floating-point arithmetic and fast robust geometric predicates." \emph{Discrete Comput. Geom.} \textbf{18}(3):305--363, 1997. DOI \paperdoi{10.1007/PL00009321}.
+\end{itemize}
+
+\hypertarget{ref-PD}{}\textbf{{[}\hyperlink{ref-PD}{PD}{]}} Hilmir Frímann Halldórsson. \emph{Tri-Octagon Reference-Scaffold Geometry: Exact Construction of an Alternating Hexagonal Core}. Paper D, revision v0.1.1, 23 September 2026. Accepted publication artifact, prepared for repository publication. \href{../../../PAPER_D/v0.1.1/publication/PAPER_D_REFERENCE_SCAFFOLD_v0.1.1.pdf}{Approved v0.1.1 PDF}.
+
+\endgroup
+
+\end{document}
