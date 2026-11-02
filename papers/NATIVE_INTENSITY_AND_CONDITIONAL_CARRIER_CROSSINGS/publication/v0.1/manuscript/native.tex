@@ -1,0 +1,110 @@
+\section{Question, scope and native quantities}
+The author asks whether energy leaves the central region through its three upper and three lower openings. The accepted assessment \cite{assessment} gives two positive results: exact accounting for native channel strengths, and a conditional carrier with signed transport through two registered host-notch crossings. It also identifies two missing interfaces: a reciprocal native debit for carrier work, and a transfer registration to the six central broken boundaries. This note presents that result without changing the model.
+
+The author's flower-blooming analogy motivates an outward-behavior question; it does not define petals or a mechanical unfolding. The earlier assistant narrative of inward arrival, redirection, and a ``next available'' opening is an unverified interpretation. No such sequence, golden-ratio controller, material attachment, or new transfer law is assumed. The words intensity, potential, signal, and flux will retain different mathematical meanings.
+
+\subsection{The unchanged triad}
+Let $\Omega\in\C^3$, with real native coefficients $\eps,g,\lambda,k_i$, and write
+\begin{equation}\label{eq:quantities}
+ s_i=|\Omega_i|^2,\quad I=\sum_i s_i,\quad
+ S_{ij}+iA_{ij}=\overline\Omega_i\Omega_j,\quad
+ D_{ij}=s_i+s_j-2S_{ij}=|\Omega_i-\Omega_j|^2.
+\end{equation}
+Each undirected edge is counted once in sums over $i<j$. Put $L_N=\one\one^T-3\mathrm{Id}$. The native prestage, increment and simultaneous synchronization are \cite{nrg,potential}
+\begin{align}
+ b_i&=\eps(k_i-s_i)\Omega_i+g\sum_{j\ne i}(\Omega_j-\Omega_i),
+ &\widetilde\Omega&=\Omega+b,\label{eq:pre}\\
+ \delta_i&=\lambda\sum_{j\ne i}\sin\!\left(3[\Argz\widetilde\Omega_j-\Argz\widetilde\Omega_i]\right),
+ &F_i(\Omega)&=e^{i\delta_i}\widetilde\Omega_i.\label{eq:map}
+\end{align}
+Every kick uses the same prestage. The convention is $\Argz(0)=0$; when $\lambda=0$, the implementation returns the prestage without extracting phases. The increment $b$ is not the complete displacement $F(\Omega)-\Omega$. No physical timestep is specified by the integer native index.
+
+\begin{table}[htbp]\centering\small
+\caption{Typed quantities. A spatial assignment does not by itself make a flux.}\label{tab:types}
+\begin{tabularx}{\textwidth}{@{}p{.18\textwidth}YY@{}}\toprule
+Quantity & Type & Existing meaning\\\midrule
+$s_i,I$ & Nonnegative native scalars & Channel strengths and their sum; not a volume density.\\
+$\V$ & Quartic native scalar & Potential on six real state coordinates; no exterior recipient.\\
+$D_{ij}$ & Matched edge quadratic & Squared difference after tangent-plane transport.\\
+$A_{ij},C$ & Signed pair areas; channel vector & $C=(A_{23},-A_{13},A_{12})$; separate ambient attachment.\\
+$J^I_{i\to j}$ & Antisymmetric edge scalar & One algebraic channel-exchange representation per native step.\\
+$e,E,j$ & C1 density, storage, local flux & Defined on a separately adopted periodic circle.\\
+$(U,V_{\rm ext})$ & C6 exterior record & Retarded observation; not receiver-load energy.\\\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Exact finite-step intensity accounting}
+\begin{proposition}[Component balance and edge-once total]\label{prop:intensity}
+For the ideal map \eqref{eq:pre}--\eqref{eq:map}, at general real coefficients,
+\begin{align}
+ \Delta s_i&=2\eps s_i(k_i-s_i)+2g\sum_{j\ne i}(S_{ij}-s_i)+|b_i|^2,\label{eq:component}\\
+ &= -\sum_{j\ne i}J^I_{i\to j}+2\eps s_i(k_i-s_i)
+       -g\sum_{j\ne i}D_{ij}+|b_i|^2,\label{eq:exchange}\\
+ J^I_{i\to j}&=g(s_i-s_j)=-J^I_{j\to i},\notag\\
+ \Delta I&=2\eps\sum_i s_i(k_i-s_i)-2g\sum_{i<j}D_{ij}+\|b\|^2.\label{eq:total}
+\end{align}
+\end{proposition}
+\begin{proof}
+Synchronization preserves each prestage modulus. Expanding $|\Omega_i+b_i|^2$ gives $\Delta s_i=2\re(\overline\Omega_i b_i)+|b_i|^2$ and then \eqref{eq:component}. The identity
+\[
+2g(S_{ij}-s_i)=g(s_j-s_i)-g(s_i+s_j-2S_{ij})
+\]
+gives \eqref{eq:exchange}. Summation cancels the antisymmetric terms; each undirected mismatch appears at both endpoints, giving the factor two in \eqref{eq:total}. The argument includes zero components without a phase quotient.
+\end{proof}
+
+This independently derived account in the accepted assessment agrees with the earlier diagnostic and Z-source identities \cite{nrg,zmethods,assessment}. If $h_i=(k_i-s_i)\Omega_i$, its full finite square is
+\begin{align}
+ \|b\|^2&=\eps^2\|h\|^2+2\eps g\re(h^\dagger L_N\Omega)
+                 +g^2\|L_N\Omega\|^2,\label{eq:square}\\
+ \|L_N\Omega\|^2&=3\sum_{i<j}D_{ij}.\notag
+\end{align}
+The mixed term has no fixed sign. For $g\ge0$ the displayed mismatch contribution is nonpositive and the selected exchange points from larger to smaller intensity. Neither fixes the sign of the complete step. For $\eps>0$, the onsite sign depends on $k_i-s_i$. No sign conclusion for arbitrary negative coefficients is implied.
+
+\begin{remark}[Divergence does not select a unique current]\label{rem:cycle}
+Adding one real number $a$ to the oriented edges $1\to2$, $2\to3$, $3\to1$, and $-a$ to their reverses, changes no node divergence. Thus \eqref{eq:exchange} is a chosen algebraic representation, not a uniquely selected physical current. Signed area is different: aligned unequal positive amplitudes have $A_{ij}=0$ but can have $J^I_{i\to j}\ne0$; equal amplitudes with nonzero relative sine have $J^I_{i\to j}=0$ but $A_{ij}\ne0$. These are comparisons of formulas, not newly evolved state examples.
+\end{remark}
+
+The graph's contribution is not exhausted by exchange. The pair mismatch and whole square must remain. Nor does weighted response geometry fill the spatial gap: at a positive fixed branch $r_i$, the inherited phase-prestage matrix has $P_{ij}=gr_j/r_i$ off diagonal, $R^2P=P^TR^2$ for $R=\diag(r_i)$, and quadratic form $g\sum_{i<j}r_ir_j(f_i-f_j)^2$. Its positive conductances for $g>0$ and the ordered complete linear response $S_\phi P$ are response facts, not six-opening currents \cite[response chapter, weighted geometry]{nrg}.
+
+\section{Potential, synchronization and the descent domain}
+Use the edge-once potential and real gradient normalization
+\begin{equation}\label{eq:potential}
+ \V(\Omega)=\eps\sum_i\left(\frac{s_i^2}{4}-\frac{k_i s_i}{2}\right)
+       +\frac g2\sum_{i<j}D_{ij},\qquad b=-\nabla_{\R^6}\V(\Omega).
+\end{equation}
+Taylor's exact prestage account is
+\begin{equation}\label{eq:taylor}
+ \V(\Omega+b)-\V(\Omega)=-\|b\|^2+
+ \int_0^1(1-t)b^T\nabla^2\V(\Omega+tb)b\dd t.
+\end{equation}
+For a polynomial form put $q_i=2\re(\overline\Omega_i b_i)+|b_i|^2$. Direct expansion gives
+\begin{align}
+ \Delta\V_{\rm pre}={}&\eps\sum_i\left[\frac{(s_i-k_i)q_i}{2}+\frac{q_i^2}{4}\right]\notag\\
+ &+g\sum_{i<j}\re\!\left[\overline{(\Omega_i-\Omega_j)}(b_i-b_j)\right]
+       +\frac g2\sum_{i<j}|b_i-b_j|^2.\label{eq:poly}
+\end{align}
+For $d_{ij}=\delta_j-\delta_i$, conjugate-pair rotation gives
+\begin{align}
+ S_{ij}^+&=\widetilde S_{ij}\cos d_{ij}-\widetilde A_{ij}\sin d_{ij},&
+ A_{ij}^+&=\widetilde A_{ij}\cos d_{ij}+\widetilde S_{ij}\sin d_{ij},\label{eq:rotation}\\
+ \Delta\V_{\rm sync}&=g\sum_{i<j}\left[\widetilde S_{ij}(1-\cos d_{ij})+
+                  \widetilde A_{ij}\sin d_{ij}\right].\label{eq:sync}
+\end{align}
+The onsite potential is unchanged by this phase stage, while its edge term changes through $-g\sum S_{ij}$. Synchronization's zero intensity increment therefore does not mean zero potential change or no influence on later evolution.
+
+\begin{theorem}[Inherited coherent-domain descent, not re-proved here]\label{thm:descent}
+At precisely
+\begin{equation}\label{eq:tuple}
+ \eps=\frac1{10},\quad g=\frac1{60},\quad\lambda=\frac1{300},\quad
+ k=\left(\frac{999}{1000},1,\frac{1001}{1000}\right),
+\end{equation}
+let $\D$ have $9/10\le|\Omega_i|\le11/10$ and ordinary phase width at most $\pi/12$, with arbitrary common orientation. The accepted theorem \cite[finite-domain descent]{potential} gives
+\begin{equation}\label{eq:descent}
+ \V(F\Omega)-\V(\Omega)\le-\frac{16869}{20000}\|b\|^2,\qquad\Omega\in\D.
+\end{equation}
+The domain is forward invariant with persistent nonzero prestages. Equality in monotonicity holds exactly on the inherited aligned fixed circle.
+\end{theorem}
+
+The width is ordinary full-turn phase width, not phase modulo $2\pi/3$; the factor multiplies the squared prestage increment. No profile is solved here. The theorem does not apply automatically to the distinct historical Z coefficient tuples in Section~\ref{sec:readouts}.
+
+In these inspected native definitions, V and I have no accompanying exterior reservoir, six-opening boundary term, or source-work debit. Potential decrease, intensity change and emitted energy are consequently different claims. Equation~\eqref{eq:descent} supplies no destination for a decrease. This is an inventory of the existing definitions, not a theorem prohibiting a future transport extension.

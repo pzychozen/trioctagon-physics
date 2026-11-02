@@ -346,6 +346,10 @@ No runtime or kernel changes.
 [Phase Reconstruction and Stationary Support Axes in the Tri-Octagon Map — v0.1](papers/PHASE_RECONSTRUCTION_AND_STATIONARY_SUPPORT_AXES/README.md), by **Hilmir Frímann Halldórsson**. Author-authorized repository research edition with completed project-internal scientific and manuscript review. [Final PDF](papers/PHASE_RECONSTRUCTION_AND_STATIONARY_SUPPORT_AXES/publication/v0.1/NATIVE_PHASE_SPATIAL_v0.1.pdf). Exact common-phase reconstruction, corrected overlap accumulation, stationary support-axis correspondence, and the fixed-label, state-independent proper-rotation theorem on the admitted domain. No external peer review is claimed.
 
 
+## Native intensity and conditional carrier crossings
+
+[Native Intensity Accounting and Conditional Carrier Crossings in the Tri-Octagon Model — v0.1](papers/NATIVE_INTENSITY_AND_CONDITIONAL_CARRIER_CROSSINGS/README.md), by **Hilmir Frímann Halldórsson**. [Final PDF](papers/NATIVE_INTENSITY_AND_CONDITIONAL_CARRIER_CROSSINGS/publication/v0.1/NATIVE_INTENSITY_CARRIER_CROSSINGS_v0.1.pdf). Exact native intensity accounting and conditional signed host-notch cut powers; reciprocal native debit and six-central-opening emission remain unestablished. Author-approved repository research edition; internally accepted mathematics, manuscript checks by Codex, no external peer review.
+
 ### Understanding Z motion — methods guide
 
 [Understanding Z Motion in the Tri-Octagon Model](docs/methods/Z_MOTION/README.md) explains native changes, observer effects and source accounting against fixed geometry. Start with the [two-page reading companion](docs/methods/Z_MOTION/v0.1/PLAIN_LANGUAGE_GUIDE_v0.1.pdf), then the [18-page methods note](docs/methods/Z_MOTION/v0.1/manuscript/NCM_Z_DOCUMENTATION_v0.1.pdf). Author-authorized project documentation with retained evidence and internal review; no new runtime feature or physical-motion claim.
