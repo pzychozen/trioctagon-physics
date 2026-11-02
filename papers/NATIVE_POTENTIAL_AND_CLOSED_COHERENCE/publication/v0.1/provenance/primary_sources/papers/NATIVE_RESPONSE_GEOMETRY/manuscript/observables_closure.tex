@@ -1,0 +1,236 @@
+\section{Equivariant spatial observables}\label{sec:observables}
+The shell selects a polar vertical \(e_z\), outward normals \(n_i\), tangents \(t_i=e_z\times n_i\) and centre o. For the triad write
+\begin{gather*}
+\Omega=q+ip,\quad e=(1,1,1)^T,\quad
+q=ae+u,\ p=be+v,\quad u,v\perp e,\\
+N_f=[n_A\ n_B\ n_C],\qquad T_f=[t_A\ t_B\ t_C].
+\end{gather*}
+Exact coordinates appear in Appendix~\ref{app:notation}. The frame matrices have Gram matrix \((3/2)\Pi\), \(\Pi=I-ee^T/3\). \(N_f\) is not ring size.
+
+Let P cycle A,B,C and \(Q_v\) swap A,C. Polar covariance of the adopted decoder gives the actual state actions
+\begin{equation}
+C_3:(q,p)\mapsto(Pq,Pp),\quad
+\sigma_v:(q,p)\mapsto(-Q_vq,Q_vp),\quad
+\sigma_h:(q,p)\mapsto(q,-p).\label{eq:reps}
+\end{equation}
+They are not ordinary permutation of both channel triples. Polar free vectors transform by G, axial vectors by \(\det(G)G\), and points affinely about o.
+This is the kinematic representation at every state. Dynamical covariance carries the coefficient triple k with the face permutation; at fixed unequal k only its stabilizer remains. Mirrors involving common phase require the regular pre-synchronization domain for nonzero lambda. The census does not assume a global dynamical symmetry across the zero stratum.
+
+\begin{theorem}[Complete ambient census]\label{thm:observables}
+For real polynomial state maps equivariant under full \(D_{3h}\), the linear polar basis is \(T_fu,be_z\), and the homogeneous quadratic polar basis is
+\begin{equation}
+aN_fu,\quad N_f(u\odot u),\quad bN_fv,\quad
+N_f(v\odot v),\quad\Gamma_{\rm ch}e_z,\qquad
+\Gamma_{\rm ch}=e^T(u\times v).\label{eq:polarbasis}
+\end{equation}
+The axial linear basis is \(T_fv,ae_z\), and the quadratic axial basis is
+\(aN_fv,bN_fu,N_f(u\odot v)\). No nonzero constant ambient equivariant exists.
+\end{theorem}
+\begin{proof}
+The state representation on a,u,b,v decomposes as \(A_2'\oplus E'\oplus A_2''\oplus E''\). The polar target is \(E'\oplus A_2''\), the axial target \(E''\oplus A_2'\). Direct expansion of q-q, p-p and q-p products gives
+\begin{equation}
+\operatorname{Sym}^2\mathcal X_\R=
+4A_1'\oplus4E'\oplus2A_1''\oplus A_2''\oplus3E''.\label{eq:sym2}
+\end{equation}
+Each unmixed sector gives two invariant scalars and two transverse copies; the mixed sector gives two mirror-odd scalars, the oriented scalar \(\Gamma_{\rm ch}\), and three transverse copies. Counting matching irreducibles gives dimensions 2,5 and 2,3. The listed maps obey the generator laws. Independent means and distinct q-q, p-p and q-p monomials prove independence, hence completeness. Neither target contains the trivial representation, so constant maps vanish.
+\end{proof}
+
+An additional demand of common-phase invariance still leaves the three-dimensional quadratic polar space
+\begin{equation}
+\operatorname{span}\{N_f(au+bv),\,N_f(u\odot u+v\odot v),\,
+\Gamma_{\rm ch}e_z\}.\label{eq:U1}
+\end{equation}
+The axial invariant space is \(\operatorname{span}\{W\}\), \(W=T_f(q\times p)\), and no invariant linear map survives. Apply the common-phase generator
+\(\sum_i(-p_i\partial_{q_i}+q_i\partial_{p_i})\) to the complete bases: its kernel is exactly the displayed dot-product and oriented-area combinations. This is an optional kinematic condition, not a global phase quotient of F at zero.
+
+\subsection{Chiral projections and native observable changes}
+\begin{equation}
+C_{\rm ch}=q\times p=e\times(av-bu)+u\times v,\quad
+W=\sqrt3(bN_fu-aN_fv),\quad \Gamma_{\rm ch}=e^TC_{\rm ch}.\label{eq:chiral}
+\end{equation}
+Raw C transforms as \(P,Q_v,-I\), neither ambient polar nor axial law. Its transverse part gives horizontal axial W and its common part gives vertical polar \(\Gamma_{\rm ch}e_z\). Each is unique up to scale within its corresponding antisymmetric sector, not among all observables. Together
+\[
+C_{\rm ch}=\tfrac23T_f^TW+\tfrac13\Gamma_{\rm ch}e.
+\]
+For pure transverse independent u,v, W vanishes but Gamma does not. Axial parity alone need not mean chirality: \(ae_z\) is nonzero on common purely real states.
+
+Equal channels kill every quadratic spatial map. Unequal amplitudes at common phase can yield intensity/coherence vectors while \(C_{\rm ch}=0\). At \(\Omega=r_0e+iv\), \(v\perp e\), the first-order axial readout is \(-\sqrt3r_0N_fv\). For \(u=(1,-1,0),v=(1,1,-2),a=b=0\), one has \(C_{\rm ch}=2e,\Gamma_{\rm ch}=6,W=0\).
+
+An observable V receives no additional evolution:
+\[
+\Delta V=V(F(\Omega))-V(\Omega).
+\]
+For instance \(\Delta(T_fu)=T_f\Delta u\) and
+\[
+\Delta\Gamma_{\rm ch}
+=e^T(u\times\Delta v+\Delta u\times v+\Delta u\times\Delta v).
+\]
+All quadratic increments follow substitution; local response is \(DV(\Omega_*)DF(\Omega_*)\). At a positive equal triad, radial mean, radial transverse, imaginary mean and imaginary transverse factors are
+\(1-2\eps k,\ 1-2\eps k-3g,\ 1,\ (1-3g)(1-9\lambda)\).
+On unequal branches use \eqref{eq:SP}. Existing one-step examples generate basis observables from zero (Appendix~\ref{app:closure}); nonzero readouts at fixed states further show why a vector value is not displacement per step.
+
+Symmetry therefore does not select a unique state-dependent core position or motion observable. A physical position law remains an additional ingredient. \src{CM0 \S\S2--6, L28--L33.}
+\begin{figure}[htbp]\centering
+\includegraphics[width=\linewidth]{../figures/04_observables.pdf}
+\caption{Independent chiral projections and the larger equivariant spaces. Axial denotes reflection parity, not vertical direction. Multiplicities count polynomial-map spaces, not physical modes. Source: CM0 \S\S3--4 and \eqref{eq:polarbasis}--\eqref{eq:chiral}.}
+\end{figure}
+
+\section{State--shell attachment and finite-carrier multiplicity}\label{sec:attachment}
+The accepted fixed mesh has three octagonal faces, three vertical seams and two nine-edge rim cycles. A face lies in the affine plane \(c_i+W_i\), \(W_i=n_i^\perp\); \(W_i\) is unbounded.
+
+\begin{definition}[Adopted decoder]
+\begin{equation}
+D_i(q_i+ip_i)=q_it_i+p_ie_z,\qquad
+E_i(v_i)=t_i\cdot v_i+i e_z\cdot v_i,\qquad
+D:\C^3\to\bigoplus_iW_i.\label{eq:decoder}
+\end{equation}
+\end{definition}
+Orthonormality proves \(ED=I\), \(DE=\diag(I-n_in_i^T)\) on ambient arrays, and \(\sum\|D_i\Omega_i\|^2=\sum|\Omega_i|^2\). Basing at the adopted centre gives \((c_i,v_i)\); the endpoint \(c_i+v_i\) need not lie in the finite face and is not a particle-position law.
+
+\begin{proposition}[Discrete connection and conjugacy]
+The maps \(T_{ij}=t_it_j^T+e_ze_z^T:W_j\to W_i\) are orthogonal isomorphisms satisfying \(T_{ij}T_{jk}=T_{ik}\). They define a flat discrete rank-two connection on the face-label graph. The exact conjugate update is
+\begin{align}
+\widetilde v_i&=v_i+\eps(k_i-\|v_i\|^2)v_i
+ +g\sum_{j\ne i}(T_{ij}v_j-v_i),\\
+v_i^+&=\cos\delta_i\,\widetilde v_i+
+ \sin\delta_i\,n_i\times\widetilde v_i,\qquad F_{\rm face}=DFE.\label{eq:faceupdate}
+\end{align}
+\end{proposition}
+\begin{proof}
+T carries the two frame coefficients unchanged, proving composition and isometry. Closed transport is identity on its tangent domain, a projector ambiently. Encoding the first line recovers the native pre-stage. The identity \(E_i(n_i\times v)=iE_i(v)\) turns the second into phase multiplication, including the zero value. D/E invert on their domain.
+\end{proof}
+The implementation steps stored canonical Omega and then decodes; it does not repeatedly encode rounded displays. No second recurrence or carrier motion is added.
+
+A section on three labelled fibres differs from a field on each continuous polygon, seam/rim traces, shell deformation and physical position. Only the first is natively defined. Conditional constant face extensions illustrate the distinction: ambient equality at every seam forces \(q=0,p=be\), because distinct tangent planes intersect only in \(\R e_z\). Matched parallelism instead forces \(q=ae,p=be\). Neither criterion is imposed on arbitrary native states.
+
+\subsection{Multiplicity on finite carriers}
+\begin{center}\small
+\begin{tabular}{lrrr}\toprule
+Carrier & degree 0 & degree 1 & degree 2\\\midrule
+Ordinary face scalar or normal coefficient &1&1&8\\
+Polar tangent vector per face &0&4&8\\
+Polar ambient vector per face &1&5&16\\
+Polar centre vector &0&2&5\\
+Axial centre vector &0&2&3\\
+Ordinary scalar per unordered seam &1&1&8\\
+Polar vertical tangent vector per seam &0&2&4\\
+Polar ambient vector per unordered seam &1&5&16\\
+Scalar per whole rim &1&1&5\\
+Polar ambient vector per whole rim &1&3&12\\\bottomrule
+\end{tabular}
+\end{center}
+The proof uses \eqref{eq:sym2} and the target representations; complete independent bases appear in Appendix~\ref{app:census}. Each seam is indexed equivariantly by its opposite face. Horizontal reflection exchanges the two rims. No individual seam or boundary point is selected.
+
+Already linear tangent assignments have four independent constants:
+\[
+Q=\alpha ae+\beta u,\qquad P=\gamma be+\delta v,\qquad
+v_i^{\rm cand}=Q_it_i+P_ie_z.
+\]
+D adopts all four as one. A normal coefficient \(f_i n_i\) does not specify compatible vertex displacement; a whole-loop vector need not be tangent to every segment. Pointwise fields need a spatial function space beyond this census.
+
+\subsection{Preparation and boundary types}
+The exact type chain is
+\begin{equation}
+(R,d;\xi\in\C^2)\mapsto\theta,\psi_0\in\C^2\otimes\C^3
+\xrightarrow{U^n}\psi_n\xrightarrow{\chi^\dagger\otimes I}\Omega_0
+\xrightarrow{D}\bigoplus_iW_i.\label{eq:prep}
+\end{equation}
+The named toy response uses
+\[
+\theta=\arccos(d/2R),\quad
+G(\theta)=\sqrt{(2\theta-\sin2\theta)/\pi},\quad
+\psi_0=G(\theta)(\xi\otimes f_0),\quad f_0=e/\sqrt3,
+\]
+with \(R>0,0\le d\le2R\). The fixed transfer is \(U=B_s\otimes A_s\), with named normalized eigenbra \(\chi^\dagger B_s=b_\chi\chi^\dagger\). Its established reduction is
+\[
+\Omega_0=G(\theta)(\chi^\dagger\xi)b_\chi^n h_n f_j,\quad
+h_n=(r_sq_s^2c_s^2)^m(1,q_s,q_s^2c_s)_j,\quad n=3m+j,
+\]
+where \(q_s=e^{-.423},r_s=e^{.577},c_s=1-.618\) are fixed initialization literals; \(f_j\) are the ordered Fourier vectors.
+
+The final Omega can use D. No map attaches preparation internals to material rims, seams, faces or scaffold cells. The complex six-state space has twelve real dimensions; the incident pair is not two rim traces; the lens chart is not computed from shell geometry. Source signatures and imports use them for initialization only; F receives Omega and its native parameters. The reference scaffold is a separate fixed family of closed sets with a special explicit Paper-C comparison, not a state attachment to gaps. There is no native boundary/seam feedback. \src{SA0 \S\S2--7; prior Paper B/Atlas 04 and Atlas 08, L34--L37.}
+\begin{figure}[htbp]\centering
+\includegraphics[width=\linewidth]{../figures/05_typed_attachment.pdf}
+\caption{Typed attachment. D is the existing invertible representation; preparation reaches it through final Omega. Dashed absent arrows mark missing definitions, not proposed interactions. Source: SA0 \S\S2--3,7 and \eqref{eq:prep}.}
+\end{figure}
+
+\section{Closure hierarchy and coherence quotient}\label{sec:closure}
+\begin{theorem}[Fibre closure criterion]\label{thm:closure}
+For maps \(\mathcal A:X\to Y\), \(F:X\to X\), an induced map satisfying \(\mathcal AF=F_{\mathcal A}\mathcal A\) on \(\mathcal A(X)\) exists iff
+\begin{equation}
+\mathcal A(x)=\mathcal A(x')\ \Longrightarrow\
+\mathcal A(Fx)=\mathcal A(Fx').\label{eq:fibre}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Necessity is composition with \(F_{\mathcal A}\). For sufficiency define \(F_{\mathcal A}(y)=\mathcal A(Fx)\) using any representative; the implication makes it well defined.
+\end{proof}
+This asserts no locality or smoothness. A restricted-domain claim requires the same implication on every fibre in that domain.
+
+The complete decoded/based tangent triple closes globally by bijectivity of D. One face generally does not: with \(\eps=1/20,g=1/5,k=e\), real inputs \((1,1,1)\) and \((1,2,1)\) have equal A coefficient but next coefficients 1 and \(6/5\). Pre-states are positive, so this holds for all lambda.
+
+\subsection{Lower-readout obstructions}
+At the same eps,g,k, \((1,1,1)\) and \((1,-1,1)\) have identical intensities but next intensities
+\[
+(1,1,1)\quad\hbox{and}\quad(9/25,1/25,9/25).
+\]
+Synchronization preserves moduli; total intensity also differs. At g=0 the explicit exception is \(I_i^+=I_i[1+\eps(k_i-I_i)]^2\).
+
+For chirality, set lambda=0 and compare
+\[
+(q,p)=(e,(1,-1,0)),\qquad(q',p')=(2e,(1,-1,0)/2).
+\]
+Both give initial \(C_{\rm ch}=(1,1,-2)\), but next values
+\[
+(7/20,7/20,-133/200),\qquad
+(323/1600,323/1600,-1273/3200).
+\]
+Their common and transverse components differ. C, W, \(\Gamma_{\rm ch}\) and their joint chiral representation therefore fail general closure. These exact fibre counterexamples do not exclude special parameter or invariant-subset exceptions.
+
+\subsection{Complex coherence}
+Distinguish the response matrix \(H_r\) from the coherence
+\[
+\mathcal H=\Omega\Omega^\dagger=S_G-iA_G,\qquad
+S_G=qq^T+pp^T,\quad A_G=qp^T-pq^T .
+\]
+For rank-at-most-one positive semidefinite Hermitian \(\mathcal H\), put
+\begin{equation}
+M(\mathcal H)=I+\eps\diag(k-\diag\mathcal H)+g\Delta_3,\qquad
+\widetilde{\mathcal H}=M\mathcal HM^T.\label{eq:Hpre}
+\end{equation}
+\begin{theorem}[Regular complex-coherence closure]\label{thm:Hclosure}
+Where all \(\widetilde{\mathcal H}_{ii}>0\), set
+\[
+\rho_i=\sqrt{\widetilde{\mathcal H}_{ii}},\quad
+\delta_i=\lambda\sum_{j\ne i}\im
+\left(\frac{\widetilde{\mathcal H}_{ji}}{\rho_j\rho_i}\right)^3,\quad
+U_\delta=\diag(e^{i\delta_i}).
+\]
+The exact induced update is
+\begin{equation}
+\boxed{\mathcal H^+=U_\delta\widetilde{\mathcal H}U_\delta^\dagger.}\label{eq:Hpost}
+\end{equation}
+\end{theorem}
+\begin{proof}
+\(M\Omega\) is the native pre-state. Its normalized ji coherence entry is \(e^{i(\widetilde\phi_j-\widetilde\phi_i)}\). Cubing supplies the native sine increment. The final phase multiplication gives \eqref{eq:Hpost}; everything depends only on \(\mathcal H\). Equivalently its fibres are common-phase orbits, and F is common-phase equivariant on this domain.
+\end{proof}
+Iteration is justified while the regularity condition persists; the domain is not claimed invariant.
+
+\begin{theorem}[Regular real-Gram closure]\label{thm:Sclosure}
+The real Gram matrix \(S_G\succeq0\), of rank at most two, also closes where \((MS_GM^T)_{ii}>0\).
+\end{theorem}
+Here \(M=I+\eps\diag(k-\diag S_G)+g\Delta_3\); its dependence is only on the retained diagonal.
+\begin{proof}
+Equal real Gram factors \(QQ^T=Q'Q'^T\) have identical pairwise row inner products. The row-span identification is an isometry and extends to an \(O(2)\) transformation, giving \(Q'=QO\). Such changes are common phase and/or conjugation of Omega. The real-parameter F is conjugation equivariant, and on this domain common-phase equivariant. Output real Grams therefore agree, proving the fibre criterion, including rank-deficient factors.
+\end{proof}
+S loses signed orientation; closure survives because the discarded distinction is a symmetry. This is a nonlocal channel quotient, not one scalar per face.
+
+\subsection{The essential zero-stratum exception}
+At \(\eps=g=0,\lambda=1/10\), let \(z=(1,-1,0)\), \(z'=e^{i\pi/6}z\). They have identical complex and real Grams. For z all sine increments vanish; for z' the two nonzero increments are \(-\lambda,+\lambda\), since the zero phase remains zero. Thus
+\begin{equation}
+\mathcal H^+_{12}=-1,\quad(\mathcal H')^+_{12}=-e^{-i/5},\qquad
+S^+_{G,12}=-1,\quad(S'_G)^+_{12}=-\cos(1/5).\label{eq:zerocounter}
+\end{equation}
+They differ since \(0<1/5<\pi\). Neither quotient closes globally for the native nonzero-lambda convention. Both congruence updates are global when lambda=0. No repaired convention is proposed.
+
+The hierarchy is exact: D retains full state; lower face/intensity/area readouts generally discard necessary information; coherence admits a regular symmetry quotient; the native zero convention prevents unrestricted extension. Fixed geometry is trivially constant; preparation receipts, clocks and observer memory are other data types, not autonomous Omega-only shell variables. \src{SA0 \S8, L38--L42.}

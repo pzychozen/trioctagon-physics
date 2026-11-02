@@ -1,0 +1,221 @@
+\section{Introduction}\label{sec:intro}
+
+The Tri-Octagon programme contains several different kinds of geometry: a fixed folded shell, a complex state represented in selected face tangent planes, and graph operators governing a nonlinear recurrence. A comparison between these structures is useful only after their domains and transformations have been stated. In particular, a background-dependent inner product for a response operator is not automatically a metric on the shell, and a vector readout is not automatically the location of an object.
+
+This paper consolidates five completed investigations \cite{GR0,GR1,GR2,CM0,SA0}. The sequence begins with the exact homogeneous response, proceeds to inhomogeneous weighted response and its reversibility obstruction, resolves the finite-sector spectral alternatives, and ends with the multiplicity and closure of spatial representations. The principal conclusion is conditional: a local obstruction to diagonal reversibility can coexist with self-adjointness in a non-diagonal inner product, but other native finite-ring responses have spectral obstructions to every positive-definite symmetrizer.
+
+The recurrence and its positive fixed equations predate these investigations \cite{PA}; the adopted tangent-state correspondence and matched transport are also prior results \cite{PB,PC}. The equal-unit triad derivative appears in Paper F \cite{PF}. These are foundations, not new claims of this synthesis. The ledger in Appendix~\ref{app:ledger} and the accompanying source/proof crosswalk distinguish inherited definitions, checkpoint deductions, numerical evidence, interpretation limits and open questions. No claim of historical priority is made.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\linewidth]{../figures/01_architecture.pdf}
+\caption{Logical architecture. Solid arrows are native updates or exact mathematical deductions; the separate representation/readout branch does not feed geometry into the recurrence. Source: GR0--GR2 and SA0; definitions and proofs in Sections~\ref{sec:native}--\ref{sec:closure}. No arrow denotes a physical coupling.}
+\end{figure}
+
+\section{Native map and mathematical setting}\label{sec:native}
+
+For \(N=3q\ge3\), indices are cyclic and
+\begin{equation}
+(\Delta_Nz)_i=z_{i-1}+z_{i+1}-2z_i .
+\end{equation}
+For \(N=3\) the two neighbours are the other two channels. Native coefficients are real and repeat with period three. The complete map \(F\) is
+\begin{align}
+\widetilde z_i&=z_i+\eps z_i(k_i-|z_i|^2)+g(\Delta_Nz)_i,\label{eq:nativepre}\\
+\widetilde\phi_i&=\operatorname{Arg}_0(\widetilde z_i),\qquad
+\delta_i=\lambda\sum_{j\sim i}\sin 3(\widetilde\phi_j-\widetilde\phi_i),\\
+F_i(z)&=|\widetilde z_i|\exp(i(\widetilde\phi_i+\delta_i)).\label{eq:nativepost}
+\end{align}
+Here \(\operatorname{Arg}_0(0)=0\); when \(\lambda=0\) synchronization is the identity. Set \(\ell=3\lambda\) as an abbreviation, not a time increment. All derivatives below are taken where the relevant pre-synchronization entries are nonzero. Unit complex factors express the sine terms analytically on this domain, without a principal-argument cut. No differentiability at zero is silently assumed.
+
+In the triad, the pre-stage is \(z-\nabla_{\R^6}\mathcal V\), where
+\begin{equation}
+\mathcal V=\eps\sum_i\left(\frac{|z_i|^4}{4}-\frac{k_i|z_i|^2}{2}\right)
+ +\frac g2\sum_{i<j}|z_i-z_j|^2.\label{eq:potential}
+\end{equation}
+Indeed differentiation with respect to each real or imaginary component gives the negative of the corresponding increment in \eqref{eq:nativepre}. If that increment is \(b\), synchronization preserves moduli and therefore
+\begin{equation}
+I^+-I=2\eps\sum_i(k_i|z_i|^2-|z_i|^4)
+ -2g\sum_{i<j}|z_i-z_j|^2+\|b\|^2,\qquad I=\sum_i|z_i|^2.
+\end{equation}
+This is an exact budget, not a conservation or descent claim: at \(\eps=1,g=0,k_i=1\), the common real input 2 maps to \(-4\), taking \(I\) from 12 to 48 and \(\mathcal V\) from 6 to 168. No continuous gradient flow or physical energy is substituted for the native discrete map. \src{GR0 \S4; prior potential normalization in Papers D/E and Atlas 07.}
+
+\section{Homogeneous finite-ring response}\label{sec:homogeneous}
+
+\begin{theorem}[Fixed circle and complete derivative]\label{thm:homogeneous}
+Let \(k_i=k>0\), \(\eps\ne0\). The nonzero fixed states on the common-channel line form the circle \(z_*=\sqrt{k}e^{i\chi}\one\). In the local chart
+\(z=e^{i\chi}(\sqrt{k}\one+a+ib)\), the real derivative has blocks
+\begin{equation}
+A_0=(1-2\eps k)I+g\Delta_N,\qquad
+J_{\phi,0}=(I+\ell\Delta_N)(I+g\Delta_N).\label{eq:homblocks}
+\end{equation}
+The amplitude perturbation is a; the phase perturbation is \(b/\sqrt{k}\).
+\end{theorem}
+\begin{proof}
+On the common line, graph coupling vanishes and synchronization does nothing. A nonzero fixed value w satisfies \(\eps(k-|w|^2)=0\). At the positive radius, \(|\sqrt{k}+a_i+ib_i|^2=k+2\sqrt{k}a_i+O(\|(a,b)\|^2)\). Differentiating the cubic term gives a real increment \(-2\eps k a_i\) and zero imaginary increment. The pre-blocks are therefore \(A_0\) and \(I+g\Delta_N\). Differentiating \(\sin3(\phi_j-\phi_i)\) at equal phase gives \(\ell\Delta_N\phi\). The synchronizer changes no modulus, so its derivative leaves the radial block unchanged and composes after the phase pre-block.
+\end{proof}
+For \(\eps=0\) every common nonzero amplitude is fixed, giving another neutral direction. For \(\eps\ne0,k\le0\) the stated nonzero fixed family does not exist.
+
+\begin{theorem}[Exact finite spectrum and stability]\label{thm:fourier}
+With \(h_m=4\sin^2(\pi m/N)\), \(m=0,\ldots,N-1\),
+\begin{equation}
+\boxed{\mu_a(m)=1-2\eps k-gh_m,\qquad
+\mu_\phi(m)=(1-gh_m)(1-\ell h_m).}\label{eq:fourier}
+\end{equation}
+Strict normal linear contraction is equivalent to
+\begin{equation}
+|\mu_a(m)|<1\quad\hbox{all }m,\qquad
+|\mu_\phi(m)|<1\quad m\ne0.\label{eq:stable}
+\end{equation}
+For each fixed finite N these inequalities also give local attraction to some point on the fixed circle.
+\end{theorem}
+\begin{proof}
+The Fourier vector \(e^{2\pi imi/N}\) has Laplacian eigenvalue \(-h_m\). Substitution into the two polynomial blocks proves \eqref{eq:fourier}. The blocks are real symmetric, so on the normal space the Euclidean norm is the largest multiplier modulus. The excluded phase mode has multiplier one. In a local common-phase quotient chart the derivative norm is strictly less than one; continuity gives a smaller contracting neighbourhood. Phase drifts are smooth, vanish on the fixed circle and are bounded by the geometrically decaying transverse deviations, hence summable. The original orbit converges to a nearby phase on the circle.
+\end{proof}
+There is no claim of uniform basin size as N grows. Unit-modulus boundary cases require further analysis. The exact amplitude criterion is
+\[
+0<\eps k<1,\qquad 0<2\eps k+g h_{\max}<2,
+\]
+where \(h_{\max}=4\) for even N and \(4\cos^2(\pi/(2N))\) for odd N. It follows by checking the attained endpoints of an affine symbol. The phase criterion is the finite list
+\[
+0<(g+\ell)h_m-g\ell h_m^2<2,\qquad m\ne0.
+\]
+These statements permit either sign of the native coefficients; a sufficient all-finite-ring domain is \(0\le g<1/2\), \(0\le\lambda<1/6\), \(g+3\lambda>0\), \(0<\eps k<1-2g\).
+
+The stable response is relaxational in the precise spectral sense: its normal multipliers are real with modulus below one, possibly alternating in sign. They are even in wave angle and have no propagating conjugate branch \(e^{\pm ic\theta}\). This excludes such a linear branch at this homogeneous background, not every nonlinear travelling state.
+
+\subsection{Formal symbol and restricted modal limit}
+Write \(D_\phi=g+\ell\). The analytic symbol obeys
+\[
+h(\theta)=\theta^2-\theta^4/12+O(\theta^6),\qquad
+\mu_\phi=1-D_\phi\theta^2+(D_\phi/12+g\ell)\theta^4+O(\theta^6).
+\]
+At \(D_\phi=0\), \(\ell=-g\) and \(\mu_\phi=1-g^2h^2\), with quartic rather than quadratic leading decrement when \(g\ne0\).
+
+For \(D_\phi>0\), a fixed Fourier index m and bounded \(0\le\tau\le T\), the exact controlled statement is
+\begin{equation}
+\mu_\phi(2\pi m/N)^{\lfloor\tau N^2\rfloor}
+=e^{-4\pi^2D_\phi m^2\tau}+O_{m,T}(N^{-2}).\label{eq:modal}
+\end{equation}
+To prove it, expand \(\log\mu_\phi=-4\pi^2D_\phi m^2N^{-2}+O_m(N^{-4})\); multiplying by the integer count leaves a uniformly \(O(N^{-2})\) exponent error. The m=0 identity is exact. This controls fixed finitely many modes of the linearization, not the complete nonlinear map, all growing mode indices or a physical continuum limit. The triad pullback occupies \(h=0,3,3\), not a long-wave sector. \src{GR0 \S\S5--6, L05--L09.}
+
+\section{Weak unequal-background branch}\label{sec:unequal}
+
+Let \(k_i=k+\eta\kappa_i\), \(k>0\), \(\kappa_{i+3}=\kappa_i\) and \(\sum_{i=1}^3\kappa_i=0\). Assume \eqref{eq:stable} for the chosen finite N at \(\eta=0\).
+\begin{theorem}[Native branch and first response]\label{thm:branch}
+There is a unique nearby positive real-analytic in-phase radius branch, modulo common phase, satisfying
+\begin{equation}
+\eps r_i(k_i-r_i^2)+g(\Delta_Nr)_i=0.\label{eq:fixed}
+\end{equation}
+It is three-periodic and \(r=\sqrt{k}\one+\eta u+O(\eta^2)\), with
+\begin{equation}
+(2\eps kI-g\Delta_N)u=\eps\sqrt{k}\,\kappa,\qquad
+u_i=\frac{\eps\sqrt{k}}{2\eps k+3g}\kappa_i.\label{eq:screen}
+\end{equation}
+\end{theorem}
+\begin{proof}
+The derivative in r of \eqref{eq:fixed} at the equal state is \(-2\eps kI+g\Delta_N\). Its negative has eigenvalues \(1-\mu_a(m)\in(0,2)\), hence is invertible. The analytic implicit-function theorem and positivity by continuity give the branch. Differentiation in eta gives the first equation. Uniqueness and shift-by-three symmetry force three-periodicity. On the repeated zero-sum triad sector, \(\Delta_N\kappa=-3\kappa\), giving the explicit solution. Strict noncommon stability persists locally for this fixed finite N.
+\end{proof}
+Distinct \(\kappa_i\) give distinct radii for small nonzero eta. Two equal coefficients give equal radii by uniqueness of the reduced triad branch; the converse follows by subtracting its positive fixed equations. The zero-mean assertion applies to u, not all higher corrections.
+
+For \(g>0\), \eqref{eq:screen} has the mathematical screened-Poisson or modified-Helmholtz form \(2\eps kI+g(-\Delta_N)\). This is a structural analogy only: \(\kappa\) is not an established mass density, u is not a gravitational potential, and graph index is not established physical space. For negative g the finite-system inverse still exists under the stated hypothesis, but the usual positive graph-stiffness interpretation is unavailable. \src{GR1 \S2, (2)--(6), L10.}
+
+\section{Weighted response geometry and stage order}\label{sec:weighted}
+At any positive fixed branch let
+\begin{equation}
+R=\diag(r_i),\qquad H_r=I+\eps\diag(k_i-r_i^2)+g\Delta_N,\qquad H_rr=r.
+\end{equation}
+The real amplitude and imaginary pre-blocks are \(H_r-2\eps R^2\) and \(H_r\), by direct differentiation of the native cubic. In phase coordinates \(b=R\phi\),
+\begin{equation}
+P=R^{-1}H_rR,\quad
+P_{ij}=g\,r_j/r_i\ (j\sim i),\quad
+P_{ii}=1-g\sum_{j\sim i}r_j/r_i,\quad P\one=\one.\label{eq:P}
+\end{equation}
+\begin{theorem}[Native weighted self-adjointness]
+On every positive branch,
+\begin{equation}
+R^2P=P^TR^2,\qquad
+\langle f,h\rangle_r=\sum_i r_i^2f_ih_i,\qquad
+\langle f,(I-P)f\rangle_r=g\sum_{\{i,j\}}r_ir_j(f_i-f_j)^2.\label{eq:weighted}
+\end{equation}
+For \(g\ne0\), the diagonal weights are unique up to scale on the connected graph.
+\end{theorem}
+\begin{proof}
+\(R^2P=RH_rR\) is symmetric. Edgewise, \(r_i^2P_{ij}=gr_ir_j=r_j^2P_{ji}\). Any other diagonal balancing weights must have \(w_i/r_i^2=w_j/r_j^2\) along every edge, proving uniqueness by connectedness. Using the row sum and pairing the two orientations of each edge gives the quadratic identity.
+\end{proof}
+For \(g>0\) these are positive edge conductances; for \(g<0\) balance survives but the form has the opposite sign. At g=0, \(P=I\) and any positive diagonal weight works. Row sums do not by themselves imply a Markov matrix.
+
+The native synchronizer differentiates to \(S_\phi=I+\ell\Delta_N\). Therefore
+\begin{equation}
+\boxed{J_\phi=S_\phi P,\qquad
+DF|_{(a,\phi)}=\diag(H_r-2\eps R^2,S_\phi P),\qquad J_\phi\one=\one.}\label{eq:SP}
+\end{equation}
+In Cartesian imaginary coordinates the second block is instead \(RS_\phi R^{-1}H_r\). The native order is \(S_\phi P\), not \(PS_\phi\). Both factors have self-adjoint descriptions, but usually in different inner products. Their product requires an independent reversibility test.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\linewidth]{../figures/02_weighted_response.pdf}
+\caption{Background-dependent weighted response and the stage-order obstruction. Edge labels \(gr_ir_j\) are the exact conductances of \eqref{eq:weighted} for g positive. Composition is the native order \eqref{eq:SP}. The final line records the theorem in Section~\ref{sec:cycle}, not a probability-current or curvature interpretation. Source: GR1 \S\S3--6.}
+\end{figure}
+
+\section{Synchronization and diagonal cycle obstruction}\label{sec:cycle}
+For the triad set \(r=(a,b,c)>0\), \(\sigma_1=a+b+c\), \(\sigma_2=ab+ac+bc\), \(\sigma_3=abc\), \(d=1-3\ell\). Since \(S_\phi=dI+\ell\one\one^T\),
+\begin{equation}
+J_{ij}=dg\,r_j/r_i+\ell v_j\quad(i\ne j),\qquad
+v_j=\sum_iP_{ij}=1-g\sigma_1/r_j+gr_j\sum_i1/r_i .
+\end{equation}
+\begin{theorem}[Triad diagonal criterion]\label{thm:cycle}
+In a sufficiently small neighbourhood of any strictly stable equal triad, positive diagonal W satisfying \(WJ=J^TW\) exists exactly when
+\begin{align}
+\mathcal C_{\rm cyc}
+&=J_{12}J_{23}J_{31}-J_{21}J_{32}J_{13}\\
+&=\frac{g\ell d(a-b)(a-c)(b-c)}{a^2b^2c^2}\,\mathcal K=0,\label{eq:cycle}\\
+\mathcal K&=g^2\ell\sigma_1^3+
+ [g^2(1-2\ell)-g\ell]\sigma_1\sigma_2+(3g\ell-g+\ell)\sigma_3.\label{eq:K}
+\end{align}
+\end{theorem}
+\begin{proof}
+At the equal background all off-diagonals equal \(q_0=g+\ell-3g\ell\). Its transverse multiplier is \(1-3q_0\), so strict stability implies \(0<q_0<2/3\). Off-diagonals remain positive locally. Multiplying pairwise balance around the triangle proves necessity. If the cycle difference is zero, the positive choice
+\begin{equation}
+W=\diag(J_{21}J_{31},\,J_{12}J_{31},\,J_{13}J_{21})\label{eq:cycleW}
+\end{equation}
+balances edges 12 and 13 identically; the edge-23 residual is precisely \(\mathcal C_{\rm cyc}\).
+
+For the factorization substitute the displayed J entries. The cleared numerator is alternating in a,b,c, hence divisible by their Vandermonde product. Single-stage terms and the d=0 terms cancel. After extracting \(g\ell d\) and the denominator, the remaining symmetric cubic has basis \(\sigma_1^3,\sigma_1\sigma_2,\sigma_3\). Collecting coefficients gives respectively \(g^2\ell\), \(g^2(1-2\ell)-g\ell\), and \(3g\ell-g+\ell\). This proves the rational identity as well as the local criterion.
+\end{proof}
+Thus the exceptional local loci are \(g=0\), \(\ell=0\), \(d=0\), equal pairs of radii, and \(\mathcal K=0\). The first two are globally reversible on positive branches with weights I and \(R^2\), respectively; equal radii give a symmetric J. At \(\ell=1/3\), \(J=\one v^T/3\), balanced by \(\diag(v)\) when \(v_i>0\), particularly locally. For two equal radii \((a,a,c)\), writing \(J_{13}=J_{23}=B\), \(J_{31}=J_{32}=C\), the local weights can be taken as \(\diag(1,1,B/C)\).
+
+The additional locus is exact, not fitted. Write
+\[
+\mathcal K=A_0+\ell B_0,\quad A_0=g(g\sigma_1\sigma_2-\sigma_3),\quad
+B_0=g^2(\sigma_1^3-2\sigma_1\sigma_2)-g\sigma_1\sigma_2+(3g+1)\sigma_3.
+\]
+If \(B_0\ne0\) its location is \(-A_0/B_0\). At radii \((999/1000,1,1001/1000)\) and g=1/10 it is \(\ell=333331/16333302\), with positive off-diagonals. There is no omitted \(A_0=B_0=0\) positive-radius case: for \(g\ne0\), \(A_0=0\) gives \(g=1/p\), \(p=\sigma_1\sigma_2/\sigma_3>0\); writing \(q=\sigma_1^3/\sigma_3\), one obtains \(B_0/\sigma_3=(q+p)/p^2>0\). For g=0, \(B_0=\sigma_3>0\).
+
+\subsection{Weak onset and the stronger full-ring restriction}
+Set \(K_0=g(9g-1)+\ell(1-3g)^2\), and \(V(\kappa)=\prod_{i<j}(\kappa_i-\kappa_j)\). Along Theorem~\ref{thm:branch},
+\begin{equation}
+\mathcal C_{\rm cyc}=
+g\ell dK_0\left(\frac{\eps}{2\eps k+3g}\right)^3V(\kappa)\eta^3+O(\eta^4).\label{eq:cycleweak}
+\end{equation}
+This follows by substituting the branch derivative into the three difference factors and \(\mathcal K=k^{3/2}K_0\) at equality. At \(K_0=0\), symmetry and \(\sum u_i=0\) force the first variation of \(\mathcal K\) to vanish, leaving \(O(\eta^5)\) or smaller. A first-order fitted weight cannot settle the exact triad obstruction.
+
+\begin{theorem}[Full-ring diagonal restriction]\label{thm:ringdiag}
+For \(N=3q\ge6\), positive repeated radii and \(g\ell\ne0\), three distinct radii forbid every positive diagonal symmetrizer. For \((a,a,c)\), one exists exactly when
+\begin{equation}
+\ell-g-g\ell(2a/c+c/a)=0,\label{eq:pairring}
+\end{equation}
+in which case W=R works. Equal radii, g=0 or \(\ell=0\) retain their preceding reversible cases.
+\end{theorem}
+\begin{proof}
+Average any putative positive diagonal W over shift by three; it remains positive and balancing, and becomes three-periodic. Distance-two entries have one intermediate node:
+\[
+J_{i,i+2}=\ell g\,r_{i+2}/r_{i+1},\qquad
+J_{i+2,i}=\ell g\,r_i/r_{i+1}.
+\]
+They force \(w_i/r_i=w_{i+2}/r_{i+2}\) through all three residue classes, so the averaged weight is proportional to R. The remaining distance-one residual is
+\begin{equation}
+(RJ-J^TR)_{i,i+1}
+=(a-b)[\ell-g+3g\ell-g\ell\sigma_1(1/a+1/b)].\label{eq:ringres}
+\end{equation}
+For three distinct radii all three brackets must vanish; subtracting two gives
+\(-g\ell\sigma_1(1/a-1/c)\ne0\), a contradiction. If a=b, the remaining brackets reduce to \eqref{eq:pairring}. All other entries already balance or vanish, proving sufficiency too.
+\end{proof}
+No positivity of J entries or stability hypothesis is needed for this ring theorem. The triad \(d=0\) and accidental \(\mathcal K=0\) loci therefore do not generally rescue the full ring. \src{GR1 \S\S4--6, L13--L16.}

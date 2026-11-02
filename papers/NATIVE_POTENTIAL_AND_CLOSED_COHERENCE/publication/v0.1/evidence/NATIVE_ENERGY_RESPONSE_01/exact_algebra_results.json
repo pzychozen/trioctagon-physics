@@ -1,0 +1,93 @@
+{
+  "task": "NATIVE_ENERGY_RESPONSE_01",
+  "status": "PASS",
+  "python": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+  "sympy_version": "1.14.0",
+  "scope": "Exact symbolic response/potential identities and exact rational constants only.",
+  "limitations": "No native evaluations, roots, trajectories, interval runtime certificates, or numerical tests. The written proof supplies domain, signs, and nonlinear remainder arguments.",
+  "curvature": "3131/10000",
+  "decrease_coefficient": "16869/20000",
+  "checks": [
+    {
+      "name": "fixed_profile_H",
+      "passed": true,
+      "purpose": "The fixed equations imply H = I - g M3."
+    },
+    {
+      "name": "row_sum_and_kernel",
+      "passed": true,
+      "purpose": "P fixes common phase and K annihilates it."
+    },
+    {
+      "name": "polar_amplitude_hessian",
+      "passed": true,
+      "purpose": "Differentiate the native potential to check B = I - A."
+    },
+    {
+      "name": "polar_phase_hessian",
+      "passed": true,
+      "purpose": "Differentiate the native potential to check its phase Hessian K."
+    },
+    {
+      "name": "mixed_hessian_zero",
+      "passed": true,
+      "purpose": "The mixed amplitude/phase quadratic terms vanish at alignment."
+    },
+    {
+      "name": "weighted_Dirichlet_form",
+      "passed": true,
+      "purpose": "Check the edge-once normalization of K."
+    },
+    {
+      "name": "P_K_self_adjointness",
+      "passed": true,
+      "purpose": "Check that P is self-adjoint for the inherited potential form."
+    },
+    {
+      "name": "triad_J_decomposition",
+      "passed": true,
+      "purpose": "Check synchronization-after-prestage order and the common-phase term."
+    },
+    {
+      "name": "J_K_contraction_identity",
+      "passed": true,
+      "purpose": "Check the exact quadratic phase-change reduction."
+    },
+    {
+      "name": "amplitude_decrement",
+      "passed": true,
+      "purpose": "Check the amplitude eigenmode coefficient; strict signs are proved in the note."
+    },
+    {
+      "name": "cycle_factorization",
+      "passed": true,
+      "purpose": "Independently check the inherited rational factorization and its sign convention."
+    },
+    {
+      "name": "cycle_factor_at_equal_radii",
+      "passed": true,
+      "purpose": "Check the coefficient used in the weak-heterogeneity comparison."
+    },
+    {
+      "name": "Cartesian_onsite_hessian",
+      "passed": true,
+      "purpose": "Independently differentiate the block used for the whole-segment curvature bound."
+    },
+    {
+      "name": "finite_domain_curvature",
+      "passed": true,
+      "purpose": "Check the exact upper-curvature constant."
+    },
+    {
+      "name": "finite_domain_decrease_coefficient",
+      "passed": true,
+      "purpose": "Check the exact unit-step Taylor coefficient."
+    },
+    {
+      "name": "pair_rotation_real_part",
+      "passed": true,
+      "purpose": "Check the area sign for conj(Omega_i) Omega_j and delta_j - delta_i."
+    }
+  ]
+}

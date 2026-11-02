@@ -1,0 +1,36 @@
+\section{Finite-step pair-coherence identity}\label{app:pairidentity}
+
+The following algebra fixes the sign and normalization independently of any descent assertion.
+
+\begin{lemma}\label{lem:pairidentity}
+With tildes denoting prestage quantities and \(d_{ij}=\delta_j-\delta_i\),
+\begin{align}
+S_{ij}^+&=\widetilde S_{ij}\cos d_{ij}
+-\widetilde A_{ij}\sin d_{ij},\label{eq:pairrotation}\\
+\V(F\Omega)-\V(v)
+&=-g\sum_{i<j}\left[
+\widetilde S_{ij}(\cos d_{ij}-1)
+-\widetilde A_{ij}\sin d_{ij}\right].
+\label{eq:phasepotentialidentity}
+\end{align}
+\end{lemma}
+\begin{proof}
+By the convention \eqref{eq:pairs},
+\[
+\overline{F_i}F_j
+=\overline v_i v_j e^{i(\delta_j-\delta_i)}
+=(\widetilde S_{ij}+i\widetilde A_{ij})
+(\cos d_{ij}+i\sin d_{ij}).
+\]
+Taking real parts proves \eqref{eq:pairrotation}. Synchronization preserves each intensity. Since \(|z_i-z_j|^2=|z_i|^2+|z_j|^2-2S_{ij}\), the edge-once coefficient \(g/2\) contributes \(-g\) times the coherence change, proving \eqref{eq:phasepotentialidentity}.
+\end{proof}
+
+The identity alone has no global sign. The local Hessian argument and the finite-domain pair-angle lemma supply their respective signs under different hypotheses.
+
+\section{Proof ownership and reproducibility}\label{app:ownership}
+
+The admitted branch, weighted prestage response, exact positive-triad spectrum, and diagonal-cycle criterion are inherited from \cite{nrg}, respectively \texttt{thm:branch}, \texttt{eq:weighted}, \texttt{thm:triad}, and \texttt{thm:cycle}. The same work supplies matched transport and regular closure through \texttt{eq:decoder}, \texttt{eq:faceupdate}, \texttt{thm:Hclosure}, and \texttt{thm:Sclosure}. The invariant-domain and profile inputs come from \cite{relaxation}, Sections 6--7. Their hypotheses are stated at the points of use.
+
+The local and finite potential deductions and Appendix~\ref{app:pairidentity} were accepted in the first proof note \cite{energy}; reconstruction, retention, and the minimum-count statements were accepted in the second \cite{information}. Both notes and their original helper/result pairs are included in distinct evidence directories. One editorial comma in the second note's iterate exponent was deleted before copying the corrected note; the original bytes and exact one-byte receipt are preserved in the review package. No mathematical content changed.
+
+The package's claim/source ledger maps the manuscript labels to the accepted proof-note equations and inherited source labels. Its preparation report records input identities, compiler and rendering details, and the final page inspection. These process records are separate from the proofs. The paper's source compiles independently of the scientific helpers; those archival files are not document-build dependencies.

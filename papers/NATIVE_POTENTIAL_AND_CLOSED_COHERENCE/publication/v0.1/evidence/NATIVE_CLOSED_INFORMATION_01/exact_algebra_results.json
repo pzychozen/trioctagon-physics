@@ -1,0 +1,56 @@
+{
+  "task": "NATIVE_CLOSED_INFORMATION_01",
+  "status": "PASS",
+  "python": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+  "sympy_version": "1.14.0",
+  "scope": "Symbolic coherence identities, generic real-matrix trace identity, and static analytic witness differences only.",
+  "limitations": "No native-step calls or implementations, trajectories, profile solves, sampled domains, old helper runs, or floating-point certificates. Continuous-domain and minimality claims are supplied by the written proof.",
+  "checks": [
+    {
+      "name": "anchored_pair_product",
+      "passed": true,
+      "purpose": "Check the S23 and A23 reconstruction signs."
+    },
+    {
+      "name": "Hermitian_reconstruction",
+      "passed": true,
+      "purpose": "Check H = z z-dagger, with H_ij = conjugate(C_ij), using the modulus identities."
+    },
+    {
+      "name": "source_matrix_convention",
+      "passed": true,
+      "purpose": "Independently check the source convention H = S_G - i A_G."
+    },
+    {
+      "name": "skew_trace_vanishes",
+      "passed": true,
+      "purpose": "Any real N annihilates the skew contribution to this trace."
+    },
+    {
+      "name": "trace_equals_squared_norm",
+      "passed": true,
+      "purpose": "Check the quadratic-form identity used to retain the prestage-increment norm."
+    },
+    {
+      "name": "transposed_phase_entry",
+      "passed": true,
+      "purpose": "Check that the ji entry supplies the native phase-kick sign."
+    },
+    {
+      "name": "zero_or_one_entry_witness",
+      "passed": true,
+      "purpose": "Check the static potential difference with the retained pair unchanged."
+    },
+    {
+      "name": "real_only_missing_pair",
+      "passed": true,
+      "purpose": "Check the omitted real coherence difference in the two-real-entry witness."
+    },
+    {
+      "name": "real_only_energy_obstruction",
+      "passed": true,
+      "purpose": "Check the exact static potential difference at the fixed graph coefficient."
+    }
+  ]
+}
