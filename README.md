@@ -341,6 +341,11 @@ No runtime or kernel changes.
 [Native Potential Descent and Closed Coherence Coordinates in the Tri-Octagon Map — v0.1](papers/NATIVE_POTENTIAL_AND_CLOSED_COHERENCE/README.md), by **Hilmir Frímann Halldórsson**. Author-authorized repository research edition with completed project-internal scientific review; no external peer review is claimed. [Final PDF](papers/NATIVE_POTENTIAL_AND_CLOSED_COHERENCE/publication/v0.1/NATIVE_POTENTIAL_AND_COHERENCE_v0.1.pdf). Local native-potential descent, an explicit coherent-domain decrease bound, and autonomous coherence coordinates with attained minimum counts in the stated pair-entry dictionaries. No runtime changes.
 
 
+## Phase reconstruction and stationary support axes
+
+[Phase Reconstruction and Stationary Support Axes in the Tri-Octagon Map — v0.1](papers/PHASE_RECONSTRUCTION_AND_STATIONARY_SUPPORT_AXES/README.md), by **Hilmir Frímann Halldórsson**. Author-authorized repository research edition with completed project-internal scientific and manuscript review. [Final PDF](papers/PHASE_RECONSTRUCTION_AND_STATIONARY_SUPPORT_AXES/publication/v0.1/NATIVE_PHASE_SPATIAL_v0.1.pdf). Exact common-phase reconstruction, corrected overlap accumulation, stationary support-axis correspondence, and the fixed-label, state-independent proper-rotation theorem on the admitted domain. No external peer review is claimed.
+
+
 ### Understanding Z motion — methods guide
 
 [Understanding Z Motion in the Tri-Octagon Model](docs/methods/Z_MOTION/README.md) explains native changes, observer effects and source accounting against fixed geometry. Start with the [two-page reading companion](docs/methods/Z_MOTION/v0.1/PLAIN_LANGUAGE_GUIDE_v0.1.pdf), then the [18-page methods note](docs/methods/Z_MOTION/v0.1/manuscript/NCM_Z_DOCUMENTATION_v0.1.pdf). Author-authorized project documentation with retained evidence and internal review; no new runtime feature or physical-motion claim.

@@ -1,0 +1,62 @@
+\section{Retained energies and transfer of descent}\label{sec:retention}
+
+The coordinate construction retains more than an autonomous update. It preserves the scalar that motivated the reduction and every individual graph contribution, rather than only their sum.
+
+\begin{theorem}[Exact energy retention]\label{thm:retention}
+For every \(y\in\Y\), define
+\begin{align}
+E_{ij}(y)&=s_i+s_j-2S_{ij}(y),\label{eq:edges}\\
+\widehat{\V}(y)&=\eps\sum_i\left(\frac{s_i^2}{4}-\frac{k_i s_i}{2}\right)
++\frac g2\sum_{i<j}E_{ij}(y),\label{eq:retainedpotential}\\
+N(y)&=M(y)-I,\qquad
+\widehat{\mathcal B}(y)=\tr(N\HH N^T).
+\label{eq:retainedB}
+\end{align}
+For any representative \(\Omega\in\D\), these satisfy
+\begin{align}
+E_{ij}(y)&=|\Omega_i-\Omega_j|^2
+=\|D_i\Omega_i-T_{ij}D_j\Omega_j\|^2,\label{eq:matchededges}\\
+\widehat{\V}(\RR(\Omega))&=\V(\Omega),\notag\\
+\widehat{\mathcal B}(y)
+&=\tr(NS_GN^T)=\|v-\Omega\|_2^2\ge0.
+\label{eq:traceidentity}
+\end{align}
+Here \(D_i\) and \(T_{ij}\) are the accepted matched decoder and transport.
+\end{theorem}
+\begin{proof}
+Expansion of a squared complex distance proves \eqref{eq:edges}. In the adopted tangent frames of \cite{nrg}, \texttt{eq:decoder} and \texttt{eq:faceupdate}, \(D_i\) is a real-linear isometry and \(T_{ij}D_j=D_i\). Thus the transported difference is \(D_i(\Omega_i-\Omega_j)\), proving \eqref{eq:matchededges}. Substitution into the edge-once potential gives \eqref{eq:retainedpotential}.
+
+Because \(N\) is real and \(N\Omega=v-\Omega\),
+\[
+N\HH N^T=(N\Omega)(N\Omega)^\dagger.
+\]
+This matrix is Hermitian positive semidefinite, and its trace is the squared complex Euclidean norm. Moreover, \(A_G^T=-A_G\), so \(NA_GN^T\) is real skew-symmetric with zero diagonal. Its trace vanishes, proving the equality with \(\tr(NS_GN^T)\). No alignment assumption is used, and symmetry of \(N\) is unnecessary for this argument.
+\end{proof}
+
+The retained matched distances do not reconstruct the common-phase-dependent face vectors themselves. Their identification with transported tangent differences supplies no physical flux law.
+
+\begin{corollary}[Descent on the retained image]\label{cor:retaineddescent}
+For every \(y\in\Y\),
+\begin{equation}
+\boxed{\widehat{\V}(F_{\RR}y)-\widehat{\V}(y)
+\le-\frac{16869}{20000}\widehat{\mathcal B}(y).}
+\label{eq:reduceddescent}
+\end{equation}
+Let
+\begin{equation}
+y_*=(r_{*,1}^2,r_{*,2}^2,r_{*,3}^2,0,0).
+\label{eq:ystar}
+\end{equation}
+Then
+\begin{equation}
+\widehat{\V}(F_{\RR}y)=\widehat{\V}(y)
+\quad\Longleftrightarrow\quad y=y_*.
+\label{eq:reducedequality}
+\end{equation}
+The point \(y_*\) is the unique fixed retained state.
+\end{corollary}
+\begin{proof}
+Choose any \(\Omega\in\D\) representing \(y\). Semiconjugacy and Theorem~\ref{thm:retention} transfer Theorem~\ref{thm:finite} directly to \eqref{eq:reduceddescent}. The equality circle in \eqref{eq:finiteequality} maps to the single tuple \eqref{eq:ystar}; conversely that tuple reconstructs \(r_*r_*^T\), whose fibre is exactly the circle. This proves \eqref{eq:reducedequality}. Its image is fixed; any other fixed retained state would also have equal potential, a contradiction.
+\end{proof}
+
+Likewise \(\widehat{\mathcal B}=0\) exactly at \(y_*\), by \eqref{eq:traceidentity} and \eqref{eq:finiteequality}. No root solve, new decay-rate estimate, or classification of equality in every quantitative bound is needed for this transfer.

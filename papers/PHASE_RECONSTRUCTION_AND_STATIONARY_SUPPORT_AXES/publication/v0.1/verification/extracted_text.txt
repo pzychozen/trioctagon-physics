@@ -1,0 +1,792 @@
+PAGE 1
+TRI-OCTAGON MATHEMATICAL RESEARCH
+Phase Reconstruction and Stationary
+Support Axes in the Tri-Octagon Map
+Hilmir Frímann Halldórsson
+Author-authorized repository research edition v0.1
+2 November 2026
+Author-authorized repository research edition v0.1. Project-internal scientiﬁc and manuscript review
+completed; author publication approval granted. No external peer review is claimed.
+Abstract
+On an accepted invariant coherent domain of the native Tri-Octagon map, ﬁve real re-
+tained coordinates determine the full complex state up to common phase. We recover the
+complete native history from their closed evolution and one initial common phase. A canoni-
+cal representative gives an explicit unit multiplier and a continuous ordinary increment with
+absolute-summability control and the inherited limiting-phase bound. The adjacent-state
+overlap is retained-data dependent and nonvanishing, but its angle diﬀers from the canon-
+ical increment by the angle of the inner product of consecutive representatives. We prove
+the branch-resolved correction, its accumulation rule and its change under a diﬀerent repre-
+sentative; an analytic family shows that the correction is not identically zero. Composing
+reconstruction with the adopted lossless face decoder yields exact vector histories. Pure
+rephasing rotates each face vector about its ﬁxed normal line, and those positioned axes co-
+incide with the existing stationary support lines, with reversed directed-angle convention. In
+contrast, a single proper ambient rotation representing that action for every admitted state
+and every ﬁxed channel label exists only for whole-turn phases. The complete native step
+can also change amplitudes and relative phases. We separate these results from staged obser-
+vations, memory updates and observations from current memory, and from any assignment
+of a material feature or rigid-body pose.
+Author’s research questions and programme: Hilmir Frímann Halldórsson. GPT supplied scientiﬁc di-
+rection and completed project-internal scientiﬁc and manuscript review. Codex supplied the underlying
+investigations’ independent mathematical checks and this manuscript’s preparation, ﬁnalization and doc-
+ument veriﬁcation. The present document build does not rerun scientiﬁc helpers.
+
+PAGE 2
+Phase reconstruction and stationary axes Research edition v0.1
+1 Question and scope
+The retained coordinates of the coherent triad distinguish the component amplitudes and relative
+phases, but discard a common phase. Relative phase describes how the channels diﬀer from one
+another. Common phase rotates all three complex components together while preserving their
+pair coherences. Once the original common phase is supplied, the existing native map determines
+its subsequent evolution; there is no additional phase law to choose.
+This distinction becomes spatial through the adopted face decoder. Each complex channel
+supplies the two coeﬃcients of an arrow in a ﬁxed tangent plane. A common complex rephasing
+rotates these arrows in their respective planes. Whether the resulting axes coincide with existing
+stationary supports, and whether the three vector changes form one common proper ambient
+rotation, are precise questions about the adopted deﬁnitions. They do not require a material-
+motion interpretation.
+The published predecessor establishes the retained coordinates, their exact image, autonomous
+evolution and energy retention [ 1]. We combine the accepted phase and spatial investigations
+[4, 5]: exact state reconstruction, the nontrivial overlap-angle correction, positioned-axis cor-
+respondence, and a quantiﬁed proper-rotation test. Their continuous-domain arguments are
+presented here. The inherited invariant-domain and convergence results [ 2], decoder [ 3], ﬁxed-
+gap geometry [ 6], and observation deﬁnitions [ 7] retain their own hypotheses. No unrestricted
+coordinate-minimality or external priority claim is made.
+2 Native setting and inherited retained dynamics
+2.1 The ordered map and its regular domain
+Let Ω ∈ C3, and ﬁx
+ε= 1
+10, g = 1
+60, λ = 1
+300, k =
+( 999
+1000, 1, 1001
+1000
+)
+, L = 11T − 3I. (2.1)
+With si = |Ωi|2, the complex prestage and complete update are
+M =I +εdiag(k −s) +gL, ˜Ω = M Ω, (2.2)
+δi =λ
+∑
+j̸=i
+sin
+(
+3(Arg0 ˜Ωj − Arg0 ˜Ωi)
+)
+, F (Ω) = Uδ˜Ω, U δ= diag(eiδi). (2.3)
+All kicks use the same prestage. The native convention is Arg0(0) = 0 ; at λ= 0, the synchronizer
+bypasses phase extraction and returns the prestage. Neither convention is modiﬁed here.
+Set D0 =π/12. The closed domain D has component amplitudes in [9/ 10, 11/ 10] and ordinary
+phases contained in one interval of width at most D0, with arbitrary common orientation. These
+are ordinary full-turn phases, not phases modulo 2π/3. The following are inherited from [ 2,
+Sections 6–7] and restated in [ 1, Section 4]:
+1. Positive prestage mixing preserves the input phase interval, and
+a∗ := 88701
+100000 + 3
+100 cosD0 ≤ |˜Ωi| ≤ 107701
+100000, 9
+10 <a ∗ ≤ |˜Ωi|< 11
+10. (2.4)
+2. The simultaneous phase stage preserves that interval. The domain is forward invariant,
+with nonzero prestages at every iterate.
+3. For consistent ordinary lifts and their enclosing intervals In,
+In+1 ⊆ In, ∆ n := |In| ≤cn∆ init, c = 1 − 3
+√
+2
+200 ∈ (0, 1). (2.5)
+2
+
+PAGE 3
+Phase reconstruction and stationary axes Research edition v0.1
+There is a unique positive aligned ﬁxed proﬁle r∗ in the amplitude cube, and
+Ωn − →eiθ∞r∗, |θi,n −θ∞ | ≤∆ initcn. (2.6)
+We use these results without re-proving convergence. Regular common-phase equivariance is also
+inherited: at nonzero prestages, F (uΩ) = uF (Ω) for |u|= 1 . The harmonic sine is unchanged
+by the principal-argument wraps. The native zero stratum does not support an unrestricted
+extension of this assertion [ 3].
+Table 1: Notation. The spatial support lines and native graph matrix are diﬀerent objects.
+Symbol Meaning
+˜Ω, v i Complex prestage; decoded real face vector
+y, z (y), G Retained tuple, canonical representative, closed retained update
+Ψ, ˆF,κ Full-state reconstruction, lifted update, unit phase multiplier
+Aij,ηi,ϑ Signed pair areas, relative phases, canonical ordinary increment
+H, C ch Raw complex coherence; raw channel chirality
+ni,t i,ℓi,L k Oriented face normal, tangent, positioned normal line, support line
+θn,θobs,t,n,τ Native anchor phase, observer angle, observer time, update index, static geometry
+parameter
+NΩ Observer norm
+√∑
+isi, never the multiplier κ
+2.2 Representative, exact image and closed map
+Retain the source convention
+ΩiΩj =Sij +iAij, H = ΩΩ † =SG −iAG, y = R(Ω) = ( s1,s 2,s 3,A 12,A 13). (2.7)
+The inherited reconstruction and ﬁbre theorem [ 1, Section 5] gives
+b2 = +
+√
+s1s2 −A2
+12, b3 = +
+√
+s1s3 −A2
+13,
+z(y) =
+(
+√s1, b2 +iA12√s1
+, b3 +iA13√s1
+) T
+, H(y) = z(y)z(y)†, (2.8)
+S23 = b2b3 +A12A13
+s1
+, A23 = b2A13 −A12b3
+s1
+. (2.9)
+Its ﬁbres are exactly common-phase orbits. In particular H12 =b2 −iA12, not b2 +iA12.
+The exact image Y = R(D) consists of
+81
+100 ≤ si ≤ 121
+100, η 1 = 0, η2 = arcsin A12√s1s2
+, η3 = arcsin A13√s1s3
+,
+∆(y) := max(0,η2,η3) − min(0,η2,η3) ≤ D0, (2.10)
+where the arcsines are real principal values. They equal Argzi(y). Separate area bounds would
+not impose the required joint span. The radicands in ( 2.8) are at least (81/ 100)2 cos2D0> 0, and
+s1 ≥ 81/ 100. Thus closed boundaries, coincident phases, equal amplitudes and zero individual
+areas are regular; no area is a denominator.
+For completeness the inherited retained map can be written entirely in these data:
+˜H =M (y)H(y)M (y)T, ρi =
+√
+˜Hii> 0,
+δi(y) = λ
+∑
+j̸=i
+Im
+
+
+( ˜Hji
+ρjρi
+) 3
+, H + =Uδ˜HU †
+δ, (2.11)
+Gy = (H +
+11,H +
+22,H +
+33, − ImH +
+12, − ImH +
+13).
+3
+
+PAGE 4
+Phase reconstruction and stationary axes Research edition v0.1
+The ji index and extraction minus signs preserve ( 2.7). We use the accepted statements RF =
+GR and GY ⊆ Y , including all subsequent mathematical iterates. No coordinate-minimality
+result is required below.
+3 Exact reconstruction of the native phase
+Theorem 3.1 (Full-state reconstruction). The map Ψ : Y × U(1) → D , Ψ(y,u ) = uz(y), is a
+homeomorphism with inverse
+Ψ − 1(Ω) =
+(
+R(Ω), Ω 1
+|Ω 1|
+)
+. (3.1)
+Deﬁne
+κ(y) = F1(z(y))
+|F1(z(y))|=eiδ1(y) (M (y)H(y))11√s1ρ1(y) . (3.2)
+Then F (z(y)) = κ(y)z(Gy), and the lifted update
+ˆF (y,u ) = (Gy,uκ(y)) satisﬁes F Ψ = Ψ ˆF. (3.3)
+Foru0 = Ω 1, 0/ |Ω 1, 0|, every admitted iterate is
+Ωn =u0
+
+
+n− 1∏
+j=0
+κ(Gjy0)
+
+z(Gny0), n ≥ 0. (3.4)
+Proof. The inherited ﬁbre theorem and positive real ﬁrst component of z give ( 3.1), proving
+bijectivity. The formulas and positive denominators show continuity in both directions. Since
+H =zz †,
+(MH )11 = (Mz )1z1 = √s1(Mz )1, |F1(z)|=ρ1> 0
+by ( 2.4); this proves ( 3.2). The states Fz (y) and z(Gy) have the same retained tuple, so diﬀer
+by one common unit scalar. Their ﬁrst components identify it as κ(y). Regular equivariance
+gives ( 3.3) and induction gives ( 3.4). Forward invariance keeps every step regular. The empty
+product is one.
+This is conjugacy of self-maps, requiring no invertibility of the dynamics. If only y0 is given,
+(3.4) is the family indexed by u0 ∈ U(1); invariant data do not determine the discarded initial
+common phase.
+Theorem 3.2 (Canonical ordinary increment and accumulation) . On the entire closed image
+Y, the principal argument
+ϑ(y) = Arg F1(z(y)) (3.5)
+is continuous, satisﬁes κ=eiϑ, and obeys |ϑ(y)| ≤∆(y). For a chosen real lift eiθ0 =u0, set
+θn+1 =θn +ϑ(yn), y n =Gny0. (3.6)
+Then the full-state relation is Ωn =eiθnz(yn). Its limiting phase is
+θ∞ =θ0 +
+∞∑
+j=0
+ϑ(yj), (3.7)
+with the distinct bounds
+∑
+j≥n
+|ϑ(yj)| ≤ ∆ initcn
+1 −c , |θ∞ −θn| ≤∆ initcn. (3.8)
+4
+
+PAGE 5
+Phase reconstruction and stationary axes Research edition v0.1
+Proof. Put m = miniηi(y), Ma = maxiηi(y). The canonical interval [m,M a] contains zero and
+has width ∆ ≤ D0. Inherited prestage mixing gives lifts ψi ∈ [m,M a]; inherited synchronization
+gives output lifts βi =ψi +δi in the same interval. Hence
+ReF1(z(y)) = ρ1 cosβ1 ≥ a∗cos ∆ ≥ a∗cosD0> 0. (3.9)
+The continuous right-half-plane argument is therefore a single global branch, and ϑ= β1 ∈
+[m,M a]. Nonvanishing alone would not justify that branch. In particular ϑ= ψ1 +δ1: it
+includes the prestage phase change and is not generally only the kick.
+The output relative phases are βi − β1 ∈ [−D0,D 0]. The principal arcsines in ( 2.10) recover
+these diﬀerences exactly, so
+ηi(Gy) = βi −β1, θ i,n =θn +ηi(yn) (3.10)
+propagates the inherited consistent ordinary lift. There is no later unresolved multiple of 2π.
+Now |ϑ(yn)| ≤∆ n ≤ cn∆ init proves the absolute-series bound and ( 3.7). The same lift identiﬁes
+the limit with the inherited θ∞ . Both θn and that limiting phase lie in In, giving the stronger
+net bound |θ∞ −θn| ≤∆ n, hence the second part of ( 3.8).
+The absolute variation and net remaining adjustment in ( 3.8) are not interchangeable. The
+sharper net estimate is inherited phase control, not a new optimal-rate or smooth-asymptotic-
+phase theorem. Changing θ0 by 2πℓchanges all real lifts equally and leaves the complex history
+unchanged.
+On aligned input, A12 =A13 = 0, so z(y) = r> 0. The accepted aligned amplitude map is
+Ai(r) = [1 − 2g +ε(ki −r2
+i )]ri +g(rj +rk)> 0.
+The kicks vanish, κ= 1 and ϑ= 0 , while A(r) may diﬀer from r. The amplitudes converge
+toward r∗. Zero phase increment therefore does not mean ﬁxed full state or zero potential
+decrease.
+4 Overlap angle and representative correction
+The adjacent-state overlap is the scalar O(Ω) = Ω †F (Ω) , distinct from the placed-Z observer.
+Its conjugation order is essential.
+Theorem 4.1 (A branch-resolved overlap correction) . The overlap depends only on retained
+data and satisﬁes
+O(y) = tr(UδMH (y)) =
+∑
+i
+eiδi(MH (y))ii =κ(y)Bsec(y), B sec(y) = z(y)†z(Gy). (4.1)
+Its principal argument αov = Arg O and γ= ArgBsec are continuous on Y. With ∆ = ∆( y),
+Re O(y) ≥ 243
+100 cos ∆ ≥ 243
+100 cosD0> 0, |αov| ≤∆, (4.2)
+ReBsec(y) ≥ 243
+100 cos(2∆) ≥ 243
+√
+3
+200 > 0, |γ| ≤2∆. (4.3)
+The real principal values obey the exact equality
+αov(y) = ϑ(y) +γ(y). (4.4)
+5
+
+PAGE 6
+Phase reconstruction and stationary axes Research edition v0.1
+Proof. Using H = ΩΩ † and trace cyclicity gives Ω †UδM Ω = tr( UδMH ). All factors are deter-
+mined by ( 2.11). Equivariance also directly proves common-rephasing invariance of this overlap.
+Applying Theorem 3.1 to the canonical representative gives the last equality in ( 4.1).
+The inherited input and output phase lifts lie in the same interval of width ∆ . Thus, writing
+ri = |Ωi|,
+O =
+∑
+i
+riρieidi, d i =θ+
+i −θi ∈ [−∆, ∆].
+Each weight is positive, and their sum is at least 3(9/ 10)2 = 243/ 100. This proves the real-part
+bound in ( 4.2). The sector |argw| ≤ ∆ < π/2 is convex: it is given by |Imw| ≤ tan ∆ Re w,
+Rew ≥ 0. Adding the positive-weight terms gives the angle bound as well.
+For the canonical representatives, |ηi(y)| ≤∆ and |ηi(Gy)| ≤∆(Gy) ≤ ∆ . Hence
+Bsec =
+∑
+i
+riρiei(ηi(Gy)−ηi(y)), |ηi(Gy) −ηi(y)| ≤2∆ ≤ π/6.
+The same sector argument proves ( 4.3). Both scalar functions are continuous and uniformly
+inside the open right half-plane, giving the claimed principal branches. Factorization ﬁrst gives
+αov ≡ ϑ+γ(mod 2π); but |ϑ+γ| ≤ 3∆ ≤ π/4 < π. Thus the principal values agree as real
+numbers, proving ( 4.4).
+Consequently reconstructing the anchor phase by overlap requires
+θN −θ0 =
+N − 1∑
+j=0
+αov(yj) −
+N − 1∑
+j=0
+γ(yj). (4.5)
+Both series converge absolutely, with respective absolute tails at most ∆ initcn/ (1 − c) and
+2∆ initcn/ (1 − c). Their diﬀerence has the sharper net-tail estimate in ( 3.8). That estimate
+is not separately assigned to the uncorrected overlap sum. On the aligned subset all three
+angles vanish, even during amplitude relaxation.
+The correction is not identically zero. Appendix A analytically diﬀerentiates the native map
+on z(t) = (1 ,e it,e it) at the ﬁxed coeﬃcients and obtains γ′(0) < 0. This is distinct from a
+numerical native-step evaluation. It establishes a local diﬀerence of the two angles, without
+classifying their agreement set. We neither assume that γis an endpoint diﬀerence nor prove
+that such a representation is impossible.
+4.1 Changing the representative
+For a speciﬁed h : Y → U(1), let zh(y) = h(y)z(y). Equivariance gives
+κh(y) = h(y)
+h(Gy)κ(y), B sec,h (y) = h(y)h(Gy)Bsec(y). (4.6)
+Indeed Fzh(y) = h(y)κ(y)z(Gy) = κh(y)zh(Gy), while the second expression is the inner prod-
+uct of the new representatives. Their factors cancel in O = κhBsec,h . For hj = h(yj), ﬁnite
+cancellation gives
+∏
+j<N
+κh(yj) = h0
+hN
+∏
+j<N
+κ(yj),
+∏
+j<N
+Bsec,h (yj) = hN
+h0
+∏
+j<N
+Bsec(yj). (4.7)
+Takinguh, 0 =u0/h 0 givesuh,N =uN/h N and
+uh,N zh(yN ) = uNz(yN ) = Ω N. (4.8)
+6
+
+PAGE 7
+Phase reconstruction and stationary axes Research edition v0.1
+These identities hold at the unit-complex level without selecting a real argument of h.
+If a real lift h =eiξhas been speciﬁed, the corresponding real increment lifts are
+ϑlift
+h =ϑ+ξ(y) −ξ(Gy), γlift
+h =γ−ξ(y) +ξ(Gy), (4.9)
+eiϑlift
+h =κh, eiγlift
+h = Bsec,h
+|Bsec,h |.
+Their principal arguments are only congruent to these real lifts unless further branch bounds
+apply. The two increment lifts sum pointwise to αov. Their ﬁnite sums acquire opposite endpoint
+terms ξ(y0) − ξ(yN ), which cancel. For example, h = e−iη2 is a speciﬁed continuous channel-
+2 anchor with real lift −η2. Its reconstruction increment is ϑ+η2(Gy) − η2(y), the ordinary
+increment of channel 2.
+Arbitrary continuous representative changes need not retain the canonical pointwise increment
+bounds or absolute-variation bounds. Even if h(yn) converges, continuity alone does not control
+the total variation of its successive values. These endpoint changes of convention do not establish
+an endpoint formula for the original correction γ, and do not supply geometric holonomy.
+5 Decoded phase and positioned support axes
+5.1 The adopted frame
+The existing shell decoder uses ez = (0, 0, 1), r =
+√
+3/ 6 and O = (0,r, 0). Table 2 transcribes
+the deﬁning NRG frame table [ 3, Appendix, notation and conventions] together with the refer-
+ence/PLUS support convention of [ 6, Sections 1 and 3]. Native labels 1, 2, 3 correspond to faces
+A=P1, B=P2, C=P3; the implementation uses indices 0, 1, 2.
+Table 2: Exact frame and support dictionary in the common right-handed ambient frame. Co-
+ordinates are triples; every displayed ﬁnal coordinate is zero.
+Channel / face ci ni ti =ez ×ni gi−1
+1 / A=P1 (− 1
+4,
+√
+3
+4 , 0) ( −
+√
+3
+2 , 1
+2, 0) ( − 1
+2, −
+√
+3
+2 , 0) (
+√
+3
+2 , − 1
+2, 0)
+2 / B=P2 (0, 0, 0) (0 , −1, 0) (1 , 0, 0) (0, 1, 0)
+3 / C=P3 ( 1
+4,
+√
+3
+4 , 0) (
+√
+3
+2 , 1
+2, 0) ( − 1
+2,
+√
+3
+2 , 0) ( −
+√
+3
+2 , − 1
+2, 0)
+The ﬁxed-gap source uses centered coordinates (X,Y,w ), with ew = ez, about precisely this
+uncenteredO. Its directions are
+ej = (cos(−π/2 +jπ/3), sin(−π/2 +jπ/3), 0), g k =e2k+1.
+Thus its centered support Rgk is the positioned line Lk =O + Rgk. The planar source operator
+J(X,Y ) = ( −Y,X ) has the orientation of ez×. No reﬂection, ﬁt or channel permutation is
+used. The ﬁxed-gap source’s other symbol nk =e2k denotes hexagon directions, not the decoder
+normals.
+Proposition 5.1 (Positioned axes and directed signs) . For the deﬁning frames and support
+directions,
+ni = −gi− 1, c i −O =rni, ℓ i :=ci + Rni =O + Rgi− 1 =Li− 1. (5.1)
+For right-hand rotations, Rni(χ) = Rgi−1(−χ). Their aﬃne actions satisfy, for every ambient
+pointX,
+ci +Rni(χ)(X −ci) = O +Rgi−1(−χ)(X −O). (5.2)
+7
+
+PAGE 8
+Phase reconstruction and stationary axes Research edition v0.1
+Proof. The table gives opposite normals and support directions. Subtracting O from the three
+centers gives
+(−1/ 4,
+√
+3/ 12, 0), (0, −
+√
+3/ 6, 0), (1/ 4,
+√
+3/ 12, 0),
+which are exactly rni. Hence ci + Rni =O + (r + R)ni =O + Rgi− 1. Rodrigues’ formula
+Rn(χ) = cosχI+ sinχ[n]× + (1 − cosχ)nnT, [n]×v =n ×v,
+gives the signed-angle identity. Since ci−O lies on that axis, it is ﬁxed by the rotation; expanding
+both sides gives ( 5.2).
+These are equal positioned, unoriented lines, not merely parallel directions. They are three
+diﬀerent lines through O, not a single common axis. Their accepted stationarity does not
+identify a material rod or specify what is attached to them [ 6].
+5.2 Lossless vectors and pure phase action
+Put Wi =n⊥
+i . The adopted decoder and encoder are
+Di(q +ip) = qti +pez, E i(v) = ti ·v +iez ·v. (5.3)
+The frame is orthonormal with
+ni ×ti =ez, n i ×ez = −ti. (5.4)
+ThusEiDi =I, ∥Diω∥= |ω|, and DiEi =I −ninT
+i on ambient vectors. In particular DiEi =I
+on Wi. The combined maps D,E are inverse between C3 and ⨁
+iWi, not between arbitrary
+ambient arrays [ 3, State–shell attachment, eq:decoder].
+Theorem 5.2 (Spatial action of common phase) . For all complex ωand real χ,
+Di(eiχω) = cosχDiω+ sinχni ×Diω=Rni(χ)Diω=Rgi−1(−χ)Diω. (5.5)
+The endpoint based at ci rotates about the positioned line ℓi =Li− 1.
+Proof. For ω= q +ip, the real and imaginary parts after multiplication are q cosχ− p sinχ
+and q sinχ+p cosχ. Substitution in ( 5.3) and ( 5.4) proves the ﬁrst identity. The normal
+term in Rodrigues’ formula vanishes by tangency; Proposition 5.1 gives the last equality. For
+X =ci +Diω, the new endpoint is ci +Rni(χ)(X −ci), so ( 5.2) identiﬁes its positioned axis.
+The algebra includes ω= 0; this does not extend the native reconstruction theorem to singular
+prestages or other coeﬃcient histories. These based vectors lie in unbounded tangent planes.
+Their endpoints need not lie in the ﬁnite source faces, and are not automatically particle positions
+or material features.
+5.3 The complete decoded update
+The accepted matched transport is
+Tij =titT
+j +ezeT
+z :Wj → Wi, T ijDjω=Diω.
+It is an isometry on its tangent domain and rank two ambiently. The existing conjugate face
+update is Fface =DFE , explicitly
+˜vi =vi +ε(ki − ∥vi∥2)vi +g
+∑
+j̸=i
+(Tijvj −vi),
+v+
+i = cosδi ˜vi + sinδini × ˜vi. (5.6)
+8
+
+PAGE 9
+Phase reconstruction and stationary axes Research edition v0.1
+The kicks are those of the encoded complex prestage, with the original conventions [ 3,
+eq:faceupdate]. No second dynamics or carrier motion is added.
+Deﬁne Dface(y,u ) = D(uz(y)). Then ED =I and Theorem 3.1 give
+FfaceDface(y,u ) = DF (uz(y)) = D(uκ(y)z(Gy)) = Dface ˆF (y,u ). (5.7)
+This proves the commuting relation, and composition with ( 3.4) yields the exact history
+vi,n =Di
+
+u0
+
+
+n− 1∏
+j=0
+κ(Gjy0)
+
+zi(Gny0)
+
+. (5.8)
+Losslessness is preserved: encoding these vectors recovers Ωn, then ( 3.1) recovers (yn,u n).
+Pure rephasing changes u at ﬁxed y. An actual native step can change y as well. Using the
+accepted ordinary lifts ( 3.10),
+θi,n +1 −θi,n =ϑ(yn) +ηi(Gyn) −ηi(yn), (5.9)
+as an equality of real lifts. The vector has length √si,n and direction cosθi,n ti + sinθi,n ez.
+Consequently the full decoded step is
+vi,n +1 =
+√
+si,n +1
+si,n
+Rni[ϑ(yn) +ηi(Gyn) −ηi(yn)]vi,n. (5.10)
+This combines amplitude change with anchor and relative-phase change; it is not a pure common
+rotation or a continuous interpolating path. Aligned amplitudes can relax while every angular
+increment vanishes. Closed-boundary and zero-area cases cause no singularity because si,n ≥
+81/ 100.
+Finally, the representative change of ( 4.8) gives Di(uhzh,i ) = Di(uzi). Thus the decoded vectors
+are independent of that bookkeeping convention, although ϑis not. Changing a representative
+together with its inverse phase factor diﬀers from actually rephasing the native state.
+6 When one proper rotation represents all three vectors
+The three local rotations in Theorem 5.2 need not be one common ambient rotation. The precise
+universal question ﬁxes the labels and quantiﬁes over all admitted states.
+Theorem 6.1 (Universal proper-rotation classiﬁcation) . For ﬁxed χ∈ R, there exists a single
+Qχ∈SO(3), independent of Ω , such that for every Ω ∈ D and every ﬁxed channel label,
+Di(eiχΩi) = QχDi(Ωi), i = 1, 2, 3, (6.1)
+if and only if χ≡ 0 (mod 2 π).
+Proof. First take Ω = (1 , 1, 1), with unit moduli and phase width zero. Its decoded vectors are
+ti; after rephasing they are wi = cosχti + sinχez. For i ̸=j,
+ti ·tj = − 1
+2, w i ·wj = − 1
+2 cos2χ+ sin2χ= − 1
+2 + 3
+2 sin2χ. (6.2)
+Orthogonal transformations preserve these inner products, forcing sinχ= 0. Only 0 orπmodulo
+2πremain.
+9
+
+PAGE 10
+Phase reconstruction and stationary axes Research edition v0.1
+For the half-turn, take Ω = eiπ/4(1, 1, 1). It is also admitted: D0 bounds the phase width, not
+the absolute common angle. Its decoded vector columns form
+V = 1√
+2
+
+
+−1/ 2 1 −1/ 2
+−
+√
+3/ 2 0
+√
+3/ 2
+1 1 1
+
+, detV = 3
+√
+6
+8 > 0. (6.3)
+At χ= πeach column is negated. Hence QπV = −V , and full rank forces Qπ= −I, whose
+determinant is −1. It is not proper. Conversely, for χ≡ 0 (mod 2 π), all complex components
+are unchanged and Qχ=I works for every state.
+The witnesses are exact symbolic states, not native-step experiments. No parameters are
+changed. The ﬁrst triple is planar: at χ= π, the proper rotation Rez (π) does negate its
+three tangents. The full-rank second witness is what excludes that half-turn universally. Thus
+the theorem does not say that every individual pair of vector triples lacks a proper registration.
+This comparison concerns free vectors in a ﬁxed ambient frame. It does not move centers, per-
+mute channels, carry the mesh, establish a native period or classify individual registrations. Nei-
+ther this obstruction nor a successful registration of one triple identiﬁes the pose of an attached
+central object. The ﬁxed-gap support stabilizers concern speciﬁed common rigid transformations
+and attachment conditions [ 6, Section 3]; they answer a diﬀerent question.
+7 Observations, energy consistency and interpretation
+7.1 Retained observations and phase-sensitive memory
+The existing raw channel quantities are
+I(y) = s1 +s2 +s3, N Ω =
+√
+I, C ch(y) = (A23, −A13,A 12), (7.1)
+whereA23 is supplied by ( 2.9). For Ω = q +ip,Cch =q ×p. It is not the distinct ambient axial
+projection W =TfCch, with Tf = [t1 t2 t3] [3]. The historical staged Z uses the raw Cch.
+With the speciﬁed external observer and placement settings, staged Z has the form [ 7, Section
+3]
+K(NΩ ) = λvp
+NΩ
+1 +NΩ
+, E obs(t) = e−γobst,
+Hθobs = cos[3(θobs −ℓ)](cosθobs, sinθobs, 1),
+Z =αKEobsHθobs +βCch, X =O +µRψZ. (7.2)
+These coeﬃcients and clocks are external observer data. No new preset is selected. If σn
+collects those data, then Zn = Z(yn;σn) and Xn = X (yn;σn). Equal retained starts and
+identical exogenous schedules give equal staged and placed histories, since yn =Gny0. Their face-
+vector histories may diﬀer through u0. This is composition of accepted closure with observation
+invariance, not an autonomous recurrence on Z alone. Frozen settings still leave dependence on
+changingI(y) and Cch(y), so the point can move.
+The separate EMA innovation is
+Jn = Im
+[
+unz1(yn)z2(yn)z3(yn)
+]
+, j n = Jn
+1 + |Jn|. (7.3)
+The cubic product has common-phase weight one: substituting Ω = uz yields uuu = u. The
+source advance_ema uses jn, current memory and literal innovation weight 0. 01. Generating
+10
+
+PAGE 11
+Phase reconstruction and stationary axes Research edition v0.1
+memory needs the initial memory and speciﬁed sampling/update order in addition to a native
+history, or instead a supplied innovation sequence [ 8].
+In contrast, observe_ema observes current memory without evaluating the cubic or updating
+memory. Its scalar is the norm/clock harmonic plus current memory, followed by the existing
+macro direction and raw-chirality blend. Thus its value is determined by I(yn),Cch(yn), current
+memory and observer conﬁguration/clock, with placement data added for a point. At ﬁxed
+values of these inputs, current common phase supplies no additional value information. Phase
+can aﬀect later observations through explicitly updated memory. These are distinct operations,
+not two descriptions of one implicit update [ 7, Section 8][ 8].
+Table 3: Observation dependencies. History inputs include the speciﬁed native or observer
+ordering; no canonical schedule is inferred.
+Quantity Inputs for a current value Additional history information and
+phase dependence
+Face arrows yn,u n, ﬁxed frames y0,u 0 determine their native history
+through ( 5.8).
+Intensity and raw
+chirality
+yn y0,G suﬃce; no common-phase value is
+needed.
+Staged Z / placed
+point
+yn, observer data; placement for the
+point
+Equal y0 and schedules give equal
+histories. No recurrence on Z alone is
+claimed.
+EMA innovation yn,u n, via ( 7.3) Reconstructed state determines the
+phase-sensitive cubic.
+EMA memory
+update
+Normalized innovation and current
+memory
+Requires y0,u 0, initial memory,
+existing rule and sampling/order; a
+supplied innovation sequence can
+replace the native-history inputs.
+EMA observation
+from current
+memory
+I(yn),C ch(yn), memory,
+clock/conﬁguration; placement if
+requested
+At ﬁxed listed inputs, current phase
+adds no value information. Later values
+can depend on phase through explicit
+memory updates. Generating memory
+requires the preceding row’s inputs.
+No unknown past memory is recovered. Native common phase, observer angle, observer time,
+update index and static shape parameter τremain distinct. Historical Z01 used (ε,g,λ) =
+(. 05,. 2,. 001), k = (1, 1, 1); Z02/Z03 used (1/ 10, 1/ 5, 17/ 100), k = (2, 3, 4) [7, Section 2]. The
+present domain theorem is not transferred to those histories, and none is replayed here.
+7.2 Energy consistency
+The predecessor retains the edge-once potential
+V(Ω) = ε
+∑
+i
+(
+|Ωi|4
+4 − ki|Ωi|2
+2
+)
++ g
+2
+∑
+i<j
+|Ωi − Ωj|2
+and every matched edge energy Eij = si +sj − 2Sij [1, Sections 4 and 6]. Multiplication by
+a common unit scalar leaves each distance, intensity and the norm of ˜Ω − Ω unchanged. The
+same isometry under the matched decoder preserves those individual energies, independent of
+representative choice. Thus the inherited bound remains
+V(F Ω) − V (Ω) ≤ − 16869
+20000 ∥˜Ω − Ω ∥2
+2, Ω ∈ D. (7.4)
+11
+
+PAGE 12
+Phase reconstruction and stationary axes Research edition v0.1
+Equality in monotonicity occurs exactly on the accepted aligned ﬁxed circle. The coeﬃcient
+multiplies the squared prestage increment, not a full-step distance or percentage of potential.
+This consistency statement supplies no physical energy or ﬂux identiﬁcation and requires no new
+descent proof.
+7.3 What the correspondence establishes
+One initial common phase completes the retained state history. The overlap diagnostic encodes
+a diﬀerent angle and requires its representative correction. The adopted decoder then supplies
+exact arrows and mathematical endpoints: their pure-phase rotation axes are the positioned
+stationary support lines, with the directed sign ﬁxed by the source frames. An actual native
+step can additionally change their lengths and relative phases, and a nontrivial universal common
+proper rotation of the free-vector triple is excluded by Theorem 6.1.
+Identifying a named material feature with an arrow or prescribing its registration to a stationary
+line would add a declared correspondence. Neither a moving support, ﬁlled aperture, hinge,
+continuous interpolating path, ﬂow, force nor emission law follows from these results. The
+central broken opening arcs and ﬁlled host-notch measurement patches remain distinct. No
+feature must be chosen to review this paper.
+The close original enclosing sphere is a ﬁxed geometric reference; the separately discussed tight
+toroid remains a distinct intended feature. Two co-present arrangements and rapid alternation
+remain diﬀerent alternatives. The manuscript selects none of them. Native/core motion and
+gravity–magnetism remain linked research directions, with outer structure and justiﬁed SRG
+integration later; TORMENT remains separate and protected, and Three-Way remains parked.
+These standing directions are retained, not activated by this write-up.
+Attribution and veriﬁcation scope. The two underlying proof reviews have project-internal
+acceptance [ 4, 5]. Their existing exact-algebra records accompany this research edition un-
+changed. The present work assembles the proofs, incorporates the approved editorial and
+observer-table corrections, and veriﬁes the compiled document. It adds no scientiﬁc execution,
+literature/novelty investigation or external peer-review claim. GPT project-internal scientiﬁc
+and manuscript review is complete; the author approved repository publication on 2 November
+2026. This is the author-authorized repository research edition v0.1.
+A An analytic witness for the overlap correction
+We retain the local sign witness of [ 4, Section 5.3] to show that γin Theorem 4.1 is not identically
+zero. This calculation analytically diﬀerentiates the native map. It is not a numerical native-step
+evaluation, sampled trajectory, parameter scan or new continuation problem.
+Take the canonical family z(t) = (1,e it,e it), |t| ≤D0. Its amplitudes are one and its phase width
+is |t|, so every input is admitted. The intensities and hence M are constant on this family. At
+t = 0, its prestage is the positive vector
+wi = 1 +ε(ki − 1), w =
+( 9999
+10000, 1, 10001
+10000
+)
+,
+∑
+i
+wi = 3. (A.1)
+Diﬀerentiating the prestage at zero gives i(2g,w 2 −g,w 3 −g), so its phase derivatives are
+τ1 = 2g
+w1
+, τ 2 = 1 − g
+w2
+, τ 3 = 1 − g
+w3
+. (A.2)
+12
+
+PAGE 13
+Phase reconstruction and stationary axes Research edition v0.1
+Writed = 1 − 9λ>0, T = ∑
+iτi. Diﬀerentiating the simultaneous kicks at the aligned prestage
+gives output phase derivatives
+σi =τi + 3λ
+∑
+j̸=i
+(τj −τi) = dτi + 3λT. (A.3)
+The output modulus derivatives vanish: the baseline vector is real positive and its derivative is
+imaginary. Removing the output channel-1 phase therefore gives derivatives iwi(σi −σ1) for the
+next canonical representative. The current conjugate input derivatives are (0, −i, −i). Thus
+Bsec(0) = 3, ImB′
+sec(0) =
+∑
+i
+wiσi − 3σ1 − (w2 +w3). (A.4)
+Since ∑
+iwiτi =w2 +w3, substitution cancels the T terms and yields
+ImB′
+sec(0) = −9λ(w2 +w3) − 3dτ1, γ ′(0) = −3λ(w2 +w3) −dτ1< 0. (A.5)
+The established right-half-plane branch justiﬁes diﬀerentiating its argument and dividing by
+Bsec(0) = 3 . Therefore γ(t) ̸= 0 for suﬃciently small positive t, and αov ̸= ϑthere. The
+conclusion is local nonidentity, not a classiﬁcation of all states where the angles agree or a
+verdict on endpoint-diﬀerence representations.
+References
+[1] H. F. Halldórsson. Native Potential Descent and Closed Coherence Coordinates in the Tri-Octagon
+Map. Repository research edition v0.1, 2 November 2026. Published reading edition , commit
+634ff13b6666. Sections 4–6 supply the ﬁxed domain, reconstruction and energy retention.
+[2] H. F. Halldórsson. Transient Collective Turning and Coherent Relaxation in the Native Triad .
+Repository research edition v0.1, 28 October 2026. Sections 6–7, especially lem:phase,
+thm:convergence, eq:nesting and eq:phasebound. Accepted reading edition ; compact source
+snapshot accompanies this package.
+[3] Tri-Octagon research programme. Native Response Geometry and Spectral Circulation in the
+Tri-Octagon Map. Research publication v0.1, 6 October 2026. State–shell attachment, eq:decoder,
+eq:faceupdate; notation appendix’s exact shell-frame table. Transport and closure source ; frame
+appendix.
+[4] Tri-Octagon research programme. Native common-phase reconstruction: proof review . Task
+NATIVE_PHASE_RECONSTRUCTION_01, 2 November 2026. Packaged proof note and existing
+exact-algebra record. Unpublished project research evidence; project-internal acceptance recorded in
+the manuscript preparation order.
+[5] Tri-Octagon research programme. Native phase and the existing spatial decoder . Task
+NATIVE_SPATIAL_CORRESPONDENCE_01, 2 November 2026. Packaged proof note , claim ledger and
+existing exact-algebra record. Unpublished project research evidence; project-internal acceptance
+and observer-table correction recorded in the manuscript preparation order.
+[6] Tri-Octagon research programme. NCM-FIXED-GAP-01 v0.1 . External geometry investigation, 31
+October 2026; accepted GPT review of the same date. Sections 1 and 3 ﬁx the common origin,
+reference support directions and attachment distinction. Packaged accepted report ; acceptance
+review. Unpublished project research evidence.
+[7] H. F. Halldórsson. Understanding Z Motion in the Tri-Octagon Model: Native changes, observer
+eﬀects, and ﬁxed-geometry source accounting . Explanatory methods note, draft v0.1, 1 November
+2026. Sections 2, 3 and 8. Repository reading copy ; source snapshot accompanies this package.
+[8] Tri-Octagon research programme. Z manifold observation implementation ,
+kernel_physics/z_manifold.py. cubic_j, normalized_cubic, advance_ema, ema_scalar,
+observe_ema. Immutable reading reference ; read-only source corroboration, not executed in this
+manuscript build.
+13

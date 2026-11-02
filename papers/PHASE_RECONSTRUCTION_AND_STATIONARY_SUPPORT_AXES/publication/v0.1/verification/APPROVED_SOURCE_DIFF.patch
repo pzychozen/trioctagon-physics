@@ -1,0 +1,198 @@
+--- review/manuscript/build.py
++++ final/manuscript/build.py
+@@ -32,7 +32,7 @@
+ if run.returncode:
+     print((run.stdout+run.stderr).decode('utf-8',errors='replace')[-10000:])
+     raise SystemExit(run.returncode)
+-pdf = ROOT/'NATIVE_PHASE_SPATIAL_v0.1_REVIEW.pdf'
++pdf = ROOT/'NATIVE_PHASE_SPATIAL_v0.1.pdf'
+ shutil.copyfile(build/'main.pdf',pdf)
+ sha = lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+ receipt = {'compiler':compiler,'compiler_version':version,'command':command,'return_code':0,
+--- review/manuscript/check_reference_links.py
++++ final/manuscript/check_reference_links.py
+@@ -26,5 +26,5 @@
+ record = {'checked_utc':datetime.now(timezone.utc).isoformat(),'method':'HTTP HEAD; redirects followed',
+           'results':entries,'all_accessible':all(item['accessible'] for item in entries),
+           'scope':'Bibliography availability only; no literature search, content inference, Git or scientific execution.'}
+-(ROOT/'inspection/EXTERNAL_LINK_CHECKS.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
++(ROOT/'verification/EXTERNAL_LINK_CHECKS.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
+ print(json.dumps(record,indent=2))
+--- review/manuscript/main.tex
++++ final/manuscript/main.tex
+@@ -7,13 +7,13 @@
+ \usepackage{microtype,enumitem,fancyhdr}
+ \usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+ \usepackage{bookmark}
+-\hypersetup{pdftitle={Phase Reconstruction and Stationary Support Axes in the Tri-Octagon Map - Review draft v0.1},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={Review draft v0.1 - awaiting GPT/author manuscript review. Underlying results have project-internal acceptance; no external peer review or publication of this draft is claimed.}}
++\hypersetup{pdftitle={Phase Reconstruction and Stationary Support Axes in the Tri-Octagon Map - Research edition v0.1},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={Author-authorized repository research edition v0.1. Project-internal scientific and manuscript review completed; author publication approval granted. No external peer review is claimed.}}
+ \setlength{\parskip}{4pt}\setlength{\parindent}{0pt}
+ \setlength{\emergencystretch}{3em}
+ \setlist{itemsep=2pt,topsep=4pt}
+ \pagestyle{fancy}\fancyhf{}
+ \fancyhead[L]{\small Phase reconstruction and stationary axes}
+-\fancyhead[R]{\small Review draft v0.1}
++\fancyhead[R]{\small Research edition v0.1}
+ \fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0.3pt}
+ \numberwithin{equation}{section}
+ \newtheorem{theorem}{Theorem}[section]
+@@ -40,17 +40,17 @@
+ \vspace{8mm}
+ {\large Hilmir Fr\'imann Halld\'orsson\par}
+ \vspace{4mm}
+-{\normalsize Review draft v0.1 --- awaiting GPT/author manuscript review\\2 November 2026\par}
++{\normalsize Author-authorized repository research edition v0.1\\2 November 2026\par}
+ \vspace{6mm}
+-{\small The underlying reconstruction and spatial-correspondence results have project-internal acceptance. This assembled manuscript awaits review; no external peer review or publication of this draft is claimed.\par}
++{\small Author-authorized repository research edition v0.1. Project-internal scientific and manuscript review completed; author publication approval granted. No external peer review is claimed.\par}
+ \vspace{4mm}
+ \begin{abstract}
+-On an accepted invariant coherent domain of the native Tri-Octagon map, five real retained coordinates determine the full complex state up to common phase. We recover the complete native history from their closed evolution and one initial common phase. A canonical representative gives an explicit unit multiplier and a continuous ordinary increment with absolute-summability control and the inherited limiting-phase bound. The adjacent-state overlap is retained-data dependent and nonvanishing, but its angle differs from the canonical increment by the angle of the inner product of consecutive representatives. We prove the branch-resolved correction, its accumulation rule and its change under a different representative; an analytic family shows that the correction is not identically zero. Composing reconstruction with the adopted lossless face decoder yields exact vector histories. Pure rephasing rotates each face vector about its fixed normal line, and those positioned axes coincide with the existing stationary support lines, with reversed directed-angle convention. In contrast, a single proper ambient rotation representing that action for every admitted state and every fixed channel label exists only for whole-turn phases. The complete native step also changes amplitudes and relative phases. We separate these results from staged observations, memory updates and observations from current memory, and from any assignment of a material feature or rigid-body pose.
++On an accepted invariant coherent domain of the native Tri-Octagon map, five real retained coordinates determine the full complex state up to common phase. We recover the complete native history from their closed evolution and one initial common phase. A canonical representative gives an explicit unit multiplier and a continuous ordinary increment with absolute-summability control and the inherited limiting-phase bound. The adjacent-state overlap is retained-data dependent and nonvanishing, but its angle differs from the canonical increment by the angle of the inner product of consecutive representatives. We prove the branch-resolved correction, its accumulation rule and its change under a different representative; an analytic family shows that the correction is not identically zero. Composing reconstruction with the adopted lossless face decoder yields exact vector histories. Pure rephasing rotates each face vector about its fixed normal line, and those positioned axes coincide with the existing stationary support lines, with reversed directed-angle convention. In contrast, a single proper ambient rotation representing that action for every admitted state and every fixed channel label exists only for whole-turn phases. The complete native step can also change amplitudes and relative phases. We separate these results from staged observations, memory updates and observations from current memory, and from any assignment of a material feature or rigid-body pose.
+ \end{abstract}
+ \vfill
+ {\small Author's research questions and programme: Hilmir Fr\'imann Halld\'orsson.
+-GPT supplied scientific direction and project-internal review of the underlying investigations.
+-Codex supplied their independent mathematical checks and this manuscript's preparation and document verification.
++GPT supplied scientific direction and completed project-internal scientific and manuscript review.
++Codex supplied the underlying investigations' independent mathematical checks and this manuscript's preparation, finalization and document verification.
+ The present document build does not rerun scientific helpers.}
+ \end{titlepage}
+ \setcounter{page}{2}\hypersetup{pageanchor=true}
+--- review/manuscript/observations.tex
++++ final/manuscript/observations.tex
+@@ -63,11 +63,11 @@
+ Equality in monotonicity occurs exactly on the accepted aligned fixed circle. The coefficient multiplies the squared prestage increment, not a full-step distance or percentage of potential. This consistency statement supplies no physical energy or flux identification and requires no new descent proof.
+ 
+ \subsection{What the correspondence establishes}
+-One initial common phase completes the retained state history. The overlap diagnostic encodes a different angle and requires its representative correction. The adopted decoder then supplies exact arrows and mathematical endpoints: their pure-phase rotation axes are the positioned stationary support lines, with the directed sign fixed by the source frames. An actual native step additionally changes their lengths and relative phases, and a nontrivial universal common proper rotation of the free-vector triple is excluded by Theorem~\ref{thm:universalrotation}.
++One initial common phase completes the retained state history. The overlap diagnostic encodes a different angle and requires its representative correction. The adopted decoder then supplies exact arrows and mathematical endpoints: their pure-phase rotation axes are the positioned stationary support lines, with the directed sign fixed by the source frames. An actual native step can additionally change their lengths and relative phases, and a nontrivial universal common proper rotation of the free-vector triple is excluded by Theorem~\ref{thm:universalrotation}.
+ 
+ Identifying a named material feature with an arrow or prescribing its registration to a stationary line would add a declared correspondence. Neither a moving support, filled aperture, hinge, continuous interpolating path, flow, force nor emission law follows from these results. The central broken opening arcs and filled host-notch measurement patches remain distinct. No feature must be chosen to review this paper.
+ 
+-The close original enclosing sphere and separately discussed tight toroid are different proposed structures; two co-present arrangements and rapid alternation remain different alternatives. The manuscript selects none of them. Native/core motion and gravity--magnetism remain linked research directions, with outer structure and justified SRG integration later; TORMENT remains separate and protected, and Three-Way remains parked. These standing directions are retained, not activated by this write-up.
++The close original enclosing sphere is a fixed geometric reference; the separately discussed tight toroid remains a distinct intended feature. Two co-present arrangements and rapid alternation remain different alternatives. The manuscript selects none of them. Native/core motion and gravity--magnetism remain linked research directions, with outer structure and justified SRG integration later; TORMENT remains separate and protected, and Three-Way remains parked. These standing directions are retained, not activated by this write-up.
+ 
+ \paragraph{Attribution and verification scope.}
+-The two underlying proof reviews have project-internal acceptance \cite{phase,spatial}. Their existing exact-algebra records accompany this draft unchanged. The present work assembles the proofs, incorporates the stated editorial and observer-table corrections, and verifies the compiled document. It adds no scientific execution, literature/novelty investigation or external peer-review claim. The assembled manuscript is returned for GPT and author review before any separate publication decision.
++The two underlying proof reviews have project-internal acceptance \cite{phase,spatial}. Their existing exact-algebra records accompany this research edition unchanged. The present work assembles the proofs, incorporates the approved editorial and observer-table corrections, and verifies the compiled document. It adds no scientific execution, literature/novelty investigation or external peer-review claim. GPT project-internal scientific and manuscript review is complete; the author approved repository publication on 2 November 2026. This is the author-authorized repository research edition v0.1.
+--- review/manuscript/overlap.tex
++++ final/manuscript/overlap.tex
+@@ -86,4 +86,4 @@
+ \end{align}
+ Their principal arguments are only congruent to these real lifts unless further branch bounds apply. The two increment lifts sum pointwise to \(\alpha_{\rm ov}\). Their finite sums acquire opposite endpoint terms \(\xi(y_0)-\xi(y_N)\), which cancel. For example, \(h=e^{-i\eta_2}\) is a specified continuous channel-2 anchor with real lift \(-\eta_2\). Its reconstruction increment is \(\vartheta+\eta_2(Gy)-\eta_2(y)\), the ordinary increment of channel 2.
+ 
+-Arbitrary continuous representative changes need not retain the canonical width or absolute-variation bounds. Even if \(h(y_n)\) converges, continuity alone does not control the total variation of its successive values. These endpoint changes of convention do not establish an endpoint formula for the original correction \(\gamma\), and do not supply geometric holonomy.
++Arbitrary continuous representative changes need not retain the canonical pointwise increment bounds or absolute-variation bounds. Even if \(h(y_n)\) converges, continuity alone does not control the total variation of its successive values. These endpoint changes of convention do not establish an endpoint formula for the original correction \(\gamma\), and do not supply geometric holonomy.
+--- review/manuscript/reconstruction.tex
++++ final/manuscript/reconstruction.tex
+@@ -60,17 +60,17 @@
+ \end{equation}
+ \end{theorem}
+ \begin{proof}
+-Put \(m=\min_i\eta_i(y)\), \(M_a=\max_i\eta_i(y)\). The canonical interval \([m,M_a]\) contains zero and has width \(\Delta\le D_0\). Inherited prestage mixing gives lifts \(\psi_i\in[m,M_a]\); inherited synchronization gives output lifts \(b_i=\psi_i+\delta_i\) in the same interval. Hence
++Put \(m=\min_i\eta_i(y)\), \(M_a=\max_i\eta_i(y)\). The canonical interval \([m,M_a]\) contains zero and has width \(\Delta\le D_0\). Inherited prestage mixing gives lifts \(\psi_i\in[m,M_a]\); inherited synchronization gives output lifts \(\beta_i=\psi_i+\delta_i\) in the same interval. Hence
+ \begin{equation}
+-\re F_1(z(y))=\rho_1\cos b_1
++\re F_1(z(y))=\rho_1\cos\beta_1
+ \ge a_*\cos\Delta\ge a_*\cos D_0>0.
+ \label{eq:anchorhalfplane}
+ \end{equation}
+-The continuous right-half-plane argument is therefore a single global branch, and \(\vartheta=b_1\in[m,M_a]\). Nonvanishing alone would not justify that branch. In particular \(\vartheta=\psi_1+\delta_1\): it includes the prestage phase change and is not generally only the kick.
++The continuous right-half-plane argument is therefore a single global branch, and \(\vartheta=\beta_1\in[m,M_a]\). Nonvanishing alone would not justify that branch. In particular \(\vartheta=\psi_1+\delta_1\): it includes the prestage phase change and is not generally only the kick.
+ 
+-The output relative phases are \(b_i-b_1\in[-D_0,D_0]\). The principal arcsines in \eqref{eq:jointimage} recover these differences exactly, so
++The output relative phases are \(\beta_i-\beta_1\in[-D_0,D_0]\). The principal arcsines in \eqref{eq:jointimage} recover these differences exactly, so
+ \begin{equation}
+-\eta_i(Gy)=b_i-b_1,\qquad \theta_{i,n}=\theta_n+\eta_i(y_n)
++\eta_i(Gy)=\beta_i-\beta_1,\qquad \theta_{i,n}=\theta_n+\eta_i(y_n)
+ \label{eq:ordinarychannels}
+ \end{equation}
+ propagates the inherited consistent ordinary lift. There is no later unresolved multiple of \(2\pi\). Now \(|\vartheta(y_n)|\le\Delta_n\le c^n\Delta_{\rm init}\) proves the absolute-series bound and \eqref{eq:limitingphase}. The same lift identifies the limit with the inherited \(\theta_\infty\). Both \(\theta_n\) and that limiting phase lie in \(I_n\), giving the stronger net bound \(|\theta_\infty-\theta_n|\le\Delta_n\), hence the second part of \eqref{eq:phasetails}.
+@@ -82,4 +82,4 @@
+ \[
+ \mathcal A_i(r)=[1-2g+\eps(k_i-r_i^2)]r_i+g(r_j+r_k)>0.
+ \]
+-The kicks vanish, \(\kappa=1\) and \(\vartheta=0\), while \(\mathcal A(r)\) may differ from \(r\). Amplitudes still relax until \(r_*\) is reached. Zero phase increment therefore does not mean fixed full state or zero potential decrease.
++The kicks vanish, \(\kappa=1\) and \(\vartheta=0\), while \(\mathcal A(r)\) may differ from \(r\). The amplitudes converge toward \(r_*\). Zero phase increment therefore does not mean fixed full state or zero potential decrease.
+--- review/manuscript/spatial.tex
++++ final/manuscript/spatial.tex
+@@ -108,7 +108,7 @@
+ \end{equation}
+ Losslessness is preserved: encoding these vectors recovers \(\Omega_n\), then \eqref{eq:inverse} recovers \((y_n,u_n)\).
+ 
+-Pure rephasing changes \(u\) at fixed \(y\). An actual native step changes \(y\) as well. Using the accepted ordinary lifts \eqref{eq:ordinarychannels},
++Pure rephasing changes \(u\) at fixed \(y\). An actual native step can change \(y\) as well. Using the accepted ordinary lifts \eqref{eq:ordinarychannels},
+ \begin{equation}
+ \theta_{i,n+1}-\theta_{i,n}
+ =\vartheta(y_n)+\eta_i(Gy_n)-\eta_i(y_n),
+--- review/manuscript/verify_document.py
++++ final/manuscript/verify_document.py
+@@ -15,10 +15,10 @@
+ from pypdf import PdfReader
+ 
+ ROOT = Path(__file__).resolve().parent.parent
+-out = ROOT/'inspection'
++out = ROOT/'verification'
+ out.mkdir(exist_ok=True)
+ sha = lambda data:hashlib.sha256(data).hexdigest()
+-pdf = ROOT/'NATIVE_PHASE_SPATIAL_v0.1_REVIEW.pdf'
++pdf = ROOT/'NATIVE_PHASE_SPATIAL_v0.1.pdf'
+ reader = PdfReader(pdf)
+ texts = [page.extract_text() or '' for page in reader.pages]
+ (out/'extracted_text.txt').write_text('\n\n'.join(f'PAGE {i+1}\n{text}' for i,text in enumerate(texts)),encoding='utf-8')
+@@ -66,7 +66,7 @@
+  'source_and_evidence_copies_preserved':all(x['copy_matches'] and x['original_unchanged'] for x in source_matches),
+  'pdf_matches_build_receipt':sha(pdf.read_bytes())==build['pdf_sha256'],
+  'manuscript_matches_build_receipt':all(sha((ROOT/path).read_bytes())==value for path,value in build['source_sha256'].items()),
+- 'review_status_in_metadata':'awaiting GPT/author manuscript review' in str(reader.metadata.subject),
++ 'research_edition_status_in_metadata':'Author-authorized repository research edition v0.1' in str(reader.metadata.subject) and 'author publication approval granted' in str(reader.metadata.subject),
+  'author_metadata_correct':reader.metadata.author=='Hilmir Frímann Halldórsson',
+  'full_state_wording_corrected':'physical-state relation' not in tex and 'full-state relation' in tex,
+  'witness_described_as_analytic':'numerical native-step evaluation' in tex and 'analytically differentiates the native map' in tex,
+--- review/CLAIM_SOURCE_LEDGER.md
++++ final/CLAIM_SOURCE_LEDGER.md
+@@ -1,6 +1,6 @@
+ # Claim/source ledger — Phase Reconstruction and Stationary Support Axes
+ 
+-Review draft v0.1 — awaiting GPT/author manuscript review. 2 November 2026.
++Author-authorized repository research edition v0.1. Project-internal scientific and manuscript review completed; author publication approval granted on 2 November 2026. No external peer review is claimed.
+ 
+ This manuscript assembles accepted project results. “Accepted phase” and “Accepted spatial” below identify the two preceding investigations, not new scientific verification by the document build. The manuscript contains complete arguments for its central results and cites inherited theorems under their original hypotheses.
+ 
+@@ -9,7 +9,7 @@
+ - **PH:** `evidence/phase/NATIVE_PHASE_RECONSTRUCTION_01_PROOF_REVIEW.md`, SHA-256 `0ce3d59e249ee7794c3386047e2bf79f9d7a83b76ec563c8541de4b66c35f2c6`.
+ - **SP:** `evidence/spatial/NATIVE_SPATIAL_CORRESPONDENCE_01_PROOF_REVIEW.md`, SHA-256 `9b89dfdd94be93ea50bb0e4b9f8029383801a0bae6965e8c662eb4e4d07f2ddd`.
+ 
+-Both actual local copies match the reviewed identities supplied by the order. They, their helpers/results and source records are copied byte-for-byte. Neither helper was executed. The copied SP ledger supplies its existing focused provenance. Separate GPT review filenames were not found in the bounded lookup; the current order expressly records acceptance and supplies every operative correction, so no acceptance is inferred from absence.
++Both actual local copies match the reviewed identities supplied by the order. They, their helpers/results and source records are copied byte-for-byte. Neither helper was executed. The copied SP ledger supplies its existing focused provenance. Separate GPT review filenames were not found in the bounded lookup; the preparation order expressly records investigation acceptance and its four operative corrections; the publication order records manuscript acceptance and E1–E6, so no acceptance is inferred from absence.
+ 
+ ## Manuscript labels and dependencies
+ 
+@@ -25,21 +25,23 @@
+ | Theorem 4.1 `thm:overlap`; `eq:overlapfactor`, `eq:overlapbound`, `eq:sectionbound`, `eq:anglecorrection` | Accepted phase result | PH §§4–5.1, equations (17)–(23) | Correct trace/conjugation order; both half-plane bounds; exact real equality after resolving 2π ambiguity. |
+ | `eq:correctedsum` and both correction tails | Accepted phase result | PH §5.2, equations (24)–(25) | Overlap accumulation requires subtraction. No endpoint-only assumption for the correction and no impossibility claim. |
+ | Appendix A `app:witness`; `eq:witnessw`–`eq:witnesssign` | Accepted analytic witness | PH §5.3, equation (26) and preceding derivation | z(t)=(1,e^{it},e^{it}) remains inside the same domain. This analytically differentiates F; no numerical native-step evaluation is performed. |
+-| §4.1 `eq:sectionchange`, `eq:sectionproducts`, `eq:statecancellation`, `eq:gaugelifts` | Accepted phase result with required editorial normalization | PH §6, equations (28)–(33); order §4 item 3 | Section-changed overlap unit factor is B_sec,h/abs(B_sec,h); arbitrary real lifts are qualified; canonical variation bounds are not assigned to arbitrary continuous sections. |
++| §4.1 `eq:sectionchange`, `eq:sectionproducts`, `eq:statecancellation`, `eq:gaugelifts` | Accepted phase result with required editorial normalization | PH §6, equations (28)–(33); order §4 item 3 | Section-changed overlap unit factor is B_sec,h/abs(B_sec,h); arbitrary real lifts are qualified; canonical pointwise increment or absolute-variation bounds are not assigned to arbitrary continuous sections. |
+ | Table 2 `tab:frames`; source origin and direction dictionary | Accepted spatial source reconciliation | SP §2.1; `NRG-frames` `app:notation`, exact shell-frame table; `GAP` §§1, 3 | Fixed right-handed reference/PLUS frame; translation by O only; labels retained; source n_k distinguished from decoder n_i. |
+ | Proposition 5.1 `prop:axes`; `eq:axismatch`, `eq:affineaxis` | Accepted spatial result | SP §2.2, equations (6)–(9) | Positioned line equality and directed-angle reversal, not just direction matching; no mechanical attachment. |
+ | `eq:decoder`, `eq:handedness`; inverse and ambient projector | Adopted construction, accepted spatial algebra | `NRG-observables` `sec:attachment`, `eq:decoder`; SP §3.1 | D/E inverse on tangent planes; DE is only a projector on ambient arrays. |
+ | Theorem 5.2 `thm:decoderphase`; `eq:decoderphase` | Accepted spatial result | SP §3.1, equations (11)–(13) | Pure-phase algebra applies also at zero vectors, but does not extend the native domain theorem across singular prestages. |
+ | `eq:faceupdate`, `eq:facecommutation`, `eq:facehistory` | Existing face conjugacy plus accepted spatial composition | `NRG-observables` `eq:faceupdate`; SP §3.2, equations (14)–(16) | Exact same native update; matched transport is tangent-domain isometry, rank two ambiently. No second recurrence or trajectory computation. |
+-| `eq:channelincrement`, `eq:completestep`; decoded representative cancellation | Accepted spatial result | SP §3.3, equations (17)–(20); PH §§3.3–3.4, 6 | Full step includes amplitude and relative-phase changes. All lifts are consistent; no continuous interpolating path. |
++| `eq:channelincrement`, `eq:completestep`; decoded representative cancellation | Accepted spatial result | SP §3.3, equations (17)–(20); PH §§3.3–3.4, 6 | Full step can include amplitude and relative-phase changes. All lifts are consistent; no continuous interpolating path. |
+ | Theorem 6.1 `thm:universalrotation`; `eq:universalquestion`, `eq:gramwitness`, `eq:volumewitness` | Accepted spatial theorem | SP §4, equations (21)–(23) | Qχ is state-independent, proper, fixed-label and acts on free vectors. Both witnesses have unit amplitudes and zero width. Only χ=0 mod 2π; no classification of individual registrations. |
+ | `eq:rawobservations`, `eq:staged`; equal staged histories | Accepted observation composition | SP §5, equations (24)–(25); `Z-methods` §§2–3, 8 C22; `NRG-observables` `eq:chiral` | Raw C_ch=(A23,−A13,A12), not W. Equal retained starts and exogenous schedules give equal staged histories on this domain; no closure on Z alone. |
+ | `eq:innovation`; Table 3 `tab:dependencies`, EMA innovation/update row | Accepted definition and corrected editorial dependency | SP §5 equation (26); `Z-methods` §8 C24; `Z-code` `cubic_j`, `normalized_cubic`, `advance_ema`; order §4 item 4 | History requires native history or supplied innovations, initial memory and specified sampling/order. No observer advance or memory inference. |
+ | Table 3 EMA observation-from-current-memory row and adjacent explanation | Required corrected dependency, verified from source text | Order §4 item 4; `Z-code` `_harmonic`, `_observe`, `ema_scalar`, `observe_ema` | Observation uses I, C_ch, memory, clock/configuration and placement if requested. It neither computes cubic innovation nor updates memory. At fixed inputs current phase adds no information; explicit memory updates can affect later observations. |
+ | `eq:energyconsistency` and equality statement | Inherited consistency | `P-retention` §6 `thm:retention`, `eq:matchededges`, `eq:traceidentity`, `cor:retaineddescent`; `P-finite` §4 `eq:finitedescent`, `eq:finiteequality` | Same edge-once normalization and prestage squared norm. No potential proof or physical-energy identification. |
+-| §7.3 and draft status | Maintained interpretation and review boundary | Order §§1, 5, 7; SP §6; `GAP` recommendation and `GAP-review` §§3, 6; `NRG-observables` attachment discussion | Arrows, endpoints, stationary references and material features distinct. No feature assignment, body-pose law, activated successor direction, publication or external peer-review claim. |
++| §7.3 and research-edition status | Maintained interpretation and approved publication boundary | Preparation order §§1, 5, 7; publication order §§1, 3–5; SP §6; `GAP` recommendation and `GAP-review` §§3, 6; `NRG-observables` attachment discussion | Arrows, endpoints, stationary references and material features distinct. Close original enclosing sphere remains a fixed geometric reference, distinct from the intended tight toroid. No feature assignment, body-pose law, activated successor direction or external peer-review claim. Repository publication is author-authorized. |
+ 
+ ## Editorial corrections applied only to the manuscript
++
++The four preparation corrections below remain incorporated. The authorized publication cleanup additionally renames only the seven local output-angle occurrences in Theorem 3.2 to beta_i (positive roots and observer beta unchanged), describes asymptotic amplitude convergence, qualifies possible state changes, specifies section-relative increment bounds, and preserves the sphere/toroid distinction. E6 explains the optional checker in the edition README. See `FINALIZATION_REPORT.md` and `verification/EDITORIAL_CHANGES.json`.
+ 
+ 1. Theorem 3.2 uses **full-state relation**. The accepted PH evidence remains unchanged, including its historical wording.
+ 2. §4 and Appendix A explicitly say the analytic witness differentiates the native map and distinguish it from a **numerical native-step evaluation**.

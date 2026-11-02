@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "identity": "H = S_G - i A_G",
+      "result": "PASS",
+      "purpose": "Check the source area/conjugation orientation independently.",
+      "residual": "exactly zero"
+    },
+    {
+      "identity": "(M H)_11 = z_1 (M z)_1 for the positive-real anchor",
+      "result": "PASS",
+      "purpose": "Check the numerator and normalization convention in the retained kappa formula.",
+      "residual": "exactly zero"
+    },
+    {
+      "identity": "z^dagger U M z = tr(U M H)",
+      "result": "PASS",
+      "purpose": "Check trace order and absence of an incorrect conjugation.",
+      "residual": "exactly zero"
+    },
+    {
+      "identity": "tr(U M H) = sum_i u_i (M H)_ii",
+      "result": "PASS",
+      "purpose": "Check the explicit diagonal overlap formula.",
+      "residual": "exactly zero"
+    },
+    {
+      "identity": "overlap(kappa z_next) = kappa B_sec",
+      "result": "PASS",
+      "purpose": "Check the multiplicative overlap-to-section correction; no argument-branch claim is delegated to algebra.",
+      "residual": "exactly zero"
+    },
+    {
+      "identity": "changed-section factors cancel in overlap",
+      "result": "PASS",
+      "purpose": "Check the opposing h factors and signs in kappa_h and B_sec,h.",
+      "residual": "exactly zero"
+    },
+    {
+      "identity": "three formal factors leave only endpoint h ratio",
+      "result": "PASS",
+      "purpose": "Check finite-product endpoint orientation; the report proves arbitrary length by induction/cancellation.",
+      "residual": "exactly zero"
+    },
+    {
+      "identity": "changed-section initial and output factors recover the same state",
+      "result": "PASS",
+      "purpose": "Check reconstructed-state cancellation, including the initial phase.",
+      "residual": "exactly zero"
+    }
+  ],
+  "python_executable": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+  "python_version": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+  "sympy_version": "1.14.0",
+  "script_sha256": "7ea8283ab2b038c2f08231ce507a279fa94e3d736c2693b2798940253ac30067",
+  "limits": "Generic symbolic matrix and scalar identities only. No native parameters, nonlinear native-step implementation, repository imports, state evaluations, trajectories, solves, or old helper executions. Domain bounds, argument branches, convergence and all-step claims are justified in the written proof, not by this check count."
+}

@@ -1,0 +1,176 @@
+\section{Notation and conventions}\label{app:notation}
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}lX@{}}\toprule
+Symbol & Meaning\\\midrule
+\(N=3q,\Delta_N\)& Admitted ring length and native negative cycle Laplacian\\
+\(\ell=3\lambda\)& Abbreviation for existing synchronizer strength\\
+\(r,R,H_r,P,S_\phi,J_\phi\)& Positive radii, diagonal radii, symmetric pre-response, phase pre-response, synchronizer derivative, complete phase response\\
+\(h,t,d\)& Triad scale-invariant algebraic quantities and \(d=1-3\ell\); t is not time\\
+\(\Gamma_B\)& Bloch imaginary-coefficient obstruction\\
+\(q,p= \re\Omega,\im\Omega\)& Real channel vectors; not ambient components\\
+\(a,b,u,v\)& Their means and transverse components in the spatial-observable sections\\
+\(N_f,T_f\)& Fixed normal/tangent frame matrices; not graph size or physical time\\
+\(C_{\rm ch},W,\Gamma_{\rm ch}\)& Raw channel area and its horizontal-axial/vertical-polar projections\\
+\(\mathcal H,S_G,A_G\)& Complex coherence, real Gram and antisymmetric pair-area matrix\\\bottomrule
+\end{tabularx}
+\end{center}
+In the spectral sections a,b,c denote positive radii; in the observable sections a,b are channel means. The contexts and subscripts prevent an identification. The full mirror action is stated in \eqref{eq:reps}; the degree counts are not merely \(C_3\) counts.
+
+The exact shell frames, with \(o=(0,\sqrt3/6,0)\), are
+\[
+\begin{array}{c|c|c|c}
+i&c_i&n_i&t_i\\\hline
+A&(-1/4,\sqrt3/4,0)&(-\sqrt3/2,1/2,0)&(-1/2,-\sqrt3/2,0)\\
+B&(0,0,0)&(0,-1,0)&(1,0,0)\\
+C&(1/4,\sqrt3/4,0)&(\sqrt3/2,1/2,0)&(-1/2,\sqrt3/2,0)
+\end{array}
+\]
+Direct dot products prove \(N_f^TN_f=T_f^TT_f=(3/2)\Pi\). At a general real fold angle beta, the accepted panel maps have material derivatives
+\[
+\partial_uX_1=(-\cos\beta,-\sin\beta,0),\quad
+\partial_uX_2=(1,0,0),\quad
+\partial_uX_3=(-\cos\beta,\sin\beta,0),\qquad
+\partial_zX_i=e_z.
+\]
+Each horizontal derivative has unit norm and is orthogonal to \(e_z\); their pullback metrics are therefore \(I_2\). This local identity does not assert an embedded closed assembly at arbitrary fold angle. Embedding folds do not imply a variable intrinsic panel metric.
+
+For completeness, the preparation Fourier vectors are
+\(f_0=e/\sqrt3,\ f_1=(1,\bar\omega,\omega)^T/\sqrt3,\ f_2=\bar f_1\),
+\(\omega=e^{2\pi i/3}\). With \(p_0=f_0f_0^\dagger\),
+\[
+A_s=[q_sI+(r_s-q_s)p_0]\diag(1,\bar\omega,\omega)
+[c_sI+(1-c_s)p_0].
+\]
+The fixed two-factor matrix is
+\[
+B_s=\diag(e^{-i\alpha},e^{i\alpha})
+\begin{pmatrix}\cos\beta&-i\sin\beta\\-i\sin\beta&\cos\beta\end{pmatrix},
+\quad\alpha=2\pi(.244),\quad\beta=\pi(.244).
+\]
+This fully specifies the algebra used in the type chain, without assigning material boundary meaning.
+
+\input{ledger}
+
+\section{Triad algebra}\label{app:triad}
+The principal minors of \(M_3=\sigma R^{-1}-ee^T\) sum to
+\[
+\sum_{i<j}\left[\left(\frac{\sigma}{r_i}-1\right)
+\left(\frac{\sigma}{r_j}-1\right)-1\right]
+=\frac{\sigma(a^2+b^2+c^2)}{abc}=t.
+\]
+Its trace is h, and its zero eigenvalue is supplied by \(M_3r=0\). This derives \eqref{eq:triadpoly} without treating the sum-zero plane as invariant for unequal J. For \((a,a,c)\), the antisymmetric equal-pair mode has
+\(\mu_A=2+c/a\), while the other transverse mode has
+\(\mu_B=c/a+2a/c\); substituting in \eqref{eq:resonance} decides full-matrix collisions.
+
+The alternating cycle expression and the imaginary Bloch coefficient are different invariants:
+\[
+\mathcal C_{\rm cyc}=\frac{g\ell dV_r}{a^2b^2c^2}\mathcal K,\qquad
+\Gamma_B=\frac{\ell g[\ell(1+3g)-g]V_r}{abc}.
+\]
+In particular their exceptional parameter factors are not interchangeable. This paper uses the plus sign before \((3g\ell-g+\ell)\sigma_3\) in verified GR1 (20); the missing plus in the later GR2 (36) restatement is recorded as a transcription correction, not a new result or a modification of GR2.
+
+\section{Bloch coefficient derivation}\label{app:bloch}
+Set \(z\ne0\) formally before specializing to roots of unity. Compute J from \eqref{eq:bloch}, then
+\[
+T_B=\sum_iJ_{ii},\qquad
+B_B=\sum_{i<j}(J_{ii}J_{jj}-J_{ij}J_{ji}),\qquad D_B=\det J.
+\]
+The first contains no z. The second is Laurent-linear in z:
+\[
+B_B(z)=B_B(1)+C_B(z+z^{-1}-2)-\frac{\Gamma_B}{2}(z-z^{-1}).
+\]
+The antisymmetric coefficient is obtained by subtracting the expression at \(z^{-1}\); its numerator is alternating in a,b,c and factors as
+\(-\ell g[\ell(1+3g)-g]V_r(z-z^{-1})/(abc)\).
+The symmetric coefficient reduces to the stated \(C_B\). The determinant follows from the product of the two stage determinants, proving \eqref{eq:BT}--\eqref{eq:BD}. These operations, rather than eigenvalue fitting, are reproduced by the paper-local checker.
+
+At N=6 the blocks are \(1,-1\); at N=12 they are \(1,i,-1,-i\). Exact Fourier injection matrices have columns \(z^ne_\alpha\); direct multiplication \(J_NB_z=B_zJ(z)\) verifies the decomposition. The characteristic polynomial of the full matrix is the product of block polynomials, as this invariant direct sum spans every coordinate.
+
+\section{Exact six-ring fixture}\label{app:fixture}
+At \(\tau=1/1000\), \(\eps=1/20\), \(g=999999/4000000\), the native coefficients in \eqref{eq:fixture} are
+\[
+(k_1,k_2,k_3)=(491493/500000,\ 1,\ 508493/500000),\qquad
+k=749993/750000.
+\]
+They lie strictly between \((49/50)^2\) and \((51/50)^2\).
+Let \(L=49/50,U=51/50\). On the real box \(r_i\in[L,U]\), the amplitude map has off-diagonal derivatives g and diagonal derivatives
+\(1+\eps(k_i-3r_i^2)-2g\), all nonnegative for this fixture and the interpolation of coefficients from their mean. Its row sum is
+\(1+\eps(k_i-3r_i^2)\le9067893/10^7<1\).
+Monotonicity reduces box invariance to the constant endpoints: their coupling vanishes, the lower endpoint increments are nonnegative because \(k_i>L^2\), and upper endpoint increments are nonpositive because \(k_i<U^2\). This proves contraction and existence/uniqueness in the box throughout the interpolation, connecting the exact fixture to the local positive equal branch.
+
+At the defect, the row--column pairing in \eqref{eq:nilpotent} is
+\((1+\tau)-2+(1-\tau)=0\). Since the matrix is nonzero, its minimal polynomial is \(\xi^2\) and characteristic polynomial \(\xi^3\). Exact rational substitution of \(\delta=\pm10^{-14}\) into \eqref{eq:unfoldcoeff} gives discriminants with the respective signs. Their full rational values are retained in GR2 and the package evidence; the sign is not inferred from rounded eigenvalues.
+
+\section{Representation decomposition and observable kernels}\label{app:representations}
+For an orthogonal finite-group representation X and target Y, averaging its action on \(\operatorname{Hom}(\operatorname{Sym}^dX,Y)\) projects onto equivariants. Its trace is the dimension:
+\[
+\frac1{12}\sum_{g\in D_{3h}}\chi_{\operatorname{Sym}^dX}(g)\chi_Y(g),\qquad
+\chi_{\operatorname{Sym}^2X}(g)=\frac{\chi_X(g)^2+\chi_X(g^2)}2.
+\]
+This both proves the multiplicity computation and gives a finite exact verification route, with no numerical representation fitting.
+
+For transverse u,v,
+\[
+\|N_f(u\odot u)\|^2=\frac14\|u\|^4,\quad
+\|N_f(u\odot v)\|^2=\frac14\|u\|^2\|v\|^2,
+\]
+\[
+\Gamma_{\rm ch}^2=3(\|u\|^2\|v\|^2-(u\cdot v)^2).
+\]
+These follow by \(u_3=-u_1-u_2,v_3=-v_1-v_2\) and the exact frame matrix. If \(N_fu=(X,Y,0)\), then
+\[
+N_f(u\odot u)=\tfrac13(2XY,X^2-Y^2,0);
+\]
+polarization gives \(N_f(u\odot v)=\tfrac13(XW+YZ,XZ-YW,0)\) for \(N_fv=(Z,W,0)\). The first is onto the plane as a complex-square map; the second is invertible in v for fixed nonzero u. Thus its kernel is u=0 or v=0. Gamma vanishes exactly for dependent transverse vectors. Mean-times-transverse maps vanish when either factor vanishes. Linear maps \(T_fu,be_z,T_fv,ae_z\) have the evident transverse/mean kernels. Images of mixtures cannot be obtained by independently adding images with shared inputs.
+
+\section{Complete finite-carrier census}\label{app:census}
+Define \(Kx=e\times x/\sqrt3\), \(K^2=-\Pi\), and
+\[
+\mathcal H_s=(a^2,b^2,\|u\|^2,\|v\|^2),\quad
+\mathcal E_s=(au,\Pi(u^2),bv,\Pi(v^2)),\quad
+\mathcal O_s=(av,bu,\Pi(uv)),
+\]
+with entrywise products in this appendix.
+
+\paragraph{Face scalars and normal coefficients.}
+Bases at degrees zero, one and two are \(e\), \(Ku\), and
+\(\{he:h\in\mathcal H_s\}\cup\mathcal E_s\). Multiplying the i-th scalar by outward \(n_i\) gives the identical count for polar normal assignments.
+
+\paragraph{Face tangent vectors.}
+Represent outputs by coefficient pair (Q,P). Linear basis is
+\((ae,0),(u,0),(0,be),(0,v)\). Quadratic basis is
+\((Kf,0)\), \(f\in\mathcal E_s\), together with
+\((0,\Gamma_{\rm ch}e)\) and \((0,Kh)\), \(h\in\mathcal O_s\).
+There is no constant tangent map. Orthogonal normal/tangent decomposition gives counts \(1,5,16\) for ambient vectors per face.
+
+\paragraph{Seams.}
+Opposite-face indexing has the ordinary face permutation representation. Scalars and ambient vectors therefore have the corresponding face counts. Vertical seam coefficients transform like p and have linear basis \(be,v\) and quadratic basis
+\(\Gamma_{\rm ch}e,K(av),K(bu),K\Pi(uv)\).
+
+\paragraph{Whole rims.}
+Let \(f_\sigma=f_e+\sigma f_o\), \(\sigma=\pm1\). Even scalars have bases 1 and \(\mathcal H_s\); odd scalars have b and \(\Gamma_{\rm ch}\), at degrees one and two. For polar vectors \(V_\sigma=V_e+\sigma V_o\), \(V_e\) has the main polar basis, while \(V_o\) has constant \(e_z\), linear \(N_fv\), and quadratic basis
+\(\{T_fh:h\in\mathcal O_s\}\cup\{he_z:h\in\mathcal H_s\}\).
+The horizontal reflection exchanges rims; under a general element \(Ge_z=\eta e_z\), the odd target transforms as \(\eta G\).
+
+These lists are independent by mean/transverse and q-q/p-p/q-p separation; K is invertible on \(e^\perp\). The character counts above exhaust their dimensions. They require no selected seam or boundary point, but they do not supply a pointwise material field.
+
+\section{Closure counterexamples and observable evolution}\label{app:closure}
+The rational comparisons in Section~\ref{sec:closure} supply exact fibre failures, not only changes along one trajectory. The zero state is fixed and every homogeneous polynomial observable vanishes there. CM0's bounded examples can therefore be used in the same way. For example, at \(\eps=1/20,g=1/5,k=e,\lambda=0\),
+\[
+q=e,\ p=(1,-1,0)\quad\mapsto\quad
+q^+=(19/20,19/20,1),\ p^+=(7/20,-7/20,0).
+\]
+Here \(T_fu\) and Gamma initially vanish, but the former is generated and
+\(\Gamma_{\rm ch}^+=7/200\). At
+\[
+q=(1,-1,0),\quad p=(1,1,-2),
+\]
+one obtains \(q^+=(7/20,-7/20,0)\),
+\(p^+=(7/20,7/20,-1/2)\). This generates the imaginary mean and W from zero, with \(W^+=(-7/200,7\sqrt3/200,0)\).
+Swapping q and p supplies the corresponding complementary witnesses; a real \((1,2,3)\) maps to \((8/5,17/10,6/5)\), changing the direction of \(T_fq\).
+The complete checkpoint list is retained; no trajectory scan is added.
+
+For a homogeneous quadratic map \(V(x)=B(x,x)\), polarization gives
+\(\Delta V=2B(x,\Delta x)+B(\Delta x,\Delta x)\). This is the exact common formula behind the individual increments. It supplies no independent observable law unless the fibre criterion is met.
+
+\section{Verification inventory}\label{app:verification}
+\input{evidence_tables}

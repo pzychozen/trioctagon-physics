@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "identity": "Fixed-gap trigonometric directions equal the transcribed g_k",
+      "result": "PASS",
+      "residual": "exactly zero",
+      "purpose": "Corroborate label order and planar orientation without constructing geometry."
+    },
+    {
+      "identity": "n_i = -g_(i-1) and c_i - O = r n_i",
+      "result": "PASS",
+      "residual": "exactly zero",
+      "purpose": "Verify the positioned-axis match, not just a parallel-direction match."
+    },
+    {
+      "identity": "Right-handed orthonormal tangent frames and tangent projector",
+      "result": "PASS",
+      "residual": "exactly zero",
+      "purpose": "Fix the rotation sign and decoder inverse/projection domain."
+    },
+    {
+      "identity": "Complex multiplication equals the signed tangent-plane rotation",
+      "result": "PASS",
+      "residual": "exactly zero",
+      "purpose": "Check the phase action for arbitrary real q, p and chi on all three frames."
+    },
+    {
+      "identity": "Normal-axis rotation equals opposite signed support-axis rotation, including affine origin",
+      "result": "PASS",
+      "residual": "exactly zero",
+      "purpose": "Check the line-position and directed-angle conventions for based endpoints."
+    },
+    {
+      "identity": "First admitted witness: pairwise Gram changes by (3/2) sin(chi)^2",
+      "result": "PASS",
+      "residual": "exactly zero",
+      "purpose": "Verify the necessary condition chi = 0 or pi modulo 2 pi; no native step is evaluated."
+    },
+    {
+      "identity": "Second admitted witness: nonzero oriented volume changes sign at a half-turn",
+      "result": "PASS",
+      "residual": "exactly zero",
+      "purpose": "Corroborate full rank and the proper-orientation obstruction at chi = pi."
+    },
+    {
+      "identity": "Raw channel chirality is (a23, -a13, a12)",
+      "result": "PASS",
+      "residual": "exactly zero",
+      "purpose": "Keep the historical channel-area sign convention distinct from ambient axial projection."
+    }
+  ],
+  "second_witness_determinant": "3*sqrt(6)/8",
+  "second_witness_determinant_positive": true,
+  "python_executable": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+  "python_version": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+  "sympy_version": "1.14.0",
+  "script_sha256": "a3b1cc620d509850d966a69a3c5eaa7b1909c69759eb34efd83142cd9fd40879",
+  "limits": "Static exact algebra with directly transcribed frame constants and symbolic q, p, chi only. No repository import, native map, geometry constructor, observer update, old helper, historical checker, trajectory or parameter scan. The universal quantifier and domain admissibility are proved in the written note, not established by a check count."
+}
