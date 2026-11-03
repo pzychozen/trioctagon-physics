@@ -1,0 +1,74 @@
+\section{The unchanged native map and ordered hybrid}\label{sec:hybrid}
+Let $L_N=\mathbf1\mathbf1^T-3\mathrm{Id}$ and retain the exact tuple
+\begin{equation}\label{eq:tuple}
+ \eps=\frac1{10},\quad g=\frac1{60},\quad\lambda=\frac1{300},\quad
+ k=\left(\frac{999}{1000},1,\frac{1001}{1000}\right).
+\end{equation}
+With $s_i=|\Omega_i|^2$, the inherited simultaneous prestage and synchronization are~\cite{intensity,nativecode}
+\begin{align}
+ d_{{\rm pre},i}&=\eps(k_i-s_i)\Omega_i+g\sum_{j\ne i}(\Omega_j-\Omega_i),
+ &\widetilde\Omega&=\Omega+d_{\rm pre},\label{eq:prestage}\\
+ \delta_i&=\lambda\sum_{j\ne i}\sin\{3[\Argz\widetilde\Omega_j-\Argz\widetilde\Omega_i]\},
+ &F_i(\Omega)&=e^{i\delta_i}\widetilde\Omega_i.\label{eq:nativemap}
+\end{align}
+Here $\Argz(0)=0$, and exact zero components remain zero after synchronization. Every prestage kick uses the same original state; every phase kick uses the same prestage. The source bypasses phase extraction at $\lambda=0$, although the present tuple has nonzero $\lambda$. No normalization, coefficient change or continuous-gradient replacement is made. The prestage increment is not $F(\Omega)-\Omega$.
+
+Synchronization preserves each prestage modulus. Expanding $|\Omega_i+d_{{\rm pre},i}|^2$ and summing gives the exact edge-once identity
+\begin{equation}\label{eq:nativeintensity}
+ I(F\Omega)-I(\Omega)
+ =2\eps\sum_i s_i(k_i-s_i)-2g\sum_{i<j}|\Omega_i-\Omega_j|^2
+ +\norm{d_{\rm pre}}^2.
+\end{equation}
+Each undirected mismatch appears at two endpoints. For $h_i=(k_i-s_i)\Omega_i$, the full finite-step square is
+\begin{align}
+ \norm{d_{\rm pre}}^2&=\eps^2\norm h^2
+ +2\eps g\re(h^\dagger L_N\Omega)+g^2\norm{L_N\Omega}^2,\label{eq:fullsquare}\\
+ \norm{L_N\Omega}^2&=3\sum_{i<j}|\Omega_i-\Omega_j|^2.\label{eq:graphsquare}
+\end{align}
+The mixed term and total increment have no predetermined sign. These identities include zero-prestage strata and retain the exact finite-step remainder.
+
+\begin{proposition}[Exact hybrid account and recovery]\label{prop:hybrid}
+Let $\Phi_h$ be the exact exchange flow of Theorem~\ref{thm:global}. For a new symbolic $h_{\rm ex}>0$, define, in this order,
+\begin{equation}\label{eq:hybrid}
+ X_{n+1}=\Phi_{h_{\rm ex}}(F_\R(x_n),p_n,r_{c,n},z_n).
+\end{equation}
+Then
+\begin{equation}\label{eq:hybridbalance}
+ H_{\rm tot}(X_{n+1})-H_{\rm tot}(X_n)
+ =\frac{\alpha_N}{2}[I(F\Omega_n)-I(\Omega_n)].
+\end{equation}
+At $\eta_N=\eta_R=0$, the sampled native state follows exactly $F$, the carrier follows source-off C1 and the receiver is constant.
+\end{proposition}
+\begin{proof}
+The native jump changes only $x$; its storage increment is the right side of~\eqref{eq:hybridbalance}. Exchange preserves the total thereafter. With both couplings zero, $x,z$ are constant during exchange and the carrier is the free translation group, so sampling retains exactly the native update. After $n$ steps the carrier has evolved freely for $nh_{\rm ex}$.
+\end{proof}
+This is $F$ first and exchange second, not a numerical integrator. The right side is the \emph{native baseline storage increment}, not carrier/receiver work or a previously identified external source. Finite-step total changes sum these increments. No hidden reservoir compensates them, so the full hybrid is not automatically a closed energy-conserving physical system.
+
+The inherited potential is
+\begin{equation}\label{eq:potential}
+ V=\eps\sum_i\left(\frac{s_i^2}{4}-\frac{k_i s_i}{2}\right)
+ +\frac g2\sum_{i<j}|\Omega_i-\Omega_j|^2,\qquad d_{\rm pre}=-\nabla_{\R^6}V.
+\end{equation}
+Its accepted descent result applies to $F$ at~\eqref{eq:tuple} on
+\begin{equation}\label{eq:domain}
+ \mathcal D=\{9/10\le|\Omega_i|\le11/10,
+ \text{ ordinary phase width }\le\pi/12\},
+\end{equation}
+with arbitrary common orientation; it includes forward invariance and persistent nonzero prestages.~\cite{intensity}
+It is not a descent theorem for $H_N$ or the coupled dynamics. For the aligned state $(1,1,1)$, synchronization is inactive and exactly
+\begin{equation}\label{eq:positivebaseline}
+ F(1,1,1)=(9999/10000,1,10001/10000),\qquad
+ I(F(1,1,1))-3=\frac1{50000000}>0.
+\end{equation}
+Thus $H_N$ can increase where the distinct $V$ theorem applies; real $Z_2$ also changes. This is a rational formula evaluation, not a trajectory experiment. Potential descent does not assign a recipient for native baseline change.
+
+\subsection{Limits, cadence and finite-index qualifications}\label{sec:limits}
+If $\eta_R=0$, $z$ is constant and has no load, while native/carrier exchange can remain active. If $\eta_N=0$, the native state is constant during exchange but still undergoes $F$ at each jump; a nonzero receiver can interact with the carrier. Clamping $x$ to an external history, suppressing its feedback and disabling the receiver gives exogenous C1 driven by $\eta_N f(x_{\rm history})$. At $\eta_N=1$ this is exactly the inherited chiral drive amplitude. An imposed hold reproduces that comparison protocol, but retaining drive while suppressing debit needs an external work account.
+
+At active coupling the drive is continuously recomputed from $x$, whose feedback uses current carrier response. The older external sample/hold model is therefore not identical to~\eqref{eq:hybrid}. The cadence $h_{\rm ex}$ is not a derived physical period, a geometric shape parameter or the observer clock. The old source-off period $L_c/c$ need not be a period of the coupled flow: absence of external forcing does not make $\B(\eta_Nf-\eta_Rz)$ zero. If the complete internal forcing vanishes throughout an interval, the source-off theorem applies on that hypothesis.~\cite{recirculation}
+
+Every finite ideal native state has a finite polynomial prestage and a defined finite synchronized image under the zero convention. The global exchange theorem then supplies the next interval. Induction establishes every finite hybrid iterate, including after departure from $\mathcal D$, without an infinite-index uniform bound.
+
+Regular dependence is separate. Where every encountered prestage component is nonzero, $F$ is smooth: sine of three phase differences can be expressed using normalized nonzero complex components, so an argument branch cut alone is not an obstruction. For finitely many such jumps, their moduli stay bounded away from zero in a sufficiently small preparation neighborhood; composition with~\eqref{eq:dependence} gives local continuous/Lipschitz dependence. At zero-prestage strata the convention defines $F$ but does not supply general continuity or smoothness for neighbors using that phase. Exchange smoothness does not remove this native qualification.
+
+Universal preservation of the old coherent domain is false for active native coupling. Appendix~\ref{sec:domainfailures} gives two distinct accepted arguments: an exchange boundary witness and a sampled-hybrid witness with an admissible prepared carrier and short cadence. Neither says every preparation or cadence exits. Consequently the old convergence, quotient/closure and $V$-descent results remain on their original hypotheses rather than transferring automatically to this extension.

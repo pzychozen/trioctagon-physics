@@ -359,3 +359,9 @@ No runtime or kernel changes.
 [Recirculation and Diversion Accounting on a Conditional Tri-Octagon Carrier](papers/RECIRCULATION_AND_DIVERSION_ACCOUNTING/README.md) by **Hilmir Frímann Halldórsson**.
 Author-authorized research edition v0.1: exact conditional source-off recurrence and cut-throughput accounting; energetic return to the native center and a diversion share remain unassigned. No physical emission or numerical diversion fraction is claimed.
 [PDF](papers/RECIRCULATION_AND_DIVERSION_ACCOUNTING/publication/v0.1/RECIRCULATION_AND_DIVERSION_ACCOUNTING_v0.1.pdf) | [Edition and evidence](papers/RECIRCULATION_AND_DIVERSION_ACCOUNTING/publication/v0.1/README.md).
+
+## Reciprocal chiral exchange candidate
+
+[A Reciprocal Chiral Exchange Extension of the Tri-Octagon Model](papers/RECIPROCAL_CHIRAL_EXCHANGE/README.md) by **Hilmir Frímann Halldórsson**.
+Author-authorized research edition v0.1: a conditional candidate extension with well-posed reciprocal exchange, matched trial storage, and restrictive extraction/domain limits. Same-trajectory delayed return and physical toroidal registration remain open; zero coupling recovers the original native map.
+[PDF](papers/RECIPROCAL_CHIRAL_EXCHANGE/publication/v0.1/RECIPROCAL_CHIRAL_EXCHANGE_v0.1.pdf) | [Edition and evidence](papers/RECIPROCAL_CHIRAL_EXCHANGE/publication/v0.1/README.md).
