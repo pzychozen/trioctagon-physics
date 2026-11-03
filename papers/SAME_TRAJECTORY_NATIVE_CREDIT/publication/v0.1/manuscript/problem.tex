@@ -1,0 +1,89 @@
+\section{The fixed exchange problem}\label{sec:problem}
+\subsection{Chiral drive and finite distributed ports}\label{sec:ports}
+Write $x=(a,b)\in\R^6$ and $\Omega=a+ib\in\C^3$. Retain the registration of the predecessor~\cite[Section 1]{baseline}:
+\begin{equation}\label{eq:registration}
+u=(0,1,0),\quad e_z=(0,0,1),\quad
+n_\pm=\frac{2u\pm\sqrt3e_z}{\sqrt7},\quad
+A_{\rm reg}=\lambda_gR_z(\delta_g),
+\end{equation}
+\begin{equation}\label{eq:drive}
+K=\kappa_{\rm in}\begin{pmatrix}n_+^T\\n_-^T\end{pmatrix}A_{\rm reg},
+\qquad f(x)=K(a\times b),\qquad J(x)=D_xf(x).
+\end{equation}
+The gains $\lambda_g,\kappa_{\rm in}>0$ and yaw $\delta_g$ are fixed. The real matrix $K$ is $2\times3$ and $J$ is $2\times6$. This is raw chiral projection in the original two-port order. The contact-tangent orientation signs do not insert extra signs in~\eqref{eq:drive}.
+
+Let $s\in\R/L_c\mathbb Z$ on the fixed admissible carrier, with finite $L_c>0$ and speed $c>0$. Its contacts are $s_\pm=L_c/2\mp\eta_{\rm geom}$, with the inherited shortest-separation condition
+$\operatorname{dist}_{L_c}(s_+,s_-)=2\eta_{\rm geom}$.
+Together with $0<\epsilon_c<\eta_{\rm geom}$, this condition retains disjointness around the whole periodic circle, including across its coordinate seam. Set
+\begin{equation}\label{eq:tents}
+b_\sigma(s)=\epsilon_c^{-1}
+\left(1-\frac{|\operatorname{wrap}_{L_c}(s-s_\sigma)|}{\epsilon_c}\right)_+,
+\qquad \sigma\in\{+,-\},
+\end{equation}
+\begin{equation}\label{eq:ports}
+\B v=b_+v_++b_-v_-,\qquad
+y=\B^*p=\begin{pmatrix}\int b_+p\dd s\\\int b_-p\dd s\end{pmatrix}.
+\end{equation}
+All spatial integrals cover one period. These are normalized finite-width tents in $H^1_{\rm per}$. Direct integration of their affine halves and disjoint support give
+\begin{equation}\label{eq:profilenorms}
+\begin{gathered}
+\int b_\sigma\dd s=1,\qquad m=\frac2{3\epsilon_c},\qquad
+d=\frac2{\epsilon_c^3},\qquad \B^*\B=mI_2,\\
+\norm{\B}_{\R^2\to L^2}=\norm{\B^*}_{L^2\to\R^2}=\sqrt m,\qquad
+\norm{\B'v}_2=\sqrt d\,|v|.
+\end{gathered}
+\end{equation}
+The first weak derivative is piecewise constant in $L^2$: continuity of each tent precludes a delta term at its corners. No second derivative or shrinking-width limit is used.
+
+\subsection{State equations, stores and inherited regularity}\label{sec:equations}
+Fix $\alpha_N,\beta_R,\eta_N>0$, and write the positive receiver coupling as $\kappa=\eta_R$. Both couplings are dimensionless. For each selected finite $\kappa$, retain
+\begin{equation}\label{eq:system}
+\boxed{\begin{aligned}
+\dot x&=-\frac{\eta_N}{2\alpha_N}J(x)^Ty,\\
+p_t+c(r_c)_s&=\B\{\eta_N f(x)-\kappa z\},\\
+(r_c)_t+cp_s&=0,\\
+\dot z&=\frac{\kappa}{\beta_R}y,\qquad y=\B^*p.
+\end{aligned}}
+\end{equation}
+Here $z\in\R^2$ is one reversible receiver state. All parameters are constant along a solution; both interactions use the same two finite profile regions. We study exchange time only, without native $F$-jumps or a switching protocol.
+
+The trial stores and signed total powers are
+\begin{equation}\label{eq:storages}
+H_N=\frac{\alpha_N}{2}|x|^2,\qquad
+H_C=\frac12\int(p^2+r_c^2)\dd s,\qquad
+H_R=\frac{\beta_R}{2}|z|^2,\qquad H_{\rm tot}=H_N+H_C+H_R,
+\end{equation}
+\begin{equation}\label{eq:powers}
+P_{NC}=\eta_N f(x)^Ty,\qquad P_{CR}=\kappa z^Ty.
+\end{equation}
+Thus $P_{NC}$ is the complete signed sum over the two native ports. A negative individual port does not by itself establish total credit. The positive quadratic $H_N$ differs from the native quartic potential $V$.
+
+The homogeneous identity $J(x)x=2f(x)$, periodic integration and adjointness give the predecessor's accounts~\cite[Section 2]{baseline}:
+\begin{equation}\label{eq:balances}
+\dot H_N=-P_{NC},\qquad
+\dot H_C=P_{NC}-P_{CR},\qquad
+\dot H_R=P_{CR},\qquad \dot H_{\rm tot}=0.
+\end{equation}
+For every fixed finite allowed parameter choice, its Theorem 3.1 supplies a unique global mild solution on
+$\R^6\times L^2_{\rm per}{}^2\times\R^2$, with these integrated accounts. If the carrier preparation is in $H^1_{\rm per}{}^2$, then
+\begin{equation}\label{eq:regularity}
+(p,r_c)\in C(\R;H^1_{\rm per})^2\cap C^1(\R;L^2)^2,\qquad x,z\in C^1(\R).
+\end{equation}
+We use this established solution theorem. The new energy estimate below is applied to an already existing strong solution; it is not an existence argument based on a formal conservation law.
+
+\subsection{An admitted nonzero coherent launch}\label{sec:launch}
+Fix one $0<\phi<\pi/12$ and prepare
+\begin{equation}\label{eq:preparation}
+\Omega_0=(1,e^{i\phi},1),\qquad p(0)=r_c(0)=z(0)=0.
+\end{equation}
+The empty carrier is in $H^1$. All moduli are one and the ordinary phase span is $\phi$, as in the predecessor's Proposition 4.1. With $G=\kappa_{\rm in}\lambda_g$,
+\begin{equation}\label{eq:gram}
+KK^T=G^2\begin{pmatrix}1&1/7\\1/7&1\end{pmatrix},
+\qquad R=|x_0|=\sqrt3,\qquad k=\norm K=G\sqrt{8/7}.
+\end{equation}
+The eigenvalues of the displayed Gram matrix are $8G^2/7$ and $6G^2/7$. Also $a_0\times b_0=(-\sin\phi,0,\sin\phi)$, so
+\begin{equation}\label{eq:launchdrive}
+f_{0,\pm}=\frac{G\sin\phi}{\sqrt7}(-2\sin\delta_g\pm\sqrt3),
+\qquad |f_0|^2=\frac{G^2\sin^2\phi}{7}(6+8\sin^2\delta_g)>0.
+\end{equation}
+The two entries differ by $2\sqrt3G\sin\phi/\sqrt7\ne0$ for every fixed yaw. An individual entry may vanish, but the vector does not. No invariance of this launch family or its coherent phase domain is assumed.

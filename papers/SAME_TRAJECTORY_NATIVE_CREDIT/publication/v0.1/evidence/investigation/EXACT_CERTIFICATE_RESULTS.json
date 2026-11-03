@@ -1,0 +1,335 @@
+{
+  "executed_utc": "2026-11-03T15:43:30.531483+00:00",
+  "python": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+  "python_version": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+  "sympy_version": "1.14.0",
+  "helper_sha256": "7b4ca738f237ad2151876020646258d65c71b8eb241edc30e65da7a0326c748a",
+  "purpose": "New exact finite-expression checks of this proposed certificate only. No PDE evolution, simulation, parameter sweep, model import or prior scientific helper replay.",
+  "limitations": "These checks do not establish strong regularity, the energy inequality, operator domains, disjoint profile supports, order inequalities, continuity or the PDE theorem; those are justified in the written proof. Positivity and quantifiers are analytical hypotheses.",
+  "checks": [
+    {
+      "id": "S01",
+      "purpose": "Registration Gram matrix, valid for every yaw",
+      "pass": true,
+      "simplified_residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "id": "S02",
+      "purpose": "Two squared singular values; their maximum is 8G^2/7 by positivity",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S03",
+      "purpose": "Launch norm squared is exactly three",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S04",
+      "purpose": "Both registered launch drive entries with the original signs",
+      "pass": true,
+      "simplified_residuals": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "id": "S05",
+      "purpose": "Nonzero port difference coefficient; positivity uses 0<phi<pi/12 and G>0",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S06",
+      "purpose": "Exact squared launch drive norm",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S07",
+      "purpose": "Normalized continuous tent mass",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S08",
+      "purpose": "Single tent squared L2 norm",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S09",
+      "purpose": "Single tent squared first weak derivative norm, using its affine halves",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S10",
+      "purpose": "Exact four rescaled equations after the chain rule",
+      "pass": true,
+      "simplified_residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "id": "S11",
+      "purpose": "Original total native power conversion",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S12",
+      "purpose": "Weighted collocated receiver/carrier energy terms cancel",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S13",
+      "purpose": "Comparison p and z solve their driven equations and start at zero",
+      "pass": true,
+      "simplified_residuals": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "id": "S14",
+      "purpose": "Comparison witness has z coefficient one and negative total-power coefficient",
+      "pass": true,
+      "simplified_residuals": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "id": "S15",
+      "purpose": "Absolute sine integral through three quadrants",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S16",
+      "purpose": "Core drift factor one-fourth from integration",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S17",
+      "purpose": "Drive drift constant from the ball Lipschitz bound",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S18",
+      "purpose": "Signed propagation residual is L_kappa V0 minus V0_tau in the r equation",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S19",
+      "purpose": "Integrated drive forcing error has factor one-third",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S20",
+      "purpose": "Finite propagation forcing bound at T",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S21",
+      "purpose": "Exact collection of both total-power error terms",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S22",
+      "purpose": "Threshold allocations give D/4 for each error term and leave -D/2",
+      "pass": true,
+      "simplified_residuals": [
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "id": "S23",
+      "purpose": "Half-margin over a symmetric interval gives the claimed native gain",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S24",
+      "purpose": "External stock scaling and uniform window upper bound",
+      "pass": true,
+      "simplified_residuals": [
+        "0"
+      ]
+    },
+    {
+      "id": "S25",
+      "purpose": "Threshold ratios dimensionless, A has drive/time^2, D and both C terms have power units",
+      "pass": true,
+      "simplified_residuals": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    }
+  ],
+  "passed": 25,
+  "total": 25,
+  "all_passed": true,
+  "unit_exponents_basis": [
+    "U",
+    "L",
+    "T",
+    "native_amplitude"
+  ],
+  "unit_exponents": {
+    "m": [
+      "0",
+      "-1",
+      "0",
+      "0"
+    ],
+    "d": [
+      "0",
+      "-3",
+      "0",
+      "0"
+    ],
+    "c": [
+      "0",
+      "1",
+      "-1",
+      "0"
+    ],
+    "k": [
+      "1",
+      "1",
+      "-1",
+      "-2"
+    ],
+    "R": [
+      "0",
+      "0",
+      "0",
+      "1"
+    ],
+    "F": [
+      "1",
+      "1",
+      "-1",
+      "0"
+    ],
+    "alpha": [
+      "2",
+      "1",
+      "0",
+      "-2"
+    ],
+    "beta": [
+      "0",
+      "-1",
+      "2",
+      "0"
+    ],
+    "T": [
+      "0",
+      "0",
+      "1",
+      "0"
+    ],
+    "omega": [
+      "0",
+      "0",
+      "-1",
+      "0"
+    ],
+    "A": [
+      "1",
+      "1",
+      "-3",
+      "0"
+    ],
+    "D": [
+      "2",
+      "1",
+      "-1",
+      "0"
+    ],
+    "C1": [
+      "2",
+      "1",
+      "-1",
+      "0"
+    ],
+    "C2": [
+      "2",
+      "1",
+      "-1",
+      "0"
+    ]
+  },
+  "historical_checks_reexecuted": false
+}

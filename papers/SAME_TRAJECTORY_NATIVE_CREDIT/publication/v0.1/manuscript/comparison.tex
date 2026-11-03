@@ -1,0 +1,102 @@
+\section{Comparison, finite error and the returning sign}\label{sec:comparison}
+\begin{proof}[Proof of Theorem~\ref{thm:credit}]
+\textit{The explicit comparison.}
+Freeze the core and omit scaled propagation only in the comparison problem. Its zero-external-state solution is
+\begin{equation}\label{eq:comparison}
+\begin{aligned}
+x^{(0)}(\tau)&=x_0,&
+\widehat p^{(0)}(\tau)&=\frac{\sin(\omega\tau)}{\omega}\B f_0,\\
+\widehat r^{(0)}(\tau)&=0,&
+\widehat z^{(0)}(\tau)&=f_0\{1-\cos(\omega\tau)\},
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eq:comparisonoutput}
+\widehat y^{(0)}(\tau)=\frac m\omega f_0\sin(\omega\tau).
+\end{equation}
+Indeed $\widehat p^{(0)}_\tau=\B(f_0-\widehat z^{(0)})$ and
+$\widehat z^{(0)}_\tau=\widehat y^{(0)}/\beta_R$, because
+$\omega^2=m/\beta_R$. Every external coordinate vanishes initially. At the specified $T$,
+\begin{equation}\label{eq:comparisonmargin}
+Q_0(T):=f_0^T\widehat y^{(0)}(T)
+=-\frac m\omega|f_0|^2=-D<0.
+\end{equation}
+This is a comparison margin; finite error control is required to transfer its sign to the actual solution.
+
+\textit{Error equation and regularity.}
+Let $V_0=(\widehat p^{(0)},0,\widehat z^{(0)})$ and
+$E_\kappa=V_\kappa-V_0$. The exact solution has regularity~\eqref{eq:regularity}, preserved by the finite scaling. The explicit comparison is also a strong curve, with carrier in $C^1_\tau H^1_s$. Hence their difference already belongs to $C_\tau H^1_s\cap C^1_\tau L^2_s$ in its carrier coordinates. This justifies its energy calculation before an estimate from the residual is used.
+
+Subtract the comparison equations while retaining the finite operator~\eqref{eq:operator} on the error:
+\begin{equation}\label{eq:error}
+\begin{aligned}
+(E_\kappa)_\tau={}&\LL_\kappa E_\kappa
++(\B(f(x_\kappa)-f_0),0,0)\\
+&+\left(0,-\frac c\kappa\B'f_0
+                 \frac{\sin(\omega\tau)}{\omega},0\right),
+\qquad E_\kappa(0)=0.
+\end{aligned}
+\end{equation}
+The propagation residual is negative in the second carrier component:
+it is $-(c/\kappa)\partial_s\widehat p^{(0)}$.
+The first component has no propagation residual because
+$\widehat r^{(0)}=0$. By~\eqref{eq:profilenorms}, the residual lies in $L^2$ and involves only the first weak derivative of a tent. It need not belong to $H^1$; strong regularity of the error follows from subtraction, not from differentiating that residual. No second tent derivative, Fourier truncation or operator-norm convergence of an unbounded generator is invoked.
+
+Apply~\eqref{eq:forcedbound} to~\eqref{eq:error}, using~\eqref{eq:drivedrift}:
+\begin{equation}\label{eq:errorintegral}
+\norm{E_\kappa(\tau)}_{CR}
+\le\frac{c\sqrt d\,|f_0|}{\kappa\omega}
+\int_0^\tau|\sin(\omega s)|\dd s
++\frac{\sqrt m A\tau^3}{3\kappa^2},
+\qquad 0\le\tau\le T.
+\end{equation}
+Splitting the absolute sine integral at $\pi/\omega$ gives
+$2/\omega+1/\omega=3/\omega$ at $T$. Therefore
+\begin{equation}\label{eq:finiteerror}
+\boxed{\norm{E_\kappa(T)}_{CR}
+\le\frac{3c\sqrt d\,|f_0|}{\kappa\omega^2}
++\frac{\sqrt m AT^3}{3\kappa^2}.}
+\end{equation}
+
+\textit{The full two-port power error.}
+Write $Q_\kappa=f(x_\kappa(T))^T\widehat y(T)$. The exact decomposition is
+\begin{equation}\label{eq:powerdecomposition}
+\begin{aligned}
+Q_\kappa-Q_0(T)
+={}&(f(x_\kappa(T))-f_0)^T\widehat y(T)\\
+&+f_0^T\{\widehat y(T)-\widehat y^{(0)}(T)\}.
+\end{aligned}
+\end{equation}
+The first term uses the actual output. The bounded adjoint,~\eqref{eq:externalbounds},~\eqref{eq:drivedrift} and~\eqref{eq:finiteerror} give
+\begin{equation}\label{eq:powererror}
+\begin{aligned}
+|Q_\kappa+D|
+&\le\frac{AT^2}{\kappa^2}\,mF_{\max}T\\
+&\quad+|f_0|\sqrt m\left\{
+\frac{3c\sqrt d\,|f_0|}{\kappa\omega^2}
++\frac{\sqrt m AT^3}{3\kappa^2}\right\}\\
+&=\frac{C_1}{\kappa}+\frac{C_2}{\kappa^2}.
+\end{aligned}
+\end{equation}
+This controls the complete signed sum, including both product-error contributions. For $\kappa\ge\kappa_{\rm crit}$,
+\begin{equation}\label{eq:allocation}
+\frac{C_1}{\kappa}\le\frac D4,\qquad
+\frac{C_2}{\kappa^2}\le\frac D4,\qquad
+Q_\kappa\le-\frac D2.
+\end{equation}
+Converting by~\eqref{eq:powerconversion} proves the finite original-time witness~\eqref{eq:witness}.
+
+\textit{Continuity, initial activity and chronology.}
+The native power is continuous: $x$ is continuous, $f$ is polynomial, $p$ is continuous in $L^2$, and $\B^*$ is bounded. Its strict margin at $t_*$ permits
+$0<\rho_\kappa<t_*/4$ with~\eqref{eq:interval} on the whole closed interval. Integrating $\dot H_N=-P_{NC}$ over its length $2\rho_\kappa$ proves~\eqref{eq:gain}.
+
+For this same fixed finite $\kappa$, the predecessor's Proposition 4.1 applies because $\eta_N,\kappa>0$ and $f_0\ne0$. Its empty-launch expansions give
+\begin{equation}\label{eq:initialactivity}
+\begin{aligned}
+P_{NC}(t)&=\eta_N^2m|f_0|^2t+o(t),\\
+H_R(t)&=\frac{\eta_N^2\kappa^2m^2|f_0|^2}{8\beta_R}t^4+o(t^4),\\
+P_{CR}(t)&=\frac{\eta_N^2\kappa^2m^2|f_0|^2}{2\beta_R}t^3+o(t^3).
+\end{aligned}
+\end{equation}
+All leading coefficients are positive. Shorten their common positive interval to lie in $(0,t_*/4)$; the later interval lies in
+$(3t_*/4,5t_*/4)$. The remainders need not be uniform in $\kappa$, and we never evaluate these short-time expansions at $T/\kappa$. Global uniqueness identifies the initial activity and later credit as stages of one unchanged solution. Neither a prepared negative carrier state nor a reversing involution is used.
+\end{proof}

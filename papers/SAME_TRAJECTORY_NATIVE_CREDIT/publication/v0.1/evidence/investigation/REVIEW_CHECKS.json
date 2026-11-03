@@ -1,0 +1,100 @@
+{
+  "reviewed_utc": "2026-11-03T15:49:37.184706+00:00",
+  "reviewer": "Codex",
+  "status": "PASS",
+  "disposition": "Established within the unchanged candidate for the explicit sufficient finite-coupling regime; proposed constants unchanged.",
+  "proof": {
+    "bytes": 23338,
+    "sha256": "841b5e3a35d0f32cf083388eb1c4a07a60ac8075bc7f622ada76fe1f7591d39b"
+  },
+  "ledger": {
+    "bytes": 12247,
+    "sha256": "00d2e4f722595af8fc44576db40a3770248b4ca2fdc963d0682ce87dd214a25f"
+  },
+  "source_identity_record": {
+    "bytes": 8191,
+    "sha256": "638aaeb68aa00daeccf2dd31c01071aba88bf0e4b81a3d35329a7101c9b43f5d"
+  },
+  "supporting_exact_results": {
+    "bytes": 7102,
+    "sha256": "390cc5687ddf199ecc8662ce28c916401f1b95ca4290903d0eaba31ad9b3869d"
+  },
+  "gates": [
+    {
+      "gate": "Fixed baseline",
+      "finding": "R1-R4 retain the seven hash-pinned definitions; finite constant parameters, empty launch, no native jumps.",
+      "pass": true
+    },
+    {
+      "gate": "Quantifiers",
+      "finding": "Other parameters and one nonzero phi fixed first; one finite computable sufficient threshold; every fixed finite kappa above it.",
+      "pass": true
+    },
+    {
+      "gate": "Nonzero preparation",
+      "finding": "R10-R13 give the correct K norm, yaw-dependent drive, nonzero two-port vector, operator norms and ball bounds.",
+      "pass": true
+    },
+    {
+      "gate": "Regularity",
+      "finding": "R9 invokes the published global strong theorem for empty H1 preparation; error is actual-minus-explicit strong fields.",
+      "pass": true
+    },
+    {
+      "gate": "Forced energy",
+      "finding": "R16-R19 retain receiver loading in the weighted skew block, use periodic H1 products and regularize the norm at zero.",
+      "pass": true
+    },
+    {
+      "gate": "Core drift",
+      "finding": "R20 has the exact one-fourth coefficient, a convex-ball Lipschitz estimate and no coherent-domain invariance assumption.",
+      "pass": true
+    },
+    {
+      "gate": "Residual",
+      "finding": "R23 has negative propagation residual in the r component only; first weak derivative in L2 is sufficient.",
+      "pass": true
+    },
+    {
+      "gate": "Finite comparison",
+      "finding": "R24-R25 integrate absolute sine to 3/omega, retaining both drift and propagation errors; no operator-norm limit.",
+      "pass": true
+    },
+    {
+      "gate": "Total power",
+      "finding": "R26-R27 retain the exact y in the first term and bound the complete signed two-port sum with C1 and C2.",
+      "pass": true
+    },
+    {
+      "gate": "Threshold and interval",
+      "finding": "R5-R7 and section 5 preserve the D/2 witness and D/4 neighborhood margin, positive interval gain and chronology.",
+      "pass": true
+    },
+    {
+      "gate": "Initial activity",
+      "finding": "R28 uses the published fixed-finite-coupling asymptotics, including positive exact receiver power/storage; no uniform remainder assumed.",
+      "pass": true
+    },
+    {
+      "gate": "Units",
+      "finding": "Section 6 checks A, norm and power units and both dimensionless threshold ratios; no physical calibration.",
+      "pass": true
+    },
+    {
+      "gate": "Meaning",
+      "finding": "R8 and R30 keep cumulative debit nonnegative and capacity qualified; comparison receiver backflow is not asserted as an exact witness sign.",
+      "pass": true
+    },
+    {
+      "gate": "Scope",
+      "finding": "Fast collocated exchange, small storage window, geometry distinctions and absent physical circuit retained; no second regime investigated.",
+      "pass": true
+    },
+    {
+      "gate": "Provenance",
+      "finding": "Seven defining sources match; standalone context report of later old-paper review distinguished from absent review text; new GPT review pending.",
+      "pass": true
+    }
+  ],
+  "review_scope": "Manual analytical/source review by Codex plus separate document checks, not GPT acceptance or external peer review."
+}

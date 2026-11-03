@@ -365,3 +365,10 @@ Author-authorized research edition v0.1: exact conditional source-off recurrence
 [A Reciprocal Chiral Exchange Extension of the Tri-Octagon Model](papers/RECIPROCAL_CHIRAL_EXCHANGE/README.md) by **Hilmir Frímann Halldórsson**.
 Author-authorized research edition v0.1: a conditional candidate extension with well-posed reciprocal exchange, matched trial storage, and restrictive extraction/domain limits. Same-trajectory delayed return and physical toroidal registration remain open; zero coupling recovers the original native map.
 [PDF](papers/RECIPROCAL_CHIRAL_EXCHANGE/publication/v0.1/RECIPROCAL_CHIRAL_EXCHANGE_v0.1.pdf) | [Edition and evidence](papers/RECIPROCAL_CHIRAL_EXCHANGE/publication/v0.1/README.md).
+
+
+## Same-trajectory native credit
+
+[Same-Trajectory Native Credit in the Reciprocal Chiral Exchange Candidate](papers/SAME_TRAJECTORY_NATIVE_CREDIT/README.md) by **Hilmir Frímann Halldórsson**.
+Author-authorized research edition v0.1, with completed internal manuscript and final artifact review: an explicit sufficient finite-coupling regime for initial supply and later total native credit on the same empty-launch solution. Recovery does not establish a substantial returned fraction, the exact receiver-power sign at the witness or the intended spatial toroidal route.
+[PDF](papers/SAME_TRAJECTORY_NATIVE_CREDIT/publication/v0.1/SAME_TRAJECTORY_NATIVE_CREDIT_v0.1.pdf) | [Edition and evidence](papers/SAME_TRAJECTORY_NATIVE_CREDIT/publication/v0.1/README.md).
