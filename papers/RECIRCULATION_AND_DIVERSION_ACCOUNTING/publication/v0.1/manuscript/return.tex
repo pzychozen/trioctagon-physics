@@ -1,0 +1,75 @@
+\section{Exact source-off return and section throughput}\label{sec:return}
+For $\sigma\in\{+1,-1\}$, define normalized characteristic fields, their densities and stocks by
+\begin{equation}\label{eq:chars}
+ w_\sigma=\frac{p+\sigma r_c}{\sqrt2},\qquad
+ \rho_\sigma=\frac{w_\sigma^2}{2},\qquad
+ E_\sigma(t)=\int_0^{L_c}\rho_\sigma\dd s.
+\end{equation}
+Adding and subtracting \eqref{eq:C1} gives the inherited transport equation. Multiplication by $w_\sigma$ gives its directional account:
+\begin{align}
+ (\partial_t+\sigma c\partial_s)w_\sigma&=g_c/\sqrt2,\label{eq:transport}\\
+ \partial_t\rho_\sigma+\sigma c\partial_s\rho_\sigma
+ &=w_\sigma g_c/\sqrt2.\label{eq:directional}
+\end{align}
+The product calculation has the distributional meaning specified in Section~\ref{sec:workaccount}. Inversion of the orthogonal transform gives
+\begin{equation}\label{eq:netgross}
+ e=\rho_++\rho_-,\qquad
+ j=c(\rho_+-\rho_-),\qquad
+ j_{\rm gross}:=c(\rho_++\rho_-)=ce,\qquad |j|\le j_{\rm gross}.
+\end{equation}
+The signed directional fluxes are $+c\rho_+$ and $-c\rho_-$. Their nonnegative magnitudes add to the gross flux, which is generally not $|j|$.
+
+\begin{theorem}[Conditional source-off recurrence]\label{thm:return}
+On an entirely source-off interval, $E_+$ and $E_-$ are separately conserved. If $[t,t+T_{\rm loop}]$ is entirely source-off, with
+\begin{equation}\label{eq:period}
+ T_{\rm loop}=L_c/c,
+\end{equation}
+then $(p,r_c)(\cdot,t+T_{\rm loop})=(p,r_c)(\cdot,t)$. The equality holds in $L^2$ for mild preparation and in the continuous spatial representatives at $H^1$ regularity. $T_{\rm loop}$ is a period, not necessarily the smallest one.
+\end{theorem}
+\begin{proof}
+The inherited characteristic representation \cite[well-posedness theorem]{pairedII} specializes, on a source-off interval starting at $a$, to
+\begin{equation}\label{eq:translation}
+ w_\sigma(s,t)=w_\sigma(s-\sigma c(t-a),a).
+\end{equation}
+Thus the $+$ profile travels toward increasing $s$ and the $-$ profile toward decreasing $s$, both at speed $c$. Periodic translation is an $L^2$ isometry, so it preserves each squared norm and hence each $E_\sigma$. Translation through $-\sigma cT_{\rm loop}=-\sigma L_c$ is the identity on the periodic domain. Inverting the characteristic transform proves recurrence of $(p,r_c)$. No newly evaluated wave solution is needed.
+\end{proof}
+
+\begin{theorem}[One-circuit section account]\label{thm:throughput}
+At a declared fixed cut $s_*$, under the trace convention in Section~\ref{sec:workaccount}, define
+\begin{equation}\label{eq:Q}
+ Q_\sigma(s_*;a,b)=\int_a^b c\rho_\sigma(s_*,u)\dd u.
+\end{equation}
+If the entire interval $[t,t+T_{\rm loop}]$ is source-off, then
+\begin{align}
+ Q_\sigma(s_*;t,t+T_{\rm loop})&=E_\sigma(t),\label{eq:Qdirection}\\
+ Q_{\rm net}:=\int_t^{t+T_{\rm loop}}j(s_*,u)\dd u
+ &=E_+(t)-E_-(t),\label{eq:Qnet}\\
+ Q_{\rm gross}:=\int_t^{t+T_{\rm loop}}j_{\rm gross}(s_*,u)\dd u
+ &=E_+(t)+E_-(t)=E(t).\label{eq:Qgross}
+\end{align}
+\end{theorem}
+\begin{proof}
+Apply \eqref{eq:translation} with starting time $t$ in \eqref{eq:Q}. The change of variables $x=s_*-\sigma c(u-t)$ covers the circle once in time $L_c/c$. For $\sigma=+1$ the reversed limits cancel the minus sign from $\dd x=-c\dd u$; for $\sigma=-1$ the orientation is increasing. In either case periodicity gives
+\[
+ \int_t^{t+L_c/c}c\rho_\sigma(s_*-\sigma c(u-t),t)\dd u
+ =\int_0^{L_c}\rho_\sigma(x,t)\dd x.
+\]
+This proves \eqref{eq:Qdirection}. The difference and sum, using \eqref{eq:netgross}, give \eqref{eq:Qnet} and \eqref{eq:Qgross}.
+\end{proof}
+
+The theorem distinguishes counterpropagation from net transport. Equal positive directional stocks have zero full-circuit net cut amount and positive gross throughput. It does not require a preferred direction or nonzero flux for every preparation.
+
+Over $m$ whole source-off circuits, $m$ a positive integer, adding \eqref{eq:Qgross} gives gross throughput $mE$, while storage remains $E$. This recounts circulating storage, not $mE$ of new emission. A statement that all returns requires a declared profile or same-direction section-turnover meaning and a positive denominator. Neither theorem identifies tagged particles, a launch cohort in a superposed driven field, a native-state recurrence, or receipt at the spatial center.
+
+\begin{corollary}[Zero source-off total-storage depletion]\label{cor:depletion}
+If $E(t)>0$ and $[t,t+T_{\rm loop}]$ is source-off, then
+\begin{equation}\label{eq:depletion}
+ d_E=\frac{E(t)-E(t+T_{\rm loop})}{E(t)}=0.
+\end{equation}
+At $E(t)=0$ this ratio is undefined, while conservation still holds.
+\end{corollary}
+\begin{proof}
+The sum $E=E_++E_-$ is conserved. A proposed law
+$E(t+T_{\rm loop})=(1-d)E(t)$ with $d>0$ would therefore contradict conservation when $E(t)>0$.
+\end{proof}
+The same storage obstruction holds on every source-off interval, not only a full circuit. It is a theorem about unmodified C1, whose inspected equations contain no intrinsic sink, damping or leakage branch. It is not a physical measurement showing that the author's intended circulation is lossless. The source's statement that autonomous circulation has not been established concerns the missing physical and reciprocal core interpretation \cite[conclusion]{pairedII}; it does not negate homogeneous mathematical profile recurrence.

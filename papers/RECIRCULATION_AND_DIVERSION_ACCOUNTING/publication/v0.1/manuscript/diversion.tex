@@ -1,0 +1,85 @@
+\section{What a diversion fraction would require}\label{sec:diversion}
+\subsection{Stocks, powers, amounts and records}\label{sec:types}
+The source's abstract dimensions are $\mathrm U,\mathrm L,\mathrm T$, with $[p]=[r_c]=\mathrm U$, $[c]=\mathrm L/\mathrm T$, $[b_\pm]=\mathrm L^{-1}$ and $[f_\pm]=\mathrm U\mathrm L/\mathrm T$ \cite[dimension table]{pairedII}. No SI unit or physical time calibration is selected. Table~\ref{tab:types} distinguishes existing quantities from proposed route accounts.
+
+{\small
+\begin{longtable}{@{}P{.24\textwidth}P{.29\textwidth}P{.41\textwidth}@{}}
+\caption{Existing quantities and denominator limitations.}\label{tab:types}\\
+\toprule Quantity & Type or dimension & Interpretation limit\\\midrule
+\endfirsthead
+\toprule Quantity & Type or dimension & Interpretation limit\\\midrule
+\endhead
+\bottomrule\endfoot
+$E(t),E_\pm(t)$ & Nonnegative stocks; $\mathrm U^2\mathrm L$ & Not automatically native launch energy. The depletion ratio requires $E>0$.\\[4pt]
+$\int_a^b j(s_*,t)\dd t$ & Signed net cut amount; $\mathrm U^2\mathrm L$ & Can cancel to zero or be negative; not a default positive fraction denominator.\\[4pt]
+$Q_\pm(s_*;a,b)$ & Nonnegative directional amounts; $\mathrm U^2\mathrm L$ & Require a cut, direction, window and positive reference amount for normalization.\\[4pt]
+$\int_a^b j_{\rm gross}(s_*,t)\dd t$ & Nonnegative gross amount & Counts both directions and repeats storage on later circuits.\\[4pt]
+$W_{\rm src}[a,b]$ & Signed work; $\mathrm U^2\mathrm L$ & Can remove rather than supply storage. No recipient is assigned.\\[4pt]
+$j;\ \int_0^{L_c}j\dd s$ & $\mathrm U^2\mathrm L/\mathrm T$; $\mathrm U^2\mathrm L^2/\mathrm T$ & The spatial integral has an extra length dimension: it is neither a section power nor an energy amount.\\[4pt]
+Native $I,V$, decoded vectors & Native intensity, potential or based-vector data & No canonical conversion into a delivered carrier-energy amount.\\[4pt]
+C6 $Y_X$ & Delayed amplitude record; $\mathrm U$ & No receiving-energy account or power meaning for its square.\\[4pt]
+$Q_{\rm launch},Q_{\rm return},Q_{\rm div}$ & Proposed nonnegative transfers & Intended route, destination, denominator and event accounting remain unassigned.\\
+\end{longtable}}
+
+The ratio $Q_{\rm div}/Q_{\rm launch}$ would describe a per-pass diverted share. In contrast, $1-Q_{\rm return}/Q_{\rm launch}$ would describe a finite-window return deficit. Neither definition is adopted here. Eventual non-return is a further limiting question, not a synonym for either finite-window ratio.
+
+\subsection{A hypothetical route ledger}\label{sec:ledger}
+Suppose only for accounting that a future route region and interval $[a,b]$ have been specified. Let the $Q$ terms below be nonnegative transfers with declared orientations, let $W_{\rm route}$ be signed non-boundary work, and let $\Delta S_{\rm route}$ be the signed route-inventory change. A compatible balance must read
+\begin{equation}\label{eq:route}
+\begin{split}
+ Q_{\rm launch}+Q_{\rm other,in}+W_{\rm route}
+ ={}&Q_{\rm return}+Q_{\rm div}\\
+ &+Q_{\rm other,out}+\Delta S_{\rm route}.
+\end{split}
+\end{equation}
+This is hypothetical necessary bookkeeping, not a new dynamics law. Terms need common units and windows and a rule for classifying repeated crossing events. A distributed source already booked as $W_{\rm route}$ cannot also be counted as boundary launch work without changing the accounting partition.
+
+With no other transfers and $Q_{\rm launch}>0$, a proposed $f_{\rm div}=Q_{\rm div}/Q_{\rm launch}$ satisfies, by rearrangement,
+\begin{equation}\label{eq:returnratio}
+ \frac{Q_{\rm return}}{Q_{\rm launch}}
+ =1-f_{\rm div}
+  +\frac{W_{\rm route}-\Delta S_{\rm route}}{Q_{\rm launch}}.
+\end{equation}
+The simplified relation $Q_{\rm return}=(1-f_{\rm div})Q_{\rm launch}$ therefore requires $W_{\rm route}=\Delta S_{\rm route}$, for example both zero, together with no other transfers and compatible event accounting. Under that restriction the nonnegative amounts imply $0\le f_{\rm div}\le1$. With other work or inventory release a raw ratio need not obey this upper bound, and would not be a simple share of newly launched energy.
+
+\begin{proposition}[A return deficit does not identify diversion]\label{prop:deficit}
+For $Q>0$ and $0<d<1$, a finite-window launch $Q$ and return $(1-d)Q$, with zero other transfers and work, satisfy \eqref{eq:route} under either assignment
+\begin{align}
+ Q_{\rm div}=dQ,\quad &\Delta S_{\rm route}=0,\label{eq:divwitness}\\
+ Q_{\rm div}=0,\quad &\Delta S_{\rm route}=dQ.\label{eq:storewitness}
+\end{align}
+Thus this return deficit alone does not distinguish diversion from temporary storage or delay.
+\end{proposition}
+\begin{proof}
+In each assignment, the sum of return, diversion and inventory change is $(1-d)Q+dQ=Q$, equal to launch.
+\end{proof}
+These are account-level witnesses, not two constructed native or carrier trajectories. To test a diverted share requires an actual destination state or receiving-power account. Attribution of supply to the native core additionally needs a commensurate native storage candidate, a time bridge and reciprocal debit/credit or backreaction. Neither native intensity $I$ nor potential $V$ is chosen as that storage. Preparation, baseline and an attribution convention are needed where existing waves and quadratic interference are present.
+
+\subsection{Internal destinations and the total boundary}\label{sec:internal}
+If the destination were internal to an enlarged core--route--destination union, the compatible hypothetical special case would be
+\begin{align}
+ \Delta S_{\rm route}&=Q_{\rm launch}-Q_{\rm return}-Q_{\rm div}
+                         +W_{\rm route},\label{eq:internalroute}\\
+ \Delta S_{\rm core}&=-Q_{\rm launch}+Q_{\rm return}+W_{\rm core},
+                         \label{eq:internalcore}\\
+ \Delta S_{\rm dest}&=Q_{\rm div}+W_{\rm dest}.\label{eq:internaldest}
+\end{align}
+Addition cancels all three internal transfers:
+\begin{equation}\label{eq:union}
+ \Delta(S_{\rm route}+S_{\rm core}+S_{\rm dest})
+ =W_{\rm route}+W_{\rm core}+W_{\rm dest}.
+\end{equation}
+Diversion from a return path therefore need not be loss from this enlarged total system. If the destination lies outside the chosen boundary, its transfer instead belongs to that total's outgoing account. A dissipative interpretation needs its own energy/heat account if total conservation is claimed. None of these identities selects the author's boundary or installs receiving dynamics.
+
+\subsection{Per-pass removal is not eventual efficiency}\label{sec:compounding}
+Under the additional hypothetical assumptions of a constant per-pass removed share $f$, compatible work/inventory accounting, and no re-entry of removed energy,
+\begin{equation}\label{eq:perpass}
+ Q_{m+1}=(1-f)Q_m,\qquad Q_m=(1-f)^mQ_0.
+\end{equation}
+Repeated substitution gives the second formula. Telescoping the removals gives
+\begin{equation}\label{eq:cumulative}
+ Q_{\rm removed,cumulative}(m)=Q_0[1-(1-f)^m].
+\end{equation}
+For $0<f<1$ the remaining amount tends to zero as $m\to\infty$. Thus an assumed per-pass share cannot be silently reported as a one-time or eventual efficiency. Re-entry, changing shares, forcing and finite observation windows change the account.
+
+No accepted theorem confines the intended route share to $[0.15,0.20]$, establishes a value above it, or establishes any actual nonzero leak. The source-off C1 depletion ratio is zero for positive storage; the central-route diversion ratio is unidentifiable from the current definitions. A future expanded or intermittently diverted system is not refuted by this scope-limited theorem. The author's range could only be a future hypothesis or, after defining and measuring both amounts, an empirical ratio. No value is evaluated or fitted here.

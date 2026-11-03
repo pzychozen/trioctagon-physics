@@ -1,0 +1,61 @@
+\section{Driven work and internal arc transfers}\label{sec:driven}
+\subsection{Preparation matters even at fixed initial storage}
+Let
+\begin{equation}\label{eq:Wsrc}
+ W_{\rm src}[a,b]=\int_a^b\bigl(f_+y_++f_-y_-\bigr)\dd t.
+\end{equation}
+By \eqref{eq:integrated}, positive net work increases total storage and negative net work reduces it. Zero net work can conceal contributions of both signs. This account does not identify cut flow with source work.
+
+Equal drives and equal full preparation give the same state by uniqueness. Drives alone do not determine its storage history, even when the initial total storage is fixed.
+\begin{proposition}[Same drives, equal initial stock, different work signs]\label{prop:preparation}
+For continuous initial forcing $g_0=g_c(\cdot,a)\ne0$ and $A>0$ with time dimension, the admissible preparations
+\begin{equation}\label{eq:preparations}
+ p_0^{(\pm)}=\pm A g_0,\qquad r_{c,0}^{(\pm)}=0
+\end{equation}
+have equal initial total storage and opposite initial derivatives under the same drives:
+\begin{equation}\label{eq:preparationwork}
+ E^{(\pm)}(a)=\tfrac12A^2\norm{g_0}_2^2,\qquad
+ (E^{(\pm)})'(a)=\pm A\norm{g_0}_2^2.
+\end{equation}
+\end{proposition}
+\begin{proof}
+The finite tent profiles make $g_0$ an $H^1$ function, so both preparations satisfy the inherited hypotheses. Substitution in the storage definition gives the same squared norm. Substitution in $E'(a)=\int p_0g_0\dd s$ gives the stated signs. Distinct initial derivatives imply distinct storage histories.
+\end{proof}
+This is a symbolic comparison of permitted preparation data, not a newly computed trajectory. It uses the source's signed-work example \cite[work theorem and preparation example]{pairedII}. The nonzero-forcing assumption matters: source-off states with equal initial storage have the same constant total-storage history, though their fields may differ.
+
+Negative work removes C1 storage through the existing drive interface. It does not name an exterior receiver or credit the native core. Conversely positive work has no reciprocal native debit. Source strengths squared do not replace $f_\pm y_\pm$. Moreover, linearity of the field equation does not imply additivity of quadratic storage: superposed responses retain cross terms \cite[quadratic storage account]{pairedII}. A launch amount attributable to a new drive in a pre-existing field therefore requires explicit bookkeeping.
+
+\subsection{Two host cuts and their complement}\label{sec:arcs}
+The accepted registration gives, with its outward host-plane signs \cite[conditional signed cut powers]{intensity},
+\begin{equation}\label{eq:cuts}
+ P_{\rm out,+}=-j(s_+,t),\qquad
+ P_{\rm out,-}=+j(s_-,t).
+\end{equation}
+Let $I=[s_+,s_-]$ be the short arc and $K=[s_-,s_++L_c]$ its periodic complement. Put
+\begin{equation}\label{eq:arcterms}
+ B=j(s_-,t)-j(s_+,t),\qquad
+ E_J=\int_J e\dd s,\qquad \dot W_J=\int_J pg_c\dd s
+ \quad(J=I,K).
+\end{equation}
+Here $B=P_{\rm out,+}+P_{\rm out,-}$ is a signed internal boundary transfer.
+
+\Needspace{12\baselineskip}
+\begin{proposition}[Complementary-arc cancellation]\label{prop:arcs}
+At the stated trace regularity,
+\begin{equation}\label{eq:arcbalance}
+ E_I'=\dot W_I-B,\qquad E_K'=\dot W_K+B
+\end{equation}
+almost everywhere. With $W_J[a,b]=\int_a^b\dot W_J\dd t$, the integrated identities are
+\begin{align}
+ E_I(b)-E_I(a)&=W_I[a,b]-\int_a^bB\dd t,\label{eq:arcI}\\
+ E_K(b)-E_K(a)&=W_K[a,b]+\int_a^bB\dd t.\label{eq:arcK}
+\end{align}
+Their sum is the whole-circle work account.
+\end{proposition}
+\begin{proof}
+The short-arc identity is inherited from the crossings paper. Integrating the local balance over the complement gives
+$E_K'=\dot W_K+j(s_-)-j(s_++L_c)$. Periodicity replaces the last value by $j(s_+)$ and proves its sign in \eqref{eq:arcbalance}. Integrating in time gives \eqref{eq:arcI}--\eqref{eq:arcK}; summing cancels $B$.
+\end{proof}
+Source-off net loss from $I$ equals gain on $K$: storage has left a subarc and stayed on the same circle. During driving each arc also has its own work, and total loss is exactly negative net total source work. Positive $B$ alone does not establish that loss. The tents straddle the cuts, so arc-restricted work cannot generally be replaced by $W_{\rm src}$.
+
+Positive local $j$ is incoming at the upper cut and outgoing at the lower; negative local $j$ reverses the corresponding sign. The two values need not agree at a given time. Neither geometric label is a permanent outlet. The cuts are not absorbing ends and are not automatically the boundary of a native-center control volume.

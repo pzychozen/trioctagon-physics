@@ -1,0 +1,82 @@
+\section{Exterior observation and central-route interpretation}\label{sec:interpretation}
+\subsection{The unloaded C6 history map}\label{sec:C6}
+For a fixed off-circle point $X$, an orthonormal observation frame $B_{\rm obs}$, distance $d_X(s)=\norm{X-\Gamma(s)}$, independent speed $c_e>0$ and dimensionless gain $g_o>0$, the adopted C6 rule is \cite[exterior section]{pairedII}
+\begin{align}
+ U(X,t)&=\frac{g_o}{4\pi}\int_0^{L_c}
+       \frac{p(s,t-d_X(s)/c_e)}{d_X(s)}\dd s,\label{eq:C6scalar}\\
+ V_{\rm ext}(X,t)&=\frac{g_o}{4\pi}\int_0^{L_c}
+       \frac{r_c(s,t-d_X(s)/c_e)\hat t(s)}{d_X(s)}\dd s,\qquad
+ Y_X=(U,B_{\rm obs}^TV_{\rm ext}).\label{eq:C6vector}
+\end{align}
+The source provides a bounded causal history map on its specified $L^2$ history domain. The delay, distance weight, tangent encoding and absence of loading are assumptions. The vector $r_c\hat t$ is not the carrier flux $j$, native chirality or a material current.
+
+\begin{proposition}[Observation does not impose a debit]\label{prop:C6}
+For a fixed admissible carrier history, rescaling $g_o$ rescales any nonzero C6 record without changing C1 storage or its work balance. Thus a nonzero exterior record does not, within the inspected equations, require energetic loss from C1.
+\end{proposition}
+\begin{proof}
+Neither $g_o$, $X$ nor $Y_X$ enters \eqref{eq:C1} or \eqref{eq:balance}. Fixing preparation and drives fixes the carrier history by uniqueness. Equations \eqref{eq:C6scalar}--\eqref{eq:C6vector} depend linearly on $g_o$, so changing that gain changes the record without changing the supplying state. Adding observations also inserts no term in its balance.
+\end{proof}
+A delayed exterior record can therefore be nonzero during a source-off interval without violating carrier conservation. No new history is evaluated for this argument. A receiving-energy interpretation needs a source/receiver power account and a load or reciprocal reaction; the source also flags the missing ambient energy and self-force construction. Neither a radiating-looking display nor $|U|^2+\norm{V_{\rm ext}}^2$ is thereby emitted power or Poynting flux.
+
+\subsection{What the registered geometry does and does not say}\label{sec:geometry}
+The registered C1 centerline is the adopted vertical offset circle
+\begin{equation}\label{eq:circle}
+ \Gamma(s)=O+K_cu+R_c(\cos\chi\,u+\sin\chi\,e_z),\qquad
+ \chi=s/R_c,\qquad L_c=2\pi R_c.
+\end{equation}
+The fixed geometry gives $K_c-R_c>0$ \cite[normal-crossing circle]{pairedI}. Hence
+$(\Gamma(s)-O)\cdot u\ge K_c-R_c>0$, and the exact point O is excluded. The circle's axis is perpendicular to the central shell axis. It is a one-dimensional centerline, without an assigned tube cross section or surrounding field.
+
+\textbf{Point versus region.} Exclusion of O alone does not prove that the circle misses every possible finite central starting or meeting region. No receiving/control region has been selected, and no registration to the intended central return route has been established. A circle alone neither specifies nor rules out a surrounding three-dimensional field. This interpretation qualification, recorded with acceptance of the underlying investigation, does not change the original proof.
+
+The finite host-notch measurement triangles $N_k^\pm$ are different from the central broken boundaries $G_k^\pm$. The accepted dictionary is
+\begin{equation}\label{eq:patchdictionary}
+ \Delta_j^\sigma-O=N_{(j+1)\bmod3}^\sigma.
+\end{equation}
+C1 selects geometric index $j=0$, hence $N_1^+,N_1^-$. Its centerline crosses that pair normally and meets none of the other four finite patches. The source's three geometric candidates do not instantiate three carriers or a six-port coupling. Their patch normals justify \eqref{eq:cuts} \cite[geometry and conditional cuts]{intensity}.
+
+By contrast, the central definitions give the joined segments
+\begin{equation}\label{eq:G}
+ G_k^+=U_k\,--\,T_{2k+1}\,--\,U_{k+1},\qquad
+ G_k^-=L_k\,--\,B_{2k+1}\,--\,L_{k+1},\quad k=0,1,2.
+\end{equation}
+Here $U_k,L_k$ are the upper/lower fan tips and $T_i,B_i$ the corresponding ring vertices; the source indices are cyclic. These are two-segment boundaries, not flow directions or filled apertures. No closing chord, flux normal or central control volume is added. The accepted fixed-gap obstruction rules out placing an entire such arc in a host patch by a centered rotation, but does not forbid a future transfer registration \cite{fixedgap,intensity}.
+
+The original close sphere, of radius $\sqrt{13/12-\sqrt2/2}$ about O, is a geometric reference, not a wall. It remains distinct from the extended-line sphere and the author's intended tight toroid and paired cones. The positioned $180^\circ$ support lines remain stationary. Static geometric $\tau$, native common phase, native iteration, carrier time and observer clock are different variables. Two co-present arrangements are not silently replaced by one rapidly alternating arrangement.
+
+\subsection{Native quantities as observations, not transfer laws}\label{sec:native}
+The predecessor \cite{intensity} supplies the exact ideal finite-step native intensity account. With $s_i=|\Omega_i|^2$, $D_{ij}=|\Omega_i-\Omega_j|^2$ and prestage increment
+$b_i=\eps(k_i-s_i)\Omega_i+g\sum_{j\ne i}(\Omega_j-\Omega_i)$, it is
+\begin{equation}\label{eq:native}
+ \Delta I=2\eps\sum_i s_i(k_i-s_i)-2g\sum_{i<j}D_{ij}+\norm b^2.
+\end{equation}
+The mismatch and complete finite-step square remain. The selected antisymmetric exchange $J^I_{i\to j}=g(s_i-s_j)$ is channel bookkeeping, not a uniquely selected spatial current. This ideal identity is algebraic at general real coefficients; sign claims need their stated coefficient assumptions. The native potential $V$ and its fixed-domain theorem remain those of the predecessor and its cited sources; neither $V$ nor $I$ is identified with C1 storage or its supply. No historical Z trajectory or scientific check is repeated.
+
+The accepted decoder gives based vectors
+\begin{equation}\label{eq:decoder}
+ v_i=\re(\Omega_i)t_i+\im(\Omega_i)e_z,\qquad (c_i,v_i),\qquad
+ \norm{v_i}=\sqrt{s_i}.
+\end{equation}
+For the adopted frames, $n_i=-g_{i-1}$ and
+$c_i+\R n_i=O+\R g_{i-1}$, where the $g_k$ here are geometric support directions. Pure common phase rotates each vector about its own stationary support line, not as a general global rigid-body pose. Full F also changes amplitudes and relative phases. Matched tangent-plane transport compares vectors; it is not motion along seams. Vector length is not travel distance \cite{phase,intensity}.
+
+On the accepted coherent domain, the five retained coordinates
+$y=(s_1,s_2,s_3,A_{12},A_{13})$ determine coherence; the accepted reconstruction additionally needs initial common phase $u_0$ for actual phase-sensitive vectors. A full recorded complex state already contains that phase. Frozen-setting staged Z loses common phase, so a genuinely common-phase-dependent outlet quantity cannot be inferred from that staged history alone. Recovering the vectors does not supply an outlet-transfer rule. Raw channel chirality $C=\re\Omega\times\im\Omega$ and its ambient attachment $T_fC$ remain distinct; clock/settings and EMA memory have their separate information roles. None is advanced in this manuscript.
+
+\subsection{Dependency and missing exchange}\label{sec:interfaces}
+Table~\ref{tab:interfaces} retains the positive input and carrier results while isolating the missing links. Recurrence of C1's state is not a feedback term into F. The central-boundary row records the requested interpretation; it does not prescribe that every future route must traverse G. No six-opening allocation law is selected from three native channels or two C1 contacts.
+
+\begin{table}[htbp]\centering\small
+\begin{tabularx}{\textwidth}{@{}P{.39\textwidth}Y@{}}\toprule
+Dependency & Status\\\midrule
+Native state $\to$ named readout & Defined with its family and settings; retain phase if needed.\\[3pt]
+Readout $\to$ two drive strengths & Conditional registration, gain and sample/hold; not an energy calibration.\\[3pt]
+Drives and preparation $\to$ C1 & Conditional well-posed state, $E$ and signed $j$.\\[3pt]
+C1 $\to$ same periodic coordinates & Exact source-off profile recurrence after $L_c/c$.\\[3pt]
+C1 $\to$ host cuts / C6 records & Existing two cut signs / unloaded delayed observations.\\[3pt]
+Host cuts $\to$ central $G$ / intended route & Transfer registration and route assignment absent.\\[3pt]
+Route $\to$ return/diversion receiver & Receiving state, oriented transfer and denominator absent.\\[3pt]
+Supply/return $\to$ native debit/credit & Reciprocal balance, load and native time/unit bridge absent.\\\bottomrule
+\end{tabularx}
+\caption{Text dependency map; no geometric flow construction is implied.}\label{tab:interfaces}
+\end{table}

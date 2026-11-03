@@ -353,3 +353,9 @@ No runtime or kernel changes.
 ### Understanding Z motion — methods guide
 
 [Understanding Z Motion in the Tri-Octagon Model](docs/methods/Z_MOTION/README.md) explains native changes, observer effects and source accounting against fixed geometry. Start with the [two-page reading companion](docs/methods/Z_MOTION/v0.1/PLAIN_LANGUAGE_GUIDE_v0.1.pdf), then the [18-page methods note](docs/methods/Z_MOTION/v0.1/manuscript/NCM_Z_DOCUMENTATION_v0.1.pdf). Author-authorized project documentation with retained evidence and internal review; no new runtime feature or physical-motion claim.
+
+## Conditional recirculation and diversion accounting
+
+[Recirculation and Diversion Accounting on a Conditional Tri-Octagon Carrier](papers/RECIRCULATION_AND_DIVERSION_ACCOUNTING/README.md) by **Hilmir Frímann Halldórsson**.
+Author-authorized research edition v0.1: exact conditional source-off recurrence and cut-throughput accounting; energetic return to the native center and a diversion share remain unassigned. No physical emission or numerical diversion fraction is claimed.
+[PDF](papers/RECIRCULATION_AND_DIVERSION_ACCOUNTING/publication/v0.1/RECIRCULATION_AND_DIVERSION_ACCOUNTING_v0.1.pdf) | [Edition and evidence](papers/RECIRCULATION_AND_DIVERSION_ACCOUNTING/publication/v0.1/README.md).

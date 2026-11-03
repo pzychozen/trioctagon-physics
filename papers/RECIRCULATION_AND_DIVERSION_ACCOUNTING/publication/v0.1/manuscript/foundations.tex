@@ -1,0 +1,53 @@
+\section{Question, scope and the inherited carrier}\label{sec:scope}
+The author's intended picture is circulation: a central starting or meeting region, paired upward and downward cones, outward movement curving around an intended tight toroid, and inward return. A possible portion might go elsewhere instead of returning. The suggested \emph{15--20\%, possibly more} is an unverified intuition, not a measurement, fitted coefficient or accepted bound. Flower and heart-field analogies communicate the picture; they supply neither field lines nor a physiological or electromagnetic mechanism.
+
+The accepted investigation \cite{assessment} distinguishes what already recirculates mathematically from the missing transfer to this intended central route. This note presents its written deductions as a companion to the native intensity and crossings paper \cite{intensity}. It does not choose a destination, loading law, energy calibration or physical time bridge. In particular, leaving a local arc and leaving the whole carrier are different events.
+
+\subsection{Conditional state and source profiles}\label{sec:carrier}
+We reuse C1 from the paired-driving paper \cite[carrier and foundations sections]{pairedII}, writing $r_c,g_c,L_c,\eps_c$ for that source's $r,g,L,\eps$ to avoid collisions with native and geometric notation. On $s\in\R/L_c\mathbb Z$, with $c>0$, the adopted equations are
+\begin{equation}\label{eq:C1}
+ p_t+c(r_c)_s=g_c,\qquad (r_c)_t+cp_s=0,\qquad
+ g_c(s,t)=b_+(s)f_+(t)+b_-(s)f_-(t).
+\end{equation}
+The real preparation $(p_0,r_{c,0})$ is independently specified. At the registered contacts $s_\pm$, the profiles are translates of a periodic tent:
+\begin{equation}\label{eq:tent}
+ b_\eps(s)=\eps_c^{-1}\left(1-\frac{|\operatorname{wrap}_{L_c}(s)|}{\eps_c}\right)_+,
+ \qquad b_\pm(s)=b_\eps(s-s_\pm),\qquad 0<\eps_c<\eta.
+\end{equation}
+Here the shorter contact separation is $2\eta$. The profiles have disjoint supports, unit integral, and belong to $H^1_{\rm per}$. The width is arclength width, not a tube radius. The $f_\pm$ are distributed source strengths, not prescribed values of $p$ at endpoints. The circle has no endpoints.
+
+The inherited well-posedness theorem gives, for periodic $H^1$ preparation and continuous drives on finite intervals, a unique solution in
+\begin{equation}\label{eq:regularity}
+ C([0,T_*];H^1_{\rm per})^2\cap C^1([0,T_*];L^2)^2.
+\end{equation}
+For $L^2$ preparation and $L^1_tL^2_s$ forcing the characteristic formula defines a unique $C_tL^2_s$ mild solution. The source's work theorem specifically extends its integrated global identity, with derivative almost everywhere, to finite-profile time-$L^2$ drives. These include the admitted finite sample/hold records. We inherit these results rather than solving a new history.
+
+\subsection{Storage and signed work}\label{sec:workaccount}
+The definitions and balances are
+\begin{equation}\label{eq:account}
+\begin{gathered}
+ e=\tfrac12(p^2+r_c^2),\qquad j=cpr_c,\qquad
+ E(t)=\int_0^{L_c}e\dd s,\\
+ y_\pm(t)=\int_0^{L_c}b_\pm p\dd s.
+\end{gathered}
+\end{equation}
+\begin{equation}\label{eq:balance}
+ e_t+j_s=pg_c,\qquad E'(t)=f_+y_++f_-y_-,
+\end{equation}
+\begin{equation}\label{eq:integrated}
+ E(b)-E(a)=\int_a^b\bigl(f_+y_++f_-y_-\bigr)\dd t.
+\end{equation}
+The local identity is distributional at the strong regularity above; the global derivative is classical under those data and almost everywhere in the stated mild extension. The integrated form is the operative weak global account. Source-off norm conservation and profile recurrence below also hold at $L^2$ preparation.
+
+\textbf{Trace convention.} All fixed point-cut statements in this note use spatial $H^1$ regularity, with the associated solution/time regularity just stated. In one dimension this supplies continuous spatial representatives and the weak product rule. We make no unrestricted point-flux claim for arbitrary $L^2$ states.
+
+\subsection{The existing native input interface}\label{sec:input}
+C1 is not the native recurrence. For one named readout family $v_{\rm in}=M$ or $C$, the source nevertheless already defines a conditional chain
+\begin{equation}\label{eq:input}
+ \Omega,\text{ clock/settings}\ \longmapsto\ v_{\rm in}
+ \ \longmapsto\ A_{\rm reg}v_{\rm in}
+ \ \longmapsto\ f_\pm=\kappa_{\rm in}n_\pm^TA_{\rm reg}v_{\rm in},
+\end{equation}
+where $A_{\rm reg}=\lambda_gR_z(\delta_g)$ and $\kappa_{\rm in}>0$ \cite[typed input chain]{pairedII}. The paired projection loses the component along $v=e_z\times u$. Its positive gain converts data units to source strength; it is not energy efficiency. A finite record can be held over common intervals $[j\Delta t,(j+1)\Delta t)$, with symbolic $\Delta t>0$ and an end gate. That is an interface assumption, not intrinsic native continuous time.
+
+The missing relationship is therefore not every input map. It is reciprocal energetic exchange: \eqref{eq:C1} has no paired native debit for positive source work, native credit for negative work, or receiving-load backreaction. The native index, readout clock, carrier time and geometric parameter remain distinct.

@@ -1,0 +1,66 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=25mm,headheight=15pt]{geometry}
+\usepackage{booktabs,array,tabularx,longtable}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{microtype,enumitem,fancyhdr,needspace}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{bookmark}
+\hypersetup{pdftitle={Recirculation and Diversion Accounting on a Conditional Tri-Octagon Carrier - v0.1},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={Exact source-off return and the limits of central-energy interpretation. Author-authorized repository research edition; GPT reviewed the analytical investigation, Codex prepared and checked the manuscript.}}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{3em}
+\setlist{itemsep=2pt,topsep=4pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Recirculation and diversion accounting}
+\fancyhead[R]{\small v0.1}\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\ez}{e_z}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\vspace*{6mm}
+{\small\color{MidnightBlue} TRI-OCTAGON MATHEMATICAL RESEARCH\par}
+\vspace{8mm}
+{\LARGE\bfseries\raggedright Recirculation and Diversion Accounting\\
+on a Conditional Tri-Octagon Carrier\par}
+\vspace{6mm}
+{\large Exact source-off return and the limits\\ of central-energy interpretation\par}
+\vspace{7mm}
+{\large Hilmir Fr\'imann Halld\'orsson\par}
+\vspace{3mm}
+{Author-authorized repository research edition v0.1\quad 3 November 2026\par}
+\vspace{5mm}
+\begin{abstract}
+A separately adopted periodic one-dimensional carrier associated with the Tri-Octagon model admits exact source-off recirculation. Its normalized characteristic profiles travel in opposite directions, preserve their separate quadratic storage, and return to the same periodic coordinates after one circuit time. At a fixed section, one full source-off circuit carries each directional storage past the cut once. Gross throughput equals total storage, while net throughput is the difference of the directional stocks; repeated circuits recount circulating storage. Complementary-arc balances distinguish local departure from total loss, and a same-drive preparation comparison retains the signed nature of source work. We then separate a hypothetical diverted share from a finite-window return deficit: the same shortfall is compatible with diversion or temporary route storage. An unloaded exterior observation adds no supplying-energy debit. These results establish conditional carrier accounting, not an energetic transfer from or return to the native center. Central-route registration, receiving states and reciprocal native exchange remain unassigned, and no numerical diversion fraction is inferred.
+\end{abstract}
+\vfill
+{\small Research author and questions: Hilmir Fr\'imann Halld\'orsson (pzychozen).
+GPT reviewed and accepted the underlying analytical investigation of 2 November 2026, as recorded in the publication authorization.
+Codex prepared this manuscript and checked its fidelity, build and final pages.
+GPT has not separately inspected this final typeset manuscript.
+This is repository research, without external peer review, journal acceptance, DOI or experimental validation.}
+\end{titlepage}
+\setcounter{page}{2}\hypersetup{pageanchor=true}
+\input{foundations}
+\input{return}
+\input{work}
+\input{diversion}
+\input{interpretation}
+\input{conclusion}
+\input{references}
+\end{document}
