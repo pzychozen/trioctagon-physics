@@ -1,0 +1,52 @@
+\section{Transfer counts and receiver ratios}\label{sec:accounts}
+On a common finite window, define the matched per-port powers
+\begin{equation}\label{eq:perport}
+ P_{N,\sigma}=\eta_N f_\sigma(x)y_\sigma,\qquad
+ P_{R,\sigma}=\eta_R z_\sigma y_\sigma.
+\end{equation}
+Take positive/negative parts \emph{before} summing the two ports:
+\begin{equation}\label{eq:Qdefinitions}
+\begin{aligned}
+ Q_{N\to C}&=\int\sum_\sigma[P_{N,\sigma}]_+\dd t,&
+ Q_{C\to N}&=\int\sum_\sigma[-P_{N,\sigma}]_+\dd t,\\
+ Q_{C\to R}&=\int\sum_\sigma[P_{R,\sigma}]_+\dd t,&
+ Q_{R\to C}&=\int\sum_\sigma[-P_{R,\sigma}]_+\dd t.
+\end{aligned}
+\end{equation}
+For simultaneous powers $A,-A$ with $A>0$, this convention counts $A$ each way; a positive part taken after summation would count zero. These finite work amounts are not geometric cut throughputs, tagged cohorts or per-pass toroidal efficiencies. The carrier cut flux $j$ and these distributed interface powers have different definitions.~\cite{recirculation}
+
+For hybrid windows $[t_a,t_b]$, choose post-jump endpoint values if an endpoint is a jump, and count jumps $t_a<t_j\le t_b$. The pre-jump samples in~\eqref{eq:hybrid} can instead use their matching left limits and included jumps. Put
+\begin{equation}\label{eq:baselinewindow}
+ B_N=\sum_{t_a<t_j\le t_b}\frac{\alpha_N}{2}
+       [I(F\Omega(t_j^-))-I(\Omega(t_j^-))].
+\end{equation}
+The exact window accounts are
+\begin{equation}\label{eq:windowbalances}
+\begin{aligned}
+ \Delta H_N&=B_N-Q_{N\to C}+Q_{C\to N},\\
+ \Delta H_C&=Q_{N\to C}-Q_{C\to N}-Q_{C\to R}+Q_{R\to C},\\
+ \Delta H_R&=Q_{C\to R}-Q_{R\to C},\qquad
+ \Delta H_{\rm tot}=B_N.
+\end{aligned}
+\end{equation}
+They follow by integrating~\eqref{eq:balances} between jumps and adding~\eqref{eq:hybridbalance}. Native jumps change neither carrier nor receiver and insert no impulsive port work. For exchange-only windows $B_N=0$.
+
+\begin{proposition}[Restricted retained-storage ratio]\label{prop:ratio}
+If the carrier and receiver are both initially empty and $Q_{N\to C}>0$, then
+\begin{equation}\label{eq:retainedratio}
+ 0\le\frac{\Delta H_R}{Q_{N\to C}}\le1.
+\end{equation}
+This holds for exchange-only windows and for finite hybrid windows with complete counting as above. If also $Q_{R\to C}=0$, the same bound holds for $Q_{C\to R}/Q_{N\to C}$.
+\end{proposition}
+\begin{proof}
+From~\eqref{eq:windowbalances},
+\begin{equation}\label{eq:ratioidentity}
+ \Delta H_R=Q_{N\to C}-Q_{C\to N}-\Delta H_C.
+\end{equation}
+Empty initial stores give $\Delta H_R=H_R(t_b)\ge0$ and $\Delta H_C=H_C(t_b)\ge0$, while $Q_{C\to N}\ge0$. This proves~\eqref{eq:retainedratio}. Native jumps do not alter this carrier-plus-receiver account. If receiver backflow is zero, $Q_{C\to R}=\Delta H_R$.
+\end{proof}
+The supply denominator is positive for sufficiently short positive time in Proposition~\ref{prop:launch}; it can be zero for dark or decoupled states, making the ratios undefined. The first ratio measures signed retained trial storage and the second gross receiving work. Gross receiving can recount back-and-forth transfer; without its extra no-backflow condition the retained-ratio proof is not a bound on gross receiving. Native baseline increments affect attribution to initial native stock and invalidate carrying the exchange-only capacity across jumps; they do not by themselves invalidate~\eqref{eq:retainedratio} under its actual start conditions.
+
+There is no universal $[0,1]$ bound for arbitrary preparation. An initial carrier stock can be released, and a receiver can have negative retained change. These possibilities have admissible small-window witnesses. Choose $f_0\ne0$, $\eta_N,\eta_R>0$, $y_0=T_*M_Bf_0$ and $z_0=A f_0$, with $A$ dimensionless. The carrier preparation $p_0=\B M_B^{-1}y_0$ realizes these ports. The initial supply rate is $\eta_NT_*f_0^TM_Bf_0>0$, and the receiver rate is $\eta_RA T_*f_0^TM_Bf_0$. For $A>\eta_N/\eta_R$, both small-window ratios tend to $\eta_RA/\eta_N>1$; for $A<0$, the retained ratio is negative. The signs follow analytically by continuity, without a parameter scan or evolved trajectory.
+
+Prepared stock, backflow, repeated work and baseline increments must accompany interpretation. No physical efficiency or diversion percentage follows. Irreversible disposal would require additional justified state/loading or constitutive assumptions; none is introduced. C6 remains an unloaded observation and is not the candidate receiver or its storage.~\cite[exterior equation and limitations]{paired}

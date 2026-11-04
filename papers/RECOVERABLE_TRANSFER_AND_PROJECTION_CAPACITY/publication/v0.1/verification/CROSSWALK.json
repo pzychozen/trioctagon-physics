@@ -1,0 +1,822 @@
+{
+  "utc": "2026-11-04T17:42:36.353566+00:00",
+  "pdf": {
+    "bytes": 137455,
+    "sha256": "93de8c191549fd0ad70f4cf5df970abfbe0ae37d0f0a8b688cbb128577438f79"
+  },
+  "sources": {
+    "amount.tex": "e727e8c6e19902d4061dee616cf936263040322e7ad70630e6866ffe41594c90",
+    "conclusion.tex": "40b300473f495626268781b8790e993191f84ee9bafc60bce9c0e65e10ff4af2",
+    "introduction.tex": "4b3ecb8c36f4df36a80b2921b12c03538c7d8aae96a5b4c643e76e5be71f8110",
+    "main.tex": "8679feceb091735365ee99298de8673ee6436ce679cbcdb72feea4010c21d9fd",
+    "model.tex": "88ab517efa7fd36d031c2609833387df156191df1336cbd266b96243d8708e3f",
+    "projection.tex": "5f99b98570e94f56944e711a73c5e02732bf45b6d9c1c6d3b2a8560900d7e7c5",
+    "proof.tex": "0a697eb0c20523f92a49743087f888018c1baae364ff0351e0774ab5dd35deb3",
+    "references.tex": "12d79c90d4b7d94750d45bf1cbdf8db207dc5b5aec4f8d1bb01e43bb51c6fbf8",
+    "transfer.tex": "019a4a87cb8cb8148271f95a2e6e21ceb9d1099f18a4e69330cb239d80b6efe2",
+    "units.tex": "f4a50eeed87a6765336a5d1fb7d14874a0732f214d5e32e4e5d2f4a07dd11edd"
+  },
+  "accepted_groups": 51,
+  "forward": {
+    "AT01": [
+      "eq:registration"
+    ],
+    "AT02": [
+      "eq:ports"
+    ],
+    "AT03": [
+      "eq:system",
+      "eq:regularity",
+      "eq:launch"
+    ],
+    "AT04": [
+      "eq:stores",
+      "eq:emptystock"
+    ],
+    "AT05": [
+      "eq:launch",
+      "eq:drive0",
+      "eq:ball"
+    ],
+    "AT06": [
+      "eq:scaling"
+    ],
+    "AT07": [
+      "eq:operator",
+      "eq:forced"
+    ],
+    "AT08": [
+      "eq:drift",
+      "eq:constants"
+    ],
+    "AT09": [
+      "eq:constants",
+      "tab:units"
+    ],
+    "AT10": [
+      "eq:comparison"
+    ],
+    "AT11": [
+      "eq:error"
+    ],
+    "AT12": [
+      "eq:uniformerror"
+    ],
+    "AT13": [
+      "eq:conversion",
+      "eq:landmarks"
+    ],
+    "AT14": [
+      "eq:comparisonnorm"
+    ],
+    "AT15": [
+      "thm:transfer",
+      "eq:stockbounds"
+    ],
+    "AT16": [
+      "thm:transfer",
+      "eq:projectedbounds"
+    ],
+    "AT17": [
+      "thm:transfer",
+      "eq:fractions"
+    ],
+    "AT18": [
+      "thm:transfer",
+      "eq:ratiobounds"
+    ],
+    "AT19": [
+      "eq:recoverysubtraction",
+      "thm:transfer",
+      "eq:recoveredamount"
+    ],
+    "AT20": [
+      "eq:product"
+    ],
+    "AT21": [
+      "eq:conversion",
+      "eq:receivererror"
+    ],
+    "AT22": [
+      "eq:nativethreshold",
+      "tab:units"
+    ],
+    "AT23": [
+      "eq:allocation",
+      "eq:cert",
+      "tab:units"
+    ],
+    "AT24": [
+      "eq:initialdebit",
+      "eq:allocation",
+      "thm:transfer",
+      "eq:ratiobounds",
+      "eq:receiverwitnesses",
+      "eq:nativewitness"
+    ],
+    "AT25": [
+      "eq:backflowinterval",
+      "thm:transfer"
+    ],
+    "AT26": [
+      "eq:capacitynormalization",
+      "eq:oldinvariant"
+    ],
+    "AT27": [
+      "eq:finiteamount",
+      "eq:finiteratios",
+      "tab:units"
+    ],
+    "AT28": [
+      "eq:asymptotics"
+    ],
+    "AT29": [
+      "eq:traveltime"
+    ],
+    "PC01": [
+      "eq:registration",
+      "eq:regularity",
+      "eq:core"
+    ],
+    "PC02": [
+      "eq:system",
+      "eq:stores"
+    ],
+    "PC03": [
+      "eq:kernel"
+    ],
+    "PC04": [
+      "eq:kernel"
+    ],
+    "PC05": [
+      "eq:projectiondef",
+      "tab:units"
+    ],
+    "PC06": [
+      "eq:Idot"
+    ],
+    "PC07": [
+      "thm:projection",
+      "eq:hdot"
+    ],
+    "PC08": [
+      "thm:projection",
+      "eq:debit",
+      "tab:units"
+    ],
+    "PC09": [
+      "eq:oldinvariant"
+    ],
+    "PC10": [
+      "thm:projection",
+      "eq:joint"
+    ],
+    "PC11": [
+      "thm:projection",
+      "eq:emptystock"
+    ],
+    "PC12": [
+      "thm:projection",
+      "eq:preloaded"
+    ],
+    "PC13": [
+      "eq:decomposition"
+    ],
+    "PC14": [
+      "prop:minimum",
+      "eq:feasibility"
+    ],
+    "PC15": [
+      "prop:minimum",
+      "eq:equalityone"
+    ],
+    "PC16": [
+      "prop:minimum",
+      "eq:equalitytwo"
+    ],
+    "PC17": [
+      "prop:minimum",
+      "eq:minimum"
+    ],
+    "PC18": [
+      "prop:dark",
+      "eq:zeroceiling"
+    ],
+    "PC19": [
+      "prop:dark",
+      "eq:initialdebit"
+    ],
+    "PC20": [
+      "eq:launch",
+      "eq:drive0",
+      "eq:launchprojection"
+    ],
+    "PC21": [
+      "eq:strictwitness"
+    ],
+    "PC22": [
+      "eq:nonattainment"
+    ]
+  },
+  "reverse": {
+    "eq:capacitynormalization": {
+      "source": "manuscript/amount.tex",
+      "number": "6.1",
+      "page": 12,
+      "accepted_groups": [
+        "AT26"
+      ]
+    },
+    "eq:synthesis": {
+      "source": "manuscript/amount.tex",
+      "number": "6.2",
+      "page": 12,
+      "accepted_groups": [
+        "SYN01"
+      ]
+    },
+    "eq:finiteamount": {
+      "source": "manuscript/amount.tex",
+      "number": "6.3",
+      "page": 12,
+      "accepted_groups": [
+        "AT27"
+      ]
+    },
+    "eq:finiteratios": {
+      "source": "manuscript/amount.tex",
+      "number": "6.4",
+      "page": 12,
+      "accepted_groups": [
+        "AT27"
+      ]
+    },
+    "eq:asymptotics": {
+      "source": "manuscript/amount.tex",
+      "number": "6.5",
+      "page": 12,
+      "accepted_groups": [
+        "AT28"
+      ]
+    },
+    "eq:traveltime": {
+      "source": "manuscript/amount.tex",
+      "number": "6.6",
+      "page": 13,
+      "accepted_groups": [
+        "AT29"
+      ]
+    },
+    "eq:registration": {
+      "source": "manuscript/model.tex",
+      "number": "2.1",
+      "page": 2,
+      "accepted_groups": [
+        "AT01",
+        "PC01"
+      ]
+    },
+    "eq:ports": {
+      "source": "manuscript/model.tex",
+      "number": "2.2",
+      "page": 2,
+      "accepted_groups": [
+        "AT02"
+      ]
+    },
+    "eq:system": {
+      "source": "manuscript/model.tex",
+      "number": "2.3",
+      "page": 3,
+      "accepted_groups": [
+        "AT03",
+        "PC02"
+      ]
+    },
+    "eq:stores": {
+      "source": "manuscript/model.tex",
+      "number": "2.4",
+      "page": 3,
+      "accepted_groups": [
+        "AT04",
+        "PC02"
+      ]
+    },
+    "eq:regularity": {
+      "source": "manuscript/model.tex",
+      "number": "2.5",
+      "page": 3,
+      "accepted_groups": [
+        "AT03",
+        "PC01"
+      ]
+    },
+    "eq:oldinvariant": {
+      "source": "manuscript/model.tex",
+      "number": "2.6",
+      "page": 3,
+      "accepted_groups": [
+        "PC09",
+        "AT26"
+      ]
+    },
+    "eq:launch": {
+      "source": "manuscript/model.tex",
+      "number": "2.7",
+      "page": 3,
+      "accepted_groups": [
+        "AT03",
+        "AT05",
+        "PC20"
+      ]
+    },
+    "eq:drive0": {
+      "source": "manuscript/model.tex",
+      "number": "2.8",
+      "page": 3,
+      "accepted_groups": [
+        "AT05",
+        "PC20"
+      ]
+    },
+    "eq:kernel": {
+      "source": "manuscript/projection.tex",
+      "number": "3.1",
+      "page": 4,
+      "accepted_groups": [
+        "PC03",
+        "PC04"
+      ]
+    },
+    "eq:projectiondef": {
+      "source": "manuscript/projection.tex",
+      "number": "3.2",
+      "page": 4,
+      "accepted_groups": [
+        "PC05"
+      ]
+    },
+    "thm:projection": {
+      "source": "manuscript/projection.tex",
+      "number": "3.1",
+      "page": 4,
+      "accepted_groups": [
+        "PC07",
+        "PC08",
+        "PC10",
+        "PC11",
+        "PC12"
+      ]
+    },
+    "eq:debit": {
+      "source": "manuscript/projection.tex",
+      "number": "3.3",
+      "page": 4,
+      "accepted_groups": [
+        "PC08"
+      ]
+    },
+    "eq:joint": {
+      "source": "manuscript/projection.tex",
+      "number": "3.4",
+      "page": 4,
+      "accepted_groups": [
+        "PC10"
+      ]
+    },
+    "eq:emptystock": {
+      "source": "manuscript/projection.tex",
+      "number": "3.5",
+      "page": 4,
+      "accepted_groups": [
+        "PC11",
+        "AT04"
+      ]
+    },
+    "eq:preloaded": {
+      "source": "manuscript/projection.tex",
+      "number": "3.6",
+      "page": 4,
+      "accepted_groups": [
+        "PC12"
+      ]
+    },
+    "eq:core": {
+      "source": "manuscript/projection.tex",
+      "number": "3.7",
+      "page": 4,
+      "accepted_groups": [
+        "PC01"
+      ]
+    },
+    "eq:Idot": {
+      "source": "manuscript/projection.tex",
+      "number": "3.8",
+      "page": 4,
+      "accepted_groups": [
+        "PC06"
+      ]
+    },
+    "eq:hdot": {
+      "source": "manuscript/projection.tex",
+      "number": "3.9",
+      "page": 4,
+      "accepted_groups": [
+        "PC07"
+      ]
+    },
+    "prop:minimum": {
+      "source": "manuscript/projection.tex",
+      "number": "3.2",
+      "page": 5,
+      "accepted_groups": [
+        "PC14",
+        "PC15",
+        "PC16",
+        "PC17"
+      ]
+    },
+    "eq:minimum": {
+      "source": "manuscript/projection.tex",
+      "number": "3.10",
+      "page": 5,
+      "accepted_groups": [
+        "PC17"
+      ]
+    },
+    "eq:decomposition": {
+      "source": "manuscript/projection.tex",
+      "number": "3.11",
+      "page": 5,
+      "accepted_groups": [
+        "PC13"
+      ]
+    },
+    "eq:feasibility": {
+      "source": "manuscript/projection.tex",
+      "number": "3.12",
+      "page": 5,
+      "accepted_groups": [
+        "PC14"
+      ]
+    },
+    "eq:equalityone": {
+      "source": "manuscript/projection.tex",
+      "number": "3.13",
+      "page": 5,
+      "accepted_groups": [
+        "PC15"
+      ]
+    },
+    "eq:equalitytwo": {
+      "source": "manuscript/projection.tex",
+      "number": "3.14",
+      "page": 5,
+      "accepted_groups": [
+        "PC16"
+      ]
+    },
+    "prop:dark": {
+      "source": "manuscript/projection.tex",
+      "number": "3.3",
+      "page": 6,
+      "accepted_groups": [
+        "PC18",
+        "PC19"
+      ]
+    },
+    "eq:zeroceiling": {
+      "source": "manuscript/projection.tex",
+      "number": "3.15",
+      "page": 6,
+      "accepted_groups": [
+        "PC18"
+      ]
+    },
+    "eq:initialdebit": {
+      "source": "manuscript/projection.tex",
+      "number": "3.16",
+      "page": 6,
+      "accepted_groups": [
+        "PC19",
+        "AT24"
+      ]
+    },
+    "eq:launchprojection": {
+      "source": "manuscript/projection.tex",
+      "number": "3.17",
+      "page": 6,
+      "accepted_groups": [
+        "PC20"
+      ]
+    },
+    "eq:strictwitness": {
+      "source": "manuscript/projection.tex",
+      "number": "3.18",
+      "page": 6,
+      "accepted_groups": [
+        "PC21"
+      ]
+    },
+    "eq:nonattainment": {
+      "source": "manuscript/projection.tex",
+      "number": "3.19",
+      "page": 6,
+      "accepted_groups": [
+        "PC22"
+      ]
+    },
+    "eq:scaling": {
+      "source": "manuscript/proof.tex",
+      "number": "5.1",
+      "page": 9,
+      "accepted_groups": [
+        "AT06"
+      ]
+    },
+    "eq:conversion": {
+      "source": "manuscript/proof.tex",
+      "number": "5.2",
+      "page": 9,
+      "accepted_groups": [
+        "AT13",
+        "AT21"
+      ]
+    },
+    "eq:operator": {
+      "source": "manuscript/proof.tex",
+      "number": "5.3",
+      "page": 9,
+      "accepted_groups": [
+        "AT07"
+      ]
+    },
+    "eq:forced": {
+      "source": "manuscript/proof.tex",
+      "number": "5.4",
+      "page": 9,
+      "accepted_groups": [
+        "AT07"
+      ]
+    },
+    "eq:ball": {
+      "source": "manuscript/proof.tex",
+      "number": "5.5",
+      "page": 9,
+      "accepted_groups": [
+        "AT05"
+      ]
+    },
+    "eq:drift": {
+      "source": "manuscript/proof.tex",
+      "number": "5.6",
+      "page": 9,
+      "accepted_groups": [
+        "AT08"
+      ]
+    },
+    "eq:comparison": {
+      "source": "manuscript/proof.tex",
+      "number": "5.7",
+      "page": 10,
+      "accepted_groups": [
+        "AT10"
+      ]
+    },
+    "eq:error": {
+      "source": "manuscript/proof.tex",
+      "number": "5.8",
+      "page": 10,
+      "accepted_groups": [
+        "AT11"
+      ]
+    },
+    "eq:uniformerror": {
+      "source": "manuscript/proof.tex",
+      "number": "5.9",
+      "page": 10,
+      "accepted_groups": [
+        "AT12"
+      ]
+    },
+    "eq:comparisonnorm": {
+      "source": "manuscript/proof.tex",
+      "number": "5.10",
+      "page": 10,
+      "accepted_groups": [
+        "AT14"
+      ]
+    },
+    "eq:recoverysubtraction": {
+      "source": "manuscript/proof.tex",
+      "number": "5.11",
+      "page": 11,
+      "accepted_groups": [
+        "AT19"
+      ]
+    },
+    "eq:product": {
+      "source": "manuscript/proof.tex",
+      "number": "5.12",
+      "page": 11,
+      "accepted_groups": [
+        "AT20"
+      ]
+    },
+    "eq:receivererror": {
+      "source": "manuscript/proof.tex",
+      "number": "5.13",
+      "page": 11,
+      "accepted_groups": [
+        "AT21"
+      ]
+    },
+    "eq:allocation": {
+      "source": "manuscript/proof.tex",
+      "number": "5.14",
+      "page": 11,
+      "accepted_groups": [
+        "AT23",
+        "AT24"
+      ]
+    },
+    "eq:backflowinterval": {
+      "source": "manuscript/proof.tex",
+      "number": "5.15",
+      "page": 11,
+      "accepted_groups": [
+        "AT25"
+      ]
+    },
+    "eq:constants": {
+      "source": "manuscript/transfer.tex",
+      "number": "4.1",
+      "page": 7,
+      "accepted_groups": [
+        "AT08",
+        "AT09"
+      ]
+    },
+    "eq:nativethreshold": {
+      "source": "manuscript/transfer.tex",
+      "number": "4.2",
+      "page": 7,
+      "accepted_groups": [
+        "AT22"
+      ]
+    },
+    "eq:cert": {
+      "source": "manuscript/transfer.tex",
+      "number": "4.3",
+      "page": 7,
+      "accepted_groups": [
+        "AT23"
+      ]
+    },
+    "eq:landmarks": {
+      "source": "manuscript/transfer.tex",
+      "number": "4.4",
+      "page": 7,
+      "accepted_groups": [
+        "AT13"
+      ]
+    },
+    "thm:transfer": {
+      "source": "manuscript/transfer.tex",
+      "number": "4.1",
+      "page": 8,
+      "accepted_groups": [
+        "AT15",
+        "AT16",
+        "AT17",
+        "AT18",
+        "AT19",
+        "AT24",
+        "AT25"
+      ]
+    },
+    "eq:stockbounds": {
+      "source": "manuscript/transfer.tex",
+      "number": "4.5",
+      "page": 8,
+      "accepted_groups": [
+        "AT15"
+      ]
+    },
+    "eq:projectedbounds": {
+      "source": "manuscript/transfer.tex",
+      "number": "4.6",
+      "page": 8,
+      "accepted_groups": [
+        "AT16"
+      ]
+    },
+    "eq:fractions": {
+      "source": "manuscript/transfer.tex",
+      "number": "4.7",
+      "page": 8,
+      "accepted_groups": [
+        "AT17"
+      ]
+    },
+    "eq:ratiobounds": {
+      "source": "manuscript/transfer.tex",
+      "number": "4.8",
+      "page": 8,
+      "accepted_groups": [
+        "AT18",
+        "AT24"
+      ]
+    },
+    "eq:recoveredamount": {
+      "source": "manuscript/transfer.tex",
+      "number": "4.9",
+      "page": 8,
+      "accepted_groups": [
+        "AT19"
+      ]
+    },
+    "eq:receiverwitnesses": {
+      "source": "manuscript/transfer.tex",
+      "number": "4.10",
+      "page": 8,
+      "accepted_groups": [
+        "AT24"
+      ]
+    },
+    "eq:nativewitness": {
+      "source": "manuscript/transfer.tex",
+      "number": "4.11",
+      "page": 8,
+      "accepted_groups": [
+        "AT24"
+      ]
+    },
+    "tab:units": {
+      "source": "manuscript/units.tex",
+      "number": "1",
+      "page": 14,
+      "accepted_groups": [
+        "AT09",
+        "AT22",
+        "AT23",
+        "AT27",
+        "PC05",
+        "PC08"
+      ]
+    }
+  },
+  "SYN01": "Immediate authorized combination of AT13/AT26 and PC10/PC11; no new normalized statistic.",
+  "aliases": {
+    "L_err": "Accepted L=B1+B2; avoids confusion with carrier length L_c",
+    "e_y": "Published registration vector u=(0,1,0); avoids collision with the minimum-lemma vector u"
+  },
+  "E01": {
+    "disposition": "Applied only to new manuscript/ledger; preserved ledgers unchanged",
+    "verified_P2_locators": {
+      "sec:problem": {
+        "number": "2",
+        "page": 2,
+        "source": "manuscript/problem.tex"
+      },
+      "sec:theorem": {
+        "number": "3",
+        "page": 4,
+        "source": "manuscript/theorem.tex"
+      },
+      "thm:credit": {
+        "number": "3.1",
+        "page": 4,
+        "source": "manuscript/theorem.tex"
+      },
+      "sec:energy": {
+        "number": "4",
+        "page": 5,
+        "source": "manuscript/energy.tex"
+      },
+      "sec:comparison": {
+        "number": "5",
+        "page": 6,
+        "source": "manuscript/comparison.tex"
+      },
+      "sec:meaning": {
+        "number": "6",
+        "page": 8,
+        "source": "manuscript/meaning.tex"
+      },
+      "sec:conclusion": {
+        "number": "7",
+        "page": 9,
+        "source": "manuscript/conclusion.tex"
+      },
+      "sec:units": {
+        "number": "A",
+        "page": 10,
+        "source": "manuscript/units.tex"
+      }
+    }
+  },
+  "scope": "Coverage and source-locator audit, not new mathematical identities.",
+  "accepted_baseline_mapping_identical": true,
+  "pagination_changed": false
+}

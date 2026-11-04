@@ -1,0 +1,51 @@
+\section{Nonzero supply, receiving and prepared credit}\label{sec:activity}
+\begin{proposition}[Empty-carrier launch]\label{prop:launch}
+Let $\eta_N,\eta_R>0$, $p_0=r_{c,0}=z_0=0$ and $f_0=f(x_0)\ne0$. As $t\downarrow0$,
+\begin{align}
+ p(t)&=\eta_Nt\B f_0+o(t)\quad\hbox{in }L^2,
+ &r_c(t)&=o(t),\label{eq:initialcarrier}\\
+ y(t)&=\eta_NtM_Bf_0+o(t),
+ &x(t)-x_0&=O(t^2),\label{eq:initialports}\\
+ H_N(t)-H_N(0)&=-\frac{\eta_N^2t^2}{2}f_0^TM_Bf_0+o(t^2),\label{eq:nativedebit}\\
+ z(t)&=\frac{\eta_N\eta_Rt^2}{2\beta_R}M_Bf_0+o(t^2),\label{eq:receiverstate}\\
+ H_R(t)&=\frac{\eta_N^2\eta_R^2t^4}{8\beta_R}\norm{M_Bf_0}^2+o(t^4).\label{eq:receivergain}
+\end{align}
+Such an $x_0$ exists inside the inherited coherent domain for every fixed yaw and positive inherited gain. Native supply and receiver gain are strict for all sufficiently small positive time.
+\end{proposition}
+\begin{proof}
+For $\Omega_0=(1,e^{i\phi},1)$ with $0<\phi<\pi/12$, all moduli are one and the ordinary phase width is $\phi$. This lies inside the old coherent domain.~\cite{intensity}
+Its chirality is $(-\sin\phi,0,\sin\phi)$, giving
+\begin{equation}\label{eq:nonzero}
+ f_{0,\pm}=\frac{\kappa_{\rm in}\lambda_g\sin\phi}{\sqrt7}
+          (-2\sin\delta_g\pm\sqrt3).
+\end{equation}
+The difference of the two entries is $2\sqrt3\kappa_{\rm in}\lambda_g\sin\phi/\sqrt7\ne0$, so both cannot vanish at any fixed yaw.
+
+Empty carrier preparation belongs to $H^1$. Theorem~\ref{thm:global} gives $p'(0)=\eta_N\B f_0$ and $r_c'(0)=0$ in $L^2$, proving~\eqref{eq:initialcarrier}. Applying bounded $\B^*$ proves the port estimate. Since $x'(0)=0$, the core equation with $y(t)=O(t)$ gives $x(t)-x_0=O(t^2)$ and hence $f(x(t))=f_0+O(t^2)$. Integration of $-P_{NC}$ proves~\eqref{eq:nativedebit}. Integrating the receiver equation gives~\eqref{eq:receiverstate}; squaring it in $H_R$ proves~\eqref{eq:receivergain}.
+
+Also $H_C(t)=\eta_N^2t^2 f_0^TM_Bf_0/2+o(t^2)$. Since $M_B=mI_2$ with $m>0$, the native debit and receiver gain have strictly positive coefficients in magnitude. More specifically $P_{NC}$ has a positive leading term of order $t$, and
+\begin{equation}\label{eq:initialreceiverpower}
+ P_{CR}(t)=\frac{\eta_N^2\eta_R^2t^3}{2\beta_R}\norm{M_Bf_0}^2+o(t^3)>0
+\end{equation}
+for sufficiently small positive $t$.
+\end{proof}
+The argument uses $L^2$ first derivatives and integrals of continuous outputs; no smooth second derivative of a tent is presumed. Receiver loading is present in the exact system throughout. Because the two couplings are collocated, these estimates are neither arrival delays to a separate aperture nor a whole-circuit return. No trajectory is numerically evolved.
+
+\begin{proposition}[Prepared credit and reversible receiving]\label{prop:credit}
+For $f_0\ne0$, $\eta_N>0$ and $T_*>0$ with time units, the preparations
+\begin{equation}\label{eq:prepared}
+ p_0=\pm T_*\B f_0,\qquad r_{c,0}=z_0=0
+\end{equation}
+give
+\begin{equation}\label{eq:creditsign}
+ P_{NC}(0)=\pm\eta_N T_*f_0^TM_Bf_0.
+\end{equation}
+The plus preparation debits the native storage; the minus preparation credits it. For $\eta_R>0$, admissible receiver preparations allow either sign of $P_{CR}$. The mathematical reversing involution is
+\begin{equation}\label{eq:reverser}
+ \mathcal R(x,p,r_c,z)=(x,-p,r_c,z).
+\end{equation}
+\end{proposition}
+\begin{proof}
+Equation~\eqref{eq:prepared} gives $y_0=\pm T_*M_Bf_0$, proving~\eqref{eq:creditsign}; continuity preserves each strict sign on a short interval. Each chosen $y_0\in\R^2$ is realized by $p_0=\B M_B^{-1}y_0\in H^1$. Choosing $z_0\cdot y_0<0$ discharges $H_R$, with equal positive carrier loading work; the opposite sign charges it. Substitution into~\eqref{eq:system} gives $F_{\rm ex}(\mathcal RX)=-\mathcal R F_{\rm ex}(X)$ for the full strong-state vector field. Uniqueness extends this reversal relation to mild solutions.
+\end{proof}
+The involution assigns no physical parity. The receiver has neither damping nor a one-way valve. Prepared negative power proves possible energetic return through this interface, not that a solution launched from an empty carrier later credits the native store. It also establishes no tagged cohort, spatial central route or completed circuit. Those questions are not solved by time reversal or a different preparation.

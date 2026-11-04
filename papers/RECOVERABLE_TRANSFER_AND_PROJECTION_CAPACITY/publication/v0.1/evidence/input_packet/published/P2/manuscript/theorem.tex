@@ -1,0 +1,46 @@
+\section{A sufficient finite-coupling theorem}\label{sec:theorem}
+Fix the admissible geometry and finite profiles of Section~\ref{sec:ports}, the speed, registration, positive gains and storage scales, a positive $\eta_N$, and one phase $\phi$ in~\eqref{eq:preparation}. These choices precede the choice of receiver coupling. In addition to $R,k,m,d$ above, define
+\begin{equation}\label{eq:constants}
+F_{\max}=\frac{kR^2}{2},\qquad
+\omega=\sqrt{\frac m{\beta_R}},\qquad
+T=\frac{3\pi}{2\omega},\qquad
+D=\frac m\omega|f_0|^2,
+\end{equation}
+\begin{equation}\label{eq:errorconstants}
+\begin{aligned}
+A&=\frac{\eta_N^2k^2R^2mF_{\max}}{4\alpha_N},\\
+C_1&=\frac{3c\sqrt{md}\,|f_0|^2}{\omega^2},&
+C_2&=mAT^3\left(F_{\max}+\frac{|f_0|}{3}\right),
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eq:threshold}
+\boxed{\kappa_{\rm crit}
+=\max\left\{1,\frac{4C_1}{D},\sqrt{\frac{4C_2}{D}}\right\}.}
+\end{equation}
+Every quantity in~\eqref{eq:constants}--\eqref{eq:threshold} is independent of $\kappa$. They are finite, and $D>0$ by~\eqref{eq:launchdrive}. Appendix~\ref{sec:units} checks their dimensions.
+
+\Needspace{7\baselineskip}
+\begin{theorem}[Same-trajectory native credit]\label{thm:credit}
+For each fixed finite $\kappa\ge\kappa_{\rm crit}$, the unique global solution of~\eqref{eq:system} with preparation~\eqref{eq:preparation} has the following properties.
+
+For all sufficiently small positive time, its total native power, receiver storage and receiver power satisfy
+$P_{NC}(t)>0$, $H_R(t)>0$ and $P_{CR}(t)>0$.
+At the explicit later time
+\begin{equation}\label{eq:witness}
+t_*=\frac T\kappa,\qquad
+P_{NC}(t_*)\le-\frac{\eta_N^2D}{2\kappa}<0.
+\end{equation}
+There exists $0<\rho_\kappa<t_*/4$ such that
+\begin{equation}\label{eq:interval}
+P_{NC}(t)\le-\frac{\eta_N^2D}{4\kappa}
+\qquad(t\in[t_*-\rho_\kappa,t_*+\rho_\kappa]),
+\end{equation}
+and consequently
+\begin{equation}\label{eq:gain}
+H_N(t_*+\rho_\kappa)-H_N(t_*-\rho_\kappa)
+\ge\frac{\eta_N^2D\rho_\kappa}{2\kappa}>0.
+\end{equation}
+The initial positive interval can be shortened to lie strictly before this later interval. Both occur on the same solution with constant parameters and no reset.
+\end{theorem}
+
+The threshold is an explicit sufficient condition, not a necessary or optimal one. The witness and power margin are quantitative; the interval width is supplied by continuity. Neither a uniform lower bound for $\rho_\kappa$ nor a substantial recovered amount follows from the theorem. Its proof occupies the next two sections.

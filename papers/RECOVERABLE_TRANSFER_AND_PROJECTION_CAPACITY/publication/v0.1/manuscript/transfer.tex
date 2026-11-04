@@ -1,0 +1,98 @@
+\section{Quantitative transfer on a prescribed window}\label{sec:transfer}
+Now impose exactly the coherent empty preparation~\eqref{eq:launch}. Fix the geometry, profiles, speed, registration, positive scales, native coupling and one admitted phase before choosing $\kappa$. Different values of $\kappa$ compare different constant-parameter solutions.
+
+\subsection{Constants and times}
+Alongside $R,k,m,d,F_{\max}$ in~\eqref{eq:ports} and~\eqref{eq:drive0}, define
+\begin{equation}\label{eq:constants}% SRC: AT08 AT09
+\begin{gathered}
+A=\frac{\eta_N^2k^2R^2mF_{\max}}{4\alpha_N},\qquad
+\omega=\sqrt{m/\beta_R},\quad S=\frac{2\pi}{\omega},\quad T=\frac{3\pi}{2\omega},\\
+\Lambda=\sqrt{\beta_R}|f_0|>0,\qquad
+D=\frac m\omega|f_0|^2=\omega\Lambda^2>0,\\
+B_1=\frac{4c\sqrt d\,|f_0|}{\omega^2},\quad
+B_2=\frac{\sqrt m\,AS^3}{3},\quad
+\varepsilon_\kappa=\frac{B_1}{\kappa}+\frac{B_2}{\kappa^2},
+\quad a_\kappa=\frac{\eta_N^2}{2\kappa^2}.
+\end{gathered}
+\end{equation}
+Retain the published native-credit constants without change~\cite[Section 3]{p2}:
+\begin{equation}\label{eq:nativethreshold}% SRC: AT22
+\begin{gathered}
+C_1=\frac{3c\sqrt{md}\,|f_0|^2}{\omega^2},\qquad
+C_2=mAT^3(F_{\max}+|f_0|/3),\\
+\kappa_{\rm crit}=\max\{1,4C_1/D,\sqrt{4C_2/D}\}.
+\end{gathered}
+\end{equation}
+For a fixed proof tolerance $0<q\le1/5$, set
+\begin{equation}\label{eq:cert}% SRC: AT23
+\kappa_{\rm cert}(q)=
+\max\left\{\kappa_{\rm crit},1,\frac{2B_1}{q\Lambda},
+\sqrt{\frac{2B_2}{q\Lambda}}\right\}.
+\end{equation}
+All quantities defining this threshold are finite and independent of $\kappa$. The tolerance is an analytical accuracy choice, not a physical coefficient or fitted fraction.
+
+The four distinct landmarks and the actual stock maximum are
+\begin{equation}\label{eq:landmarks}% SRC: AT13
+\begin{gathered}
+t_{\rm q}=\frac{\pi}{2\omega\kappa}<t_\pi=\frac{\pi}{\omega\kappa}
+<t_{\rm b}=\frac{3\pi}{2\omega\kappa}<t_{2\pi}=\frac{2\pi}{\omega\kappa}=\frac S\kappa,\\
+E_{\rm out}(t)=H_C(t)+H_R(t)=H_N(0)-H_N(t),\qquad
+M_\kappa=\max_{0\le t\le t_{2\pi}}E_{\rm out}(t).
+\end{gathered}
+\end{equation}
+Continuity on a compact interval supplies this maximum. Its location is not identified: the times are comparison landmarks, not asserted exact extrema or an exact period.
+
+\subsection{The finite certificate}
+\begin{theorem}[Temporary receiving and net recovery]\label{thm:transfer}% SRC: AT15 AT16 AT17 AT18 AT19 AT24 AT25
+For every fixed finite $\kappa\ge\kappa_{\rm cert}(q)$, the solution from~\eqref{eq:launch} satisfies $\varepsilon_\kappa\le q\Lambda<\Lambda$ and
+\begin{equation}\label{eq:stockbounds}% SRC: AT15
+\begin{gathered}
+0<a_\kappa(2\Lambda-\varepsilon_\kappa)^2
+\le E_{\rm out}(t_\pi)\le M_\kappa
+\le a_\kappa(2\Lambda+\varepsilon_\kappa)^2,\\
+E_{\rm out}(t_{2\pi})\le a_\kappa\varepsilon_\kappa^2 .
+\end{gathered}
+\end{equation}
+The separate intermediate projections obey
+\begin{equation}\label{eq:projectedbounds}% SRC: AT16
+H_C(t_\pi)\le a_\kappa\varepsilon_\kappa^2,\qquad
+H_R(t_\pi)\ge a_\kappa(2\Lambda-\varepsilon_\kappa)^2>0.
+\end{equation}
+Both normalization denominators are therefore positive. Define
+\begin{equation}\label{eq:fractions}% SRC: AT17
+\begin{aligned}
+\mathcal S_\kappa&=\frac{H_R(t_\pi)}{E_{\rm out}(t_\pi)},&
+\mathcal R_\kappa&=\frac{H_N(t_{2\pi})-H_N(t_\pi)}{E_{\rm out}(t_\pi)}
+=1-\frac{E_{\rm out}(t_{2\pi})}{E_{\rm out}(t_\pi)},\\
+r_\kappa&=\left(\frac{\varepsilon_\kappa}{2\Lambda-\varepsilon_\kappa}\right)^2 .
+\end{aligned}
+\end{equation}
+Then
+\begin{equation}\label{eq:ratiobounds}% SRC: AT18 AT24
+\begin{gathered}
+1-r_\kappa\le\mathcal S_\kappa,\mathcal R_\kappa\le1,\qquad
+0\le\frac{H_R(t_{2\pi})}{H_R(t_\pi)}\le r_\kappa,\\
+\mathcal S_\kappa,\mathcal R_\kappa
+\ge1-\left(\frac q{2-q}\right)^2\ge\frac{80}{81},\qquad
+\frac{H_R(t_{2\pi})}{H_R(t_\pi)}
+\le\left(\frac q{2-q}\right)^2\le\frac1{81}.
+\end{gathered}
+\end{equation}
+The absolute recovered amount satisfies
+\begin{equation}\label{eq:recoveredamount}% SRC: AT19
+H_N(t_{2\pi})-H_N(t_\pi)
+\ge\frac{2\eta_N^2}{\kappa^2}\Lambda(\Lambda-\varepsilon_\kappa)>0.
+\end{equation}
+The receiver powers have separate finite guarantees:
+\begin{equation}\label{eq:receiverwitnesses}% SRC: AT24
+P_{CR}(t_{\rm q})\ge\frac{\eta_N^2D}{2\kappa}>0,\qquad
+P_{CR}(t_{\rm b})\le-\frac{\eta_N^2D}{2\kappa}<0.
+\end{equation}
+At the same later time, the unchanged published native-credit theorem~\cite[Theorem 3.1]{p2}, using $\kappa\ge\kappa_{\rm crit}$, gives
+\begin{equation}\label{eq:nativewitness}% SRC: AT24
+P_{NC}(t_{\rm b})\le-\frac{\eta_N^2D}{2\kappa}<0 .
+\end{equation}
+Initially, $P_{NC},H_R,P_{CR}$ are strictly positive for all sufficiently small positive time. There is a later receiver-backflow interval about $t_{\rm b}$, as specified in~\eqref{eq:backflowinterval}. All events occur on this same unchanged solution.
+\end{theorem}
+
+The receiver share and recovery use the actual intermediate external stock as denominator. Retention uses the separately positive intermediate receiver stock. Neither is a fraction of initial native storage, a structural ceiling or gross positive work; no tagged cohort is followed. The recovery is net over the stated interval, not monotonic native recovery throughout it. The proof follows.

@@ -372,3 +372,8 @@ Author-authorized research edition v0.1: a conditional candidate extension with 
 [Same-Trajectory Native Credit in the Reciprocal Chiral Exchange Candidate](papers/SAME_TRAJECTORY_NATIVE_CREDIT/README.md) by **Hilmir Frímann Halldórsson**.
 Author-authorized research edition v0.1, with completed internal manuscript and final artifact review: an explicit sufficient finite-coupling regime for initial supply and later total native credit on the same empty-launch solution. Recovery does not establish a substantial returned fraction, the exact receiver-power sign at the witness or the intended spatial toroidal route.
 [PDF](papers/SAME_TRAJECTORY_NATIVE_CREDIT/publication/v0.1/SAME_TRAJECTORY_NATIVE_CREDIT_v0.1.pdf) | [Edition and evidence](papers/SAME_TRAJECTORY_NATIVE_CREDIT/publication/v0.1/README.md).
+
+
+## Recoverable transfer and projection capacity
+
+[Recoverable Transfer and Projection Capacity in the Reciprocal Chiral Exchange Candidate](papers/RECOVERABLE_TRANSFER_AND_PROJECTION_CAPACITY/README.md) by **Hilmir Frímann Halldórsson**. Author-authorized research edition v0.1, 15 pages: a general projection-capacity ceiling and a separate finite-coupling recovery theorem for the specified empty coherent family. [PDF](papers/RECOVERABLE_TRANSFER_AND_PROJECTION_CAPACITY/publication/v0.1/RECOVERABLE_TRANSFER_AND_PROJECTION_CAPACITY_v0.1.pdf) | [Edition and evidence](papers/RECOVERABLE_TRANSFER_AND_PROJECTION_CAPACITY/publication/v0.1/README.md). GPT accepted the submitted manuscript; Codex checked the author-approved polished release.

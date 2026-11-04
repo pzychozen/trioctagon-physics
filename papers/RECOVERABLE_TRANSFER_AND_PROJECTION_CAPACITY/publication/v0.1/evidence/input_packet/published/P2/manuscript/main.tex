@@ -1,0 +1,64 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=25mm,headheight=15pt]{geometry}
+\usepackage{booktabs,array,tabularx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{microtype,enumitem,fancyhdr,needspace}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{bookmark}
+\hypersetup{pdftitle={Same-Trajectory Native Credit in the Reciprocal Chiral Exchange Candidate},
+pdfauthor={Hilmir Frímann Halldórsson},
+pdfsubject={A finite-coupling theorem for an initially empty carrier and receiver. Research manuscript v0.1, draft for manuscript review. 3 November 2026.}}
+\setlength{\parskip}{4pt}\setlength{\parindent}{0pt}\setlength{\emergencystretch}{3em}
+\setlist{itemsep=2pt,topsep=4pt}\setlist[itemize]{label=$\bullet$}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Same-trajectory native credit}\fancyhead[R]{\small v0.1 draft}
+\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0.3pt}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\B}{\mathcal B}\newcommand{\LL}{\mathcal L}
+\newcommand{\EE}{\mathcal E}\newcommand{\dd}{\,\mathrm d}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\vspace*{5mm}
+{\small\color{MidnightBlue} TRI-OCTAGON MATHEMATICAL RESEARCH\par}
+\vspace{8mm}
+{\LARGE\bfseries\raggedright Same-Trajectory Native Credit\\
+in the Reciprocal Chiral\\Exchange Candidate\par}
+\vspace{6mm}
+{\large A finite-coupling theorem for an initially empty carrier and receiver\par}
+\vspace{7mm}
+{\large Hilmir Fr\'imann Halld\'orsson\par}
+\vspace{3mm}
+{Research manuscript v0.1\quad 3 November 2026\par}
+{\itshape Draft for manuscript review\par}
+\vspace{5mm}
+\begin{abstract}
+The reciprocal chiral exchange candidate for the Tri-Octagon model couples a native state to a periodic carrier and a reversible receiver through two finite distributed profiles. Its earlier analysis established initial supply from an empty carrier and receiver, and native credit from separately prepared states. We prove a sufficient finite-coupling theorem that connects these signs on one unchanged solution. Fix the admissible geometry, positive storage scales and native coupling, and a launch from the specified coherent family with nonzero chiral drive. An explicit finite receiver-coupling threshold ensures initial positive total native power and receiver charging, followed by strictly negative total native-to-carrier power at a specified later time. The proof uses exact time and state scaling, a weighted external-energy estimate, and an oscillator comparison whose propagation and native-drift errors are bounded at finite coupling. Only first weak derivatives of the tent profiles are required. Continuity supplies a later interval of positive native-storage recovery without resetting the state or changing coefficients. Cumulative native debit remains nonnegative, and the coherent-core invariant ceiling persists. The result establishes a behavior of the published candidate, with a dynamically active receiver; it does not classify all positive couplings or establish a substantial recovered fraction. The witness describes fast collocated exchange rather than a completed spatial circuit or calibrated physical energy transport.
+\end{abstract}
+\vfill
+{\small Research author: Hilmir Fr\'imann Halld\'orsson (pzychozen).
+GPT formulated and internally reviewed the underlying analytical investigation;
+Codex independently verified the argument and prepared this manuscript.
+The accepted mathematics and its unchanged constants are the basis of this draft.
+Review of the final manuscript by GPT and the author is pending.}
+\end{titlepage}
+\setcounter{page}{2}\hypersetup{pageanchor=true}
+\input{introduction}
+\input{problem}
+\input{theorem}
+\input{energy}
+\input{comparison}
+\input{meaning}
+\input{conclusion}
+\appendix
+\input{units}
+\input{references}
+\end{document}
