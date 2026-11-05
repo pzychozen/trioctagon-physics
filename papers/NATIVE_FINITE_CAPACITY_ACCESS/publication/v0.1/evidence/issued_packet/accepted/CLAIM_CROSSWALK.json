@@ -1,0 +1,321 @@
+{
+  "utc": "2026-11-04T20:08:21.786961+00:00",
+  "status": "PASS",
+  "proof_sha256": "05d962af8be00377212c96c63a2ae498e57b4912192dfad87e705b4aadd56cb7",
+  "ledger_sha256": "accd834abb4e84663b76a445500607cbaa715cefd4351b794f747aa653649d83",
+  "inherited": [
+    {
+      "id": "I01",
+      "claim": "Raw registration and drive",
+      "source": "P3 §2.1, (2.1), p. 2; model.tex, eq:registration; originally P1 §1, candidate.tex, eq:registration and eq:drive",
+      "destination": "FA01"
+    },
+    {
+      "id": "I02",
+      "claim": "Circle admissibility, finite tents and port identities",
+      "source": "P3 §2.1, (2.2), pp. 2–3; model.tex, eq:ports; P1 §3, wellposed.tex, eq:profilenorms",
+      "destination": "FA02"
+    },
+    {
+      "id": "I03",
+      "claim": "Original exchange equations",
+      "source": "P3 §2.2, (2.3), p. 3; model.tex, eq:system; P1 §1, candidate.tex, eq:system",
+      "destination": "FA03 FA10 FA12 FA17"
+    },
+    {
+      "id": "I04",
+      "claim": "Positive stores, conservation and signed accounts",
+      "source": "P3 §2.2, (2.4), p. 3; model.tex, eq:stores",
+      "destination": "FA04 FA05 FA09 FA21 FA26"
+    },
+    {
+      "id": "I05",
+      "claim": "Unique global solution and strong empty-launch regularity",
+      "source": "P1 Theorem 3.1; wellposed.tex, thm:global, eq:strong; restated P3 §2.2, (2.5), p. 3, eq:regularity",
+      "destination": "FA09 FA11 FA17"
+    },
+    {
+      "id": "I06",
+      "claim": "Coherent empty launch, R, k and drive",
+      "source": "P3 §2.3, (2.7)–(2.8), p. 3; model.tex, eq:launch, eq:drive0; P2 §2.3 (2.12)–(2.13)",
+      "destination": "FA05 FA06 FA23 FA25"
+    },
+    {
+      "id": "I07",
+      "claim": "General joint ceiling and empty external-stock bound",
+      "source": "P3 Theorem 3.1, (3.3)–(3.6), p. 4; projection.tex, eq:debit, eq:joint, eq:emptystock, eq:preloaded",
+      "destination": "FA05 FA08 FA21 FA24 FA26"
+    },
+    {
+      "id": "I08",
+      "claim": "Yaw pi/4 coherent witness, exact ceiling and drive magnitude",
+      "source": "P3 §3.3, (3.18), p. 6; projection.tex, eq:strictwitness",
+      "destination": "FA05 FA23 FA24 FA26"
+    },
+    {
+      "id": "I09",
+      "claim": "Weighted cancellation/forced estimate argument",
+      "source": "P3 §5.1, (5.3)–(5.4), p. 9; proof.tex, eq:operator, eq:forced; also P2 §4.2",
+      "destination": "FA10 FA11"
+    },
+    {
+      "id": "I10",
+      "claim": "Native energy ball and Jacobian estimate",
+      "source": "P3 §5.1, (5.5), p. 9; proof.tex, eq:ball and preceding conservation statement; P1 §3, eq:lipschitzbounds, eq:coercive",
+      "destination": "FA09 FA12"
+    },
+    {
+      "id": "I11",
+      "claim": "Strong difference before first-weak-derivative residual",
+      "source": "P3 §5.2, p. 10; proof.tex, paragraph preceding eq:error and following residual discussion",
+      "destination": "FA17 FA18 FA19"
+    },
+    {
+      "id": "I12",
+      "claim": "Original accessibility definition and authorized synthesis",
+      "source": "P3 §6.1, (6.1)–(6.2), p. 12; amount.tex, eq:capacitynormalization, eq:synthesis",
+      "destination": "Proof §8; symbol and denominator preserved"
+    },
+    {
+      "id": "I13",
+      "claim": "Large-coupling amount/fraction distinction",
+      "source": "P3 §6.2, (6.3)–(6.5), p. 12; amount.tex, eq:finiteamount, eq:finiteratios, eq:asymptotics; receiving/recovery theorem in §4",
+      "destination": "Proof §8; no old fraction imported"
+    },
+    {
+      "id": "I14",
+      "claim": "Dimensional conventions",
+      "source": "P3 Appendix A, Table 1, p. 14; units.tex, tab:units; P1 §1, Table 2, candidate.tex, tab:units",
+      "destination": "FA06 FA21 FA25; proof §7"
+    },
+    {
+      "id": "I15",
+      "claim": "Separate prior native-credit theorem",
+      "source": "P2 §3, Theorem 3.1, theorem.tex, thm:credit; P3 (4.11), p. 8, and §5.5, p. 11",
+      "destination": "Proof §§2,8; not a premise giving return in this new regime"
+    }
+  ],
+  "new": [
+    {
+      "id": "N01",
+      "claim": "Original-variable forced estimate with receiver weight",
+      "dependencies": "I02–I05, I09",
+      "destination": "FA10 FA11",
+      "checks": "EC01",
+      "analytical_basis": "Skew cancellation by periodic Sobolev integration; regularized norm and limit at zeros. Proposed A1 independently proved, original c/kappa factors retained."
+    },
+    {
+      "id": "N02",
+      "claim": "Drive-dependent Volterra bounds",
+      "dependencies": "I03–I06, I10; N01",
+      "destination": "FA06 FA12 FA13 FA14 FA15",
+      "checks": "EC02 EC04",
+      "analytical_basis": "Actual chain rule, two native-coupling factors, positive-kernel iteration and factorial remainder on every finite interval. Proposed A4–A7 independently proved."
+    },
+    {
+      "id": "N03",
+      "claim": "Reference residual, its norm and finite error",
+      "dependencies": "I02–I05, I11; N01–N02",
+      "destination": "FA16 FA17 FA18 FA19",
+      "checks": "EC03 EC04",
+      "analytical_basis": "Strong regularity established first; negative second-carrier and positive receiver residual both retained. Proposed A8–A10 independently proved."
+    },
+    {
+      "id": "N04",
+      "claim": "Capacity-normalized finite-time lower bound",
+      "dependencies": "I04, I07–I08; N02–N03",
+      "destination": "FA20 FA21",
+      "checks": "EC05",
+      "analytical_basis": "Reverse triangle, positive-bracket prerequisite and original storage factor 1/2. Proposed A11–A12 independently proved."
+    },
+    {
+      "id": "N05",
+      "claim": "Strict quarter-capacity certificate",
+      "dependencies": "N04; I06, I08",
+      "destination": "FA07 FA08 FA22 FA23 FA24",
+      "checks": "EC06 EC07",
+      "analytical_basis": "Exact cosine/sinh rational bounds; bracket >9/16, prefactor >13/16; strict 1053/4096 and excess 29/4096. Proposed A13–A15 independently proved."
+    },
+    {
+      "id": "N06",
+      "claim": "Finite positive nonempty regime and dimensions",
+      "dependencies": "I06, I14; N02–N03",
+      "destination": "FA06 FA07 FA25",
+      "checks": "EC08",
+      "analytical_basis": "Equivalent eta_N condition, finite positive selection before phase, and both rates T^-1 with R retained. Proposed A16 and units independently proved."
+    },
+    {
+      "id": "N07",
+      "claim": "Meaning and scope of the new amount",
+      "dependencies": "I04, I07–I08, I12–I15; N05–N06",
+      "destination": "FA26; proof §8",
+      "checks": "EC05",
+      "analytical_basis": "Combined stock/joint ceiling; fixed phase-independent parameters/time, vanishing absolute stock near phase zero, no receiver share or later-return import."
+    }
+  ],
+  "reverse": [
+    {
+      "group": "FA01",
+      "status": "Inherited model",
+      "basis": "I01",
+      "scope": "Complete raw registration; yaw fixed to the accepted witness, not a new registration."
+    },
+    {
+      "group": "FA02",
+      "status": "Inherited profile identities",
+      "basis": "I02",
+      "scope": "Full periodic-distance admissibility and first weak derivative."
+    },
+    {
+      "group": "FA03",
+      "status": "Inherited equations",
+      "basis": "I03",
+      "scope": "Original variables; no scaled-time factors."
+    },
+    {
+      "group": "FA04",
+      "status": "Inherited accounts",
+      "basis": "I04",
+      "scope": "Quadratic trial stores and total signed powers."
+    },
+    {
+      "group": "FA05",
+      "status": "Inherited launch and yaw specialization",
+      "basis": "I04 I06 I07 I08",
+      "scope": "Positive drive/capacity for the admitted phase, empty-launch stock identity."
+    },
+    {
+      "group": "FA06",
+      "status": "New proposed rates, established",
+      "basis": "N02 N06",
+      "scope": "Exact nu and sigma_ext definitions."
+    },
+    {
+      "group": "FA07",
+      "status": "New sufficient regime/time, established",
+      "basis": "N05 N06",
+      "scope": "Condition permits equality; time independent of phase."
+    },
+    {
+      "group": "FA08",
+      "status": "New main theorem, established",
+      "basis": "N05",
+      "scope": "Strict 1053/4096 joint-capacity access."
+    },
+    {
+      "group": "FA09",
+      "status": "Inherited regularity/bounds and norm convention",
+      "basis": "I02 I04 I05 I10",
+      "scope": "Legitimate strong solution before estimating it."
+    },
+    {
+      "group": "FA10",
+      "status": "Original external operator, newly assembled",
+      "basis": "I03 N01",
+      "scope": "Receiver coupling remains inside the skew part."
+    },
+    {
+      "group": "FA11",
+      "status": "Forced estimate in original variables",
+      "basis": "N01",
+      "scope": "Zero-norm regularization in adjacent proof."
+    },
+    {
+      "group": "FA12",
+      "status": "Actual drive derivative and integral inequalities",
+      "basis": "N02",
+      "scope": "Jacobian acts along the full actual native curve."
+    },
+    {
+      "group": "FA13",
+      "status": "New drive-dependent Volterra inequality",
+      "basis": "N02",
+      "scope": "Nonnegative continuous g,h; exact rate coefficient."
+    },
+    {
+      "group": "FA14",
+      "status": "New comparison iteration and vanishing remainder",
+      "basis": "N02",
+      "scope": "Written finite-interval functional proof, not a software assertion."
+    },
+    {
+      "group": "FA15",
+      "status": "New hyperbolic norm/drive bounds",
+      "basis": "N02",
+      "scope": "Drive magnitude retained, all finite nonnegative times."
+    },
+    {
+      "group": "FA16",
+      "status": "New comparison curve",
+      "basis": "N03",
+      "scope": "Reference only, not altered coefficients or an exact trajectory."
+    },
+    {
+      "group": "FA17",
+      "status": "New full difference equation/residual",
+      "basis": "N03",
+      "scope": "Both signs and receiver weight verified."
+    },
+    {
+      "group": "FA18",
+      "status": "New weighted residual norm",
+      "basis": "N03",
+      "scope": "Orthogonal carrier/receiver components."
+    },
+    {
+      "group": "FA19",
+      "status": "New finite error estimate",
+      "basis": "N03",
+      "scope": "First derivative only; strong difference known beforehand."
+    },
+    {
+      "group": "FA20",
+      "status": "New reverse-triangle bound",
+      "basis": "N04",
+      "scope": "No squaring if bracket is negative."
+    },
+    {
+      "group": "FA21",
+      "status": "New normalized bound after positivity",
+      "basis": "N04",
+      "scope": "Original stock conversion and positive denominator."
+    },
+    {
+      "group": "FA22",
+      "status": "Exact elementary sinh certificate",
+      "basis": "N05",
+      "scope": "Strict geometric-tail comparison."
+    },
+    {
+      "group": "FA23",
+      "status": "Exact capacity factor and cosine certificate",
+      "basis": "I06 I08 N05",
+      "scope": "Division valid only for admitted positive phase."
+    },
+    {
+      "group": "FA24",
+      "status": "New final strict margin",
+      "basis": "N05",
+      "scope": "1053/4096 = 1/4 + 29/4096."
+    },
+    {
+      "group": "FA25",
+      "status": "New equivalent finite selection",
+      "basis": "N06",
+      "scope": "Positive multiplier; same coefficients for all phases."
+    },
+    {
+      "group": "FA26",
+      "status": "Scope accounting from inherited stores",
+      "basis": "I04 I08 N07",
+      "scope": "Ceiling fraction of initial native storage; not quarter-total extraction."
+    }
+  ],
+  "coverage": {
+    "inherited_groups": 15,
+    "proposed_new_steps_assessed": 7,
+    "displayed_proof_groups": 26,
+    "exact_algebra_groups": 8
+  },
+  "note": "Counts describe document coverage and check organization, not additional mathematical results."
+}

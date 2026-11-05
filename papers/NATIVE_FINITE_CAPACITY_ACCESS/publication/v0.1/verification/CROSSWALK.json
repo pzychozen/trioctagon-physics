@@ -1,0 +1,1507 @@
+{
+  "pdf_sha256": "e337a9b59488b7f1dc4ac1371150e7b5d69d168d7b230dcd665ccb61bade1318",
+  "sources": {
+    "conclusion.tex": "73b3c66635b35022cbd33faae07124c0b2b9c15ee05b4477e7ff1041c7fbb525",
+    "interpretation.tex": "f1295ed84067df59c43f9878bd63cb5d860df0ecfa249b3b9cb1f76ab1b08b2b",
+    "introduction.tex": "06fdb87c34d5553a098650b8f54b40667f0e1b7cb910263e5e89f0360f35cfaf",
+    "main.tex": "2b713c8fb508fccaffc13201d4d3dd09055e18c3452dc940ae6bb9502401bbf3",
+    "model.tex": "b34418f3be14146a4ac245b03a5b5fee75bc57503145d84014a6b7c801493a73",
+    "proof.tex": "ebcdda850524081159c747b8fa33806dd0dc9115e1c2083f265cf7c836c92e11",
+    "references.tex": "879665a9b797b26c57e7324bed163ebf9f5a8517b5e83a8c9dec6e9afad7fb6e",
+    "regime.tex": "b6e88d7e9fe900bf4d604a4940ab279e802105ec19d6076aa54830cedd9ef1ec",
+    "theorem.tex": "b8810ca0e3f9d2001cdc8f2a7e23cabde418e160a7ed0f70019f95a6404bb217",
+    "units.tex": "6b5121fd80267b193877926612b0611305531e605f39000f3e5e00276f08faf5"
+  },
+  "accepted_crosswalk_sha256": "b1dec3d53021431bd591154a6f145716dfe35a3249aedc8e8ba1d9d7b5287e84",
+  "scope": "48 overlapping coverage rows: 15 inherited, 7 new steps, 26 displayed groups; not 48 independent theorems.",
+  "rows": [
+    {
+      "id": "I01",
+      "accepted_record": {
+        "id": "I01",
+        "claim": "Raw registration and drive",
+        "source": "P3 §2.1, (2.1), p. 2; model.tex, eq:registration; originally P1 §1, candidate.tex, eq:registration and eq:drive",
+        "destination": "FA01"
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/model.tex",
+          "line": 4,
+          "label": "eq:registration",
+          "printed": "2.1",
+          "page": 2
+        }
+      ]
+    },
+    {
+      "id": "I02",
+      "accepted_record": {
+        "id": "I02",
+        "claim": "Circle admissibility, finite tents and port identities",
+        "source": "P3 §2.1, (2.2), pp. 2–3; model.tex, eq:ports; P1 §3, wellposed.tex, eq:profilenorms",
+        "destination": "FA02"
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/model.tex",
+          "line": 17,
+          "label": "eq:ports",
+          "printed": "2.2",
+          "page": 3
+        }
+      ]
+    },
+    {
+      "id": "I03",
+      "accepted_record": {
+        "id": "I03",
+        "claim": "Original exchange equations",
+        "source": "P3 §2.2, (2.3), p. 3; model.tex, eq:system; P1 §1, candidate.tex, eq:system",
+        "destination": "FA03 FA10 FA12 FA17"
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/model.tex",
+          "line": 33,
+          "label": "eq:system",
+          "printed": "2.3",
+          "page": 3
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 21,
+          "label": "eq:operator",
+          "printed": "4.2",
+          "page": 4
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 56,
+          "label": "eq:drivebounds",
+          "printed": "4.6",
+          "page": 5
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 112,
+          "label": "eq:residual",
+          "printed": "4.12",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "I04",
+      "accepted_record": {
+        "id": "I04",
+        "claim": "Positive stores, conservation and signed accounts",
+        "source": "P3 §2.2, (2.4), p. 3; model.tex, eq:stores",
+        "destination": "FA04 FA05 FA09 FA21 FA26"
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/interpretation.tex",
+          "line": 4,
+          "label": "eq:initialfraction",
+          "printed": "6.1",
+          "page": 8
+        },
+        {
+          "tex_file": "manuscript/model.tex",
+          "line": 42,
+          "label": "eq:stores",
+          "printed": "2.4",
+          "page": 3
+        },
+        {
+          "tex_file": "manuscript/model.tex",
+          "line": 70,
+          "label": "eq:ceiling",
+          "printed": "2.7",
+          "page": 3
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 153,
+          "label": "eq:normalized",
+          "printed": "4.16",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "I05",
+      "accepted_record": {
+        "id": "I05",
+        "claim": "Unique global solution and strong empty-launch regularity",
+        "source": "P1 Theorem 3.1; wellposed.tex, thm:global, eq:strong; restated P3 §2.2, (2.5), p. 3, eq:regularity",
+        "destination": "FA09 FA11 FA17"
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 4,
+          "label": "eq:regularity",
+          "printed": "4.1",
+          "page": 4
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 39,
+          "label": "eq:forced",
+          "printed": "4.4",
+          "page": 5
+        }
+      ]
+    },
+    {
+      "id": "I06",
+      "accepted_record": {
+        "id": "I06",
+        "claim": "Coherent empty launch, R, k and drive",
+        "source": "P3 §2.3, (2.7)–(2.8), p. 3; model.tex, eq:launch, eq:drive0; P2 §2.3 (2.12)–(2.13)",
+        "destination": "FA05 FA06 FA23 FA25"
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/model.tex",
+          "line": 56,
+          "label": "eq:launch",
+          "printed": "2.5",
+          "page": 3
+        },
+        {
+          "tex_file": "manuscript/model.tex",
+          "line": 61,
+          "label": "eq:drive0",
+          "printed": "2.6",
+          "page": 3
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 175,
+          "label": "eq:factor",
+          "printed": "4.20",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "id": "I07",
+      "accepted_record": {
+        "id": "I07",
+        "claim": "General joint ceiling and empty external-stock bound",
+        "source": "P3 Theorem 3.1, (3.3)–(3.6), p. 4; projection.tex, eq:debit, eq:joint, eq:emptystock, eq:preloaded",
+        "destination": "FA05 FA08 FA21 FA24 FA26"
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/model.tex",
+          "line": 70,
+          "label": "eq:ceiling",
+          "printed": "2.7",
+          "page": 3
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 153,
+          "label": "eq:normalized",
+          "printed": "4.16",
+          "page": 6
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 191,
+          "label": "eq:margin",
+          "printed": "4.22",
+          "page": 7
+        },
+        {
+          "tex_file": "manuscript/theorem.tex",
+          "line": 14,
+          "label": "eq:certificate",
+          "printed": "3.3",
+          "page": 4
+        }
+      ]
+    },
+    {
+      "id": "I08",
+      "accepted_record": {
+        "id": "I08",
+        "claim": "Yaw pi/4 coherent witness, exact ceiling and drive magnitude",
+        "source": "P3 §3.3, (3.18), p. 6; projection.tex, eq:strictwitness",
+        "destination": "FA05 FA23 FA24 FA26"
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/interpretation.tex",
+          "line": 4,
+          "label": "eq:initialfraction",
+          "printed": "6.1",
+          "page": 8
+        },
+        {
+          "tex_file": "manuscript/model.tex",
+          "line": 61,
+          "label": "eq:drive0",
+          "printed": "2.6",
+          "page": 3
+        },
+        {
+          "tex_file": "manuscript/model.tex",
+          "line": 70,
+          "label": "eq:ceiling",
+          "printed": "2.7",
+          "page": 3
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 175,
+          "label": "eq:factor",
+          "printed": "4.20",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "id": "I09",
+      "accepted_record": {
+        "id": "I09",
+        "claim": "Weighted cancellation/forced estimate argument",
+        "source": "P3 §5.1, (5.3)–(5.4), p. 9; proof.tex, eq:operator, eq:forced; also P2 §4.2",
+        "destination": "FA10 FA11"
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 21,
+          "label": "eq:operator",
+          "printed": "4.2",
+          "page": 4
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 30,
+          "label": "eq:cancellation",
+          "printed": "4.3",
+          "page": 4
+        }
+      ]
+    },
+    {
+      "id": "I10",
+      "accepted_record": {
+        "id": "I10",
+        "claim": "Native energy ball and Jacobian estimate",
+        "source": "P3 §5.1, (5.5), p. 9; proof.tex, eq:ball and preceding conservation statement; P1 §3, eq:lipschitzbounds, eq:coercive",
+        "destination": "FA09 FA12"
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 4,
+          "label": "eq:regularity",
+          "printed": "4.1",
+          "page": 4
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 56,
+          "label": "eq:drivebounds",
+          "printed": "4.6",
+          "page": 5
+        }
+      ]
+    },
+    {
+      "id": "I11",
+      "accepted_record": {
+        "id": "I11",
+        "claim": "Strong difference before first-weak-derivative residual",
+        "source": "P3 §5.2, p. 10; proof.tex, paragraph preceding eq:error and following residual discussion",
+        "destination": "FA17 FA18 FA19"
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 112,
+          "label": "eq:residual",
+          "printed": "4.12",
+          "page": 6
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 123,
+          "label": "eq:residualnorm",
+          "printed": "4.13",
+          "page": 6
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 135,
+          "label": "eq:error",
+          "printed": "4.14",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "I12",
+      "accepted_record": {
+        "id": "I12",
+        "claim": "Original accessibility definition and authorized synthesis",
+        "source": "P3 §6.1, (6.1)–(6.2), p. 12; amount.tex, eq:capacitynormalization, eq:synthesis",
+        "destination": "Proof §8; symbol and denominator preserved"
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/interpretation.tex",
+          "line": 13,
+          "label": "sec:priorlimits",
+          "printed": "6.2",
+          "page": 8
+        }
+      ]
+    },
+    {
+      "id": "I13",
+      "accepted_record": {
+        "id": "I13",
+        "claim": "Large-coupling amount/fraction distinction",
+        "source": "P3 §6.2, (6.3)–(6.5), p. 12; amount.tex, eq:finiteamount, eq:finiteratios, eq:asymptotics; receiving/recovery theorem in §4",
+        "destination": "Proof §8; no old fraction imported"
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/interpretation.tex",
+          "line": 13,
+          "label": "sec:priorlimits",
+          "printed": "6.2",
+          "page": 8
+        }
+      ]
+    },
+    {
+      "id": "I14",
+      "accepted_record": {
+        "id": "I14",
+        "claim": "Dimensional conventions",
+        "source": "P3 Appendix A, Table 1, p. 14; units.tex, tab:units; P1 §1, Table 2, candidate.tex, tab:units",
+        "destination": "FA06 FA21 FA25; proof §7"
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/units.tex",
+          "line": 1,
+          "label": "sec:units",
+          "printed": "A",
+          "page": 10
+        },
+        {
+          "tex_file": "manuscript/units.tex",
+          "line": 6,
+          "label": "tab:units",
+          "printed": "1",
+          "page": 10
+        },
+        {
+          "tex_file": "manuscript/units.tex",
+          "line": 29,
+          "label": "eq:unitchecks",
+          "printed": "A.1",
+          "page": 10
+        }
+      ]
+    },
+    {
+      "id": "I15",
+      "accepted_record": {
+        "id": "I15",
+        "claim": "Separate prior native-credit theorem",
+        "source": "P2 §3, Theorem 3.1, theorem.tex, thm:credit; P3 (4.11), p. 8, and §5.5, p. 11",
+        "destination": "Proof §§2,8; not a premise giving return in this new regime"
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/interpretation.tex",
+          "line": 13,
+          "label": "sec:priorlimits",
+          "printed": "6.2",
+          "page": 8
+        }
+      ]
+    },
+    {
+      "id": "N01",
+      "accepted_record": {
+        "id": "N01",
+        "claim": "Original-variable forced estimate with receiver weight",
+        "dependencies": "I02–I05, I09",
+        "destination": "FA10 FA11",
+        "checks": "EC01",
+        "analytical_basis": "Skew cancellation by periodic Sobolev integration; regularized norm and limit at zeros. Proposed A1 independently proved, original c/kappa factors retained."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 21,
+          "label": "eq:operator",
+          "printed": "4.2",
+          "page": 4
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 30,
+          "label": "eq:cancellation",
+          "printed": "4.3",
+          "page": 4
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 39,
+          "label": "eq:forced",
+          "printed": "4.4",
+          "page": 5
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 46,
+          "label": "eq:regularized",
+          "printed": "4.5",
+          "page": 5
+        }
+      ]
+    },
+    {
+      "id": "N02",
+      "accepted_record": {
+        "id": "N02",
+        "claim": "Drive-dependent Volterra bounds",
+        "dependencies": "I03–I06, I10; N01",
+        "destination": "FA06 FA12 FA13 FA14 FA15",
+        "checks": "EC02 EC04",
+        "analytical_basis": "Actual chain rule, two native-coupling factors, positive-kernel iteration and factorial remainder on every finite interval. Proposed A4–A7 independently proved."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 56,
+          "label": "eq:drivebounds",
+          "printed": "4.6",
+          "page": 5
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 69,
+          "label": "eq:volterra",
+          "printed": "4.7",
+          "page": 5
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 80,
+          "label": "eq:iteration",
+          "printed": "4.8",
+          "page": 5
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 91,
+          "label": "eq:remainder",
+          "printed": "4.9",
+          "page": 5
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 97,
+          "label": "eq:hyperbolic",
+          "printed": "4.10",
+          "page": 5
+        },
+        {
+          "tex_file": "manuscript/theorem.tex",
+          "line": 3,
+          "label": "eq:rates",
+          "printed": "3.1",
+          "page": 4
+        }
+      ]
+    },
+    {
+      "id": "N03",
+      "accepted_record": {
+        "id": "N03",
+        "claim": "Reference residual, its norm and finite error",
+        "dependencies": "I02–I05, I11; N01–N02",
+        "destination": "FA16 FA17 FA18 FA19",
+        "checks": "EC03 EC04",
+        "analytical_basis": "Strong regularity established first; negative second-carrier and positive receiver residual both retained. Proposed A8–A10 independently proved."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 105,
+          "label": "eq:reference",
+          "printed": "4.11",
+          "page": 6
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 112,
+          "label": "eq:residual",
+          "printed": "4.12",
+          "page": 6
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 123,
+          "label": "eq:residualnorm",
+          "printed": "4.13",
+          "page": 6
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 135,
+          "label": "eq:error",
+          "printed": "4.14",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "N04",
+      "accepted_record": {
+        "id": "N04",
+        "claim": "Capacity-normalized finite-time lower bound",
+        "dependencies": "I04, I07–I08; N02–N03",
+        "destination": "FA20 FA21",
+        "checks": "EC05",
+        "analytical_basis": "Reverse triangle, positive-bracket prerequisite and original storage factor 1/2. Proposed A11–A12 independently proved."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 148,
+          "label": "eq:bracket",
+          "printed": "4.15",
+          "page": 6
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 153,
+          "label": "eq:normalized",
+          "printed": "4.16",
+          "page": 6
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 168,
+          "label": "eq:positive",
+          "printed": "4.19",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "id": "N05",
+      "accepted_record": {
+        "id": "N05",
+        "claim": "Strict quarter-capacity certificate",
+        "dependencies": "N04; I06, I08",
+        "destination": "FA07 FA08 FA22 FA23 FA24",
+        "checks": "EC06 EC07",
+        "analytical_basis": "Exact cosine/sinh rational bounds; bracket >9/16, prefactor >13/16; strict 1053/4096 and excess 29/4096. Proposed A13–A15 independently proved."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 159,
+          "label": "eq:tailratio",
+          "printed": "4.17",
+          "page": 7
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 163,
+          "label": "eq:sinh",
+          "printed": "4.18",
+          "page": 7
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 168,
+          "label": "eq:positive",
+          "printed": "4.19",
+          "page": 7
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 175,
+          "label": "eq:factor",
+          "printed": "4.20",
+          "page": 7
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 181,
+          "label": "eq:cosine",
+          "printed": "4.21",
+          "page": 7
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 191,
+          "label": "eq:margin",
+          "printed": "4.22",
+          "page": 7
+        },
+        {
+          "tex_file": "manuscript/theorem.tex",
+          "line": 8,
+          "label": "thm:access",
+          "printed": "3.1",
+          "page": 4
+        },
+        {
+          "tex_file": "manuscript/theorem.tex",
+          "line": 10,
+          "label": "eq:condition",
+          "printed": "3.2",
+          "page": 4
+        },
+        {
+          "tex_file": "manuscript/theorem.tex",
+          "line": 14,
+          "label": "eq:certificate",
+          "printed": "3.3",
+          "page": 4
+        }
+      ]
+    },
+    {
+      "id": "N06",
+      "accepted_record": {
+        "id": "N06",
+        "claim": "Finite positive nonempty regime and dimensions",
+        "dependencies": "I06, I14; N02–N03",
+        "destination": "FA06 FA07 FA25",
+        "checks": "EC08",
+        "analytical_basis": "Equivalent eta_N condition, finite positive selection before phase, and both rates T^-1 with R retained. Proposed A16 and units independently proved."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/regime.tex",
+          "line": 3,
+          "label": "eq:finitechoice",
+          "printed": "5.1",
+          "page": 7
+        },
+        {
+          "tex_file": "manuscript/theorem.tex",
+          "line": 3,
+          "label": "eq:rates",
+          "printed": "3.1",
+          "page": 4
+        },
+        {
+          "tex_file": "manuscript/theorem.tex",
+          "line": 8,
+          "label": "thm:access",
+          "printed": "3.1",
+          "page": 4
+        },
+        {
+          "tex_file": "manuscript/theorem.tex",
+          "line": 10,
+          "label": "eq:condition",
+          "printed": "3.2",
+          "page": 4
+        },
+        {
+          "tex_file": "manuscript/units.tex",
+          "line": 1,
+          "label": "sec:units",
+          "printed": "A",
+          "page": 10
+        },
+        {
+          "tex_file": "manuscript/units.tex",
+          "line": 6,
+          "label": "tab:units",
+          "printed": "1",
+          "page": 10
+        },
+        {
+          "tex_file": "manuscript/units.tex",
+          "line": 29,
+          "label": "eq:unitchecks",
+          "printed": "A.1",
+          "page": 10
+        }
+      ]
+    },
+    {
+      "id": "N07",
+      "accepted_record": {
+        "id": "N07",
+        "claim": "Meaning and scope of the new amount",
+        "dependencies": "I04, I07–I08, I12–I15; N05–N06",
+        "destination": "FA26; proof §8",
+        "checks": "EC05",
+        "analytical_basis": "Combined stock/joint ceiling; fixed phase-independent parameters/time, vanishing absolute stock near phase zero, no receiver share or later-return import."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/interpretation.tex",
+          "line": 4,
+          "label": "eq:initialfraction",
+          "printed": "6.1",
+          "page": 8
+        },
+        {
+          "tex_file": "manuscript/interpretation.tex",
+          "line": 13,
+          "label": "sec:priorlimits",
+          "printed": "6.2",
+          "page": 8
+        }
+      ]
+    },
+    {
+      "id": "FA01",
+      "accepted_record": {
+        "group": "FA01",
+        "status": "Inherited model",
+        "basis": "I01",
+        "scope": "Complete raw registration; yaw fixed to the accepted witness, not a new registration."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/model.tex",
+          "line": 4,
+          "label": "eq:registration",
+          "printed": "2.1",
+          "page": 2
+        }
+      ]
+    },
+    {
+      "id": "FA02",
+      "accepted_record": {
+        "group": "FA02",
+        "status": "Inherited profile identities",
+        "basis": "I02",
+        "scope": "Full periodic-distance admissibility and first weak derivative."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/model.tex",
+          "line": 17,
+          "label": "eq:ports",
+          "printed": "2.2",
+          "page": 3
+        }
+      ]
+    },
+    {
+      "id": "FA03",
+      "accepted_record": {
+        "group": "FA03",
+        "status": "Inherited equations",
+        "basis": "I03",
+        "scope": "Original variables; no scaled-time factors."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/model.tex",
+          "line": 33,
+          "label": "eq:system",
+          "printed": "2.3",
+          "page": 3
+        }
+      ]
+    },
+    {
+      "id": "FA04",
+      "accepted_record": {
+        "group": "FA04",
+        "status": "Inherited accounts",
+        "basis": "I04",
+        "scope": "Quadratic trial stores and total signed powers."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/model.tex",
+          "line": 42,
+          "label": "eq:stores",
+          "printed": "2.4",
+          "page": 3
+        }
+      ]
+    },
+    {
+      "id": "FA05",
+      "accepted_record": {
+        "group": "FA05",
+        "status": "Inherited launch and yaw specialization",
+        "basis": "I04 I06 I07 I08",
+        "scope": "Positive drive/capacity for the admitted phase, empty-launch stock identity."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/model.tex",
+          "line": 56,
+          "label": "eq:launch",
+          "printed": "2.5",
+          "page": 3
+        },
+        {
+          "tex_file": "manuscript/model.tex",
+          "line": 61,
+          "label": "eq:drive0",
+          "printed": "2.6",
+          "page": 3
+        },
+        {
+          "tex_file": "manuscript/model.tex",
+          "line": 70,
+          "label": "eq:ceiling",
+          "printed": "2.7",
+          "page": 3
+        }
+      ]
+    },
+    {
+      "id": "FA06",
+      "accepted_record": {
+        "group": "FA06",
+        "status": "New proposed rates, established",
+        "basis": "N02 N06",
+        "scope": "Exact nu and sigma_ext definitions."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/theorem.tex",
+          "line": 3,
+          "label": "eq:rates",
+          "printed": "3.1",
+          "page": 4
+        }
+      ]
+    },
+    {
+      "id": "FA07",
+      "accepted_record": {
+        "group": "FA07",
+        "status": "New sufficient regime/time, established",
+        "basis": "N05 N06",
+        "scope": "Condition permits equality; time independent of phase."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/theorem.tex",
+          "line": 8,
+          "label": "thm:access",
+          "printed": "3.1",
+          "page": 4
+        },
+        {
+          "tex_file": "manuscript/theorem.tex",
+          "line": 10,
+          "label": "eq:condition",
+          "printed": "3.2",
+          "page": 4
+        }
+      ]
+    },
+    {
+      "id": "FA08",
+      "accepted_record": {
+        "group": "FA08",
+        "status": "New main theorem, established",
+        "basis": "N05",
+        "scope": "Strict 1053/4096 joint-capacity access."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/theorem.tex",
+          "line": 8,
+          "label": "thm:access",
+          "printed": "3.1",
+          "page": 4
+        },
+        {
+          "tex_file": "manuscript/theorem.tex",
+          "line": 14,
+          "label": "eq:certificate",
+          "printed": "3.3",
+          "page": 4
+        }
+      ]
+    },
+    {
+      "id": "FA09",
+      "accepted_record": {
+        "group": "FA09",
+        "status": "Inherited regularity/bounds and norm convention",
+        "basis": "I02 I04 I05 I10",
+        "scope": "Legitimate strong solution before estimating it."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 4,
+          "label": "eq:regularity",
+          "printed": "4.1",
+          "page": 4
+        }
+      ]
+    },
+    {
+      "id": "FA10",
+      "accepted_record": {
+        "group": "FA10",
+        "status": "Original external operator, newly assembled",
+        "basis": "I03 N01",
+        "scope": "Receiver coupling remains inside the skew part."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 21,
+          "label": "eq:operator",
+          "printed": "4.2",
+          "page": 4
+        }
+      ]
+    },
+    {
+      "id": "FA11",
+      "accepted_record": {
+        "group": "FA11",
+        "status": "Forced estimate in original variables",
+        "basis": "N01",
+        "scope": "Zero-norm regularization in adjacent proof."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 30,
+          "label": "eq:cancellation",
+          "printed": "4.3",
+          "page": 4
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 39,
+          "label": "eq:forced",
+          "printed": "4.4",
+          "page": 5
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 46,
+          "label": "eq:regularized",
+          "printed": "4.5",
+          "page": 5
+        }
+      ]
+    },
+    {
+      "id": "FA12",
+      "accepted_record": {
+        "group": "FA12",
+        "status": "Actual drive derivative and integral inequalities",
+        "basis": "N02",
+        "scope": "Jacobian acts along the full actual native curve."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 56,
+          "label": "eq:drivebounds",
+          "printed": "4.6",
+          "page": 5
+        }
+      ]
+    },
+    {
+      "id": "FA13",
+      "accepted_record": {
+        "group": "FA13",
+        "status": "New drive-dependent Volterra inequality",
+        "basis": "N02",
+        "scope": "Nonnegative continuous g,h; exact rate coefficient."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 69,
+          "label": "eq:volterra",
+          "printed": "4.7",
+          "page": 5
+        }
+      ]
+    },
+    {
+      "id": "FA14",
+      "accepted_record": {
+        "group": "FA14",
+        "status": "New comparison iteration and vanishing remainder",
+        "basis": "N02",
+        "scope": "Written finite-interval functional proof, not a software assertion."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 80,
+          "label": "eq:iteration",
+          "printed": "4.8",
+          "page": 5
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 91,
+          "label": "eq:remainder",
+          "printed": "4.9",
+          "page": 5
+        }
+      ]
+    },
+    {
+      "id": "FA15",
+      "accepted_record": {
+        "group": "FA15",
+        "status": "New hyperbolic norm/drive bounds",
+        "basis": "N02",
+        "scope": "Drive magnitude retained, all finite nonnegative times."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 97,
+          "label": "eq:hyperbolic",
+          "printed": "4.10",
+          "page": 5
+        }
+      ]
+    },
+    {
+      "id": "FA16",
+      "accepted_record": {
+        "group": "FA16",
+        "status": "New comparison curve",
+        "basis": "N03",
+        "scope": "Reference only, not altered coefficients or an exact trajectory."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 105,
+          "label": "eq:reference",
+          "printed": "4.11",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "FA17",
+      "accepted_record": {
+        "group": "FA17",
+        "status": "New full difference equation/residual",
+        "basis": "N03",
+        "scope": "Both signs and receiver weight verified."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 112,
+          "label": "eq:residual",
+          "printed": "4.12",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "FA18",
+      "accepted_record": {
+        "group": "FA18",
+        "status": "New weighted residual norm",
+        "basis": "N03",
+        "scope": "Orthogonal carrier/receiver components."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 123,
+          "label": "eq:residualnorm",
+          "printed": "4.13",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "FA19",
+      "accepted_record": {
+        "group": "FA19",
+        "status": "New finite error estimate",
+        "basis": "N03",
+        "scope": "First derivative only; strong difference known beforehand."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 135,
+          "label": "eq:error",
+          "printed": "4.14",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "FA20",
+      "accepted_record": {
+        "group": "FA20",
+        "status": "New reverse-triangle bound",
+        "basis": "N04",
+        "scope": "No squaring if bracket is negative."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 148,
+          "label": "eq:bracket",
+          "printed": "4.15",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "FA21",
+      "accepted_record": {
+        "group": "FA21",
+        "status": "New normalized bound after positivity",
+        "basis": "N04",
+        "scope": "Original stock conversion and positive denominator."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 153,
+          "label": "eq:normalized",
+          "printed": "4.16",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "FA22",
+      "accepted_record": {
+        "group": "FA22",
+        "status": "Exact elementary sinh certificate",
+        "basis": "N05",
+        "scope": "Strict geometric-tail comparison."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 159,
+          "label": "eq:tailratio",
+          "printed": "4.17",
+          "page": 7
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 163,
+          "label": "eq:sinh",
+          "printed": "4.18",
+          "page": 7
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 168,
+          "label": "eq:positive",
+          "printed": "4.19",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "id": "FA23",
+      "accepted_record": {
+        "group": "FA23",
+        "status": "Exact capacity factor and cosine certificate",
+        "basis": "I06 I08 N05",
+        "scope": "Division valid only for admitted positive phase."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 175,
+          "label": "eq:factor",
+          "printed": "4.20",
+          "page": 7
+        },
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 181,
+          "label": "eq:cosine",
+          "printed": "4.21",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "id": "FA24",
+      "accepted_record": {
+        "group": "FA24",
+        "status": "New final strict margin",
+        "basis": "N05",
+        "scope": "1053/4096 = 1/4 + 29/4096."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/proof.tex",
+          "line": 191,
+          "label": "eq:margin",
+          "printed": "4.22",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "id": "FA25",
+      "accepted_record": {
+        "group": "FA25",
+        "status": "New equivalent finite selection",
+        "basis": "N06",
+        "scope": "Positive multiplier; same coefficients for all phases."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/regime.tex",
+          "line": 3,
+          "label": "eq:finitechoice",
+          "printed": "5.1",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "id": "FA26",
+      "accepted_record": {
+        "group": "FA26",
+        "status": "Scope accounting from inherited stores",
+        "basis": "I04 I08 N07",
+        "scope": "Ceiling fraction of initial native storage; not quarter-total extraction."
+      },
+      "manuscript_locators": [
+        {
+          "tex_file": "manuscript/interpretation.tex",
+          "line": 4,
+          "label": "eq:initialfraction",
+          "printed": "6.1",
+          "page": 8
+        }
+      ]
+    }
+  ],
+  "analytical_obligations": [
+    {
+      "obligation": "Regularity inherited before cancellation and before residual",
+      "locators": [
+        {
+          "label": "eq:regularity",
+          "printed": "4.1",
+          "page": 4
+        },
+        {
+          "label": "eq:reference",
+          "printed": "4.11",
+          "page": 6
+        },
+        {
+          "label": "eq:residual",
+          "printed": "4.12",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "obligation": "Periodic product integration, receiver-weight cancellation, zero-norm regularization",
+      "locators": [
+        {
+          "label": "eq:cancellation",
+          "printed": "4.3",
+          "page": 4
+        },
+        {
+          "label": "eq:forced",
+          "printed": "4.4",
+          "page": 5
+        },
+        {
+          "label": "eq:regularized",
+          "printed": "4.5",
+          "page": 5
+        }
+      ]
+    },
+    {
+      "obligation": "Actual chain rule and both native-coupling factors",
+      "locators": [
+        {
+          "label": "eq:drivebounds",
+          "printed": "4.6",
+          "page": 5
+        },
+        {
+          "label": "eq:volterra",
+          "printed": "4.7",
+          "page": 5
+        }
+      ]
+    },
+    {
+      "obligation": "Positive Volterra order, monomial induction, continuous finite M_T, factorial remainder and phase scope",
+      "locators": [
+        {
+          "label": "eq:iteration",
+          "printed": "4.8",
+          "page": 5
+        },
+        {
+          "label": "eq:remainder",
+          "printed": "4.9",
+          "page": 5
+        },
+        {
+          "label": "eq:hyperbolic",
+          "printed": "4.10",
+          "page": 5
+        }
+      ]
+    },
+    {
+      "obligation": "First weak derivative only and two signed residual components",
+      "locators": [
+        {
+          "label": "eq:residual",
+          "printed": "4.12",
+          "page": 6
+        },
+        {
+          "label": "eq:residualnorm",
+          "printed": "4.13",
+          "page": 6
+        },
+        {
+          "label": "eq:error",
+          "printed": "4.14",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "obligation": "Positive bracket before squaring",
+      "locators": [
+        {
+          "label": "eq:normalized",
+          "printed": "4.16",
+          "page": 6
+        },
+        {
+          "label": "eq:positive",
+          "printed": "4.19",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "obligation": "Strict series-tail ratio and cosine square-root argument",
+      "locators": [
+        {
+          "label": "eq:tailratio",
+          "printed": "4.17",
+          "page": 7
+        },
+        {
+          "label": "eq:sinh",
+          "printed": "4.18",
+          "page": 7
+        },
+        {
+          "label": "eq:cosine",
+          "printed": "4.21",
+          "page": 7
+        },
+        {
+          "label": "eq:factor",
+          "printed": "4.20",
+          "page": 7
+        },
+        {
+          "label": "eq:margin",
+          "printed": "4.22",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "obligation": "Fixed coefficients before phase, equality allowed and finite nonempty regime",
+      "locators": [
+        {
+          "label": "thm:access",
+          "printed": "3.1",
+          "page": 4
+        },
+        {
+          "label": "eq:condition",
+          "printed": "3.2",
+          "page": 4
+        },
+        {
+          "label": "eq:finitechoice",
+          "printed": "5.1",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "obligation": "Amplitude restored, explicit dimensional cancellations and R squared retained",
+      "locators": [
+        {
+          "label": "sec:units",
+          "printed": "A",
+          "page": 10
+        },
+        {
+          "label": "tab:units",
+          "printed": "1",
+          "page": 10
+        },
+        {
+          "label": "eq:unitchecks",
+          "printed": "A.1",
+          "page": 10
+        }
+      ]
+    },
+    {
+      "obligation": "Original accessibility denominator and no receiving/recovery import",
+      "locators": [
+        {
+          "label": "sec:priorlimits",
+          "printed": "6.2",
+          "page": 8
+        },
+        {
+          "label": "eq:initialfraction",
+          "printed": "6.1",
+          "page": 8
+        }
+      ]
+    }
+  ]
+}

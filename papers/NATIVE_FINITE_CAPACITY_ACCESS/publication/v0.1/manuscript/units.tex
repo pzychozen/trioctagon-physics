@@ -1,0 +1,36 @@
+\section{Dimensions and normalized amplitudes}\label{sec:units}% SRC: I14 N06
+The dimensional conventions follow P1 Section 1, Table 2 and P3 Appendix A, Table 1~\cite{p1,p3}. Let $\mathrm U$ denote carrier amplitude, $\mathrm L$ length, $\mathrm T$ exchange time and $\mathrm A_{\rm amp}$ native amplitude. The numerical launch identities in~\eqref{eq:drive0} use one native amplitude unit; restoring it attaches the corresponding amplitude powers to those identities. In particular, $R$ has an amplitude dimension even though its normalized value is $\sqrt3$.
+
+\begin{table}[ht]
+\centering
+\caption{Dimensions in the original exchange variables.}\label{tab:units}% SRC: I14 N06
+\renewcommand{\arraystretch}{1.17}
+\begin{tabularx}{\textwidth}{@{}lY@{}}
+\toprule
+Quantity & Dimension\\
+\midrule
+$x,R$ & $\mathrm A_{\rm amp}$\\
+$k,K$ & $\mathrm U\mathrm L/(\mathrm T\mathrm A_{\rm amp}^2)$\\
+$J$ & $\mathrm U\mathrm L/(\mathrm T\mathrm A_{\rm amp})$\\
+$p,r_c,y$ & $\mathrm U$\\
+$f,z$ & $\mathrm U\mathrm L/\mathrm T$\\
+$\alpha_N$ & $\mathrm U^2\mathrm L/\mathrm A_{\rm amp}^2$\\
+$\beta_R$ & $\mathrm T^2/\mathrm L$\\
+$\eta_N,\kappa$ & $1$\\
+$m,d,c$ & $\mathrm L^{-1},\ \mathrm L^{-3},\ \mathrm L/\mathrm T$\\
+$\norm U_{CR},A_0$ & $\mathrm U\mathrm L^{1/2},\ \mathrm U\mathrm L^{1/2}/\mathrm T$\\
+$\nu,\sigma_{\rm ext},t_*$ & $\mathrm T^{-1},\ \mathrm T^{-1},\ \mathrm T$\\
+$E_{\rm out},C_{\rm joint}$ & $\mathrm U^2\mathrm L$\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Explicitly, the cancellations required by~\eqref{eq:rates} are
+\begin{equation}\label{eq:unitchecks}% SRC: I14 N06
+\left[\frac{mk^2R^2}{\alpha_N}\right]=\mathrm T^{-2},
+\qquad
+\left[\frac{c^2d}{m}\right]=\mathrm T^{-2},
+\qquad
+\left[\frac{\kappa^2m}{\beta_R}\right]=\mathrm T^{-2}.
+\end{equation}
+Thus $B(u,\rho)$ is dimensionless, $A_0/\nu$ has the external-norm dimension, and the right side of~\eqref{eq:finitechoice} is dimensionless like $\eta_N^2$. Retaining $R^2$ is essential. These are commensurability checks, not physical calibration, native-frequency identification, an $F$-step cadence or evidence of a completed carrier circulation.

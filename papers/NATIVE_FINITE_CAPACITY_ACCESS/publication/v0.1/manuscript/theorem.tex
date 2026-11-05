@@ -1,0 +1,22 @@
+\section{An explicit finite-time access certificate}\label{sec:theorem}
+Define two positive estimate rates using the fixed registration, profiles and coefficients:
+\begin{equation}\label{eq:rates}% SRC: FA06 N02 N06
+\nu^2=\frac{\eta_N^2mk^2R^2}{2\alpha_N},
+\qquad
+\sigma_{\rm ext}^2=\frac{c^2d}{m}+\frac{\kappa^2m}{\beta_R}.
+\end{equation}
+\begin{theorem}[Quarter-capacity access]\label{thm:access}% SRC: FA07 FA08 N05 N06
+First fix admitted geometry and all finite positive coefficients of Section~\ref{sec:model}, at yaw $\pi/4$, satisfying
+\begin{equation}\label{eq:condition}% SRC: FA07 N05 N06
+\sigma_{\rm ext}\le\frac{\nu}{2},\qquad t_*=\frac1\nu.
+\end{equation}
+For every $0<\phi<\pi/12$, the unique unchanged solution of~\eqref{eq:system} with the empty launch~\eqref{eq:launch} then satisfies
+\begin{equation}\label{eq:certificate}% SRC: FA08 I07 N05
+\boxed{H_C(t_*)+H_R(t_*)>
+\frac{1053}{4096}C_{\rm joint}>
+\frac14 C_{\rm joint}>0.}
+\end{equation}
+The same coefficients and the same phase-independent time $t_*$ apply throughout this family. Equality in the sufficient rate condition is permitted.
+\end{theorem}
+
+The proof occupies Section~\ref{sec:proof}. Section~\ref{sec:regime} shows that the allowed finite positive regime is nonempty. The theorem concerns combined external stock at one specified time relative to the joint ceiling. The rates in~\eqref{eq:rates} are analytical estimate scales; neither identifies a physical native frequency or native-map cadence. No necessary or optimal threshold is asserted.

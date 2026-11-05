@@ -1,0 +1,107 @@
+{
+  "utc": "2026-11-04T19:59:48.693706+00:00",
+  "status": "PASS",
+  "task": "NATIVE_FINITE_CAPACITY_ACCESS_01",
+  "independent_check_groups": 8,
+  "checks": [
+    {
+      "id": "EC01",
+      "title": "Original weighted cancellation",
+      "status": "PASS",
+      "evidence": {
+        "receiver_sum": "0",
+        "propagation_density": "-c*d_s(p*r_c)"
+      },
+      "scope_limit": "Periodic Sobolev integration and the regularized norm proof are written in the proof; scalar algebra alone does not establish them."
+    },
+    {
+      "id": "EC02",
+      "title": "Native drive derivative and Volterra coefficient",
+      "status": "PASS",
+      "evidence": {
+        "derivative": "-eta_N*J*J.T*y/(2*alpha_N)",
+        "nu_squared": "R**2*eta**2*k**2*m/(2*alpha)"
+      },
+      "scope_limit": "The Jacobian/operator norm inequalities and continuity are proved analytically, not by symbolic sampling."
+    },
+    {
+      "id": "EC03",
+      "title": "Both reference residuals and their weighted norm",
+      "status": "PASS",
+      "evidence": {
+        "carrier_sign": "negative second carrier coordinate",
+        "receiver_sign": "positive",
+        "squared_norm": "eta**2*t**2*(f_minus**2 + f_plus**2)*(beta*c**2*d + kappa**2*m**2)/beta",
+        "sigma_ext_squared": "c**2*d/m + kappa**2*m/beta"
+      },
+      "scope_limit": "Uses the inherited exact port identities; no tent second derivative or spatial discretization is taken."
+    },
+    {
+      "id": "EC04",
+      "title": "Volterra monomial and comparison integral",
+      "status": "PASS",
+      "evidence": {
+        "kernel_on_t_power_n": "t**(n + 2)/((n + 1)*(n + 2))",
+        "majorant": "sinh(nu*t)/nu",
+        "integrated_drive_error": "sinh(nu*t)/nu-t"
+      },
+      "scope_limit": "Positive-kernel iteration, boundedness on finite intervals and vanishing factorial remainder are proved in the written argument."
+    },
+    {
+      "id": "EC05",
+      "title": "Capacity normalization and storage conversion",
+      "status": "PASS",
+      "evidence": {
+        "capacity_factor": "5*q/12 + 5/12",
+        "C_joint_over_HN0": "2*(1-cos(phi))/3",
+        "A0_squared_over_2nu_squared": "alpha_N*|f0|^2/(k^2*R^2)"
+      },
+      "scope_limit": "q=cos(phi), sin(phi)^2=1-q^2 and the admitted phase ensures nonzero denominators. The old accessibility statistic is not redefined."
+    },
+    {
+      "id": "EC06",
+      "title": "Exact cosine and hyperbolic-sine rational certificates",
+      "status": "PASS",
+      "evidence": {
+        "3_minus_161_100_squared": "4079/10000",
+        "cosine_squared_comparison": "(2+161/100)/4 = (19/20)^2",
+        "tail_ratio_denominator_minus_20": "2*(j-1)*(2*j+7)",
+        "geometric_sinh_upper": "67/57",
+        "19_16_minus_upper": "11/912"
+      },
+      "scope_limit": "Strictness of the series tail and monotonicity/positivity of cosine on the admitted interval are supplied in the proof."
+    },
+    {
+      "id": "EC07",
+      "title": "Positive norm margin and final fraction",
+      "status": "PASS",
+      "evidence": {
+        "bracket_lower": "strictly greater than 9/16",
+        "factor_lower": "strictly greater than 13/16",
+        "final_fraction": "1053/4096",
+        "excess_over_quarter": "29/4096"
+      },
+      "scope_limit": "Applies to actual total external stock only after the analytical comparison bound."
+    },
+    {
+      "id": "EC08",
+      "title": "Finite regime equivalence and dimensions",
+      "status": "PASS",
+      "evidence": {
+        "threshold_eta_squared": "8*alpha*(c**2*d/m + kappa**2*m/beta)/(R**2*k**2*m)",
+        "positive_multiplier": "m*k^2*R^2/(8*alpha_N)",
+        "nu_squared_and_both_sigma_terms_units": "T^-2",
+        "A0_units": "U*L^(1/2)/T",
+        "eta_squared_threshold_units": "1",
+        "R_squared_retained_in_dimensional_formula": true
+      },
+      "scope_limit": "Nonemptiness follows from positivity/finiteness of fixed coefficients, with one finite eta_N chosen before all phase trajectories."
+    }
+  ],
+  "script_sha256": "b0d32159028013a99cc9a152f4bc56be7c5041225dad2ac51c2898fe679dcfe1",
+  "python": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+  "python_version": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+  "sympy_version": "1.14.0",
+  "arithmetic": "Exact symbolic identities and rational inequalities; no floating-point certificate.",
+  "scope": "New investigation's focused algebra only. No supplied readiness script or prior 18 AT/12 PC suite executed. No numerical trajectories, parameter scans or proof of regularity by software."
+}

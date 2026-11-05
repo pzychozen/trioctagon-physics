@@ -1,0 +1,69 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=25mm,headheight=15pt]{geometry}
+\usepackage{booktabs,array,tabularx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{microtype,enumitem,fancyhdr,needspace}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{bookmark}
+\hypersetup{pdftitle={Finite-Time Access to Native Projection Capacity in the Reciprocal Chiral Exchange Candidate},
+pdfauthor={Hilmir Frímann Halldórsson (pzychozen)},
+pdfsubject={Research manuscript v0.1. Accepted mathematics; manuscript review pending. Stage A candidate, 4 November 2026.}}
+\setlength{\parskip}{4pt}\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{3em}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Finite-time access to native projection capacity}
+\fancyhead[R]{\small v0.1}
+\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0.3pt}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\B}{\mathcal B}\newcommand{\LL}{\mathcal L}
+\newcommand{\dd}{\,\mathrm d}\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\vspace*{2mm}
+{\small\color{MidnightBlue} TRI-OCTAGON MATHEMATICAL RESEARCH\par}
+\vspace{7mm}
+{\LARGE\bfseries\raggedright Finite-Time Access to Native\\
+Projection Capacity in the\\Reciprocal Chiral Exchange Candidate\par}
+\vspace{5mm}
+{\large An explicit quarter-capacity certificate\\for coherent empty launches\par}
+\vspace{6mm}
+{\large Hilmir Fr\'imann Halld\'orsson (pzychozen)\par}
+\vspace{3mm}
+{Research manuscript v0.1\quad 4 November 2026\par}
+{\itshape Accepted mathematics; manuscript review pending\par}
+\vspace{4mm}
+\begin{abstract}
+The joint projection ceiling of the reciprocal chiral exchange candidate limits the native trial storage that can leave the core, but a ceiling alone does not establish access to a definite fraction of that amount. We prove an explicit finite-time certificate for the coherent family $\Omega_0=(1,e^{i\phi},1)$, $0<\phi<\pi/12$, at fixed yaw $\pi/4$, with nonzero raw drive and initially empty carrier and receiver. The original equations retain finite positive propagation, finite-width periodic profiles and constant positive couplings. First fix admitted geometry and coefficients satisfying $\sigma_{\rm ext}\le\nu/2$, where $\nu^2=\eta_N^2mk^2R^2/(2\alpha_N)$ and $\sigma_{\rm ext}^2=c^2d/m+\kappa^2m/\beta_R$. Every phase in this family then satisfies, at the same time $t_*=1/\nu$,
+\[
+H_C(t_*)+H_R(t_*)>\frac{1053}{4096}C_{\rm joint}
+>\frac14 C_{\rm joint},\qquad
+C_{\rm joint}=\alpha_N(1-\cos\phi)>0.
+\]
+The proof retains the evolving launch drive in a Volterra comparison and bounds both propagation and receiver residuals of a strong reference curve. Exact rational estimates give a strict margin even at equality in the sufficient rate condition, whose finite positive regime is nonempty. The numerator is combined external stock and the denominator is joint capacity, not all initial native stock. The theorem establishes neither a receiver-only fraction nor subsequent recovery of this amount on these coefficients, saturation of the ceiling, or a spatial toroidal circuit.
+\end{abstract}
+\vfill
+{\small Research author and direction: Hilmir Fr\'imann Halld\'orsson.
+GPT formulated and internally reviewed the accepted investigation.
+Codex independently investigated the result and prepared this manuscript.
+Scientific acceptance is unchanged; this new manuscript and proposed publication payload await review.
+No external peer review or machine-formal proof is claimed.}
+\end{titlepage}
+\setcounter{page}{2}\hypersetup{pageanchor=true}
+\input{introduction}
+\input{model}
+\input{theorem}
+\input{proof}
+\input{regime}
+\input{interpretation}
+\input{conclusion}
+\clearpage
+\appendix
+\input{units}
+\input{references}
+\end{document}

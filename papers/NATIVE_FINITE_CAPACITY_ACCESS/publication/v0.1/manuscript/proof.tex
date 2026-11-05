@@ -1,0 +1,198 @@
+\section{Proof of the finite-time certificate}\label{sec:proof}
+\subsection{Inherited strong evolution and the original forced estimate}
+P1 Theorem 3.1 is the global exchange theorem~\cite{p1}; it supplies existence and uniqueness before any estimate below. It is distinct from P2 Theorem 3.1, the separate native-credit theorem~\cite{p2}. For the empty $H^1$ carrier preparation, the actual solution satisfies
+\begin{equation}\label{eq:regularity}% SRC: FA09 I05 I10
+\begin{gathered}
+x,z\in C^1(\R),\qquad
+(p,r_c)\in C(\R;H^1_{\rm per})^2\cap C^1(\R;L^2)^2,\\
+|x(t)|\le R,\qquad \norm{J(x(t))}\le kR,\qquad
+|y(t)|\le\sqrt m\,\norm{U(t)}_{CR},\\
+U=(p,r_c,z),\qquad
+\norm U_{CR}^2=\norm p_2^2+\norm{r_c}_2^2+\beta_R|z|^2
+=2E_{\rm out}.
+\end{gathered}
+\end{equation}
+Conservation and nonnegative external stores give the native ball. For $h=(h_a,h_b)$,
+$J(x)h=K(h_a\times b+a\times h_b)$ and
+$|h_a||b|+|a||h_b|\le |x||h|$ give $\norm{J(x)}\le k|x|$.
+The port bound follows from~\eqref{eq:ports} and the carrier component of the weighted norm. These are the unscaled bounds recorded in P3 (5.5)~\cite{p3}.
+
+On $\mathcal H_{\rm ext}=L^2_{\rm per}\times L^2_{\rm per}\times\R^2$ use the weighted inner product of~\eqref{eq:regularity}. Define
+\begin{equation}\label{eq:operator}% SRC: FA10 I03 I09 N01
+\begin{gathered}
+\LL U=\left(-c(r_c)_s-\kappa\B z,\,-cp_s,\,
+\frac{\kappa}{\beta_R}\B^*p\right),\\
+D(\LL)=H^1_{\rm per}\times H^1_{\rm per}\times\R^2,\qquad
+\dot U=\LL U+(\eta_N\B f(x),0,0).
+\end{gathered}
+\end{equation}
+For $V=(q_c,h,v)\in D(\LL)$, periodic Sobolev integration and adjointness give
+\begin{equation}\label{eq:cancellation}% SRC: FA11 I09 N01
+\langle V,\LL V\rangle_{CR}
+=-c\int[q_ch_s+h(q_c)_s]\dd s
+-\kappa\langle q_c,\B v\rangle_2
++\kappa v\cdot\B^*q_c=0.
+\end{equation}
+The carrier integrand is the weak derivative of the periodic product $q_ch$, whose integral vanishes. The receiver weight $\beta_R$ cancels the denominator in~\eqref{eq:operator}, leaving two equal and opposite $\kappa$ terms. For a known strong curve
+$V\in C([0,T];D(\LL))\cap C^1([0,T];\mathcal H_{\rm ext})$
+with continuous forcing $F$, this yields
+\begin{equation}\label{eq:forced}% SRC: FA11 I05 N01
+\dot V=\LL V+F
+\quad\Longrightarrow\quad
+\norm{V(t)}_{CR}\le\norm{V(0)}_{CR}
++\int_0^t\norm{F(s)}_{CR}\dd s.
+\end{equation}
+For completeness, first regularize the norm with $\varepsilon>0$:
+\begin{equation}\label{eq:regularized}% SRC: FA11 N01
+\frac{\mathrm d}{\mathrm dt}\sqrt{\norm{V(t)}_{CR}^2+\varepsilon^2}
+=\frac{\langle V(t),F(t)\rangle_{CR}}
+{\sqrt{\norm{V(t)}_{CR}^2+\varepsilon^2}}
+\le\norm{F(t)}_{CR}.
+\end{equation}
+Integrate and take $\varepsilon\downarrow0$ to prove~\eqref{eq:forced}, including at zeros. No unregularized norm is differentiated at zero. Existence and strong regularity are inherited, not inferred from cancellation.
+
+\subsection{A drive-dependent Volterra comparison}
+Set $A_0=\eta_N\sqrt m\,|f_0|>0$, a forcing magnitude distinct from the published drift constant and accessibility statistic. Applying~\eqref{eq:forced} to the actual empty state and using the finite-dimensional chain rule gives
+\begin{equation}\label{eq:drivebounds}% SRC: FA12 I03 I10 N02
+\begin{aligned}
+\norm{U(t)}_{CR}&\le\eta_N\sqrt m\int_0^t|f(x(s))|\dd s,\\
+\dot f(x(t))&=J(x(t))\dot x(t)
+=-\frac{\eta_N}{2\alpha_N}J(x(t))J(x(t))^Ty(t),\\
+|f(t)-f_0|&\le
+\frac{\eta_N k^2R^2\sqrt m}{2\alpha_N}
+\int_0^t\norm{U(s)}_{CR}\dd s.
+\end{aligned}
+\end{equation}
+The chain rule is legitimate since $x$ is $C^1$ and $f$ is quadratic; the last bound uses $\norm{JJ^T}\le k^2R^2$ and~\eqref{eq:regularity}.
+
+For the continuous nonnegative functions $g=\norm U_{CR}/A_0$ and $h=|f-f_0|/|f_0|$, we obtain
+\begin{equation}\label{eq:volterra}% SRC: FA13 N02
+\begin{gathered}
+g(t)\le t+\int_0^t h(s)\dd s,\qquad
+h(t)\le\nu^2\int_0^t g(s)\dd s,\\
+g(t)\le t+(\mathcal Vg)(t),\qquad
+(\mathcal Vv)(t)=\nu^2\int_0^t(t-s)v(s)\dd s.
+\end{gathered}
+\end{equation}
+Indeed $\eta_Nk^2R^2\sqrt m\,A_0/(2\alpha_N|f_0|)=\nu^2$, retaining both native-coupling factors. Interchanging the continuous nonnegative double integral yields the last inequality.
+
+On each finite $[0,T]$ the operator $\mathcal V$ preserves order. Iteration gives
+\begin{equation}\label{eq:iteration}% SRC: FA14 N02
+\begin{gathered}
+g(t)\le\sum_{j=0}^{n-1}\frac{\nu^{2j}t^{2j+1}}{(2j+1)!}
++(\mathcal V^ng)(t),\\
+0\le(\mathcal V^ng)(t)\le
+M_T\frac{\nu^{2n}t^{2n}}{(2n)!}
+\le M_T\frac{\nu^{2n}T^{2n}}{(2n)!}\longrightarrow0,\qquad
+M_T=\sup_{0\le s\le T}g(s)<\infty.
+\end{gathered}
+\end{equation}
+The supporting monomial identity and successive remainder ratio are
+\begin{equation}\label{eq:remainder}% SRC: FA14 N02
+\int_0^t(t-s)s^\ell\dd s
+=\frac{t^{\ell+2}}{(\ell+1)(\ell+2)},\qquad
+\frac{(\nu T)^2}{(2n+2)(2n+1)}\longrightarrow0.
+\end{equation}
+The identity proves the summands and the remainder bound by induction from $\mathcal V^0t=t$ and $\mathcal V^01=1$. Continuity gives finite $M_T$, and the ratio proves uniform disappearance of the remainder on the finite interval. No differential inequality for $g$ at zero is assumed. Summing the series and substituting into the bound for $h$ give, for every finite $t\ge0$,
+\begin{equation}\label{eq:hyperbolic}% SRC: FA15 N02
+\boxed{\norm{U(t)}_{CR}\le\frac{A_0}{\nu}\sinh(\nu t),\qquad
+|f(t)-f_0|\le |f_0|[\cosh(\nu t)-1].}
+\end{equation}
+Both estimates retain the actual launch-drive factor. The iteration applies separately at every admitted phase and requires no phase-uniform preliminary bound on $M_T$; its final formula applies to all those phases.
+
+\subsection{Strong reference, full residual and finite error}
+Use the comparison curve
+\begin{equation}\label{eq:reference}% SRC: FA16 N03
+U_{\rm ref}(t)=(\eta_Nt\B f_0,0,0),\qquad
+\norm{U_{\rm ref}(t)}_{CR}=A_0t,\qquad W=U-U_{\rm ref}.
+\end{equation}
+Since $\B f_0\in H^1_{\rm per}$, the reference is $C^1$ with values in $D(\LL)$. The actual state already has~\eqref{eq:regularity}. Thus the difference is strong \emph{before} its residual is estimated: its carrier lies in $C_tH^1_{\rm per}\cap C_t^1L^2$ and its receiver is $C^1$. This retains the regularity order used in P3 Section 5.2~\cite{p3}. It does not define a replacement dynamical system.
+
+Substitute $U=W+U_{\rm ref}$ into~\eqref{eq:operator} and subtract $\dot U_{\rm ref}$:
+\begin{equation}\label{eq:residual}% SRC: FA17 I03 I11 N03
+\begin{aligned}
+\dot W&=\LL W+(\eta_N\B(f-f_0),0,0)+F_{\rm ref}(t),\qquad W(0)=0,\\
+F_{\rm ref}(t)&=\LL U_{\rm ref}(t)
+=\left(0,-c\eta_Nt\B'f_0,\,
+\frac{\kappa\eta_Nmt}{\beta_R}f_0\right).
+\end{aligned}
+\end{equation}
+The first component vanishes because the reference has zero $r_c,z$. Its second component is the negative propagation term $-c\partial_sp_{\rm ref}$. Its positive receiver term is $\kappa\B^*p_{\rm ref}/\beta_R$, using the exact Gram matrix $m\mathrm{Id}_2$. That term is nonzero despite the reference receiver being zero. Both actual $c$ and actual $\kappa$ remain positive.
+
+These two residual components are orthogonal in the weighted space, so
+\begin{equation}\label{eq:residualnorm}% SRC: FA18 I11 N03
+\begin{aligned}
+\norm{F_{\rm ref}(t)}_{CR}^2
+&=\eta_N^2|f_0|^2t^2
+\left(c^2d+\frac{\kappa^2m^2}{\beta_R}\right)
+=A_0^2\sigma_{\rm ext}^2t^2,\\
+\norm{F_{\rm ref}(t)}_{CR}&=A_0\sigma_{\rm ext}t\qquad(t\ge0).
+\end{aligned}
+\end{equation}
+Only $\B'f_0\in L^2$ is needed. The residual need not be $H^1$, and it is not differentiated spatially again. Strong regularity is not inferred from this residual; no second tent derivative or operator-norm limit of an unbounded propagation operator is used.
+
+Apply~\eqref{eq:forced} to the already strong difference $W$ and use~\eqref{eq:hyperbolic} and~\eqref{eq:residualnorm}:
+\begin{equation}\label{eq:error}% SRC: FA19 I11 N03
+\begin{aligned}
+\norm{U(t)-U_{\rm ref}(t)}_{CR}
+&\le\eta_N\sqrt m\int_0^t|f(s)-f_0|\dd s
++A_0\sigma_{\rm ext}\int_0^ts\dd s\\
+&\le A_0\left[\frac{\sinh(\nu t)}{\nu}-t+
+\frac{\sigma_{\rm ext}t^2}{2}\right].
+\end{aligned}
+\end{equation}
+This finite-time error includes native drift and the complete external residual, and is valid before imposing~\eqref{eq:condition}.
+
+\subsection{Positive bracket and the exact strict margin}
+Set $u=\nu t$ and $\rho=\sigma_{\rm ext}/\nu$. Reverse triangle gives
+\begin{equation}\label{eq:bracket}% SRC: FA20 N04
+\norm{U(t)}_{CR}\ge\frac{A_0}{\nu}B(u,\rho),\qquad
+B(u,\rho)=2u-\sinh u-\frac{\rho u^2}{2}.
+\end{equation}
+If the right side is negative it remains a lower bound, but it cannot be squared to obtain a stock bound. \emph{Only when $B(u,\rho)>0$}, the positive capacity and the original stock factor $\norm U_{CR}^2/2$ give
+\begin{equation}\label{eq:normalized}% SRC: FA21 I04 I07 N04
+\frac{E_{\rm out}(t)}{C_{\rm joint}}
+\ge\frac{\alpha_N|f_0|^2}{k^2R^2C_{\rm joint}}B(u,\rho)^2,\qquad
+\frac{A_0^2}{2\nu^2}=\frac{\alpha_N|f_0|^2}{k^2R^2}.
+\end{equation}
+At $u=1$ and $\rho\le1/2$, $B(1,\rho)\ge7/4-\sinh1$. To certify positivity exactly, write $a_j=1/(2j+1)!$. For $j\ge1$,
+\begin{equation}\label{eq:tailratio}% SRC: FA22 N05
+\frac{a_{j+1}}{a_j}=\frac1{(2j+2)(2j+3)}\le\frac1{20}.
+\end{equation}
+Equality holds at $j=1$ and all later ratios are strictly smaller. The positive tail starting with $a_1=1/6$ is therefore strictly below its geometric majorant:
+\begin{equation}\label{eq:sinh}% SRC: FA22 N05
+\sinh1<1+\frac{1/6}{1-1/20}=\frac{67}{57}<\frac{19}{16},
+\qquad \frac{19}{16}-\frac{67}{57}=\frac{11}{912}>0.
+\end{equation}
+Consequently
+\begin{equation}\label{eq:positive}% SRC: FA22 N04 N05
+B(1,\rho)\ge\frac74-\sinh1>
+\frac74-\frac{19}{16}=\frac9{16}>0.
+\end{equation}
+This licenses~\eqref{eq:normalized}, also at equality in the rate condition.
+
+The capacity factor is exactly
+\begin{equation}\label{eq:factor}% SRC: FA23 I06 I08 N05
+\frac{\alpha_N|f_0|^2}{k^2R^2C_{\rm joint}}
+=\frac5{12}\frac{\sin^2\phi}{1-\cos\phi}
+=\frac5{12}(1+\cos\phi)>\frac{13}{16}.
+\end{equation}
+To justify the strict inequality without a decimal approximation, use
+\begin{equation}\label{eq:cosine}% SRC: FA23 N05
+\begin{gathered}
+3-\left(\frac{161}{100}\right)^2=\frac{4079}{10000}>0,\\
+\cos^2(\pi/12)=\frac{2+\sqrt3}{4}>
+\frac{2+161/100}{4}=\left(\frac{19}{20}\right)^2.
+\end{gathered}
+\end{equation}
+Positive square roots give $\cos(\pi/12)>19/20$. Cosine is strictly decreasing on $[0,\pi/12]$, so $\cos\phi>19/20$ for every admitted phase, and $(5/12)(1+19/20)=13/16$. Division by $1-\cos\phi$ in~\eqref{eq:factor} is legitimate because $\phi>0$.
+
+Combining~\eqref{eq:normalized}, \eqref{eq:positive} and~\eqref{eq:factor} proves
+\begin{equation}\label{eq:margin}% SRC: FA24 I07 N05
+\frac{E_{\rm out}(1/\nu)}{C_{\rm joint}}>
+\frac{13}{16}\left(\frac9{16}\right)^2
+=\frac{1053}{4096}
+=\frac14+\frac{29}{4096}>\frac14.
+\end{equation}
+Multiplication by $C_{\rm joint}>0$ proves Theorem~\ref{thm:access}.
+The certificate is finite and exact: neither a computed trajectory nor an asymptotic remainder enters the conclusion. \hfill\qedsymbol

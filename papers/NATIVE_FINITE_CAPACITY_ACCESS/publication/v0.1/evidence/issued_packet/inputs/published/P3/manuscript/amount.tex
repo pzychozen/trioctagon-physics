@@ -1,0 +1,60 @@
+\section{Absolute amount, relative recovery and structural ceilings}\label{sec:amount}
+\subsection{The original accessibility normalization}
+For the specified coherent launch, the old invariant ceiling has the fixed positive value
+\begin{equation}\label{eq:capacitynormalization}% SRC: AT26
+\begin{gathered}
+C_{\rm inv}=\frac{\alpha_N}{2}(3-\sqrt{9-8\sin^2\phi})=C_Z>0,\qquad
+\mathcal A_\kappa=\frac{M_\kappa}{C_{\rm inv}},\\
+\frac{a_\kappa(2\Lambda-\varepsilon_\kappa)^2}{C_{\rm inv}}
+\le\mathcal A_\kappa
+\le\min\left\{1,\frac{a_\kappa(2\Lambda+\varepsilon_\kappa)^2}{C_{\rm inv}}\right\}.
+\end{gathered}
+\end{equation}
+The displayed finite bounds require $\varepsilon_\kappa<2\Lambda$ and in particular hold in the certified regime. Positivity follows from $0<\phi<\pi/12$. This denominator is the published upper ceiling, not a proved attainable maximum.
+
+The two accepted results combine directly:
+\begin{equation}\label{eq:synthesis}% SRC: SYN01
+M_\kappa\le C_{\rm joint}\le C_Z=C_{\rm inv}.
+\end{equation}
+Indeed the joint all-time bound holds at every time in the compact interval defining $M_\kappa$; its minimum-of-ceilings form makes it no larger than $C_Z$. Equation~\eqref{eq:capacitynormalization} retains its original denominator. No new normalized statistic is needed.
+
+\subsection{Finite errors before asymptotics}
+Put $L_{\rm err}=B_1+B_2$, so $\varepsilon_\kappa\le L_{\rm err}/\kappa$ for $\kappa\ge1$. In the certified regime the stock sandwich, projections and positive denominators yield
+\begin{equation}\label{eq:finiteamount}% SRC: AT27
+\begin{aligned}
+\left|M_\kappa-\frac{2\eta_N^2\Lambda^2}{\kappa^2}\right|
+&\le\frac{\eta_N^2}{2\kappa^2}(4\Lambda\varepsilon_\kappa+\varepsilon_\kappa^2)\\
+&\le\frac{2\eta_N^2\Lambda L_{\rm err}}{\kappa^3}
++\frac{\eta_N^2L_{\rm err}^2}{2\kappa^4},\\
+0\le E_{\rm out}(t_{2\pi})&\le\frac{\eta_N^2L_{\rm err}^2}{2\kappa^4}.
+\end{aligned}
+\end{equation}
+The lower and upper deviations of the squared stock sandwich are bounded by the same $4\Lambda\varepsilon_\kappa+\varepsilon_\kappa^2$. Since $2\Lambda-\varepsilon_\kappa\ge(2-q)\Lambda>0$,
+\begin{equation}\label{eq:finiteratios}% SRC: AT27
+\begin{gathered}
+0\le1-\mathcal S_\kappa,\ 1-\mathcal R_\kappa,\
+\frac{H_R(t_{2\pi})}{H_R(t_\pi)}
+\le\frac{L_{\rm err}^2}{(2-q)^2\Lambda^2\kappa^2},\\
+0<\mathcal A_\kappa
+\le\min\left\{1,\frac{\eta_N^2(2+q)^2\Lambda^2}{2C_{\rm inv}\kappa^2}\right\}.
+\end{gathered}
+\end{equation}
+All constants are fixed in the following limits:
+\begin{equation}\label{eq:asymptotics}% SRC: AT28
+\begin{gathered}
+M_\kappa=\frac{2\eta_N^2\beta_R|f_0|^2}{\kappa^2}+O(\kappa^{-3}),\qquad
+E_{\rm out}(t_{2\pi})=O(\kappa^{-4}),\\
+\mathcal S_\kappa,\mathcal R_\kappa\longrightarrow1,\qquad
+1-\mathcal S_\kappa,\ 1-\mathcal R_\kappa=O(\kappa^{-2}),\qquad
+\mathcal A_\kappa\longrightarrow0,\\
+2\eta_N^2\beta_R|f_0|^2
+=\frac{2\eta_N^2\beta_RG^2\sin^2\phi}{7}(6+8\sin^2\delta_g).
+\end{gathered}
+\end{equation}
+The leading transferred-stock coefficient is quadratic in the native coupling and launch-drive magnitude and linear in the receiver storage scale. The receiver-coupling dependence is inverse square with every other parameter fixed. This is an asymptotic scale, not a monotonicity claim at every finite coupling or a uniform limit as $\phi\to0$.
+
+The $80/81$ guarantee concerns recovery of actual intermediate stock. Multiplying it by $C_{\rm joint}$ would not produce an established recovered amount. At the strict witness yaw the stronger ceiling remains positive and independent of $\kappa$, so it can coexist with this small transfer and high recovered fraction. The entire physical observation window shrinks relative to the fixed circuit time:
+\begin{equation}\label{eq:traveltime}% SRC: AT29
+\frac{t_{2\pi}}{L_c/c}=\frac{cS}{\kappa L_c}\longrightarrow0 .
+\end{equation}
+Both couplings are collocated on the finite profiles. The quantitative certificate therefore describes fast reversible exchange, not a wave completing a carrier circuit before recovery.

@@ -1,0 +1,84 @@
+\section{The closed nonlinear solution problem}\label{sec:wellposed}
+The exogenous C1 theorem alone does not prove well-posedness after closing the feedback. We give the coupled argument, using its inherited periodic translation group.~\cite[carrier theorem]{paired}
+
+\begin{theorem}[Global exchange evolution]\label{thm:global}
+For fixed finite allowed parameters and finite-width profiles, every preparation in
+\begin{equation}\label{eq:space}
+ \HH=\R^6\times L^2_{\rm per}(0,L_c)^2\times\R^2
+\end{equation}
+has a unique mild solution of~\eqref{eq:system} in $C(\R;\HH)$. The core and receiver are $C^1$ in exchange time. The flow conserves $H_{\rm tot}$, satisfies~\eqref{eq:integrated}, and is locally Lipschitz in preparation on bounded energy sets over every finite time interval. For periodic $H^1$ carrier preparation,
+\begin{equation}\label{eq:strong}
+ (p,r_c)\in C(\R;H^1_{\rm per})^2\cap C^1(\R;L^2)^2,
+\end{equation}
+with continuous dependence also in this preparation topology. The local work identity~\eqref{eq:localwork} then holds distributionally. These statements concern exchange time, not a uniform bound over infinitely many native jumps.
+\end{theorem}
+
+\begin{proof}
+\textit{Ports and free group.}
+Integrating each affine half of a tent yields
+\begin{equation}\label{eq:profilenorms}
+ \int b_\sigma\dd s=1,\quad
+ \norm{b_\sigma}_2^2=m:=\frac2{3\eps_c},\quad
+ \norm{b'_\sigma}_2^2=\frac2{\eps_c^3},\quad
+ M_B:=\B^*\B=mI_2.
+\end{equation}
+There are no delta terms in the first weak derivative because the tent is continuous. Disjoint supports remove the cross terms, also for weak derivatives up to null endpoints. Hence $\norm\B_{\R^2\to L^2}=\norm{\B^*}_{L^2\to\R^2}=\sqrt m$, and $\B:\R^2\to H^1$ has squared norm $m_1=m+2/\eps_c^3$ in the usual mathematical $H^1$ norm. This auxiliary regularity norm is not a different storage.
+
+Put $v=(p,r_c)$ and $A_Cv=(-c(r_c)_s,-cp_s)$ with domain $H^1_{\rm per}{}^2$. In the orthogonal coordinates $(p\pm r_c)/\sqrt2$, its group $S(t)$ translates by $\mp ct$. Periodic translation is an isometry in $L^2$ and $H^1$. Strong continuity follows first for trigonometric polynomials, then by density and the isometry bound. Its generator maps $H^1$ to $L^2$ by the displayed spatial derivative. Let $U(t)=\operatorname{diag}(\mathrm{Id},S(t),\mathrm{Id})$. It is isometric in the norm
+\begin{equation}\label{eq:energynorm}
+ \norm X_E^2=\alpha_N|x|^2+\norm v_2^2+\beta_R|z|^2=2H_{\rm tot}(X),
+\end{equation}
+which is equivalent to the product norm at fixed positive scales.
+
+\textit{Local nonlinear construction before conservation.}
+Let $G(X)$ collect the core feedback, the forcing $(\B(\eta_N f-\eta_Rz),0)$ and receiver feedback. With $k_0=\norm K$, cross-product inequalities give
+\begin{equation}\label{eq:lipschitzbounds}
+ |f(x)|\le\tfrac12 k_0|x|^2,\qquad
+ \norm{J(x)}\le k_0|x|,\qquad |y|\le\sqrt m\norm p_2.
+\end{equation}
+For example $|\delta a\times b+a\times\delta b|\le |x|\,|\delta x|$. The finite-dimensional polynomial factors and bounded ports therefore make $G$ bounded and Lipschitz on every bounded energy ball. Seek the closed solution from
+\begin{equation}\label{eq:duhamel}
+ X(t)=U(t)X_0+\int_0^tU(t-s)G(X(s))\dd s.
+\end{equation}
+On the complete space $C([0,T];\HH)$, take a ball of radius $r$ about $U(t)X_0$. If $M,L$ bound $G$ and its Lipschitz constant on a state ball containing it, $TM\le r$ and $TL<1$ make the integral map a self-map and contraction. Its fixed point is the local solution; the same construction works for negative times. The local time can be chosen from an energy bound on $X_0$ alone.
+
+For two solutions staying in a common bounded ball, the isometry yields, for $t\ge0$,
+\begin{equation}\label{eq:dependence}
+ \norm{X(t)-\widetilde X(t)}_E
+ \le\norm{X_0-\widetilde X_0}_E
+ +L\int_0^t\norm{X(s)-\widetilde X(s)}_E\dd s
+ \le e^{Lt}\norm{X_0-\widetilde X_0}_E.
+\end{equation}
+The scalar bound follows by iteration of the integral inequality. This proves uniqueness and local dependence independently of any formal energy cancellation.
+
+\textit{Strong preparation and legitimate work.}
+Along a local energy-space solution, $q(t)=\eta_Nf(x(t))-\eta_Rz(t)$ is continuous. For $v_0\in H^1_{\rm per}{}^2$, the carrier Duhamel formula thus belongs to $C_tH^1$, and for either time direction
+\begin{equation}\label{eq:H1estimate}
+ \norm{v(t)}_{H^1}\le\norm{v_0}_{H^1}
+ +\sqrt{m_1}\int_0^{|t|}|q(\pm s)|\dd s.
+\end{equation}
+The translation generator maps $H^1$ to $L^2$; differentiating the formula in $L^2$ gives~\eqref{eq:strong} on the local interval. The finite-dimensional coordinates are $C^1$ because their port-dependent right sides are continuous. In one dimension, periodic $H^1$ functions have continuous representatives and a weak product rule. Accordingly the strong computation~\eqref{eq:localwork}--\eqref{eq:integrated} is valid: the derivative of the squared $L^2$ norm exists and the integrated periodic derivative vanishes.
+
+\textit{Energy-space work by approximation.}
+Approximate only the carrier preparation by periodic $H^1$ functions converging in $L^2$. Their energy norms are bounded, so the local contraction interval is common. Estimate~\eqref{eq:dependence} gives convergence in $C_t\HH$. The stocks converge by continuity of squared norms, while $f(x)$, $z$ and $\B^*p$ converge uniformly on that interval. Thus all finite-time work integrals in~\eqref{eq:integrated} converge. Conservation and the integrated accounts pass to the mild solution and persist on successive local intervals. Here the work integrands are continuous, so the global integrated accounts even have continuous time derivatives; this does not require pointwise $L^2$ carrier differentiation.
+
+\textit{Global restart and separate regularity bound.}
+If $E_0=H_{\rm tot}(X_0)$, the proved conservation gives
+\begin{equation}\label{eq:coercive}
+ |x(t)|\le\sqrt{2E_0/\alpha_N},\qquad
+ \norm{v(t)}_2\le\sqrt{2E_0},\qquad
+ |z(t)|\le\sqrt{2E_0/\beta_R}.
+\end{equation}
+The local restart time consequently has a uniform positive lower bound along the solution. No finite forward or backward maximal endpoint is possible. Estimate~\eqref{eq:dependence} also has finite-interval uniform constants for bounded initial energy sets.
+
+For the stronger preparation, there is a distinct forcing estimate
+\begin{equation}\label{eq:forcingbound}
+ |q(t)|\le\eta_N k_0E_0/\alpha_N
+       +\eta_R\sqrt{2E_0/\beta_R}=:Q_0,
+ \qquad
+ \norm{v(t)}_{H^1}\le\norm{v_0}_{H^1}+|t|\sqrt{m_1}Q_0.
+\end{equation}
+An $L^2$ energy bound alone would not prove this $H^1$ estimate. For two preparations, the $H^1$ Duhamel difference is bounded by the initial $H^1$ difference plus $\sqrt{m_1}\int|q-\widetilde q|$. Local Lipschitzness of $f$ and~\eqref{eq:dependence} bound that integral, proving finite-interval $H^1$ dependence. This completes all claims.
+\end{proof}
+
+The proof uses the complete-space contraction principle with its explicit local bounds, the translation group and the displayed scalar integral inequality. It does not infer existence from the name of a general interconnection framework. There is no uniform infinite-time $H^1$ estimate, no asserted $H^2$ regularity at tent corners and no uniform bound as $\eps_c\downarrow0$. Port averages remain $L^2$-bounded; point-cut claims retain the stronger trace hypothesis.
