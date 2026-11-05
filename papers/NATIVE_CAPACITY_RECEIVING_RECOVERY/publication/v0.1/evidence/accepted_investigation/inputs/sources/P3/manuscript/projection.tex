@@ -1,0 +1,171 @@
+\section{Projection capacity at arbitrary finite coupling}\label{sec:projection}
+\subsection{Invariant and exact native debit}
+The published rotation convention expands the fixed matrix as
+\begin{equation}\label{eq:kernel}% SRC: PC03 PC04
+\begin{gathered}
+K=\frac G{\sqrt7}
+\begin{pmatrix}2\sin\delta_g&2\cos\delta_g&\sqrt3\\
+2\sin\delta_g&2\cos\delta_g&-\sqrt3\end{pmatrix},\\
+e=R_z(-\delta_g)e_x=(\cos\delta_g,-\sin\delta_g,0),\qquad
+Ke=0,\quad \ker K=\R e,\quad e\cdot K^Ty=0 .
+\end{gathered}
+\end{equation}
+The row sum and difference are independent; equivalently $\det(KK^T)=48G^4/49>0$. Define the real scalar
+\begin{equation}\label{eq:projectiondef}% SRC: PC05
+h_e=|e\cdot\Omega|^2,\qquad
+\Jk=I-2h_e=\Omega^\dagger(\mathrm{Id}-2ee^T)\Omega .
+\end{equation}
+It may be negative and is distinct from the Jacobian $J(x)$. Changing $e$ to $-e$ changes neither quantity. This kernel vector is unrelated to the notation for carrier energy density.
+
+\begin{theorem}[Projection invariant and joint ceiling]\label{thm:projection}% SRC: PC07 PC08 PC10 PC11 PC12
+For the general preparations and fixed parameters of Section~\ref{sec:model}, $\Jk$ is conserved. If $j_0=\Jk(\Omega_0)$, then at every exchange time
+\begin{equation}\label{eq:debit}% SRC: PC08
+H_N(0)-H_N(t)=\alpha_N[h_e(0)-h_e(t)].
+\end{equation}
+Moreover,
+\begin{equation}\label{eq:joint}% SRC: PC10
+\begin{aligned}
+I(t)&\ge\max(|Z_0|,j_0),\\
+H_N(0)-H_N(t)&\le C_{\rm joint}
+:=\frac{\alpha_N}{2}[I_0-\max(|Z_0|,j_0)]\\
+&=\min\{C_Z,\alpha_Nh_e(0)\}\ge0 .
+\end{aligned}
+\end{equation}
+For empty external preparation this yields
+\begin{equation}\label{eq:emptystock}% SRC: PC11 AT04
+0\le H_C(t)+H_R(t)=H_N(0)-H_N(t)\le C_{\rm joint}\qquad(t\ge0).
+\end{equation}
+For arbitrary preloaded preparation the signed debit instead equals
+\begin{equation}\label{eq:preloaded}% SRC: PC12
+H_N(0)-H_N(t)
+=[H_C(t)+H_R(t)]-[H_C(0)+H_R(0)] .
+\end{equation}
+Thus the ceiling does not bound the entire pre-existing external stock.
+\end{theorem}
+\begin{proof}
+Put $w=K^Ty$ and $\mu=\eta_N/(2\alpha_N)$. The exact native equation~\cite[Proposition 2.1]{p1} is
+\begin{equation}\label{eq:core}% SRC: PC01
+\dot a=\mu w\times b,\qquad
+\dot b=-\mu w\times a,\qquad
+\dot\Omega=-i\mu w\times\Omega.
+\end{equation}
+Native coordinates are $C^1$ and $w$ is continuous in the general solution class, so ordinary finite-dimensional differentiation is valid. Triple products give
+\begin{equation}\label{eq:Idot}% SRC: PC06
+\dot I=2\mu\{a\cdot(w\times b)-b\cdot(w\times a)\}
+=-4\mu w\cdot(a\times b).
+\end{equation}
+Choose a right-handed real orthonormal basis with third vector $e$. In this basis $w=(w_1,w_2,0)$, and
+\begin{equation}\label{eq:hdot}% SRC: PC07
+\begin{aligned}
+\dot h_e
+&=2\mu\{a_3(w_1b_2-w_2b_1)-b_3(w_1a_2-w_2a_1)\}\\
+&=-2\mu w\cdot(a\times b),\qquad
+\dot\Jk=\dot I-2\dot h_e=0.
+\end{aligned}
+\end{equation}
+This is a coordinate proof of an invariant relation, not a new registration.
+Since $I(t)=j_0+2h_e(t)$, the native store gives~\eqref{eq:debit}. Its derivative agrees with $\alpha_N\dot h_e=-\eta_Nw\cdot(a\times b)=-P_{NC}$.
+
+Nonnegativity of $h_e$ gives $I(t)\ge j_0$; combine it with~\eqref{eq:oldinvariant}. Both terms in the minimum in~\eqref{eq:joint} are nonnegative, including at native zero. Conservation gives~\eqref{eq:emptystock} and~\eqref{eq:preloaded}. No intensity normalization, carrier differentiation, large-coupling condition or coherent-state hypothesis entered.
+\end{proof}
+The exact debit identity expresses the existing account; the indefinite scalar is not an additional physical store.
+
+\subsection{Feasibility and sharp algebraic minimum}
+\begin{proposition}[Full common invariant level]\label{prop:minimum}% SRC: PC14 PC15 PC16 PC17
+Fix $Z\in\C$ and $j\in\R$. In the full native space $\C^3$,
+\begin{equation}\label{eq:minimum}% SRC: PC17
+\begin{gathered}
+\{\Omega:Z_2(\Omega)=Z,\ \Jk(\Omega)=j\}\ne\varnothing
+\quad\Longleftrightarrow\quad j\ge-|Z|,\\
+\min_{\{Z_2=Z,\ \Jk=j\}}|\Omega|^2=\max(|Z|,j)
+\qquad(j\ge-|Z|).
+\end{gathered}
+\end{equation}
+For infeasible pairs the set is empty and no minimum is asserted.
+\end{proposition}
+\begin{proof}
+Write $\Omega=he+v_\perp$, where $h\in\C$ and $e^Tv_\perp=0$. Real orthogonal decomposition gives
+\begin{equation}\label{eq:decomposition}% SRC: PC13
+Z_2=h^2+v_\perp^Tv_\perp,\quad
+\Jk=\norm{v_\perp}^2-|h|^2,\quad
+I=|h|^2+\norm{v_\perp}^2 .
+\end{equation}
+The norm is Hermitian, $\norm{v_\perp}^2=v_\perp^\dagger v_\perp$, whereas the bilinear square can vanish at a nonzero vector. The triangle inequality in a real orthonormal basis of $e^\perp$ gives $|v_\perp^Tv_\perp|\le\norm{v_\perp}^2$, hence
+\begin{equation}\label{eq:feasibility}% SRC: PC14
+|Z|\ge |h|^2-|v_\perp^Tv_\perp|
+\ge |h|^2-\norm{v_\perp}^2=-j .
+\end{equation}
+This proves necessity. Every feasible state also satisfies $I\ge|Z|$ and $I\ge j$.
+
+For sufficiency and equality put $\rho=|Z|$, and take real orthonormal $u,v$ in $e^\perp$. If $\rho>0$, choose a unit complex $\gamma$ with $\gamma^2\rho=Z$. If $\rho=0$, set $\gamma=1$, without division or an argument of zero.
+
+For $-\rho\le j\le\rho$, the state
+\begin{equation}\label{eq:equalityone}% SRC: PC15
+\Omega_*=\gamma\left[
+\sqrt{\frac{\rho+j}{2}}u+\sqrt{\frac{\rho-j}{2}}e\right]
+\end{equation}
+has $I_*=\rho$, $Z_2(\Omega_*)=\gamma^2\rho=Z$ and
+$\Jk(\Omega_*)=(\rho+j)/2-(\rho-j)/2=j$.
+For $j\ge\rho$, use
+\begin{equation}\label{eq:equalitytwo}% SRC: PC16
+\Omega_*=\gamma\left[
+\sqrt{\frac{j+\rho}{2}}u+i\sqrt{\frac{j-\rho}{2}}v\right].
+\end{equation}
+Here $I_*=j$, $h_e=0$ and $\Jk=j$, while the bilinear square is
+$\gamma^2[(j+\rho)/2-(j-\rho)/2]=Z$. All square-root arguments are nonnegative in their declared ranges. These constructions attain the lower bound.
+
+For $\rho>0$, $j=-\rho$ gives $\gamma\sqrt\rho\,e$, and $j=\rho$ gives $\gamma\sqrt\rho\,u$ in both branches. Feasible negative $j$ is covered by~\eqref{eq:equalityone}. If $Z=0$, negative $j$ is infeasible; $j=0$ has minimum zero, uniquely attained at native zero; and $j>0$ has minimizer $\sqrt{j/2}(u+iv)$. Native zero has $I=Z_2=\Jk=h_e=0$. The zero-invariant level can contain nonzero states, as shown below. No compactness assertion about an unbounded level set is required.
+\end{proof}
+This is sharpness under the two invariant constraints in the full native space. It is not a minimization restricted to the coherent family or a claim that a coupled trajectory reaches a constructed state.
+
+\subsection{Zero drive and a strict active witness}
+\begin{proposition}[Zero ceiling and zero drive]\label{prop:dark}% SRC: PC18 PC19
+For the fixed real rank-two $K$ and any native state,
+\begin{equation}\label{eq:zeroceiling}% SRC: PC18
+C_{\rm joint}(\Omega_0)=0\quad\Longleftrightarrow\quad f(x_0)=0.
+\end{equation}
+With empty external preparation, zero drive is stationary, whereas nonzero drive gives initial strict supply.
+\end{proposition}
+\begin{proof}
+The minimum in~\eqref{eq:joint} is zero precisely when $C_Z=0$ or $h_e(0)=0$. In the first case, $I=|Z_2|$ and~\eqref{eq:oldinvariant} implies $a\times b=0$. In the second, $e\cdot a=e\cdot b=0$, so $a\times b$ is parallel to $e$, possibly zero. Both give $f=0$.
+
+Conversely, $f=0$ means $a\times b\in\R e$. If the cross product is zero,~\eqref{eq:oldinvariant} and nonnegativity give $I=|Z_2|$, hence $C_Z=0$. If $a\times b=\lambda e$ with $\lambda\ne0$, its orthogonality to $a$ and $b$ gives $e\cdot a=e\cdot b=0$, hence $h_e=0$. This includes native zero without dividing by intensity or chirality.
+
+When $f(x_0)=0$ and the external state is empty, the constant full state solves~\eqref{eq:system}; uniqueness gives stationarity~\cite[Section 5]{p1}. For $f(x_0)\ne0$, the empty-launch proposition~\cite[Proposition 4.1]{p1} gives
+\begin{equation}\label{eq:initialdebit}% SRC: PC19 AT24
+H_N(0)-H_N(t)=\frac{\eta_N^2m}{2}|f(x_0)|^2t^2+o(t^2)>0
+\end{equation}
+for all sufficiently small positive $t$, at each fixed finite coupling.
+\end{proof}
+A nonzero zero-drive core with preloaded carrier need not be stationary, because $J^Ty$ can be nonzero. Native zero is different: $f(0)=J(0)=0$ for every external state.
+
+For the admitted launch~\eqref{eq:launch}, direct evaluation gives
+\begin{equation}\label{eq:launchprojection}% SRC: PC20
+\begin{gathered}
+I_0=3,\quad Z_0=2+e^{2i\phi},\quad |Z_0|=\sqrt{9-8\sin^2\phi},\\
+h_e(0)=|\cos\delta_g-\sin\delta_g e^{i\phi}|^2
+=1-\sin(2\delta_g)\cos\phi,\quad
+j_0=1+2\sin(2\delta_g)\cos\phi .
+\end{gathered}
+\end{equation}
+Choose the single fixed yaw $\delta_g=\pi/4$ before the trajectory. Because $0<\cos\phi<1$ and both compared quantities are positive,
+\begin{equation}\label{eq:strictwitness}% SRC: PC21
+\begin{gathered}
+j_0=1+2\cos\phi>|Z_0|,\qquad
+j_0^2-|Z_0|^2=4\cos\phi(1-\cos\phi)>0,\\
+0<C_{\rm joint}=\alpha_N(1-\cos\phi)
+<C_Z=\frac{\alpha_N}{2}(3-\sqrt{9-8\sin^2\phi}),\\
+|f_0|^2=\frac{10G^2\sin^2\phi}{7}>0 .
+\end{gathered}
+\end{equation}
+The last identity is the published drive~\eqref{eq:drive0} at this yaw. Thus the old ceiling is separated by a fixed positive gap from every actual net debit, while the launch remains active. The new ceiling is not asserted attained. This witness is neither a yaw classification nor a preferred physical orientation.
+
+\subsection{Why algebraic equality need not be reached}
+For real unit $u\perp e$, the admitted state $\Omega_0=u+ie$ satisfies
+\begin{equation}\label{eq:nonattainment}% SRC: PC22
+I_0=2,\quad Z_0=0,\quad h_e(0)=1,\quad j_0=0,\quad
+f(x_0)=K(u\times e)\ne0 .
+\end{equation}
+Indeed $u\times e$ is a nonzero vector perpendicular to $e$, so it is not in $\ker K$. This example lies outside the restricted coherent family and may be paired with empty external preparation. Its common native invariant level contains native zero, the unique intensity minimizer on that level.
+
+Suppose the nonzero native state reached zero at a finite time $t_*$. Retain the actual carrier and receiver coordinates at that time; they need not vanish. The invariant native-zero subspace supplies an evolution through this same full state, since $f(0)=J(0)=0$. The global forward/backward uniqueness of the published solution theorem forces the original solution to have zero native coordinate also initially, a contradiction. Equivalently, along the actual solution the continuous $w(t)$ is fixed and~\eqref{eq:core} is a homogeneous linear ODE in $\Omega$; uniqueness in both directions gives the same conclusion. This treats the actual coefficient, not a freely chosen control. Nothing here excludes infinite-time approach or contradicts the accepted coherent-launch results.

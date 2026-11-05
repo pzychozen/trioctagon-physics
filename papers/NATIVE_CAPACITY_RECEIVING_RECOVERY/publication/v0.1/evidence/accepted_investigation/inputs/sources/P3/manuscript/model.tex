@@ -1,0 +1,82 @@
+\section{Fixed candidate and inherited foundations}\label{sec:model}
+\subsection{Registration and finite ports}
+Write $x=(a,b)\in\R^6$, $\Omega=a+ib\in\C^3$, and $I=|\Omega|^2$. Retain the fixed registration and raw port order of the published candidate~\cite[Section 1]{p1}:
+\begin{equation}\label{eq:registration}% SRC: AT01 PC01
+\begin{gathered}
+e_y=(0,1,0),\quad e_z=(0,0,1),\quad
+n_\pm=(2e_y\pm\sqrt3e_z)/\sqrt7,\quad A_{\rm reg}=\lambda_gR_z(\delta_g),\\
+K=\kappa_{\rm in}\begin{pmatrix}n_+^T\\ n_-^T\end{pmatrix}A_{\rm reg},
+\qquad f(x)=K(a\times b),\qquad J(x)=D_xf(x).
+\end{gathered}
+\end{equation}
+The gains $\lambda_g,\kappa_{\rm in}>0$ and yaw $\delta_g$ are fixed. The real matrix $K$ has rank two; $J$ is $2\times6$. Contact-tangent orientation signs do not insert extra signs into this raw chiral projection.
+
+Let $s\in\R/L_c\mathbb Z$, with finite $L_c>0$ and speed $c>0$. Contacts $s_\pm=L_c/2\mp\eta_{\rm geom}$ have shortest periodic distance $2\eta_{\rm geom}$. Fix $0<\epsilon_c<\eta_{\rm geom}$ and set
+\begin{equation}\label{eq:ports}% SRC: AT02
+\begin{gathered}
+b_\sigma(s)=\epsilon_c^{-1}
+\left(1-\frac{|\operatorname{wrap}_{L_c}(s-s_\sigma)|}{\epsilon_c}\right)_+,\qquad
+\B v=b_+v_++b_-v_-,\\
+\B^*p=\begin{pmatrix}\int b_+p\dd s\\ \int b_-p\dd s\end{pmatrix},\quad
+m=\frac2{3\epsilon_c},\quad d=\frac2{\epsilon_c^3},\\
+\B^*\B=m\mathrm{Id}_2,\qquad
+\norm{\B}=\norm{\B^*}=\sqrt m,\qquad \norm{\B'v}_2=\sqrt d\,|v|.
+\end{gathered}
+\end{equation}
+All spatial integrals cover one period. The shortest-distance condition ensures disjointness on the whole circle, including its coordinate seam. Each normalized tent is continuous and belongs to $H^1_{\rm per}$; its first weak derivative is piecewise constant in $L^2$, without corner delta terms. The displayed identities follow from the affine halves and disjoint support~\cite[Section 3]{p1}. No second profile derivative is used.
+
+\subsection{Equations, stores and solution class}
+Fix $\alpha_N,\beta_R,\eta_N>0$ and any finite constant $\kappa=\eta_R>0$. For independent native, periodic carrier and receiver preparations, retain
+\begin{equation}\label{eq:system}% SRC: AT03 PC02
+\boxed{\begin{aligned}
+\dot x&=-\frac{\eta_N}{2\alpha_N}J(x)^Ty,
+&p_t+c(r_c)_s&=\B\{\eta_N f(x)-\kappa z\},\\
+(r_c)_t+cp_s&=0,
+&\dot z&=\frac{\kappa}{\beta_R}y,\qquad y=\B^*p .
+\end{aligned}}
+\end{equation}
+There are no native $F$ jumps, parameter switches or additional feedback terms. Both couplings occupy the same finite profile regions. The trial stores and total signed powers are
+\begin{equation}\label{eq:stores}% SRC: AT04 PC02
+\begin{gathered}
+H_N=\frac{\alpha_N}{2}|x|^2,\quad
+H_C=\frac12\int(p^2+r_c^2)\dd s,\quad
+H_R=\frac{\beta_R}{2}|z|^2,\quad H_{\rm tot}=H_N+H_C+H_R,\\
+P_{NC}=\eta_N f(x)^Ty,\qquad P_{CR}=\kappa z^Ty,\\
+\dot H_N=-P_{NC},\qquad \dot H_C=P_{NC}-P_{CR},\qquad
+\dot H_R=P_{CR},\qquad \dot H_{\rm tot}=0.
+\end{gathered}
+\end{equation}
+The quadratic $H_N$ is distinct from the native quartic potential. Both powers sum all signed port contributions.
+
+The global solution theorem of the reciprocal-exchange paper~\cite[Theorem 3.1]{p1} gives a unique solution in $C(\R;\R^6\times L^2_{\rm per}{}^2\times\R^2)$, with $C^1$ native and receiver coordinates, conservation and the integrated balances~\eqref{eq:stores}. The bounded adjoint makes $y$ continuous even for $L^2$ carrier preparation. Positive storage weights and conservation bound its norm. For $H^1$ carrier preparation, additionally
+\begin{equation}\label{eq:regularity}% SRC: AT03 PC01
+(p,r_c)\in C(\R;H^1_{\rm per})^2\cap C^1(\R;L^2)^2.
+\end{equation}
+The projection theorem needs only the general class. The quantitative theorem uses empty external preparation, whose carrier belongs to $H^1$. Existence is inherited, not inferred from a formal energy calculation.
+
+The previously proved complex bilinear invariant is~\cite[Theorem 5.1]{p1}
+\begin{equation}\label{eq:oldinvariant}% SRC: PC09 AT26
+\begin{gathered}
+Z_2(\Omega)=\Omega^T\Omega=|a|^2-|b|^2+2i\,a\cdot b,\qquad
+Z_2(\Omega(t))=Z_0,\\
+I^2-|Z_2|^2=4|a\times b|^2,\qquad I(t)\ge|Z_0|,\qquad
+C_Z:=\frac{\alpha_N}{2}(I_0-|Z_0|)\ge0.
+\end{gathered}
+\end{equation}
+Here and below a transpose is bilinear; a dagger denotes conjugate transpose.
+
+\subsection{The special launch used later}
+The quantitative result will impose, separately from the general model,
+\begin{equation}\label{eq:launch}% SRC: AT03 AT05 PC20
+\Omega_0=(1,e^{i\phi},1),\quad 0<\phi<\pi/12,\qquad
+p(0)=r_c(0)=z(0)=0.
+\end{equation}
+All moduli are one and the ordinary phase span is $\phi$. With $G=\kappa_{\rm in}\lambda_g$, the published launch evaluation~\cite[Section 2.3, (2.12)--(2.13)]{p2} gives
+\begin{equation}\label{eq:drive0}% SRC: AT05 PC20
+\begin{gathered}
+R=|x_0|=\sqrt3,\qquad k=\norm K=G\sqrt{8/7},\qquad F_{\max}=kR^2/2,\\
+f_{0,\pm}=\frac{G\sin\phi}{\sqrt7}(-2\sin\delta_g\pm\sqrt3),\qquad
+|f_0|^2=\frac{G^2\sin^2\phi}{7}(6+8\sin^2\delta_g)>0 .
+\end{gathered}
+\end{equation}
+An individual component may vanish, but the vector never does for a fixed yaw. No invariance of this launch family or its initial coherent phase sector is presumed.

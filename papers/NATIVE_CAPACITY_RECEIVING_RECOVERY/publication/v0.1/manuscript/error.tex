@@ -1,0 +1,80 @@
+\section{Uniform finite error on the complete episode}\label{sec:error}
+\subsection{Positive denominator and exact constants}\label{sec:constants}
+The elementary numerical bounds used here have exact integral certificates:
+\begin{equation}\label{eq:pibounds}% RR23
+\begin{gathered}
+ \frac{22}{7}-\pi
+ =\int_0^1\frac{s^4(1-s)^4}{1+s^2}\dd s>0,\\
+ \frac1{1+s^2}-(1-s^2)=\frac{s^4}{1+s^2}>0
+ \quad(0<s<1),\qquad \pi>8/3 .
+\end{gathered}
+\end{equation}
+For the first identity, polynomial division gives quotient
+$s^6-4s^5+5s^4-4s^2+4$, with integral $22/7$, and remainder $-4$.
+Integrating $4/(1+s^2)$ gives $\pi$. For the lower bound integrate the second identity and use $\int_0^1(1-s^2)\dd s=2/3$. Strict positivity on $(0,1)$ proves both inequalities. Thus $1/100<\pi/12$ and $\pi>1$.
+
+Put $T=t_F$ and $\theta=Ly_0T=2L\sqrt C\,T$. Since
+$1-\cos\phi=2\sin^2(\phi/2)\le\phi^2/2$,
+\begin{equation}\label{eq:theta}% RR24
+\begin{gathered}
+ \nu T=2\pi\sqrt{18/17}<20/3,\qquad 1/\sqrt3<3/5,\\
+ \theta=\frac{\sqrt2}{R}\sqrt{1-\cos\phi}\,\nu T
+ \le\frac{\phi}{\sqrt3}\nu T<4\phi\le\frac1{25}.
+\end{gathered}
+\end{equation}
+The time comparison follows from $\pi<22/7$ and
+$(20/3)^2-(44/7)^2(18/17)=19568/7497>0$.
+Similarly $(3/5)^2-1/3=2/75>0$. The sine bound follows by integrating cosine. Therefore $1-Ly_0t\ge1-\theta>24/25$ throughout $[0,T]$, establishing the positive denominator before using~\eqref{eq:majorant} there.
+
+Chronology also follows: $\varpi/\nu=\sqrt{17/18}<1<\pi$, so
+$t_A<t_R$, while $t_F=2t_R>t_R>0$. These are comparison landmarks for evaluating the actual solution, not inferred physical cycle times.
+
+\subsection{Strong difference before estimating its residual}\label{sec:difference}
+The actual curve is strong by P1 and the finite shift. The reference is strong by~\eqref{eq:embedding}--\eqref{eq:solution}. Their difference $E=Y-Y^{(0)}$ therefore has $C_tH^1$ carrier coordinates and is $C^1_t$ in the Hilbert space before a residual is estimated. Subtracting the two equations gives the exact identity
+\begin{equation}\label{eq:difference}% RR25
+ \dot E=\Ac E+\mathcal N(Y)
+       +(0,0,0,-c\partial_sp^{(0)},0),\qquad E(0)=0 .
+\end{equation}
+The first carrier residual vanishes because $r_c^{(0)}=0$; the second is
+$-c\partial_sp^{(0)}$. Native and receiver interactions remain in both operators. No receiver term is omitted. Only the first weak spatial derivative is used; no second tent derivative or operator-norm convergence of an unbounded generator is invoked.
+
+Apply~\eqref{eq:forced} to~\eqref{eq:difference}. Equations~\eqref{eq:nonlinearbound}, \eqref{eq:majorant} and \eqref{eq:theta} give
+\begin{equation}\label{eq:integrals}% RR26
+\begin{aligned}
+ \int_0^T\norm{\mathcal N(Y(t))}_*\dd t
+ &\le\int_0^T\frac{Ly_0^2}{(1-Ly_0t)^2}\dd t
+ =\frac{y_0\theta}{1-\theta},\\
+ \int_0^T c\norm{\partial_sp^{(0)}(t)}_2\dd t
+ &=\int_0^T\gamma|P(t)|\dd t
+ =\frac{4\gamma|X_0|\omega_N}{\varpi^2}\\
+ &\le\sqrt{2C}\frac{4\gamma\omega_N}{\varpi^2}.
+\end{aligned}
+\end{equation}
+Here $\norm{\partial_s\B n}_2=\sqrt d$, and
+$\int_0^{2\pi}|\sin q|\dd q=4$ by splitting the two signed half-periods. The integrands in both estimates are nonnegative; their full-$T$ integrals bound every earlier time. Division by the positive $\sqrt{2C}$ yields
+\begin{equation}\label{eq:errorbound}% RR27
+ \sup_{0\le t\le T}\frac{\norm{E(t)}_*}{\sqrt{2C}}
+ \le\frac{\sqrt2\,\theta}{1-\theta}
+      +\frac{4\gamma\omega_N}{\varpi^2}.
+\end{equation}
+
+\subsection{Strict margins on the allowed endpoints}\label{sec:strict}
+Using the exact rate ratios,
+\[
+ \frac{4\gamma\omega_N}{\varpi^2}
+ =\frac{72}{17}\sqrt{5/6}\frac{\gamma}{\nu}
+ <4\frac{\gamma}{\nu}\le\frac1{25},
+\]
+because $16-(72/17)^2(5/6)=304/289>0$. Also $\sqrt2<10/7$, since
+$(10/7)^2-2=2/49>0$. The function $\theta/(1-\theta)$ is increasing on $[0,1)$; hence the strict $\theta<1/25$ gives
+\begin{equation}\label{eq:strictbound}% RR28
+\begin{gathered}
+ \sup_{0\le t\le t_F}\frac{\norm{E(t)}_*}{\sqrt{2C}}
+ <\frac{10}{7}\frac1{24}+\frac1{25}
+ =\frac5{84}+\frac1{25}
+ =\frac{209}{2100}<\frac1{10},\\
+ \frac1{10}-\frac{209}{2100}=\frac1{2100}>0 .
+\end{gathered}
+\end{equation}
+The inequalities remain strict at $\phi=1/100$ and $\gamma/\nu=1/100$.
+No coefficient depends on phase, so this normalized estimate is uniform over the declared interval at one fixed tuple. At the excluded phase $\phi=0$, $C=0$; none of these normalized divisions is made there.

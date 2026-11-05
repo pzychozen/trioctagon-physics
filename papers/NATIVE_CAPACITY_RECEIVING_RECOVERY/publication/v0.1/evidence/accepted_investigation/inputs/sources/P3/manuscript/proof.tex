@@ -1,0 +1,167 @@
+\section{Finite-error proof of the transfer certificate}\label{sec:proof}
+\subsection{Exact scaling and inherited bounds}
+For each finite $\kappa>0$, use the published change of variables~\cite[Section 4.1]{p2}:
+\begin{equation}\label{eq:scaling}% SRC: AT06
+\begin{gathered}
+\tau=\kappa t,\quad x_\kappa(\tau)=x(\tau/\kappa),\quad
+(p,r_c,z)(\tau/\kappa)=\frac{\eta_N}{\kappa}
+(\widehat p,\widehat r,\widehat z)(\tau)=\frac{\eta_N}{\kappa}V_\kappa(\tau),
+\quad \widehat y=\B^*\widehat p,\\
+(x_\kappa)_\tau=-\frac{\eta_N^2}{2\alpha_N\kappa^2}J(x_\kappa)^T\widehat y,\qquad
+\widehat p_\tau+\frac c\kappa\widehat r_s=\B(f(x_\kappa)-\widehat z),\\
+\widehat r_\tau+\frac c\kappa\widehat p_s=0,\qquad
+\widehat z_\tau=\widehat y/\beta_R .
+\end{gathered}
+\end{equation}
+The original system still has $c>0$. Since $\kappa$ is dimensionless, $\tau$ retains time units. Stock and power convert with different factors:
+\begin{equation}\label{eq:conversion}% SRC: AT13 AT21
+E_{\rm out}(\tau/\kappa)=a_\kappa\norm{V_\kappa(\tau)}_{CR}^2,\qquad
+P_{CR}(\tau/\kappa)=\frac{\eta_N^2}{\kappa}\widehat z^T\widehat y .
+\end{equation}
+For $W=(q_c,h,v)$ define the weighted norm and finite operator
+\begin{equation}\label{eq:operator}% SRC: AT07
+\begin{gathered}
+\norm W_{CR}^2=\norm{q_c}_2^2+\norm h_2^2+\beta_R|v|^2,\\
+\LL_\kappa W=
+\left(-\frac c\kappa h_s-\B v,\ -\frac c\kappa(q_c)_s,\
+\frac1{\beta_R}\B^*q_c\right),\qquad
+D(\LL_\kappa)=H^1_{\rm per}{}^2\times\R^2 .
+\end{gathered}
+\end{equation}
+Periodic integration and adjointness give
+\begin{equation}\label{eq:forced}% SRC: AT07
+\begin{gathered}
+\langle W,\LL_\kappa W\rangle_{CR}
+=-\frac c\kappa\int(q_ch_s+h(q_c)_s)\dd s
+-\langle q_c,\B v\rangle+v^T\B^*q_c=0,\\
+W_\tau=\LL_\kappa W+g
+\ \Longrightarrow\
+\norm{W(\tau)}_{CR}\le\norm{W(0)}_{CR}+\int_0^\tau\norm{g(s)}_{CR}\dd s .
+\end{gathered}
+\end{equation}
+For a known strong curve, the derivative of
+$\sqrt{\norm W_{CR}^2+\delta^2}$ is at most $\norm g_{CR}$. Integration and $\delta\downarrow0$ prove the last line at zeros of $W$ as well. These are the weighted estimates of the published proof~\cite[Section 4.2]{p2}; receiver loading remains inside the norm-preserving linear part.
+
+Empty external preparation and conservation give $|x_\kappa|\le R$. The derivative
+$J(x)h=K(h_a\times b+a\times h_b)$ implies
+\begin{equation}\label{eq:ball}% SRC: AT05
+|f(x)|\le\frac k2|x|^2,\quad \norm{J(x)}\le k|x|,\quad
+|f(x)-f(\widetilde x)|\le kR|x-\widetilde x|
+\quad(|x|,|\widetilde x|\le R).
+\end{equation}
+The last bound integrates $J$ on the line segment in the convex ball; it does not require preservation of a coherent phase sector. Applying~\eqref{eq:forced} with forcing $(\B f(x_\kappa),0,0)$ and then integrating the native equation gives, for every finite $\tau\ge0$,
+\begin{equation}\label{eq:drift}% SRC: AT08
+\begin{gathered}
+\norm{V_\kappa(\tau)}_{CR}\le\sqrt mF_{\max}\tau,\qquad
+|\widehat y(\tau)|\le mF_{\max}\tau,\\
+|x_\kappa(\tau)-x_0|
+\le\frac{\eta_N^2kRmF_{\max}}{4\alpha_N\kappa^2}\tau^2,\qquad
+|f(x_\kappa(\tau))-f_0|\le\frac{A\tau^2}{\kappa^2}.
+\end{gathered}
+\end{equation}
+The coefficient one-fourth contains the feedback factor one-half and the integral of time. These exact-solution bounds are inherited from the published argument~\cite[Sections 4.2--4.3]{p2} and are not restricted to its witness horizon.
+
+\subsection{The longer comparison window}
+Freeze the core and omit scaled propagation only in the comparison:
+\begin{equation}\label{eq:comparison}% SRC: AT10
+\begin{aligned}
+\widehat p^{(0)}(\tau)&=\frac{\sin(\omega\tau)}{\omega}\B f_0,&
+\widehat r^{(0)}(\tau)&=0,\\
+\widehat z^{(0)}(\tau)&=f_0(1-\cos(\omega\tau)),&
+\widehat y^{(0)}(\tau)&=\frac m\omega f_0\sin(\omega\tau).
+\end{aligned}
+\end{equation}
+All its external coordinates vanish initially. It solves its comparison equations because $\omega^2=m/\beta_R$~\cite[Section 5]{p2}. It is not the exact finite-speed solution.
+
+Let $E_\kappa=V_\kappa-V_0$. The exact empty-preparation solution has the strong regularity~\eqref{eq:regularity}, preserved by finite scaling. The explicit comparison carrier is $C^1_\tau H^1_s$. Their difference therefore already has carrier regularity $C_\tau H^1_s\cap C^1_\tau L^2_s$ and a $C^1$ receiver coordinate, before estimating its residual. Subtraction gives
+\begin{equation}\label{eq:error}% SRC: AT11
+\begin{aligned}
+(E_\kappa)_\tau={}&\LL_\kappa E_\kappa
++(\B(f(x_\kappa)-f_0),0,0)\\
+&+\left(0,-\frac c{\kappa\omega}\B'f_0\sin(\omega\tau),0\right),
+\qquad E_\kappa(0)=0 .
+\end{aligned}
+\end{equation}
+The propagation residual is negative in the second carrier coordinate; the first is zero because $\widehat r^{(0)}=0$. It lies in $L^2$ through the first weak derivative of the tents. It need not lie in $H^1$. We neither differentiate it into $H^1$ nor infer strong regularity from it. No second tent derivative or operator-norm limit of an unbounded generator is used.
+
+The forced estimate and~\eqref{eq:drift} imply, for $0\le\tau\le S$,
+\begin{equation}\label{eq:uniformerror}% SRC: AT12
+\begin{aligned}
+\norm{E_\kappa(\tau)}_{CR}
+&\le\frac{c\sqrt d\,|f_0|}{\kappa\omega}
+\int_0^\tau|\sin(\omega s)|\dd s
++\frac{\sqrt m\,A\tau^3}{3\kappa^2}\\
+&\le\frac{4c\sqrt d\,|f_0|}{\kappa\omega^2}
++\frac{\sqrt m\,AS^3}{3\kappa^2}
+=\varepsilon_\kappa .
+\end{aligned}
+\end{equation}
+Each half of $[0,2\pi/\omega]$ contributes $2/\omega$ to the absolute sine integral. Both integrated bounds are nondecreasing with the upper endpoint. Thus~\eqref{eq:uniformerror} is uniform over the whole window. Global strong existence and the all-finite-$\tau$ drift estimates justify extending the argument; the proof does not change the horizon in the published native-credit theorem.
+
+\subsection{Weighted projections and positive denominators}
+By $\B^*\B=m\mathrm{Id}_2$ and $m/\omega^2=\beta_R$,
+\begin{equation}\label{eq:comparisonnorm}% SRC: AT14
+\norm{V_0(\tau)}_{CR}^2
+=\Lambda^2[\sin^2(\omega\tau)+(1-\cos(\omega\tau))^2]
+=4\Lambda^2\sin^2(\omega\tau/2).
+\end{equation}
+Its norm is at most $2\Lambda$, equals $2\Lambda$ at $\pi/\omega$, and the entire comparison state is zero at $S$. Triangle and reverse triangle inequalities, followed by the stock conversion~\eqref{eq:conversion}, prove~\eqref{eq:stockbounds} whenever $\varepsilon_\kappa<2\Lambda$. Positivity is established before the lower bound is squared.
+
+The carrier projection is contractive in the $L^2$ pair norm, and the receiver projection is contractive in $\sqrt{\beta_R}$ times its Euclidean norm. At $\pi/\omega$, the comparison carrier is zero and the comparison receiver is $2f_0$, of weighted norm $2\Lambda$. The same error estimate therefore proves~\eqref{eq:projectedbounds}. The small carrier bound uses its intermediate zero; the endpoint estimate uses the whole-state zero at $S$. Receiver positivity is separate from total-stock positivity.
+
+The definitions~\eqref{eq:fractions} now have positive denominators. Conservation gives the recovery identity there. Since $1-\mathcal S_\kappa=H_C(t_\pi)/E_{\rm out}(t_\pi)$ and $H_R(t_{2\pi})\le E_{\rm out}(t_{2\pi})$, division of the appropriate upper and lower bounds proves the first line of~\eqref{eq:ratiobounds}. It holds for $\varepsilon_\kappa<2\Lambda$, with a strictly positive common fraction lower bound when $\varepsilon_\kappa<\Lambda$. Subtracting the endpoint upper bound from the intermediate lower bound gives
+\begin{equation}\label{eq:recoverysubtraction}% SRC: AT19
+\begin{aligned}
+H_N(t_{2\pi})-H_N(t_\pi)
+&=E_{\rm out}(t_\pi)-E_{\rm out}(t_{2\pi})\\
+&\ge a_\kappa[(2\Lambda-\varepsilon_\kappa)^2-\varepsilon_\kappa^2]
+=\frac{2\eta_N^2}{\kappa^2}\Lambda(\Lambda-\varepsilon_\kappa).
+\end{aligned}
+\end{equation}
+The increment is at most $E_{\rm out}(t_\pi)\le M_\kappa$. No monotonicity throughout the interval is used.
+
+\subsection{A separate receiver-product estimate}
+At $\tau_{\rm q}=\pi/(2\omega)$ and $\tau_{\rm b}=3\pi/(2\omega)$ the comparison receiver is $f_0$ and its output is respectively $+(m/\omega)f_0$ and $-(m/\omega)f_0$. Put $\delta z=\widehat z-\widehat z^{(0)}$ and $\delta y=\widehat y-\widehat y^{(0)}$. Contractive projection and bounded $\B^*$ give
+$|\delta z|\le\varepsilon_\kappa/\sqrt{\beta_R}$ and
+$|\delta y|\le\sqrt m\,\varepsilon_\kappa$.
+The complete product difference is
+\begin{equation}\label{eq:product}% SRC: AT20
+\widehat z^T\widehat y-(\widehat z^{(0)})^T\widehat y^{(0)}
+=(\widehat z^{(0)})^T\delta y
++\delta z^T\widehat y^{(0)}+\delta z^T\delta y .
+\end{equation}
+The first two terms each have bound $\sqrt m\,|f_0|\varepsilon_\kappa$, since
+$m/(\omega\sqrt{\beta_R})=\sqrt m$. The third has bound
+$\omega\varepsilon_\kappa^2$. Hence, writing $Q_R=\widehat z^T\widehat y$,
+\begin{equation}\label{eq:receivererror}% SRC: AT21
+\begin{gathered}
+|Q_R(\tau_{\rm b})+D|\le\omega(2\Lambda\varepsilon_\kappa+\varepsilon_\kappa^2),\\
+|Q_R(\tau_{\rm q})-D|\le\omega(2\Lambda\varepsilon_\kappa+\varepsilon_\kappa^2).
+\end{gathered}
+\end{equation}
+Both vector errors and their product are included. The power factor in~\eqref{eq:conversion} contains one $\kappa$ from the definition of $P_{CR}$ and two factors $\eta_N/\kappa$ from the states.
+
+\subsection{Threshold, native import and chronology}
+For $\kappa\ge\kappa_{\rm cert}(q)$, the two allocations are
+\begin{equation}\label{eq:allocation}% SRC: AT23 AT24
+\frac{B_1}{\kappa}\le\frac{q\Lambda}{2},\qquad
+\frac{B_2}{\kappa^2}\le\frac{q\Lambda}{2},\qquad
+\varepsilon_\kappa\le q\Lambda<\Lambda,\qquad
+2q+q^2\le\frac{11}{25}<\frac12 .
+\end{equation}
+Thus $r_\kappa\le[q/(2-q)]^2$ and the second line of~\eqref{eq:ratiobounds} follows. The error in~\eqref{eq:receivererror} is at most $D(2q+q^2)$, leaving a sign margin at least $14D/25\ge D/2$. This proves the receiver witnesses~\eqref{eq:receiverwitnesses}.
+
+The native witness~\eqref{eq:nativewitness} follows from the same-trajectory paper's Theorem 3.1~\cite{p2}, with exactly its coherent launch, constants~\eqref{eq:nativethreshold} and $T/\kappa=t_{\rm b}$. That theorem is not reproved or mistaken for the receiver-power estimate.
+
+For each fixed finite $\kappa$, the published empty-launch proposition~\cite[Proposition 4.1]{p1} gives initial $P_{NC}>0$, $H_R>0$ and $P_{CR}>0$. Shorten their common interval into $(0,t_{\rm q}/2)$. The separate finite estimate proves charging at $t_{\rm q}$; no nonuniform fixed-$\kappa$ short-time expansion is evaluated at a $\kappa$-dependent landmark.
+
+Continuity of $z$ and of $\B^*p$ makes $P_{CR}$ continuous. Its strict negative value at $t_{\rm b}$ permits
+\begin{equation}\label{eq:backflowinterval}% SRC: AT25
+\begin{gathered}
+0<\rho_\kappa<\frac{\pi}{4\omega\kappa},\qquad
+[t_{\rm b}-\rho_\kappa,t_{\rm b}+\rho_\kappa]\subset(t_\pi,t_{2\pi}),\\
+P_{CR}(t)\le-\frac{\eta_N^2D}{4\kappa}
+\quad(t\in[t_{\rm b}-\rho_\kappa,t_{\rm b}+\rho_\kappa]).
+\end{gathered}
+\end{equation}
+Integration gives strict receiver-storage decrease on this interval. By continuity of $P_{NC}$ and its margin, the radius can be further shortened to a common interval with the same negative native-power bound. No explicit or uniform positive lower bound for its width is claimed. Uniqueness places initial supply, receiving, later backflow and recovery on one solution with unchanged coefficients. This completes Theorem~\ref{thm:transfer}.

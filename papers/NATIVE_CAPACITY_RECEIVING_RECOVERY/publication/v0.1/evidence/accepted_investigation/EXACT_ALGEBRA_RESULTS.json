@@ -1,0 +1,177 @@
+{
+  "utc": "2026-11-05T04:25:42.426168+00:00",
+  "status": "PASS",
+  "independent_check_groups": 14,
+  "groups": [
+    {
+      "id": "EC01",
+      "name": "P3 threshold substitution and new-regime P4 compatibility",
+      "status": "PASS",
+      "exact_results": {
+        "old_squared_rate_lower_bound": "8*pi**3*Fmax/(3*fmag*q)",
+        "new_rate_condition_squared_gap": "12491/90000",
+        "scope": "The Fmax/fmag >= 1 and 0<q<=1/5 argument is proved in prose; no old recovery fraction is imported."
+      }
+    },
+    {
+      "id": "EC02",
+      "name": "Exact rank-two registration and rank-one tangent",
+      "status": "PASS",
+      "exact_results": {
+        "D": "Matrix([[-sqrt(21)*G/7 + sqrt(14)*G/7, -sqrt(14)*G/7 + sqrt(21)*G/7, 0], [sqrt(14)*G/7 + sqrt(21)*G/7, -sqrt(21)*G/7 - sqrt(14)*G/7, 0]])",
+        "ell": "Matrix([[G*(-sqrt(42) + 2*sqrt(7))/7], [G*(2*sqrt(7) + sqrt(42))/7]])",
+        "ell_squared": "20*G**2/7",
+        "K_rank": 2,
+        "D_rank": 1,
+        "native_rate_squared_over_nu_squared": "5/6"
+      }
+    },
+    {
+      "id": "EC03",
+      "name": "Jacobian differentiation and exact nonlinear decomposition",
+      "status": "PASS",
+      "exact_results": {
+        "native_cross_product_identity": "PASS",
+        "shifted_drive_equals_Db_plus_K_u_cross_b": "PASS",
+        "all_six_native_residual_components": "identically zero"
+      }
+    },
+    {
+      "id": "EC04",
+      "name": "Auxiliary factor 2 alpha and nonlinear norm coefficient",
+      "status": "PASS",
+      "exact_results": {
+        "weighted_tangent_native_port_receiver_matrix": "W A + A^T W = 0",
+        "nonlinear_squared_bound_gap": "V**4 + V**2*X_N**2 + 3*X_N**4/4",
+        "scope": "The spatial periodic product rule and norm regularization are written analytical arguments."
+      }
+    },
+    {
+      "id": "EC05",
+      "name": "Exact initial deviation and static reference components",
+      "status": "PASS",
+      "exact_results": {
+        "initial_auxiliary_norm_squared": "4*C",
+        "active_X0": "-sqrt(alpha)*sin(phi)",
+        "inactive_imaginary_component": "Matrix([[sin(phi)/2], [sin(phi)/2], [0]])",
+        "D_times_inactive_component": "zero",
+        "active_half_stock": "C*cos(phi/2)^2",
+        "sign": "X0<0 on the declared positive phase interval; inequality justified in the written proof."
+      }
+    },
+    {
+      "id": "EC06",
+      "name": "Coupled active oscillator, exact data and reference landmarks",
+      "status": "PASS",
+      "exact_results": {
+        "three_ODE_residuals": "identically zero",
+        "initial_residuals": "zero",
+        "active_norm_conservation": "X^2+P^2+Z^2=X0^2",
+        "carrier_at_tR": "zero",
+        "external_at_tF": "zero"
+      }
+    },
+    {
+      "id": "EC07",
+      "name": "Reference embedding, first-derivative residual coefficient and full-period integral",
+      "status": "PASS",
+      "exact_results": {
+        "D_transpose_n": "|ell|*e",
+        "propagation_residual": "(0,0,0,-c*p0_s,0) in block coordinates",
+        "squared_residual_norm_coefficient": "gamma^2=c^2*d/m",
+        "absolute_sine_period_integral": "4",
+        "scope": "No second spatial derivative or PDE regularity inference is made by this finite check."
+      }
+    },
+    {
+      "id": "EC08",
+      "name": "Majorant integral and normalized theta identity",
+      "status": "PASS",
+      "exact_results": {
+        "rational_envelope_differential_identity": "M=Y0/(1-L*Y0*t) satisfies M'=L*M^2; the proof's Q satisfies Q'<=L*Q^2",
+        "integrated_nonlinear_bound": "Y0*theta/(1-theta)",
+        "theta": "sqrt(2)/R*sqrt(1-cos(phi))*nu*T in normalized amplitudes",
+        "scope": "Positive-denominator comparison for the actual norm is supplied separately in prose."
+      }
+    },
+    {
+      "id": "EC09",
+      "name": "Elementary exact pi bounds",
+      "status": "PASS",
+      "exact_results": {
+        "positive_integrand_division_quotient": "x**6 - 4*x**5 + 5*x**4 - 4*x**2 + 4",
+        "remainder": "-4",
+        "polynomial_integral": "22/7",
+        "identity": "integral_0^1 x^4(1-x)^4/(1+x^2) dx = 22/7-pi",
+        "lower_bound_identity": "1/(1+x^2)-(1-x^2)=x^4/(1+x^2); hence pi>8/3",
+        "scope": "Strict positivity on (0,1), and integral arctan(1)=pi/4, are justified analytically."
+      }
+    },
+    {
+      "id": "EC10",
+      "name": "Strict time, theta, propagation and total-error rational margins",
+      "status": "PASS",
+      "exact_results": {
+        "time_square_gap": "19568/7497",
+        "inverse_R_square_gap": "2/75",
+        "propagation_factor_square_gap": "304/289",
+        "sqrt2_square_gap": "2/49",
+        "error_margin_below_one_tenth": "1/2100",
+        "theta_denominator_at_limit": "24/25"
+      }
+    },
+    {
+      "id": "EC11",
+      "name": "Reference reception, positive reverse triangle and storage factors",
+      "status": "PASS",
+      "exact_results": {
+        "reference_receiver_factor": "2*sqrt(30)/17",
+        "receiver_factor_square_gap": "455/18496",
+        "phase_cosine_floor_gap": "3199/80000",
+        "positive_reverse_triangle_margin": "1/2",
+        "original_stock_conversion": "1/2 times squared weighted norm; thresholds C/4 and C/100"
+      }
+    },
+    {
+      "id": "EC12",
+      "name": "All stock-ratio and net-recovery arithmetic",
+      "status": "PASS",
+      "exact_results": {
+        "receiver_share_positive_gap": "C*(a+25*b)/(26*(HR+HC))",
+        "receiver_retention_upper_gap": "C*(a+25*f)/(25*HR)",
+        "recovery_R_positive_gap": "C*(r+25*f)/(25*ER)",
+        "capacity_amount_excess": "C*(r+f)",
+        "precise_recovery_A_lower_bound": "25301/26325",
+        "gap_above_24_over_25": "29/26325",
+        "scope": "Positivity of actual denominators and range restrictions on residual gaps are proved in prose."
+      }
+    },
+    {
+      "id": "EC13",
+      "name": "Finite fixed parameter construction",
+      "status": "PASS",
+      "exact_results": {
+        "native_rate_under_eta_selection": "nu_target",
+        "receiver_rate_under_kappa_selection": "nu_target/3",
+        "requirement": "nu_target >= 100*c*sqrt(d/m), fixed before phase"
+      }
+    },
+    {
+      "id": "EC14",
+      "name": "Restored native-amplitude and storage units",
+      "status": "PASS",
+      "exact_results": {
+        "nu_squared": "Time**(-2)",
+        "omega_N_squared": "Time**(-2)",
+        "omega_R_squared": "Time**(-2)",
+        "gamma_squared": "Time**(-2)",
+        "nonlinear_L": "1/(sqrt(Length)*Time*U)",
+        "theta": "1",
+        "eta_threshold": "1",
+        "kappa_selection": "1"
+      }
+    }
+  ],
+  "script_sha256": "54dad3bb9421aa608ce4f78cc57c04f42710d21c7637b722e085eb0ffe93500f",
+  "limits": "Exact finite-dimensional algebra/arithmetic checks only. The written proof supplies global regularity, periodic Sobolev integration, zero-norm regularization, nonlinear scalar comparison, positivity, quantifiers and interpretation. No trajectories, parameter scans, inherited suites or preparatory scientific script were executed."
+}

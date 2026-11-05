@@ -1,0 +1,84 @@
+\section{Tangent geometry and the exact nonlinear remainder}\label{sec:tangent}
+\subsection{Rank-one tangent of the unchanged registration}
+Let $v=(1,1,1)$, $e=(1,-1,0)/\sqrt2$, $u=a-v$, and $[v]_\times q=v\times q$. Direct multiplication gives
+\begin{equation}\label{eq:tangent}% RR10
+\begin{gathered}
+ D=K[v]_\times
+ =\frac G{\sqrt7}
+ \begin{pmatrix}
+ \sqrt2-\sqrt3&-\sqrt2+\sqrt3&0\\
+ \sqrt2+\sqrt3&-\sqrt2-\sqrt3&0
+ \end{pmatrix}
+ =\ell e^T,\\
+ \ell=De=\frac G{\sqrt7}
+ \binom{2-\sqrt6}{2+\sqrt6},\qquad
+ |\ell|^2=\frac{20G^2}{7},\qquad Ke=0,\\
+ \omega_N^2=\frac{\eta^2m|\ell|^2}{2\alpha}=\frac56\nu^2 .
+\end{gathered}
+\end{equation}
+The tangent drive $D$ has rank one; the exact $K$ has rank two. In particular, the full drive remains $f=Db+K(u\times b)$.
+
+\subsection{A weighted forced estimate}\label{sec:forced}
+For $Y=(u,b,p,r_c,z)$, introduce the Hilbert norm
+\begin{equation}\label{eq:auxnorm}% RR11
+ \norm Y_*^2=2\alpha(|u|^2+|b|^2)
+       +\norm p_2^2+\norm{r_c}_2^2+\beta|z|^2 .
+\end{equation}
+This is an auxiliary proof norm, not the original native store or a newly conserved nonlinear energy. The finite shift preserves the strong regularity already supplied by P1.
+
+On the domain with periodic $H^1$ carrier coordinates and unrestricted finite coordinates, define
+\begin{equation}\label{eq:operator}% RR12
+ \Ac Y=\left(
+ 0,-\mu D^Ty,\,
+ -c(r_c)_s+\eta\B Db-\kappa\B z,\,
+ -cp_s,\frac{\kappa}{\beta}y
+ \right).
+\end{equation}
+Since $D^Ty=w\times v$, the weighted tangent native term is
+$-2\alpha\mu(Db)^Ty=-\eta(Db)^Ty$. The complete cancellation is
+\begin{equation}\label{eq:skew}% RR13
+\begin{aligned}
+ \langle Y,\Ac Y\rangle_*
+ ={}&-\eta(Db)^Ty+\eta y^TDb\\
+ &-c\int[p(r_c)_s+r_cp_s]\dd s
+ -\kappa y^Tz+\kappa z^Ty=0 .
+\end{aligned}
+\end{equation}
+The periodic $H^1$ product rule removes the spatial integral. The native weight $2\alpha$ is essential: using $\alpha$ would leave an uncancelled tangent term.
+
+For an already strong curve $\mathcal Z$ satisfying
+$\dot{\mathcal Z}=\Ac\mathcal Z+F$, differentiate
+$(\norm{\mathcal Z}_*^2+\delta^2)^{1/2}$ with $\delta>0$.
+Equation~\eqref{eq:skew} and Cauchy--Schwarz bound its derivative above by $\norm F_*$. Integrating and letting $\delta\downarrow0$ gives
+\begin{equation}\label{eq:forced}% RR14
+ \norm{\mathcal Z(t)}_*
+ \le\norm{\mathcal Z(0)}_*+\int_0^t\norm{F(s)}_*\dd s,\qquad t\ge0 .
+\end{equation}
+This includes zero norm without dividing by it. Existence is inherited before this calculation, not inferred from skew cancellation.
+
+\subsection{Complete nonlinear decomposition}\label{sec:nonlinear}
+Using~\eqref{eq:nativesigns} and $f=Db+K(u\times b)$ gives the exact equation
+\begin{equation}\label{eq:remainder}% RR15
+\begin{gathered}
+ \dot Y=\Ac Y+\mathcal N(Y),\\
+ \mathcal N(Y)=\left(
+ \mu w\times b,-\mu w\times u,\eta\B K(u\times b),0,0
+ \right).
+\end{gathered}
+\end{equation}
+No quadratic term is discarded. Put
+$X_N=\sqrt{2\alpha}\sqrt{|u|^2+|b|^2}$ and
+$V_{\rm ext}^2=\norm p_2^2+\norm{r_c}_2^2+\beta|z|^2$.
+Since $|w|\le k\sqrt m\,V_{\rm ext}$, the weighted native remainder is at most $LX_NV_{\rm ext}$, while the external remainder is at most
+$\eta k\sqrt m\,|u||b|\le(L/2)X_N^2$, where
+\begin{equation}\label{eq:nonlinearbound}% RR16
+\begin{gathered}
+ L=\frac{\eta k\sqrt m}{2\alpha},\\
+ \norm{\mathcal N(Y)}_*^2
+ \le L^2(X_N^2V_{\rm ext}^2+X_N^4/4)
+ \le L^2(X_N^2+V_{\rm ext}^2)^2,\\
+ \norm{\mathcal N(Y)}_*\le L\norm Y_*^2 .
+\end{gathered}
+\end{equation}
+The blocks are orthogonal in~\eqref{eq:auxnorm}. The second squared inequality has gap
+$L^2(3X_N^4/4+X_N^2V_{\rm ext}^2+V_{\rm ext}^4)\ge0$, proving the stated global bound.

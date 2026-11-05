@@ -1,0 +1,73 @@
+{
+  "utc": "2026-11-05T04:32:04.563173+00:00",
+  "status": "PASS",
+  "bindings": {
+    "NATIVE_CAPACITY_RECEIVING_RECOVERY_01_PROOF.md": {
+      "bytes": 27611,
+      "sha256": "561fff728cc4e887ead8b7fc377a78bfbc91cde873ad7c1ac4e6631828797774"
+    },
+    "NATIVE_CAPACITY_RECEIVING_RECOVERY_01_CLAIM_SOURCE_LEDGER.md": {
+      "bytes": 15493,
+      "sha256": "1fdd5eceb714bcebd1e74bb2b78f291c1188660f2fd420b6a37090d0926fd00e"
+    },
+    "COMPLETION_REPORT.md": {
+      "bytes": 6183,
+      "sha256": "a612fe1f88a5804b3bd7fd58054dea2a00ceb870e3a06fec2d7c83fbdd8e7f2a"
+    },
+    "READ_ME_REVIEW.md": {
+      "bytes": 2479,
+      "sha256": "b35cf8cec94d9c6f91ba4c46cc45908791fa88333444896111addfcab8ff9ab7"
+    },
+    "CLAIM_CROSSWALK.json": {
+      "bytes": 17544,
+      "sha256": "f1dbcd123463070b4e1c541dfd5e1abd2a2f17172d041bdf012e74aebb9e8895"
+    },
+    "INPUT_PRESERVATION.json": {
+      "bytes": 38184,
+      "sha256": "c56214cb0b379fec87cd7c8a17ab8061464e77adbeae8afe9ed9c315c7c20a2e"
+    },
+    "audit_and_package.py": {
+      "bytes": 14299,
+      "sha256": "2f01a80a0a2befe05f4a56a6e96d1b6186ed48d58e7482567de2e1571dc49da4"
+    }
+  },
+  "proof_displayed_groups": 36,
+  "proposal_ledger_rows": 23,
+  "inherited_source_groups": 11,
+  "source_label_bindings": 41,
+  "independent_algebra_groups": 14,
+  "inventoried_inputs_unchanged": 82,
+  "checks": {
+    "displayed_tags_unique_and_complete": true,
+    "proof_references_resolve": true,
+    "all_PR01_to_PR23_rows_present": true,
+    "all_exact_check_groups_mapped": true,
+    "source_labels_and_supplied_printed_records_match": true,
+    "UTF8_and_math_delimiters": true,
+    "no_draft_placeholders": true,
+    "Python_scripts_parse_without_execution": true,
+    "execution_script_and_result_hashes_match": true,
+    "incoming_manifest_remains_exhaustive": true
+  },
+  "manual_analytical_review_record": {
+    "status": "Assessed in the written independent investigation, awaiting GPT review",
+    "scope": {
+      "known_global_strong_solution": "Proof section 2; P1 thm:global and eq:strong",
+      "periodic_first_derivative": "Proof section 1 and RR02; no H2 tent assumption",
+      "zero_norm_regularization": "Proof section 4, immediately before RR14",
+      "scalar_positive_denominator": "Proof section 5 and section 7.1, RR18/RR24",
+      "exact_negative_initial_mode_and_static_components": "Proof section 6, RR19/RR20",
+      "strong_difference_before_residual": "Proof section 7.2, RR25",
+      "receiver_retained_and_only_first_derivative": "Proof section 7.2, RR25/RR26",
+      "phase_uniform_fixed_coefficients": "Proof sections 1, 7.3 and 9",
+      "positive_reverse_triangle_before_squaring": "Proof section 8, RR29/RR30",
+      "all_positive_ratio_denominators": "Proof section 8, before RR32",
+      "upper_recovery_bound_one": "Proof section 8, after RR33",
+      "sign_intervals_not_simultaneity": "Proof section 8 final paragraph",
+      "amplitude_units_and_Astar_over_R": "Proof section 10, RR35/RR36",
+      "small_absolute_capacity_and_geometry_limits": "Proof section 11"
+    },
+    "not_an_automated_claim": "The code checks document structure, identities and coverage; it does not formally verify these analytical arguments."
+  },
+  "scientific_script_reexecuted_by_this_audit": false
+}

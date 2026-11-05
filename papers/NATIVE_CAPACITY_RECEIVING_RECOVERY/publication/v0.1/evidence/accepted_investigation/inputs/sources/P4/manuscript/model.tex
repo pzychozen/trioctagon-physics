@@ -1,0 +1,74 @@
+\section{Fixed equations and inherited capacity}\label{sec:model}
+\subsection{Registration and finite periodic profiles}
+Write $x=(a,b)\in\R^6$ and $\Omega=a+ib\in\C^3$. Retain the raw port order $+,-$ and the fixed rank-two registration~\cite[Section 1]{p1}:
+\begin{equation}\label{eq:registration}% SRC: FA01 I01
+\begin{gathered}
+e_y=(0,1,0),\quad e_z=(0,0,1),\quad
+n_\pm=(2e_y\pm\sqrt3e_z)/\sqrt7,\\
+A_{\rm reg}=\lambda_gR_z(\delta_g),\quad
+K=\kappa_{\rm in}\begin{pmatrix}n_+^T\\n_-^T\end{pmatrix}A_{\rm reg},
+\quad G=\kappa_{\rm in}\lambda_g>0,\\
+f(x)=K(a\times b),\qquad J(x)=D_xf(x),\qquad \delta_g=\pi/4.
+\end{gathered}
+\end{equation}
+Here $R_z$ is rotation about the $z$ axis and both registration gains are finite and positive. Contact-tangent orientation signs do not alter the raw drive.
+
+Let $s\in\R/L_c\mathbb Z$, with finite $L_c,c>0$. The admitted contacts $s_\pm=L_c/2\mp\eta_{\rm geom}$ have shortest \emph{periodic} distance $2\eta_{\rm geom}$, and $0<\epsilon_c<\eta_{\rm geom}$. For these positions, the shortest-distance assertion includes $2\eta_{\rm geom}\le L_c/2$. This is a consequence of the stated circle hypothesis, not an additional assumption. With $(q)_+=\max(q,0)$, define
+\begin{equation}\label{eq:ports}% SRC: FA02 I02
+\begin{gathered}
+b_\sigma(s)=\epsilon_c^{-1}
+\left(1-\frac{|\operatorname{wrap}_{L_c}(s-s_\sigma)|}{\epsilon_c}\right)_+,
+\qquad \B v=b_+v_++b_-v_-,\\
+\B^*p=\begin{pmatrix}\int b_+p\dd s\\ \int b_-p\dd s\end{pmatrix},
+\qquad m=\frac2{3\epsilon_c},\qquad d=\frac2{\epsilon_c^3},\\
+\B^*\B=m\mathrm{Id}_2,\qquad
+\norm{\B}=\norm{\B^*}=\sqrt m,\qquad
+\norm{\B'v}_2=\sqrt d\,|v|.
+\end{gathered}
+\end{equation}
+All integrals cover the circle. Whole-circle separation ensures disjoint support, including across the coordinate seam. The normalized tents are continuous and in $H^1_{\rm per}$; their first weak derivatives lie in $L^2$ without corner delta terms. The identities in~\eqref{eq:ports} are inherited from the profile calculation~\cite[Section 3]{p1} and its restatement~\cite[Section 2.1, (2.2)]{p3}. No second profile derivative is assumed.
+
+\subsection{Original exchange and signed stores}
+For positive finite storage scales $\alpha_N,\beta_R$ and couplings $\eta_N,\kappa=\eta_R$, the original unscaled system is
+\begin{equation}\label{eq:system}% SRC: FA03 I03
+\begin{aligned}
+\dot x&=-\frac{\eta_N}{2\alpha_N}J(x)^Ty,\\
+p_t+c(r_c)_s&=\B\{\eta_Nf(x)-\kappa z\},\\
+(r_c)_t+cp_s&=0,\qquad
+\dot z=\frac{\kappa}{\beta_R}y,\qquad y=\B^*p.
+\end{aligned}
+\end{equation}
+All coefficients remain constant along every trajectory. There is no native $F$ jump, reset, switching or added feedback. The inherited trial stores and total signed powers are
+\begin{equation}\label{eq:stores}% SRC: FA04 I04
+\begin{gathered}
+H_N=\frac{\alpha_N}{2}|x|^2,\quad
+H_C=\frac12(\norm p_2^2+\norm{r_c}_2^2),\quad
+H_R=\frac{\beta_R}{2}|z|^2,\\
+P_{NC}=\eta_N f(x)^Ty,\qquad P_{CR}=\kappa z^Ty,\\
+\dot H_N=-P_{NC},\qquad \dot H_C=P_{NC}-P_{CR},\qquad
+\dot H_R=P_{CR},\qquad H_N+H_C+H_R=\text{constant}.
+\end{gathered}
+\end{equation}
+The quadratic $H_N$ is a trial store, distinct from the native quartic potential. Equations~\eqref{eq:system}--\eqref{eq:stores} use the original factors and signs~\cite[Section 2.2, (2.3)--(2.4)]{p3}.
+
+\subsection{Coherent empty launch and joint ceiling}
+The family used throughout this paper is
+\begin{equation}\label{eq:launch}% SRC: FA05 I06
+\Omega_0=(1,e^{i\phi},1),\quad 0<\phi<\pi/12,\qquad
+p(0)=r_c(0)=z(0)=0.
+\end{equation}
+At the fixed yaw in~\eqref{eq:registration}, the published launch and projection evaluations give
+\begin{equation}\label{eq:drive0}% SRC: FA05 I06 I08
+\begin{gathered}
+R=|x_0|=\sqrt3,\qquad k=\norm K=G\sqrt{8/7},\\
+f_{0,\pm}=\frac{G\sin\phi}{\sqrt7}(-\sqrt2\pm\sqrt3),\qquad
+|f_0|^2=\frac{10G^2\sin^2\phi}{7}>0,\\
+C_{\rm joint}=\alpha_N(1-\cos\phi)>0.
+\end{gathered}
+\end{equation}
+The numerical amplitudes use the published normalized native convention; Appendix~\ref{sec:units} restores their dimensions. The joint ceiling combines the published bilinear and rank-two projection invariants. Its general derivation is P3 Theorem 3.1; its specialization here is P3 (3.18)~\cite{p3}. Conservation and empty external preparation give
+\begin{equation}\label{eq:ceiling}% SRC: FA05 I04 I07 I08
+E_{\rm out}(t):=H_C(t)+H_R(t)=H_N(0)-H_N(t),
+\qquad 0\le E_{\rm out}(t)\le C_{\rm joint}\quad(t\ge0).
+\end{equation}
+The drive formulas are P3 (2.7)--(2.8) specialized to this yaw. No invariance of the initial coherent phase sector or of the launch family is presumed.

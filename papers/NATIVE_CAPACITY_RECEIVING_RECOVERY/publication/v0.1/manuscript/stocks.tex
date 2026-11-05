@@ -1,0 +1,92 @@
+\section{Actual receiving and net native recovery}\label{sec:actual}
+\subsection{Positive projection bounds before squaring}\label{sec:projections}
+The reference receiver norm at $t_R$ is
+$\sqrt\beta|z^{(0)}(t_R)|=|Z(t_R)|$. Its exact amplitude in~\eqref{eq:referencezeros} has the strict lower estimates
+\begin{equation}\label{eq:receiverreference}% RR29
+\begin{gathered}
+ \frac{2\sqrt{30}}{17}>\frac58,\qquad
+ \frac{120}{289}-\frac{25}{64}=\frac{455}{18496}>0,\\
+ \cos(\phi/2)\ge1-\frac{\phi^2}{8}
+ \ge\frac{79999}{80000}>\frac{24}{25},\\
+ \frac{79999}{80000}-\frac{24}{25}=\frac{3199}{80000}>0,\qquad
+ \frac{\sqrt\beta|z^{(0)}(t_R)|}{\sqrt{2C}}>\frac35 .
+\end{gathered}
+\end{equation}
+The carrier, weighted receiver and joint external projections are contractive for the auxiliary norm. Reverse triangle and~\eqref{eq:strictbound} thus give
+\[
+ \sqrt\beta|z(t_R)|
+ >\left(\frac35-\frac1{10}\right)\sqrt{2C}
+ =\frac12\sqrt{2C}>0 .
+\]
+This lower bound is positive before squaring. The reference carrier is zero at $t_R$, and its entire external state is zero at $t_F$. With the original one-half factors in~\eqref{eq:stores}, it follows that
+\begin{equation}\label{eq:actualstocks}% RR30
+\begin{gathered}
+ H_R(t_R)=\tfrac12(\sqrt\beta|z(t_R)|)^2>C/4,\\
+ H_C(t_R)=\tfrac12\norm{(p,r_c)(t_R)}_2^2<C/100,\\
+ E_F=\tfrac12\norm{(p,r_c,z)(t_F)}_{CR}^2<C/100,
+\end{gathered}
+\end{equation}
+where $\norm{(p,r_c,z)}_{CR}^2=\norm p_2^2+\norm{r_c}_2^2+\beta|z|^2$.
+
+\subsection{Inherited access on these same coefficients}\label{sec:access}
+For the fixed actual coefficients selected in~\eqref{eq:regime},
+\begin{equation}\label{eq:accesscondition}% RR31
+\begin{gathered}
+ \frac{\sigma_{\rm ext}^2}{\nu^2}
+ =\left(\frac{\gamma}{\nu}\right)^2+\frac19
+ \le\frac1{10000}+\frac19<\frac14,\\
+ \frac14-\left(\frac1{10000}+\frac19\right)
+ =\frac{12491}{90000}>0 .
+\end{gathered}
+\end{equation}
+All remaining P4 hypotheses hold: the same fixed yaw, admitted profiles and finite positive coefficients, normalized coherent empty launch, and $\phi\in(0,\pi/12)$. Its Theorem~3.1 therefore supplies
+$E_A>1053C/4096$ on this same actual solution at $t_A=1/\nu$. It is an inherited access statement, not an additional theorem proved by the present comparison.
+
+\subsection{Separate denominators and exact recovery accounts}\label{sec:ratios}
+Before taking any ratio, we have
+$C>0$, $H_R(t_R)>C/4>0$, $E_R\ge H_R(t_R)>C/4>0$, and
+$E_A>1053C/4096>0$. In contrast $E_F$ need only be nonnegative.
+Using $H_C(t_R)\ge0$ and $0\le H_R(t_F)\le E_F$ gives
+\begin{equation}\label{eq:receiverratios}% RR32
+\begin{gathered}
+ \frac{H_C(t_R)}{H_R(t_R)}<\frac1{25},\qquad
+ \frac{H_R(t_R)}{E_R}
+ =\frac1{1+H_C(t_R)/H_R(t_R)}>\frac{25}{26},\\
+ 0\le\frac{H_R(t_F)}{H_R(t_R)}<\frac1{25}.
+\end{gathered}
+\end{equation}
+The receiving share is at most one. Conservation~\eqref{eq:accounts} gives, with these positive denominators,
+\begin{equation}\label{eq:recoveries}% RR33
+\begin{aligned}
+ \mathcal R_A
+ &=1-\frac{E_F}{E_A}>
+ 1-\frac{4096}{105300}=\frac{25301}{26325}>\frac{24}{25},\\
+ \frac{25301}{26325}-\frac{24}{25}&=\frac{29}{26325}>0,\\
+ \mathcal R_R&=1-\frac{E_F}{E_R}>1-\frac1{25}=\frac{24}{25},\\
+ H_N(t_F)-H_N(t_R)
+ &=E_R-E_F>\left(\frac14-\frac1{100}\right)C=\frac6{25}C .
+\end{aligned}
+\end{equation}
+Both recovery fractions are at most one because $E_F\ge0$.
+Together with the chronology in Section~\ref{sec:constants}, this completes the proof of Theorem~\ref{thm:episode}. The sharper intermediate arithmetic for $\mathcal R_A$ is retained from the accepted proof, without optimizing the stated result.
+
+\begin{table}[ht]
+\centering
+\caption{Distinct numerators, denominators and meanings.}\label{tab:accounts}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{@{}lYY@{}}
+\toprule
+Account & Denominator & Meaning\\\midrule
+$H_R(t_R)$ & $C$ & Receiver stock relative to joint capacity\\
+$H_R(t_R)$ & $E_R$ & Receiver share of intermediate external stock\\
+$H_R(t_F)$ & $H_R(t_R)$ & Receiver stock remaining at the later time\\
+$H_N(t_F)-H_N(t_A)$ & $E_A$ & Net native recovery from the access time\\
+$H_N(t_F)-H_N(t_R)$ & $E_R$ & Net native recovery from the receiving time\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{What the integrated power accounts imply}\label{sec:signs}
+Equation~\eqref{eq:accounts} gives positive integrated receiver supply on $(0,t_R)$, negative integrated receiver supply on $(t_R,t_F)$, and negative integrated native supply on $(t_R,t_F)$. Indeed $H_R(t_R)>0$, $H_R(t_F)<H_R(t_R)$ and $H_N(t_F)>H_N(t_R)$ follow from the proved stocks. Continuity of each power then guarantees a nonempty open interval of its corresponding strict sign within the specified window.
+
+Those receiver and native intervals need not coincide. The integrated inequalities do not establish exact-time power signs at $t_R$ or $t_F$, a first return, an exact stock maximum or a sustained monotone receiving/recovery window.

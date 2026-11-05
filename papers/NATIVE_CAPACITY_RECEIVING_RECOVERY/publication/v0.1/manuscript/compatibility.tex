@@ -1,0 +1,22 @@
+\section{Why the older certificates cannot simply be joined}\label{sec:compatibility}
+The older transfer theorem, P3 Theorem~4.1, uses a sufficient receiver threshold depending on a tolerance $0<q\le1/5$. In this section only, use P3's notation
+\begin{equation}\label{eq:oldconstants}
+\begin{gathered}
+ \omega=\sqrt{m/\beta},\quad S=2\pi/\omega,\quad
+ \Lambda=\sqrt\beta\,|f_0|,\quad F_{\max}=kR^2/2,\\
+ A=\nu^2F_{\max}/2,\qquad B_2=\sqrt m\,AS^3/3 .
+\end{gathered}
+\end{equation}
+The inherited bound $|f(x)|\le k|x|^2/2$ gives $F_{\max}\ge|f_0|>0$. The $B_2$ part of P3's sufficient threshold, its equation (4.3), requires
+\begin{equation}\label{eq:incompatibility}% RR09
+\begin{aligned}
+ \kappa^2\ge\frac{2B_2}{q\Lambda}
+ &\ \Longrightarrow\
+ \left(\frac{\kappa\omega}{\nu}\right)^2
+ \ge\frac{8\pi^3F_{\max}}{3q|f_0|}\\
+ &\ \ge\frac{8\pi^3}{3q}>\frac14 .
+\end{aligned}
+\end{equation}
+Every divided quantity is positive, and the substitution uses $\sqrt m/\sqrt\beta=\omega$. The elementary bound $\pi>1$ and $1/q\ge5$ already make the final lower bound exceed $40/3$.
+
+P4's sufficient condition instead requires $\gamma^2+(\kappa\omega)^2\le\nu^2/4$. Thus these sufficient certificate regimes are disjoint. This does not prove impossibility of simultaneous access, receiving and recovery behaviors. We do not import P3's $80/81$ fraction or the exact-time returning-power witness of P2 Theorem~3.1 into the present tuple. A new finite-error bridge is required.

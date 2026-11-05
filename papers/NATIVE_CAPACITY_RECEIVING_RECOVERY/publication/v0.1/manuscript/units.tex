@@ -1,0 +1,40 @@
+\section{Dimensions and restored native amplitude}\label{sec:units}
+Use P1's abstract carrier units $\mathrm U,\mathrm L,\mathrm T$ and native amplitude unit $\mathrm A$~\cite{p1,p4}. The normalized numeric launch uses a unit amplitude $A_*$ with numeric value one. Restoring it gives
+\begin{equation}\label{eq:amplitude}% RR35
+\begin{gathered}
+ v=A_*(1,1,1),\quad \Omega_0=A_*(1,e^{i\phi},1),\quad R=\sqrt3\,A_*,\\
+ D=K[v]_\times,\qquad |\ell|^2=\frac{20G^2A_*^2}{7},\\
+ C=\alpha A_*^2(1-\cos\phi),\qquad
+ X_0=-\sqrt\alpha\,A_*\sin\phi,\qquad y_0=2\sqrt C .
+\end{gathered}
+\end{equation}
+All initial deviations acquire the same $A_*$ factor; the directions $e,n$ stay dimensionless. Retaining $R^2$ in $\nu^2$ and the amplitude of $v$ in $D$ preserves the dimensionless identity $\omega_N^2/\nu^2=5/6$.
+
+\begin{table}[ht]
+\centering
+\caption{Dimensions of the original and auxiliary quantities.}\label{tab:units}
+\renewcommand{\arraystretch}{1.16}
+\begin{tabularx}{\textwidth}{@{}lY@{}}
+\toprule
+Quantity & Dimension\\\midrule
+$a,b,u,v,R,A_*$ & $\mathrm A$\\
+$K,k,G$ & $\mathrm U\mathrm L/(\mathrm T\mathrm A^2)$\\
+$D,\ell,J$ & $\mathrm U\mathrm L/(\mathrm T\mathrm A)$\\
+$p,r_c,y$ & $\mathrm U$\\
+$f,z$ & $\mathrm U\mathrm L/\mathrm T$\\
+$\alpha;\ \beta;\ \eta,\kappa$ & $\mathrm U^2\mathrm L/\mathrm A^2;\ \mathrm T^2/\mathrm L;\ 1$\\
+$m;\ d;\ c$ & $\mathrm L^{-1};\ \mathrm L^{-3};\ \mathrm L/\mathrm T$\\
+$\norm Y_*,X,P,Z,\sqrt C$ & $\mathrm U\sqrt{\mathrm L}$\\
+$L$ (nonlinear-bound coefficient) & $(\mathrm U\sqrt{\mathrm L}\,\mathrm T)^{-1}$\\
+$\gamma,\nu,\omega_N,\omega_R,\varpi$ & $\mathrm T^{-1}$\\
+$H_N,H_C,H_R,C$ & $\mathrm U^2\mathrm L$\\
+$\theta$ and all stock fractions & $1$\\\bottomrule
+\end{tabularx}
+\end{table}
+
+The coefficient $L$ is distinct from the length unit $\mathrm L$ and the circle length $L_c$. The dimensionally restored identity used in~\eqref{eq:theta} is
+\begin{equation}\label{eq:dimtheta}% RR36
+ \theta=\frac{\sqrt2\,A_*}{R}\sqrt{1-\cos\phi}\,\nu T
+ \le\frac{\phi}{\sqrt3}\nu T<\frac1{25}.
+\end{equation}
+The factor $A_*/R=1/\sqrt3$ must not be suppressed in a dimensional identity. Both choices in~\eqref{eq:finitechoice} are dimensionless couplings. Restoring amplitude changes none of the normalized fractions or finite-error bounds. The reference frequencies are analytical quantities, not a physical clock or native-step cadence.

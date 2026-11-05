@@ -1,0 +1,61 @@
+\section{A same-trajectory episode certificate}\label{sec:theorem}
+Work first in the published normalized native-amplitude convention, so $R=\sqrt3$. Define
+\begin{equation}\label{eq:rates}% RR04
+\begin{gathered}
+ \nu^2=\frac{\eta^2mk^2R^2}{2\alpha},\qquad
+ \sigma_{\rm ext}^2=\frac{c^2d}{m}+\frac{\kappa^2m}{\beta},\\
+ \gamma=c\sqrt{d/m},\qquad \omega_R=\kappa\sqrt{m/\beta},\qquad
+ \omega_N=\sqrt{5/6}\,\nu,\quad \varpi=\sqrt{17/18}\,\nu .
+\end{gathered}
+\end{equation}
+First fix the admitted geometry, positive storage scales and one finite positive coefficient tuple satisfying
+\begin{equation}\label{eq:regime}% RR04
+ \omega_R=\nu/3,\qquad 0<\gamma/\nu\le1/100 .
+\end{equation}
+For each phase, prepare the exact coherent empty launch
+\begin{equation}\label{eq:launch}% RR04
+ 0<\phi\le1/100,\qquad
+ \Omega_0=(1,e^{i\phi},1),\qquad p_0=r_{c,0}=z_0=0 .
+\end{equation}
+The angle is in radians. This interval lies inside P4's $(0,\pi/12)$; an elementary bound on $\pi$ is given in Section~\ref{sec:constants}. P3 Theorem~3.1 and its strict yaw witness give
+\begin{equation}\label{eq:ceiling}% RR08
+\begin{gathered}
+ C=C_{\rm joint}=\alpha(1-\cos\phi)>0,\qquad
+ 0\le E_{\rm out}(t)\le C\quad(t\ge0),\\
+ f_{0,\pm}=\frac{G\sin\phi}{\sqrt7}(-\sqrt2\pm\sqrt3),\qquad
+ |f_0|^2=\frac{10G^2\sin^2\phi}{7}>0.
+\end{gathered}
+\end{equation}
+Nonnegative stores and conservation also give $|x(t)|\le R$. Neither this native ball nor the ceiling assumes that the coherent launch family remains invariant during evolution.
+
+\begin{theorem}[Capacity-sized receiving and net recovery]\label{thm:episode}
+For every fixed tuple satisfying~\eqref{eq:regime} and every phase in~\eqref{eq:launch}, the phase's unique actual solution of~\eqref{eq:system} has
+\begin{equation}\label{eq:times}% RR04 RR05
+ 0<t_A=1/\nu<t_R=\pi/\varpi<t_F=2\pi/\varpi .
+\end{equation}
+At these times,
+\begin{equation}\label{eq:episode}% RR05
+\begin{gathered}
+ E_A:=E_{\rm out}(t_A)>\frac{1053}{4096}C,\\
+ \boxed{H_R(t_R)>C/4,\qquad H_C(t_R)<C/100,\qquad
+ E_F:=E_{\rm out}(t_F)<C/100.}
+\end{gathered}
+\end{equation}
+The first bound is P4's access theorem applied after checking the same tuple in Section~\ref{sec:actual}. The boxed bounds are the new finite-error conclusions.
+
+With $E_R=E_{\rm out}(t_R)$, all denominators below are positive, and
+\begin{equation}\label{eq:fractions}% RR06
+\begin{gathered}
+ \frac{25}{26}<\frac{H_R(t_R)}{E_R}\le1,\qquad
+ 0\le\frac{H_R(t_F)}{H_R(t_R)}<\frac1{25},\\
+ \frac{24}{25}<
+ \mathcal R_A:=\frac{H_N(t_F)-H_N(t_A)}{E_A}\le1,\\
+ \frac{24}{25}<
+ \mathcal R_R:=\frac{H_N(t_F)-H_N(t_R)}{E_R}\le1,\qquad
+ H_N(t_F)-H_N(t_R)>\frac6{25}C .
+\end{gathered}
+\end{equation}
+\end{theorem}
+Sections~\ref{sec:tangent}--\ref{sec:actual} prove the result. The coefficients and all three times are phase independent at one fixed tuple; different phases are separately prepared solutions. No parameter is switched along any trajectory. Section~\ref{sec:finite} proves that the finite positive family is nonempty.
+
+For notation, $E_R$ is combined external stock at $t_R$, whereas $H_R(t_R)$ is receiver stock alone. The reference coordinates $X,P,Z$ used later are weighted amplitudes, distinct from the powers $P_{NC},P_{CR}$ and any native bilinear invariant. The ratios in~\eqref{eq:fractions} concern stocks and net changes between stated times, not a tagged energy cohort.

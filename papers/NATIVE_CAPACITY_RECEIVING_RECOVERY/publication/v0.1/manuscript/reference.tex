@@ -1,0 +1,67 @@
+\section{Exact initial data and a moving-native reference}\label{sec:reference}
+\subsection{Positive scalar majorant}\label{sec:majorant}
+The exact initial deviations, with no first-order phase approximation, are
+\begin{equation}\label{eq:initial}% RR17
+\begin{gathered}
+ u_0=(0,\cos\phi-1,0),\qquad b_0=(0,\sin\phi,0),\\
+ \norm{Y(0)}_*^2
+ =2\alpha[(\cos\phi-1)^2+\sin^2\phi]=4C .
+\end{gathered}
+\end{equation}
+Write $y_0=2\sqrt C>0$. The known global strong solution and
+\eqref{eq:forced}--\eqref{eq:nonlinearbound} give
+$\norm{Y(t)}_*\le y_0+L\int_0^t\norm{Y(s)}_*^2\dd s=:Q(t)$.
+On every finite interval, $Q$ is positive and continuously differentiable, with
+$Q(0)=y_0$ and $Q'\le LQ^2$. Therefore
+$(1/Q)'=-Q'/Q^2\ge-L$, and $1/Q(t)\ge1/y_0-Lt$.
+Only while this lower bound is positive may it be inverted:
+\begin{equation}\label{eq:majorant}% RR18
+ \norm{Y(t)}_*\le Q(t)\le\frac{y_0}{1-Ly_0t},
+ \qquad 0\le t<(Ly_0)^{-1}.
+\end{equation}
+Section~\ref{sec:constants} proves directly that $Ly_0t_F<1/25$ before this estimate is used up to $t_F$. There is no assumed bootstrap or new existence construction.
+
+\subsection{Full reference, including static components}\label{sec:embedding}
+Use $\dot Y^{(0)}=\mathcal A_0Y^{(0)}$ with precisely the initial data~\eqref{eq:initial}. Only the reference removes propagation and the quadratic remainder; actual $c$ and $\kappa$ stay positive.
+
+Set $n=\ell/|\ell|$, $h_0=e^Tb_0=-\sin\phi/\sqrt2$, and
+$b_\perp=b_0-h_0e=(\sin\phi/2,\sin\phi/2,0)$.
+Then $Db_\perp=0$. The complete reference is
+\begin{equation}\label{eq:embedding}% RR19
+\begin{gathered}
+ u^{(0)}(t)=u_0,\qquad b^{(0)}(t)=b_\perp+eX(t)/\sqrt{2\alpha},\\
+ p^{(0)}(t)=\B n\,P(t)/\sqrt m,\quad
+ r_c^{(0)}(t)=0,\quad z^{(0)}(t)=nZ(t)/\sqrt\beta .
+\end{gathered}
+\end{equation}
+The real deviation, including its component parallel to $e$, and the inactive imaginary component are retained. Because $D^Tn=|\ell|e$ and
+$y^{(0)}=\sqrt m\,nP$, all blocks of $\mathcal A_0$ reduce to
+\begin{equation}\label{eq:oscillator}% RR20
+\begin{gathered}
+ \dot X=-\omega_NP,\qquad
+ \dot P=\omega_NX-\omega_RZ,\qquad \dot Z=\omega_RP,\\
+ X_0=-\sqrt\alpha\sin\phi<0,\qquad P_0=Z_0=0 .
+\end{gathered}
+\end{equation}
+The negative sign follows from the exact phase launch, with $0<\phi<\pi/2$.
+The solution is
+\begin{equation}\label{eq:solution}% RR21
+\begin{aligned}
+ X(t)&=X_0\frac{\omega_R^2+\omega_N^2\cos(\varpi t)}{\varpi^2},\\
+ P(t)&=X_0\frac{\omega_N}{\varpi}\sin(\varpi t),\\
+ Z(t)&=X_0\frac{\omega_N\omega_R}{\varpi^2}
+                   [1-\cos(\varpi t)] .
+\end{aligned}
+\end{equation}
+Differentiation verifies the three ODEs and all initial data, and
+$X^2+P^2+Z^2=X_0^2$. Consequently,
+\begin{equation}\label{eq:referencezeros}% RR22
+\begin{gathered}
+ (p^{(0)},r_c^{(0)})(t_R)=0,\qquad
+ (p^{(0)},r_c^{(0)},z^{(0)})(t_F)=0,\\
+ \frac{X_0^2}{2}=C\cos^2(\phi/2),\qquad
+ \frac{|Z(t_R)|}{\sqrt{2C}}
+ =\frac{2\sqrt{30}}{17}\cos(\phi/2).
+\end{gathered}
+\end{equation}
+In particular, $|X_0|/\sqrt{2C}=\cos(\phi/2)\le1$, with positive cosine. This reference is a strong curve: a fixed $H^1$ profile multiplies a smooth scalar. Its period is not asserted to be an actual nonlinear period, and the actual trajectory is not restarted at either landmark.

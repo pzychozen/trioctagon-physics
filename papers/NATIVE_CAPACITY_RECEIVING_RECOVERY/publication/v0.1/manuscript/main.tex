@@ -1,0 +1,75 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=25mm,headheight=15pt]{geometry}
+\usepackage{booktabs,array,tabularx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{microtype,enumitem,fancyhdr,needspace}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{bookmark}
+\hypersetup{pdftitle={Capacity-Sized Receiving and Native Recovery in the Reciprocal Chiral Exchange Candidate},
+pdfauthor={Hilmir Frímann Halldórsson (pzychozen)},
+pdfsubject={Research manuscript v0.1. Accepted mathematics; manuscript review pending. Prepared 5 November 2026.}}
+\setlength{\parskip}{4pt}\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{3em}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Capacity-sized receiving and native recovery}
+\fancyhead[R]{\small v0.1}
+\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0.3pt}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\B}{\mathcal B}\newcommand{\Ac}{\mathcal A_c}
+\newcommand{\dd}{\,\mathrm d}\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\vspace*{2mm}
+{\small\color{MidnightBlue} TRI-OCTAGON MATHEMATICAL RESEARCH\par}
+\vspace{7mm}
+{\LARGE\bfseries\raggedright Capacity-Sized Receiving and\\
+Native Recovery in the Reciprocal\\Chiral Exchange Candidate\par}
+\vspace{5mm}
+{\large A same-trajectory finite-parameter certificate\\for coherent empty launches\par}
+\vspace{6mm}
+{\large Hilmir Fr\'imann Halld\'orsson (pzychozen)\par}
+\vspace{3mm}
+{Research manuscript v0.1\quad 5 November 2026\par}
+{\itshape Accepted mathematics; manuscript review pending\par}
+\vspace{4mm}
+\begin{abstract}
+Finite-time access to the joint projection capacity of the reciprocal chiral exchange candidate does not by itself determine receiver allocation or later native recovery. We establish both on the same unchanged solution for the coherent empty launch $\Omega_0=(1,e^{i\phi},1)$, $0<\phi\le1/100$ radians, at yaw $\pi/4$. Fix finite positive coefficients before phase so that $\omega_R=\nu/3$ and $0<\gamma/\nu\le1/100$, with the rates defined in the original variables below. The admitted periodic carrier retains positive propagation and disjoint finite-width $H^1$ profiles. Writing $C=\alpha_N(1-\cos\phi)$ for the joint capacity and $\varpi=\sqrt{17/18}\,\nu$, the episode satisfies
+\[
+\begin{gathered}
+ E_{\rm out}(1/\nu)>\frac{1053}{4096}C,\qquad
+ H_R(\pi/\varpi)>C/4,\\
+ H_C(\pi/\varpi)<C/100,\qquad
+ E_{\rm out}(2\pi/\varpi)<C/100 .
+\end{gathered}
+\]
+The first bound is inherited after checking the same coefficients. Net native recovery to $2\pi/\varpi$ exceeds $24/25$ of each actual intermediate external stock, at $1/\nu$ and $\pi/\varpi$, respectively. A complete moving-native tangent reference and a uniform finite error below $\sqrt{2C}/10$ prove the new stock bounds. The normalization is joint capacity, not the whole initial native store; absolute capacity tends to zero with phase. The equality-constrained sufficient family proves neither saturation, irreversible retention, monotonic recovery, an exact nonlinear period nor a spatial circuit.
+\end{abstract}
+\vfill
+{\small Research author and geometric direction: Hilmir Fr\'imann Halld\'orsson.
+GPT formulated and internally reviewed the accepted investigation.
+Codex independently investigated the result and prepared this manuscript.
+The accepted mathematics is preserved; this new manuscript and proposed publication payload await GPT/author review.
+No external peer review or machine-formal proof is claimed.}
+\end{titlepage}
+\setcounter{page}{2}\hypersetup{pageanchor=true}
+\input{introduction}
+\input{model}
+\input{theorem}
+\input{compatibility}
+\input{tangent}
+\input{reference}
+\input{error}
+\input{stocks}
+\input{regime}
+\input{interpretation}
+\clearpage
+\appendix
+\input{units}
+\input{references}
+\end{document}

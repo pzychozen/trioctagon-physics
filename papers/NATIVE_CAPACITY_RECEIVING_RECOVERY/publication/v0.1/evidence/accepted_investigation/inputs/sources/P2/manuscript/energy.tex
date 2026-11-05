@@ -1,0 +1,88 @@
+\section{Scaled energy and native drift}\label{sec:energy}
+\subsection{Exact finite-coupling scaling}\label{sec:scaling}
+For the selected finite $\kappa>0$, put
+\begin{equation}\label{eq:scaling}
+\tau=\kappa t,\quad x_\kappa(\tau)=x(\tau/\kappa),\quad
+(p,r_c,z)(\tau/\kappa)=\frac{\eta_N}{\kappa}
+(\widehat p,\widehat r,\widehat z)(\tau),\quad
+\widehat y=\B^*\widehat p.
+\end{equation}
+The chain rule gives the exact system
+\begin{equation}\label{eq:scaledsystem}
+\begin{aligned}
+(x_\kappa)_\tau&=-\frac{\eta_N^2}{2\alpha_N\kappa^2}J(x_\kappa)^T\widehat y,\\
+\widehat p_\tau+\frac c\kappa\widehat r_s&=\B\{f(x_\kappa)-\widehat z\},\\
+\widehat r_\tau+\frac c\kappa\widehat p_s&=0,\\
+\widehat z_\tau&=\frac1{\beta_R}\widehat y,
+\end{aligned}
+\end{equation}
+and the original total power is
+\begin{equation}\label{eq:powerconversion}
+P_{NC}(\tau/\kappa)=\frac{\eta_N^2}{\kappa}
+f(x_\kappa(\tau))^T\widehat y(\tau).
+\end{equation}
+The scaled time still has time units because $\kappa$ is dimensionless. This change of variables leaves the original propagation speed $c>0$ unchanged.
+
+\subsection{The weighted external estimate}\label{sec:forced}
+On $\EE=L^2_{\rm per}\times L^2_{\rm per}\times\R^2$, set
+\begin{equation}\label{eq:externalnorm}
+\norm{W}_{CR}^2=\norm q_2^2+\norm h_2^2+\beta_R|v|^2,
+\qquad W=(q,h,v),
+\end{equation}
+\begin{equation}\label{eq:operator}
+\begin{aligned}
+\LL_\kappa W&=
+\left(-\frac c\kappa h_s-\B v,\,
+      -\frac c\kappa q_s,\,
+      \frac1{\beta_R}\B^*q\right),\\
+D(\LL_\kappa)&=H^1_{\rm per}{}^2\times\R^2.
+\end{aligned}
+\end{equation}
+For a domain element, periodic integration by parts and adjointness give
+\begin{equation}\label{eq:skew}
+\begin{aligned}
+\langle W,\LL_\kappa W\rangle_{CR}
+&=-\frac c\kappa\int(qh_s+hq_s)\dd s\\
+&\phantom{={}}-\langle q,\B v\rangle+v^T\B^*q=0.
+\end{aligned}
+\end{equation}
+Thus, for a strong curve $W_\tau=\LL_\kappa W+g$,
+\begin{equation}\label{eq:forcedbound}
+\norm{W(\tau)}_{CR}\le\norm{W(0)}_{CR}
++\int_0^\tau\norm{g(s)}_{CR}\dd s,\qquad \tau\ge0.
+\end{equation}
+At a zero of the norm, differentiate
+$\sqrt{\norm W_{CR}^2+\varepsilon^2}$ instead; its derivative is at most $\norm g_{CR}$ by~\eqref{eq:skew}. Integrating and letting $\varepsilon\downarrow0$ proves~\eqref{eq:forcedbound} without division by zero. The homogeneous linear part preserves this norm. We use the estimate only for the known strong solution and its difference from the explicit comparison, so no additional group-limit assertion is needed.
+
+Since the external stores start empty, conservation~\eqref{eq:balances} implies $|x_\kappa(\tau)|\le R$. The derivative formula
+$J(x)h=K(h_a\times b+a\times h_b)$ gives
+\begin{equation}\label{eq:ballbounds}
+|f(x)|\le\frac k2|x|^2,\qquad
+\norm{J(x)}\le k|x|,\qquad
+|f(x)-f(\widetilde x)|\le kR|x-\widetilde x|
+\end{equation}
+when $x,\widetilde x$ lie in the ball of radius $R$. The last inequality follows by integrating $J$ along the line segment in that convex ball. No preservation of a coherent phase domain enters.
+
+Apply~\eqref{eq:forcedbound} to
+$V_\kappa=(\widehat p,\widehat r,\widehat z)$ with forcing
+$(\B f(x_\kappa),0,0)$ and zero initial value. Equations~\eqref{eq:profilenorms} and~\eqref{eq:ballbounds} yield, for every finite $\tau\ge0$,
+\begin{equation}\label{eq:externalbounds}
+\norm{V_\kappa(\tau)}_{CR}\le\sqrt mF_{\max}\tau,\qquad
+|\widehat y(\tau)|\le\sqrt m\norm{\widehat p(\tau)}_2
+\le mF_{\max}\tau.
+\end{equation}
+These constants do not depend on $\kappa$. Retaining receiver loading inside the norm-preserving linear part is essential to the estimate.
+
+\subsection{The native drift bound}\label{sec:drift}
+Integrating the first equation in~\eqref{eq:scaledsystem}, with~\eqref{eq:ballbounds}--\eqref{eq:externalbounds}, gives
+\begin{equation}\label{eq:coredrift}
+|x_\kappa(\tau)-x_0|
+\le\frac{\eta_N^2kR}{2\alpha_N\kappa^2}
+\int_0^\tau mF_{\max}s\dd s
+=\frac{\eta_N^2kRmF_{\max}}{4\alpha_N\kappa^2}\tau^2.
+\end{equation}
+The convex-ball Lipschitz bound consequently implies
+\begin{equation}\label{eq:drivedrift}
+|f(x_\kappa(\tau))-f_0|\le\frac{A\tau^2}{\kappa^2}.
+\end{equation}
+The factor one-fourth includes the native feedback factor one-half and the integral of time. These are bounds for the exact finite-coupling solution, established before introducing the comparison.
