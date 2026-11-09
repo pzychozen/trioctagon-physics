@@ -1,0 +1,87 @@
+\section{The exact first native jump}\label{sec:firstjump}
+Specialize the first-jump comparison to
+\begin{equation}\label{eq:a23}% accepted equation 23
+\begin{gathered}
+\Omega_\phi=(1,e^{i\phi},1),\qquad 0<\phi\le1/100,\qquad p=r_c=z=0.
+\end{gathered}
+\end{equation}
+Put $q=e^{i\phi}$, $D=1-\cos\phi$ and $d_0=1/10000$. Since $\epsilon(k_i-1)=(-d_0,0,d_0)$, the exact prestage is
+\begin{equation}\label{eq:a24}% accepted equation 24
+\begin{gathered}
+v_1=1-d_0+g(q-1),\\ v_2=q+2g(1-q),\\ v_3=1+d_0+g(q-1).
+\end{gathered}
+\end{equation}
+Synchronization preserves each component modulus. For any native input, expansion of the full prestage square gives the inherited identity
+\begin{equation}\label{eq:a25}% accepted equation 25
+\begin{gathered}
+I(F\Omega)-I(\Omega)=
+2\epsilon\sum_i|\Omega_i|^2(k_i-|\Omega_i|^2)
+\\ {}-2g\sum_{i<j}|\Omega_i-\Omega_j|^2+\|d_{\rm pre}\|^2.
+\end{gathered}
+\end{equation}
+Each undirected edge is paired at its two endpoints. With $h_i=(k_i-|\Omega_i|^2)\Omega_i$, its finite square and graph identity are
+\begin{equation}\label{eq:a26}% accepted equation 26
+\begin{gathered}
+\epsilon^2\|h\|^2+2\epsilon g\operatorname{Re}(h^\dagger L_3\Omega)
++g^2\|L_3\Omega\|^2,\\ \|L_3\Omega\|^2=3\sum_{i<j}|\Omega_i-\Omega_j|^2.
+\end{gathered}
+\end{equation}
+The mixed term and full increment have no predetermined sign~\cite[Section 6, native intensity identity]{rx}.
+
+\begin{proposition}[First baseline and sign change]\label{prop:firstjump}
+For the preparation~\eqref{eq:a23}, the full native increment and baseline are
+\begin{equation}\label{eq:a27}% accepted equation 27
+\begin{gathered}
+\Delta I=2d_0^2-4g(2-3g)D
+=\frac1{50000000}-\frac{13}{100}D,\\ b_0=\alpha\left[\frac1{100000000}-\frac{13}{200}D\right].
+\end{gathered}
+\end{equation}
+Both signs occur within the admitted positive-phase interval.
+\end{proposition}
+\begin{proof}
+The onsite sum in~\eqref{eq:a25} vanishes, the edge sum is $4D$, and
+$d_{\rm pre}=(-d_0+g(q-1),-2g(q-1),d_0+g(q-1))$.
+Opposite onsite terms cancel the summed mixed term; the full square is
+$2d_0^2+12g^2D$. Substitution gives~\eqref{eq:a27}. The synchronizer has not been suppressed: its modulus preservation explains why $\lambda$ does not appear.
+
+The alternating cosine series, whose term magnitudes decrease on the stated interval, gives
+\begin{equation}\label{eq:a28}% accepted equation 28
+\begin{gathered}
+\frac{\phi^2}{2}-\frac{\phi^4}{24}\le1-\cos\phi\le\frac{\phi^2}{2}.
+\end{gathered}
+\end{equation}
+At $\phi=1/10000$ this yields $\Delta I\ge387/20000000000>0$.
+At $\phi=1/1000$ it gives $\Delta I\le-107999987/2400000000000000<0$.
+Since $D$ is continuous and strictly increasing for these positive phases, the unique threshold is
+\begin{equation}\label{eq:a29}% accepted equation 29
+\begin{gathered}
+\phi_*=\arccos(1-1/6500000),\qquad 1/10000<\phi_*<1/1000.
+\end{gathered}
+\end{equation}
+The baseline is positive below, zero at, and negative above this threshold.
+\end{proof}
+Dropping the finite square would lose the positive constant and change the coefficient of $D$. Against the old positive launch ceiling $C_\phi=\alpha D$,
+\begin{equation}\label{eq:a30}% accepted equation 30
+\begin{gathered}
+\frac{b_0}{C_\phi}=\frac1{100000000D}-\frac{13}{200}\longrightarrow+\infty
+\quad(\phi\downarrow0).
+\end{gathered}
+\end{equation}
+The numerator tends to the finite value $\alpha/100000000$, while the denominator tends to zero. This is not infinite accessible storage or an efficiency claim.
+
+\subsection{Departure from the earlier exact preparation}\label{sec:familyexit}
+Direct expansion gives
+\begin{equation}\label{eq:a31}% accepted equation 31
+\begin{gathered}
+|F_1\Omega_\phi|^2=(1-d_0)^2-2g(1-d_0-g)D<(1-d_0)^2<1,
+\end{gathered}
+\end{equation}
+because $D>0$ and $1-d_0-g>0$. Also
+\begin{equation}\label{eq:a32}% accepted equation 32
+\begin{gathered}
+|F_3\Omega_\phi|^2-|F_1\Omega_\phi|^2\\ =4d_0(1-gD)>0.
+\end{gathered}
+\end{equation}
+Here $D\le1/20000$, so $1-gD>0$. Every allowed positive phase therefore leaves the exact unit-modulus family. Unequal first/third moduli cannot be repaired by one common phase or common nonzero amplitude factor. In particular $F\Omega_\phi\ne\Omega_\phi$.
+
+This is a failure of the narrow launch hypothesis of the earlier receiving/recovery theorem, not a proof of departure from the larger native coherent domain or impossibility of hybrid receiving. Even an interval $h$ exceeding the old return time only leaves time before the next jump: in the fixed native-first protocol the first exchange starts at $F\Omega_\phi$, not $\Omega_\phi$. Subsequent intervals also generally retain external preload.

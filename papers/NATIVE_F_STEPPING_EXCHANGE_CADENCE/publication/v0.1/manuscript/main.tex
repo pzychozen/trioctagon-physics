@@ -1,0 +1,63 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=25mm,headheight=15pt]{geometry}
+\usepackage{booktabs,array,tabularx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{microtype,enumitem,fancyhdr,needspace}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{bookmark}
+\hypersetup{pdftitle={Native Stepping and Exchange Cadence in the Reciprocal Chiral Exchange Candidate},
+pdfauthor={Hilmir Frímann Halldórsson (pzychozen)},
+pdfsubject={Finite-step accounting, initial receiving, and local capacity. Research manuscript v0.1. Accepted mathematics; manuscript review pending. Prepared 9 November 2026.}}
+\setlength{\parskip}{4pt}\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{3em}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Native stepping and exchange cadence}
+\fancyhead[R]{\small v0.1}
+\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0.3pt}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\B}{B}\newcommand{\dd}{\,\mathrm d}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\vspace*{2mm}
+{\small\color{MidnightBlue} TRI-OCTAGON MATHEMATICAL RESEARCH\par}
+\vspace{7mm}
+{\LARGE\bfseries\raggedright Native Stepping and Exchange Cadence\\
+in the Reciprocal Chiral Exchange\\Candidate\par}
+\vspace{5mm}
+{\large Finite-step accounting, initial receiving,\\and local capacity\par}
+\vspace{6mm}
+{\large Hilmir Fr\'imann Halld\'orsson (pzychozen)\par}
+\vspace{3mm}
+{Research manuscript v0.1\quad 9 November 2026\par}
+{\itshape Accepted mathematics; manuscript review pending.\par}
+\vspace{4mm}
+\begin{abstract}
+The conservative reciprocal chiral exchange candidate admits an exact finite native update between exchange intervals. We examine the inherited native-first composition with a fixed symbolic positive cadence. Native baseline increments must be subtracted when attributing recovery to exchange; the invariant storage floor can change at a native jump, so the old capacity cannot in general be carried across unchanged. For the coherent empty launch $(1,e^{i\phi},1)$, $0<\phi\le1/100$ radians, the exact first baseline has both signs and the native update leaves the precise normalized launch family. Nevertheless, its synchronized source remains nonzero throughout this interval. For each fixed positive phase and finite positive exchange tuple, the actual post-update trajectory has strict initial native debit and receiver gain on a sufficiently short interval before the next jump. This interval is pointwise in phase and parameters. At fixed nonzero native detuning, a local capacity calculation gives a new-to-old algebraic ceiling ratio whose limit is approximately $1.132216337515111$; no attained-transfer claim follows. Strong continuity gives a one-step small-cadence limit equal to the finite native update, with a separate qualified fixed-number-of-steps limit. The later capacity-sized receiving-and-recovery episode under native stepping remains unproved, and no physical cadence is selected.
+\end{abstract}
+\vfill
+{\small Research author and geometric direction: Hilmir Fr\'imann Halld\'orsson.
+GPT formulated and internally reviewed the accepted investigation.
+Codex independently investigated the result and prepared this manuscript.
+The new manuscript and proposed publication payload await GPT/author review.
+No external peer review or machine-formal verification is claimed.}
+\end{titlepage}
+\setcounter{page}{2}\hypersetup{pageanchor=true}
+\input{introduction}
+\input{model}
+\input{accounts}
+\input{firstjump}
+\input{activity}
+\input{capacity}
+\input{cadence}
+\input{dark}
+\input{discussion}
+\input{references}
+\end{document}

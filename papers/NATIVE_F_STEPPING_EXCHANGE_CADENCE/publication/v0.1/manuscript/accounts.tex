@@ -1,0 +1,108 @@
+\section{Finite accounts and the moving floor}\label{sec:accounts}
+\subsection{Baseline increments and window endpoints}\label{sec:windows}
+Define the native baseline at jump $n$ and the signed exchange debit on its following interval by
+\begin{equation}\label{eq:a10}% accepted equation 10
+\begin{gathered}
+b_n=H_N(F\Omega_n)-H_N(\Omega_n),\\ D_n=\int_0^hP_{NC}(\Phi_tX_n^+)\,dt .
+\end{gathered}
+\end{equation}
+The jump changes only native storage; integrating the inherited accounts afterward gives
+\begin{equation}\label{eq:a11}% accepted equation 11
+\begin{gathered}
+E_{n+1}-E_n=D_n,\quad H_{N,n+1}-H_{N,n}=b_n-D_n,\\ H_{{\rm tot},n+1}-H_{{\rm tot},n}=b_n.
+\end{gathered}
+\end{equation}
+For $N$ completed rounds,
+\begin{equation}\label{eq:a12}% accepted equation 12
+\begin{gathered}
+H_{\rm tot}(X_N)=H_{\rm tot}(X_0)+\sum_{n=0}^{N-1}b_n,\\ E_N-E_0=\sum_{n=0}^{N-1}D_n,\\ H_{N,N}-H_{N,0}=\sum_{n=0}^{N-1}b_n-(E_N-E_0).
+\end{gathered}
+\end{equation}
+In particular the first native jump is included. With jump times $\tau_n=nh$, the samples are $X_n=X(\tau_n^-)$, including the prepared $X_0=X(0^-)$. The comparison from $0^-$ to $(Nh)^-$ counts $b_0,\ldots,b_{N-1}$. In contrast the comparison from $0^+$ to $(Nh)^+$ counts $b_1,\ldots,b_N$.
+
+For an arbitrary finite window use the inherited post-jump endpoint convention~\cite[Section 7]{rx}: at a jump endpoint take the post-jump value and set
+\begin{equation}\label{eq:a13}% accepted equation 13
+\begin{gathered}
+B_N(t_a,t_b)=\sum_{t_a<\tau_j\le t_b}b_j
+\end{gathered}
+\end{equation}
+External stocks are continuous at the jumps. There is no impulsive carrier or receiver work. With per-port powers $P_{N,\sigma}=\eta f_\sigma y_\sigma$ and $P_{R,\sigma}=\kappa z_\sigma y_\sigma$, take positive and negative parts before summing:
+\begin{equation}\label{eq:a14}% accepted equation 14
+\begin{gathered}
+Q_{N\to C}=\int\sum_\sigma[P_{N,\sigma}]_+,\\ Q_{C\to N}=\int\sum_\sigma[-P_{N,\sigma}]_+,\\ Q_{C\to R}=\int\sum_\sigma[P_{R,\sigma}]_+,\\ Q_{R\to C}=\int\sum_\sigma[-P_{R,\sigma}]_+.
+\end{gathered}
+\end{equation}
+All integrals here are with respect to exchange time on the specified window. Piecewise continuity and finitely many jumps make them well defined. Opposite simultaneous port powers contribute to both directions even when their signed sum is zero. Integration between jumps and addition of baseline increments give
+\begin{equation}\label{eq:a15}% accepted equation 15
+\begin{aligned}
+\Delta H_N&=B_N-Q_{N\to C}+Q_{C\to N},\\
+\Delta H_C&=Q_{N\to C}-Q_{C\to N}-Q_{C\to R}+Q_{R\to C},\\
+\Delta H_R&=Q_{C\to R}-Q_{R\to C},\\
+\Delta H_N-B_N&=E(t_a)-E(t_b).
+\end{aligned}
+\end{equation}
+The accounts do not introduce a hidden reservoir. Native baseline change is distinct from carrier or receiver work and does not make the full hybrid automatically a closed energy-conserving physical system.
+
+\subsection{Recovery and distinct denominators}\label{sec:recovery}
+Only for $E_a=E(t_a)>0$ define the exchange-attributable and raw native-recovery ratios:
+\begin{equation}\label{eq:a16}% accepted equation 16
+\begin{gathered}
+\mathcal R_{\rm ex}=\frac{\Delta H_N-B_N}{E_a}
+=1-\frac{E_b}{E_a}\le1,\\ \mathcal R_{\rm raw}=\frac{\Delta H_N}{E_a}
+=\mathcal R_{\rm ex}+\frac{B_N}{E_a}.
+\end{gathered}
+\end{equation}
+The bound uses $E_b\ge0$. Corrected recovery is nonnegative exactly when $E_b\le E_a$; no positive lower bound follows from accounting alone. A positive baseline can inflate the raw ratio without additional exchange credit, whereas a negative baseline can hide credit. At $E_a=0$ the identities remain valid but these ratios are undefined.
+
+The inherited retained-receiver result has different hypotheses and denominator~\cite[Proposition 7.1]{rx}. If $H_C(t_a)=H_R(t_a)=0$ and $Q_{N\to C}>0$, then
+\begin{equation}\label{eq:a17}% accepted equation 17
+\begin{gathered}
+0\le\Delta H_R=H_R(t_b)=Q_{N\to C}-Q_{C\to N}-H_C(t_b)
+\le Q_{N\to C}.
+\end{gathered}
+\end{equation}
+Thus $0\le\Delta H_R/Q_{N\to C}\le1$ survives finite native jumps with complete counting. If also $Q_{R\to C}=0$, then $\Delta H_R=Q_{C\to R}$ and the same bound applies to gross receiving. Without that condition gross work may recount back-and-forth transfer. With preload, neither nonnegative retained change nor the upper bound follows by this proof. Later intervals cannot silently be relabelled empty.
+
+Net native recovery, retained receiver stock, gross receiving work, capacity fractions and fractions of initial native stock have distinct meanings. No tagged-cohort or physical efficiency statement follows. The published continuous-exchange return bound greater than $24/25$~\cite[Theorem 3.1]{rr} requires its actual endpoint estimates and is not imported into this hybrid.
+
+\subsection{Projection floor with arbitrary preload}\label{sec:floor}
+At the fixed yaw let $e=(1,-1,0)/\sqrt2$, so $Ke=0$. Define
+\begin{equation}\label{eq:a18}% accepted equation 18
+\begin{gathered}
+Z_2=\Omega^T\Omega,\quad h_e=|e\cdot\Omega|^2,\quad j=I-2h_e,\\ \mathcal L(\Omega)=\frac\alpha2\max(|Z_2|,j),\\ C(\Omega)=H_N-\mathcal L=\min\{C_Z,\alpha h_e\},\\ C_Z=\frac\alpha2(I-|Z_2|).
+\end{gathered}
+\end{equation}
+$Z_2$ uses a bilinear transpose, whereas $I$ is Hermitian intensity. The identity $I^2-|Z_2|^2=4|a\times b|^2$ gives $I\ge|Z_2|$, and $h_e\ge0$ gives $I\ge j$. Hence $0\le\mathcal L\le H_N$ and $C\ge0$; negative $j$ is allowed.
+
+For completeness, the inherited invariants can be checked with $w=K^Ty$ and $\mu=\eta/(2\alpha)$:
+\begin{equation}\label{eq:a19}% accepted equation 19
+\begin{gathered}
+\dot a=\mu w\times b,\quad\dot b=-\mu w\times a,\quad
+\dot\Omega=-i\mu w\times\Omega.
+\end{gathered}
+\end{equation}
+The bilinear identity $\Omega^T(w\times\Omega)=0$ makes $Z_2$ constant.
+Triple products give $\dot I=-4\mu w\cdot(a\times b)$. In a right-handed basis with $e$ as third axis, $w_3=0$ and differentiation gives $\dot h_e=-2\mu w\cdot(a\times b)$; therefore $\dot j=0$~\cite[Theorem 3.1]{pc}. Native coordinates are $C^1$ even for mild carrier data, so these derivatives are valid. It is the floor $\mathcal L$, not instantaneous capacity, that stays fixed within an exchange interval.
+
+Put $\mathcal L_n^+=\mathcal L(F\Omega_n)$ and $C_n^+=C(F\Omega_n)$. Conservation and the inherited general-preparation ceiling yield
+\begin{equation}\label{eq:a20}% accepted equation 20
+\begin{gathered}
+0\le E(t)\le E_n+C_n^+,\qquad
+-E_n\le E(t)-E_n\le C_n^+ .
+\end{gathered}
+\end{equation}
+This keeps the actual preload $E_n$. Across the native jump, subtraction of the two defining capacities gives
+\begin{equation}\label{eq:a21}% accepted equation 21
+\begin{gathered}
+C(F\Omega)-C(\Omega)=b(\Omega)-[\mathcal L(F\Omega)-\mathcal L(\Omega)].
+\end{gathered}
+\end{equation}
+During exchange $C+E=H_{\rm tot}-\mathcal L$ is constant; at a jump its change is $b-\Delta\mathcal L$. Added native storage need not become additional capacity.
+
+For $t$ after jump $n$ and before the next one, the indexed cumulative bound is
+\begin{equation}\label{eq:a22}% accepted equation 22
+\begin{gathered}
+E(t)\le H_{\rm tot}(X_0)+\sum_{j=0}^{n}b_j-\mathcal L(F\Omega_n).
+\end{gathered}
+\end{equation}
+The current jump is included. Endpoints must use the matching convention above. A coarser finite-index consequence is $E_N\le E_0+\sum_{n=0}^{N-1}C_n^+$. Neither estimate bounds all preloaded stock by $C_n^+$ alone or supplies an infinite-step bound. Algebraic sharpness on a common invariant level is distinct from attaining its minimum on a particular exchange trajectory~\cite[Section 3]{pc}.

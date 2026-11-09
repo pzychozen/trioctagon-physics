@@ -1,0 +1,43 @@
+\section{Small-cadence limits and their scope}\label{sec:cadence}
+\begin{proposition}[One fixed state]\label{prop:onestep}
+For every fixed $X\in\mathcal H$,
+\begin{equation}\label{eq:a54}% accepted equation 54
+\begin{gathered}
+T_hX=\Phi_h(\widehat FX)\longrightarrow\widehat FX
+\quad\mathrm{in}\ \|\cdot\|_E,\quad h\downarrow0.
+\end{gathered}
+\end{equation}
+If $\widehat FX\ne X$, then
+\begin{equation}\label{eq:a55}% accepted equation 55
+\begin{gathered}
+\|T_hX-X\|_E\longrightarrow\|\widehat FX-X\|_E>0,\\ \frac{\|T_hX-X\|_E}{h}\longrightarrow+\infty.
+\end{gathered}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The image $\widehat FX$ is a defined finite-energy point. Strong continuity of exchange at that fixed point proves~\eqref{eq:a54}, without requiring continuity of $F$ at neighbouring inputs. Norm continuity gives the positive limit of the numerator in~\eqref{eq:a55}. No differentiation of the unbounded translation generator is used.
+\end{proof}
+Equation~\eqref{eq:a31} makes every permitted positive-phase launch nonfixed. In fact $|F_1-1|\ge1-|F_1|>d_0$. If samples at time $h$ approximated uniformly near zero a continuous curve $Y$ with $Y(0)=X$, then $Y(h)\to X$ while $T_hX\to\widehat FX\ne X$. The first-sample error could not tend to zero. Thus fixed finite native updates do not give ordinary near-identity continuous refinement with that same initial value. Useful finite cadences, special fixed states and separately formulated singular or initial-layer limits are not excluded.
+
+\begin{proposition}[Fixed finite number of updates]\label{prop:finiteN}
+Fix a finite $N$. Assume $F$ is continuous at the native parts of $X,\widehat FX,\ldots,\widehat F^{N-1}X$. Then~\eqref{eq:a57} holds. Nonzero prestage components at these states are sufficient.
+\end{proposition}
+\begin{proof}
+Away from zero prestages, powers of $v_i/|v_i|$ express the phase factors smoothly; an argument branch cut alone is no obstruction. At zero-prestage strata the convention defines $F$ but supplies no general neighbouring continuity.
+
+The inherited bounded-energy dependence estimate~\cite[Theorem 3.1]{rx} gives, for nearby $Y_h\to Y$ and $h\downarrow0$,
+\begin{equation}\label{eq:a56}% accepted equation 56
+\begin{gathered}
+\|\Phi_hY_h-Y\|_E
+\le e^{Lh}\|Y_h-Y\|_E+\|\Phi_hY-Y\|_E\longrightarrow0
+\quad\text{if }Y_h\to Y,\ h\downarrow0,
+\end{gathered}
+\end{equation}
+The constant $L$ in this estimate is a local Lipschitz constant, not the invariant floor $\mathcal L$. Continuity of $\widehat F$ at the encountered point and this joint continuity of exchange advance a finite induction. Therefore
+\begin{equation}\label{eq:a57}% accepted equation 57
+\begin{gathered}
+T_h^NX\longrightarrow\widehat F^NX\qquad\text{for each such fixed finite }N.
+\end{gathered}
+\end{equation}
+\end{proof}
+The inherited native-only forward-invariant coherent-domain result supplies nonzero prestages along native-only coherent orbits~\cite[Section 6, native domain]{rx}. This suffices for any fixed finite $N$ there, but does not assert invariance of an active hybrid trajectory. No constants uniform in $N$ are proved, so substituting $N$ proportional to $1/h$ is not justified.

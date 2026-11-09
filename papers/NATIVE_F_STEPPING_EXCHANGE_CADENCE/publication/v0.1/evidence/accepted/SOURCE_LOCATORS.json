@@ -1,0 +1,810 @@
+{
+  "utc": "2026-11-09T13:34:35.784906+00:00",
+  "status": "PASS",
+  "claims": [
+    {
+      "id": "F01",
+      "status": "VERIFIED — inherited definitions",
+      "conclusion": "Exact simultaneous map, zero convention, tuple and F-first flow; ideal formula distinguished from floating evaluation.",
+      "source_locators": [
+        "sources/native_code/dynamics.py::DynamicsConfig",
+        "sources/native_code/dynamics.py::arg0",
+        "sources/native_code/dynamics.py::phase_sync",
+        "sources/native_code/dynamics.py::_advance",
+        "sources/native_code/dynamics.py::step3",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:tuple",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:prestage",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:nativemap",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:hybrid",
+        "sources/receiving_recovery/publication/v0.1/manuscript/model.tex::eq:registration",
+        "sources/receiving_recovery/publication/v0.1/manuscript/model.tex::eq:system",
+        "sources/receiving_recovery/publication/v0.1/manuscript/model.tex::eq:stores"
+      ],
+      "proof": {
+        "path": "NATIVE_F_STEPPING_EXCHANGE_CADENCE_01_PROOF_REVIEW.md",
+        "heading": "## F01 — exact map, model, ordering and state space",
+        "line": 28
+      },
+      "exact_support": "A01",
+      "limits": "No imported repository modules, normalized map, continuous-gradient replacement, rescaling or new clock."
+    },
+    {
+      "id": "F02",
+      "status": "VERIFIED — indexed inherited accounts",
+      "conclusion": "First jump included in pre-jump samples; arbitrary finite windows use the exact post-jump endpoint convention.",
+      "source_locators": [
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:hybridbalance",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex::eq:baselinewindow",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex::eq:windowbalances",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex::eq:perport",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex::eq:Qdefinitions",
+        "sources/receiving_recovery/publication/v0.1/manuscript/model.tex::eq:accounts"
+      ],
+      "proof": {
+        "path": "NATIVE_F_STEPPING_EXCHANGE_CADENCE_01_PROOF_REVIEW.md",
+        "heading": "## F02 — first-jump-inclusive balances and endpoints",
+        "line": 106
+      },
+      "exact_support": "A08",
+      "limits": "No impulsive port work; do not mix pre-jump and post-jump endpoints."
+    },
+    {
+      "id": "F03",
+      "status": "VERIFIED — qualified accounting deduction",
+      "conclusion": "Subtract baseline for exchange-native recovery; the inherited empty-start retained receiver ratio still holds.",
+      "source_locators": [
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex::prop:ratio",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex::eq:retainedratio",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex::eq:ratioidentity",
+        "sources/receiving_recovery/publication/v0.1/manuscript/stocks.tex::eq:recoveries"
+      ],
+      "proof": {
+        "path": "NATIVE_F_STEPPING_EXCHANGE_CADENCE_01_PROOF_REVIEW.md",
+        "heading": "## F03 — recovery attribution and the retained ratio",
+        "line": 176
+      },
+      "exact_support": "A08",
+      "limits": "Positive denominators required; gross work, retained stock and initial native stock are distinct; no automatic >24/25 hybrid guarantee."
+    },
+    {
+      "id": "F04",
+      "status": "VERIFIED — general-preload finite-window deduction",
+      "conclusion": "Moving invariant floor, exact change of capacity, preloaded segment and cumulative envelopes.",
+      "source_locators": [
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:projectiondef",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:core",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:Idot",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:hdot",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:joint",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:preloaded",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/model.tex::eq:oldinvariant",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:hybridbalance"
+      ],
+      "proof": {
+        "path": "NATIVE_F_STEPPING_EXCHANGE_CADENCE_01_PROOF_REVIEW.md",
+        "heading": "## F04 — moving floor and preloaded finite-window envelopes",
+        "line": 202
+      },
+      "exact_support": "A07, A08",
+      "limits": "L is exchange invariant; C generally is not. No ceiling for entire preloaded stock by C alone, no attainment or infinite-step bound."
+    },
+    {
+      "id": "F05",
+      "status": "VERIFIED — new exact specialization",
+      "conclusion": "Full finite-square first jump, threshold, two rational witnesses and divergent baseline/old-capacity ratio.",
+      "source_locators": [
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:nativeintensity",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:fullsquare",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:graphsquare",
+        "sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex::eq:launch",
+        "sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex::eq:ceiling"
+      ],
+      "proof": {
+        "path": "NATIVE_F_STEPPING_EXCHANGE_CADENCE_01_PROOF_REVIEW.md",
+        "heading": "## F05 — exact first native storage increment and both signs",
+        "line": 252
+      },
+      "exact_support": "A01, A02, A03",
+      "limits": "Neither sign is exchange work; an unbounded ratio to a vanishing ceiling is not unbounded accessible storage."
+    },
+    {
+      "id": "F06",
+      "status": "VERIFIED — exact preparation obstruction",
+      "conclusion": "Every permitted positive phase leaves the precise normalized launch family, even up to common phase/amplitude.",
+      "source_locators": [
+        "sources/native_code/dynamics.py::phase_sync",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:prestage",
+        "sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex::eq:launch",
+        "sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex::thm:episode"
+      ],
+      "proof": {
+        "path": "NATIVE_F_STEPPING_EXCHANGE_CADENCE_01_PROOF_REVIEW.md",
+        "heading": "## F06 — exit from the precise RR preparation",
+        "line": 322
+      },
+      "exact_support": "A02",
+      "limits": "Failure of theorem hypotheses is not failure of actual hybrid receiving; choosing h>=t_F does not repair the initial state."
+    },
+    {
+      "id": "F07",
+      "status": "VERIFIED — new full-phase analytical bound",
+      "conclusion": "Strict prestage ordering, convex simultaneous synchronization, no wrap, gap contraction, raw-sign convention and uniform sin-squared source coefficient.",
+      "source_locators": [
+        "sources/native_code/dynamics.py::phase_sync",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:nativemap",
+        "sources/receiving_recovery/publication/v0.1/manuscript/model.tex::eq:registration",
+        "sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex::eq:ceiling"
+      ],
+      "proof": {
+        "path": "NATIVE_F_STEPPING_EXCHANGE_CADENCE_01_PROOF_REVIEW.md",
+        "heading": "## F07 — full-interval phase ordering and the synchronized source bound",
+        "line": 343
+      },
+      "exact_support": "A04",
+      "limits": "Coefficient is uniform relative to sin²(phi), not an absolute positive floor; no per-port sign assumption is needed for the nonzero-vector proof."
+    },
+    {
+      "id": "F08",
+      "status": "VERIFIED — application of inherited local activity",
+      "conclusion": "The actual post-F empty state initially supplies carrier and receiver at each fixed allowed phase and positive finite tuple.",
+      "source_locators": [
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex::prop:launch",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex::eq:initialcarrier",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex::eq:initialports",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex::eq:nativedebit",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex::eq:receiverstate",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex::eq:receivergain",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex::eq:initialreceiverpower",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/wellposed.tex::thm:global"
+      ],
+      "proof": {
+        "path": "NATIVE_F_STEPPING_EXCHANGE_CADENCE_01_PROOF_REVIEW.md",
+        "heading": "## F08 — initial actual supply and receiving, with the quantifiers retained",
+        "line": 427
+      },
+      "exact_support": "Analytical proof; A04 supplies exact coefficient",
+      "limits": "Interval may depend on phase; truncated at the next native jump; no uniform relative remainder or later episode theorem proved."
+    },
+    {
+      "id": "F09",
+      "status": "VERIFIED — local asymptotic only",
+      "conclusion": "Post-F branch selection, analytic parity, cancellation of the unknown second real term, exact Q and ceiling-ratio limit.",
+      "source_locators": [
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:joint",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:launchprojection",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:strictwitness",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/model.tex::eq:oldinvariant",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:nativemap",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:positivebaseline"
+      ],
+      "proof": {
+        "path": "NATIVE_F_STEPPING_EXCHANGE_CADENCE_01_PROOF_REVIEW.md",
+        "heading": "## F09 — local branch change and exact asymptotic capacity coefficient",
+        "line": 461
+      },
+      "exact_support": "A05, A06, A07",
+      "limits": "Fixed nonzero detuning; unspecified neighbourhood; algebraic ceilings, not achieved transfer or efficiency."
+    },
+    {
+      "id": "F10",
+      "status": "VERIFIED — strong and qualified finite-N limits",
+      "conclusion": "Energy-space strong limit to F-hat, non-near-identity obstruction, and finite induction with continuity at native orbit points.",
+      "source_locators": [
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/wellposed.tex::eq:space",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/wellposed.tex::eq:energynorm",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/wellposed.tex::eq:dependence",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::sec:limits",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:domain"
+      ],
+      "proof": {
+        "path": "NATIVE_F_STEPPING_EXCHANGE_CADENCE_01_PROOF_REVIEW.md",
+        "heading": "## F10 — strong small-h limit and the finite-N qualification",
+        "line": 549
+      },
+      "exact_support": "Analytical proof",
+      "limits": "No claim at arbitrary zero-prestage continuity strata; no N~T/h extrapolation, singular-limit exclusion or selected cadence."
+    },
+    {
+      "id": "F11",
+      "status": "VERIFIED — inherited witness plus dark-iterate deduction",
+      "conclusion": "The real aligned boundary gains baseline storage but has zero drive/capacity; real empty states remain exchange-dark through finite iterates.",
+      "source_locators": [
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:positivebaseline",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::prop:dark",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:zeroceiling",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:nativemap",
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/wellposed.tex::thm:global"
+      ],
+      "proof": {
+        "path": "NATIVE_F_STEPPING_EXCHANGE_CADENCE_01_PROOF_REVIEW.md",
+        "heading": "## F11 — positive baseline, changed invariants, zero capacity and dark iterates",
+        "line": 591
+      },
+      "exact_support": "A07",
+      "limits": "phi=0 lies outside the positive RR family; exact mathematics, not floating sin(3pi) equality; no arbitrary-preload stationarity."
+    },
+    {
+      "id": "F12",
+      "status": "VERIFIED scope conclusion — later hybrid episode OPEN",
+      "conclusion": "Cadence stays symbolic; native/exchange attribution is exact; this first bounded assessment is complete with the later theorem gap explicit.",
+      "source_locators": [
+        "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::sec:limits",
+        "sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex::eq:rates",
+        "sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex::eq:times",
+        "sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex::thm:episode",
+        "sources/receiving_recovery/publication/v0.1/manuscript/interpretation.tex::sec:continuation"
+      ],
+      "proof": {
+        "path": "NATIVE_F_STEPPING_EXCHANGE_CADENCE_01_PROOF_REVIEW.md",
+        "heading": "## F12 — cadence status and the remaining gap",
+        "line": 620
+      },
+      "exact_support": "Synthesis of F01–F11",
+      "limits": "No author decision required now; a future physical clock rule is a new premise; no manuscript, publication or successor work."
+    }
+  ],
+  "unique_source_locator_count": 56,
+  "locators": {
+    "sources/native_code/dynamics.py::DynamicsConfig": {
+      "path": "inputs/sources/native_code/dynamics.py",
+      "key": "DynamicsConfig",
+      "kind": "Python definition",
+      "line": 28,
+      "line_text": "class DynamicsConfig:",
+      "sha256": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4",
+      "git_blob": "4283c9929fa8b0df18234a23ea9adf4ebce98510",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/kernel_physics/dynamics.py#L28"
+    },
+    "sources/native_code/dynamics.py::arg0": {
+      "path": "inputs/sources/native_code/dynamics.py",
+      "key": "arg0",
+      "kind": "Python definition",
+      "line": 57,
+      "line_text": "def arg0(values) -> np.ndarray:",
+      "sha256": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4",
+      "git_blob": "4283c9929fa8b0df18234a23ea9adf4ebce98510",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/kernel_physics/dynamics.py#L57"
+    },
+    "sources/native_code/dynamics.py::phase_sync": {
+      "path": "inputs/sources/native_code/dynamics.py",
+      "key": "phase_sync",
+      "kind": "Python definition",
+      "line": 66,
+      "line_text": "def phase_sync(values, phase_strength: float) -> np.ndarray:",
+      "sha256": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4",
+      "git_blob": "4283c9929fa8b0df18234a23ea9adf4ebce98510",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/kernel_physics/dynamics.py#L66"
+    },
+    "sources/native_code/dynamics.py::_advance": {
+      "path": "inputs/sources/native_code/dynamics.py",
+      "key": "_advance",
+      "kind": "Python definition",
+      "line": 87,
+      "line_text": "def _advance(state: np.ndarray, config: DynamicsConfig) -> np.ndarray:",
+      "sha256": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4",
+      "git_blob": "4283c9929fa8b0df18234a23ea9adf4ebce98510",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/kernel_physics/dynamics.py#L87"
+    },
+    "sources/native_code/dynamics.py::step3": {
+      "path": "inputs/sources/native_code/dynamics.py",
+      "key": "step3",
+      "kind": "Python definition",
+      "line": 99,
+      "line_text": "def step3(omega, config: DynamicsConfig) -> np.ndarray:",
+      "sha256": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4",
+      "git_blob": "4283c9929fa8b0df18234a23ea9adf4ebce98510",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/kernel_physics/dynamics.py#L99"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:tuple": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex",
+      "key": "eq:tuple",
+      "kind": "TeX label",
+      "line": 3,
+      "line_text": "\\begin{equation}\\label{eq:tuple}",
+      "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+      "git_blob": "a8f1b2934fead47213a8e488a32a7378104ee450",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex#L3"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:prestage": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex",
+      "key": "eq:prestage",
+      "kind": "TeX label",
+      "line": 10,
+      "line_text": " &\\widetilde\\Omega&=\\Omega+d_{\\rm pre},\\label{eq:prestage}\\\\",
+      "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+      "git_blob": "a8f1b2934fead47213a8e488a32a7378104ee450",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex#L10"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:nativemap": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex",
+      "key": "eq:nativemap",
+      "kind": "TeX label",
+      "line": 12,
+      "line_text": " &F_i(\\Omega)&=e^{i\\delta_i}\\widetilde\\Omega_i.\\label{eq:nativemap}",
+      "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+      "git_blob": "a8f1b2934fead47213a8e488a32a7378104ee450",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex#L12"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:hybrid": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex",
+      "key": "eq:hybrid",
+      "kind": "TeX label",
+      "line": 32,
+      "line_text": "\\begin{equation}\\label{eq:hybrid}",
+      "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+      "git_blob": "a8f1b2934fead47213a8e488a32a7378104ee450",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex#L32"
+    },
+    "sources/receiving_recovery/publication/v0.1/manuscript/model.tex::eq:registration": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/manuscript/model.tex",
+      "key": "eq:registration",
+      "kind": "TeX label",
+      "line": 4,
+      "line_text": "\\begin{equation}\\label{eq:registration}% RR01",
+      "sha256": "ba4b1e12d783d4c79fe8569cbf1e4d8a69026d703850a5c88f29f5f527d30604",
+      "git_blob": "d752e71bdba26010da97f963382d2913c77f3e81",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/manuscript/model.tex#L4"
+    },
+    "sources/receiving_recovery/publication/v0.1/manuscript/model.tex::eq:system": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/manuscript/model.tex",
+      "key": "eq:system",
+      "kind": "TeX label",
+      "line": 30,
+      "line_text": "\\begin{equation}\\label{eq:system}% RR01",
+      "sha256": "ba4b1e12d783d4c79fe8569cbf1e4d8a69026d703850a5c88f29f5f527d30604",
+      "git_blob": "d752e71bdba26010da97f963382d2913c77f3e81",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/manuscript/model.tex#L30"
+    },
+    "sources/receiving_recovery/publication/v0.1/manuscript/model.tex::eq:stores": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/manuscript/model.tex",
+      "key": "eq:stores",
+      "kind": "TeX label",
+      "line": 38,
+      "line_text": "\\begin{equation}\\label{eq:stores}% RR03",
+      "sha256": "ba4b1e12d783d4c79fe8569cbf1e4d8a69026d703850a5c88f29f5f527d30604",
+      "git_blob": "d752e71bdba26010da97f963382d2913c77f3e81",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/manuscript/model.tex#L38"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:hybridbalance": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex",
+      "key": "eq:hybridbalance",
+      "kind": "TeX label",
+      "line": 36,
+      "line_text": "\\begin{equation}\\label{eq:hybridbalance}",
+      "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+      "git_blob": "a8f1b2934fead47213a8e488a32a7378104ee450",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex#L36"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex::eq:baselinewindow": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex",
+      "key": "eq:baselinewindow",
+      "kind": "TeX label",
+      "line": 19,
+      "line_text": "\\begin{equation}\\label{eq:baselinewindow}",
+      "sha256": "b681f113ce3e484b35674212ceec4ab42ccb1ac13d8d5b306bf2e92f7c2e60ad",
+      "git_blob": "effc692af4432671ff491c957f0f32d143e13bd3",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex#L19"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex::eq:windowbalances": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex",
+      "key": "eq:windowbalances",
+      "kind": "TeX label",
+      "line": 24,
+      "line_text": "\\begin{equation}\\label{eq:windowbalances}",
+      "sha256": "b681f113ce3e484b35674212ceec4ab42ccb1ac13d8d5b306bf2e92f7c2e60ad",
+      "git_blob": "effc692af4432671ff491c957f0f32d143e13bd3",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex#L24"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex::eq:perport": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex",
+      "key": "eq:perport",
+      "kind": "TeX label",
+      "line": 3,
+      "line_text": "\\begin{equation}\\label{eq:perport}",
+      "sha256": "b681f113ce3e484b35674212ceec4ab42ccb1ac13d8d5b306bf2e92f7c2e60ad",
+      "git_blob": "effc692af4432671ff491c957f0f32d143e13bd3",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex#L3"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex::eq:Qdefinitions": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex",
+      "key": "eq:Qdefinitions",
+      "kind": "TeX label",
+      "line": 8,
+      "line_text": "\\begin{equation}\\label{eq:Qdefinitions}",
+      "sha256": "b681f113ce3e484b35674212ceec4ab42ccb1ac13d8d5b306bf2e92f7c2e60ad",
+      "git_blob": "effc692af4432671ff491c957f0f32d143e13bd3",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex#L8"
+    },
+    "sources/receiving_recovery/publication/v0.1/manuscript/model.tex::eq:accounts": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/manuscript/model.tex",
+      "key": "eq:accounts",
+      "kind": "TeX label",
+      "line": 59,
+      "line_text": "\\begin{equation}\\label{eq:accounts}% RR07",
+      "sha256": "ba4b1e12d783d4c79fe8569cbf1e4d8a69026d703850a5c88f29f5f527d30604",
+      "git_blob": "d752e71bdba26010da97f963382d2913c77f3e81",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/manuscript/model.tex#L59"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex::prop:ratio": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex",
+      "key": "prop:ratio",
+      "kind": "TeX label",
+      "line": 34,
+      "line_text": "\\begin{proposition}[Restricted retained-storage ratio]\\label{prop:ratio}",
+      "sha256": "b681f113ce3e484b35674212ceec4ab42ccb1ac13d8d5b306bf2e92f7c2e60ad",
+      "git_blob": "effc692af4432671ff491c957f0f32d143e13bd3",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex#L34"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex::eq:retainedratio": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex",
+      "key": "eq:retainedratio",
+      "kind": "TeX label",
+      "line": 36,
+      "line_text": "\\begin{equation}\\label{eq:retainedratio}",
+      "sha256": "b681f113ce3e484b35674212ceec4ab42ccb1ac13d8d5b306bf2e92f7c2e60ad",
+      "git_blob": "effc692af4432671ff491c957f0f32d143e13bd3",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex#L36"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex::eq:ratioidentity": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex",
+      "key": "eq:ratioidentity",
+      "kind": "TeX label",
+      "line": 43,
+      "line_text": "\\begin{equation}\\label{eq:ratioidentity}",
+      "sha256": "b681f113ce3e484b35674212ceec4ab42ccb1ac13d8d5b306bf2e92f7c2e60ad",
+      "git_blob": "effc692af4432671ff491c957f0f32d143e13bd3",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/accounts.tex#L43"
+    },
+    "sources/receiving_recovery/publication/v0.1/manuscript/stocks.tex::eq:recoveries": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/manuscript/stocks.tex",
+      "key": "eq:recoveries",
+      "kind": "TeX label",
+      "line": 59,
+      "line_text": "\\begin{equation}\\label{eq:recoveries}% RR33",
+      "sha256": "66bb4c575b62351c739b6e69e74b1d75f066e45594ff041e1ab49b36338f9e04",
+      "git_blob": "9c61f880cc783b085463f76d3d47df7d9fda00f7",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/manuscript/stocks.tex#L59"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:projectiondef": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex",
+      "key": "eq:projectiondef",
+      "kind": "TeX label",
+      "line": 14,
+      "line_text": "\\begin{equation}\\label{eq:projectiondef}% SRC: PC05",
+      "sha256": "5f99b98570e94f56944e711a73c5e02732bf45b6d9c1c6d3b2a8560900d7e7c5",
+      "git_blob": "6f71fb53d3c41828ed44fb2f910e49a04e1d319b",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex#L14"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:core": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex",
+      "key": "eq:core",
+      "kind": "TeX label",
+      "line": 47,
+      "line_text": "\\begin{equation}\\label{eq:core}% SRC: PC01",
+      "sha256": "5f99b98570e94f56944e711a73c5e02732bf45b6d9c1c6d3b2a8560900d7e7c5",
+      "git_blob": "6f71fb53d3c41828ed44fb2f910e49a04e1d319b",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex#L47"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:Idot": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex",
+      "key": "eq:Idot",
+      "kind": "TeX label",
+      "line": 53,
+      "line_text": "\\begin{equation}\\label{eq:Idot}% SRC: PC06",
+      "sha256": "5f99b98570e94f56944e711a73c5e02732bf45b6d9c1c6d3b2a8560900d7e7c5",
+      "git_blob": "6f71fb53d3c41828ed44fb2f910e49a04e1d319b",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex#L53"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:hdot": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex",
+      "key": "eq:hdot",
+      "kind": "TeX label",
+      "line": 58,
+      "line_text": "\\begin{equation}\\label{eq:hdot}% SRC: PC07",
+      "sha256": "5f99b98570e94f56944e711a73c5e02732bf45b6d9c1c6d3b2a8560900d7e7c5",
+      "git_blob": "6f71fb53d3c41828ed44fb2f910e49a04e1d319b",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex#L58"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:joint": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex",
+      "key": "eq:joint",
+      "kind": "TeX label",
+      "line": 26,
+      "line_text": "\\begin{equation}\\label{eq:joint}% SRC: PC10",
+      "sha256": "5f99b98570e94f56944e711a73c5e02732bf45b6d9c1c6d3b2a8560900d7e7c5",
+      "git_blob": "6f71fb53d3c41828ed44fb2f910e49a04e1d319b",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex#L26"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:preloaded": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex",
+      "key": "eq:preloaded",
+      "kind": "TeX label",
+      "line": 39,
+      "line_text": "\\begin{equation}\\label{eq:preloaded}% SRC: PC12",
+      "sha256": "5f99b98570e94f56944e711a73c5e02732bf45b6d9c1c6d3b2a8560900d7e7c5",
+      "git_blob": "6f71fb53d3c41828ed44fb2f910e49a04e1d319b",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex#L39"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/model.tex::eq:oldinvariant": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/model.tex",
+      "key": "eq:oldinvariant",
+      "kind": "TeX label",
+      "line": 58,
+      "line_text": "\\begin{equation}\\label{eq:oldinvariant}% SRC: PC09 AT26",
+      "sha256": "88ab517efa7fd36d031c2609833387df156191df1336cbd266b96243d8708e3f",
+      "git_blob": "2866ff2c3b3c2fd54c66e46064736df6091be4f1",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/model.tex#L58"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:nativeintensity": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex",
+      "key": "eq:nativeintensity",
+      "kind": "TeX label",
+      "line": 17,
+      "line_text": "\\begin{equation}\\label{eq:nativeintensity}",
+      "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+      "git_blob": "a8f1b2934fead47213a8e488a32a7378104ee450",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex#L17"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:fullsquare": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex",
+      "key": "eq:fullsquare",
+      "kind": "TeX label",
+      "line": 25,
+      "line_text": " +2\\eps g\\re(h^\\dagger L_N\\Omega)+g^2\\norm{L_N\\Omega}^2,\\label{eq:fullsquare}\\\\",
+      "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+      "git_blob": "a8f1b2934fead47213a8e488a32a7378104ee450",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex#L25"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:graphsquare": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex",
+      "key": "eq:graphsquare",
+      "kind": "TeX label",
+      "line": 26,
+      "line_text": " \\norm{L_N\\Omega}^2&=3\\sum_{i<j}|\\Omega_i-\\Omega_j|^2.\\label{eq:graphsquare}",
+      "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+      "git_blob": "a8f1b2934fead47213a8e488a32a7378104ee450",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex#L26"
+    },
+    "sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex::eq:launch": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex",
+      "key": "eq:launch",
+      "kind": "TeX label",
+      "line": 16,
+      "line_text": "\\begin{equation}\\label{eq:launch}% RR04",
+      "sha256": "a6c796be4adc77950944859fbfe6ffc8f12668546eb6dddb5ed5e4e56a87c5b9",
+      "git_blob": "97f22eec88d87094564aa3c964e585b415dd65f5",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/manuscript/theorem.tex#L16"
+    },
+    "sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex::eq:ceiling": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex",
+      "key": "eq:ceiling",
+      "kind": "TeX label",
+      "line": 21,
+      "line_text": "\\begin{equation}\\label{eq:ceiling}% RR08",
+      "sha256": "a6c796be4adc77950944859fbfe6ffc8f12668546eb6dddb5ed5e4e56a87c5b9",
+      "git_blob": "97f22eec88d87094564aa3c964e585b415dd65f5",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/manuscript/theorem.tex#L21"
+    },
+    "sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex::thm:episode": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex",
+      "key": "thm:episode",
+      "kind": "TeX label",
+      "line": 31,
+      "line_text": "\\begin{theorem}[Capacity-sized receiving and net recovery]\\label{thm:episode}",
+      "sha256": "a6c796be4adc77950944859fbfe6ffc8f12668546eb6dddb5ed5e4e56a87c5b9",
+      "git_blob": "97f22eec88d87094564aa3c964e585b415dd65f5",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/manuscript/theorem.tex#L31"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex::prop:launch": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex",
+      "key": "prop:launch",
+      "kind": "TeX label",
+      "line": 2,
+      "line_text": "\\begin{proposition}[Empty-carrier launch]\\label{prop:launch}",
+      "sha256": "da5a775458e50475d37a280770302fe46742efa88f4a0c8db8dacf97adcc5054",
+      "git_blob": "a6516a9f388f45e17ca7435e012e496cd11ad544",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex#L2"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex::eq:initialcarrier": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex",
+      "key": "eq:initialcarrier",
+      "kind": "TeX label",
+      "line": 6,
+      "line_text": " &r_c(t)&=o(t),\\label{eq:initialcarrier}\\\\",
+      "sha256": "da5a775458e50475d37a280770302fe46742efa88f4a0c8db8dacf97adcc5054",
+      "git_blob": "a6516a9f388f45e17ca7435e012e496cd11ad544",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex#L6"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex::eq:initialports": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex",
+      "key": "eq:initialports",
+      "kind": "TeX label",
+      "line": 8,
+      "line_text": " &x(t)-x_0&=O(t^2),\\label{eq:initialports}\\\\",
+      "sha256": "da5a775458e50475d37a280770302fe46742efa88f4a0c8db8dacf97adcc5054",
+      "git_blob": "a6516a9f388f45e17ca7435e012e496cd11ad544",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex#L8"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex::eq:nativedebit": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex",
+      "key": "eq:nativedebit",
+      "kind": "TeX label",
+      "line": 9,
+      "line_text": " H_N(t)-H_N(0)&=-\\frac{\\eta_N^2t^2}{2}f_0^TM_Bf_0+o(t^2),\\label{eq:nativedebit}\\\\",
+      "sha256": "da5a775458e50475d37a280770302fe46742efa88f4a0c8db8dacf97adcc5054",
+      "git_blob": "a6516a9f388f45e17ca7435e012e496cd11ad544",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex#L9"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex::eq:receiverstate": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex",
+      "key": "eq:receiverstate",
+      "kind": "TeX label",
+      "line": 10,
+      "line_text": " z(t)&=\\frac{\\eta_N\\eta_Rt^2}{2\\beta_R}M_Bf_0+o(t^2),\\label{eq:receiverstate}\\\\",
+      "sha256": "da5a775458e50475d37a280770302fe46742efa88f4a0c8db8dacf97adcc5054",
+      "git_blob": "a6516a9f388f45e17ca7435e012e496cd11ad544",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex#L10"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex::eq:receivergain": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex",
+      "key": "eq:receivergain",
+      "kind": "TeX label",
+      "line": 11,
+      "line_text": " H_R(t)&=\\frac{\\eta_N^2\\eta_R^2t^4}{8\\beta_R}\\norm{M_Bf_0}^2+o(t^4).\\label{eq:receivergain}",
+      "sha256": "da5a775458e50475d37a280770302fe46742efa88f4a0c8db8dacf97adcc5054",
+      "git_blob": "a6516a9f388f45e17ca7435e012e496cd11ad544",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex#L11"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex::eq:initialreceiverpower": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex",
+      "key": "eq:initialreceiverpower",
+      "kind": "TeX label",
+      "line": 27,
+      "line_text": "\\begin{equation}\\label{eq:initialreceiverpower}",
+      "sha256": "da5a775458e50475d37a280770302fe46742efa88f4a0c8db8dacf97adcc5054",
+      "git_blob": "a6516a9f388f45e17ca7435e012e496cd11ad544",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/activity.tex#L27"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/wellposed.tex::thm:global": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/wellposed.tex",
+      "key": "thm:global",
+      "kind": "TeX label",
+      "line": 4,
+      "line_text": "\\begin{theorem}[Global exchange evolution]\\label{thm:global}",
+      "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895",
+      "git_blob": "744e12abea2abde774c091e592ccb484e4de20d4",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/wellposed.tex#L4"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:launchprojection": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex",
+      "key": "eq:launchprojection",
+      "kind": "TeX label",
+      "line": 143,
+      "line_text": "\\begin{equation}\\label{eq:launchprojection}% SRC: PC20",
+      "sha256": "5f99b98570e94f56944e711a73c5e02732bf45b6d9c1c6d3b2a8560900d7e7c5",
+      "git_blob": "6f71fb53d3c41828ed44fb2f910e49a04e1d319b",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex#L143"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:strictwitness": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex",
+      "key": "eq:strictwitness",
+      "kind": "TeX label",
+      "line": 152,
+      "line_text": "\\begin{equation}\\label{eq:strictwitness}% SRC: PC21",
+      "sha256": "5f99b98570e94f56944e711a73c5e02732bf45b6d9c1c6d3b2a8560900d7e7c5",
+      "git_blob": "6f71fb53d3c41828ed44fb2f910e49a04e1d319b",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex#L152"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:positivebaseline": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex",
+      "key": "eq:positivebaseline",
+      "kind": "TeX label",
+      "line": 59,
+      "line_text": "\\begin{equation}\\label{eq:positivebaseline}",
+      "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+      "git_blob": "a8f1b2934fead47213a8e488a32a7378104ee450",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex#L59"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/wellposed.tex::eq:space": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/wellposed.tex",
+      "key": "eq:space",
+      "kind": "TeX label",
+      "line": 6,
+      "line_text": "\\begin{equation}\\label{eq:space}",
+      "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895",
+      "git_blob": "744e12abea2abde774c091e592ccb484e4de20d4",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/wellposed.tex#L6"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/wellposed.tex::eq:energynorm": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/wellposed.tex",
+      "key": "eq:energynorm",
+      "kind": "TeX label",
+      "line": 28,
+      "line_text": "\\begin{equation}\\label{eq:energynorm}",
+      "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895",
+      "git_blob": "744e12abea2abde774c091e592ccb484e4de20d4",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/wellposed.tex#L28"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/wellposed.tex::eq:dependence": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/wellposed.tex",
+      "key": "eq:dependence",
+      "kind": "TeX label",
+      "line": 46,
+      "line_text": "\\begin{equation}\\label{eq:dependence}",
+      "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895",
+      "git_blob": "744e12abea2abde774c091e592ccb484e4de20d4",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/wellposed.tex#L46"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::sec:limits": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex",
+      "key": "sec:limits",
+      "kind": "TeX label",
+      "line": 65,
+      "line_text": "\\subsection{Limits, cadence and finite-index qualifications}\\label{sec:limits}",
+      "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+      "git_blob": "a8f1b2934fead47213a8e488a32a7378104ee450",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex#L65"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex::eq:domain": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex",
+      "key": "eq:domain",
+      "kind": "TeX label",
+      "line": 53,
+      "line_text": "\\begin{equation}\\label{eq:domain}",
+      "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+      "git_blob": "a8f1b2934fead47213a8e488a32a7378104ee450",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P1/manuscript/hybrid.tex#L53"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::prop:dark": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex",
+      "key": "prop:dark",
+      "kind": "TeX label",
+      "line": 122,
+      "line_text": "\\begin{proposition}[Zero ceiling and zero drive]\\label{prop:dark}% SRC: PC18 PC19",
+      "sha256": "5f99b98570e94f56944e711a73c5e02732bf45b6d9c1c6d3b2a8560900d7e7c5",
+      "git_blob": "6f71fb53d3c41828ed44fb2f910e49a04e1d319b",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex#L122"
+    },
+    "sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex::eq:zeroceiling": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex",
+      "key": "eq:zeroceiling",
+      "kind": "TeX label",
+      "line": 124,
+      "line_text": "\\begin{equation}\\label{eq:zeroceiling}% SRC: PC18",
+      "sha256": "5f99b98570e94f56944e711a73c5e02732bf45b6d9c1c6d3b2a8560900d7e7c5",
+      "git_blob": "6f71fb53d3c41828ed44fb2f910e49a04e1d319b",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/evidence/accepted_investigation/inputs/sources/P3/manuscript/projection.tex#L124"
+    },
+    "sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex::eq:rates": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex",
+      "key": "eq:rates",
+      "kind": "TeX label",
+      "line": 3,
+      "line_text": "\\begin{equation}\\label{eq:rates}% RR04",
+      "sha256": "a6c796be4adc77950944859fbfe6ffc8f12668546eb6dddb5ed5e4e56a87c5b9",
+      "git_blob": "97f22eec88d87094564aa3c964e585b415dd65f5",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/manuscript/theorem.tex#L3"
+    },
+    "sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex::eq:times": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/manuscript/theorem.tex",
+      "key": "eq:times",
+      "kind": "TeX label",
+      "line": 33,
+      "line_text": "\\begin{equation}\\label{eq:times}% RR04 RR05",
+      "sha256": "a6c796be4adc77950944859fbfe6ffc8f12668546eb6dddb5ed5e4e56a87c5b9",
+      "git_blob": "97f22eec88d87094564aa3c964e585b415dd65f5",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/manuscript/theorem.tex#L33"
+    },
+    "sources/receiving_recovery/publication/v0.1/manuscript/interpretation.tex::sec:continuation": {
+      "path": "inputs/sources/receiving_recovery/publication/v0.1/manuscript/interpretation.tex",
+      "key": "sec:continuation",
+      "kind": "TeX label",
+      "line": 17,
+      "line_text": "\\subsection{Geometric distinctions and the next agreed direction}\\label{sec:continuation}",
+      "sha256": "6ccf5db8238376b389bacd8ea25b077e3491c6b8af150a4aa83a1e1a0ab736e9",
+      "git_blob": "ca3b0590d56f6aa62d8a0e799702439eece6d808",
+      "immutable_url": "https://github.com/pzychozen/trioctagon-physics/blob/6b1ef6494a4d4c34398ba9d9e5a7afce1fb03f37/papers/NATIVE_CAPACITY_RECEIVING_RECOVERY/publication/v0.1/manuscript/interpretation.tex#L17"
+    }
+  },
+  "notes": "Line numbers resolved against actual preserved UTF-8 source files; pinned URLs are locators, not new remote retrieval claims."
+}

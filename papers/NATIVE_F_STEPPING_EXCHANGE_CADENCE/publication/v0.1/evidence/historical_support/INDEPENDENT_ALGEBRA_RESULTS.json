@@ -1,0 +1,174 @@
+{
+  "status": "PASS",
+  "utc": "2026-11-09T13:25:26.170227+00:00",
+  "method": "Independent symbolic reconstruction before reading or running supplied checker implementations",
+  "python": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+  "sympy": "1.14.0",
+  "group_count": 8,
+  "groups": [
+    {
+      "name": "A01_general_finite_square",
+      "claims": [
+        "F01",
+        "F05"
+      ],
+      "status": "PASS",
+      "results": {
+        "symbolic_residuals": [
+          0,
+          0,
+          0
+        ],
+        "scope": "General six-real-variable prestage and edge-once/full-square identities; synchronization modulus preservation is proved in text."
+      }
+    },
+    {
+      "name": "A02_first_jump_polynomials",
+      "claims": [
+        "F05",
+        "F06"
+      ],
+      "status": "PASS",
+      "results": {
+        "delta_I": "-(6500000*D - 1)/50000000",
+        "baseline_over_alpha": "-(6500000*D - 1)/100000000",
+        "general_delta_I": "-2*(6*c*g**2 - 4*c*g - d**2 - 6*g**2 + 4*g)",
+        "prestage_square": "-2*(6*c*g**2 - d**2 - 6*g**2)",
+        "first_modulus_squared": "-2*c*d*g - 2*c*g**2 + 2*c*g + d**2 + 2*d*g - 2*d + 2*g**2 - 2*g + 1",
+        "third_minus_first": "4*d*(c*g - g + 1)"
+      }
+    },
+    {
+      "name": "A03_two_rational_witnesses",
+      "claims": [
+        "F05"
+      ],
+      "status": "PASS",
+      "results": {
+        "D_threshold": "1/6500000",
+        "phi_positive": "1/10000",
+        "delta_I_lower": "387/20000000000",
+        "phi_negative": "1/1000",
+        "delta_I_upper": "-107999987/2400000000000000",
+        "analytic_dependency": "phi^2/2-phi^4/24 <= 1-cos(phi) <= phi^2/2 on the specified interval"
+      }
+    },
+    {
+      "name": "A04_source_bound_constants_and_signs",
+      "claims": [
+        "F07"
+      ],
+      "status": "PASS",
+      "results": {
+        "A_star": "284971/300000",
+        "s_star": "97/100",
+        "norm_lower_coefficient_over_G_squared_sin_squared": "764090502142969/1050000000000000",
+        "raw_K_rows_without_G_over_sqrt7": [
+          [
+            "sqrt(2)",
+            "sqrt(2)",
+            "sqrt(3)"
+          ],
+          [
+            "sqrt(2)",
+            "sqrt(2)",
+            "-sqrt(3)"
+          ]
+        ],
+        "analytical_dependencies": "Convex-angle and 3-Lipschitz/concavity proofs are in the review, not certified by these constant checks."
+      }
+    },
+    {
+      "name": "A05_postsync_derivative_and_capacity_Q",
+      "claims": [
+        "F09"
+      ],
+      "status": "PASS",
+      "results": {
+        "r": [
+          "9999/10000",
+          "1",
+          "10001/10000"
+        ],
+        "u": [
+          "1/60",
+          "29/30",
+          "1/60"
+        ],
+        "phase_derivatives": [
+          "500/29997",
+          "29/30",
+          "500/30003"
+        ],
+        "t": [
+          "7850484971/300030000000",
+          "142149998579/149999998500",
+          "7849514971/299970000000"
+        ],
+        "r_cross_t": [
+          "-27647813/30000000",
+          "97/30000000",
+          "27642187/30000000"
+        ],
+        "r_squared": "150000001/50000000",
+        "u_squared": "187/200",
+        "r_dot_u": "1",
+        "Q": "169832451759483/300000002000000",
+        "capacity_ratio_limit": "169832451759483/150000001000000",
+        "approximation": "1.13221633751511108"
+      }
+    },
+    {
+      "name": "A06_capacity_even_expansion_identities",
+      "claims": [
+        "F09"
+      ],
+      "status": "PASS",
+      "results": {
+        "unknown_second_real_coefficient_cancels": true,
+        "coefficient": "|t|^2-(r dot t)^2/|r|^2",
+        "analytic_dependencies": "Real analyticity, conjugation parity, strict branch gap and nonzero |Z2| proved in text."
+      }
+    },
+    {
+      "name": "A07_dark_boundary_and_branch_gap",
+      "claims": [
+        "F04",
+        "F09",
+        "F11"
+      ],
+      "status": "PASS",
+      "results": {
+        "I_equals_Z2": "150000001/50000000",
+        "h_e": "1/200000000",
+        "j": "300000001/100000000",
+        "delta_I": "1/50000000",
+        "delta_j": "1/100000000",
+        "baseline_over_alpha": "1/100000000",
+        "capacity": 0,
+        "C_projection_over_alpha": "1/200000000"
+      }
+    },
+    {
+      "name": "A08_accounting_residuals",
+      "claims": [
+        "F02",
+        "F03",
+        "F04"
+      ],
+      "status": "PASS",
+      "results": {
+        "baseline_subtracted_balance_residual": 0,
+        "delta_capacity_residual": 0,
+        "scope": "Arithmetic cross-check only; endpoint and nonnegativity proofs are in text."
+      }
+    }
+  ],
+  "repository_modules_imported": false,
+  "trajectory_evolution": false,
+  "phase_or_parameter_sweep": false,
+  "Git_operations": false,
+  "script_sha256": "013fba9bbc232e5a71a22686d48df6026085141f1dde280a02a31f32197747c2",
+  "limits": "Exact algebra support; no assertion of machine-formal verification of analysis or a receiving/recovery theorem."
+}

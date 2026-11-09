@@ -1,0 +1,71 @@
+\section{A local comparison of algebraic capacities}\label{sec:capacity}
+\subsection{A different active branch near zero phase}\label{sec:branch}
+For the original launch $I_0=3$, $Z_0=2+e^{2i\phi}$, $h_e=D$ and $j_0=1+2\cos\phi$. Both compared quantities are positive and
+\begin{equation}\label{eq:a45}% accepted equation 45
+\begin{gathered}
+j_0^2-|Z_0|^2=4\cos\phi(1-\cos\phi)>0.
+\end{gathered}
+\end{equation}
+so the original ceiling uses the projection branch, $C_\phi=\alpha D$~\cite[Section 3, strict yaw witness]{pc}.
+
+Keep the actual detuning $d_0\ne0$ fixed. At zero phase,
+\begin{equation}\label{eq:a46}% accepted equation 46
+\begin{gathered}
+\mathbf r_0=F\Omega_0=(1-d_0,1,1+d_0),\\ R^2=|\mathbf r_0|^2=3+2d_0^2,\\ C_Z(\mathbf r_0)=0,\quad h_e(\mathbf r_0)=d_0^2/2>0.
+\end{gathered}
+\end{equation}
+The continuous difference $\alpha h_e-C_Z$ is strictly positive there, hence stays positive in some neighbourhood of zero. Thus the post-native joint capacity uses $C_Z$ in that neighbourhood. No explicit width or full-interval branch claim follows from this argument.
+
+\subsection{Derivative, parity and the finite remainder}\label{sec:capacityderivative}
+Let $u=(g,1-2g,g)$. The prestage derivative at zero is $iu$. Since every component of $\mathbf r_0$ is positive, local phase extraction is real analytic and $\theta_i'(0)=u_i/(\mathbf r_0)_i$. Differentiating the simultaneous synchronizer gives
+\begin{equation}\label{eq:a47}% accepted equation 47
+\begin{gathered}
+\delta_i'(0)=3\lambda\left(\sum_j u_j/(\mathbf r_0)_j-3u_i/(\mathbf r_0)_i\right),\\ F\Omega_\phi=\mathbf r_0+i\xi\phi+O(\phi^2),\\ \xi=s_*u+3\lambda \mathbf r_0\sum_j u_j/(\mathbf r_0)_j .
+\end{gathered}
+\end{equation}
+Equivalently $\xi=\operatorname{diag}(\mathbf r_0)(\mathrm{Id}+3\lambda L_3)\operatorname{diag}(1/\mathbf r_0)u$. The radial term contributes no cross product:
+\begin{equation}\label{eq:a48}% accepted equation 48
+\begin{gathered}
+\mathbf r_0\times \xi=s_*(\mathbf r_0\times u)
+=\frac1{30000000}(-27647813,97,27642187).
+\end{gathered}
+\end{equation}
+Locally $F\Omega_{-\phi}=\overline{F\Omega_\phi}$: the prestage has real coefficients and the phases and sine increments are odd under conjugation near the positive limiting state. Analyticity and parity therefore give
+\begin{equation}\label{eq:a49}% accepted equation 49
+\begin{gathered}
+\operatorname{Re}F\Omega_\phi=\mathbf r_0+\zeta\phi^2+O(\phi^4),\\ \operatorname{Im}F\Omega_\phi=\xi\phi+O(\phi^3),\\ \chi^+=(\mathbf r_0\times \xi)\phi+O(\phi^3).
+\end{gathered}
+\end{equation}
+The unknown real coefficient $\zeta$ must not be discarded. Its contributions are
+\begin{equation}\label{eq:a50}% accepted equation 50
+\begin{aligned}
+I&=R^2+(2\mathbf r_0\cdot \zeta+|\xi|^2)\phi^2+O(\phi^4),\\
+|Z_2|&=R^2+
+\left(2\mathbf r_0\cdot \zeta-|\xi|^2+\frac{2(\mathbf r_0\cdot \xi)^2}{R^2}\right)\phi^2+O(\phi^4).
+\end{aligned}
+\end{equation}
+The modulus expansion is valid because $Z_2(0)=R^2>0$. Subtraction cancels $\zeta$:
+\begin{equation}\label{eq:a51}% accepted equation 51
+\begin{gathered}
+C_Z(F\Omega_\phi)=\alpha\left(|\xi|^2-\frac{(\mathbf r_0\cdot \xi)^2}{R^2}\right)\phi^2
++O(\phi^4).
+\end{gathered}
+\end{equation}
+Equivalently, $C_Z=2\alpha|a\times b|^2/(I+|Z_2|)$ and the even nonzero denominator give the same remainder order. The fixed $\alpha$ is included in the constant implicit in $O(\phi^4)$.
+
+The radial term in $\xi$ cancels from its squared transverse norm. Exact arithmetic yields
+\begin{equation}\label{eq:a52}% accepted equation 52
+\begin{gathered}
+|u|^2=\frac{187}{200},\quad \mathbf r_0\cdot u=1,\\ q_{\rm cap}=s_*^2\left(\frac{187}{200}-\frac1{3+2d_0^2}\right)
+=\frac{169832451759483}{300000002000000}>0.
+\end{gathered}
+\end{equation}
+Combining the strict branch selection with this expansion and $1-\cos\phi=\phi^2/2+O(\phi^4)$ proves
+\begin{equation}\label{eq:a53}% accepted equation 53
+\begin{gathered}
+C(F\Omega_\phi)=\alpha q_{\rm cap}\phi^2+O(\phi^4),\\ \lim_{\phi\downarrow0}\frac{C(F\Omega_\phi)}{C_\phi}
+=2q_{\rm cap}=\frac{169832451759483}{150000001000000}
+\simeq1.132216337515111.
+\end{gathered}
+\end{equation}
+This is a local comparison of algebraic ceilings, not an achieved transfer fraction or efficiency improvement. Sending detuning to zero first removes the strict branch gap and changes the argument. No simultaneous zero-detuning limit, explicit phase neighbourhood or detuning optimization is supplied.

@@ -1,0 +1,89 @@
+\section{Exact map and exchange framework}\label{sec:model}
+\subsection{Simultaneous native update}\label{sec:native}
+For $\Omega=a+ib\in\C^3$ write $x=(a,b)\in\R^6$ and set $I=|\Omega|^2$. The inherited parameter tuple is~\cite[Section 6, native tuple]{rx}
+\begin{equation}\label{eq:a01}% accepted equation 1
+\begin{gathered}
+\epsilon=\frac1{10},\qquad g=\frac1{60},\qquad
+\lambda=\frac1{300},\qquad
+(k_1,k_2,k_3)=\left(\frac{999}{1000},1,\frac{1001}{1000}\right).
+\end{gathered}
+\end{equation}
+Every component of the prestage uses the same original state:
+\begin{equation}\label{eq:a02}% accepted equation 2
+\begin{gathered}
+d_{{\rm pre},i}=\epsilon(k_i-|\Omega_i|^2)\Omega_i+
+g\sum_{j\ne i}(\Omega_j-\Omega_i),\qquad v=\Omega+d_{\rm pre}.
+\end{gathered}
+\end{equation}
+Every synchronization increment then uses that same prestage:
+\begin{equation}\label{eq:a03}% accepted equation 3
+\begin{gathered}
+\delta_i=\lambda\sum_{j\ne i}\sin(3[\operatorname{Arg}_0v_j-\operatorname{Arg}_0v_i]),
+\qquad F_i(\Omega)=e^{i\delta_i}v_i.
+\end{gathered}
+\end{equation}
+The convention is $\operatorname{Arg}_0(0)=0$ and exact zero output components are retained. At $\lambda=0$ the implementation bypasses phase extraction. At the present nonzero strength it applies the simultaneous harmonic-3 synchronizer. In the three-node source, both cyclic neighbours are precisely the other two nodes, and the coupling matrix is $L_3=\mathbf1\mathbf1^T-3\mathrm{Id}$~\cite{nativecode}.
+
+The source calls $\lambda$ \texttt{phase\_strength}; its configuration does not supply numerical defaults for the tuple. The ideal expressions $e^{i\delta_i}v_i$ and $|v_i|e^{i(\operatorname{Arg}_0v_i+\delta_i)}$ agree, including at zero. Finite ideal-map statements are distinct from complex128 rounding and overflow. The prestage increment is generally not $F\Omega-\Omega$. No normalization, continuous-gradient replacement or coefficient scaling is introduced.
+
+\subsection{Raw ports, flow and original stores}\label{sec:exchange}
+Write $\alpha=\alpha_N>0$, $\beta=\beta_R>0$, $\eta=\eta_N>0$ and $\kappa=\eta_R>0$ for fixed finite exchange coefficients. At the fixed yaw $\delta_g=\pi/4$ the inherited registration is
+\begin{equation}\label{eq:a04}% accepted equation 4
+\begin{gathered}
+\chi=a\times b,\quad f(x)=K\chi,\quad J(x)=D_xf(x),\\ K=\frac G{\sqrt7}\begin{pmatrix}\sqrt2&\sqrt2&\sqrt3\\
+\sqrt2&\sqrt2&-\sqrt3\end{pmatrix},\quad G=\kappa_{\rm in}\lambda_g>0 .
+\end{gathered}
+\end{equation}
+The raw signs are unaffected by ambient contact-tangent orientations. Retain the circle $s\in\R/L_c\mathbb Z$, finite $L_c>0$, speed $c>0$, contact centres $s_\pm=L_c/2\mp\eta_{\rm geom}$ and whole-circle shortest separation $2\eta_{\rm geom}\le L_c/2$. For $0<\epsilon_c<\eta_{\rm geom}$, the normalized profiles are
+\[
+b_\sigma(s)=\epsilon_c^{-1}
+\left(1-\frac{|\operatorname{wrap}_{L_c}(s-s_\sigma)|}{\epsilon_c}\right)_+ .
+\]
+Put $\B q=b_+q_++b_-q_-$ and $\B^*p=(\int b_+p\,ds,\int b_-p\,ds)^T$, with integrals over one whole circle, and define $y=\B^*p$.
+The disjoint finite-width periodic tents belong to $H^1$ and satisfy
+$\B^*\B=m\mathrm{Id}_2$, $m=2/(3\epsilon_c)>0$ and $\|\B\|=\|\B^*\|=\sqrt m$.
+Their first weak derivatives lie in $L^2$; their continuity prevents corner delta terms in that derivative. No second $L^2$ derivative is presumed~\cite[Section 3]{rx}.
+
+The unchanged feedback equations are
+\begin{equation}\label{eq:a05}% accepted equation 5
+\begin{gathered}
+\dot x=-\frac{\eta}{2\alpha}J(x)^Ty,\quad
+p_t+c(r_c)_s=B(\eta f(x)-\kappa z),\quad
+(r_c)_t+cp_s=0,\quad \dot z=\frac{\kappa}{\beta}y.
+\end{gathered}
+\end{equation}
+and the original trial stores are
+\begin{equation}\label{eq:a06}% accepted equation 6
+\begin{gathered}
+H_N=\frac\alpha2 I,\quad H_C=\frac12(\|p\|_2^2+\|r_c\|_2^2),
+\quad H_R=\frac\beta2|z|^2,\quad E=H_C+H_R,\quad H_{\rm tot}=H_N+E.
+\end{gathered}
+\end{equation}
+The one-half factors and the factor $1/(2\alpha)$ in the native equation are retained. Trial-storage commensurability supplies no new physical calibration.
+
+The inherited global theorem~\cite[Theorem 3.1]{rx} gives a unique mild flow $\Phi_t$ on
+\begin{equation}\label{eq:a07}% accepted equation 7
+\begin{gathered}
+\mathcal H=\mathbb R^6\times L^2_{\rm per}\times L^2_{\rm per}\times\mathbb R^2,\\ \|X\|_E^2=\alpha|x|^2+\|p\|_2^2+\|r_c\|_2^2+\beta|z|^2.
+\end{gathered}
+\end{equation}
+Here $\mathcal H$ denotes the displayed Hilbert product; the weighted norm is equivalent to its usual product norm at fixed positive weights. The flow is strongly continuous, conserves $H_{\rm tot}$ and depends locally Lipschitz-continuously on preparation on bounded energy sets over finite times. Native and receiver coordinates are $C^1$. For periodic $H^1$ carrier data, $(p,r_c)\in C_tH^1_{\rm per}{}^2\cap C_t^1L^2{}^2$ with continuous dependence in that stronger preparation topology.
+
+\subsection{Native-first chronology}\label{sec:hybrid}
+Define $\widehat F(x,p,r_c,z)=(F_{\R}x,p,r_c,z)$ and retain
+\begin{equation}\label{eq:a08}% accepted equation 8
+\begin{gathered}
+X_{n+1}=T_hX_n=\Phi_h\widehat F X_n,\qquad X_n^+=\widehat F X_n.
+\end{gathered}
+\end{equation}
+$X_n$ is sampled immediately before its jump, $X_n^+$ immediately after it, and $X_{n+1}$ after exchange but before the following jump. The external coordinates do not jump. This is an exact composition of the existing map and flow, not a numerical approximation to a separately specified simultaneous native ODE.
+
+Every finite ideal native state has a finite polynomial prestage and a defined synchronized image. The global exchange theorem then supplies the next interval, proving finite hybrid existence by induction. This includes states outside the older coherent domain but gives no uniform infinite-index bound~\cite[Section 6, limits]{rx}.
+
+Homogeneity gives $J(x)x=2f(x)$. With periodic integration, it yields
+\begin{equation}\label{eq:a09}% accepted equation 9
+\begin{gathered}
+P_{NC}=\eta f^Ty,\quad P_{CR}=\kappa z^Ty,\\ \dot H_N=-P_{NC},\quad\dot H_C=P_{NC}-P_{CR},\quad\dot H_R=P_{CR}.
+\end{gathered}
+\end{equation}
+For $H^1$ preparation this follows from the weak product rule and the legitimate first derivatives. The inherited approximation and continuous-dependence argument extends the integrated accounts to mild energy-space solutions. The calculation does not infer existence merely from formal cancellation.

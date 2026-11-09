@@ -1,0 +1,103 @@
+\section{Actual post-native source and initial receiving}\label{sec:activity}
+\subsection{Phase order through simultaneous synchronization}\label{sec:phaseorder}
+Write $v_i=\rho_i e^{i\theta_i}$. The prestage has the positive-cone representation
+\begin{equation}\label{eq:a33}% accepted equation 33
+\begin{gathered}
+v_1=(1-d_0-g)+gq,\\ v_2=2g+(1-2g)q,\\ v_3=(1+d_0-g)+gq.
+\end{gathered}
+\end{equation}
+All coefficients are positive. For $0<\phi\le1/100$, each $v_i$ is nonzero and strictly between the rays of $1$ and $q$, so $0<\theta_i<\phi$ with no wrap. Direct multiplication gives
+\begin{equation}\label{eq:a34}% accepted equation 34
+\begin{gathered}
+\operatorname{Im}(\overline v_1v_2)=A_*\sin\phi,\\ A_*=1-3g-d_0(1-2g)=\frac{284971}{300000}>0.
+\end{gathered}
+\end{equation}
+Likewise $\operatorname{Im}(\overline v_3v_1)=2d_0g\sin\phi>0$. All phase differences have magnitude below $\pi/2$, so sine has their sign and $\theta_3<\theta_1<\theta_2$.
+
+For the actual updated phases $\theta_i^+=\theta_i+\delta_i$, use the following weights and bound for $|u|\le\phi$:
+\begin{equation}\label{eq:a35}% accepted equation 35
+\begin{gathered}
+w(u)=\begin{cases}\lambda\sin(3u)/u,&u\ne0,\\3\lambda,&u=0.\end{cases}
+\quad 0\le w(u)\le3\lambda .
+\end{gathered}
+\end{equation}
+The inequality uses $|3u|\le3/100<\pi$ and $|\sin(3u)|\le3|u|$. Then
+\begin{equation}\label{eq:a36}% accepted equation 36
+\begin{gathered}
+\theta_i^+=\left(1-\sum_{j\ne i}w(\theta_j-\theta_i)\right)\theta_i+
+\sum_{j\ne i}w(\theta_j-\theta_i)\theta_j.
+\end{gathered}
+\end{equation}
+The off-diagonal weight sum is at most $6\lambda=1/50<1$. Every updated phase remains between the original minimum and maximum, inside $(0,\phi)$. These are simultaneous weights, not a sequential averaging scheme.
+
+For $\theta_j>\theta_i$, write $\Delta=\theta_j-\theta_i>0$ and let $\ell$ be the third node. Subtracting phase increments gives
+\begin{equation}\label{eq:a37}% accepted equation 37
+\begin{gathered}
+\theta_j^+-\theta_i^+
+=\Delta-2\lambda\sin(3\Delta)
+\\ {}+\lambda[\sin(3(\theta_\ell-\theta_j))-\sin(3(\theta_\ell-\theta_i))]
+\ge(1-9\lambda)\Delta.
+\end{gathered}
+\end{equation}
+Indeed $\sin(3\Delta)\le3\Delta$ and the derivative of $\sin(3u)$ has magnitude at most $3$, so the bracket is at least $-3\Delta$. With $s_*=1-9\lambda=97/100>0$, all strict orderings survive.
+
+In particular $\Delta^+=\theta_2^+-\theta_1^+\ge s_*\Delta>0$ and $\Delta^+\le\phi<\pi/2$. Monotonicity and concavity of sine imply $\sin\Delta^+\ge\sin(s_*\Delta)\ge s_*\sin\Delta$, whence
+\begin{equation}\label{eq:a38}% accepted equation 38
+\begin{gathered}
+\chi_3^+=\rho_1\rho_2\sin\Delta^+
+\ge s_*\rho_1\rho_2\sin\Delta=s_*A_*\sin\phi>0.
+\end{gathered}
+\end{equation}
+
+\subsection{The registered source and the actual local result}\label{sec:source}
+The raw port convention remains
+\begin{equation}\label{eq:a39}% accepted equation 39
+\begin{gathered}
+f_{{\rm raw},\pm}=\frac G{\sqrt7}
+\{\sqrt2(\chi_1+\chi_2)\ \mathord{\pm}\ \sqrt3\chi_3\},\\ f_{{\rm raw},+}-f_{{\rm raw},-}=\frac{2\sqrt3G}{\sqrt7}\chi_3.
+\end{gathered}
+\end{equation}
+At the original launch $\chi=(-\sin\phi,0,\sin\phi)$ this gives $G\sin\phi(-\sqrt2\pm\sqrt3)/\sqrt7$, with positive raw $+$ and negative raw $-$ entries. For the post-native result only the strictly positive difference in~\eqref{eq:a39} is needed; no individual post-native port sign is assumed. Squaring and adding gives
+\begin{equation}\label{eq:a40}% accepted equation 40
+\begin{gathered}
+|K\chi|^2=\frac{G^2}{7}\{4(\chi_1+\chi_2)^2+6\chi_3^2\}.
+\end{gathered}
+\end{equation}
+Together with~\eqref{eq:a38}, this proves
+\begin{equation}\label{eq:a41}% accepted equation 41
+\begin{gathered}
+|f(F\Omega_\phi)|^2\ge
+\frac{6G^2}{7}s_*^2A_*^2\sin^2\phi>0.
+\end{gathered}
+\end{equation}
+The exact coefficient multiplying $G^2\sin^2\phi$ is
+$764090502142969/1050000000000000$.
+Uniformity concerns that coefficient, not an absolute positive floor as $\phi\downarrow0$.
+
+\begin{theorem}[Initial supply and receiving after the actual native jump]\label{thm:initial}
+Fix one finite positive exchange tuple before phase. For each fixed $0<\phi\le1/100$, launch the actual flow at $(F\Omega_\phi,0,0,0)$ and put $f_{\rm post}=f(F\Omega_\phi)$. There is a $\delta(\phi,\mathrm{tuple})>0$ such that native exchange debit and receiver gain are strict for $0<t<\min(h,\delta)$. Their leading terms, and the receiver state, are given by~\eqref{eq:a43}; both leading interface powers are positive as in~\eqref{eq:a44}. No phase-uniform duration or later receiving/recovery episode is asserted.
+\end{theorem}
+\begin{proof}
+The general empty-carrier proposition~\cite[Proposition 4.1]{rx} applies to arbitrary native preparation with nonzero drive. Equation~\eqref{eq:a41} supplies that hypothesis at the actual synchronized state; no special RR rate relation is imposed. Empty carrier data belong to $H^1$, so the strong exchange theorem gives $p'(0)=\eta\B f_{\rm post}$ and $r_c'(0)=0$ in $L^2$. Boundedness of $\B^*$ gives
+\begin{equation}\label{eq:a42}% accepted equation 42
+\begin{gathered}
+p(t)=\eta tBf_{\rm post}+o_{L^2}(t),\\ r_c(t)=o_{L^2}(t),\\ y(t)=\eta mtf_{\rm post}+o(t).
+\end{gathered}
+\end{equation}
+Local boundedness of $J$ and $y(t)=O(t)$ imply $x(t)-x(0)=O(t^2)$, and the quadratic $f$ gives $f(x(t))=f_{\rm post}+O(t^2)$. Integration of the exact native and receiver equations yields
+\begin{equation}\label{eq:a43}% accepted equation 43
+\begin{aligned}
+H_N(F\Omega_\phi)-H_N(t)&=\frac{\eta^2m}{2}|f_{\rm post}|^2t^2+o(t^2),\\
+z(t)&=\frac{\eta\kappa m}{2\beta}f_{\rm post}t^2+o(t^2),\\
+H_R(t)&=\frac{\eta^2\kappa^2m^2}{8\beta}|f_{\rm post}|^2t^4+o(t^4).
+\end{aligned}
+\end{equation}
+The receiver vector expansion is squared in its original store $\beta|z|^2/2$. More explicitly, the signed interface powers satisfy
+\begin{equation}\label{eq:a44}% accepted equation 44
+\begin{gathered}
+P_{NC}(t)=\eta^2m|f_{\rm post}|^2t+o(t),\\ P_{CR}(t)=\frac{\eta^2\kappa^2m^2}{2\beta}|f_{\rm post}|^2t^3+o(t^3).
+\end{gathered}
+\end{equation}
+All leading coefficients are positive. At each fixed preparation, the little-$o$ remainders can be bounded by half the corresponding leading coefficients on a sufficiently short interval. Taking the minimum of those finitely many neighbourhood sizes proves strict positivity. Moreover $Q_{N\to C}>0$ there, because the sum of positive per-port supply powers is at least the positive signed total. The next native jump truncates the interval at $h$.
+\end{proof}
+Receiver feedback is retained throughout; this is not a clamped-source comparison. The argument uses first $L^2$ derivatives and integration, not a second derivative of a tent. The coefficient estimate~\eqref{eq:a41} alone supplies no phase-uniform relative remainder. No conclusion at the next sample $h$ follows unless it lies in the short-time regime. In particular the later quarter-capacity receiving and greater-than-$24/25$ native return results remain unproved for this hybrid.
