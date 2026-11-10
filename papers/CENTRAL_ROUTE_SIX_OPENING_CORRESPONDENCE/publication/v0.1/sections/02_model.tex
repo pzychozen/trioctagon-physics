@@ -1,0 +1,151 @@
+\section{The exact model and spatial dictionary}\label{sec:model}
+\subsection{Native coordinates and the raw source}\label{sec:raw}
+Write $\Omega=a+ib\in\C^3$, $x=(a,b)\in\R^6$ and $\chi=a\times b$. The retained raw channel registration at yaw $\pi/4$ is
+\begin{equation}\label{eq:drive}
+ f(x)=K\chi,\qquad J_f(x)=D_xf(x),\qquad
+ K=\frac{\Gain}{\sqrt7}
+ \begin{pmatrix}\sqrt2&\sqrt2&\sqrt3\\ \sqrt2&\sqrt2&-\sqrt3\end{pmatrix},
+ \qquad \Gain=\kappa_{\rm in}\lambda_g>0.
+\end{equation}
+Indeed, the rows arise from $n_\pm^T\lambda_gR_z(\pi/4)$, multiplied by $\kappa_{\rm in}$, where $u=(0,1,0)$ and $n_\pm=(2u\pm\sqrt3\ee)/\sqrt7$. The chirality here is in channel coordinates; it is neither the distinct ambient attachment $T_f\chi$ nor a macro observation. Differentiating the bilinear cross product gives
+\begin{equation}\label{eq:euler}
+ J_f(x)(v_a,v_b)=K(v_a\times b+a\times v_b),\qquad J_f(x)x=2f(x).
+\end{equation}
+These are the source and derivative used in the reciprocal system \cite{RX,RR}.
+
+The positioned native axes also have an exact dictionary. Put $O=(0,\sqrt3/6,0)$ and, with planar vectors embedded at height zero,
+\begin{equation}\label{eq:directions}
+ e_i=(\cos(-\pi/2+i\pi/3),\sin(-\pi/2+i\pi/3),0),\qquad
+ g_k=e_{2k+1},\quad k\in\mathbb Z/3\mathbb Z.
+\end{equation}
+For native channel $i=1,2,3$, its normal $n_i$ and face center $c_i$ satisfy
+\begin{equation}\label{eq:axes}
+ n_i=-g_{i-1},\qquad c_i-O=\frac{\sqrt3}{6}n_i,\qquad
+ c_i+\R n_i=O+\R g_{i-1}.
+\end{equation}
+Thus the support lines coincide as positioned lines, while the face centers lie on the opposite rays from the positive $g$ directions. With $t_i=\ee\times n_i$, the decoder obeys
+\begin{equation}\label{eq:decoder}
+ D_i(q+ip)=qt_i+p\ee,\qquad
+ D_i(e^{i\theta}\omega)=R_{n_i}(\theta)D_i\omega
+ =R_{g_{i-1}}(-\theta)D_i\omega.
+\end{equation}
+This follows from $n_i\times t_i=\ee$ and $n_i\times\ee=-t_i$. The decoder is an isometry onto its tangent plane, with inverse $v\mapsto t_i\cdot v+i\ee\cdot v$. Based endpoints are not declared particles constrained to finite faces. The complete native update changes amplitudes and relative phases; stationary supports do not make it one universal rigid rotation \cite{AX}.
+
+\subsection{Carrier circles, host contacts and central boundaries}\label{sec:geometry}
+At width one define
+\begin{equation}\label{eq:circleconstants}
+ K_c=\frac{\sqrt3}{12}+\frac{\sqrt6}{4},\quad
+ a_c=\frac{K_c}{1+\sqrt3/2},\quad
+ \RG=\frac{\sqrt7a_c}{2},\quad L_c=2\pi\RG,\quad
+ u_j=R_z(2\pi j/3)u.
+\end{equation}
+The three geometric candidates, and their arclength parametrizations, are
+\begin{equation}\label{eq:circle}
+ \Gamma_j(\theta)=O+(K_c+\RG\cos\theta)u_j+\RG\sin\theta\,\ee,
+ \qquad \gamma_j(s)=\Gamma_j(s/\RG).
+\end{equation}
+The dynamic model selects only $j=0$, denoted $\gamma$. Its two contacts are
+\begin{equation}\label{eq:contacts}
+ \theta_g=\arctan(2/\sqrt3),\quad \eta_g=\RG\theta_g,\quad
+ s_0=L_c/2,\quad s_\pm=s_0\mp\eta_g,\quad
+ P_\pm=O+a_cu\pm a_c\ee.
+\end{equation}
+Since $\cos\theta_g=\sqrt3/\sqrt7$ and $\sin\theta_g=2/\sqrt7$, substitution gives $\gamma(s_\pm)=P_\pm$ and $\gamma'(s_+)=-n_+$, $\gamma'(s_-)=n_-$.
+
+The central geometry uses
+\begin{equation}\label{eq:geomconstants}
+ r_g=\frac{\sqrt3}{6},\quad d_g=1-\frac{\sqrt2}{2},\quad
+ a_g=\frac{d_g}{2},\quad h_g=\frac{\sqrt2-1}{2},\quad
+ H_0=\frac12=h_g+d_g.
+\end{equation}
+In centered coordinates $(P_h,\zeta)=P-O$, let $J_\perp(X,Y)=(-Y,X)$ and
+\begin{equation}\label{eq:family}
+ A_{\tau_g}=I-\frac{\tau_g}{r_g}J_\perp,\qquad 0\le\tau_g\le h_g,
+ \quad
+ \begin{array}{ll}
+ T_i=(a_ge_i,h_g),&B_i=(a_gA_{\tau_g}e_i,-h_g),\\
+ U_k=(r_ge_{2k},H_0),&L_k=(r_gA_{\tau_g}e_{2k},-H_0).
+ \end{array}
+\end{equation}
+Only the horizontal components of $e_i$ are used in these pairs. Central vertices and sets are displayed in coordinates relative to $O$; all world-space incidence and distance comparisons use their translates by $O$. The six central opening boundaries are the broken arcs
+\begin{equation}\label{eq:G}
+ G_k^+=[U_k,T_{2k+1}]\cup[T_{2k+1},U_{k+1}],\qquad
+ G_k^-=[L_k,B_{2k+1}]\cup[B_{2k+1},L_{k+1}].
+\end{equation}
+They carry no adopted closing chord, filled aperture or surface normal. By contrast, the finite host measurement triangles $N_k^\sigma$ in the same centered frame are
+\begin{equation}\label{eq:N}
+ \left(2r_g-\frac{\sqrt3}{2}d_g\ell\right)g_k
+ +vJ_\perp g_k+\sigma(h_g+d_g\ell)\ee,
+ \quad 0\le\ell\le1,\quad |v|\le d_g\ell/2.
+\end{equation}
+The closing edge in this triangle defines a measurement patch, not a material cap. In the sources' centered $N$ notation, the earlier host triangles obey $\Delta_j^\sigma-O=N_{(j+1)\bmod3}^\sigma$ \cite{PG,CG,CC}. In world space, $P_\pm$ are interior points of the translated $N_1^\pm$: with $t_0=(a_c-h_g)/d_g$, the exact inequalities $h_g<a_c<1/2$ give barycentric coordinates $(1-t_0,t_0/2,t_0/2)>0$. The supporting planes are $u\cdot(P-O)\pm(\sqrt3/2)\zeta=K_c$. A contact with these planes is therefore an actual finite $N$ contact, not an identification with $G$.
+
+\begin{table}[htbp]\centering\small
+\caption{Reference/PLUS dictionary. A common direction does not identify the finite sets.}\label{tab:dictionary}
+\begin{tabular}{ccccc}\toprule
+Circle & Radial direction & Host contacts & Upper $G$ bisector & Native channel\\\midrule
+$j=0$ & $u_0=g_1$ & $N_1^\pm$ & $G_1^+$ & $2$\\
+$j=1$ & $u_1=g_2$ & $N_2^\pm$ & $G_2^+$ & $3$\\
+$j=2$ & $u_2=g_0$ & $N_0^\pm$ & $G_0^+$ & $1$\\\bottomrule
+\end{tabular}
+\end{table}
+
+The MINUS central configuration is the full centered reflection $S_{\rm ref}=\operatorname{diag}(-1,1,1)$ of the PLUS configuration, including faces, with labels retained. It is not merely the replacement $\tau_g\mapsto-\tau_g$ in the lower vertices. In particular $S_{\rm ref}g_k=g_{-k-1\bmod3}$ and $S_{\rm ref}u_j=u_{-j\bmod3}$; $\Gamma_0$ is fixed. Relative to the upper directions the PLUS lower angular offset is $-\arctan(\tau_g/r_g)$, and the reflected offset has the opposite sign. This geometrical reflection imposes no unproved reflection law on the raw channel dynamics.
+
+\subsection{Finite profiles and reciprocal work}\label{sec:exchange}
+On $\R/L_c\mathbb Z$ use the unchanged tents
+\begin{equation}\label{eq:profiles}
+ b_\sigma(s)=\epsc^{-1}\left(1-\frac{|\operatorname{wrap}_{L_c}(s-s_\sigma)|}{\epsc}\right)_+,
+ \qquad 0<\epsc<\eta_g,\qquad Bv=b_+v_++b_-v_-.
+\end{equation}
+Here wrap selects signed circular distance, and $y=B^*p$ has components $y_\sigma=\int b_\sigma p\dd s$. Because $2\eta_g<L_c/2$, the two closed supports do not wrap at the chosen seam and are disjoint:
+\begin{equation}\label{eq:supports}
+ S_\pm=[s_0\mp\eta_g-\epsc,s_0\mp\eta_g+\epsc],\qquad
+ \Sb=S_+\cup S_-,\qquad B^*B=M_B=mI_2,\quad m=\frac{2}{3\epsc}.
+\end{equation}
+Direct integration gives $\int b_\sigma=1$, $\norm{b_\sigma}_2^2=m$ and $\norm{b'_\sigma}_2^2=2/\epsc^3$. The profiles are in $H^1$; an $H^2$ assumption would be inappropriate for the corners. Their width is arclength, not a tube radius or host-patch area.
+
+With finite positive $\alpha_N,\beta_R,\eta_N,\eta_R,c$, the exchange equations are
+\begin{equation}\label{eq:system}
+ \begin{aligned}
+ \dot x&=-\frac{\eta_N}{2\alpha_N}J_f(x)^Ty,&
+ p_t+c(\rc)_s&=Bq,&(\rc)_t+cp_s&=0,\\
+ \dot z&=\frac{\eta_R}{\beta_R}y,&q&=\eta_N f(x)-\eta_R z,&y&=B^*p.
+ \end{aligned}
+\end{equation}
+The stores and local carrier quantities are
+\begin{equation}\label{eq:stocks}
+ H_N=\frac{\alpha_N}{2}|x|^2,\quad
+ H_C=\int_0^{L_c} e\dd s,\quad H_R=\frac{\beta_R}{2}|z|^2,
+ \qquad e=\frac{p^2+\rc^2}{2},\quad j=cp\rc.
+\end{equation}
+The trial native store is a scaled intensity, not the native quartic potential. The scales are uncalibrated mathematical parameters. Collocation means that supply and receiver loading use the same $B$; it does not assign a material position to the lumped receiver state $z$ or to $H_N$.
+
+The inherited global well-posedness theorem \cite{RX} gives a unique global mild exchange solution in $\R^6\times L^2_{\rm per}(0,L_c)^2\times\R^2$ with conserved total store. With $H^1$ carrier preparation, $p,\rc\in C_tH^1\cap C_t^1L^2$ and $x,z\in C^1$. From \eqref{eq:euler} and \eqref{eq:system},
+\begin{equation}\label{eq:globalwork}
+ \dot H_N=-\eta_Nf^Ty,\quad
+ \dot H_C=\eta_Nf^Ty-\eta_Rz^Ty,\quad
+ \dot H_R=\eta_Rz^Ty,\qquad e_t+j_s=pBq.
+\end{equation}
+Thus the debit and credit are actual work on the same coupled solution, not a prescribed sample-and-hold drive.
+
+\subsection{The exact native step and exchange ordering}\label{sec:hybrid}
+For completeness, the retained native map uses the simultaneous prestage $v_i$ and phase kicks
+\begin{equation}\label{eq:native}
+ \begin{aligned}
+ v_i&=\Omega_i+\epsilon(k_i-|\Omega_i|^2)\Omega_i
+       +g\sum_{j\ne i}(\Omega_j-\Omega_i),\\
+ \delta_i&=\lambda\sum_{j\ne i}\sin\!\left(3[\operatorname{Arg}_0v_j-\operatorname{Arg}_0v_i]\right),
+ & F_i(\Omega)&=e^{i\delta_i}v_i,\\
+ \epsilon&=\frac1{10},\quad g=\frac1{60},\quad\lambda=\frac1{300},
+ & k&=\left(\frac{999}{1000},1,\frac{1001}{1000}\right).
+ \end{aligned}
+\end{equation}
+Here $\operatorname{Arg}_0(0)=0$, every kick uses the same prestage, and a zero output stays zero. The implementation's $\lambda=0$ bypass is a separate convention; this paper retains the displayed nonzero value. These formulas agree with the native source text and the accepted cadence analysis \cite{F}.
+
+Writing $\Phi_t$ for exact exchange and $\widehat F$ for the native-only jump,
+\begin{equation}\label{eq:hybrid}
+ X_{n+1}=\Phi_{h_{\rm ex}}\widehat F X_n,\qquad h_{\rm ex}>0,
+ \qquad b_n=H_N(F\Omega_n)-H_N(\Omega_n).
+\end{equation}
+The map is F-first, with $p,\rc,z$ unchanged at the jump; $h_{\rm ex}$ is a symbolic dwell duration. This is not a continuous native replacement or a numerical approximation step, and no physical clock is selected.

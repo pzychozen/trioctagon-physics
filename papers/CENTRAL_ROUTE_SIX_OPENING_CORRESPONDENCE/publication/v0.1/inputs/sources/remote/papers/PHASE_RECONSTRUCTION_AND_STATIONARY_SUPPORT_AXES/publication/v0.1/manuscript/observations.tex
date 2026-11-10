@@ -1,0 +1,73 @@
+\section{Observations, energy consistency and interpretation}\label{sec:observations}
+
+\subsection{Retained observations and phase-sensitive memory}
+The existing raw channel quantities are
+\begin{equation}
+I(y)=s_1+s_2+s_3,\qquad N_\Omega=\sqrt I,\qquad
+C_{\rm ch}(y)=(A_{23},-A_{13},A_{12}),
+\label{eq:rawobservations}
+\end{equation}
+where \(A_{23}\) is supplied by \eqref{eq:thirdpair}. For \(\Omega=q+ip\), \(C_{\rm ch}=q\times p\). It is not the distinct ambient axial projection \(W=T_fC_{\rm ch}\), with \(T_f=[t_1\ t_2\ t_3]\) \cite{nrg}. The historical staged Z uses the raw \(C_{\rm ch}\).
+
+With the specified external observer and placement settings, staged Z has the form \cite[Section 3]{zmethods}
+\begin{gather}
+K(N_\Omega)=\lambda_{\rm vp}\frac{N_\Omega}{1+N_\Omega},\quad
+E_{\rm obs}(t)=e^{-\gamma_{\rm obs}t},\notag\\
+H_{\theta_{\rm obs}}=\cos[3(\theta_{\rm obs}-\ell)]
+(\cos\theta_{\rm obs},\sin\theta_{\rm obs},1),\notag\\
+Z=\alpha K E_{\rm obs}H_{\theta_{\rm obs}}+\beta C_{\rm ch},
+\qquad X=O+\mu R_\psi Z.
+\label{eq:staged}
+\end{gather}
+These coefficients and clocks are external observer data. No new preset is selected. If \(\sigma_n\) collects those data, then \(Z_n=\mathcal Z(y_n;\sigma_n)\) and \(X_n=\mathcal X(y_n;\sigma_n)\). Equal retained starts and identical exogenous schedules give equal staged and placed histories, since \(y_n=G^ny_0\). Their face-vector histories may differ through \(u_0\). This is composition of accepted closure with observation invariance, not an autonomous recurrence on Z alone. Frozen settings still leave dependence on changing \(I(y)\) and \(C_{\rm ch}(y)\), so the point can move.
+
+The separate EMA innovation is
+\begin{equation}
+J_n=\im\left[u_nz_1(y_n)\overline{z_2(y_n)}z_3(y_n)\right],
+\qquad j_n=\frac{J_n}{1+|J_n|}.
+\label{eq:innovation}
+\end{equation}
+The cubic product has common-phase weight one: substituting \(\Omega=uz\) yields \(u\overline u u=u\). The source \texttt{advance\_ema} uses \(j_n\), current memory and literal innovation weight \(0.01\). Generating memory needs the initial memory and specified sampling/update order in addition to a native history, or instead a supplied innovation sequence \cite{zcode}.
+
+In contrast, \texttt{observe\_ema} observes \emph{current} memory without evaluating the cubic or updating memory. Its scalar is the norm/clock harmonic plus current memory, followed by the existing macro direction and raw-chirality blend. Thus its value is determined by \(I(y_n)\), \(C_{\rm ch}(y_n)\), current memory and observer configuration/clock, with placement data added for a point. At fixed values of these inputs, current common phase supplies no additional value information. Phase can affect later observations through explicitly updated memory. These are distinct operations, not two descriptions of one implicit update \cite[Section 8]{zmethods}\cite{zcode}.
+
+\begin{table}[htbp]\centering\small
+\caption{Observation dependencies. History inputs include the specified native or observer ordering; no canonical schedule is inferred.}\label{tab:dependencies}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{30mm}YY@{}}\toprule
+Quantity & Inputs for a current value & Additional history information and phase dependence\\\midrule
+Face arrows & \(y_n,u_n\), fixed frames & \(y_0,u_0\) determine their native history through \eqref{eq:facehistory}.\\
+Intensity and raw chirality & \(y_n\) & \(y_0,G\) suffice; no common-phase value is needed.\\
+Staged Z / placed point & \(y_n\), observer data; placement for the point & Equal \(y_0\) and schedules give equal histories. No recurrence on Z alone is claimed.\\
+EMA innovation & \(y_n,u_n\), via \eqref{eq:innovation} & Reconstructed state determines the phase-sensitive cubic.\\
+EMA memory update & Normalized innovation and current memory & Requires \(y_0,u_0\), initial memory, existing rule and sampling/order; a supplied innovation sequence can replace the native-history inputs.\\
+EMA observation from current memory & \(I(y_n),C_{\rm ch}(y_n)\), memory, clock/configuration; placement if requested & At fixed listed inputs, current phase adds no value information. Later values can depend on phase through explicit memory updates. Generating memory requires the preceding row's inputs.\\\bottomrule
+\end{tabularx}
+\end{table}
+
+No unknown past memory is recovered. Native common phase, observer angle, observer time, update index and static shape parameter \(\tau\) remain distinct. Historical Z01 used \((\eps,g,\lambda)=(.05,.2,.001)\), \(k=(1,1,1)\); Z02/Z03 used \((1/10,1/5,17/100)\), \(k=(2,3,4)\) \cite[Section 2]{zmethods}. The present domain theorem is not transferred to those histories, and none is replayed here.
+
+\subsection{Energy consistency}
+The predecessor retains the edge-once potential
+\[
+\V(\Omega)=\eps\sum_i\left(\frac{|\Omega_i|^4}{4}-\frac{k_i|\Omega_i|^2}{2}\right)
++\frac g2\sum_{i<j}|\Omega_i-\Omega_j|^2
+\]
+and every matched edge energy \(E_{ij}=s_i+s_j-2S_{ij}\) \cite[Sections 4 and 6]{potential}. Multiplication by a common unit scalar leaves each distance, intensity and the norm of \(\widetilde\Omega-\Omega\) unchanged. The same isometry under the matched decoder preserves those individual energies, independent of representative choice. Thus the inherited bound remains
+\begin{equation}
+\V(F\Omega)-\V(\Omega)
+\le-\frac{16869}{20000}\|\widetilde\Omega-\Omega\|_2^2,
+\qquad \Omega\in\D.
+\label{eq:energyconsistency}
+\end{equation}
+Equality in monotonicity occurs exactly on the accepted aligned fixed circle. The coefficient multiplies the squared prestage increment, not a full-step distance or percentage of potential. This consistency statement supplies no physical energy or flux identification and requires no new descent proof.
+
+\subsection{What the correspondence establishes}
+One initial common phase completes the retained state history. The overlap diagnostic encodes a different angle and requires its representative correction. The adopted decoder then supplies exact arrows and mathematical endpoints: their pure-phase rotation axes are the positioned stationary support lines, with the directed sign fixed by the source frames. An actual native step can additionally change their lengths and relative phases, and a nontrivial universal common proper rotation of the free-vector triple is excluded by Theorem~\ref{thm:universalrotation}.
+
+Identifying a named material feature with an arrow or prescribing its registration to a stationary line would add a declared correspondence. Neither a moving support, filled aperture, hinge, continuous interpolating path, flow, force nor emission law follows from these results. The central broken opening arcs and filled host-notch measurement patches remain distinct. No feature must be chosen to review this paper.
+
+The close original enclosing sphere is a fixed geometric reference; the separately discussed tight toroid remains a distinct intended feature. Two co-present arrangements and rapid alternation remain different alternatives. The manuscript selects none of them. Native/core motion and gravity--magnetism remain linked research directions, with outer structure and justified SRG integration later; TORMENT remains separate and protected, and Three-Way remains parked. These standing directions are retained, not activated by this write-up.
+
+\paragraph{Attribution and verification scope.}
+The two underlying proof reviews have project-internal acceptance \cite{phase,spatial}. Their existing exact-algebra records accompany this research edition unchanged. The present work assembles the proofs, incorporates the approved editorial and observer-table corrections, and verifies the compiled document. It adds no scientific execution, literature/novelty investigation or external peer-review claim. GPT project-internal scientific and manuscript review is complete; the author approved repository publication on 2 November 2026. This is the author-authorized repository research edition v0.1.

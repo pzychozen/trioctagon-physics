@@ -1,0 +1,66 @@
+\section{Readouts, phase information and retained observations}\label{sec:readouts}
+\subsection{Center, based vectors and matched transport}
+The complex mean $m=\sum_i\Omega_i/3$ is not the spatial center O. Although $(L_N\Omega)_i=3(m-\Omega_i)$, that is a channel-plane correction. The exact mean-step identity is \cite[Section 2]{relaxation}
+\begin{equation}\label{eq:mean}
+ \Delta m=\frac\eps3\sum_i\Omega_i(k_i-s_i)
+        +\frac13\sum_i\widetilde\Omega_i(e^{i\delta_i}-1).
+\end{equation}
+Only the direct graph sum cancels. With synchronization off, graph-induced state changes can affect later nonlinear mean steps. With synchronization on, the second term can depend on g through the prestage already in the first full step. There is no implied inward spatial path toward O.
+
+The adopted decoder \cite{nrg,phase} gives a based face vector and endpoint
+\begin{equation}\label{eq:decoder}
+ v_i=D_i\Omega_i=\re(\Omega_i)t_i+\im(\Omega_i)e_z,
+ \qquad(c_i,v_i),\qquad c_i+v_i,
+\end{equation}
+where $t_i,e_z$ are an orthonormal frame in the face tangent plane and $c_i$ is its fixed center. Its norm is $\sqrt{s_i}$, not a travel distance; the endpoint need not lie on the finite face and is not a particle-position law. Matched transport is
+\begin{equation}\label{eq:matched}
+ T_{ij}=t_it_j^T+e_ze_z^T,\qquad D_{ij}=\|v_i-T_{ij}v_j\|^2.
+\end{equation}
+It is an isometry between the tangent planes, rank two as an ambient map, not a flow along material seams.
+
+For the accepted exact frames, $n_i=-g_{i-1}$ and $c_i-O=r_gn_i$. Thus the positioned unoriented lines agree:
+\begin{equation}\label{eq:axes}
+ c_i+\R n_i=O+\R g_{i-1},\qquad
+ D_i(e^{i\chi}\omega)=R_{n_i}(\chi)D_i\omega=R_{g_{i-1}}(-\chi)D_i\omega.
+\end{equation}
+Pure phase rotates each decoded vector about its stationary support line with the directed sign shown. The full F also changes amplitudes and relative phases. The published obstruction to one fixed-label proper rotation working for every admitted triple concerns a different quantified question; it does not prohibit outward transport or prove emission \cite{phase}.
+
+Raw chirality is $C=\re\Omega\times\im\Omega=(A_{23},-A_{13},A_{12})$ in channel coordinates. Its ambient horizontal axial attachment is $W=T_fC$, where $T_f=[t_1\ t_2\ t_3]$; the scalar $\one^TC$ supplies a distinct vertical polar component. Raw C does not obey the same ambient vector transformation law as W \cite[state--shell attachment and observables]{nrg}.
+
+\subsection{Phase reconstruction versus staged Z}
+On the exact domain of Theorem~\ref{thm:descent}, the five retained coordinates
+$y=(s_1,s_2,s_3,A_{12},A_{13})$ determine full coherence. To display the positive-root convention, put
+\begin{align}
+ p_{12}&=\sqrt{s_1s_2-A_{12}^2},&p_{13}&=\sqrt{s_1s_3-A_{13}^2},\notag\\
+ z(y)&=\left(\sqrt{s_1},\frac{p_{12}+iA_{12}}{\sqrt{s_1}},
+                         \frac{p_{13}+iA_{13}}{\sqrt{s_1}}\right)^T.\label{eq:representative}
+\end{align}
+The narrow sector fixes the positive roots. The accepted reconstruction \cite{potential,phase} supplies a closed map G and unit multiplier $\kappa(y)=F_1(z(y))/|F_1(z(y))|$ such that
+\begin{equation}\label{eq:reconstruction}
+ \Omega_n=u_0\left(\prod_{j=0}^{n-1}\kappa(G^jy_0)\right)z(G^ny_0),
+ \qquad u_0=\Omega_{1,0}/|\Omega_{1,0}|.
+\end{equation}
+Persistent nonzero prestages justify this formula. No iteration is computed here. The original common phase $u_0$ is necessary when only y is retained.
+
+The separately defined staged readout and placement are \cite{zmethods}
+\begin{align}
+ K&=\lambda_{vp}\frac{\sqrt I}{1+\sqrt I},&E_o&=e^{-\gamma t_o},\notag\\
+ H_\vartheta&=\cos[3(\vartheta-\ell_o)](\cos\vartheta,\sin\vartheta,1),
+ &\vartheta&=2\pi(q\bmod N)/N,\notag\\
+ M_{\rm macro}&=KE_oH_\vartheta,&Z&=\alpha M_{\rm macro}+\beta C,
+ \qquad X=O+\mu R_z(\psi)Z.\label{eq:Z}
+\end{align}
+The scale, yaw, clock and configuration are external inputs; raw C here is not replaced by W. At fixed settings Z can change with native I and C, but discards common phase. Two states with the same retained y and different $u_0$ have identical retained and fixed-setting staged histories, while their nonzero decoded vectors rotate in their own planes. Consequently a genuinely common-phase-dependent outlet quantity cannot be a function of that staged history alone. This conditional identifiability statement neither requires all outlet rules to depend on phase nor denies native evolution. Adding $u_0$ recovers decoded vectors, not an unprovided transfer law.
+
+EMA has a separate information path. Its innovation uses
+$J_{\rm cubic}=\im(\Omega_1\overline\Omega_2\Omega_3)
+=\im[u z_1\overline z_2z_3]$, normalized by $1+|J_{\rm cubic}|$, together with prior memory and the implementation's literal $0.01$ innovation coefficient. An observation from current memory instead uses current I, C, that memory and the external settings; it neither evaluates the cubic nor advances memory. The prescribed native-update/memory-update order is retained. Neither observer nor memory is advanced in this build \cite{phase,zmethods}.
+
+\subsection{What the saved Z examples show}
+Z01 uses two saved binary64 states at $(\eps,g,\lambda)=(0.05,0.2,0.001)$, $k=(1,1,1)$. Z02 and Z03 share five saved states from the earlier 120-digit producer at $(0.1,0.2,0.17)$, $k=(2,3,4)$. They are distinct constructed histories, not representative sampling; neither is covered automatically by Theorem~\ref{thm:descent}. The following are retained observations, not new evaluations \cite{zmethods,assessment}.
+
+Z01's frozen nearest label is $G_0^+$ at both states, while the second scheduled observation has label $G_1^+$. In Z02 the five frozen labels are all $G_0^+$; the scheduled labels are $G_0^+,G_0^+,G_2^-,G_0^-,G_1^+$. In its recorded replacement order, all three switches occur at clock replacement. This finite-window result is not a general theorem that label changes are observer-made.
+
+All primary Z01/Z02 placed points are inside the original sphere and off both G and N. The source-defined forward ray $O+t(X-O)$, $t\ge0$, has no finite-notch hit in Z01; Z02 reports one for frozen F1 at $N_0^+$, though F1 itself is not on the patch. A nearest label is neither incidence nor passage, and ray incidence is not flux. No face-based vector has its origin moved to O to make this test.
+
+Z03's native-source budgets account for all four frozen displacements with its retained numerical residual qualifications. On $2\to3$, $\Delta I\simeq+0.00754918$ accompanies $\Delta\text{radius}\simeq-0.000590475$; the full finite square is essential to the positive intensity sign. On $3\to4$, radius increases by approximately $0.00780087$ while height decreases by approximately $0.00120391$. This is a genuine outward radial endpoint change of the defined readout, not an observation of energy leaving a region. Signed contributions can cancel. Comparison replacements in the native/envelope/clock telescope are not intermediate native times, continuous paths, passage events or speeds.

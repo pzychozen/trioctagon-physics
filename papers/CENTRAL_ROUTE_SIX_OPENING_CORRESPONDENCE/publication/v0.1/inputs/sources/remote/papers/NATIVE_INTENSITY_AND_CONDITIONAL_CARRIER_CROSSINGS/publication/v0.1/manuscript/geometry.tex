@@ -1,0 +1,106 @@
+\section{Central boundaries and finite host-notch patches}\label{sec:geometry}
+\subsection{The actual six central objects}
+Use width-one geometry with spatial center $O=(0,r_g,0)$, $r_g=\sqrt3/6$. Coordinates in this subsection are centered at O. Put
+\begin{equation}\label{eq:constants}
+ d_g=1-\sqrt2/2,\quad a_g=d_g/2,\quad h_g=(\sqrt2-1)/2,\quad H_0=1/2,
+\end{equation}
+and, in the horizontal plane,
+\begin{equation}\label{eq:directions}
+ e_i=(\cos(-\pi/2+i\pi/3),\sin(-\pi/2+i\pi/3)),\quad
+ n_k^{\rm geom}=e_{2k},\quad g_k=e_{2k+1},\quad j_k=Jg_k,
+\end{equation}
+where $J(X,Y)=(-Y,X)$. For the static PLUS family,
+\begin{align}
+ A_\tau&=\mathrm{Id}-(\tau/r_g)J
+       =\sqrt{1+(\tau/r_g)^2}R_{-\delta},
+ &\delta&=\arctan(\tau/r_g),\quad0\le\tau\le h_g,\notag\\
+ T_i&=(a_ge_i,h_g),&B_i&=(a_gA_\tau e_i,-h_g),\notag\\
+ U_k&=(r_gn_k^{\rm geom},H_0),&L_k&=(r_gA_\tau n_k^{\rm geom},-H_0).\label{eq:vertices}
+\end{align}
+The central definitions \cite{central,fixedgap} give six broken two-segment boundaries
+\begin{equation}\label{eq:G}
+ G_k^+=U_k\,--\,T_{2k+1}\,--\,U_{k+1},\qquad
+ G_k^-=L_k\,--\,B_{2k+1}\,--\,L_{k+1},\qquad k=0,1,2.
+\end{equation}
+The notation lists joined segments, not flow directions. Indices are cyclic. Upper label azimuths are $-30^\circ,90^\circ,210^\circ$; lower ones are shifted by $-\delta$. MINUS reflects the entire configuration by $\diag(-1,1,1)$ and retains the labels. No top-to-top closing chord, filled interior, centroid, aperture normal or hinge is assigned to G.
+
+The refined central construction is declared additional research geometry, not a uniquely forced consequence of the folded host. Its triangulated annulus has 18 vertices, 42 edges, 24 faces and two boundary cycles. In the central slab its section complement is a connected annular region, not three isolated flow channels. Geometry alone supplies no pressure, density, velocity or boundary condition \cite{central}.
+
+The original close sphere has radius $\sqrt{13/12-\sqrt2/2}$ about O. It is a reference, not a wall; it is distinct from an extended-line sphere and the intended tight toroid. The 180-degree support lines $O+\R g_k$ stay stationary. Geometric $\tau$, native update index, native common phase, observer clock and carrier time are different variables. Two co-present arrangements are not silently replaced by one rapidly alternating arrangement.
+
+\subsection{A precise host-patch dictionary}
+The separate finite host-notch measurement triangles are
+\begin{equation}\label{eq:N}
+ N_k^\sigma(\ell,\zeta)=
+ \left(2r_g-\frac{\sqrt3}{2}d_g\ell\right)g_k+\zeta j_k
+       +\sigma(h_g+d_g\ell)e_z,
+ \quad0\le\ell\le1,\quad|\zeta|\le d_g\ell/2.
+\end{equation}
+Here $\ell$ is a triangle coordinate. Paper I \cite{pairedI} uses world coordinates
+\begin{align}
+ \Delta_j^\sigma&=\left\{O+(r_0-c_gd_gt)u_j+\xi v_j
+                +\sigma(h_g+d_gt)e_z:\ 0\le t\le1,\ |\xi|\le d_gt/2\right\},\notag\\
+ r_0&=1/\sqrt3,\quad c_g=\sqrt3/2,\quad
+ u_j=R_z(2\pi j/3)(0,1,0),\quad v_j=e_z\times u_j.\label{eq:Delta}
+\end{align}
+Direct substitution of $r_0=2r_g$ and $u_0=g_1,u_1=g_2,u_2=g_0$ gives the accepted dictionary
+\begin{equation}\label{eq:dictionary}
+ \boxed{\Delta_j^\sigma-O=N_{(j+1)\bmod3}^\sigma.}
+\end{equation}
+The parameters match as $t=\ell$, $\xi=\zeta$. Two triangle sides are material rim edges; the third is a measurement-only closure, not a cap. Their oriented unit normals are
+\begin{equation}\label{eq:normals}
+ n_j^\sigma=\frac{2u_j+\sigma\sqrt3 e_z}{\sqrt7}.
+\end{equation}
+Equation~\eqref{eq:dictionary} identifies host patches across source conventions, not N with G.
+
+The retained fixed-gap obstruction makes that distinction exact \cite[boundary obstruction]{fixedgap}. Each central broken arc contains its ring elbow with squared radius at most $15/2-21\sqrt2/4$. Every host-notch plane has squared distance from O at least $19/84+\sqrt2/14$, strictly larger. A centered rotation preserves the elbow radius and cannot put the entire arc in any host patch. This upper bound is on the elbow, not every point of the arc. Source-admitted fan-tip contacts do not remove it. It does not prohibit a different future transfer registration.
+
+\section{Two conditional cut powers and a short-arc balance}
+Paper II selects Paper I's $j=0$ circle, hence the host-notch pair $N_1^+,N_1^-$ in \eqref{eq:dictionary}. Write $u=u_0$, $v=e_z\times u$, and
+\begin{equation}\label{eq:circleconstants}
+ K_c=\frac{\sqrt3}{12}+\frac{\sqrt6}{4},\quad
+ a_c=\frac{K_c}{1+\sqrt3/2},\quad R_c=\frac{\sqrt7a_c}{2},\quad L_c=2\pi R_c.
+\end{equation}
+Its adopted orientation and contact data are
+\begin{align}
+ \Gamma(s)&=O+K_cu+R_c(\cos\chi\,u+\sin\chi\,e_z),
+ &\hat t&=-\sin\chi\,u+\cos\chi\,e_z,\quad\chi=s/R_c,\label{eq:circle}\\
+ P_\pm&=O+a_cu\pm a_ce_z,&n_\pm&=(2u\pm\sqrt3e_z)/\sqrt7,\notag\\
+ s_+&=L_c/2-\eta,&s_-&=L_c/2+\eta,\quad
+ \eta=R_c\arctan(2/\sqrt3).\label{eq:contacts}
+\end{align}
+The contacts are relative-interior points of the finite patches and are not antipodal. The source's finite-crossing theorem gives
+\begin{equation}\label{eq:tangents}
+ \hat t(s_+)=-n_+,\qquad \hat t(s_-)=+n_-.
+\end{equation}
+This offset circle is an additional conditional centerline, not a material edge, not a loop through O, and not the intended tight toroid. Each candidate circle meets only its own pair of finite patches, avoiding the other four. The three geometric candidates are mutually disjoint; no planar circle contains all six selected contacts. These facts do not instantiate three carriers or their coupling \cite[normal-crossing circle and clearance]{pairedI}.
+
+\begin{proposition}[Conditional signed cut powers and arc balance]\label{prop:crossing}
+For the already adopted C1 state at spatial $H^1$ regularity, the powers through the two registered cuts, with the outward host-plane signs, are
+\begin{equation}\label{eq:cuts}
+ \boxed{P_{\rm out,+}(t)=-j(s_+,t),\qquad P_{\rm out,-}(t)=+j(s_-,t).}
+\end{equation}
+On the short arc, the integrated-time identity is
+\begin{align}
+ E_{\rm arc}(t_1)-E_{\rm arc}(t_0)
+  &=\int_{t_0}^{t_1}\left[\int_{s_+}^{s_-}pg_c\dd s
+            -P_{\rm out,+}-P_{\rm out,-}\right]\dd t,\label{eq:arcint}\\
+ E_{\rm arc}(t)&=\int_{s_+}^{s_-}e(s,t)\dd s.\notag
+\end{align}
+Its derivative form holds almost everywhere:
+\begin{equation}\label{eq:arc}
+ \frac{dE_{\rm arc}}{dt}=\int_{s_+}^{s_-}pg_c\dd s+j(s_+,t)-j(s_-,t).
+\end{equation}
+\end{proposition}
+\begin{proof}
+The source normals point away from the O-side half-spaces because
+$n_\pm\cdot(P_\pm-O)=a_c(2+\sqrt3)/\sqrt7>0$.
+The one-dimensional cut power is $j\hat t\cdot n_\pm$, so \eqref{eq:tangents} gives \eqref{eq:cuts}. In one spatial dimension $H^1$ supplies continuous point traces and the weak product rule used in \eqref{eq:work}. Integrating that local balance on $[s_+,s_-]$ and then in time yields \eqref{eq:arcint} and its almost-everywhere derivative. This is the accepted composition of the existing definitions \cite[Section B.4]{assessment}, not a new wave solution.
+\end{proof}
+
+The source tents straddle their contact cuts. Therefore the work restricted to the arc is generally not the entire $f_+y_++f_-y_-$. The powers in \eqref{eq:cuts} are one-dimensional cut powers, not surface-flux integrals through filled central apertures. Point-flux statements here are not extended to arbitrary spatial $L^2$ preparation; the weaker source theorem supplies the global integrated balance.
+
+Positive local j is incoming at the upper contact and outgoing at the lower; negative j reverses those signs locally. The two fluxes need not have equal value or sign at a fixed time, and no permanent positive sign is asserted. The carrier is periodic: characteristics continue around it, rather than escaping or reflecting at the source ports. ``Inner'' and ``outer'' midpoint labels describe locations, not an inward-then-outward routing law from O.
+
+Even contact is weaker than crossing. Paper I's frozen unit macro reference
+$\mathcal M_j(\nu)=O+a_c\cos3\nu(\cos\nu\,u_j+\sin\nu\,v_j+e_z)$ meets $P_j^+$ at zero, but has tangent $a_cv_j$, tangent to the patch plane. The selected circle instead crosses normally. That reference curve is not a generated native history. No shared path or ``next available'' central opening follows \cite[shared-point distinction]{pairedI}.

@@ -1,0 +1,35 @@
+\section{When one proper rotation represents all three vectors}\label{sec:rotation}
+
+The three local rotations in Theorem~\ref{thm:decoderphase} need not be one common ambient rotation. The precise universal question fixes the labels and quantifies over all admitted states.
+
+\begin{theorem}[Universal proper-rotation classification]\label{thm:universalrotation}
+For fixed \(\chi\in\R\), there exists a single \(Q_\chi\in SO(3)\), independent of \(\Omega\), such that for every \(\Omega\in\D\) and every fixed channel label,
+\begin{equation}
+D_i(e^{i\chi}\Omega_i)=Q_\chi D_i(\Omega_i),\qquad i=1,2,3,
+\label{eq:universalquestion}
+\end{equation}
+if and only if \(\chi\equiv0\pmod{2\pi}\).
+\end{theorem}
+\begin{proof}
+First take \(\Omega=(1,1,1)\), with unit moduli and phase width zero. Its decoded vectors are \(t_i\); after rephasing they are \(w_i=\cos\chi\,t_i+\sin\chi\,e_z\). For \(i\ne j\),
+\begin{equation}
+t_i\cdot t_j=-\frac12,\qquad
+w_i\cdot w_j=-\frac12\cos^2\chi+\sin^2\chi
+=-\frac12+\frac32\sin^2\chi.
+\label{eq:gramwitness}
+\end{equation}
+Orthogonal transformations preserve these inner products, forcing \(\sin\chi=0\). Only \(0\) or \(\pi\) modulo \(2\pi\) remain.
+
+For the half-turn, take \(\Omega=e^{i\pi/4}(1,1,1)\). It is also admitted: \(D_0\) bounds the phase width, not the absolute common angle. Its decoded vector columns form
+\begin{equation}
+V=\frac1{\sqrt2}
+\begin{pmatrix}-1/2&1&-1/2\\-\sqrt3/2&0&\sqrt3/2\\1&1&1\end{pmatrix},
+\qquad \det V=\frac{3\sqrt6}{8}>0.
+\label{eq:volumewitness}
+\end{equation}
+At \(\chi=\pi\) each column is negated. Hence \(Q_\pi V=-V\), and full rank forces \(Q_\pi=-I\), whose determinant is \(-1\). It is not proper. Conversely, for \(\chi\equiv0\pmod{2\pi}\), all complex components are unchanged and \(Q_\chi=I\) works for every state.
+\end{proof}
+
+The witnesses are exact symbolic states, not native-step experiments. No parameters are changed. The first triple is planar: at \(\chi=\pi\), the proper rotation \(R_{e_z}(\pi)\) does negate its three tangents. The full-rank second witness is what excludes that half-turn universally. Thus the theorem does not say that every individual pair of vector triples lacks a proper registration.
+
+This comparison concerns free vectors in a fixed ambient frame. It does not move centers, permute channels, carry the mesh, establish a native period or classify individual registrations. Neither this obstruction nor a successful registration of one triple identifies the pose of an attached central object. The fixed-gap support stabilizers concern specified common rigid transformations and attachment conditions \cite[Section 3]{fixedgap}; they answer a different question.

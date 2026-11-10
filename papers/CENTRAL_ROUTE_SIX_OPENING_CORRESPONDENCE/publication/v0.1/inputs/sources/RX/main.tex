@@ -1,0 +1,66 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=25mm,headheight=15pt]{geometry}
+\usepackage{booktabs,array,tabularx,longtable}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{microtype,enumitem,fancyhdr,needspace}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{bookmark}
+\hypersetup{pdftitle={A Reciprocal Chiral Exchange Extension of the Tri-Octagon Model - v0.1},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={Well-posedness, matched storage, and extraction limits. Conditional candidate extension; author-authorized repository research edition.}}
+\setlength{\parskip}{4pt}\setlength{\parindent}{0pt}\setlength{\emergencystretch}{3em}
+\setlist{itemsep=2pt,topsep=4pt}
+\setlist[itemize]{label=$\bullet$}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Reciprocal chiral exchange}\fancyhead[R]{\small v0.1}
+\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0.3pt}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\dd}{\,\mathrm d}\newcommand{\eps}{\varepsilon}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\re}{\operatorname{Re}}\newcommand{\im}{\operatorname{Im}}
+\newcommand{\B}{\mathcal B}\newcommand{\HH}{\mathcal H}
+\newcommand{\Argz}{\operatorname{Arg}_0}\newcommand{\ez}{e_z}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\vspace*{5mm}
+{\small\color{MidnightBlue} TRI-OCTAGON MATHEMATICAL RESEARCH\par}
+\vspace{8mm}
+{\LARGE\bfseries\raggedright A Reciprocal Chiral Exchange\\ Extension of the Tri-Octagon Model\par}
+\vspace{6mm}
+{\large Well-posedness, matched storage, and extraction limits\par}
+\vspace{7mm}
+{\large Hilmir Fr\'imann Halld\'orsson\par}
+\vspace{3mm}
+{Author-authorized repository research edition v0.1\quad 3 November 2026\par}
+\vspace{5mm}
+\begin{abstract}
+We study one explicit candidate extension coupling the Tri-Octagon native state to its conditional periodic carrier and to a reversible two-port receiver. The existing raw chiral drive is retained, while a homogeneous reciprocal completion matches carrier work to changes in a positive trial native storage. A quadratic receiver storage has an equal and opposite carrier loading term. We prove global forward and backward exchange-time well-posedness in the natural energy space, with a separate regularity estimate for periodic $H^1$ preparations. Empty-carrier preparations exhibit nonzero short-time native supply and receiver gain; other prepared carrier states yield native credit. The exchange conserves the complex bilinear quantity $\sum_i\Omega_i^2$, imposing a restrictive bound on net extraction from coherent initial states and leaving aligned empty preparations dark. Explicit counterexamples prevent transfer of universal coherent-domain invariance to the coupled model. An ordered hybrid step retains the unchanged native map before exact exchange; its total storage increment is precisely the native baseline intensity increment, and zero coupling recovers the original native sampling. These are results about a mathematically verified candidate, not adoption into the accepted kernel or a derived physical energy law. Delayed native credit on the same solution after an empty launch, irreversible disposal and physical toroidal registration remain open.
+\end{abstract}
+\vfill
+{\small Research author: Hilmir Fr\'imann Halld\'orsson (pzychozen).
+GPT proposed the candidate and reviewed the underlying investigation of 3 November 2026, with acceptance recorded in the publication authorization.
+Codex independently investigated the candidate and prepared, fidelity-checked, built and inspected this manuscript.
+The separate current GPT review file was unavailable in the named Windows locations; the authorization permits this disclosed fallback.
+No GPT inspection of the final PDF, external peer review, experimental validation or production adoption is claimed.}
+\end{titlepage}
+\setcounter{page}{2}\hypersetup{pageanchor=true}
+\input{candidate}
+\input{power}
+\input{wellposed}
+\input{activity}
+\input{capacity}
+\input{hybrid}
+\input{accounts}
+\input{interpretation}
+\appendix
+\input{domain}
+\input{references}
+\end{document}

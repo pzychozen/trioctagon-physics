@@ -1,0 +1,92 @@
+\section{Exact arithmetic and evidence guide}\label{sec:arithmetic}
+The coarse enclosures below are sufficient for the uniform rational clearance:
+\begin{equation}\label{eq:radicalintervals}
+ \begin{array}{rcl@{\qquad}rcl}
+ 14142/10000&<\sqrt2<&14143/10000,&17320/10000&<\sqrt3<&17321/10000,\\
+ 24494/10000&<\sqrt6<&24495/10000,&26457/10000&<\sqrt7<&26458/10000.
+ \end{array}
+\end{equation}
+Each interval is certified by squaring its positive rational endpoints. Put $D_u=1231/1000$, $a_u=(1-14142/20000)/2$, $h_l=(14142/10000-1)/2$, and $r_u=17321/60000$. Then
+\begin{equation}\label{eq:vertexcertificate}
+ \begin{aligned}
+ D_u^2-(10-6\cdot14142/10000)&=561/1000000>0,\\
+ \frac3{50}-(D_ua_u-\tfrac35h_l)&=79601/20000000>0,\\
+ \frac3{50}-(D_ur_u-\tfrac3{10})&=277849/60000000>0.
+ \end{aligned}
+\end{equation}
+These certify \eqref{eq:vertexbounds} in the correct monotone directions. From the same intervals and $\RG=\sqrt7K_c/(2+\sqrt3)$,
+\begin{equation}\label{eq:gapcertificate}
+ \begin{gathered}
+ \frac{45401}{60000}<K_c<\frac{45403}{60000},\qquad
+ \RG<\frac{600636287}{1119600000}<\frac{537}{1000},\qquad
+ L_*<\frac{1167}{1000},\\
+ \Delta_* >\frac{756}{1000}-\frac{1167}{1000}\frac{537}{1000}-\frac3{50}
+ =\frac{69321}{1000000},\\
+ \frac{69321}{1000000}-\frac{297}{5000}\frac{1167}{1000}
+ =\frac3{2500000}>0.
+ \end{gathered}
+\end{equation}
+For example $(1167/1000)^2-34/25=1889/1000000>0$ proves the $L_*$ bound. These strict rational margins are the certificates used in Theorem~\ref{thm:separation}; no plotted samples enter them.
+
+The radial comparisons \eqref{eq:closemargins} can also be checked directly with these coarse intervals. With $K_l=45401/60000$, $K_u=45403/60000$, put $a_u'=K_u/(1+17320/20000)$ and $R_l=(26457/10000)K_l/(2+17321/10000)$. Integer cross-multiplication gives
+\begin{equation}\label{eq:radialcertificate}
+ \begin{aligned}
+ \frac{13}{12}-\frac{14143}{20000}-2(a_u')^2&>\frac4{100},\\
+ K_l^2+R_l^2+\frac{2K_lR_l}{7}
+ -\left(\frac{13}{12}-\frac{14142}{20000}\right)&>\frac{59}{100}.
+ \end{aligned}
+\end{equation}
+The accepted central-route record retains finer rational enclosures as well. These weaker displayed bounds make the signs used here auditable without decimal approximations.
+
+\begin{table}[htbp]\centering\small
+\caption{Accepted claims and their principal locations in this manuscript. The companion ledger supplies exact source paths, labels and recorded equation/page numbers.}\label{tab:claims}
+\begin{tabularx}{\textwidth}{@{}lX@{}}\toprule
+Accepted item & Manuscript location and content\\\midrule
+C01, S01 & Section~\ref{sec:model}: native registration, positioned axes, finite $N$, actual $G$, profiles, exchange and F-first ordering.\\
+C02 & Proposition~\ref{prop:ball} and \eqref{eq:widthceiling}: radial preimages, complete profiles and close-sphere ceiling.\\
+C03 & Proposition~\ref{prop:regional}: oriented cuts, complementary work, regularity and jump counting.\\
+C04 & Theorem~\ref{thm:early}, \eqref{eq:equalitywitness} and \eqref{eq:postFinterval}: coupled empty launch and first post-F scope.\\
+Q01 & Proposition~\ref{prop:Q01}: full cut distance, inner-gap witness and active-port qualification.\\
+S02 & Proposition~\ref{prop:hullenvelope}: individual fixed-sign hulls over the whole static family.\\
+S03 & Theorem~\ref{thm:separation} and Corollary~\ref{cor:empty}: uniform clearance, common scaling and empty preimages.\\
+C05 & Proposition~\ref{prop:phase} and Sections~\ref{sec:phase}--\ref{sec:labels}: common-phase information and propagation labels.\\
+S04 & Sections~\ref{sec:Gtransport}, \ref{sec:C6}: direct crossings versus undefined aperture flux and unloaded observation.\\
+S05 & Section~\ref{sec:synthesis}: missing registration, current completion status and subsequent research.\\\bottomrule
+\end{tabularx}
+\end{table}
+
+The companion package preserves both complete acceptance archives and readable proof/disposition records. Its source registry records 65 retained source, context, acceptance, figure and precedent files, including SHA-256 and available Git blob identities. The common later repository reading checkpoint is \texttt{c3ee366bd6195bd7fa77efd0321214af4c2dc173}; retained older snapshots keep their own recorded identities. Immutable links in the bibliography locate editions; the exact per-file records identify the bytes actually consulted. The source paths and labels in the companion claim ledger take precedence over similarly named labels in different papers.
+
+\section{Editorial notation crosswalk}\label{sec:crosswalk}
+The renamings in Table~\ref{tab:notation} separate quantities whose source symbols collided. They introduce no new physical assumption. In particular $R_B$ is a diagnostic ball radius, not a cylindrical coordinate; $r_\perp$ is a cylindrical coordinate, not a diagnostic region size.
+
+\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.39\textwidth}>{\raggedright\arraybackslash}p{0.29\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}@{}}
+\caption{Source-to-manuscript notation.}\label{tab:notation}\\
+\toprule Meaning & Source notation & This paper\\\midrule\endfirsthead
+\toprule Meaning & Source notation & This paper\\\midrule\endhead
+Diagnostic ball radius & CR $\rho$ & $R_B$\\
+Cylindrical radius about $O$ axis & SO $\rho(P)$ & $r_\perp(P)$\\
+Receiver state & $z\in\R^2$ & $z$\\
+Centered spatial height & geometric $z,w,\zeta$ & $\zeta(P)$\\
+Common host width & SO $w$ & $\wh$\\
+Carrier characteristics & $w_\pm$ & $w_\pm$\\
+Native source Jacobian & $J=D_xf$ & $J_f$\\
+Horizontal quarter-turn & $J(X,Y)=(-Y,X)$ & $J_\perp$\\
+Static geometry parameter & $\tau$ & $\tau_g$\\
+Exchange time/integration dummy & $t,\tau$ & $t,t'$\\
+Geometry half-height & CG $h$ & $h_g$\\
+Exchange dwell & hybrid $h$ & $h_{\rm ex}$\\
+Contact arclength offset & $\eta,\eta_{\rm geom},\eta_g$ & $\eta_g$\\
+Native/receiver multipliers & $\eta,\kappa$ or $\eta_N,\eta_R$ & $\eta_N,\eta_R$\\
+Circle offset/plane constant & PG $\kappa$, CR $K_c$ & $K_c$\\
+Circle radius & $R_c,R_\Gamma$ & $\RG$\\
+Raw source gain & $G$ & $\Gain$\\
+Central broken boundaries & $G_k^\sigma$ & $G_k^\sigma$\\
+Support union & $S$ & $\Sb$\\
+Centered MINUS reflection & $S$ & $S_{\rm ref}$\\
+Angle and arclength curves & $\Gamma_j(\theta),\Gamma(s)$ & $\Gamma_j(\theta),\gamma_j(s)$\\
+Lower vertices/circle center & $B_i,B_j$ & $B_i$; circle center written $O+K_cu_j$\\
+\bottomrule
+\end{longtable}
+\normalsize

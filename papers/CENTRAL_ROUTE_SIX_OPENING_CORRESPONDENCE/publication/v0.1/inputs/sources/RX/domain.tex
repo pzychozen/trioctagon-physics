@@ -1,0 +1,49 @@
+\section{Two distinct coherent-domain counterexamples}\label{sec:domainfailures}
+We retain both accepted witnesses because a substep exit alone would not prove that a sampled composition exits. Throughout, $\eta_N>0$ and $\mu=\eta_N/(2\alpha_N)$.
+
+\begin{proposition}[Exchange boundary exit]\label{prop:domainexchange}
+The domain $\mathcal D$ in~\eqref{eq:domain} is not invariant under exchange for all admitted carrier preparations.
+\end{proposition}
+\begin{proof}
+Set $\Omega_0=(1,e^{i\phi},1)$ at $\phi=\pi/12$, and choose $w_0=K^Ty_0=-W\ez$ with $W>0$. This direction is available at every yaw: writing $\gamma=\kappa_{\rm in}\lambda_g$, choose
+\begin{equation}\label{eq:boundaryprep}
+ y_0=\frac{\sqrt7W}{2\sqrt3\gamma}(-1,1),\quad
+ p_0=\B M_B^{-1}y_0,\quad r_{c,0}=z_0=0.
+\end{equation}
+The carrier is $H^1$ and the native moduli are strictly inside their radial interval. Equation~\eqref{eq:core} and $\dot\theta_i=(a_i\dot b_i-b_i\dot a_i)/|\Omega_i|^2$ give
+\begin{equation}\label{eq:boundaryderivative}
+ \dot\theta_1(0)=-\mu W\cos\phi,\qquad
+ \dot\theta_2(0)=\mu W\cos\phi,\qquad \dot\theta_3(0)=0.
+\end{equation}
+For small positive time, $\theta_1$ is the minimum and $\theta_2$ the maximum. The right derivative of phase width is $2\mu W\cos\phi>0$. Thus the initial exit is through the phase boundary, without a clamp or normalization.
+\end{proof}
+
+\begin{proposition}[Sampled hybrid witness]\label{prop:domainhybrid}
+Over the allowed carrier preparations and symbolic positive cadences, the sampled hybrid~\eqref{eq:hybrid} does not universally preserve $\mathcal D$.
+\end{proposition}
+\begin{proof}
+Start the hybrid step at $(1,1,1)$. Its native image is the positive real vector $q=(q_1,q_2,q_3)$ in~\eqref{eq:positivebaseline}. Take an $H^1$ profile $\bar p$ with $K^T\B^*\bar p=-W\ez$, realized as in~\eqref{eq:boundaryprep}. Prepare $p_0=R\bar p$, $r_{c,0}=z_0=0$, with dimensionless $R>0$, and use fast time $\tau=Rt$. All model constants remain fixed.
+
+On bounded $\tau$ intervals, the energy bound makes $\norm{p_R/R}_2$ uniformly bounded as $R\to\infty$. The core equation and its integral inequality then give $|x_R(\tau/R)|\le|q|e^{C\tau}$ uniformly, and integration of the receiver equation gives $|z_R(\tau/R)|\le C\tau$. The carrier Duhamel formula divided by $R$ has free term $S(\tau/R)(\bar p,0)\to(\bar p,0)$ uniformly on compact $\tau$ intervals by strong continuity. Its forcing term is $O(R^{-2})$ there: the forcing coefficient is bounded by the preceding core/receiver estimates, the interval has length $O(R^{-1})$, and we divide by $R$. Therefore
+\begin{equation}\label{eq:fastports}
+ p_R(\tau/R)/R\longrightarrow\bar p,\qquad
+ K^Ty_R(\tau/R)/R\longrightarrow-W\ez.
+\end{equation}
+The finite-dimensional integral equation and a Lipschitz/Gronwall estimate give uniform core convergence to
+\begin{equation}\label{eq:fastcore}
+\begin{aligned}
+ \frac{\dd\Omega}{\dd\tau}&=i\mu W\ez\times\Omega,\\
+ \Omega_1&=q_1\cosh(\mu W\tau)-i q_2\sinh(\mu W\tau),\\
+ \Omega_2&=q_2\cosh(\mu W\tau)+i q_1\sinh(\mu W\tau),\qquad
+ \Omega_3=q_3.
+\end{aligned}
+\end{equation}
+Choose the finite symbolic $\tau_*$ with $\tanh(\mu W\tau_*)=1/4$. Its limiting phase width is
+\begin{equation}\label{eq:fastspan}
+ \arctan\frac{q_2}{4q_1}+\arctan\frac{q_1}{4q_2}>\pi/12.
+\end{equation}
+To see the strict inequality without sampling, both $q_2/q_1$ and $q_1/q_2$ exceed $9/10$. The left side exceeds $2\arctan(9/40)>\pi/12$, since
+$\tan(\pi/24)=\sin(\pi/12)/(1+\cos(\pi/12))<2/9<9/40$.
+The limiting components are nonzero, so uniform convergence preserves this strict phase excess for sufficiently large finite $R$. Selecting the allowed cadence $h_{\rm ex}=\tau_*/R$ then puts the sampled hybrid output outside $\mathcal D$.
+\end{proof}
+This is an existential analytic preparation/cadence witness, not a numerical fast-time experiment or a claim that every fixed cadence, preparation or empty launch exits. At $\eta_N=0$, native sampling still follows $F$ and retains the old domain property. Neither counterexample modifies the older theorem on its own hypotheses.

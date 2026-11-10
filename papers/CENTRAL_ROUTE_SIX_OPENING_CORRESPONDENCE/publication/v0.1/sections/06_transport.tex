@@ -1,0 +1,47 @@
+\section{Transport, information and direction labels}\label{sec:transport}
+\subsection{Which work is already defined?}\label{sec:Gtransport}
+A literal one-dimensional carrier crossing of a spatial set requires an arclength parameter whose image belongs to that set, before one can ask about transversality or outward orientation. Corollary~\ref{cor:empty} supplies no such parameter for any central $G$ boundary or individual hull. The host $N_1^\pm$ contacts do have the parameters $s_\pm$, with signed outgoing powers $-j(s_+,t)$ and $+j(s_-,t)$ for their intervening interval. Diagnostic-ball cuts have their own power $j(r,t)-j(\ell,t)$. Distributed per-port supply and loading, $\eta_Nf_\sigma y_\sigma$ and $\eta_Rz_\sigma y_\sigma$, are profile-integrated work, not point-cut powers.
+
+These distinctions prevent relabeling any of those quantities as transport through the six central openings. The existing equations specify no six-aperture spatial flux, receiving map or matched loading term. An empty sum of direct intersections would record geometric nonintersection; it would not define a physical aperture flux and calculate it as zero.
+
+The difference between two port inputs and six boundary labels is not a dimension-based impossibility theorem. Two scalars can have six correlated outputs, and the carrier also has spatial and temporal histories. What is absent is a justified spatial and energetic registration, not the abstract possibility of writing a map. No allocation matrix is selected here.
+
+\subsection{What exchange histories retain about phase}\label{sec:phase}
+Let common rephasing act on the native real coordinates by
+\begin{equation}\label{eq:Q}
+ Q_\theta(a,b)=(\cos\theta\,a-\sin\theta\,b,\ \sin\theta\,a+\cos\theta\,b).
+\end{equation}
+Bilinearity and antisymmetry of the cross product give $f(Q_\theta x)=f(x)$. Differentiating this identity and using orthogonality yields
+\begin{equation}\label{eq:equivariance}
+ J_f(Q_\theta x)=J_f(x)Q_\theta^T,\qquad
+ -J_f(Q_\theta x)^Ty=Q_\theta[-J_f(x)^Ty].
+\end{equation}
+Thus the native exchange vector field is equivariant, and the external equations see exactly the same $q$. Uniqueness of the coupled solution gives the following result.
+
+\begin{proposition}[Exchange common-phase information]\label{prop:phase}
+With identical initial $p,\rc,z$ and native initial states related by $Q_\theta$, the exchange trajectories have identical complete histories of $p,\rc,z$, while their native histories remain related by $Q_\theta$. Hence an outlet rule that genuinely distinguishes such states cannot be reconstructed solely from those exchange histories.
+\end{proposition}
+\begin{proof}
+Apply $Q_\theta$ to the native component of one solution and leave its external components fixed. Equations~\eqref{eq:system} and \eqref{eq:equivariance} show that this is a solution with the rephased initial data. Uniqueness identifies it with the second solution. If a function of the common external history represented two different outlet values, it would take two values on the same input, a contradiction.
+\end{proof}
+
+This obstruction is conditional on genuine common-phase sensitivity. It does not require every possible outlet rule to have that sensitivity, and does not say all relative-phase information is lost. For the native map $F$, common-phase equivariance holds when all prestage entries are nonzero, since phase differences are preserved modulo $2\pi$. At a zero prestage, $\operatorname{Arg}_0(0)=0$ does not shift with the other arguments and may alter neighboring kicks; no unrestricted singular-prestage extension is used. Likewise, the earlier reduced-coordinate reconstruction for autonomous $F$ histories \cite{AX} is not automatically a reconstruction rule during coupled exchange or arbitrary hybrid evolution, even if the coordinates remain in its original domain.
+
+\subsection{Ports are not propagation senses}\label{sec:labels}
+The port sign $\sigma=\pm$ names the upper or lower spatial contact/profile. The sign on $w_\pm$ names increasing or decreasing arclength propagation in \eqref{eq:characteristics}. Each source profile occurs in both characteristic equations. The contact tangent identities $\gamma'(s_+)=-n_+$ and $\gamma'(s_-)=n_-$ do not insert new signs in the raw drive \eqref{eq:drive}. Nor does the sign of a source coefficient alone fix the power $j=c(w_+^2-w_-^2)/2$. Identifying upper with outward, lower with inward, or the two ports with the two characteristic senses would therefore add an unsupported direction rule.
+
+\subsection{Conditional off-carrier observation}\label{sec:C6}
+The inherited C6 observation \cite{CC} is defined at a fixed point $X$ off the carrier, with supplied retarded history, a fixed observation frame and independent positive $c_e,g_o$. With $d_X(s)=\norm{X-\gamma_0(s)}$ and $\widehat t(s)=\gamma'_0(s)$, its scalar and vector components are
+\begin{equation}\label{eq:C6}
+ \begin{aligned}
+ U(X,t)&=\frac{g_o}{4\pi}\int_0^{L_c}
+ \frac{p(s,t-d_X(s)/c_e)}{d_X(s)}\dd s,\\
+ V_{\rm ext}(X,t)&=\frac{g_o}{4\pi}\int_0^{L_c}
+ \frac{\rc(s,t-d_X(s)/c_e)\widehat t(s)}{d_X(s)}\dd s.
+ \end{aligned}
+\end{equation}
+The vector can be resolved in the declared orthonormal observation frame. Continuous-in-time $H^1$ histories give the required pointwise representatives; the full retarded history must actually be supplied. For a fixed point on any specified $G$ boundary or individual hull in the width-one static configuration used in \eqref{eq:C6}, Theorem~\ref{thm:separation} guarantees $d_X(s)>297/5000$. For a commonly scaled carrier and central geometry, with the arclength interval scaled accordingly, the corresponding distance is strictly greater than $297\wh/5000$. It therefore supplies the geometric off-carrier condition and a denominator bounded away from zero, but does not supply the history. A moving $X(\tau_g(t))$ is a different problem: the admitted static parameter is not time.
+
+No term in \eqref{eq:C6} loads the carrier or advances the receiver. The encoded tangent field $\rc\widehat t$ is not the scalar cut flux $j$ or a declared ambient energy-current density, and $|U|^2+\norm{V_{\rm ext}}^2$ is not an inherited receiving store. The C6 observation can therefore be evaluated conditionally at an opening without establishing transport or energetic loading there.
+
+The macro observation has a further distinct role. Under its declared axial placement, $A\cos(3(\theta_{\rm obs}-\ell))(\cos\theta_{\rm obs},\sin\theta_{\rm obs},1)$ lies on a double cone. Staged $Z$ adds raw chirality and need not stay on that cone \cite{CG,AX}. Its amplitude, observation clock and placement define a readout, not an energetic emission law. The outer host, refined central surface, intended tight toroid, optional tube, original close sphere and extended-line sphere retain their separate definitions.

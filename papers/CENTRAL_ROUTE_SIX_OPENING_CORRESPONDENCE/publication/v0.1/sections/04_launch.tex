@@ -1,0 +1,92 @@
+\section{Receiving before selected carrier activity}\label{sec:launch}
+\subsection{The support argument for the coupled system}\label{sec:supportargument}
+Define the two characteristics $w_\pm=(p\pm\rc)/\sqrt2$. Then
+\begin{equation}\label{eq:characteristics}
+ (w_\pm)_t\pm c(w_\pm)_s=\frac{Bq}{\sqrt2},\qquad
+ j=\frac c2(w_+^2-w_-^2).
+\end{equation}
+For empty carrier preparation their actual coupled solution satisfies
+\begin{equation}\label{eq:duhamel}
+ w_\pm(s,t)=\frac1{\sqrt2}\int_0^t
+ [Bq(t')](s\mp c(t-t'))\dd t'.
+\end{equation}
+The coefficient $q(t')$ is determined by the full exchange solution, not frozen at launch. Nevertheless, at every forcing time $t'$, the unshifted forcing $Bq(t')$ is supported in the same fixed union $\Sb$. A backward characteristic from a point at circular distance greater than $ct$ cannot meet this support during the integration interval. Therefore
+\begin{equation}\label{eq:gapzero}
+ d_{\rm circ}(s,\Sb)>ct\quad\Longrightarrow\quad
+ w_+(s,t)=w_-(s,t)=p(s,t)=\rc(s,t)=j(s,t)=0.
+\end{equation}
+This is a support-gap statement relative to the entire union. Global port feedback can change the coefficients at both supports, so it is not an arbitrary system-wide locality theorem relative to just one active source point.
+
+At the nearest point, the shortest support distance is $d_0=\eta_g-\epsc>0$. The opposite path around the seam is longer because $2\eta_g<L_c/2$. Thus the nearest-point field vanishes for $0<t<d_0/c$. This point is not exact $O$: the latter is not on the curve at all.
+
+\begin{proposition}[Full cut-distance criterion, including Q01]\label{prop:Q01}
+For either cut of half-arc $0<A<L_c/2$, the circular distance to the support union is
+\begin{equation}\label{eq:cutdistance}
+ d(A,\Sb)=\max\{|A-\eta_g|-\epsc,0\}
+ =\begin{cases}
+ \eta_g-\epsc-A,&0<A<\eta_g-\epsc,\\
+ 0,&\eta_g-\epsc\le A\le\eta_g+\epsc,\\
+ A-\eta_g-\epsc,&\eta_g+\epsc<A<L_c/2.
+ \end{cases}
+\end{equation}
+If this distance is positive, both cut fields and their powers vanish for $0<t<d(A,\Sb)/c$ under empty carrier preparation.
+\end{proposition}
+\begin{proof}
+By symmetry consider the cut at offset $+A$. Its distance to the same-side closed support is the piecewise expression above. Inside the inner gap the route to the other support is longer. Beyond the outer endpoint, the route around the seam to the opposite support exceeds the same-side distance by $L_c-2A>0$; the other direct route is also longer. Thus the periodic metric does not shorten the displayed value. Apply \eqref{eq:gapzero} at both cuts.
+\end{proof}
+
+Strict containment $A>\eta_g+\epsc$ gives the enclosing-cut gap $A-\eta_g-\epsc$. It is a sufficient condition for that enclosing configuration, not a necessary condition for every delayed cut. For example, $\epsc=\eta_g/4$ and $A=\eta_g/2$ give an inner gap $d=\eta_g/4$ although containment fails. This incorporates the accepted Q01 qualification directly into the propagation argument \cite{CR}.
+
+Zero distance does not universally force immediate activity: the port can be inactive or the solution can have special cancellation. There is, however, a useful active-port equality witness. At an outer support endpoint $A=\eta_g+\epsc$, if $q_\sigma(0)\ne0$, the outgoing characteristic has
+\begin{equation}\label{eq:equalitywitness}
+ w_{\rm out}(s_{\rm cut},t)
+ =\frac{c\,q_\sigma(0)}{2\sqrt2\,\epsc^2}t^2+o(t^2).
+\end{equation}
+For sufficiently small time the incoming characteristic there is zero. To obtain \eqref{eq:equalitywitness}, the backward outgoing characteristic penetrates the tent by $c(t-t')$, where its value is $c(t-t')/\epsc^2$; integrate against $q_\sigma(t')=q_\sigma(0)+o(1)$. The outward power consequently has a positive order-$t^4$ leading term. This witness requires the active-port hypothesis and is not a universal assertion about every zero-gap cut.
+
+\subsection{Positive receiving on the same initial interval}\label{sec:positive}
+Assume now $p(0)=\rc(0)=0$, $z(0)=0$ and $f_0=f(x_0)\ne0$, with all positive parameters fixed. Then $q(0)=\eta_Nf_0$. Strong continuity of the carrier translation group in $L^2$, applied to \eqref{eq:duhamel}, yields
+\begin{equation}\label{eq:launchseries}
+ \begin{aligned}
+ p(t)&=\eta_NtBf_0+o_{L^2}(t),&
+ y(t)&=\eta_NtM_Bf_0+o(t),\\
+ x(t)-x_0&=O(t^2),&
+ z(t)&=\frac{\eta_N\eta_R}{2\beta_R}M_Bf_0\,t^2+o(t^2).
+ \end{aligned}
+\end{equation}
+The last two relations follow by integrating \eqref{eq:system}; boundedness of $J_f(x)$ near launch and $y=O(t)$ gives the native estimate. Consequently
+\begin{equation}\label{eq:receivergain}
+ H_R(t)=\frac{\eta_N^2\eta_R^2}{8\beta_R}\norm{M_Bf_0}^2t^4+o(t^4)>0
+ \quad(0<t<\delta),
+\end{equation}
+for some preparation-dependent $\delta>0$, since $M_B=mI_2$ and $m>0$. In the same expansion the native debit is
+\begin{equation}\label{eq:nativedebit}
+ H_N(0)-H_N(t)=\frac{\eta_N^2}{2}f_0^TM_Bf_0\,t^2+o(t^2).
+\end{equation}
+These are the inherited launch estimates \cite{RX}, with their short derivation included to exhibit that the receiver and support comparison concern the same solution.
+
+\begin{theorem}[Receiving precedes the selected spatial activity]\label{thm:early}
+Under the preceding empty-launch and nonzero-drive hypotheses, $H_R(t)>0$ while the nearest carrier point has zero field for every
+\begin{equation}\label{eq:earlyinterval}
+ 0<t<\min\{\delta,(\eta_g-\epsc)/c\}.
+\end{equation}
+For any intermediate diagnostic ball with $d=d(A_{R_B},\Sb)>0$, positive receiving similarly coexists with zero fields and zero powers at both cuts on $0<t<\min\{\delta,d/c\}$. In particular this holds for strict complete-profile containment.
+\end{theorem}
+\begin{proof}
+Intersect the positive interval in \eqref{eq:receivergain} with the zero-field intervals of \eqref{eq:gapzero} and Proposition~\ref{prop:Q01}.
+\end{proof}
+
+The theorem establishes a nonempty initial interval, not exact first-arrival times. It shows that receiver gain alone does not certify arrival at the nearest carrier point or outward passage through the chosen enclosing cuts. It does not rule out every finite central meeting region or later circulation.
+
+\subsection{The first post-F exchange}\label{sec:postF}
+The accepted cadence estimate F07 \cite{F} applies to the fixed native coefficients in \eqref{eq:native}. For $\Omega_\phi=(1,e^{i\phi},1)$ and each fixed $0<\phi\le1/100$, it gives
+\begin{equation}\label{eq:F07}
+ |f(F\Omega_\phi)|^2\ge
+ \frac{6\Gain^2}{7}\left(\frac{97}{100}\right)^2
+ \left(\frac{284971}{300000}\right)^2\sin^2\phi>0.
+\end{equation}
+If carrier and receiver are empty before that native step, they remain empty immediately after it. Theorem~\ref{thm:early} therefore applies to the first exact exchange, with time measured from that post-jump state, on
+\begin{equation}\label{eq:postFinterval}
+ 0<t<\min\{h_{\rm ex},\delta(\phi,\text{fixed parameters}),d/c\},
+\end{equation}
+where $d$ is the nearest-point distance or a positive cut distance. The parameter tuple is fixed before choosing the phase, and the result is phasewise. No uniform positive interval over all phases, later preloaded exchange stages or exact first-arrival claim is inferred.

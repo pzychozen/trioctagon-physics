@@ -1,0 +1,71 @@
+{
+  "task": "NATIVE_CENTRAL_ROUTE_SIX_OPENING_PAPER_01_GPT_REVIEW",
+  "reviewed_utc": "2026-11-10T00:53:09.772451+00:00",
+  "manuscript_disposition": "MINOR_REVISION_REQUIRED",
+  "reviewed_pdf": {
+    "filename": "CENTRAL_ROUTE_SIX_OPENING_CORRESPONDENCE_v0.1.pdf",
+    "bytes": 196911,
+    "pages": 17,
+    "sha256": "5cca7c826776fc935dd3e20fa74088221fe2c18e7862569024b5045c8322866b"
+  },
+  "reviewed_archive_sha256": "61b673652d7cd42b4ad6359bea6cb1ff8b73a9fe185391d17ec2dbdd31580f7e",
+  "accepted_foundation": {
+    "C01-C05": "UNCHANGED",
+    "Q01": "PRESERVED",
+    "S01-S05": "UNCHANGED"
+  },
+  "required_corrections": [
+    {
+      "id": "M01",
+      "path": "candidate/v0.1/sections/03_account.tex",
+      "label": "eq:regionalbalance",
+      "page": 7,
+      "old": "I_{R_B}^{,c}",
+      "new": "I_{R_B}^{c}",
+      "reason": "Remove the literal superscript comma from the complementary-arc notation; keep the complementary work and its sign.",
+      "original_line": 82,
+      "before_sha256": "c3816c48643b2e3c4d26e57c56c039c4bcad023e5cd2492b77dc7efced730c9a",
+      "after_sha256": "c69beed69b7d8534ecd581ab65f9b2cf572855bedfe76149a9b9050b30d15793"
+    },
+    {
+      "id": "M02",
+      "path": "candidate/v0.1/sections/04_launch.tex",
+      "label": "eq:duhamel; paragraph before eq:gapzero",
+      "page": 8,
+      "old": "Nevertheless every integrand is spatially supported in the same fixed union $\\Sb$. Therefore",
+      "new": "Nevertheless, at every forcing time $t'$, the unshifted forcing $Bq(t')$ is supported in the same fixed union $\\Sb$. A backward characteristic from a point at circular distance greater than $ct$ cannot meet this support during the integration interval. Therefore",
+      "reason": "The forcing has fixed support; each Duhamel integrand is translated in the observation coordinate. The existing formula and support-gap theorem stay unchanged.",
+      "original_line": 13,
+      "before_sha256": "a4da41ff72c95384d741933de99f9b8e10dd332a8274e6e5ca5a025e6fca0a78",
+      "after_sha256": "5ee85d22566863915ab645cf5c6991008d2432db659d779d915030861eecc01d"
+    },
+    {
+      "id": "M03",
+      "path": "candidate/v0.1/sections/06_transport.tex",
+      "label": "sec:C6; paragraph after eq:C6",
+      "page": 13,
+      "old": "For a fixed point on any specified $G$ boundary or individual hull in a fixed static configuration, Theorem~\\ref{thm:separation} guarantees $d_X(s)>297\\wh/5000$.",
+      "new": "For a fixed point on any specified $G$ boundary or individual hull in the width-one static configuration used in \\eqref{eq:C6}, Theorem~\\ref{thm:separation} guarantees $d_X(s)>297/5000$. For a commonly scaled carrier and central geometry, with the arclength interval scaled accordingly, the corresponding distance is strictly greater than $297\\wh/5000$.",
+      "reason": "Keep the width-one C6 curve, distance and integration interval consistent; state the width factor only for the simultaneous common scaling already proved.",
+      "original_line": 43,
+      "before_sha256": "bff72672aa6f9b3c1412b5d073e65e2bdcfd25a5d21806f85b83360c208b2962",
+      "after_sha256": "3d14430af1d7120b71c88e9a916122647267e8e9930b79af30577d4d670609e3"
+    }
+  ],
+  "required_correction_count": 3,
+  "fresh_integrity_checks": {
+    "passed": 36,
+    "failed": 0
+  },
+  "all_17_final_pages_independently_rendered_and_inspected": true,
+  "corrected_source_copies_prepared": true,
+  "corrected_pdf_built": false,
+  "final_pdf_accepted": false,
+  "fresh_scientific_suite_run": false,
+  "fresh_tex_build": false,
+  "publication_authorized": false,
+  "next_action": "Codex applies M01-M03, performs document-only rebuild, refreshes all relevant identities/ledger and final-page inspection records, and returns the corrected PDF/review ZIP/checksum/response for final GPT and author review.",
+  "additional_scientific_investigation_needed_for_repairs": false,
+  "new_author_geometry_decision_needed_for_repairs": false,
+  "subreview_note": "Subreviews use local finding IDs; root M01 (complement), M02 (forcing support) and M03 (C6 scaling) are the controlling consolidated IDs."
+}

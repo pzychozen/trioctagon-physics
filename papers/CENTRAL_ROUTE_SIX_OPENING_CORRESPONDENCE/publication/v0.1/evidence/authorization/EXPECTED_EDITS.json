@@ -1,0 +1,85 @@
+{
+  "basis_pdf_sha256": "5cca7c826776fc935dd3e20fa74088221fe2c18e7862569024b5045c8322866b",
+  "required_mathematical_changes": 0,
+  "manuscript_corrections": [
+    "M01",
+    "M02",
+    "M03"
+  ],
+  "publication_metadata_group": "P01",
+  "files": [
+    {
+      "id": "M01",
+      "kind": "required_manuscript_correction",
+      "path": "candidate/v0.1/sections/03_account.tex",
+      "before_sha256": "c3816c48643b2e3c4d26e57c56c039c4bcad023e5cd2492b77dc7efced730c9a",
+      "after_sha256": "c69beed69b7d8534ecd581ab65f9b2cf572855bedfe76149a9b9050b30d15793"
+    },
+    {
+      "id": "M02",
+      "kind": "required_manuscript_correction",
+      "path": "candidate/v0.1/sections/04_launch.tex",
+      "before_sha256": "a4da41ff72c95384d741933de99f9b8e10dd332a8274e6e5ca5a025e6fca0a78",
+      "after_sha256": "5ee85d22566863915ab645cf5c6991008d2432db659d779d915030861eecc01d"
+    },
+    {
+      "id": "M03",
+      "kind": "required_manuscript_correction",
+      "path": "candidate/v0.1/sections/06_transport.tex",
+      "before_sha256": "bff72672aa6f9b3c1412b5d073e65e2bdcfd25a5d21806f85b83360c208b2962",
+      "after_sha256": "3d14430af1d7120b71c88e9a916122647267e8e9930b79af30577d4d670609e3"
+    },
+    {
+      "id": "P01",
+      "kind": "publication_status_only",
+      "path": "candidate/v0.1/main.tex",
+      "before_sha256": "4275ae5826fb39051875b0a518f125db2ac7b5e567b31a92b7f033f9e67790e7",
+      "after_sha256": "f2cdf003636e673d0384cebbfdaf01f15b1d82813f10ac121469b93e4e8990d2",
+      "replacements": [
+        {
+          "old": "Research manuscript v0.1 — accepted mathematics; manuscript review pending",
+          "new": "Research edition v0.1 — accepted mathematics; author-authorized repository publication"
+        },
+        {
+          "old": "{\\small Research manuscript v0.1\\par\nAccepted mathematics; manuscript review pending\\par}",
+          "new": "{\\small Research edition v0.1\\par\nAccepted mathematics; author-authorized repository publication\\par}"
+        },
+        {
+          "old": "This edition is a local manuscript for author and GPT review, not an externally peer-reviewed publication or a formally verified proof.",
+          "new": "This edition is an author-authorized repository research publication. The accompanying review and correction records state the scope of project-internal review; no external peer review or formally verified proof is claimed."
+        }
+      ]
+    },
+    {
+      "id": "P01",
+      "kind": "publication_status_only",
+      "path": "candidate/v0.1/build.py",
+      "before_sha256": "3dd6b0d0d91d149dde1021103598ef9bd281b31eb0526ab7ea7d77fb4cb3ff30",
+      "after_sha256": "91f344945e8cab46f0ddc85f0feada383e4bfa09dfb5d79675c0f9925c69a222",
+      "replacements": [
+        {
+          "old": "Research manuscript v0.1 — accepted mathematics; manuscript review pending",
+          "new": "Research edition v0.1 — accepted mathematics; author-authorized repository publication"
+        }
+      ]
+    },
+    {
+      "id": "P01",
+      "kind": "publication_status_only",
+      "path": "candidate/v0.1/BUILD.md",
+      "before_sha256": "d18ee99c607f3b4ced1ca27f4a5b53d5cda04b390687bf391c949462ab0e0e45",
+      "after_sha256": "1f681588614c6f372d6d548d9b0426dbe194aa9659eaac9dbc493714ac7bcb61",
+      "replacements": [
+        {
+          "old": "Research manuscript v0.1 — accepted mathematics; manuscript review pending",
+          "new": "Research edition v0.1 — accepted mathematics; author-authorized repository publication"
+        },
+        {
+          "old": "# Building the review edition",
+          "new": "# Building the publication edition"
+        }
+      ]
+    }
+  ],
+  "note": "Source replacements prepared; Codex must build and verify the final publication PDF before committing."
+}

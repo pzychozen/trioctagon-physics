@@ -1,0 +1,68 @@
+\section{Fixed model and inherited accounts}\label{sec:model}
+\subsection{Raw registration, finite ports and original stores}
+Write $\alpha=\alpha_N>0$, $\beta=\beta_R>0$, $\eta=\eta_N>0$ and $\kappa=\eta_R>0$ for the original coefficients. All are finite and constant in exchange time. Keep the original positive registration gains, $G=\kappa_{\rm in}\lambda_g$, and fix yaw $\delta_g=\pi/4$. With raw two-port order $+,-$,
+\begin{equation}\label{eq:registration}% RR01
+\begin{gathered}
+ x=(a,b),\quad \Omega=a+ib,\quad f(x)=K(a\times b),\quad J(x)=D_xf(x),\\
+ K=\frac G{\sqrt7}
+ \begin{pmatrix}\sqrt2&\sqrt2&\sqrt3\\
+                 \sqrt2&\sqrt2&-\sqrt3\end{pmatrix},
+ \qquad k=\norm K=G\sqrt{8/7}.
+\end{gathered}
+\end{equation}
+The raw source signs are not changed by ambient contact orientations.
+
+Retain the admitted circle $s\in\R/L_c\mathbb Z$ with $0<L_c<\infty$ and $c>0$. Contacts $s_\pm=L_c/2\mp\eta_{\rm geom}$ have whole-circle shortest separation $2\eta_{\rm geom}\le L_c/2$. For $0<\epsilon_c<\eta_{\rm geom}$,
+\begin{equation}\label{eq:profiles}% RR02
+\begin{gathered}
+ b_\sigma(s)=\epsilon_c^{-1}
+ \left(1-\frac{|\operatorname{wrap}_{L_c}(s-s_\sigma)|}{\epsilon_c}\right)_+,
+ \quad \B q=b_+q_++b_-q_-,\\
+ \B^*p=\left(\int b_+p\dd s,\int b_-p\dd s\right)^T,\qquad
+ m=\frac2{3\epsilon_c},\quad d=\frac2{\epsilon_c^3},\\
+ \B^*\B=mI_2,\qquad \norm\B=\norm{\B^*}=\sqrt m,\qquad
+ \norm{\partial_s\B q}_2=\sqrt d\,|q|.
+\end{gathered}
+\end{equation}
+All integrals cover one whole circle. The separation assumption ensures disjoint supports across the periodic seam as well as locally. Integrating the two affine halves of a continuous tent gives~\eqref{eq:profiles}; disjointness removes derivative cross terms. These profiles belong to periodic $H^1$. Their first weak derivatives lie in $L^2$, with no delta terms; no second $L^2$ derivative is assumed.
+
+The unchanged equations and trial stores are~\cite[Section 1]{p1}
+\begin{equation}\label{eq:system}% RR01
+\boxed{\begin{aligned}
+ \dot x&=-\frac{\eta}{2\alpha}J(x)^Ty,&y&=\B^*p,\\
+ p_t+c(r_c)_s&=\B\{\eta f(x)-\kappa z\},&
+ (r_c)_t+cp_s&=0,\\
+ \dot z&=\frac{\kappa}{\beta}y .
+\end{aligned}}
+\end{equation}
+\begin{equation}\label{eq:stores}% RR03
+\begin{gathered}
+ H_N=\frac{\alpha}{2}(|a|^2+|b|^2),\qquad
+ H_C=\frac12(\norm p_2^2+\norm{r_c}_2^2),\\
+ H_R=\frac{\beta}{2}|z|^2,\qquad E_{\rm out}=H_C+H_R .
+\end{gathered}
+\end{equation}
+All conclusions below use these original stores. The auxiliary norm introduced later is a different proof device.
+
+\subsection{Strong evolution and the exact account}\label{sec:inherited}
+P1 Theorem~3.1 supplies global existence and uniqueness before any new estimate. Empty carrier preparation belongs to $H^1_{\rm per}$, hence
+\begin{equation}\label{eq:regularity}
+ (p,r_c)\in C(\R;H^1_{\rm per})^2\cap C^1(\R;L^2)^2,
+ \qquad a,b,z\in C^1 .
+\end{equation}
+The adjoint port is bounded, so $y=\B^*p$ is continuous. For $w=K^Ty$ and $\mu=\eta/(2\alpha)$, differentiation gives
+\begin{equation}\label{eq:nativesigns}
+ J^Ty=(b\times w,w\times a),\qquad
+ \dot a=\mu w\times b,\qquad \dot b=-\mu w\times a .
+\end{equation}
+The homogeneous identity $J(x)x=2f(x)$ and periodic integration of the carrier product derivative give the original accounts~\cite[Proposition 2.1]{p1}:
+\begin{equation}\label{eq:accounts}% RR07
+\begin{gathered}
+ P_{NC}=\eta f(x)^Ty,\qquad P_{CR}=\kappa z^Ty,\\
+ \dot H_N=-P_{NC},\qquad \dot H_C=P_{NC}-P_{CR},\qquad
+ \dot H_R=P_{CR},\\
+ H_N(t)+H_C(t)+H_R(t)=H_N(0),\qquad
+ E_{\rm out}(t)=H_N(0)-H_N(t).
+\end{gathered}
+\end{equation}
+The last line uses empty external preparation, as imposed below. All powers are continuous. This argument uses the periodic $H^1$ product rule, not pointwise second derivatives.

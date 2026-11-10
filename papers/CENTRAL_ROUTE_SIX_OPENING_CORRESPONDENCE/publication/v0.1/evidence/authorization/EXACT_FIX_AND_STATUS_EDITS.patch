@@ -1,0 +1,89 @@
+--- a/candidate/v0.1/sections/03_account.tex
++++ b/candidate/v0.1/sections/03_account.tex
+@@ -79,7 +79,7 @@
+  &[H_N+H_R+E_B]_{t_a}^{t_b}\\
+  &\quad=\mathcal B_N(t_a,t_b)
+  -\int_{t_a}^{t_b}P_\partial(t)\dd t
+- -\int_{t_a}^{t_b}\int_{I_{R_B}^{,c}}p(s,t)Bq(s,t)\dd s\dd t,\\
++ -\int_{t_a}^{t_b}\int_{I_{R_B}^{c}}p(s,t)Bq(s,t)\dd s\dd t,\\
+  &\mathcal B_N(t_a,t_b)=\sum_{t_a<t_n\le t_b}b_n.
+  \end{aligned}
+ \end{equation}
+--- a/candidate/v0.1/sections/04_launch.tex
++++ b/candidate/v0.1/sections/04_launch.tex
+@@ -10,7 +10,7 @@
+  w_\pm(s,t)=\frac1{\sqrt2}\int_0^t
+  [Bq(t')](s\mp c(t-t'))\dd t'.
+ \end{equation}
+-The coefficient $q(t')$ is determined by the full exchange solution, not frozen at launch. Nevertheless every integrand is spatially supported in the same fixed union $\Sb$. Therefore
++The coefficient $q(t')$ is determined by the full exchange solution, not frozen at launch. Nevertheless, at every forcing time $t'$, the unshifted forcing $Bq(t')$ is supported in the same fixed union $\Sb$. A backward characteristic from a point at circular distance greater than $ct$ cannot meet this support during the integration interval. Therefore
+ \begin{equation}\label{eq:gapzero}
+  d_{\rm circ}(s,\Sb)>ct\quad\Longrightarrow\quad
+  w_+(s,t)=w_-(s,t)=p(s,t)=\rc(s,t)=j(s,t)=0.
+--- a/candidate/v0.1/sections/06_transport.tex
++++ b/candidate/v0.1/sections/06_transport.tex
+@@ -40,7 +40,7 @@
+  \frac{\rc(s,t-d_X(s)/c_e)\widehat t(s)}{d_X(s)}\dd s.
+  \end{aligned}
+ \end{equation}
+-The vector can be resolved in the declared orthonormal observation frame. Continuous-in-time $H^1$ histories give the required pointwise representatives; the full retarded history must actually be supplied. For a fixed point on any specified $G$ boundary or individual hull in a fixed static configuration, Theorem~\ref{thm:separation} guarantees $d_X(s)>297\wh/5000$. It therefore supplies the geometric off-carrier condition and a denominator bounded away from zero, but does not supply the history. A moving $X(\tau_g(t))$ is a different problem: the admitted static parameter is not time.
++The vector can be resolved in the declared orthonormal observation frame. Continuous-in-time $H^1$ histories give the required pointwise representatives; the full retarded history must actually be supplied. For a fixed point on any specified $G$ boundary or individual hull in the width-one static configuration used in \eqref{eq:C6}, Theorem~\ref{thm:separation} guarantees $d_X(s)>297/5000$. For a commonly scaled carrier and central geometry, with the arclength interval scaled accordingly, the corresponding distance is strictly greater than $297\wh/5000$. It therefore supplies the geometric off-carrier condition and a denominator bounded away from zero, but does not supply the history. A moving $X(\tau_g(t))$ is a different problem: the admitted static parameter is not time.
+ 
+ No term in \eqref{eq:C6} loads the carrier or advances the receiver. The encoded tangent field $\rc\widehat t$ is not the scalar cut flux $j$ or a declared ambient energy-current density, and $|U|^2+\norm{V_{\rm ext}}^2$ is not an inherited receiving store. The C6 observation can therefore be evaluated conditionally at an opening without establishing transport or energetic loading there.
+ 
+--- a/candidate/v0.1/main.tex
++++ b/candidate/v0.1/main.tex
+@@ -7,7 +7,7 @@
+ \usepackage{microtype,enumitem,fancyhdr,needspace}
+ \usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+ \usepackage{bookmark}
+-\hypersetup{pdftitle={Central-Route Accounting and Six-Opening Geometry in the Reciprocal Chiral Exchange Candidate},pdfauthor={Hilmir Frímann Halldórsson (pzychozen)},pdfsubject={Research manuscript v0.1 — accepted mathematics; manuscript review pending},pdfkeywords={reciprocal exchange, central-route accounting, six-opening geometry, 10 November 2026}}
++\hypersetup{pdftitle={Central-Route Accounting and Six-Opening Geometry in the Reciprocal Chiral Exchange Candidate},pdfauthor={Hilmir Frímann Halldórsson (pzychozen)},pdfsubject={Research edition v0.1 — accepted mathematics; author-authorized repository publication},pdfkeywords={reciprocal exchange, central-route accounting, six-opening geometry, 10 November 2026}}
+ \setlength{\parindent}{0pt}
+ \setlength{\parskip}{4pt}
+ \setlength{\emergencystretch}{3em}
+@@ -46,8 +46,8 @@
+ \vspace{4mm}
+ {10 November 2026\par}
+ \vspace{5mm}
+-{\small Research manuscript v0.1\par
+-Accepted mathematics; manuscript review pending\par}
++{\small Research edition v0.1\par
++Accepted mathematics; author-authorized repository publication\par}
+ \vspace{10mm}
+ \begin{minipage}{0.94\textwidth}
+ \textbf{Abstract.}
+@@ -55,7 +55,7 @@
+ \end{minipage}
+ \vfill
+ \begin{minipage}{0.94\textwidth}\small
+-\textbf{Preparation and status.} Hilmir Frímann Halldórsson provides authorship and geometric direction. GPT contributed formulation and project-internal mathematical review; Codex performed the independent investigations and manuscript preparation. The accepted central-route results include qualification Q01, and the six-opening results are accepted as stated. This edition is a local manuscript for author and GPT review, not an externally peer-reviewed publication or a formally verified proof.
++\textbf{Preparation and status.} Hilmir Frímann Halldórsson provides authorship and geometric direction. GPT contributed formulation and project-internal mathematical review; Codex performed the independent investigations and manuscript preparation. The accepted central-route results include qualification Q01, and the six-opening results are accepted as stated. This edition is an author-authorized repository research publication. The accompanying review and correction records state the scope of project-internal review; no external peer review or formally verified proof is claimed.
+ \end{minipage}
+ \end{titlepage}
+ \hypersetup{pageanchor=true}\setcounter{page}{2}
+--- a/candidate/v0.1/build.py
++++ b/candidate/v0.1/build.py
+@@ -37,7 +37,7 @@
+ shutil.copyfile(build/'main.pdf',pdf)
+ record={'title':'Central-Route Accounting and Six-Opening Geometry in the Reciprocal Chiral Exchange Candidate',
+  'author':'Hilmir Frímann Halldórsson (pzychozen)', 'edition':'v0.1',
+- 'status':'Research manuscript v0.1 — accepted mathematics; manuscript review pending',
++ 'status':'Research edition v0.1 — accepted mathematics; author-authorized repository publication',
+  'preparation_date':'2026-11-10','timezone':'Atlantic/Reykjavik',
+  'started_utc':started,'built_utc':datetime.now(timezone.utc).isoformat(),
+  'compiler_version':version,'command':cmd,'python':sys.executable,'python_version':sys.version,
+--- a/candidate/v0.1/BUILD.md
++++ b/candidate/v0.1/BUILD.md
+@@ -1,9 +1,9 @@
+-# Building the review edition
++# Building the publication edition
+ 
+ Title: Central-Route Accounting and Six-Opening Geometry in the Reciprocal Chiral Exchange Candidate  
+ Author: Hilmir Frímann Halldórsson (pzychozen)  
+ Edition: v0.1, prepared 10 November 2026, Atlantic/Reykjavik  
+-Status: Research manuscript v0.1 — accepted mathematics; manuscript review pending
++Status: Research edition v0.1 — accepted mathematics; author-authorized repository publication
+ 
+ All content needed to build the PDF is in this edition directory. The bibliography is editable in `references.tex`; the two vector figures and their Python source are under `figures/`. No content is read from Downloads, the inputs archive, or other research workspaces during compilation.
+ 
