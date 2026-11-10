@@ -1,0 +1,1033 @@
+{
+  "task": "NATIVE_CAUSAL_TRANSPORT_STORAGE_01",
+  "reviewer": "Codex",
+  "date": "2026-11-10",
+  "disposition": "T01_T07_VERIFIED_AS_STATED_WITH_D01_WORK_ORDER_CLARIFICATION",
+  "gpt_author_acceptance": "Not claimed; returned for subsequent review.",
+  "claims": [
+    {
+      "id": "T01",
+      "title": "Bounded spatial factorization and Gram operator",
+      "status": "verified-as-stated",
+      "submitted_assumptions": [
+        "Fixed admitted static geometry and common width",
+        "Positive bounded delay and accepted G clearance",
+        "Arclength product metric and ambient tangent encoding"
+      ],
+      "submitted_proof_location": "Sections 2–3, N1–N6",
+      "independent_challenge_targets": [
+        "J normalization and J*J",
+        "C/C* formula and C6 factorization",
+        "Pointwise scalar/vector Gram blocks and possible vector kernel",
+        "No unjustified contraction assumption"
+      ],
+      "proof_location": {
+        "path": "NATIVE_CAUSAL_TRANSPORT_STORAGE_01_PROOF_REVIEW.md",
+        "section": "R1",
+        "start_line": 47,
+        "end_line": 96,
+        "sha256": "1d88714a424c6e559a8087ac22de2ee80e492aac7a8ed9227712a5885a80cd6a"
+      },
+      "source_locations": [
+        {
+          "id": "NEW/N1",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N1",
+          "line": 32,
+          "line_text": "\\tag{N1}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N2",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N2",
+          "line": 65,
+          "line_text": "\\tag{N2}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N3",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N3",
+          "line": 74,
+          "line_text": "\\tag{N3}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N4",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N4",
+          "line": 82,
+          "line_text": "\\tag{N4}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N5",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N5",
+          "line": 91,
+          "line_text": "\\tag{N5}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N6",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N6",
+          "line": 101,
+          "line_text": "\\tag{N6}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "W/R1",
+          "source_key": "W",
+          "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "locator": "R1",
+          "line": 41,
+          "line_text": "## R1. W01: actual arcs, ball bound, arclength and history horizon",
+          "bytes": 31884,
+          "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18"
+        },
+        {
+          "id": "W/R2",
+          "source_key": "W",
+          "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "locator": "R2",
+          "line": 138,
+          "line_text": "## R2. W02: bounded history operator, causality and point records",
+          "bytes": 31884,
+          "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18"
+        },
+        {
+          "id": "CC-C/eq:C6",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:C6",
+          "line": 69,
+          "line_text": " &Y_X&=(U,B^TV_{\\rm ext}).\\label{eq:C6}",
+          "bytes": 6338,
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59"
+        },
+        {
+          "id": "CC-G/eq:vertices",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:vertices",
+          "line": 18,
+          "line_text": " U_k&=(r_gn_k^{\\rm geom},H_0),&L_k&=(r_gA_\\tau n_k^{\\rm geom},-H_0).\\label{eq:vertices}",
+          "bytes": 8272,
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d"
+        },
+        {
+          "id": "CC-G/eq:G",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:G",
+          "line": 21,
+          "line_text": "\\begin{equation}\\label{eq:G}",
+          "bytes": 8272,
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d"
+        },
+        {
+          "id": "CC-G/eq:circleconstants",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:circleconstants",
+          "line": 60,
+          "line_text": "\\begin{equation}\\label{eq:circleconstants}",
+          "bytes": 8272,
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d"
+        },
+        {
+          "id": "CC-G/eq:circle",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:circle",
+          "line": 67,
+          "line_text": " &\\hat t&=-\\sin\\chi\\,u+\\cos\\chi\\,e_z,\\quad\\chi=s/R_c,\\label{eq:circle}\\\\",
+          "bytes": 8272,
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d"
+        }
+      ],
+      "findings": [
+        "Exact J/C factorization and pointwise block Gram matrix.",
+        "Strictly positive scalar block and explicit normal-vector kernel."
+      ],
+      "computation": {
+        "groups": [
+          "E01"
+        ],
+        "code": "checks/exact_checks.py",
+        "record": "logs/EXACT_CHECKS.json",
+        "scope": "Algebraic corroboration only; written proofs establish infinite-dimensional and quantified claims."
+      },
+      "mathematical_correction": null,
+      "documentary_corrections": [],
+      "limits": [
+        "Fixed positive bounded geometry and mathematical product measures.",
+        "C need not be contractive; CC* need not be invertible.",
+        "Spatial C* is not W temporal K_G*."
+      ]
+    },
+    {
+      "id": "T02",
+      "title": "Causal transport state, time traces and positive storage",
+      "status": "verified-as-stated",
+      "submitted_assumptions": [
+        "Two proposed signals on 0<xi<theta(s,X)",
+        "Finite-energy initial profiles",
+        "Locally L2 incoming boundary histories"
+      ],
+      "submitted_proof_location": "Section 4, N7–N11",
+      "independent_challenge_targets": [
+        "Both characteristic orientations",
+        "Initial-profile terms",
+        "Representative-independent L2 time traces",
+        "Integrated energy identity and energy-space continuity"
+      ],
+      "proof_location": {
+        "path": "NATIVE_CAUSAL_TRANSPORT_STORAGE_01_PROOF_REVIEW.md",
+        "section": "R2",
+        "start_line": 97,
+        "end_line": 173,
+        "sha256": "1d88714a424c6e559a8087ac22de2ee80e492aac7a8ed9227712a5885a80cd6a"
+      },
+      "source_locations": [
+        {
+          "id": "NEW/N7",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N7",
+          "line": 126,
+          "line_text": "\\tag{N7}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N8",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N8",
+          "line": 151,
+          "line_text": "\\tag{N8}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N9",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N9",
+          "line": 161,
+          "line_text": "\\tag{N9}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N10",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N10",
+          "line": 171,
+          "line_text": "\\tag{N10}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N11",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N11",
+          "line": 185,
+          "line_text": "\\tag{N11}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N1",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N1",
+          "line": 32,
+          "line_text": "\\tag{N1}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "W/R1",
+          "source_key": "W",
+          "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "locator": "R1",
+          "line": 41,
+          "line_text": "## R1. W01: actual arcs, ball bound, arclength and history horizon",
+          "bytes": 31884,
+          "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18"
+        }
+      ],
+      "findings": [
+        "Both orientation formulas retain arbitrary startup data.",
+        "Translation/Fubini give representative-independent L2 time traces.",
+        "Strong energy-state continuity and exact integrated boundary balance."
+      ],
+      "computation": {
+        "groups": [
+          "E03"
+        ],
+        "code": "checks/exact_checks.py",
+        "record": "logs/EXACT_CHECKS.json",
+        "scope": "Algebraic corroboration only; written proofs establish infinite-dimensional and quantified claims."
+      },
+      "mathematical_correction": null,
+      "documentary_corrections": [],
+      "limits": [
+        "Time-integrated a.e. traces only for general L2 data.",
+        "No corner compatibility, ambient route or delay derivative assumed."
+      ]
+    },
+    {
+      "id": "T03",
+      "title": "Closed coupled equations and augmented conservation",
+      "status": "verified-as-stated",
+      "submitted_assumptions": [
+        "Retained RX x/z/source/profile equations",
+        "Declared added carrier force",
+        "New kappa>=0 and beta_G>0",
+        "New G-indexed receiving metric and transport stock"
+      ],
+      "submitted_proof_location": "Section 5, N12–N14",
+      "independent_challenge_targets": [
+        "All signs and sqrt(2) factors",
+        "Near and far effort/flow work",
+        "No double counting old H_R",
+        "Bookkeeping units",
+        "Nonmonotone receiving and absence of an unrecorded sink"
+      ],
+      "proof_location": {
+        "path": "NATIVE_CAUSAL_TRANSPORT_STORAGE_01_PROOF_REVIEW.md",
+        "section": "R3",
+        "start_line": 174,
+        "end_line": 245,
+        "sha256": "1d88714a424c6e559a8087ac22de2ee80e492aac7a8ed9227712a5885a80cd6a"
+      },
+      "source_locations": [
+        {
+          "id": "NEW/N12",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N12",
+          "line": 215,
+          "line_text": "\\tag{N12}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N13",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N13",
+          "line": 227,
+          "line_text": "\\tag{N13}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N14",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N14",
+          "line": 234,
+          "line_text": "\\tag{N14}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "RX-C/eq:drive",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:drive",
+          "line": 28,
+          "line_text": "\\begin{equation}\\label{eq:drive}",
+          "bytes": 6858,
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5"
+        },
+        {
+          "id": "RX-C/eq:tents",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:tents",
+          "line": 37,
+          "line_text": "\\begin{equation}\\label{eq:tents}",
+          "bytes": 6858,
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5"
+        },
+        {
+          "id": "RX-C/eq:ports",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:ports",
+          "line": 43,
+          "line_text": "\\begin{equation}\\label{eq:ports}",
+          "bytes": 6858,
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5"
+        },
+        {
+          "id": "RX-C/eq:storages",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:storages",
+          "line": 48,
+          "line_text": "\\begin{equation}\\label{eq:storages}",
+          "bytes": 6858,
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5"
+        },
+        {
+          "id": "RX-C/eq:system",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:system",
+          "line": 57,
+          "line_text": "\\begin{equation}\\label{eq:system}",
+          "bytes": 6858,
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5"
+        },
+        {
+          "id": "RX-P/eq:jacobian",
+          "source_key": "RX-P",
+          "path": "inputs/sources/RX/power.tex",
+          "locator": "eq:jacobian",
+          "line": 4,
+          "line_text": "\\begin{equation}\\label{eq:jacobian}",
+          "bytes": 3133,
+          "sha256": "2d302fb32d0a5e825ae4929e7cc1e7aceb4772937cc5457bed951e717a2cfc89"
+        },
+        {
+          "id": "RX-P/eq:localwork",
+          "source_key": "RX-P",
+          "path": "inputs/sources/RX/power.tex",
+          "locator": "eq:localwork",
+          "line": 24,
+          "line_text": "\\begin{equation}\\label{eq:localwork}",
+          "bytes": 3133,
+          "sha256": "2d302fb32d0a5e825ae4929e7cc1e7aceb4772937cc5457bed951e717a2cfc89"
+        },
+        {
+          "id": "RX-P/eq:balances",
+          "source_key": "RX-P",
+          "path": "inputs/sources/RX/power.tex",
+          "locator": "eq:balances",
+          "line": 28,
+          "line_text": "\\begin{equation}\\label{eq:balances}",
+          "bytes": 3133,
+          "sha256": "2d302fb32d0a5e825ae4929e7cc1e7aceb4772937cc5457bed951e717a2cfc89"
+        }
+      ],
+      "findings": [
+        "All sqrt(2) factors and signs reproduce N12.",
+        "Original RX cancellation plus new boundary work gives augmented conservation.",
+        "Consistent abstract units for new metrics and force."
+      ],
+      "computation": {
+        "groups": [
+          "E02",
+          "E04"
+        ],
+        "code": "checks/exact_checks.py",
+        "record": "logs/EXACT_CHECKS.json",
+        "scope": "Algebraic corroboration only; written proofs establish infinite-dimensional and quantified claims."
+      },
+      "mathematical_correction": null,
+      "documentary_corrections": [],
+      "limits": [
+        "Declared new stocks and coefficients, not inherited physical calibration.",
+        "Old z and new zeta counted separately; receiving need not be monotone."
+      ]
+    },
+    {
+      "id": "T04",
+      "title": "Global forward mild energy-space solution",
+      "status": "verified-as-stated",
+      "submitted_assumptions": [
+        "Fixed positive theta_-",
+        "Finite energy in the stated product Hilbert space",
+        "Retained locally Lipschitz RX nonlinearity and bounded spatial maps"
+      ],
+      "submitted_proof_location": "Section 6, N15",
+      "independent_challenge_targets": [
+        "Incoming traces known on each slab",
+        "Local mild construction with L2 forcing",
+        "Interaction-picture work without unsupported H1 regularity",
+        "Noncircular continuation and global energy identity",
+        "Boundary time-trace and state regularity",
+        "Finite-horizon dependence only"
+      ],
+      "proof_location": {
+        "path": "NATIVE_CAUSAL_TRANSPORT_STORAGE_01_PROOF_REVIEW.md",
+        "section": "R4",
+        "start_line": 246,
+        "end_line": 312,
+        "sha256": "1d88714a424c6e559a8087ac22de2ee80e492aac7a8ed9227712a5885a80cd6a"
+      },
+      "source_locations": [
+        {
+          "id": "NEW/N1",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N1",
+          "line": 32,
+          "line_text": "\\tag{N1}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N12",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N12",
+          "line": 215,
+          "line_text": "\\tag{N12}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N15",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N15",
+          "line": 266,
+          "line_text": "\\tag{N15}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "RX-W/eq:profilenorms",
+          "source_key": "RX-W",
+          "path": "inputs/sources/RX/wellposed.tex",
+          "locator": "eq:profilenorms",
+          "line": 19,
+          "line_text": "\\begin{equation}\\label{eq:profilenorms}",
+          "bytes": 7306,
+          "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895"
+        },
+        {
+          "id": "RX-W/eq:lipschitzbounds",
+          "source_key": "RX-W",
+          "path": "inputs/sources/RX/wellposed.tex",
+          "locator": "eq:lipschitzbounds",
+          "line": 35,
+          "line_text": "\\begin{equation}\\label{eq:lipschitzbounds}",
+          "bytes": 7306,
+          "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895"
+        },
+        {
+          "id": "RX-W/eq:energynorm",
+          "source_key": "RX-W",
+          "path": "inputs/sources/RX/wellposed.tex",
+          "locator": "eq:energynorm",
+          "line": 28,
+          "line_text": "\\begin{equation}\\label{eq:energynorm}",
+          "bytes": 7306,
+          "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895"
+        },
+        {
+          "id": "RX-W/eq:duhamel",
+          "source_key": "RX-W",
+          "path": "inputs/sources/RX/wellposed.tex",
+          "locator": "eq:duhamel",
+          "line": 40,
+          "line_text": "\\begin{equation}\\label{eq:duhamel}",
+          "bytes": 7306,
+          "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895"
+        },
+        {
+          "id": "RX-W/eq:dependence",
+          "source_key": "RX-W",
+          "path": "inputs/sources/RX/wellposed.tex",
+          "locator": "eq:dependence",
+          "line": 46,
+          "line_text": "\\begin{equation}\\label{eq:dependence}",
+          "bytes": 7306,
+          "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895"
+        },
+        {
+          "id": "RX-W/eq:H1estimate",
+          "source_key": "RX-W",
+          "path": "inputs/sources/RX/wellposed.tex",
+          "locator": "eq:H1estimate",
+          "line": 56,
+          "line_text": "\\begin{equation}\\label{eq:H1estimate}",
+          "bytes": 7306,
+          "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895"
+        }
+      ],
+      "findings": [
+        "Method of steps makes incoming signals known on each slab.",
+        "Forced local contraction precedes an interaction-picture work estimate.",
+        "Slab bound prevents blowup noncircularly; induction and component balances prove global existence/conservation.",
+        "Unique product-continuous state and finite-horizon continuous dependence."
+      ],
+      "computation": {
+        "groups": [],
+        "code": null,
+        "record": null,
+        "scope": "Algebraic corroboration only; written proofs establish infinite-dimensional and quantified claims."
+      },
+      "mathematical_correction": null,
+      "documentary_corrections": [],
+      "limits": [
+        "Fixed positive minimum delay and fixed finite allowed parameters.",
+        "Forward mild energy-space result, not global H1 or backward flow.",
+        "Finite-horizon dependence on bounded energy sets, no zero-delay uniformity.",
+        "Conservation follows component identities; it is not assumed to obtain local existence."
+      ]
+    },
+    {
+      "id": "T05",
+      "title": "Exact C6 direct term with startup and return",
+      "status": "verified-as-stated",
+      "submitted_assumptions": [
+        "Arbitrary line initial data for N16",
+        "Explicit compatible complete histories for N17",
+        "Original C6 kept distinct from loaded receiving field"
+      ],
+      "submitted_proof_location": "Section 7, N16–N17",
+      "independent_challenge_targets": [
+        "Positive initial forward-profile term",
+        "Return contribution and load term",
+        "No future signal or temporal K* forcing",
+        "Zero extension is a decomposition not an inferred physical past",
+        "Nonnegative line energy not identified with signed W_pre"
+      ],
+      "proof_location": {
+        "path": "NATIVE_CAUSAL_TRANSPORT_STORAGE_01_PROOF_REVIEW.md",
+        "section": "R5",
+        "start_line": 313,
+        "end_line": 348,
+        "sha256": "1d88714a424c6e559a8087ac22de2ee80e492aac7a8ed9227712a5885a80cd6a"
+      },
+      "source_locations": [
+        {
+          "id": "NEW/N16",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N16",
+          "line": 297,
+          "line_text": "\\tag{N16}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N17",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N17",
+          "line": 309,
+          "line_text": "\\tag{N17}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "CC-C/eq:C6",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:C6",
+          "line": 69,
+          "line_text": " &Y_X&=(U,B^TV_{\\rm ext}).\\label{eq:C6}",
+          "bytes": 6338,
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59"
+        },
+        {
+          "id": "W/R2",
+          "source_key": "W",
+          "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "locator": "R2",
+          "line": 138,
+          "line_text": "## R2. W02: bounded history operator, causality and point records",
+          "bytes": 31884,
+          "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18"
+        },
+        {
+          "id": "W/R3",
+          "source_key": "W",
+          "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "locator": "R3",
+          "line": 204,
+          "line_text": "## R3. W03: finite-window adjoint and its advanced part",
+          "bytes": 31884,
+          "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18"
+        },
+        {
+          "id": "W/R5",
+          "source_key": "W",
+          "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "locator": "R5",
+          "line": 277,
+          "line_text": "## R5. W05: conditional added work, native jumps and prehistory residual",
+          "bytes": 31884,
+          "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18"
+        }
+      ],
+      "findings": [
+        "Exact arbitrary-profile and compatible-history identities N16/N17.",
+        "Return, load and positive startup terms retained; all terms causal."
+      ],
+      "computation": {
+        "groups": [
+          "E01"
+        ],
+        "code": "checks/exact_checks.py",
+        "record": "logs/EXACT_CHECKS.json",
+        "scope": "Algebraic corroboration only; written proofs establish infinite-dimensional and quantified claims."
+      },
+      "mathematical_correction": null,
+      "documentary_corrections": [],
+      "limits": [
+        "Arbitrary profiles retain the positive startup term.",
+        "Complete-history identity requires near-law and profile compatibility on negative times.",
+        "Direct C6 term is not the complete loaded drive.",
+        "Line preparation energy is not W signed prehistory work."
+      ]
+    },
+    {
+      "id": "T06",
+      "title": "Finite native hybrid and exact zero-coupling limit",
+      "status": "verified-as-stated",
+      "submitted_assumptions": [
+        "Original native map/tuple/zero convention",
+        "Only x jumps",
+        "Post-jump endpoints",
+        "Fixed positive symbolic dwell and finite step count"
+      ],
+      "submitted_proof_location": "Section 8, N18",
+      "independent_challenge_targets": [
+        "Baseline jump count and no impulses",
+        "Every finite iterate, not uniform infinite energy",
+        "Original RX recovered at kappa=0 for arbitrary added preparation",
+        "Prepared isolated added system may still evolve",
+        "Old trajectory-dependent results do not transfer automatically"
+      ],
+      "proof_location": {
+        "path": "NATIVE_CAUSAL_TRANSPORT_STORAGE_01_PROOF_REVIEW.md",
+        "section": "R6",
+        "start_line": 349,
+        "end_line": 389,
+        "sha256": "1d88714a424c6e559a8087ac22de2ee80e492aac7a8ed9227712a5885a80cd6a"
+      },
+      "source_locations": [
+        {
+          "id": "NEW/N18",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N18",
+          "line": 326,
+          "line_text": "\\tag{N18}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "ORDER/D01",
+          "source_key": "ORDER",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_CODEX_WORK_ORDER.md",
+          "locator": "D01",
+          "line": 82,
+          "line_text": "At kappa=0 the original RX system must be recovered even for nonempty added-state preparation; the separated transport/receiving subsystem can still evolve from its own energy. Zero new activity also requires empty new states. At kappa>0, the carrier force changes the trajectory, so old RX capacity, credit, convergence and receiving theorems require a new hypothesis check before reuse.",
+          "bytes": 12237,
+          "sha256": "e9df1f28f9f7e914368db6f7cf21caae4bd4cac1a18ce690b86b026b7de1096d"
+        },
+        {
+          "id": "CAD/limits",
+          "source_key": "CAD",
+          "path": "inputs/accepted/cadence/CORRECTIONS_AND_LIMITS.md",
+          "locator": "limits",
+          "line": 27,
+          "line_text": "## Remaining gaps",
+          "bytes": 3472,
+          "sha256": "5689a7ebf5daa8d863f8ab16dc7844a4481849f3fa010e5cb696d4cec1e1a0ad"
+        },
+        {
+          "id": "RX-H/eq:tuple",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:tuple",
+          "line": 3,
+          "line_text": "\\begin{equation}\\label{eq:tuple}",
+          "bytes": 7084,
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e"
+        },
+        {
+          "id": "RX-H/eq:prestage",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:prestage",
+          "line": 10,
+          "line_text": " &\\widetilde\\Omega&=\\Omega+d_{\\rm pre},\\label{eq:prestage}\\\\",
+          "bytes": 7084,
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e"
+        },
+        {
+          "id": "RX-H/eq:nativemap",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:nativemap",
+          "line": 12,
+          "line_text": " &F_i(\\Omega)&=e^{i\\delta_i}\\widetilde\\Omega_i.\\label{eq:nativemap}",
+          "bytes": 7084,
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e"
+        },
+        {
+          "id": "RX-H/eq:hybrid",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:hybrid",
+          "line": 32,
+          "line_text": "\\begin{equation}\\label{eq:hybrid}",
+          "bytes": 7084,
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e"
+        },
+        {
+          "id": "RX-H/eq:hybridbalance",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:hybridbalance",
+          "line": 36,
+          "line_text": "\\begin{equation}\\label{eq:hybridbalance}",
+          "bytes": 7084,
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e"
+        },
+        {
+          "id": "RX-A/eq:baselinewindow",
+          "source_key": "RX-A",
+          "path": "inputs/sources/RX/accounts.tex",
+          "locator": "eq:baselinewindow",
+          "line": 19,
+          "line_text": "\\begin{equation}\\label{eq:baselinewindow}",
+          "bytes": 4490,
+          "sha256": "b681f113ce3e484b35674212ceec4ab42ccb1ac13d8d5b306bf2e92f7c2e60ad"
+        }
+      ],
+      "findings": [
+        "Only x jumps; original tuple, convention and order retained.",
+        "Exact baseline identity and every-finite-iterate existence.",
+        "Correct decoupling for nonempty added states; explicit D01 stationary-nullspace counterexample."
+      ],
+      "computation": {
+        "groups": [
+          "E01"
+        ],
+        "code": "checks/exact_checks.py",
+        "record": "logs/EXACT_CHECKS.json",
+        "scope": "Algebraic corroboration only; written proofs establish infinite-dimensional and quantified claims."
+      },
+      "mathematical_correction": null,
+      "documentary_corrections": [
+        "D01"
+      ],
+      "limits": [
+        "Finite iterates and correct post-jump baseline count only.",
+        "No uniform infinite-step bound or singular-prestage continuity.",
+        "Zero coupling recovers RX for arbitrary added preparation.",
+        "D01: emptiness sufficient, not necessary, for inactivity.",
+        "Old trajectory-dependent theorems require new hypothesis checks at positive coupling."
+      ]
+    },
+    {
+      "id": "T07",
+      "title": "Latency and nontrivial carrier-funded receiving/return",
+      "status": "verified-as-stated",
+      "submitted_assumptions": [
+        "Empty transport and zeta for latency",
+        "kappa>0, Q0=(P,0) constant P>0 and x0=z0=0 for activity witness",
+        "Mild line preparation with a boundary corner",
+        "A sufficiently small interval supplied by initial carrier H1 continuity"
+      ],
+      "submitted_proof_location": "Section 9, N19–N24",
+      "independent_challenge_targets": [
+        "Zero receiving through theta_- and zero return before 2theta_-",
+        "Positive-measure delay sublevel sets even at endpoint minima",
+        "Scalar integrating factor and strict receiving",
+        "Uniform effort estimate and explicit epsilon return bound",
+        "b nonzero does not imply projected return or net native credit",
+        "No all-six allocation, capacity amount or physical-route theorem"
+      ],
+      "proof_location": {
+        "path": "NATIVE_CAUSAL_TRANSPORT_STORAGE_01_PROOF_REVIEW.md",
+        "section": "R7",
+        "start_line": 390,
+        "end_line": 490,
+        "sha256": "1d88714a424c6e559a8087ac22de2ee80e492aac7a8ed9227712a5885a80cd6a"
+      },
+      "source_locations": [
+        {
+          "id": "NEW/N19",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N19",
+          "line": 344,
+          "line_text": "\\tag{N19}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N20",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N20",
+          "line": 356,
+          "line_text": "\\tag{N20}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N21",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N21",
+          "line": 366,
+          "line_text": "\\tag{N21}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N22",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N22",
+          "line": 377,
+          "line_text": "\\tag{N22}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N23",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N23",
+          "line": 384,
+          "line_text": "\\tag{N23}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N24",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N24",
+          "line": 411,
+          "line_text": "\\tag{N24}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "NEW/N6",
+          "source_key": "NEW",
+          "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N6",
+          "line": 101,
+          "line_text": "\\tag{N6}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9"
+        },
+        {
+          "id": "RX-W/eq:profilenorms",
+          "source_key": "RX-W",
+          "path": "inputs/sources/RX/wellposed.tex",
+          "locator": "eq:profilenorms",
+          "line": 19,
+          "line_text": "\\begin{equation}\\label{eq:profilenorms}",
+          "bytes": 7306,
+          "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895"
+        },
+        {
+          "id": "RX-W/eq:H1estimate",
+          "source_key": "RX-W",
+          "path": "inputs/sources/RX/wellposed.tex",
+          "locator": "eq:H1estimate",
+          "line": 56,
+          "line_text": "\\begin{equation}\\label{eq:H1estimate}",
+          "bytes": 7306,
+          "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895"
+        },
+        {
+          "id": "CC-G/eq:G",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:G",
+          "line": 21,
+          "line_text": "\\begin{equation}\\label{eq:G}",
+          "bytes": 8272,
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d"
+        },
+        {
+          "id": "CC-G/eq:circle",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:circle",
+          "line": 67,
+          "line_text": " &\\hat t&=-\\sin\\chi\\,u+\\cos\\chi\\,e_z,\\quad\\chi=s/R_c,\\label{eq:circle}\\\\",
+          "bytes": 8272,
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d"
+        }
+      ],
+      "findings": [
+        "Zero receiving through theta_- and zero incoming b before 2 theta_-.",
+        "Strict receiving via scalar integrating factor and positive-measure sublevels.",
+        "Uniform early receiving bound and epsilon threshold yield strict negative scalar incoming return."
+      ],
+      "computation": {
+        "groups": [
+          "E05"
+        ],
+        "code": "checks/exact_checks.py",
+        "record": "logs/EXACT_CHECKS.json",
+        "scope": "Algebraic corroboration only; written proofs establish infinite-dimensional and quantified claims."
+      },
+      "mathematical_correction": null,
+      "documentary_corrections": [],
+      "limits": [
+        "Strict activity example uses carrier preload and x0=z0=0.",
+        "Temporary H1 continuity used only before incoming return.",
+        "Nonzero b does not imply nonzero J*b, positive net work or native credit.",
+        "A.e. trace conclusion; no physical route or all-six allocation claim."
+      ]
+    }
+  ],
+  "mathematical_corrections": [],
+  "documentary_corrections": [
+    {
+      "id": "D01",
+      "kind": "work_order_necessity_wording",
+      "source_locator": {
+        "id": "ORDER/D01",
+        "source_key": "ORDER",
+        "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_CODEX_WORK_ORDER.md",
+        "locator": "D01",
+        "line": 82,
+        "line_text": "At kappa=0 the original RX system must be recovered even for nonempty added-state preparation; the separated transport/receiving subsystem can still evolve from its own energy. Zero new activity also requires empty new states. At kappa>0, the carrier force changes the trajectory, so old RX capacity, credit, convergence and receiving theorems require a new hypothesis check before reuse.",
+        "bytes": 12237,
+        "sha256": "e9df1f28f9f7e914368db6f7cf21caae4bd4cac1a18ce690b86b026b7de1096d"
+      },
+      "submitted_wording": "Zero new activity also requires empty new states.",
+      "corrected_statement": "At kappa=0, empty added states are sufficient, not necessary, for inactivity; arbitrary prepared added states may evolve.",
+      "counterexample": "u_plus=u_minus=0, zeta_0(X)=(0,h(X)n) nonzero with n perpendicular to the carrier plane. C*zeta_0=0; all boundary waves vanish and zeta stays constant.",
+      "proof_location": {
+        "path": "NATIVE_CAUSAL_TRANSPORT_STORAGE_01_PROOF_REVIEW.md",
+        "section": "R6.2"
+      },
+      "candidate_equations_changed": false,
+      "analytical_start_section_8_already_correct": true,
+      "effect_on_T06_analytical_claim": "verified-as-stated"
+    }
+  ],
+  "logical_order_note": "R3 establishes port algebra; R4 proves local component work and slab continuation before deriving augmented conservation. No total conservation is assumed to obtain existence.",
+  "scope": "Independent local candidate assessment, not physical adoption, manuscript or publication."
+}

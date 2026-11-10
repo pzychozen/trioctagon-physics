@@ -1,0 +1,80 @@
+\section{Question, assumptions and exact candidate}\label{sec:candidate}
+The previous carrier account proved source-off recurrence and distinguished section throughput from native return and diversion.~\cite{recirculation}
+It also isolated missing reciprocal debit and receiving-load equations. The present paper supplies and analyzes one proposed completion of those interfaces, following the accepted analytical investigation.~\cite{investigation}
+The proposal is not selected by the old model: its new storage, feedback, receiver and timing assumptions are part of the statement being tested. Table~\ref{tab:status} separates these roles.
+
+\begin{table}[htbp]\centering\small
+\begin{tabularx}{\textwidth}{@{}P{.24\textwidth}Y@{}}\toprule
+Status & Ingredients and interpretation\\\midrule
+Inherited & Native map $F$, raw chiral drive and registration; conditional C1 circle, finite tents, propagation and carrier storage.\\[3pt]
+Proposed & Scaled native intensity, receiver quadratic storage, reciprocal feedback, collocated loading, continuous drive protocol and $F$-then-exchange cadence.\\[3pt]
+Verified here & Coupled well-posedness, matched accounts, short-time activity, prepared credit, invariant capacity and domain limitations, exact hybrid balance.\\[3pt]
+Not established & Physical energy calibration, kernel adoption, delayed return after an empty launch on the same solution, irreversible disposal, central route or six-opening allocation.\\\bottomrule
+\end{tabularx}
+\caption{Definitions, design choices and deductions retain different status.}\label{tab:status}
+\end{table}
+
+Power-preserving interconnection and matching input/output power are established methodology; see van der Schaft~\cite[Sections 1.1--1.2, especially (5)--(6)]{vanderschaft}.
+That reference does not select this candidate or prove its PDE theorem. We prove the identities and existence argument directly and make no canonical Hamiltonian/Poisson or novelty claim for the general methodology.
+
+\subsection{Inherited raw chiral drive}\label{sec:drive}
+Let $x=(a,b)\in\R^6$, $\Omega=a+ib\in\C^3$ and $I=|x|^2$. Here $b$ is the imaginary native vector; $b_\sigma$ below is a source profile and $d_{\rm pre}$ is the native prestage increment. Retain the source's frame, normals and fixed registration~\cite[foundations]{paired}:
+\begin{equation}\label{eq:registration}
+ u=(0,1,0),\quad \ez=(0,0,1),\quad
+ n_\pm=\frac{2u\pm\sqrt3\ez}{\sqrt7},\quad
+ A_{\rm reg}=\lambda_gR_z(\delta_g).
+\end{equation}
+The gains $\lambda_g,\kappa_{\rm in}$ are positive and fixed, and the yaw $\delta_g$ is fixed. Define
+\begin{equation}\label{eq:drive}
+ K=\kappa_{\rm in}\begin{pmatrix}n_+^T\\n_-^T\end{pmatrix}A_{\rm reg},
+ \qquad f(x)=K(a\times b),\qquad J(x)=D_xf(x).
+\end{equation}
+$K$ is a constant rank-two $2\times3$ matrix and $J$ is $2\times6$.
+This retains raw channel chirality, not its distinct ambient axial attachment. The inherited contact tangents are $-n_+$ and $+n_-$; those orientation signs do not insert signs into the source projection~\eqref{eq:drive}. The macro readout, its external clock and the blend are not used.
+
+\subsection{Finite carrier ports and trial storages}\label{sec:ports}
+Retain C1 on $s\in\R/L_c\mathbb Z$, with $c>0$. The contact positions are $s_\pm=L_c/2\mp\eta_{\rm geom}$; their shortest separation is $2\eta_{\rm geom}$. For $0<\eps_c<\eta_{\rm geom}$, let
+\begin{equation}\label{eq:tents}
+ b_\sigma(s)=\eps_c^{-1}
+ \left(1-\frac{|\operatorname{wrap}_{L_c}(s-s_\sigma)|}{\eps_c}\right)_+,
+ \qquad \sigma\in\{+,-\}.
+\end{equation}
+These normalized disjoint tents belong to periodic $H^1$. Their width is arclength width, not a tube radius. Define the real operator and its adjoint
+\begin{equation}\label{eq:ports}
+ \B v=b_+v_++b_-v_-,\qquad
+ y=\B^*p=\begin{pmatrix}\int b_+p\dd s\\\int b_-p\dd s\end{pmatrix}.
+\end{equation}
+All unqualified spatial integrals cover one whole circle. With one receiver state $z=(z_+,z_-)\in\R^2$, choose
+\begin{equation}\label{eq:storages}
+ H_N=\frac{\alpha_N}{2}|x|^2,\quad
+ H_C=\frac12\int(p^2+r_c^2)\dd s,\quad
+ H_R=\frac{\beta_R}{2}|z|^2,\quad H_{\rm tot}=H_N+H_C+H_R,
+\end{equation}
+where $\alpha_N,\beta_R>0$. Only $H_C$ is inherited. $H_N$ and $H_R$ are new constitutive choices; $H_N$ is not the native quartic potential $V$. The receiver is internal to this enlarged account without an assigned spatial or material location. Its two coordinates are not two new holes or physical objects.
+
+\subsection{Exchange equations and dimensions}\label{sec:exchange}
+For dimensionless new multipliers $\eta_N,\eta_R\ge0$, the proposed stage is
+\begin{equation}\label{eq:system}
+\boxed{\begin{aligned}
+ \dot x&=-\frac{\eta_N}{2\alpha_N}J(x)^Ty,\\
+ p_t+c(r_c)_s&=\B\{\eta_Nf(x)-\eta_Rz\},\\
+ (r_c)_t+cp_s&=0,\\
+ \dot z&=\frac{\eta_R}{\beta_R}y,\qquad y=\B^*p.
+\end{aligned}}
+\end{equation}
+Preparation $(x_0,p_0,r_{c,0},z_0)$ is independent; the carrier is periodic. Both couplings use the same distributed port regions. The changing native state replaces an external sample-and-hold history during this stage; the old history protocol remains a separate comparison. No coefficient is chosen as a diverted fraction.
+
+Let $\mathrm A$ denote a bookkeeping native amplitude unit, with $[x]=\mathrm A$. The inherited normalized native convention sets it to one. The carrier's abstract units are $\mathrm U,\mathrm L,\mathrm T$, and $\mathrm Q$ is the registered readout data unit.~\cite[units]{paired}
+\begin{table}[htbp]\centering\small
+\begin{tabularx}{\textwidth}{@{}P{.44\textwidth}Y@{}}\toprule
+Quantity & Dimension\\\midrule
+$s,L_c,\eps_c,\eta_{\rm geom};\ c;\ t,h_{\rm ex}$ & $\mathrm L;\ \mathrm L/\mathrm T;\ \mathrm T$\\
+$p,r_c;\ b_\sigma;\ y$ & $\mathrm U;\ \mathrm L^{-1};\ \mathrm U$\\
+$a\times b;\ f,z;\ J$ & $\mathrm A^2;\ \mathrm U\mathrm L/\mathrm T;\ \mathrm U\mathrm L/(\mathrm T\mathrm A)$\\
+$\lambda_g;\ \kappa_{\rm in};\ K$ & $\mathrm Q/\mathrm A^2;\ \mathrm U\mathrm L/(\mathrm T\mathrm Q);\ \mathrm U\mathrm L/(\mathrm T\mathrm A^2)$\\
+$\alpha_N;\ \beta_R;\ \eta_N,\eta_R$ & $\mathrm U^2\mathrm L/\mathrm A^2;\ \mathrm T^2/\mathrm L;\ 1$\\
+$H_N,H_C,H_R;\ e;\ j,P_{NC},P_{CR}$ & $\mathrm U^2\mathrm L;\ \mathrm U^2;\ \mathrm U^2\mathrm L/\mathrm T$\\\bottomrule
+\end{tabularx}
+\caption{Mathematical commensurability without SI calibration.}\label{tab:units}
+\end{table}
+Thus $[J^Ty/\alpha_N]=\mathrm A/\mathrm T$, $[y/\beta_R]=\mathrm U\mathrm L/\mathrm T^2=[\dot z]$, and $[\B f]=\mathrm U/\mathrm T$. The local work identity has dimension $\mathrm U^2/\mathrm T$, and its spatial integral is power. Restoring a native amplitude unit gives $[k_i]=\mathrm A^2$, $[\eps]=\mathrm A^{-2}$ and dimensionless native $g,\lambda$; the fixed tuple below keeps its normalized meaning. Native step number has no time unit. Dimensional consistency does not physically calibrate the trial storages or cadence.

@@ -1,0 +1,2708 @@
+{
+  "task": "NATIVE_SPATIAL_WORK_CAUSAL_TRANSPORT_PAPER_01",
+  "pdf_sha256": "4b14dd8b291c80967f5cc570c4dab58f567043514334429af13c2f80d83564f1",
+  "status": "All 12 accepted mathematical groups and D01 covered; manuscript review pending.",
+  "notation_crosswalk": "NOTATION_CROSSWALK.md",
+  "source_identities": "inputs/SOURCE_IDENTITIES.json",
+  "historical_status_note": "Old submitted Codex ledgers retain their then-pending acceptance wording unchanged. Current GPT acceptance files control.",
+  "mathematical_claim_count": 12,
+  "documentary_clarification_count": 1,
+  "source_locators_rebased_and_verified": 107,
+  "historical_archive_only_pointers": 0,
+  "claims": [
+    {
+      "id": "W01",
+      "title": "Actual-G arclength and finite history horizon",
+      "accepted_status": "accepted-as-stated",
+      "hypotheses": [
+        "Actual broken G arcs with no closing chord",
+        "Common width w>0",
+        "Static normalized tau_g in [0,h_g]",
+        "Full reflected MINUS construction",
+        "Selected inherited arclength-parametrized carrier",
+        "Accepted strict 297/5000 common-width separation retained as an input"
+      ],
+      "limits": [
+        "Common width and whole-construction reflection only.",
+        "Ball radius is not cylindrical radius; history ceiling is not optimized.",
+        "Actual arcs and mathematical arclength; no aperture/flux convention.",
+        "Accepted separation is an input, not rerun."
+      ],
+      "manuscript_locations": [
+        {
+          "label": "prop:geometry",
+          "number": "2.1",
+          "page": 5,
+          "path": "candidate/v0.1/sections/02_setting.tex",
+          "line": 37,
+          "line_text": "\\begin{proposition}[Geometry and history bounds]\\label{prop:geometry}",
+          "sha256": "ead224fe61cb13c4254250160b92fda6156f4e34ee9ce93fcabdd578eb20d934"
+        },
+        {
+          "label": "eq:actualG",
+          "number": "2.4",
+          "page": 4,
+          "path": "candidate/v0.1/sections/02_setting.tex",
+          "line": 19,
+          "line_text": "G_k^-&=[L_k,B_{2k+1}]\\cup[B_{2k+1},L_{k+1}],\\label{eq:actualG}",
+          "sha256": "ead224fe61cb13c4254250160b92fda6156f4e34ee9ce93fcabdd578eb20d934"
+        },
+        {
+          "label": "eq:circle",
+          "number": "2.6",
+          "page": 4,
+          "path": "candidate/v0.1/sections/02_setting.tex",
+          "line": 28,
+          "line_text": "\\chi&=\\frac{s}{w\\RG},\\qquad \\hat t(s)=-\\sin\\chi\\,u+\\cos\\chi\\,e_z.\\label{eq:circle}",
+          "sha256": "ead224fe61cb13c4254250160b92fda6156f4e34ee9ce93fcabdd578eb20d934"
+        },
+        {
+          "label": "eq:clearance",
+          "number": "2.7",
+          "page": 4,
+          "path": "candidate/v0.1/sections/02_setting.tex",
+          "line": 31,
+          "line_text": "\\begin{equation}\\label{eq:clearance}",
+          "sha256": "ead224fe61cb13c4254250160b92fda6156f4e34ee9ce93fcabdd578eb20d934"
+        },
+        {
+          "label": "eq:Glength",
+          "number": "2.8",
+          "page": 5,
+          "path": "candidate/v0.1/sections/02_setting.tex",
+          "line": 40,
+          "line_text": "M=M_w(\\tau_g)&=6w\\left[\\sqrt{v_0^2+d_g^2}+\\sqrt{D(\\tau_g)^2v_0^2+d_g^2}\\right]\\label{eq:Glength}\\\\",
+          "sha256": "ead224fe61cb13c4254250160b92fda6156f4e34ee9ce93fcabdd578eb20d934"
+        },
+        {
+          "label": "eq:horizon",
+          "number": "2.9",
+          "page": 5,
+          "path": "candidate/v0.1/sections/02_setting.tex",
+          "line": 44,
+          "line_text": "\\begin{equation}\\label{eq:horizon}",
+          "sha256": "ead224fe61cb13c4254250160b92fda6156f4e34ee9ce93fcabdd578eb20d934"
+        },
+        {
+          "label": "eq:ballmargin",
+          "number": "2.10",
+          "page": 5,
+          "path": "candidate/v0.1/sections/02_setting.tex",
+          "line": 56,
+          "line_text": "\\begin{equation}\\label{eq:ballmargin}",
+          "sha256": "ead224fe61cb13c4254250160b92fda6156f4e34ee9ce93fcabdd578eb20d934"
+        }
+      ],
+      "controlling_proof": {
+        "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+        "section": "R1",
+        "start_line": 41,
+        "end_line": 137,
+        "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18",
+        "span_sha256": "dd5b844466f0e2457da5d432ed77e209596ba8eb4ac2bf14dfbd541b7822c0e5"
+      },
+      "current_acceptance": [
+        {
+          "path": "inputs/accepted/spatial_work/GPT_ACCEPTANCE.json",
+          "sha256": "3ad0d85d86956b98d71e3dd51cfd4bd106636f87f953eb509c56a9e336029860"
+        },
+        {
+          "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_GPT_REVIEW.md",
+          "sha256": "ed8cf10ed45ca2df197de2f06d403b5f3c8484ccd34bdef36b111a7da8e468d9"
+        }
+      ],
+      "retained_equation_source_locations": [
+        {
+          "id": "CC-G/eq:constants",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:constants",
+          "line": 4,
+          "line_text": "\\begin{equation}\\label{eq:constants}",
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "bytes": 8272,
+          "historical_path": "inputs/sources/CC/geometry.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-G/eq:directions",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:directions",
+          "line": 8,
+          "line_text": "\\begin{equation}\\label{eq:directions}",
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "bytes": 8272,
+          "historical_path": "inputs/sources/CC/geometry.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-G/eq:vertices",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:vertices",
+          "line": 18,
+          "line_text": " U_k&=(r_gn_k^{\\rm geom},H_0),&L_k&=(r_gA_\\tau n_k^{\\rm geom},-H_0).\\label{eq:vertices}",
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "bytes": 8272,
+          "historical_path": "inputs/sources/CC/geometry.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-G/eq:G",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:G",
+          "line": 21,
+          "line_text": "\\begin{equation}\\label{eq:G}",
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "bytes": 8272,
+          "historical_path": "inputs/sources/CC/geometry.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-G/eq:circleconstants",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:circleconstants",
+          "line": 60,
+          "line_text": "\\begin{equation}\\label{eq:circleconstants}",
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "bytes": 8272,
+          "historical_path": "inputs/sources/CC/geometry.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-G/eq:circle",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:circle",
+          "line": 67,
+          "line_text": " &\\hat t&=-\\sin\\chi\\,u+\\cos\\chi\\,e_z,\\quad\\chi=s/R_c,\\label{eq:circle}\\\\",
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "bytes": 8272,
+          "historical_path": "inputs/sources/CC/geometry.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "PG/prop:balls",
+          "source_key": "PG",
+          "path": "inputs/sources/PG/geometry.tex",
+          "locator": "prop:balls",
+          "line": 171,
+          "line_text": "\\begin{proposition}[Sufficient full-module clearances]\\label{prop:balls}",
+          "sha256": "8ba2c8961c41b055414b163d8bc197e8a4e7bd6a9f2d3c18b9fe4ffc70ea24aa",
+          "bytes": 18526,
+          "historical_path": "inputs/sources/PG/geometry.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "SO/V17",
+          "source_key": "SO",
+          "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "locator": "V17",
+          "line": 268,
+          "line_text": "=\\frac{23107}{389000}>\\frac{297}{5000}.} \\tag{V17}",
+          "sha256": "df88a553d52075d6fa6e256dedec74421a48be5d77d3297e4fa2a6ea30efbd1b",
+          "bytes": 32348,
+          "historical_path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "SO/V18",
+          "source_key": "SO",
+          "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "locator": "V18",
+          "line": 277,
+          "line_text": "\\Gamma_j^{-1}(\\mathcal H_k^\\sigma)=\\varnothing. \\tag{V18}",
+          "sha256": "df88a553d52075d6fa6e256dedec74421a48be5d77d3297e4fa2a6ea30efbd1b",
+          "bytes": 32348,
+          "historical_path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "SO/S04-C6",
+          "source_key": "SO",
+          "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "locator": "S04-C6",
+          "line": 307,
+          "line_text": "### C6 remains an unloaded observation",
+          "sha256": "df88a553d52075d6fa6e256dedec74421a48be5d77d3297e4fa2a6ea30efbd1b",
+          "bytes": 32348,
+          "historical_path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "SO-ACCEPT/acceptance",
+          "source_key": "SO-ACCEPT",
+          "path": "inputs/accepted/six_opening/GPT_ACCEPTANCE.json",
+          "locator": "acceptance",
+          "line": 6,
+          "line_text": "  \"disposition\": \"ACCEPTED_S01_S05_AS_STATED_AT_SPECIFIED_ASSUMPTIONS\",",
+          "sha256": "5a83a2049599d426f537d9f87c4111b0a88e6636710d017195d8efd45e210cab",
+          "bytes": 3157,
+          "historical_path": "inputs/accepted/six_opening/GPT_ACCEPTANCE.json",
+          "current_line_and_hash_verified": true
+        }
+      ],
+      "candidate_equations_changed": false
+    },
+    {
+      "id": "W02",
+      "title": "Bounded causal space-time history observation",
+      "accepted_status": "accepted-as-stated",
+      "hypotheses": [
+        "Fixed static geometry and positive g_o,c_e",
+        "Full history on [-T_hist,T]",
+        "Unit arclength tangent and ambient 4-vector output",
+        "Canonical arclength as test measure",
+        "Almost-everywhere interpretation on L2"
+      ],
+      "limits": [
+        "Complete supplied history including negative times.",
+        "Space-time a.e. output; no L2 single-point bound.",
+        "Point records use the stronger C(I;H1) hypothesis.",
+        "Width-uniform upper bound does not calibrate speed or time."
+      ],
+      "manuscript_locations": [
+        {
+          "label": "thm:observation",
+          "number": "3.1",
+          "page": 7,
+          "path": "candidate/v0.1/sections/03_observation.tex",
+          "line": 19,
+          "line_text": "\\begin{theorem}[Bounded causal history observation]\\label{thm:observation}",
+          "sha256": "1f646716ab60e791de40b92e64717ac0b9869213c451cf0e4f7fb5d043e63bbd"
+        },
+        {
+          "label": "eq:spaces",
+          "number": "3.1",
+          "page": 6,
+          "path": "candidate/v0.1/sections/03_observation.tex",
+          "line": 3,
+          "line_text": "\\begin{equation}\\label{eq:spaces}",
+          "sha256": "1f646716ab60e791de40b92e64717ac0b9869213c451cf0e4f7fb5d043e63bbd"
+        },
+        {
+          "label": "eq:C6",
+          "number": "3.3",
+          "page": 6,
+          "path": "candidate/v0.1/sections/03_observation.tex",
+          "line": 12,
+          "line_text": "\\begin{equation}\\label{eq:C6}",
+          "sha256": "1f646716ab60e791de40b92e64717ac0b9869213c451cf0e4f7fb5d043e63bbd"
+        },
+        {
+          "label": "eq:Kbound",
+          "number": "3.4",
+          "page": 7,
+          "path": "candidate/v0.1/sections/03_observation.tex",
+          "line": 21,
+          "line_text": "\\begin{equation}\\label{eq:Kbound}",
+          "sha256": "1f646716ab60e791de40b92e64717ac0b9869213c451cf0e4f7fb5d043e63bbd"
+        },
+        {
+          "label": "eq:pointestimate",
+          "number": "3.5",
+          "page": 7,
+          "path": "candidate/v0.1/sections/03_observation.tex",
+          "line": 29,
+          "line_text": "\\begin{equation}\\label{eq:pointestimate}",
+          "sha256": "1f646716ab60e791de40b92e64717ac0b9869213c451cf0e4f7fb5d043e63bbd"
+        },
+        {
+          "label": "eq:translatedestimate",
+          "number": "3.6",
+          "page": 7,
+          "path": "candidate/v0.1/sections/03_observation.tex",
+          "line": 35,
+          "line_text": "\\begin{equation}\\label{eq:translatedestimate}",
+          "sha256": "1f646716ab60e791de40b92e64717ac0b9869213c451cf0e4f7fb5d043e63bbd"
+        },
+        {
+          "label": "eq:narrowgraph",
+          "number": "3.7",
+          "page": 7,
+          "path": "candidate/v0.1/sections/03_observation.tex",
+          "line": 46,
+          "line_text": "\\begin{equation}\\label{eq:narrowgraph}",
+          "sha256": "1f646716ab60e791de40b92e64717ac0b9869213c451cf0e4f7fb5d043e63bbd"
+        },
+        {
+          "label": "eq:pointunbounded",
+          "number": "3.8",
+          "page": 7,
+          "path": "candidate/v0.1/sections/03_observation.tex",
+          "line": 52,
+          "line_text": "\\begin{equation}\\label{eq:pointunbounded}",
+          "sha256": "1f646716ab60e791de40b92e64717ac0b9869213c451cf0e4f7fb5d043e63bbd"
+        }
+      ],
+      "controlling_proof": {
+        "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+        "section": "R2",
+        "start_line": 138,
+        "end_line": 203,
+        "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18",
+        "span_sha256": "4aa23e9b4974a225e1df00682f8a0deb1e3e426ac33ea40217b7d17b90ae9e99"
+      },
+      "current_acceptance": [
+        {
+          "path": "inputs/accepted/spatial_work/GPT_ACCEPTANCE.json",
+          "sha256": "3ad0d85d86956b98d71e3dd51cfd4bd106636f87f953eb509c56a9e336029860"
+        },
+        {
+          "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_GPT_REVIEW.md",
+          "sha256": "ed8cf10ed45ca2df197de2f06d403b5f3c8484ccd34bdef36b111a7da8e468d9"
+        }
+      ],
+      "retained_equation_source_locations": [
+        {
+          "id": "CC-C/eq:C1",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:C1",
+          "line": 32,
+          "line_text": "\\begin{equation}\\label{eq:C1}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338,
+          "historical_path": "inputs/sources/CC/carrier.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-C/eq:storage",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:storage",
+          "line": 36,
+          "line_text": "\\begin{equation}\\label{eq:storage}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338,
+          "historical_path": "inputs/sources/CC/carrier.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-C/eq:C6",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:C6",
+          "line": 69,
+          "line_text": " &Y_X&=(U,B^TV_{\\rm ext}).\\label{eq:C6}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338,
+          "historical_path": "inputs/sources/CC/carrier.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "SO/V17",
+          "source_key": "SO",
+          "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "locator": "V17",
+          "line": 268,
+          "line_text": "=\\frac{23107}{389000}>\\frac{297}{5000}.} \\tag{V17}",
+          "sha256": "df88a553d52075d6fa6e256dedec74421a48be5d77d3297e4fa2a6ea30efbd1b",
+          "bytes": 32348,
+          "historical_path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "SO/V18",
+          "source_key": "SO",
+          "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "locator": "V18",
+          "line": 277,
+          "line_text": "\\Gamma_j^{-1}(\\mathcal H_k^\\sigma)=\\varnothing. \\tag{V18}",
+          "sha256": "df88a553d52075d6fa6e256dedec74421a48be5d77d3297e4fa2a6ea30efbd1b",
+          "bytes": 32348,
+          "historical_path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "SO/S04-C6",
+          "source_key": "SO",
+          "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "locator": "S04-C6",
+          "line": 307,
+          "line_text": "### C6 remains an unloaded observation",
+          "sha256": "df88a553d52075d6fa6e256dedec74421a48be5d77d3297e4fa2a6ea30efbd1b",
+          "bytes": 32348,
+          "historical_path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "current_line_and_hash_verified": true
+        }
+      ],
+      "candidate_equations_changed": false
+    },
+    {
+      "id": "W03",
+      "title": "Exact adjoint with finite-window and causal qualifications",
+      "accepted_status": "accepted-as-stated",
+      "hypotheses": [
+        "Spaces and observation in W02",
+        "Zero extension of lambda outside [0,T]",
+        "Adjoint acts on the complete history interval",
+        "Positive scalar kernel",
+        "Ambient-vector convention"
+      ],
+      "limits": [
+        "Zero extension of lambda and full prehistory domain are essential.",
+        "Forward restriction zero a.e. for T<=minimum delay.",
+        "Future-support witness applies for T>minimum delay.",
+        "No instantaneous physical power interpretation or universal causal-realization prohibition.",
+        "A04 is an arithmetic example, not the geometry-dependent proof."
+      ],
+      "manuscript_locations": [
+        {
+          "label": "prop:adjoint",
+          "number": "3.2",
+          "page": 8,
+          "path": "candidate/v0.1/sections/03_observation.tex",
+          "line": 64,
+          "line_text": "\\begin{proposition}[Complete finite-window duality]\\label{prop:adjoint}",
+          "sha256": "1f646716ab60e791de40b92e64717ac0b9869213c451cf0e4f7fb5d043e63bbd"
+        },
+        {
+          "label": "eq:temporaladjoint",
+          "number": "3.9",
+          "page": 8,
+          "path": "candidate/v0.1/sections/03_observation.tex",
+          "line": 66,
+          "line_text": "\\begin{equation}\\label{eq:temporaladjoint}",
+          "sha256": "1f646716ab60e791de40b92e64717ac0b9869213c451cf0e4f7fb5d043e63bbd"
+        },
+        {
+          "label": "eq:duality",
+          "number": "3.10",
+          "page": 8,
+          "path": "candidate/v0.1/sections/03_observation.tex",
+          "line": 72,
+          "line_text": "\\begin{equation}\\label{eq:duality}",
+          "sha256": "1f646716ab60e791de40b92e64717ac0b9869213c451cf0e4f7fb5d043e63bbd"
+        },
+        {
+          "label": "eq:futureepsilon",
+          "number": "3.11",
+          "page": 8,
+          "path": "candidate/v0.1/sections/03_observation.tex",
+          "line": 94,
+          "line_text": "\\begin{equation}\\label{eq:futureepsilon}",
+          "sha256": "1f646716ab60e791de40b92e64717ac0b9869213c451cf0e4f7fb5d043e63bbd"
+        },
+        {
+          "label": "fig:time",
+          "number": "2",
+          "page": 20,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 102,
+          "line_text": "\\caption{Two different time accounts. Top: for one fixed delay, causal observation reads earlier carrier data, while the finite-window temporal adjoint evaluates a later test time and has a prehistory part. Bottom: empty added states impose the proven latency bounds; the constant carrier-preload witness gives strict receiving and a nonzero incoming boundary trace on short open intervals. Interval lengths and positions are schematic. These are supports and bounds, not simulated waveforms or exact onset amplitudes.}\\label{fig:time}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        }
+      ],
+      "controlling_proof": {
+        "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+        "section": "R3",
+        "start_line": 204,
+        "end_line": 252,
+        "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18",
+        "span_sha256": "35e4b30cf47fd41e200eef9dd75b68f74839cd4f221b00b50bf559a442d4ba9b"
+      },
+      "current_acceptance": [
+        {
+          "path": "inputs/accepted/spatial_work/GPT_ACCEPTANCE.json",
+          "sha256": "3ad0d85d86956b98d71e3dd51cfd4bd106636f87f953eb509c56a9e336029860"
+        },
+        {
+          "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_GPT_REVIEW.md",
+          "sha256": "ed8cf10ed45ca2df197de2f06d403b5f3c8484ccd34bdef36b111a7da8e468d9"
+        }
+      ],
+      "retained_equation_source_locations": [
+        {
+          "id": "CC-C/eq:C1",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:C1",
+          "line": 32,
+          "line_text": "\\begin{equation}\\label{eq:C1}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338,
+          "historical_path": "inputs/sources/CC/carrier.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-C/eq:storage",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:storage",
+          "line": 36,
+          "line_text": "\\begin{equation}\\label{eq:storage}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338,
+          "historical_path": "inputs/sources/CC/carrier.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-C/eq:C6",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:C6",
+          "line": 69,
+          "line_text": " &Y_X&=(U,B^TV_{\\rm ext}).\\label{eq:C6}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338,
+          "historical_path": "inputs/sources/CC/carrier.tex",
+          "current_line_and_hash_verified": true
+        }
+      ],
+      "candidate_equations_changed": false
+    },
+    {
+      "id": "W04",
+      "title": "Arbitrary-history observation is not determined by present carrier alone",
+      "accepted_status": "accepted-as-stated",
+      "hypotheses": [
+        "Arbitrary smooth analytic history domain",
+        "Past bump overlaps an actual retarded time",
+        "Strictly positive distance and gain",
+        "No assertion that the witness histories solve C1 or RX"
+      ],
+      "limits": [
+        "Arbitrary smooth histories, not generated C1/RX solutions.",
+        "No full-state reconstruction, native invertibility or specified empty-launch conclusion.",
+        "Separate conditional common-phase information result retained."
+      ],
+      "manuscript_locations": [
+        {
+          "label": "prop:presenthistory",
+          "number": "3.3",
+          "page": 9,
+          "path": "candidate/v0.1/sections/03_observation.tex",
+          "line": 104,
+          "line_text": "\\begin{proposition}[An unrestricted-history witness]\\label{prop:presenthistory}",
+          "sha256": "1f646716ab60e791de40b92e64717ac0b9869213c451cf0e4f7fb5d043e63bbd"
+        },
+        {
+          "label": "eq:historywitness",
+          "number": "3.12",
+          "page": 9,
+          "path": "candidate/v0.1/sections/03_observation.tex",
+          "line": 111,
+          "line_text": "\\begin{equation}\\label{eq:historywitness}",
+          "sha256": "1f646716ab60e791de40b92e64717ac0b9869213c451cf0e4f7fb5d043e63bbd"
+        }
+      ],
+      "controlling_proof": {
+        "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+        "section": "R4",
+        "start_line": 253,
+        "end_line": 276,
+        "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18",
+        "span_sha256": "9c303bfe8191acf2c1ace006c87bbd7231843466348908542e424375ebc2b2f5"
+      },
+      "current_acceptance": [
+        {
+          "path": "inputs/accepted/spatial_work/GPT_ACCEPTANCE.json",
+          "sha256": "3ad0d85d86956b98d71e3dd51cfd4bd106636f87f953eb509c56a9e336029860"
+        },
+        {
+          "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_GPT_REVIEW.md",
+          "sha256": "ed8cf10ed45ca2df197de2f06d403b5f3c8484ccd34bdef36b111a7da8e468d9"
+        }
+      ],
+      "retained_equation_source_locations": [
+        {
+          "id": "CC-C/eq:C1",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:C1",
+          "line": 32,
+          "line_text": "\\begin{equation}\\label{eq:C1}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338,
+          "historical_path": "inputs/sources/CC/carrier.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-C/eq:storage",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:storage",
+          "line": 36,
+          "line_text": "\\begin{equation}\\label{eq:storage}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338,
+          "historical_path": "inputs/sources/CC/carrier.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-C/eq:C6",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:C6",
+          "line": 69,
+          "line_text": " &Y_X&=(U,B^TV_{\\rm ext}).\\label{eq:C6}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338,
+          "historical_path": "inputs/sources/CC/carrier.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CR/Q01",
+          "source_key": "CR",
+          "path": "inputs/accepted/central_route/NATIVE_CENTRAL_ROUTE_CORRESPONDENCE_01_GPT_REVIEW.md",
+          "locator": "Q01",
+          "line": 88,
+          "line_text": "## 5. Q01 — clarification of the review's necessity wording",
+          "sha256": "26f85b2c755168a7f7b4e9424447979afbe868f577be62964358382c99ad6f50",
+          "bytes": 13554,
+          "historical_path": "inputs/accepted/central_route/NATIVE_CENTRAL_ROUTE_CORRESPONDENCE_01_GPT_REVIEW.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CR/C05",
+          "source_key": "CR",
+          "path": "inputs/accepted/central_route/NATIVE_CENTRAL_ROUTE_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "locator": "C05",
+          "line": 367,
+          "line_text": "## C05 — phase information and direction labels",
+          "sha256": "96c4fab1089a5e0dd43bb6149b917d39b66eac0e6544e7fa6272e61663f87c4d",
+          "bytes": 35544,
+          "historical_path": "inputs/accepted/central_route/NATIVE_CENTRAL_ROUTE_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "current_line_and_hash_verified": true
+        }
+      ],
+      "candidate_equations_changed": false
+    },
+    {
+      "id": "W05",
+      "title": "Added-work identity and exact prehistory residual",
+      "accepted_status": "accepted-as-stated",
+      "hypotheses": [
+        "Original native and z equations, B/B*, parameters and stores unchanged",
+        "Conditional sufficient regularity for energy identities",
+        "No extra impulses",
+        "RX post-jump endpoints and 0<t_j<=T count",
+        "W_test is a mathematical/hypothetical work pairing",
+        "No adopted new receiver, load or transit state"
+      ],
+      "limits": [
+        "Conditional sufficient regularity and integrable work; no new well-posedness theorem.",
+        "Original ports, native/old receiver equations and F-first order retained.",
+        "Finite native jumps, post-jump endpoints, no new impulses.",
+        "Prehistory pairing has a plus sign but is not necessarily nonnegative.",
+        "Zero prehistory is sufficient but not necessary for cancellation.",
+        "Formal adjoint loading is generally advanced on longer windows.",
+        "No adopted physical load/units, receiver or nonnegative transit state."
+      ],
+      "manuscript_locations": [
+        {
+          "label": "prop:conditionalwork",
+          "number": "4.1",
+          "page": 9,
+          "path": "candidate/v0.1/sections/04_work.tex",
+          "line": 8,
+          "line_text": "\\begin{proposition}[Conditional regional and global work]\\label{prop:conditionalwork}",
+          "sha256": "5c1f6dab46789c7e3209c1abf3865f3a5d01ba1f573aee44db29318fdee89267"
+        },
+        {
+          "label": "eq:conditionalforce",
+          "number": "4.1",
+          "page": 9,
+          "path": "candidate/v0.1/sections/04_work.tex",
+          "line": 3,
+          "line_text": "\\begin{equation}\\label{eq:conditionalforce}",
+          "sha256": "5c1f6dab46789c7e3209c1abf3865f3a5d01ba1f573aee44db29318fdee89267"
+        },
+        {
+          "label": "eq:localadded",
+          "number": "4.2",
+          "page": 9,
+          "path": "candidate/v0.1/sections/04_work.tex",
+          "line": 12,
+          "line_text": "&e&=\\frac{p^2+r_c^2}{2},&j&=\\ccar p r_c,\\label{eq:localadded}\\\\",
+          "sha256": "5c1f6dab46789c7e3209c1abf3865f3a5d01ba1f573aee44db29318fdee89267"
+        },
+        {
+          "label": "eq:addedpower",
+          "number": "4.3",
+          "page": 9,
+          "path": "candidate/v0.1/sections/04_work.tex",
+          "line": 13,
+          "line_text": "\\dot H_{\\rm RX}&=P_{\\rm add},&P_{\\rm add}&=\\int_{S_L}(pF_p+r_cF_r)\\dd s.\\label{eq:addedpower}",
+          "sha256": "5c1f6dab46789c7e3209c1abf3865f3a5d01ba1f573aee44db29318fdee89267"
+        },
+        {
+          "label": "eq:conditionalhybrid",
+          "number": "4.4",
+          "page": 9,
+          "path": "candidate/v0.1/sections/04_work.tex",
+          "line": 16,
+          "line_text": "\\begin{equation}\\label{eq:conditionalhybrid}",
+          "sha256": "5c1f6dab46789c7e3209c1abf3865f3a5d01ba1f573aee44db29318fdee89267"
+        },
+        {
+          "label": "eq:testpre",
+          "number": "4.5",
+          "page": 10,
+          "path": "candidate/v0.1/sections/04_work.tex",
+          "line": 27,
+          "line_text": "\\begin{equation}\\label{eq:testpre}",
+          "sha256": "5c1f6dab46789c7e3209c1abf3865f3a5d01ba1f573aee44db29318fdee89267"
+        },
+        {
+          "label": "cor:prehistory",
+          "number": "4.2",
+          "page": 10,
+          "path": "candidate/v0.1/sections/04_work.tex",
+          "line": 33,
+          "line_text": "\\begin{corollary}[Formal negative-adjoint residual]\\label{cor:prehistory}",
+          "sha256": "5c1f6dab46789c7e3209c1abf3865f3a5d01ba1f573aee44db29318fdee89267"
+        },
+        {
+          "label": "eq:prehistorybalance",
+          "number": "4.6",
+          "page": 10,
+          "path": "candidate/v0.1/sections/04_work.tex",
+          "line": 35,
+          "line_text": "\\begin{equation}\\label{eq:prehistorybalance}",
+          "sha256": "5c1f6dab46789c7e3209c1abf3865f3a5d01ba1f573aee44db29318fdee89267"
+        },
+        {
+          "label": "app:example",
+          "number": "B",
+          "page": 23,
+          "path": "candidate/v0.1/sections/10_appendices.tex",
+          "line": 41,
+          "line_text": "\\section{A scalar illustration of signed prehistory}\\label{app:example}",
+          "sha256": "6d1ba2787c7661b45db214df5f2ad9b8480f1b81dbd0e94dc33ff7838636857b"
+        }
+      ],
+      "controlling_proof": {
+        "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+        "section": "R5",
+        "start_line": 277,
+        "end_line": 391,
+        "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18",
+        "span_sha256": "66b370d4d580248ed2e12495dc0b91a7d6f678f2c745a57114d864720e47149d"
+      },
+      "current_acceptance": [
+        {
+          "path": "inputs/accepted/spatial_work/GPT_ACCEPTANCE.json",
+          "sha256": "3ad0d85d86956b98d71e3dd51cfd4bd106636f87f953eb509c56a9e336029860"
+        },
+        {
+          "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_GPT_REVIEW.md",
+          "sha256": "ed8cf10ed45ca2df197de2f06d403b5f3c8484ccd34bdef36b111a7da8e468d9"
+        }
+      ],
+      "retained_equation_source_locations": [
+        {
+          "id": "RX-C/eq:drive",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:drive",
+          "line": 28,
+          "line_text": "\\begin{equation}\\label{eq:drive}",
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5",
+          "bytes": 6858,
+          "historical_path": "inputs/sources/RX/candidate.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-C/eq:tents",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:tents",
+          "line": 37,
+          "line_text": "\\begin{equation}\\label{eq:tents}",
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5",
+          "bytes": 6858,
+          "historical_path": "inputs/sources/RX/candidate.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-C/eq:ports",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:ports",
+          "line": 43,
+          "line_text": "\\begin{equation}\\label{eq:ports}",
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5",
+          "bytes": 6858,
+          "historical_path": "inputs/sources/RX/candidate.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-C/eq:storages",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:storages",
+          "line": 48,
+          "line_text": "\\begin{equation}\\label{eq:storages}",
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5",
+          "bytes": 6858,
+          "historical_path": "inputs/sources/RX/candidate.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-C/eq:system",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:system",
+          "line": 57,
+          "line_text": "\\begin{equation}\\label{eq:system}",
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5",
+          "bytes": 6858,
+          "historical_path": "inputs/sources/RX/candidate.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-P/eq:jacobian",
+          "source_key": "RX-P",
+          "path": "inputs/sources/RX/power.tex",
+          "locator": "eq:jacobian",
+          "line": 4,
+          "line_text": "\\begin{equation}\\label{eq:jacobian}",
+          "sha256": "2d302fb32d0a5e825ae4929e7cc1e7aceb4772937cc5457bed951e717a2cfc89",
+          "bytes": 3133,
+          "historical_path": "inputs/sources/RX/power.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-P/eq:localwork",
+          "source_key": "RX-P",
+          "path": "inputs/sources/RX/power.tex",
+          "locator": "eq:localwork",
+          "line": 24,
+          "line_text": "\\begin{equation}\\label{eq:localwork}",
+          "sha256": "2d302fb32d0a5e825ae4929e7cc1e7aceb4772937cc5457bed951e717a2cfc89",
+          "bytes": 3133,
+          "historical_path": "inputs/sources/RX/power.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-P/eq:balances",
+          "source_key": "RX-P",
+          "path": "inputs/sources/RX/power.tex",
+          "locator": "eq:balances",
+          "line": 28,
+          "line_text": "\\begin{equation}\\label{eq:balances}",
+          "sha256": "2d302fb32d0a5e825ae4929e7cc1e7aceb4772937cc5457bed951e717a2cfc89",
+          "bytes": 3133,
+          "historical_path": "inputs/sources/RX/power.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-A/eq:baselinewindow",
+          "source_key": "RX-A",
+          "path": "inputs/sources/RX/accounts.tex",
+          "locator": "eq:baselinewindow",
+          "line": 19,
+          "line_text": "\\begin{equation}\\label{eq:baselinewindow}",
+          "sha256": "b681f113ce3e484b35674212ceec4ab42ccb1ac13d8d5b306bf2e92f7c2e60ad",
+          "bytes": 4490,
+          "historical_path": "inputs/sources/RX/accounts.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-A/eq:windowbalances",
+          "source_key": "RX-A",
+          "path": "inputs/sources/RX/accounts.tex",
+          "locator": "eq:windowbalances",
+          "line": 24,
+          "line_text": "\\begin{equation}\\label{eq:windowbalances}",
+          "sha256": "b681f113ce3e484b35674212ceec4ab42ccb1ac13d8d5b306bf2e92f7c2e60ad",
+          "bytes": 4490,
+          "historical_path": "inputs/sources/RX/accounts.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-H/eq:tuple",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:tuple",
+          "line": 3,
+          "line_text": "\\begin{equation}\\label{eq:tuple}",
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+          "bytes": 7084,
+          "historical_path": "inputs/sources/RX/hybrid.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-H/eq:nativemap",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:nativemap",
+          "line": 12,
+          "line_text": " &F_i(\\Omega)&=e^{i\\delta_i}\\widetilde\\Omega_i.\\label{eq:nativemap}",
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+          "bytes": 7084,
+          "historical_path": "inputs/sources/RX/hybrid.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-H/eq:hybrid",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:hybrid",
+          "line": 32,
+          "line_text": "\\begin{equation}\\label{eq:hybrid}",
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+          "bytes": 7084,
+          "historical_path": "inputs/sources/RX/hybrid.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-H/eq:hybridbalance",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:hybridbalance",
+          "line": 36,
+          "line_text": "\\begin{equation}\\label{eq:hybridbalance}",
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+          "bytes": 7084,
+          "historical_path": "inputs/sources/RX/hybrid.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CAD/limits",
+          "source_key": "CAD",
+          "path": "inputs/accepted/cadence/CORRECTIONS_AND_LIMITS.md",
+          "locator": "limits",
+          "line": 27,
+          "line_text": "## Remaining gaps",
+          "sha256": "5689a7ebf5daa8d863f8ab16dc7844a4481849f3fa010e5cb696d4cec1e1a0ad",
+          "bytes": 3472,
+          "historical_path": "inputs/accepted/cadence/CORRECTIONS_AND_LIMITS.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CAD/status",
+          "source_key": "CAD",
+          "path": "inputs/accepted/cadence/CADENCE_STATUS.md",
+          "locator": "status",
+          "line": 1,
+          "line_text": "# Native stepping and exchange cadence: current status",
+          "sha256": "a88965174b44879d736c294de34fec2e44e18f65ffd190b7f6a6f0dfea30fa0c",
+          "bytes": 2919,
+          "historical_path": "inputs/accepted/cadence/CADENCE_STATUS.md",
+          "current_line_and_hash_verified": true
+        }
+      ],
+      "candidate_equations_changed": false
+    },
+    {
+      "id": "T01",
+      "title": "Bounded spatial factorization and Gram operator",
+      "accepted_status": "accepted-as-stated",
+      "hypotheses": [
+        "Fixed admitted static geometry and common width",
+        "Positive bounded delay and accepted G clearance",
+        "Arclength product metric and ambient tangent encoding"
+      ],
+      "limits": [
+        "Fixed positive bounded geometry and mathematical product measures.",
+        "C need not be contractive; CC* need not be invertible.",
+        "Spatial C* is not W temporal K_G*."
+      ],
+      "manuscript_locations": [
+        {
+          "label": "prop:factorization",
+          "number": "5.1",
+          "page": 10,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 12,
+          "line_text": "\\begin{proposition}[Exact spatial factorization]\\label{prop:factorization}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:J",
+          "number": "5.1",
+          "page": 10,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 8,
+          "line_text": "(J^*v)(s)&=\\frac1{\\sqrt M}\\int_Gv(s,X)\\dd\\ell_X,\\label{eq:J}\\\\",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:Cspatial",
+          "number": "5.2",
+          "page": 10,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 10,
+          "line_text": "(C^*\\zeta)(s,X)&=\\frac{a_o\\sqrt M}{d_X(s)}A_s^*\\zeta(X).\\label{eq:Cspatial}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:factorization",
+          "number": "5.3",
+          "page": 10,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 14,
+          "line_text": "\\begin{equation}\\label{eq:factorization}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:Gram",
+          "number": "5.4",
+          "page": 11,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 18,
+          "line_text": "\\begin{equation}\\label{eq:Gram}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:scalarGram",
+          "number": "5.5",
+          "page": 11,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 29,
+          "line_text": "\\begin{equation}\\label{eq:scalarGram}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        }
+      ],
+      "controlling_proof": {
+        "path": "inputs/accepted/causal_transport/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_PROOF_REVIEW.md",
+        "section": "R1",
+        "start_line": 47,
+        "end_line": 96,
+        "sha256": "1d88714a424c6e559a8087ac22de2ee80e492aac7a8ed9227712a5885a80cd6a",
+        "span_sha256": "c0eb740644ab3ddb5cd04d717575f145f6b33d650c05c8a6250ea3010903ff94"
+      },
+      "current_acceptance": [
+        {
+          "path": "inputs/accepted/causal_transport/GPT_ACCEPTANCE.json",
+          "sha256": "63a315d1429f17201b25ea8c901c063d204894814c077d967b51502f95516da1"
+        },
+        {
+          "path": "inputs/accepted/causal_transport/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_REVIEW.md",
+          "sha256": "7079c4fe2f861bc48db9b8debbd7a622c51e642340bcfb87c377373f816c71cc"
+        }
+      ],
+      "retained_equation_source_locations": [
+        {
+          "id": "NEW/N1",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N1",
+          "line": 32,
+          "line_text": "\\tag{N1}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N2",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N2",
+          "line": 65,
+          "line_text": "\\tag{N2}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N3",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N3",
+          "line": 74,
+          "line_text": "\\tag{N3}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N4",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N4",
+          "line": 82,
+          "line_text": "\\tag{N4}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N5",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N5",
+          "line": 91,
+          "line_text": "\\tag{N5}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N6",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N6",
+          "line": 101,
+          "line_text": "\\tag{N6}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "W/R1",
+          "source_key": "W",
+          "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "locator": "R1",
+          "line": 41,
+          "line_text": "## R1. W01: actual arcs, ball bound, arclength and history horizon",
+          "bytes": 31884,
+          "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18",
+          "historical_path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "W/R2",
+          "source_key": "W",
+          "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "locator": "R2",
+          "line": 138,
+          "line_text": "## R2. W02: bounded history operator, causality and point records",
+          "bytes": 31884,
+          "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18",
+          "historical_path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-C/eq:C6",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:C6",
+          "line": 69,
+          "line_text": " &Y_X&=(U,B^TV_{\\rm ext}).\\label{eq:C6}",
+          "bytes": 6338,
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "historical_path": "inputs/sources/CC/carrier.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-G/eq:vertices",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:vertices",
+          "line": 18,
+          "line_text": " U_k&=(r_gn_k^{\\rm geom},H_0),&L_k&=(r_gA_\\tau n_k^{\\rm geom},-H_0).\\label{eq:vertices}",
+          "bytes": 8272,
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "historical_path": "inputs/sources/CC/geometry.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-G/eq:G",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:G",
+          "line": 21,
+          "line_text": "\\begin{equation}\\label{eq:G}",
+          "bytes": 8272,
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "historical_path": "inputs/sources/CC/geometry.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-G/eq:circleconstants",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:circleconstants",
+          "line": 60,
+          "line_text": "\\begin{equation}\\label{eq:circleconstants}",
+          "bytes": 8272,
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "historical_path": "inputs/sources/CC/geometry.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-G/eq:circle",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:circle",
+          "line": 67,
+          "line_text": " &\\hat t&=-\\sin\\chi\\,u+\\cos\\chi\\,e_z,\\quad\\chi=s/R_c,\\label{eq:circle}\\\\",
+          "bytes": 8272,
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "historical_path": "inputs/sources/CC/geometry.tex",
+          "current_line_and_hash_verified": true
+        }
+      ],
+      "candidate_equations_changed": false
+    },
+    {
+      "id": "T02",
+      "title": "Causal transport state, time traces and positive storage",
+      "accepted_status": "accepted-as-stated",
+      "hypotheses": [
+        "Two proposed signals on 0<xi<theta(s,X)",
+        "Finite-energy initial profiles",
+        "Locally L2 incoming boundary histories"
+      ],
+      "limits": [
+        "Time-integrated a.e. traces only for general L2 data.",
+        "No corner compatibility, ambient route or delay derivative assumed."
+      ],
+      "manuscript_locations": [
+        {
+          "label": "lem:transport",
+          "number": "5.2",
+          "page": 11,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 53,
+          "line_text": "\\begin{lemma}[Characteristics, traces and transport work]\\label{lem:transport}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:lineSpace",
+          "number": "5.6",
+          "page": 11,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 41,
+          "line_text": "\\begin{equation}\\label{eq:lineSpace}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:transportPDE",
+          "number": "5.7",
+          "page": 11,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 46,
+          "line_text": "\\begin{equation}\\label{eq:transportPDE}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:charplus",
+          "number": "5.8",
+          "page": 11,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 58,
+          "line_text": "\\end{cases}\\label{eq:charplus}\\\\",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:charminus",
+          "number": "5.9",
+          "page": 11,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 62,
+          "line_text": "\\end{cases}\\label{eq:charminus}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:cstartup",
+          "number": "5.10",
+          "page": 11,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 66,
+          "line_text": "c&=\\ii_{0\\le t<\\theta}u_{+,0}(s,X,\\theta-t)+\\ii_{t\\ge\\theta}a(s,X,t-\\theta),\\label{eq:cstartup}\\\\",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:bstartup",
+          "number": "5.11",
+          "page": 11,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 67,
+          "line_text": "b&=\\ii_{0\\le t<\\theta}u_{-,0}(s,X,t)+\\ii_{t\\ge\\theta}d(s,X,t-\\theta).\\label{eq:bstartup}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:Etr",
+          "number": "5.12",
+          "page": 11,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 71,
+          "line_text": "E_{\\rm tr}(t)&=\\frac12\\int_\\Lambda\\int_0^\\theta(|u_+|^2+|u_-|^2)\\dd\\xi\\dd\\mu\\ge0,\\label{eq:Etr}\\\\",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:portpowers",
+          "number": "5.13",
+          "page": 11,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 73,
+          "line_text": "P_G&=\\tfrac12(\\norm c_V^2-\\norm d_V^2),\\label{eq:portpowers}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:linebalance",
+          "number": "5.14",
+          "page": 11,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 76,
+          "line_text": "\\begin{equation}\\label{eq:linebalance}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:tracebounds",
+          "number": "5.15",
+          "page": 12,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 86,
+          "line_text": "\\int_0^H\\norm{b(t)}_V^2\\dd t&\\le\\norm{u_{-,0}}_{L^2(\\Dcal)}^2+\\int_0^H\\norm{d(t)}_V^2\\dd t.\\label{eq:tracebounds}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:fiberenergy",
+          "number": "5.16",
+          "page": 12,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 93,
+          "line_text": "\\begin{equation}\\label{eq:fiberenergy}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        }
+      ],
+      "controlling_proof": {
+        "path": "inputs/accepted/causal_transport/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_PROOF_REVIEW.md",
+        "section": "R2",
+        "start_line": 97,
+        "end_line": 173,
+        "sha256": "1d88714a424c6e559a8087ac22de2ee80e492aac7a8ed9227712a5885a80cd6a",
+        "span_sha256": "06b8f7068fa12b066b11286ea1e8efa9ab58b6106c0d35ce5d76fb403e516902"
+      },
+      "current_acceptance": [
+        {
+          "path": "inputs/accepted/causal_transport/GPT_ACCEPTANCE.json",
+          "sha256": "63a315d1429f17201b25ea8c901c063d204894814c077d967b51502f95516da1"
+        },
+        {
+          "path": "inputs/accepted/causal_transport/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_REVIEW.md",
+          "sha256": "7079c4fe2f861bc48db9b8debbd7a622c51e642340bcfb87c377373f816c71cc"
+        }
+      ],
+      "retained_equation_source_locations": [
+        {
+          "id": "NEW/N7",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N7",
+          "line": 126,
+          "line_text": "\\tag{N7}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N8",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N8",
+          "line": 151,
+          "line_text": "\\tag{N8}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N9",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N9",
+          "line": 161,
+          "line_text": "\\tag{N9}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N10",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N10",
+          "line": 171,
+          "line_text": "\\tag{N10}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N11",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N11",
+          "line": 185,
+          "line_text": "\\tag{N11}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N1",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N1",
+          "line": 32,
+          "line_text": "\\tag{N1}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "W/R1",
+          "source_key": "W",
+          "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "locator": "R1",
+          "line": 41,
+          "line_text": "## R1. W01: actual arcs, ball bound, arclength and history horizon",
+          "bytes": 31884,
+          "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18",
+          "historical_path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "current_line_and_hash_verified": true
+        }
+      ],
+      "candidate_equations_changed": false
+    },
+    {
+      "id": "T03",
+      "title": "Closed coupled equations and augmented conservation",
+      "accepted_status": "accepted-as-stated",
+      "hypotheses": [
+        "Retained RX x/z/source/profile equations",
+        "Declared added carrier force",
+        "New kappa>=0 and beta_G>0",
+        "New G-indexed receiving metric and transport stock"
+      ],
+      "limits": [
+        "Declared new stocks and coefficients, not inherited physical calibration.",
+        "Old z and new zeta counted separately; receiving need not be monotone."
+      ],
+      "manuscript_locations": [
+        {
+          "label": "eq:closedmodel",
+          "number": "5.17",
+          "page": 12,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 105,
+          "line_text": "\\begin{equation}\\label{eq:closedmodel}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:effortflow",
+          "number": "5.18",
+          "page": 12,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 115,
+          "line_text": "\\begin{equation}\\label{eq:effortflow}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:augmentedstocks",
+          "number": "5.19",
+          "page": 13,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 120,
+          "line_text": "\\begin{equation}\\label{eq:augmentedstocks}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:componentpowers",
+          "number": "5.20",
+          "page": 13,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 126,
+          "line_text": "\\begin{equation}\\label{eq:componentpowers}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:conservation",
+          "number": "6.2",
+          "page": 14,
+          "path": "candidate/v0.1/sections/06_evolution.tex",
+          "line": 13,
+          "line_text": "\\begin{equation}\\label{eq:conservation}",
+          "sha256": "ccab3458df895b8e1fe4983856bf669d9de762925a6b20bda784b7e1f5f7b665"
+        },
+        {
+          "label": "rem:nonmonotone",
+          "number": "6.2",
+          "page": 15,
+          "path": "candidate/v0.1/sections/06_evolution.tex",
+          "line": 81,
+          "line_text": "\\begin{remark}[Receiving is reversible]\\label{rem:nonmonotone}",
+          "sha256": "ccab3458df895b8e1fe4983856bf669d9de762925a6b20bda784b7e1f5f7b665"
+        },
+        {
+          "label": "fig:channel",
+          "number": "1",
+          "page": 13,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 134,
+          "line_text": "\\caption{Abstract state connection for a representative channel label $(s,X)$. The near and far powers are sums over the product measure, not physical aperture fluxes. C mixes carrier labels at each X; the receiving field is not six independent point receivers. The coordinate $\\xi$ is time/age, and the diagram specifies no ambient curved route.}\\label{fig:channel}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        },
+        {
+          "label": "eq:units",
+          "number": "A.1",
+          "page": 22,
+          "path": "candidate/v0.1/sections/10_appendices.tex",
+          "line": 35,
+          "line_text": "[\\FF]&=\\mathsf U\\mathsf T^{-1},\\label{eq:units}\\\\",
+          "sha256": "6d1ba2787c7661b45db214df5f2ad9b8480f1b81dbd0e94dc33ff7838636857b"
+        }
+      ],
+      "controlling_proof": {
+        "path": "inputs/accepted/causal_transport/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_PROOF_REVIEW.md",
+        "section": "R3",
+        "start_line": 174,
+        "end_line": 245,
+        "sha256": "1d88714a424c6e559a8087ac22de2ee80e492aac7a8ed9227712a5885a80cd6a",
+        "span_sha256": "c4c5710afb859ef5408462855ad1bb58d7d2c2715a2934d45ecbebf9f5e50fc0"
+      },
+      "current_acceptance": [
+        {
+          "path": "inputs/accepted/causal_transport/GPT_ACCEPTANCE.json",
+          "sha256": "63a315d1429f17201b25ea8c901c063d204894814c077d967b51502f95516da1"
+        },
+        {
+          "path": "inputs/accepted/causal_transport/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_REVIEW.md",
+          "sha256": "7079c4fe2f861bc48db9b8debbd7a622c51e642340bcfb87c377373f816c71cc"
+        }
+      ],
+      "retained_equation_source_locations": [
+        {
+          "id": "NEW/N12",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N12",
+          "line": 215,
+          "line_text": "\\tag{N12}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N13",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N13",
+          "line": 227,
+          "line_text": "\\tag{N13}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N14",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N14",
+          "line": 234,
+          "line_text": "\\tag{N14}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-C/eq:drive",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:drive",
+          "line": 28,
+          "line_text": "\\begin{equation}\\label{eq:drive}",
+          "bytes": 6858,
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5",
+          "historical_path": "inputs/sources/RX/candidate.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-C/eq:tents",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:tents",
+          "line": 37,
+          "line_text": "\\begin{equation}\\label{eq:tents}",
+          "bytes": 6858,
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5",
+          "historical_path": "inputs/sources/RX/candidate.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-C/eq:ports",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:ports",
+          "line": 43,
+          "line_text": "\\begin{equation}\\label{eq:ports}",
+          "bytes": 6858,
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5",
+          "historical_path": "inputs/sources/RX/candidate.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-C/eq:storages",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:storages",
+          "line": 48,
+          "line_text": "\\begin{equation}\\label{eq:storages}",
+          "bytes": 6858,
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5",
+          "historical_path": "inputs/sources/RX/candidate.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-C/eq:system",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:system",
+          "line": 57,
+          "line_text": "\\begin{equation}\\label{eq:system}",
+          "bytes": 6858,
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5",
+          "historical_path": "inputs/sources/RX/candidate.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-P/eq:jacobian",
+          "source_key": "RX-P",
+          "path": "inputs/sources/RX/power.tex",
+          "locator": "eq:jacobian",
+          "line": 4,
+          "line_text": "\\begin{equation}\\label{eq:jacobian}",
+          "bytes": 3133,
+          "sha256": "2d302fb32d0a5e825ae4929e7cc1e7aceb4772937cc5457bed951e717a2cfc89",
+          "historical_path": "inputs/sources/RX/power.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-P/eq:localwork",
+          "source_key": "RX-P",
+          "path": "inputs/sources/RX/power.tex",
+          "locator": "eq:localwork",
+          "line": 24,
+          "line_text": "\\begin{equation}\\label{eq:localwork}",
+          "bytes": 3133,
+          "sha256": "2d302fb32d0a5e825ae4929e7cc1e7aceb4772937cc5457bed951e717a2cfc89",
+          "historical_path": "inputs/sources/RX/power.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-P/eq:balances",
+          "source_key": "RX-P",
+          "path": "inputs/sources/RX/power.tex",
+          "locator": "eq:balances",
+          "line": 28,
+          "line_text": "\\begin{equation}\\label{eq:balances}",
+          "bytes": 3133,
+          "sha256": "2d302fb32d0a5e825ae4929e7cc1e7aceb4772937cc5457bed951e717a2cfc89",
+          "historical_path": "inputs/sources/RX/power.tex",
+          "current_line_and_hash_verified": true
+        }
+      ],
+      "candidate_equations_changed": false
+    },
+    {
+      "id": "T04",
+      "title": "Global forward mild energy-space solution",
+      "accepted_status": "accepted-as-stated",
+      "hypotheses": [
+        "Fixed positive theta_-",
+        "Finite energy in the stated product Hilbert space",
+        "Retained locally Lipschitz RX nonlinearity and bounded spatial maps"
+      ],
+      "limits": [
+        "Fixed positive minimum delay and fixed finite allowed parameters.",
+        "Forward mild energy-space result, not global H1 or backward flow.",
+        "Finite-horizon dependence on bounded energy sets, no zero-delay uniformity.",
+        "Conservation follows component identities; it is not assumed to obtain local existence."
+      ],
+      "manuscript_locations": [
+        {
+          "label": "thm:global",
+          "number": "6.1",
+          "page": 14,
+          "path": "candidate/v0.1/sections/06_evolution.tex",
+          "line": 11,
+          "line_text": "\\begin{theorem}[Forward energy-space dynamics]\\label{thm:global}",
+          "sha256": "ccab3458df895b8e1fe4983856bf669d9de762925a6b20bda784b7e1f5f7b665"
+        },
+        {
+          "label": "eq:fullspace",
+          "number": "6.1",
+          "page": 13,
+          "path": "candidate/v0.1/sections/06_evolution.tex",
+          "line": 6,
+          "line_text": "\\begin{equation}\\label{eq:fullspace}",
+          "sha256": "ccab3458df895b8e1fe4983856bf669d9de762925a6b20bda784b7e1f5f7b665"
+        },
+        {
+          "label": "eq:localLipschitz",
+          "number": "6.3",
+          "page": 14,
+          "path": "candidate/v0.1/sections/06_evolution.tex",
+          "line": 26,
+          "line_text": "\\begin{equation}\\label{eq:localLipschitz}",
+          "sha256": "ccab3458df895b8e1fe4983856bf669d9de762925a6b20bda784b7e1f5f7b665"
+        },
+        {
+          "label": "eq:newduhamel",
+          "number": "6.4",
+          "page": 14,
+          "path": "candidate/v0.1/sections/06_evolution.tex",
+          "line": 32,
+          "line_text": "\\begin{equation}\\label{eq:newduhamel}",
+          "sha256": "ccab3458df895b8e1fe4983856bf669d9de762925a6b20bda784b7e1f5f7b665"
+        },
+        {
+          "label": "eq:zetaVOC",
+          "number": "6.5",
+          "page": 14,
+          "path": "candidate/v0.1/sections/06_evolution.tex",
+          "line": 39,
+          "line_text": "\\begin{equation}\\label{eq:zetaVOC}",
+          "sha256": "ccab3458df895b8e1fe4983856bf669d9de762925a6b20bda784b7e1f5f7b665"
+        },
+        {
+          "label": "eq:interactionderivative",
+          "number": "6.6",
+          "page": 14,
+          "path": "candidate/v0.1/sections/06_evolution.tex",
+          "line": 47,
+          "line_text": "\\begin{equation}\\label{eq:interactionderivative}",
+          "sha256": "ccab3458df895b8e1fe4983856bf669d9de762925a6b20bda784b7e1f5f7b665"
+        },
+        {
+          "label": "eq:slabenergy",
+          "number": "6.7",
+          "page": 15,
+          "path": "candidate/v0.1/sections/06_evolution.tex",
+          "line": 51,
+          "line_text": "\\begin{equation}\\label{eq:slabenergy}",
+          "sha256": "ccab3458df895b8e1fe4983856bf669d9de762925a6b20bda784b7e1f5f7b665"
+        },
+        {
+          "label": "eq:conservation",
+          "number": "6.2",
+          "page": 14,
+          "path": "candidate/v0.1/sections/06_evolution.tex",
+          "line": 13,
+          "line_text": "\\begin{equation}\\label{eq:conservation}",
+          "sha256": "ccab3458df895b8e1fe4983856bf669d9de762925a6b20bda784b7e1f5f7b665"
+        },
+        {
+          "label": "eq:dependence",
+          "number": "6.8",
+          "page": 15,
+          "path": "candidate/v0.1/sections/06_evolution.tex",
+          "line": 68,
+          "line_text": "+\\frac{\\sqrt{2h}\\norm C}{\\beta_G}\\norm{\\Delta c}_{L^2([r,r+h];V)}.\\label{eq:dependence}",
+          "sha256": "ccab3458df895b8e1fe4983856bf669d9de762925a6b20bda784b7e1f5f7b665"
+        },
+        {
+          "label": "eq:lineDifference",
+          "number": "6.9",
+          "page": 15,
+          "path": "candidate/v0.1/sections/06_evolution.tex",
+          "line": 71,
+          "line_text": "\\begin{equation}\\label{eq:lineDifference}",
+          "sha256": "ccab3458df895b8e1fe4983856bf669d9de762925a6b20bda784b7e1f5f7b665"
+        }
+      ],
+      "controlling_proof": {
+        "path": "inputs/accepted/causal_transport/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_PROOF_REVIEW.md",
+        "section": "R4",
+        "start_line": 246,
+        "end_line": 312,
+        "sha256": "1d88714a424c6e559a8087ac22de2ee80e492aac7a8ed9227712a5885a80cd6a",
+        "span_sha256": "b4c053b4b62bc9e4e78c8f6583df8e72c2bdcf98278dd12ee5604775277ea162"
+      },
+      "current_acceptance": [
+        {
+          "path": "inputs/accepted/causal_transport/GPT_ACCEPTANCE.json",
+          "sha256": "63a315d1429f17201b25ea8c901c063d204894814c077d967b51502f95516da1"
+        },
+        {
+          "path": "inputs/accepted/causal_transport/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_REVIEW.md",
+          "sha256": "7079c4fe2f861bc48db9b8debbd7a622c51e642340bcfb87c377373f816c71cc"
+        }
+      ],
+      "retained_equation_source_locations": [
+        {
+          "id": "NEW/N1",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N1",
+          "line": 32,
+          "line_text": "\\tag{N1}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N12",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N12",
+          "line": 215,
+          "line_text": "\\tag{N12}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N15",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N15",
+          "line": 266,
+          "line_text": "\\tag{N15}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-W/eq:profilenorms",
+          "source_key": "RX-W",
+          "path": "inputs/sources/RX/wellposed.tex",
+          "locator": "eq:profilenorms",
+          "line": 19,
+          "line_text": "\\begin{equation}\\label{eq:profilenorms}",
+          "bytes": 7306,
+          "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895",
+          "historical_path": "inputs/sources/RX/wellposed.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-W/eq:lipschitzbounds",
+          "source_key": "RX-W",
+          "path": "inputs/sources/RX/wellposed.tex",
+          "locator": "eq:lipschitzbounds",
+          "line": 35,
+          "line_text": "\\begin{equation}\\label{eq:lipschitzbounds}",
+          "bytes": 7306,
+          "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895",
+          "historical_path": "inputs/sources/RX/wellposed.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-W/eq:energynorm",
+          "source_key": "RX-W",
+          "path": "inputs/sources/RX/wellposed.tex",
+          "locator": "eq:energynorm",
+          "line": 28,
+          "line_text": "\\begin{equation}\\label{eq:energynorm}",
+          "bytes": 7306,
+          "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895",
+          "historical_path": "inputs/sources/RX/wellposed.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-W/eq:duhamel",
+          "source_key": "RX-W",
+          "path": "inputs/sources/RX/wellposed.tex",
+          "locator": "eq:duhamel",
+          "line": 40,
+          "line_text": "\\begin{equation}\\label{eq:duhamel}",
+          "bytes": 7306,
+          "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895",
+          "historical_path": "inputs/sources/RX/wellposed.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-W/eq:dependence",
+          "source_key": "RX-W",
+          "path": "inputs/sources/RX/wellposed.tex",
+          "locator": "eq:dependence",
+          "line": 46,
+          "line_text": "\\begin{equation}\\label{eq:dependence}",
+          "bytes": 7306,
+          "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895",
+          "historical_path": "inputs/sources/RX/wellposed.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-W/eq:H1estimate",
+          "source_key": "RX-W",
+          "path": "inputs/sources/RX/wellposed.tex",
+          "locator": "eq:H1estimate",
+          "line": 56,
+          "line_text": "\\begin{equation}\\label{eq:H1estimate}",
+          "bytes": 7306,
+          "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895",
+          "historical_path": "inputs/sources/RX/wellposed.tex",
+          "current_line_and_hash_verified": true
+        }
+      ],
+      "candidate_equations_changed": false
+    },
+    {
+      "id": "T05",
+      "title": "Exact C6 direct term with startup and return",
+      "accepted_status": "accepted-as-stated",
+      "hypotheses": [
+        "Arbitrary line initial data for N16",
+        "Explicit compatible complete histories for N17",
+        "Original C6 kept distinct from loaded receiving field"
+      ],
+      "limits": [
+        "Arbitrary profiles retain the positive startup term.",
+        "Complete-history identity requires near-law and profile compatibility on negative times.",
+        "Direct C6 term is not the complete loaded drive.",
+        "Line preparation energy is not W signed prehistory work."
+      ],
+      "manuscript_locations": [
+        {
+          "label": "eq:delayplus",
+          "number": "7.1",
+          "page": 16,
+          "path": "candidate/v0.1/sections/07_preparation.tex",
+          "line": 6,
+          "line_text": "\\begin{equation}\\label{eq:delayplus}",
+          "sha256": "6616a12d6062930111c5fb78fadfbcc8ac0d90fc204ca0a8199afe4e6549274b"
+        },
+        {
+          "label": "eq:loadedC6",
+          "number": "7.2",
+          "page": 16,
+          "path": "candidate/v0.1/sections/07_preparation.tex",
+          "line": 13,
+          "line_text": "\\begin{equation}\\label{eq:loadedC6}",
+          "sha256": "6616a12d6062930111c5fb78fadfbcc8ac0d90fc204ca0a8199afe4e6549274b"
+        },
+        {
+          "label": "prop:completehistory",
+          "number": "7.1",
+          "page": 16,
+          "path": "candidate/v0.1/sections/07_preparation.tex",
+          "line": 22,
+          "line_text": "\\begin{proposition}[Compatible complete histories]\\label{prop:completehistory}",
+          "sha256": "6616a12d6062930111c5fb78fadfbcc8ac0d90fc204ca0a8199afe4e6549274b"
+        },
+        {
+          "label": "eq:historycompatibility",
+          "number": "7.3",
+          "page": 16,
+          "path": "candidate/v0.1/sections/07_preparation.tex",
+          "line": 24,
+          "line_text": "\\begin{equation}\\label{eq:historycompatibility}",
+          "sha256": "6616a12d6062930111c5fb78fadfbcc8ac0d90fc204ca0a8199afe4e6549274b"
+        },
+        {
+          "label": "eq:completeC6",
+          "number": "7.4",
+          "page": 16,
+          "path": "candidate/v0.1/sections/07_preparation.tex",
+          "line": 29,
+          "line_text": "\\begin{equation}\\label{eq:completeC6}",
+          "sha256": "6616a12d6062930111c5fb78fadfbcc8ac0d90fc204ca0a8199afe4e6549274b"
+        }
+      ],
+      "controlling_proof": {
+        "path": "inputs/accepted/causal_transport/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_PROOF_REVIEW.md",
+        "section": "R5",
+        "start_line": 313,
+        "end_line": 348,
+        "sha256": "1d88714a424c6e559a8087ac22de2ee80e492aac7a8ed9227712a5885a80cd6a",
+        "span_sha256": "ba700aa004eacac8453ccfccdff152aceaadfe93c1b82ab5d00e4db9e0823077"
+      },
+      "current_acceptance": [
+        {
+          "path": "inputs/accepted/causal_transport/GPT_ACCEPTANCE.json",
+          "sha256": "63a315d1429f17201b25ea8c901c063d204894814c077d967b51502f95516da1"
+        },
+        {
+          "path": "inputs/accepted/causal_transport/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_REVIEW.md",
+          "sha256": "7079c4fe2f861bc48db9b8debbd7a622c51e642340bcfb87c377373f816c71cc"
+        }
+      ],
+      "retained_equation_source_locations": [
+        {
+          "id": "NEW/N16",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N16",
+          "line": 297,
+          "line_text": "\\tag{N16}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N17",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N17",
+          "line": 309,
+          "line_text": "\\tag{N17}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-C/eq:C6",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:C6",
+          "line": 69,
+          "line_text": " &Y_X&=(U,B^TV_{\\rm ext}).\\label{eq:C6}",
+          "bytes": 6338,
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "historical_path": "inputs/sources/CC/carrier.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "W/R2",
+          "source_key": "W",
+          "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "locator": "R2",
+          "line": 138,
+          "line_text": "## R2. W02: bounded history operator, causality and point records",
+          "bytes": 31884,
+          "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18",
+          "historical_path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "W/R3",
+          "source_key": "W",
+          "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "locator": "R3",
+          "line": 204,
+          "line_text": "## R3. W03: finite-window adjoint and its advanced part",
+          "bytes": 31884,
+          "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18",
+          "historical_path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "W/R5",
+          "source_key": "W",
+          "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "locator": "R5",
+          "line": 277,
+          "line_text": "## R5. W05: conditional added work, native jumps and prehistory residual",
+          "bytes": 31884,
+          "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18",
+          "historical_path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+          "current_line_and_hash_verified": true
+        }
+      ],
+      "candidate_equations_changed": false
+    },
+    {
+      "id": "T06",
+      "title": "Finite native hybrid and exact zero-coupling limit",
+      "accepted_status": "accepted-as-stated",
+      "hypotheses": [
+        "Original native map/tuple/zero convention",
+        "Only x jumps",
+        "Post-jump endpoints",
+        "Fixed positive symbolic dwell and finite step count"
+      ],
+      "limits": [
+        "Finite iterates and correct post-jump baseline count only.",
+        "No uniform infinite-step bound or singular-prestage continuity.",
+        "Zero coupling recovers RX for arbitrary added preparation.",
+        "D01: emptiness sufficient, not necessary, for inactivity.",
+        "Old trajectory-dependent theorems require new hypothesis checks at positive coupling."
+      ],
+      "manuscript_locations": [
+        {
+          "label": "sec:native",
+          "number": "7.2",
+          "page": 16,
+          "path": "candidate/v0.1/sections/07_preparation.tex",
+          "line": 41,
+          "line_text": "\\subsection{The unchanged native map and finite hybrid}\\label{sec:native}",
+          "sha256": "6616a12d6062930111c5fb78fadfbcc8ac0d90fc204ca0a8199afe4e6549274b"
+        },
+        {
+          "label": "eq:nativetuple",
+          "number": "7.5",
+          "page": 16,
+          "path": "candidate/v0.1/sections/07_preparation.tex",
+          "line": 43,
+          "line_text": "\\begin{equation}\\label{eq:nativetuple}",
+          "sha256": "6616a12d6062930111c5fb78fadfbcc8ac0d90fc204ca0a8199afe4e6549274b"
+        },
+        {
+          "label": "eq:prestage",
+          "number": "7.6",
+          "page": 17,
+          "path": "candidate/v0.1/sections/07_preparation.tex",
+          "line": 50,
+          "line_text": "+g\\sum_{j\\ne i}(\\Omega_j-\\Omega_i),\\label{eq:prestage}\\\\",
+          "sha256": "6616a12d6062930111c5fb78fadfbcc8ac0d90fc204ca0a8199afe4e6549274b"
+        },
+        {
+          "label": "eq:nativemap",
+          "number": "7.7",
+          "page": 17,
+          "path": "candidate/v0.1/sections/07_preparation.tex",
+          "line": 52,
+          "line_text": "&\\Fn(\\Omega)_i&=e^{i\\delta_i}\\widetilde\\Omega_i.\\label{eq:nativemap}",
+          "sha256": "6616a12d6062930111c5fb78fadfbcc8ac0d90fc204ca0a8199afe4e6549274b"
+        },
+        {
+          "label": "prop:hybrid",
+          "number": "7.2",
+          "page": 17,
+          "path": "candidate/v0.1/sections/07_preparation.tex",
+          "line": 58,
+          "line_text": "\\begin{proposition}[Finite native-step account]\\label{prop:hybrid}",
+          "sha256": "6616a12d6062930111c5fb78fadfbcc8ac0d90fc204ca0a8199afe4e6549274b"
+        },
+        {
+          "label": "eq:hybridbalance",
+          "number": "7.8",
+          "page": 17,
+          "path": "candidate/v0.1/sections/07_preparation.tex",
+          "line": 60,
+          "line_text": "\\begin{equation}\\label{eq:hybridbalance}",
+          "sha256": "6616a12d6062930111c5fb78fadfbcc8ac0d90fc204ca0a8199afe4e6549274b"
+        },
+        {
+          "label": "rem:D01",
+          "number": "7.3",
+          "page": 17,
+          "path": "candidate/v0.1/sections/07_preparation.tex",
+          "line": 75,
+          "line_text": "\\begin{remark}[Stationary nonempty preparation; D01]\\label{rem:D01}",
+          "sha256": "6616a12d6062930111c5fb78fadfbcc8ac0d90fc204ca0a8199afe4e6549274b"
+        }
+      ],
+      "controlling_proof": {
+        "path": "inputs/accepted/causal_transport/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_PROOF_REVIEW.md",
+        "section": "R6",
+        "start_line": 349,
+        "end_line": 389,
+        "sha256": "1d88714a424c6e559a8087ac22de2ee80e492aac7a8ed9227712a5885a80cd6a",
+        "span_sha256": "649d0255e65b5a19e974a0ae5641c421f02c1e5d65576a40209447d6b68cf39c"
+      },
+      "current_acceptance": [
+        {
+          "path": "inputs/accepted/causal_transport/GPT_ACCEPTANCE.json",
+          "sha256": "63a315d1429f17201b25ea8c901c063d204894814c077d967b51502f95516da1"
+        },
+        {
+          "path": "inputs/accepted/causal_transport/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_REVIEW.md",
+          "sha256": "7079c4fe2f861bc48db9b8debbd7a622c51e642340bcfb87c377373f816c71cc"
+        }
+      ],
+      "retained_equation_source_locations": [
+        {
+          "id": "NEW/N18",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N18",
+          "line": 326,
+          "line_text": "\\tag{N18}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "ORDER/D01",
+          "source_key": "ORDER",
+          "path": "provenance/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_CODEX_WORK_ORDER.md",
+          "locator": "D01",
+          "line": 82,
+          "line_text": "At kappa=0 the original RX system must be recovered even for nonempty added-state preparation; the separated transport/receiving subsystem can still evolve from its own energy. Zero new activity also requires empty new states. At kappa>0, the carrier force changes the trajectory, so old RX capacity, credit, convergence and receiving theorems require a new hypothesis check before reuse.",
+          "bytes": 12237,
+          "sha256": "e9df1f28f9f7e914368db6f7cf21caae4bd4cac1a18ce690b86b026b7de1096d",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_CODEX_WORK_ORDER.md",
+          "current_line_and_hash_verified": true,
+          "archive_member_chain": [
+            "inputs/evidence/causal_transport/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ACCEPTANCE_PACKAGE.zip",
+            "submitted/inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_CODEX_WORK_ORDER.md"
+          ],
+          "role": "Historical superseded necessity wording; corrected by accepted D01, not a current instruction."
+        },
+        {
+          "id": "CAD/limits",
+          "source_key": "CAD",
+          "path": "inputs/accepted/cadence/CORRECTIONS_AND_LIMITS.md",
+          "locator": "limits",
+          "line": 27,
+          "line_text": "## Remaining gaps",
+          "bytes": 3472,
+          "sha256": "5689a7ebf5daa8d863f8ab16dc7844a4481849f3fa010e5cb696d4cec1e1a0ad",
+          "historical_path": "inputs/accepted/cadence/CORRECTIONS_AND_LIMITS.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-H/eq:tuple",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:tuple",
+          "line": 3,
+          "line_text": "\\begin{equation}\\label{eq:tuple}",
+          "bytes": 7084,
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+          "historical_path": "inputs/sources/RX/hybrid.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-H/eq:prestage",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:prestage",
+          "line": 10,
+          "line_text": " &\\widetilde\\Omega&=\\Omega+d_{\\rm pre},\\label{eq:prestage}\\\\",
+          "bytes": 7084,
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+          "historical_path": "inputs/sources/RX/hybrid.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-H/eq:nativemap",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:nativemap",
+          "line": 12,
+          "line_text": " &F_i(\\Omega)&=e^{i\\delta_i}\\widetilde\\Omega_i.\\label{eq:nativemap}",
+          "bytes": 7084,
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+          "historical_path": "inputs/sources/RX/hybrid.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-H/eq:hybrid",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:hybrid",
+          "line": 32,
+          "line_text": "\\begin{equation}\\label{eq:hybrid}",
+          "bytes": 7084,
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+          "historical_path": "inputs/sources/RX/hybrid.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-H/eq:hybridbalance",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:hybridbalance",
+          "line": 36,
+          "line_text": "\\begin{equation}\\label{eq:hybridbalance}",
+          "bytes": 7084,
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+          "historical_path": "inputs/sources/RX/hybrid.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-A/eq:baselinewindow",
+          "source_key": "RX-A",
+          "path": "inputs/sources/RX/accounts.tex",
+          "locator": "eq:baselinewindow",
+          "line": 19,
+          "line_text": "\\begin{equation}\\label{eq:baselinewindow}",
+          "bytes": 4490,
+          "sha256": "b681f113ce3e484b35674212ceec4ab42ccb1ac13d8d5b306bf2e92f7c2e60ad",
+          "historical_path": "inputs/sources/RX/accounts.tex",
+          "current_line_and_hash_verified": true
+        }
+      ],
+      "candidate_equations_changed": false
+    },
+    {
+      "id": "T07",
+      "title": "Latency and nontrivial carrier-funded receiving/return",
+      "accepted_status": "accepted-as-stated",
+      "hypotheses": [
+        "Empty transport and zeta for latency",
+        "kappa>0, Q0=(P,0) constant P>0 and x0=z0=0 for activity witness",
+        "Mild line preparation with a boundary corner",
+        "A sufficiently small interval supplied by initial carrier H1 continuity"
+      ],
+      "limits": [
+        "Strict activity example uses carrier preload and x0=z0=0.",
+        "Temporary H1 continuity used only before incoming return.",
+        "Nonzero b does not imply nonzero J*b, positive net work or native credit.",
+        "A.e. trace conclusion; no physical route or all-six allocation claim."
+      ],
+      "manuscript_locations": [
+        {
+          "label": "prop:latency",
+          "number": "8.1",
+          "page": 18,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 5,
+          "line_text": "\\begin{proposition}[Latency]\\label{prop:latency}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        },
+        {
+          "label": "eq:latency",
+          "number": "8.1",
+          "page": 18,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 7,
+          "line_text": "\\begin{equation}\\label{eq:latency}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        },
+        {
+          "label": "eq:preload",
+          "number": "8.2",
+          "page": 18,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 19,
+          "line_text": "\\begin{equation}\\label{eq:preload}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        },
+        {
+          "label": "eq:earlycarrier",
+          "number": "8.3",
+          "page": 18,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 24,
+          "line_text": "\\begin{equation}\\label{eq:earlycarrier}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        },
+        {
+          "label": "eq:earlypositive",
+          "number": "8.4",
+          "page": 18,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 29,
+          "line_text": "\\begin{equation}\\label{eq:earlypositive}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        },
+        {
+          "label": "prop:receiving",
+          "number": "8.2",
+          "page": 18,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 35,
+          "line_text": "\\begin{proposition}[Strict receiving from carrier preload]\\label{prop:receiving}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        },
+        {
+          "label": "eq:strictreceiving",
+          "number": "8.5",
+          "page": 18,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 37,
+          "line_text": "\\begin{equation}\\label{eq:strictreceiving}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        },
+        {
+          "label": "eq:scalarreceiving",
+          "number": "8.6",
+          "page": 18,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 44,
+          "line_text": "\\begin{equation}\\label{eq:scalarreceiving}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        },
+        {
+          "label": "eq:strictlower",
+          "number": "8.7",
+          "page": 19,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 51,
+          "line_text": "\\begin{equation}\\label{eq:strictlower}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        },
+        {
+          "label": "prop:return",
+          "number": "8.3",
+          "page": 19,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 62,
+          "line_text": "\\begin{proposition}[Incoming boundary activity]\\label{prop:return}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        },
+        {
+          "label": "eq:returnnonzero",
+          "number": "8.8",
+          "page": 19,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 64,
+          "line_text": "\\begin{equation}\\label{eq:returnnonzero}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        },
+        {
+          "label": "eq:earlyCbound",
+          "number": "8.9",
+          "page": 19,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 70,
+          "line_text": "\\begin{equation}\\label{eq:earlyCbound}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        },
+        {
+          "label": "eq:earlyzetabound",
+          "number": "8.10",
+          "page": 19,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 75,
+          "line_text": "\\begin{equation}\\label{eq:earlyzetabound}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        },
+        {
+          "label": "eq:epsreturn",
+          "number": "8.11",
+          "page": 19,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 80,
+          "line_text": "\\begin{equation}\\label{eq:epsreturn}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        },
+        {
+          "label": "eq:effortbound",
+          "number": "8.12",
+          "page": 19,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 89,
+          "line_text": "<\\frac{\\kappa P}{2\\sqrt{2M}}.\\label{eq:effortbound}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        },
+        {
+          "label": "eq:negativeb",
+          "number": "8.13",
+          "page": 19,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 92,
+          "line_text": "\\begin{equation}\\label{eq:negativeb}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        },
+        {
+          "label": "fig:time",
+          "number": "2",
+          "page": 20,
+          "path": "candidate/v0.1/sections/08_activity.tex",
+          "line": 102,
+          "line_text": "\\caption{Two different time accounts. Top: for one fixed delay, causal observation reads earlier carrier data, while the finite-window temporal adjoint evaluates a later test time and has a prehistory part. Bottom: empty added states impose the proven latency bounds; the constant carrier-preload witness gives strict receiving and a nonzero incoming boundary trace on short open intervals. Interval lengths and positions are schematic. These are supports and bounds, not simulated waveforms or exact onset amplitudes.}\\label{fig:time}",
+          "sha256": "d20198afffadc94288f67d11293b4577d12d5422075939e30084835e805be70e"
+        }
+      ],
+      "controlling_proof": {
+        "path": "inputs/accepted/causal_transport/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_PROOF_REVIEW.md",
+        "section": "R7",
+        "start_line": 390,
+        "end_line": 490,
+        "sha256": "1d88714a424c6e559a8087ac22de2ee80e492aac7a8ed9227712a5885a80cd6a",
+        "span_sha256": "0badaaf31d9d5702664e897975f089564e68f0c33135932d1f3357707bebc7a1"
+      },
+      "current_acceptance": [
+        {
+          "path": "inputs/accepted/causal_transport/GPT_ACCEPTANCE.json",
+          "sha256": "63a315d1429f17201b25ea8c901c063d204894814c077d967b51502f95516da1"
+        },
+        {
+          "path": "inputs/accepted/causal_transport/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_REVIEW.md",
+          "sha256": "7079c4fe2f861bc48db9b8debbd7a622c51e642340bcfb87c377373f816c71cc"
+        }
+      ],
+      "retained_equation_source_locations": [
+        {
+          "id": "NEW/N19",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N19",
+          "line": 344,
+          "line_text": "\\tag{N19}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N20",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N20",
+          "line": 356,
+          "line_text": "\\tag{N20}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N21",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N21",
+          "line": 366,
+          "line_text": "\\tag{N21}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N22",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N22",
+          "line": 377,
+          "line_text": "\\tag{N22}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N23",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N23",
+          "line": 384,
+          "line_text": "\\tag{N23}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N24",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N24",
+          "line": 411,
+          "line_text": "\\tag{N24}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "NEW/N6",
+          "source_key": "NEW",
+          "path": "inputs/accepted/causal_transport/historical/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "locator": "N6",
+          "line": 101,
+          "line_text": "\\tag{N6}",
+          "bytes": 26617,
+          "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+          "historical_path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-W/eq:profilenorms",
+          "source_key": "RX-W",
+          "path": "inputs/sources/RX/wellposed.tex",
+          "locator": "eq:profilenorms",
+          "line": 19,
+          "line_text": "\\begin{equation}\\label{eq:profilenorms}",
+          "bytes": 7306,
+          "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895",
+          "historical_path": "inputs/sources/RX/wellposed.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "RX-W/eq:H1estimate",
+          "source_key": "RX-W",
+          "path": "inputs/sources/RX/wellposed.tex",
+          "locator": "eq:H1estimate",
+          "line": 56,
+          "line_text": "\\begin{equation}\\label{eq:H1estimate}",
+          "bytes": 7306,
+          "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895",
+          "historical_path": "inputs/sources/RX/wellposed.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-G/eq:G",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:G",
+          "line": 21,
+          "line_text": "\\begin{equation}\\label{eq:G}",
+          "bytes": 8272,
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "historical_path": "inputs/sources/CC/geometry.tex",
+          "current_line_and_hash_verified": true
+        },
+        {
+          "id": "CC-G/eq:circle",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:circle",
+          "line": 67,
+          "line_text": " &\\hat t&=-\\sin\\chi\\,u+\\cos\\chi\\,e_z,\\quad\\chi=s/R_c,\\label{eq:circle}\\\\",
+          "bytes": 8272,
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "historical_path": "inputs/sources/CC/geometry.tex",
+          "current_line_and_hash_verified": true
+        }
+      ],
+      "candidate_equations_changed": false
+    },
+    {
+      "id": "D01",
+      "title": "Sufficiency, not necessity, of empty added states for inactivity at zero coupling",
+      "accepted_status": "accepted-documentary-clarification",
+      "hypotheses": [
+        "Zero coupling; finite-energy receiving normal field in the spatial adjoint kernel."
+      ],
+      "limits": [
+        "At zero coupling, empty added states are sufficient, not necessary, for inactivity; nonempty added states may evolve or remain stationary."
+      ],
+      "manuscript_locations": [
+        {
+          "label": "rem:D01",
+          "number": "7.3",
+          "page": 17,
+          "path": "candidate/v0.1/sections/07_preparation.tex",
+          "line": 75,
+          "line_text": "\\begin{remark}[Stationary nonempty preparation; D01]\\label{rem:D01}",
+          "sha256": "6616a12d6062930111c5fb78fadfbcc8ac0d90fc204ca0a8199afe4e6549274b"
+        },
+        {
+          "label": "eq:inactivekernel",
+          "number": "7.9",
+          "page": 17,
+          "path": "candidate/v0.1/sections/07_preparation.tex",
+          "line": 77,
+          "line_text": "\\begin{equation}\\label{eq:inactivekernel}",
+          "sha256": "6616a12d6062930111c5fb78fadfbcc8ac0d90fc204ca0a8199afe4e6549274b"
+        },
+        {
+          "label": "eq:Gram",
+          "number": "5.4",
+          "page": 11,
+          "path": "candidate/v0.1/sections/05_transport.tex",
+          "line": 18,
+          "line_text": "\\begin{equation}\\label{eq:Gram}",
+          "sha256": "9a819908ebb09c866f55194f3efc5892cc7fe82da7de2d03fc5d3c502c8cbdef"
+        }
+      ],
+      "controlling_proof": {
+        "section": "R6.2",
+        "start_line": 380,
+        "end_line": 389,
+        "sha256": "1d88714a424c6e559a8087ac22de2ee80e492aac7a8ed9227712a5885a80cd6a",
+        "path": "inputs/accepted/causal_transport/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_PROOF_REVIEW.md",
+        "span_sha256": "6ad867543341e8e6a202ef9a6571ec20315638b9c8242770ab30607ecdb2f224"
+      },
+      "current_acceptance": [
+        {
+          "path": "inputs/accepted/causal_transport/GPT_ACCEPTANCE.json",
+          "sha256": "63a315d1429f17201b25ea8c901c063d204894814c077d967b51502f95516da1"
+        },
+        {
+          "path": "inputs/accepted/causal_transport/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_REVIEW.md",
+          "sha256": "7079c4fe2f861bc48db9b8debbd7a622c51e642340bcfb87c377373f816c71cc"
+        }
+      ],
+      "retained_equation_source_locations": [],
+      "candidate_equations_changed": false
+    }
+  ]
+}

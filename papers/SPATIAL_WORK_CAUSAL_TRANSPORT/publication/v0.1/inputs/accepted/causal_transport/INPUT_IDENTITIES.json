@@ -1,0 +1,737 @@
+{
+  "task": "NATIVE_CAUSAL_TRANSPORT_STORAGE_01",
+  "status": "PASS",
+  "environment": {
+    "observed_utc": "2026-11-10T10:18:54.187695+00:00",
+    "python": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+    "executable": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "conda_environment": "torment",
+    "conda_prefix": "C:\\Users\\Notandi\\miniconda3\\envs\\torment",
+    "sympy_version": "1.14.0",
+    "command": "run_python.cmd checks\\validate_inputs.py",
+    "working_directory": "C:\\TORMENT\\TRIOCTAGON_new\\research\\NATIVE_CAUSAL_TRANSPORT_STORAGE_01"
+  },
+  "archive": {
+    "path": "NATIVE_CAUSAL_TRANSPORT_STORAGE_01_CODEX_PACKET.zip",
+    "bytes": 1419744,
+    "sha256": "2ec94a53c4624d6bc429ff4c64807f4ea559dcd95e4563b8b939bf6efd1af515",
+    "matches_download": true
+  },
+  "packet_members": 63,
+  "manifest_entries_verified": 62,
+  "source_identities_verified": 46,
+  "accepted_W_binding": {
+    "acceptance_archive_sha256": "5b296a78457e03b9fb3fc67e04eaf5942521a8eb1b50a14bee299c74f9b0d915",
+    "supplied_checksum_matches": true,
+    "proof_sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18",
+    "matches_acceptance_record": true
+  },
+  "discrepancies": [],
+  "recovery_required": false,
+  "files": [
+    {
+      "path": "inputs/CLAIM_LEDGER.json",
+      "bytes": 6271,
+      "sha256": "4dc730f6d6a703346c9e9be3f1ad999e963aa18fff95ed8f219aaa0d93d3648d",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_CODEX_WORK_ORDER.md",
+      "bytes": 12237,
+      "sha256": "e9df1f28f9f7e914368db6f7cf21caae4bd4cac1a18ce690b86b026b7de1096d",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/NATIVE_CAUSAL_TRANSPORT_STORAGE_01_GPT_ANALYTICAL_START.md",
+      "bytes": 26617,
+      "sha256": "6b3d43816f160359267c172be526f2695cd23d12fee104df4a75276fc659e3b9",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/PACKET_MANIFEST.json",
+      "bytes": 11110,
+      "sha256": "0ff040a33186237eba3ad39429c2875096dfe9edb28c986b33799ec1412e44a8",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/PAPER_PLAN.md",
+      "bytes": 2168,
+      "sha256": "584a14283b8246a00cfd9540927e157caa1458787f38b59697327752ab63d802",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/README.md",
+      "bytes": 1185,
+      "sha256": "0eee67f2a9bbf254dcef88782f1a11f404f77b10d6df59409a517c69359ec881",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/SOURCE_IDENTITIES.json",
+      "bytes": 39286,
+      "sha256": "11ac49d91b7bc43d1ef01921494c34908882c4366a35c3fdfb312adf43df4f4d",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/SOURCE_MAP.md",
+      "bytes": 3222,
+      "sha256": "e70264e720e9eae275cf045b9508a562a42c03ba779dc88537f11ef0b926883d",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/cadence/CADENCE_STATUS.md",
+      "bytes": 2919,
+      "sha256": "a88965174b44879d736c294de34fec2e44e18f65ffd190b7f6a6f0dfea30fa0c",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/cadence/CORRECTIONS_AND_LIMITS.md",
+      "bytes": 3472,
+      "sha256": "5689a7ebf5daa8d863f8ab16dc7844a4481849f3fa010e5cb696d4cec1e1a0ad",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/cadence/NATIVE_F_STEPPING_EXCHANGE_CADENCE_01_GPT_ACCEPTANCE.md",
+      "bytes": 15928,
+      "sha256": "071f11260fcaecca127d49298a01d479f213ae769e4c3e8e82b000ead1fb52a5",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/cadence/NATIVE_F_STEPPING_EXCHANGE_CADENCE_01_PROOF_REVIEW.md",
+      "bytes": 34961,
+      "sha256": "7be198c8fb566aebd9f92f0da8f0e0386a0a87c7acd0cd21fd38a9774888b6a2",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/central_route/CLAIM_LEDGER.json",
+      "bytes": 4741,
+      "sha256": "d57e524ba49650c32caf1b636e40a50ba63705c802abf0b9763359d1511b4b83",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/central_route/GPT_ACCEPTANCE.json",
+      "bytes": 3544,
+      "sha256": "5545eb9c9efbf1d40ae1f1704f8419fd74ea79e2a1a4b5090ef1fd8a8835d701",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/central_route/NATIVE_CENTRAL_ROUTE_CORRESPONDENCE_01_GPT_ANALYTICAL_START.md",
+      "bytes": 18785,
+      "sha256": "dba1d6413cb8e7ad5e9951b65e1a11bb7a082194cce124905ffa4d7c7e3dceea",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/central_route/NATIVE_CENTRAL_ROUTE_CORRESPONDENCE_01_GPT_REVIEW.md",
+      "bytes": 13554,
+      "sha256": "26f85b2c755168a7f7b4e9424447979afbe868f577be62964358382c99ad6f50",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/central_route/NATIVE_CENTRAL_ROUTE_CORRESPONDENCE_01_PROOF_REVIEW.md",
+      "bytes": 35544,
+      "sha256": "96c4fab1089a5e0dd43bb6149b917d39b66eac0e6544e7fa6272e61663f87c4d",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/six_opening/CLAIM_SOURCE_LEDGER.json",
+      "bytes": 14306,
+      "sha256": "e94f28188e59760d47bdb1f47e57d5d071753eb78dc8d90d25b89d7e7bda5cfb",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/six_opening/CORRECTIONS_AND_LIMITS.md",
+      "bytes": 3632,
+      "sha256": "079d5433ecf3ee69d74f484285497d268c33f73f54d76d81a27243815a26ebc2",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/six_opening/GPT_ACCEPTANCE.json",
+      "bytes": 3157,
+      "sha256": "5a83a2049599d426f537d9f87c4111b0a88e6636710d017195d8efd45e210cab",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_GPT_ANALYTICAL_START.md",
+      "bytes": 15967,
+      "sha256": "b6fe2e496f301089c4bfd871aed3c8fc8cdd90744be0ffb5a9c771c9816effeb",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_GPT_REVIEW.md",
+      "bytes": 12002,
+      "sha256": "5d90289f0b7fa8b977b7df40e267d97ae486cb3794e0ac22814c25a0246dcb91",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+      "bytes": 32348,
+      "sha256": "df88a553d52075d6fa6e256dedec74421a48be5d77d3297e4fa2a6ea30efbd1b",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/spatial_work/CLAIM_LEDGER.json",
+      "bytes": 26269,
+      "sha256": "a869eedad1c363e4cbb393d2b3ee6faf0ab4f9c2093cd3566ec7972f7eb6d235",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/spatial_work/CORRECTIONS_AND_LIMITS.md",
+      "bytes": 5430,
+      "sha256": "3bc0e77d8777391e4dbd386790a9fe95ee3f022023699abe04d5600ea2ceabae",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/spatial_work/GPT_ACCEPTANCE.json",
+      "bytes": 5003,
+      "sha256": "3ad0d85d86956b98d71e3dd51cfd4bd106636f87f953eb509c56a9e336029860",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_GPT_ACCEPTANCE_PACKAGE.zip",
+      "bytes": 1126714,
+      "sha256": "5b296a78457e03b9fb3fc67e04eaf5942521a8eb1b50a14bee299c74f9b0d915",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_GPT_ACCEPTANCE_PACKAGE.zip.sha256",
+      "bytes": 129,
+      "sha256": "1724916ad9d38c7cd2254db7376ec697937ae44462c3a244fe9bfeb9a958b650",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_GPT_REVIEW.md",
+      "bytes": 14599,
+      "sha256": "ed8cf10ed45ca2df197de2f06d403b5f3c8484ccd34bdef36b111a7da8e468d9",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+      "bytes": 31884,
+      "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/context/COLLABORATION_AND_GEOMETRY.md",
+      "bytes": 4818,
+      "sha256": "e2f8f1b7bcafb7e8065ea622239a324462af4bfce051c593d67483127c516fbf",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/context/GEOMETRY_MODEL_BOUNDARY.md",
+      "bytes": 8489,
+      "sha256": "f6720f2bcde26eb6a37cdc103872082de719b56ada3051aec30632f3cebbfc5f",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/context/TRIOCTAGON_RESEARCH_STATUS_2026-11-10.md",
+      "bytes": 12896,
+      "sha256": "0af55416fb1c5d6fde238d52114d532cf2c35a138cbb3a2b5404b5550ecb1dd1",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/context/historical/TRIOCTAGON_COMPLETED_AND_FUTURE_LIST_2026-11-09.md",
+      "bytes": 5754,
+      "sha256": "c01b9ff9f1a05eb7368c6e78d5076685c157b45de083019d238de0528f5b6535",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/context/historical/TRIOCTAGON_FRESH_CHAT_HANDOFF_2026-11-09.md",
+      "bytes": 22424,
+      "sha256": "3336768ebcd46ac6892828cbe235bdc3aece25d70b6101e3f1eef25b6e698979",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/preparation/DELAY_REALIZATION_DESIGN.md",
+      "bytes": 17634,
+      "sha256": "eb2ca414045d999076e2723df7fcf9a33a87c28f76d6146034bcb60f449c162b",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/preparation/FINAL_DRAFT_SANITY_REVIEW.md",
+      "bytes": 4234,
+      "sha256": "b9739f4acc365d9219dac0b87195b8e008ec8148e76de6b6cf50fd2b871c99af",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/preparation/README.md",
+      "bytes": 528,
+      "sha256": "4561d6fe4682193afccd95263b141546edec6d561eace5e0628d66ccc72f2f19",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/preparation/RX_COUPLING_DESIGN.md",
+      "bytes": 18487,
+      "sha256": "327320a9b540a31d962893d5944e50b8a5cb4a98e6c4bc047a8733d48381378e",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/provenance/W_INPUT_SOURCE_IDENTITIES.json",
+      "bytes": 31729,
+      "sha256": "81c77d835f0d601c4874ef6797446f603fde9e3c577c4f2cbb4f8c52ebcc9d71",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/references/METHOD_REFERENCE.md",
+      "bytes": 879,
+      "sha256": "a558f2d3bf724685c20836a43997718c3ad9fb4c24a6912e8f36498c81e4cc9e",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/AX/observations.tex",
+      "bytes": 8010,
+      "sha256": "c37abc3b8c5ab29732ff71f8918920d7760e527af87430ac9413e3b8e34e7572",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/AX/spatial.tex",
+      "bytes": 7521,
+      "sha256": "a09ead7381508d6c2aadf75c85a3cdcf6197ab8290dd9cffde77bc2176d32915",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/CC/carrier.tex",
+      "bytes": 6338,
+      "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/CC/conclusion.tex",
+      "bytes": 6457,
+      "sha256": "b8df71b11dc257d57416aaaa5b5ea96b1323edb830bb91655383c16161bebec6",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/CC/geometry.tex",
+      "bytes": 8272,
+      "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/CC/readouts.tex",
+      "bytes": 7000,
+      "sha256": "5029163f6aea5512b8ae805b72f55d6f1ae0d38c0632f63d9a29df8e0fa3bce3",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/CG/manuscript.tex",
+      "bytes": 90919,
+      "sha256": "ba033515a9764af4b1f126094bfec48f47620d92e2de5a07b5bb894a18cd74f6",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/PG/closing.tex",
+      "bytes": 5920,
+      "sha256": "b40c627927fe3de5d314a834f392387320b15150f6fa31bc6f177f5b166aedcc",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/PG/geometry.tex",
+      "bytes": 18526,
+      "sha256": "8ba2c8961c41b055414b163d8bc197e8a4e7bd6a9f2d3c18b9fe4ffc70ea24aa",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/PG/observation.tex",
+      "bytes": 17059,
+      "sha256": "ce188bc94a00fd5c031bdbea76aced53bb0d6ff5edcbd1b0288f7b8241400559",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/RX/accounts.tex",
+      "bytes": 4490,
+      "sha256": "b681f113ce3e484b35674212ceec4ab42ccb1ac13d8d5b306bf2e92f7c2e60ad",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/RX/activity.tex",
+      "bytes": 4278,
+      "sha256": "da5a775458e50475d37a280770302fe46742efa88f4a0c8db8dacf97adcc5054",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/RX/candidate.tex",
+      "bytes": 6858,
+      "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/RX/capacity.tex",
+      "bytes": 4857,
+      "sha256": "b5a67749c6b1f4a313ef34e7e82d6a7b28e0fd770c43dded6692655d9f0749be",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/RX/domain.tex",
+      "bytes": 4076,
+      "sha256": "f253d7f204fc38ff95b018879337361060f3d02f2d476fc0676c086bda8b187d",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/RX/hybrid.tex",
+      "bytes": 7084,
+      "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/RX/interpretation.tex",
+      "bytes": 3744,
+      "sha256": "c55dd6c7179483d8720f13d72ccc363802a39cdbe6d0258043854c69c7af939c",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/RX/main.tex",
+      "bytes": 4564,
+      "sha256": "a23f4a077ea0683932328e10f9e430c88f7a39f735fa49ca305525b68fec16f7",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/RX/power.tex",
+      "bytes": 3133,
+      "sha256": "2d302fb32d0a5e825ae4929e7cc1e7aceb4772937cc5457bed951e717a2cfc89",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/RX/references.tex",
+      "bytes": 2951,
+      "sha256": "60ab56bcd1c12efa600b0f1f4cf432c1be714640b00f5d05436ad8cedee1dc67",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/sources/RX/wellposed.tex",
+      "bytes": 7306,
+      "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895",
+      "matches_zip": true
+    },
+    {
+      "path": "inputs/verification/PREPARATION_CHECKS.json",
+      "bytes": 665,
+      "sha256": "9aa814d204dd787ad93743e2ec4b380a46442efe8bbe8b31f02aae3cdce2e0d7",
+      "matches_zip": true
+    }
+  ],
+  "source_checks": [
+    {
+      "path": "inputs/sources/RX/accounts.tex",
+      "bytes": 4490,
+      "sha256": "b681f113ce3e484b35674212ceec4ab42ccb1ac13d8d5b306bf2e92f7c2e60ad",
+      "git_blob": "effc692af4432671ff491c957f0f32d143e13bd3",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/RX/activity.tex",
+      "bytes": 4278,
+      "sha256": "da5a775458e50475d37a280770302fe46742efa88f4a0c8db8dacf97adcc5054",
+      "git_blob": "a6516a9f388f45e17ca7435e012e496cd11ad544",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/RX/candidate.tex",
+      "bytes": 6858,
+      "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5",
+      "git_blob": "f06cc54cd58eaa51f369f63735deb2e268a79fca",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/RX/capacity.tex",
+      "bytes": 4857,
+      "sha256": "b5a67749c6b1f4a313ef34e7e82d6a7b28e0fd770c43dded6692655d9f0749be",
+      "git_blob": "69da428273cbc2a37abe927c1452e41840efb3ed",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/RX/domain.tex",
+      "bytes": 4076,
+      "sha256": "f253d7f204fc38ff95b018879337361060f3d02f2d476fc0676c086bda8b187d",
+      "git_blob": "db01c6d2316fabaecb3284eff0251cb99c26897c",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/RX/hybrid.tex",
+      "bytes": 7084,
+      "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+      "git_blob": "a8f1b2934fead47213a8e488a32a7378104ee450",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/RX/interpretation.tex",
+      "bytes": 3744,
+      "sha256": "c55dd6c7179483d8720f13d72ccc363802a39cdbe6d0258043854c69c7af939c",
+      "git_blob": "12425d232b06e9858bbfd0270d3f61df2671fd73",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/RX/main.tex",
+      "bytes": 4564,
+      "sha256": "a23f4a077ea0683932328e10f9e430c88f7a39f735fa49ca305525b68fec16f7",
+      "git_blob": "4fe13b441044e46adc434e1ef87dd16a519323bc",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/RX/power.tex",
+      "bytes": 3133,
+      "sha256": "2d302fb32d0a5e825ae4929e7cc1e7aceb4772937cc5457bed951e717a2cfc89",
+      "git_blob": "13203dfc2c3ec97485003daf56ecc6e6cbac6bfb",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/RX/references.tex",
+      "bytes": 2951,
+      "sha256": "60ab56bcd1c12efa600b0f1f4cf432c1be714640b00f5d05436ad8cedee1dc67",
+      "git_blob": "22c7b97bef9df674572b514bc0979c79feead1d8",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/RX/wellposed.tex",
+      "bytes": 7306,
+      "sha256": "0cb9c047931c4b2c8484012ade0799417bee4168e5d6fc8de3a1b9e951636895",
+      "git_blob": "744e12abea2abde774c091e592ccb484e4de20d4",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/CC/carrier.tex",
+      "bytes": 6338,
+      "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+      "git_blob": "80348ac9a2478a95cdde9a11973e03a17dcc7191",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/CC/geometry.tex",
+      "bytes": 8272,
+      "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+      "git_blob": "f016a2718721cdd0d28d13a04299859c8fb0ee25",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/CC/readouts.tex",
+      "bytes": 7000,
+      "sha256": "5029163f6aea5512b8ae805b72f55d6f1ae0d38c0632f63d9a29df8e0fa3bce3",
+      "git_blob": "da9463bcf0fa15856e87e7d8dab571b28a34f68a",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/CC/conclusion.tex",
+      "bytes": 6457,
+      "sha256": "b8df71b11dc257d57416aaaa5b5ea96b1323edb830bb91655383c16161bebec6",
+      "git_blob": "a128e606d2d131e53cfab4b0f20e13bb60711cca",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/PG/geometry.tex",
+      "bytes": 18526,
+      "sha256": "8ba2c8961c41b055414b163d8bc197e8a4e7bd6a9f2d3c18b9fe4ffc70ea24aa",
+      "git_blob": "2c0c3bcb2712defcae224ece3e97cfafc23e6498",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/CG/manuscript.tex",
+      "bytes": 90919,
+      "sha256": "ba033515a9764af4b1f126094bfec48f47620d92e2de5a07b5bb894a18cd74f6",
+      "git_blob": "a2f2cedd624fcbc16ee608c6272305d1cf2b5678",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/AX/spatial.tex",
+      "bytes": 7521,
+      "sha256": "a09ead7381508d6c2aadf75c85a3cdcf6197ab8290dd9cffde77bc2176d32915",
+      "git_blob": "5807e51334924975ffb4826f2c6eecc665e829e9",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/AX/observations.tex",
+      "bytes": 8010,
+      "sha256": "c37abc3b8c5ab29732ff71f8918920d7760e527af87430ac9413e3b8e34e7572",
+      "git_blob": "263e927e4269dc7c263e726b37f12e2ab0433c58",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/central_route/CLAIM_LEDGER.json",
+      "bytes": 4741,
+      "sha256": "d57e524ba49650c32caf1b636e40a50ba63705c802abf0b9763359d1511b4b83",
+      "git_blob": "853ffd5678be33ee43ade458fea6110156436d06",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/central_route/GPT_ACCEPTANCE.json",
+      "bytes": 3544,
+      "sha256": "5545eb9c9efbf1d40ae1f1704f8419fd74ea79e2a1a4b5090ef1fd8a8835d701",
+      "git_blob": "05e6ae8a1542bab27460a862ce607f6f3ea0fd89",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/central_route/NATIVE_CENTRAL_ROUTE_CORRESPONDENCE_01_GPT_ANALYTICAL_START.md",
+      "bytes": 18785,
+      "sha256": "dba1d6413cb8e7ad5e9951b65e1a11bb7a082194cce124905ffa4d7c7e3dceea",
+      "git_blob": "d8ec2f84feae76551a8cdc70af210d0f6e17af69",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/central_route/NATIVE_CENTRAL_ROUTE_CORRESPONDENCE_01_GPT_REVIEW.md",
+      "bytes": 13554,
+      "sha256": "26f85b2c755168a7f7b4e9424447979afbe868f577be62964358382c99ad6f50",
+      "git_blob": "3324ddb01bf1c68b2a3543ea0fa927d39b37cf8e",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/central_route/NATIVE_CENTRAL_ROUTE_CORRESPONDENCE_01_PROOF_REVIEW.md",
+      "bytes": 35544,
+      "sha256": "96c4fab1089a5e0dd43bb6149b917d39b66eac0e6544e7fa6272e61663f87c4d",
+      "git_blob": "34fca73f5d52671faf399babd8c15921e37ee9a6",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/six_opening/CLAIM_SOURCE_LEDGER.json",
+      "bytes": 14306,
+      "sha256": "e94f28188e59760d47bdb1f47e57d5d071753eb78dc8d90d25b89d7e7bda5cfb",
+      "git_blob": "4baff14b091b5b9840fe1c9baa4e79ae3296f15f",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/six_opening/CORRECTIONS_AND_LIMITS.md",
+      "bytes": 3632,
+      "sha256": "079d5433ecf3ee69d74f484285497d268c33f73f54d76d81a27243815a26ebc2",
+      "git_blob": "4a649dff066ca9714b1902faa7b8b1ff45cd85f0",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/six_opening/GPT_ACCEPTANCE.json",
+      "bytes": 3157,
+      "sha256": "5a83a2049599d426f537d9f87c4111b0a88e6636710d017195d8efd45e210cab",
+      "git_blob": "f2533fc39632ef2f5f39b756b91847e0606d8901",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_GPT_ANALYTICAL_START.md",
+      "bytes": 15967,
+      "sha256": "b6fe2e496f301089c4bfd871aed3c8fc8cdd90744be0ffb5a9c771c9816effeb",
+      "git_blob": "202023b1d1613847a964c80fc08d792b9b593042",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_GPT_REVIEW.md",
+      "bytes": 12002,
+      "sha256": "5d90289f0b7fa8b977b7df40e267d97ae486cb3794e0ac22814c25a0246dcb91",
+      "git_blob": "d6e01d8b48a262c9eb8225525d5a3c160dc48576",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+      "bytes": 32348,
+      "sha256": "df88a553d52075d6fa6e256dedec74421a48be5d77d3297e4fa2a6ea30efbd1b",
+      "git_blob": "d7bd187bfe5542936ce233db61855d09a876c8f8",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/cadence/CADENCE_STATUS.md",
+      "bytes": 2919,
+      "sha256": "a88965174b44879d736c294de34fec2e44e18f65ffd190b7f6a6f0dfea30fa0c",
+      "git_blob": "1168daa08e1e45e0855c982e291374343fb6cde5",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/cadence/CORRECTIONS_AND_LIMITS.md",
+      "bytes": 3472,
+      "sha256": "5689a7ebf5daa8d863f8ab16dc7844a4481849f3fa010e5cb696d4cec1e1a0ad",
+      "git_blob": "9bae83e86df5171a2f2581e84bb8a669c7383c1e",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/cadence/NATIVE_F_STEPPING_EXCHANGE_CADENCE_01_GPT_ACCEPTANCE.md",
+      "bytes": 15928,
+      "sha256": "071f11260fcaecca127d49298a01d479f213ae769e4c3e8e82b000ead1fb52a5",
+      "git_blob": "675dd7a6ea87ee3b8f3fddc3e8259c166c4d3956",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/cadence/NATIVE_F_STEPPING_EXCHANGE_CADENCE_01_PROOF_REVIEW.md",
+      "bytes": 34961,
+      "sha256": "7be198c8fb566aebd9f92f0da8f0e0386a0a87c7acd0cd21fd38a9774888b6a2",
+      "git_blob": "5afff00653039d9f5764f6a5dcee8c3dd13205ff",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/context/COLLABORATION_AND_GEOMETRY.md",
+      "bytes": 4818,
+      "sha256": "e2f8f1b7bcafb7e8065ea622239a324462af4bfce051c593d67483127c516fbf",
+      "git_blob": "53a0de0a71c8ba2eeb33ff84206374858dd3384e",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/PG/observation.tex",
+      "bytes": 17059,
+      "sha256": "ce188bc94a00fd5c031bdbea76aced53bb0d6ff5edcbd1b0288f7b8241400559",
+      "git_blob": "2d96636384922a51aba04f004f0d2e60ce7e8494",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/sources/PG/closing.tex",
+      "bytes": 5920,
+      "sha256": "b40c627927fe3de5d314a834f392387320b15150f6fa31bc6f177f5b166aedcc",
+      "git_blob": "22ae22cacbac9341f13ea9d89820e33ac4a09a8e",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_GPT_REVIEW.md",
+      "bytes": 14599,
+      "sha256": "ed8cf10ed45ca2df197de2f06d403b5f3c8484ccd34bdef36b111a7da8e468d9",
+      "git_blob": "465b1f2a2f988a9310c68457e15a95694ac7b1b1",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/spatial_work/GPT_ACCEPTANCE.json",
+      "bytes": 5003,
+      "sha256": "3ad0d85d86956b98d71e3dd51cfd4bd106636f87f953eb509c56a9e336029860",
+      "git_blob": "e3453ed0dbce8b4e78f5c9f8d9a0fc5bb33997f5",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+      "bytes": 31884,
+      "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18",
+      "git_blob": "a0959b32f574784dc6001656bfb796fa5cf9254a",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/spatial_work/CORRECTIONS_AND_LIMITS.md",
+      "bytes": 5430,
+      "sha256": "3bc0e77d8777391e4dbd386790a9fe95ee3f022023699abe04d5600ea2ceabae",
+      "git_blob": "4c278bc03805c6b55b1e441e7892553655f1458b",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/spatial_work/CLAIM_LEDGER.json",
+      "bytes": 26269,
+      "sha256": "a869eedad1c363e4cbb393d2b3ee6faf0ab4f9c2093cd3566ec7972f7eb6d235",
+      "git_blob": "a785e8473879ad241ea43afad5ea5584112ed1cf",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_GPT_ACCEPTANCE_PACKAGE.zip",
+      "bytes": 1126714,
+      "sha256": "5b296a78457e03b9fb3fc67e04eaf5942521a8eb1b50a14bee299c74f9b0d915",
+      "git_blob": "d6ee40c5976d08ba409f257cde4d05b638196992",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/accepted/spatial_work/NATIVE_SPATIAL_WORK_REGISTRATION_01_GPT_ACCEPTANCE_PACKAGE.zip.sha256",
+      "bytes": 129,
+      "sha256": "1724916ad9d38c7cd2254db7376ec697937ae44462c3a244fe9bfeb9a958b650",
+      "git_blob": "d95e0ffeb5e04b4cf0e5cf8b28bdc27ae4ef8623",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/context/historical/TRIOCTAGON_COMPLETED_AND_FUTURE_LIST_2026-11-09.md",
+      "bytes": 5754,
+      "sha256": "c01b9ff9f1a05eb7368c6e78d5076685c157b45de083019d238de0528f5b6535",
+      "git_blob": "3ae025f5f574d597b1cc8e62c92325e2bf79e024",
+      "registered_identity_matches": true
+    },
+    {
+      "path": "inputs/context/historical/TRIOCTAGON_FRESH_CHAT_HANDOFF_2026-11-09.md",
+      "bytes": 22424,
+      "sha256": "3336768ebcd46ac6892828cbe235bdc3aece25d70b6101e3f1eef25b6e698979",
+      "git_blob": "f1814fd8b15b69a9730d6fecf13a3833ec55915d",
+      "registered_identity_matches": true
+    }
+  ],
+  "scope": "Local input identities only; accepted investigations and publication not re-executed or re-audited."
+}

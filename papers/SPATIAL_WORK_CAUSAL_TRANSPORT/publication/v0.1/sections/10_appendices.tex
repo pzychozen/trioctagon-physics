@@ -1,0 +1,79 @@
+\section{Notation and dimensional crosswalk}\label{app:notation}
+The two investigations reused several symbols for different objects. The present notation separates those roles; the external claim ledger retains the original source names. No mathematical equation is changed by these editorial renamings.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{.24\textwidth}>{\raggedright\arraybackslash}p{.69\textwidth}}
+\toprule Symbol & Meaning in this manuscript\\\midrule\endhead
+$w,\tau_g$ & Common host width and fixed static geometry parameter; $\tau_g$ is not time.\\
+$R_{\rm ball},\rho_\perp$ & Diagnostic ball radius and cylindrical radius, respectively.\\
+$S_L,L,s$ & Periodic carrier, its length and its arclength coordinate.\\
+$G,M,X,\ell$ & Labeled union of six actual broken arcs, total arclength, point and arc measure coordinate.\\
+$d_X(s),\delta_w$ & Endpoint distance and inherited positive clearance lower bound.\\
+$\theta_X(s),\theta_-,\theta_+,\Theta$ & Actual delay, its minimum and maximum, and sufficient history horizon.\\
+$A^\perp_{\tau_g},J_\perp$ & Horizontal geometric map and planar quarter-turn.\\
+$Q=(p,r_c),U$ & Carrier field and its real L2 space.\\
+$\Bcal,q,z,\beta_R$ & Old finite-profile source map, two-component port, old receiving state and its metric.\\
+$A_s,Y$ & Scalar/tangent-vector inclusion and receiving-field L2 space.\\
+$U_o,V_o$ & Scalar and vector C6 readouts; not Hilbert-space names.\\
+$\KG,\KGz,\KG^*$ & Complete-history observation, zero-prehistory restriction and temporal adjoint.\\
+$J,V,C,C^*$ & Normalized replication, product channel space, spatial mixing and same-time spatial adjoint.\\
+$\Gmat(X),m_0(X)$ & Spatial Gram matrix and its scalar block; the T source calls the matrix B.\\
+$\xi,\Wcal,u_+,u_-$ & Time/age coordinate, transport space and its two traveling fields.\\
+$a,b,c,d$ & Near forward outflow, near incoming return, far arrival and far return outflow.\\
+$\zeta,\beta_G,H_G$ & New receiving field, its positive metric coefficient and its stock.\\
+$H_{\rm RX},E_{\rm tr},H_{\rm total}$ & Retained RX, transport and total augmented stocks.\\
+$P_N,P_G,B_N$ & Near power, far receiving power and finite native-map baseline increment.\\
+\bottomrule
+\end{longtable}
+
+For a dimensional check let $[s]=[\ell]=\mathsf L$, $[\xi]=[t]=\mathsf T$, $[Q]=\mathsf U$ and $[g_o]=\mathsf G_o$, so $a_o=g_o/(4\pi)$. A compatible dimensional assignment for the declared extension is
+\begin{align}
+[\kappa]&=\mathsf T^{-1/2},&
+[a]=[b]=[c]=[d]&=\mathsf U\mathsf L^{-1/2}\mathsf T^{-1/2},\notag\\
+[\zeta]&=\mathsf U\mathsf G_o^{-1}\mathsf T^{-1/2},&
+[\beta_G]&=\mathsf G_o^2\mathsf T,\notag\\
+[Cc]&=\mathsf U\mathsf G_o\mathsf T^{-1/2},&
+[\FF]&=\mathsf U\mathsf T^{-1},\label{eq:units}\\
+[H_{\rm RX}]=[E_{\rm tr}]=[H_G]&=\mathsf U^2\mathsf L,&
+[P_N]=[P_G]&=\mathsf U^2\mathsf L\mathsf T^{-1}.\notag
+\end{align}
+The old metric remains $[\beta_R]=\mathsf T^2/\mathsf L$. In particular $[\beta_G]\ne[\beta_R]$ in general. Integrating transport density over $\dd s\dd\ell\dd\xi$ gives the same stock dimension as the carrier. These are consistent declared units, not a derivation of material energy density or a calibration of a physical clock.
+
+\section{A scalar illustration of signed prehistory}\label{app:example}
+To make the sign in~\eqref{eq:prehistorybalance} transparent, consider only the scalar delay map $y(t)=q(t-2)$ with $q(u)=u+3$, test $\lambda(t)=t+1$ and window $[0,T]$. This is an algebraic illustration from the accepted W record, not an RX trajectory or a simulation. Define
+\begin{align*}
+W_{\rm test}&=\int_0^Tq(t-2)\lambda(t)\dd t,\\
+W_{\rm pre}&=\int_{-2}^0q(u)\widetilde\lambda(u+2)\dd u,\\
+J_{\rm fwd}&=\int_0^Tq(u)\widetilde\lambda(u+2)\dd u,
+\end{align*}
+where the test is zero outside $[0,T]$. A change of variable gives $W_{\rm test}=W_{\rm pre}+J_{\rm fwd}$. Direct integration gives
+\begin{center}\begin{tabular}{cccc}\toprule
+$T$ & $W_{\rm test}$ & $W_{\rm pre}$ & $J_{\rm fwd}$\\\midrule
+1 & $7/3$ & $7/3$ & 0\\
+2 & $26/3$ & $26/3$ & 0\\
+3 & 21 & $26/3$ & $37/3$\\\bottomrule
+\end{tabular}\end{center}
+The short windows have no forward dual work. If a conditional negative-adjoint force supplies $\Delta H_{\rm RX}-B_N=-J_{\rm fwd}$, its balance is precisely $\Delta H_{\rm RX}+W_{\rm test}-B_N=W_{\rm pre}$, with a positive coefficient on the signed prehistory pairing. Replacing $\lambda$ by $-\lambda$ reverses the sign. Nonzero prehistory need not give nonzero work: with $q(u)=u+1$, $\lambda=1$ on $[0,3]$, the prehistory integral is $\int_{-2}^0(u+1)\dd u=0$. No positive stored energy is defined by that bilinear term.
+
+\section{Accepted-claim coverage and reproducibility}\label{app:coverage}
+The manuscript integrates the two accepted project-internal records~\cite{Wreview,Treview}. Its mathematical scope is unchanged. The following map gives the principal locations; the delivered machine-readable ledger additionally records all supporting equation labels, resolved numbers/pages, exact source-line spans, hypotheses, limits and SHA-256 identities.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{.10\textwidth}>{\raggedright\arraybackslash}p{.41\textwidth}>{\raggedright\arraybackslash}p{.41\textwidth}}
+\toprule Record & Accepted content & Principal manuscript location\\\midrule\endhead
+W01 & Static geometry, clearance, history horizon & Proposition~\ref{prop:geometry}; \eqref{eq:clearance}--\eqref{eq:ballmargin}\\
+W02 & Complete-history observation and boundedness & Theorem~\ref{thm:observation}; \eqref{eq:pointunbounded}\\
+W03 & Temporal adjoint and advanced dependence & Proposition~\ref{prop:adjoint}; \eqref{eq:futureepsilon}\\
+W04 & Present carrier does not specify arbitrary history & Proposition~\ref{prop:presenthistory}\\
+W05 & Conditional work, native increments and signed prehistory & Proposition~\ref{prop:conditionalwork}, Corollary~\ref{cor:prehistory}\\
+T01 & Spatial factorization and Gram/kernel structure & Proposition~\ref{prop:factorization}\\
+T02 & L2 transport, traces and integrated work & Lemma~\ref{lem:transport}\\
+T03 & Declared effort/flow coupling and stocks & \eqref{eq:closedmodel}--\eqref{eq:componentpowers}\\
+T04 & Global forward mild evolution and conservation & Theorem~\ref{thm:global}\\
+T05 & Loaded direct C6 and compatible complete history & \eqref{eq:loadedC6}; Proposition~\ref{prop:completehistory}\\
+T06 & Native-map finite-step account & Proposition~\ref{prop:hybrid}\\
+T07 & Latency, strict receiving and incoming return & Propositions~\ref{prop:latency}--\ref{prop:return}\\
+D01 & Empty added preparation sufficient, not necessary & Remark~\ref{rem:D01}\\\bottomrule
+\end{longtable}
+
+The edition contains all TeX content and both deterministic vector figures needed to build the PDF. The build helper uses cached Tectonic in untrusted mode with intermediates outside the edition. Figure source, environment records, build receipts, extracted text, document checks and individual final-page renders are delivered with the review archive. The final-page inspection is bound to the exact PDF digest. Document checks establish artifact fidelity; mathematical acceptance, internal manuscript review and the repository publication receipt remain distinct records.
+
+The source ledger distinguishes preserved equations and accepted proofs from layout/build precedents. Original acceptance archives and current readable dispositions are retained unchanged. W's four exact-algebra groups and T's five are preserved as separate historical corroboration, not described as new tests of this edition. The external wave-variable citation below supplies methodological context from the publisher's indexed abstract and metadata; no unread external theorem is invoked in place of the explicit proofs.

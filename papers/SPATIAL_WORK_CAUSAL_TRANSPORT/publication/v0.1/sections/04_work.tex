@@ -1,0 +1,48 @@
+\section{Conditional added work and the signed prehistory residual}\label{sec:conditional}
+Before declaring new dynamics, it is useful to identify exactly what an added-force account would require. Keep the native and old-z equations in~\eqref{eq:RX}, but write a possible carrier force $\FF=(F_p,F_r)$ as
+\begin{equation}\label{eq:conditionalforce}
+p_t+\ccar(r_c)_s=\Bcal q+F_p,\qquad (r_c)_t+\ccar p_s=F_r.
+\end{equation}
+This notation alone supplies no force law or existence theorem.
+
+\begin{proposition}[Conditional regional and global work]\label{prop:conditionalwork}
+Suppose a solution has sufficient regularity, for example $Q\in C_tH^1_{\rm per}\cap C_t^1L^2$ on each exchange interval, with the retained finite-dimensional equations and integrable added work. Then, distributionally locally and in integrated time globally,
+\begin{align}
+\partial_t e+\partial_s j&=p\Bcal q+pF_p+r_cF_r,
+&e&=\frac{p^2+r_c^2}{2},&j&=\ccar p r_c,\label{eq:localadded}\\
+\dot H_{\rm RX}&=P_{\rm add},&P_{\rm add}&=\int_{S_L}(pF_p+r_cF_r)\dd s.\label{eq:addedpower}
+\end{align}
+With only the original finite native jumps and post-jump endpoints on $[0,T]$,
+\begin{equation}\label{eq:conditionalhybrid}
+\Delta H_{\rm RX}-B_N=\int_0^T P_{\rm add}(t)\dd t,\qquad
+B_N=\sum_{0<t_j\le T}\frac{\alpha_N}{2}
+\left[I(\Fn\Omega(t_j^-))-I(\Omega(t_j^-))\right].
+\end{equation}
+\end{proposition}
+\begin{proof}
+Multiply~\eqref{eq:conditionalforce} by p and $r_c$ and add. The H1 product rule gives~\eqref{eq:localadded}; periodic integration removes its flux derivative. The carrier source contributes $\eta_N f\cdot y-\eta_Rz\cdot y$ by profile adjointness. Equation~\eqref{eq:drive} and the factor one-half in native feedback give $\dot H_N=-\eta_Nf\cdot y$, while $\dot H_R=\eta_Rz\cdot y$. These cancel the old carrier source, leaving both added terms with plus signs. Between jumps integrate this identity and telescope. Only x jumps, so the finite sum is exactly~\eqref{eq:conditionalhybrid}. The jump at zero is already reflected in the initial post-jump value; one at T is included. No impulsive port work is inserted. The original map is reproduced in Section~\ref{sec:native}.
+\end{proof}
+
+Define mathematical test work and a prehistory pairing by
+\begin{equation}\label{eq:testpre}
+W^{\rm test}=\ip{\lambda}{\KG Q}_{\Ycal_T},\qquad
+W_{\rm pre}=\int_{-\Theta}^0\int_{S_L}Q(s,u)\cdot(\KG^*\lambda)(s,u)\dd s\dd u.
+\end{equation}
+Both are finite on the declared spaces. Calling the former physical receiving work would require dual units and a constitutive meaning for $\lambda$, absent from C6.
+
+\begin{corollary}[Formal negative-adjoint residual]\label{cor:prehistory}
+Conditional on a solution covered by Proposition~\ref{prop:conditionalwork} with $\FF=-\KG^*\lambda$ on forward times,
+\begin{equation}\label{eq:prehistorybalance}
+\boxed{\Delta H_{\rm RX}+W^{\rm test}-B_N=W_{\rm pre}.}
+\end{equation}
+The right-hand pairing is signed despite its positive coefficient. Zero prehistory is sufficient, not necessary, for it to vanish.
+\end{corollary}
+\begin{proof}
+Split~\eqref{eq:duality} at u=0. Its forward part equals $-\int_0^T P_{\rm add}\dd t$, leaving
+$W^{\rm test}=W_{\rm pre}-\int_0^T P_{\rm add}\dd t$.
+Substitute~\eqref{eq:conditionalhybrid}. Nonzero prehistory can have zero pairing by disjoint support, orthogonality or signed cancellation; zero prehistory is only one sufficient condition.
+\end{proof}
+
+The short-window case is exact: if $T\le\theta_-$, the forward adjoint force is zero a.e., so $\Delta H_{\rm RX}=B_N$ and $W^{\rm test}=W_{\rm pre}$ can still be nonzero. If prehistory is also zero, the short-window observation vanishes a.e. A simple-delay example in Appendix~\ref{app:example} makes the sign and cancellation concrete; it is not the proof for geometry-dependent delays.
+
+Even when $W_{\rm pre}=0$, this is integrated duality, not a causal loading theorem. The formal adjoint force can retain advanced dependence and need not have the stronger regularity assumed for the conditional solution. If a later model declares receiving power $P_G$ and a transit stock $E_{\rm tr}$, a necessary closed balance would be $\dot E_{\rm tr}=-P_{\rm add}-P_G$. Defining a quantity by that residual alone proves neither its nonnegativity, its dynamics nor its material location. The next section instead supplies an explicit state evolution and derives its stock balance.

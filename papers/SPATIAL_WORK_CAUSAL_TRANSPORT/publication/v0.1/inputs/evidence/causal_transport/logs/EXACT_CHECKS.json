@@ -1,0 +1,114 @@
+{
+  "task": "NATIVE_CAUSAL_TRANSPORT_STORAGE_01",
+  "observed_utc": "2026-11-10T10:18:55.106116+00:00",
+  "python": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+  "sympy": "1.14.0",
+  "status": "PASS",
+  "group_count": 5,
+  "groups": [
+    {
+      "id": "E01",
+      "status": "PASS",
+      "title": "Tangent embedding, duplication normalization, Gram kernel and direct C6 factor",
+      "details": {
+        "A": "Matrix([[1, 0], [0, 0], [0, -sin(chi)], [0, cos(chi)]])",
+        "pointwise_Gram_factor": "a_o^2 M / distance^2",
+        "inactive_receiving_direction": "Matrix([[0], [1], [0], [0]])",
+        "note": "Nonzero normal-vector receiving fields lie in ker(C*); no inverse or contraction is assumed."
+      }
+    },
+    {
+      "id": "E02",
+      "status": "PASS",
+      "title": "Near/far wave signs, sqrt(2) factors and full augmented cancellation",
+      "details": {
+        "RX_added_power": "sqrt(2)*b0*en0 + sqrt(2)*b1*en1 - en0**2 - en1**2",
+        "receiving_power": "sqrt(2)*c0*eg0 + sqrt(2)*c1*eg1 - eg0**2 - eg1**2",
+        "total_residual": "0",
+        "scope": "Bilinear identities for arbitrary effort vectors; no bound ||C||<=1."
+      }
+    },
+    {
+      "id": "E03",
+      "status": "PASS",
+      "title": "Both characteristic orientations and energy across startup/fully delayed regimes",
+      "details": {
+        "initial_profiles": [
+          "xi+1",
+          "2 xi+1"
+        ],
+        "incoming_boundaries": [
+          "a(t)=t+2",
+          "d(t)=3t+1"
+        ],
+        "initial_energy": "5*theta**3/6 + 3*theta**2/2 + theta",
+        "early_energy": "5*t**3/6 + t**2*theta/2 + 2*t**2 - t*theta**2/2 - t*theta + 3*t/2 + 5*theta**3/6 + 3*theta**2/2 + theta",
+        "late_energy": "5*t**2*theta - 5*t*theta**2 + 5*t*theta + 5*theta**3/3 - 5*theta**2/2 + 5*theta/2",
+        "derivative_residuals": [
+          "0",
+          "0"
+        ],
+        "corner_compatibility": "Intentionally not assumed; identity is integrated/energy-space.",
+        "scope": "Exact corroboration for symbolic positive theta, not a substitute for the L2 proof."
+      }
+    },
+    {
+      "id": "E04",
+      "status": "PASS",
+      "title": "Abstract units for both ports, added force, stocks and witness time bound",
+      "details": {
+        "basis": [
+          "U",
+          "L",
+          "T",
+          "G_o"
+        ],
+        "wave_exponents": [
+          "1",
+          "-1/2",
+          "-1/2",
+          "0"
+        ],
+        "zeta_exponents": [
+          "1",
+          "0",
+          "-1/2",
+          "-1"
+        ],
+        "beta_G_exponents": [
+          "0",
+          "0",
+          "1",
+          "2"
+        ],
+        "stock_exponents": [
+          "2",
+          "1",
+          "0",
+          "0"
+        ],
+        "force_exponents": [
+          "1",
+          "0",
+          "-1",
+          "0"
+        ],
+        "interpretation": "Consistent proposed bookkeeping, not physical calibration."
+      }
+    },
+    {
+      "id": "E05",
+      "status": "PASS",
+      "title": "Early-arrival bound and exact factor 16 in the return witness",
+      "details": {
+        "zeta_slope": "4*L*P*a_o*kappa/(beta_G*delta)",
+        "effort_to_direct_ratio": "8*L*M*a_o**2*epsilon/(beta_G*delta**2)",
+        "critical_epsilon": "beta_G*delta**2/(16*L*M*a_o**2)",
+        "ratio_at_critical": "1/2",
+        "strict_conclusion": "epsilon below the critical value gives effort < direct_lower/2; with direct > lower, return < -direct_lower/2.",
+        "scope": "Positivity intervals and positive-measure delay sublevels are proved analytically."
+      }
+    }
+  ],
+  "scope": "Five new exact-algebra corroboration groups. No accepted scientific suite rerun, no simulation or parameter scan, no inference of infinite-dimensional existence from algebra."
+}

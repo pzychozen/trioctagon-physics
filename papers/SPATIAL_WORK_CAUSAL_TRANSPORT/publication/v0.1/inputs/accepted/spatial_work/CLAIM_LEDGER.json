@@ -1,0 +1,648 @@
+{
+  "task": "NATIVE_SPATIAL_WORK_REGISTRATION_01",
+  "reviewer": "Codex",
+  "review_date": "2026-11-10",
+  "disposition": "W01_W05_VERIFIED_AS_STATED_AT_SUBMITTED_ASSUMPTIONS",
+  "gpt_author_acceptance_of_this_review": "pending subsequent assessment",
+  "claims": [
+    {
+      "id": "W01",
+      "title": "Actual-G arclength and finite history horizon",
+      "submitted_result": "Uniform enclosing-ball and delay ceilings and exact six-arc arclength formula at common width, for every admitted static geometry and both hands.",
+      "status": "verified-as-stated",
+      "assumptions": [
+        "Actual broken G arcs with no closing chord",
+        "Common width w>0",
+        "Static normalized tau_g in [0,h_g]",
+        "Full reflected MINUS construction",
+        "Selected inherited arclength-parametrized carrier",
+        "Accepted strict 297/5000 common-width separation retained as an input"
+      ],
+      "proof_location": {
+        "path": "NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+        "section": "R1",
+        "start_line": 41,
+        "end_line": 137,
+        "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18"
+      },
+      "source_locations": [
+        {
+          "id": "CC-G/eq:constants",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:constants",
+          "line": 4,
+          "line_text": "\\begin{equation}\\label{eq:constants}",
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "bytes": 8272
+        },
+        {
+          "id": "CC-G/eq:directions",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:directions",
+          "line": 8,
+          "line_text": "\\begin{equation}\\label{eq:directions}",
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "bytes": 8272
+        },
+        {
+          "id": "CC-G/eq:vertices",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:vertices",
+          "line": 18,
+          "line_text": " U_k&=(r_gn_k^{\\rm geom},H_0),&L_k&=(r_gA_\\tau n_k^{\\rm geom},-H_0).\\label{eq:vertices}",
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "bytes": 8272
+        },
+        {
+          "id": "CC-G/eq:G",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:G",
+          "line": 21,
+          "line_text": "\\begin{equation}\\label{eq:G}",
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "bytes": 8272
+        },
+        {
+          "id": "CC-G/eq:circleconstants",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:circleconstants",
+          "line": 60,
+          "line_text": "\\begin{equation}\\label{eq:circleconstants}",
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "bytes": 8272
+        },
+        {
+          "id": "CC-G/eq:circle",
+          "source_key": "CC-G",
+          "path": "inputs/sources/CC/geometry.tex",
+          "locator": "eq:circle",
+          "line": 67,
+          "line_text": " &\\hat t&=-\\sin\\chi\\,u+\\cos\\chi\\,e_z,\\quad\\chi=s/R_c,\\label{eq:circle}\\\\",
+          "sha256": "bb9553348fdef277ddad7eefa089150e77bd3ed410a97815b49add91e1358a4d",
+          "bytes": 8272
+        },
+        {
+          "id": "PG/prop:balls",
+          "source_key": "PG",
+          "path": "inputs/sources/PG/geometry.tex",
+          "locator": "prop:balls",
+          "line": 171,
+          "line_text": "\\begin{proposition}[Sufficient full-module clearances]\\label{prop:balls}",
+          "sha256": "8ba2c8961c41b055414b163d8bc197e8a4e7bd6a9f2d3c18b9fe4ffc70ea24aa",
+          "bytes": 18526
+        },
+        {
+          "id": "SO/V17",
+          "source_key": "SO",
+          "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "locator": "V17",
+          "line": 268,
+          "line_text": "=\\frac{23107}{389000}>\\frac{297}{5000}.} \\tag{V17}",
+          "sha256": "df88a553d52075d6fa6e256dedec74421a48be5d77d3297e4fa2a6ea30efbd1b",
+          "bytes": 32348
+        },
+        {
+          "id": "SO/V18",
+          "source_key": "SO",
+          "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "locator": "V18",
+          "line": 277,
+          "line_text": "\\Gamma_j^{-1}(\\mathcal H_k^\\sigma)=\\varnothing. \\tag{V18}",
+          "sha256": "df88a553d52075d6fa6e256dedec74421a48be5d77d3297e4fa2a6ea30efbd1b",
+          "bytes": 32348
+        },
+        {
+          "id": "SO/S04-C6",
+          "source_key": "SO",
+          "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "locator": "S04-C6",
+          "line": 307,
+          "line_text": "### C6 remains an unloaded observation",
+          "sha256": "df88a553d52075d6fa6e256dedec74421a48be5d77d3297e4fa2a6ea30efbd1b",
+          "bytes": 32348
+        },
+        {
+          "id": "SO-ACCEPT/acceptance",
+          "source_key": "SO-ACCEPT",
+          "path": "inputs/accepted/six_opening/GPT_ACCEPTANCE.json",
+          "locator": "acceptance",
+          "line": 6,
+          "line_text": "  \"disposition\": \"ACCEPTED_S01_S05_AS_STATED_AT_SPECIFIED_ASSUMPTIONS\",",
+          "sha256": "5a83a2049599d426f537d9f87c4111b0a88e6636710d017195d8efd45e210cab",
+          "bytes": 3157
+        }
+      ],
+      "depends_on_new_claims": [],
+      "findings": [
+        "All six broken arcs and twelve segments including wraparound checked.",
+        "Endpoint ball inequality exact, attained by lower tips at maximum static parameter.",
+        "Total arclength and all-parameter upper bound exact."
+      ],
+      "computation": {
+        "groups": [
+          "A01",
+          "A02"
+        ],
+        "code": "checks/exact_checks.py",
+        "record": "logs/EXACT_CHECKS.json"
+      },
+      "correction": null,
+      "limits": [
+        "Common width and whole-construction reflection only.",
+        "Ball radius is not cylindrical radius; history ceiling is not optimized.",
+        "Actual arcs and mathematical arclength; no aperture/flux convention.",
+        "Accepted separation is an input, not rerun."
+      ]
+    },
+    {
+      "id": "W02",
+      "title": "Bounded causal space-time history observation",
+      "submitted_result": "K_G maps the stated L2 history space to L2 G-window observations with norm at most a_o sqrt(LM)/delta. Continuous records use C(I;H1); single-point evaluation is unbounded in the L2 history norm.",
+      "status": "verified-as-stated",
+      "assumptions": [
+        "Fixed static geometry and positive g_o,c_e",
+        "Full history on [-T_hist,T]",
+        "Unit arclength tangent and ambient 4-vector output",
+        "Canonical arclength as test measure",
+        "Almost-everywhere interpretation on L2"
+      ],
+      "proof_location": {
+        "path": "NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+        "section": "R2",
+        "start_line": 138,
+        "end_line": 203,
+        "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18"
+      },
+      "source_locations": [
+        {
+          "id": "CC-C/eq:C1",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:C1",
+          "line": 32,
+          "line_text": "\\begin{equation}\\label{eq:C1}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338
+        },
+        {
+          "id": "CC-C/eq:storage",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:storage",
+          "line": 36,
+          "line_text": "\\begin{equation}\\label{eq:storage}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338
+        },
+        {
+          "id": "CC-C/eq:C6",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:C6",
+          "line": 69,
+          "line_text": " &Y_X&=(U,B^TV_{\\rm ext}).\\label{eq:C6}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338
+        },
+        {
+          "id": "SO/V17",
+          "source_key": "SO",
+          "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "locator": "V17",
+          "line": 268,
+          "line_text": "=\\frac{23107}{389000}>\\frac{297}{5000}.} \\tag{V17}",
+          "sha256": "df88a553d52075d6fa6e256dedec74421a48be5d77d3297e4fa2a6ea30efbd1b",
+          "bytes": 32348
+        },
+        {
+          "id": "SO/V18",
+          "source_key": "SO",
+          "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "locator": "V18",
+          "line": 277,
+          "line_text": "\\Gamma_j^{-1}(\\mathcal H_k^\\sigma)=\\varnothing. \\tag{V18}",
+          "sha256": "df88a553d52075d6fa6e256dedec74421a48be5d77d3297e4fa2a6ea30efbd1b",
+          "bytes": 32348
+        },
+        {
+          "id": "SO/S04-C6",
+          "source_key": "SO",
+          "path": "inputs/accepted/six_opening/NATIVE_SIX_OPENING_TRANSPORT_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "locator": "S04-C6",
+          "line": 307,
+          "line_text": "### C6 remains an unloaded observation",
+          "sha256": "df88a553d52075d6fa6e256dedec74421a48be5d77d3297e4fa2a6ea30efbd1b",
+          "bytes": 32348
+        }
+      ],
+      "depends_on_new_claims": [
+        "W01"
+      ],
+      "findings": [
+        "Bound a_o sqrt(L M)/delta follows by time substitution and Tonelli.",
+        "Representative independence and unique density extension established.",
+        "Joint continuity and smooth narrow-graph counterexample established."
+      ],
+      "computation": {
+        "groups": [],
+        "code": null,
+        "record": null
+      },
+      "correction": null,
+      "limits": [
+        "Complete supplied history including negative times.",
+        "Space-time a.e. output; no L2 single-point bound.",
+        "Point records use the stronger C(I;H1) hypothesis.",
+        "Width-uniform upper bound does not calibrate speed or time."
+      ]
+    },
+    {
+      "id": "W03",
+      "title": "Exact adjoint with finite-window and causal qualifications",
+      "submitted_result": "The exact Hilbert adjoint samples the zero-extended dual test at u+delay, includes prehistory, and has a generally noncausal forward-time restriction when T exceeds minimum delay; that restriction is zero a.e. on shorter windows.",
+      "status": "verified-as-stated",
+      "assumptions": [
+        "Spaces and observation in W02",
+        "Zero extension of lambda outside [0,T]",
+        "Adjoint acts on the complete history interval",
+        "Positive scalar kernel",
+        "Ambient-vector convention"
+      ],
+      "proof_location": {
+        "path": "NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+        "section": "R3",
+        "start_line": 204,
+        "end_line": 252,
+        "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18"
+      },
+      "source_locations": [
+        {
+          "id": "CC-C/eq:C1",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:C1",
+          "line": 32,
+          "line_text": "\\begin{equation}\\label{eq:C1}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338
+        },
+        {
+          "id": "CC-C/eq:storage",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:storage",
+          "line": 36,
+          "line_text": "\\begin{equation}\\label{eq:storage}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338
+        },
+        {
+          "id": "CC-C/eq:C6",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:C6",
+          "line": 69,
+          "line_text": " &Y_X&=(U,B^TV_{\\rm ext}).\\label{eq:C6}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338
+        }
+      ],
+      "depends_on_new_claims": [
+        "W01",
+        "W02"
+      ],
+      "findings": [
+        "Both adjoint components and tangent projection derived directly.",
+        "Window indicator has unit time Jacobian; prehistory retained.",
+        "Noncausality witness is positive on a positive-measure set before cutoff."
+      ],
+      "computation": {
+        "groups": [
+          "A04"
+        ],
+        "code": "checks/exact_checks.py",
+        "record": "logs/EXACT_CHECKS.json"
+      },
+      "correction": null,
+      "limits": [
+        "Zero extension of lambda and full prehistory domain are essential.",
+        "Forward restriction zero a.e. for T<=minimum delay.",
+        "Future-support witness applies for T>minimum delay.",
+        "No instantaneous physical power interpretation or universal causal-realization prohibition.",
+        "A04 is an arithmetic example, not the geometry-dependent proof."
+      ]
+    },
+    {
+      "id": "W04",
+      "title": "Arbitrary-history observation is not determined by present carrier alone",
+      "submitted_result": "Two smooth histories in the stated analytic domain can share their present carrier state but have different retarded G records.",
+      "status": "verified-as-stated",
+      "assumptions": [
+        "Arbitrary smooth analytic history domain",
+        "Past bump overlaps an actual retarded time",
+        "Strictly positive distance and gain",
+        "No assertion that the witness histories solve C1 or RX"
+      ],
+      "proof_location": {
+        "path": "NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+        "section": "R4",
+        "start_line": 253,
+        "end_line": 276,
+        "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18"
+      },
+      "source_locations": [
+        {
+          "id": "CC-C/eq:C1",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:C1",
+          "line": 32,
+          "line_text": "\\begin{equation}\\label{eq:C1}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338
+        },
+        {
+          "id": "CC-C/eq:storage",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:storage",
+          "line": 36,
+          "line_text": "\\begin{equation}\\label{eq:storage}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338
+        },
+        {
+          "id": "CC-C/eq:C6",
+          "source_key": "CC-C",
+          "path": "inputs/sources/CC/carrier.tex",
+          "locator": "eq:C6",
+          "line": 69,
+          "line_text": " &Y_X&=(U,B^TV_{\\rm ext}).\\label{eq:C6}",
+          "sha256": "d080ba18c4c3da21a6635b9c66304a5622d8d569f7ebf7de4f2040632e64af59",
+          "bytes": 6338
+        },
+        {
+          "id": "CR/Q01",
+          "source_key": "CR",
+          "path": "inputs/accepted/central_route/NATIVE_CENTRAL_ROUTE_CORRESPONDENCE_01_GPT_REVIEW.md",
+          "locator": "Q01",
+          "line": 88,
+          "line_text": "## 5. Q01 — clarification of the review's necessity wording",
+          "sha256": "26f85b2c755168a7f7b4e9424447979afbe868f577be62964358382c99ad6f50",
+          "bytes": 13554
+        },
+        {
+          "id": "CR/C05",
+          "source_key": "CR",
+          "path": "inputs/accepted/central_route/NATIVE_CENTRAL_ROUTE_CORRESPONDENCE_01_PROOF_REVIEW.md",
+          "locator": "C05",
+          "line": 367,
+          "line_text": "## C05 — phase information and direction labels",
+          "sha256": "96c4fab1089a5e0dd43bb6149b917d39b66eac0e6544e7fa6272e61663f87c4d",
+          "bytes": 35544
+        }
+      ],
+      "depends_on_new_claims": [
+        "W01",
+        "W02"
+      ],
+      "findings": [
+        "Explicit compactly supported nonnegative bump contains an actual retarded time.",
+        "Present carrier values agree while observations differ on a neighborhood."
+      ],
+      "computation": {
+        "groups": [],
+        "code": null,
+        "record": null
+      },
+      "correction": null,
+      "limits": [
+        "Arbitrary smooth histories, not generated C1/RX solutions.",
+        "No full-state reconstruction, native invertibility or specified empty-launch conclusion.",
+        "Separate conditional common-phase information result retained."
+      ]
+    },
+    {
+      "id": "W05",
+      "title": "Added-work identity and exact prehistory residual",
+      "submitted_result": "Original native/receiver work cancels under conditional additional carrier forcing, leaving the exact added-power integral and native jump sum. Formal forward forcing -K_G*lambda leaves the positive prehistory pairing in the proposed test-work balance.",
+      "status": "verified-as-stated",
+      "assumptions": [
+        "Original native and z equations, B/B*, parameters and stores unchanged",
+        "Conditional sufficient regularity for energy identities",
+        "No extra impulses",
+        "RX post-jump endpoints and 0<t_j<=T count",
+        "W_test is a mathematical/hypothetical work pairing",
+        "No adopted new receiver, load or transit state"
+      ],
+      "proof_location": {
+        "path": "NATIVE_SPATIAL_WORK_REGISTRATION_01_PROOF_REVIEW.md",
+        "section": "R5",
+        "start_line": 277,
+        "end_line": 391,
+        "sha256": "fc6a045b548925baca811b70f1cceba982b48456ab07d592ab4bf520c38cfe18"
+      },
+      "source_locations": [
+        {
+          "id": "RX-C/eq:drive",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:drive",
+          "line": 28,
+          "line_text": "\\begin{equation}\\label{eq:drive}",
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5",
+          "bytes": 6858
+        },
+        {
+          "id": "RX-C/eq:tents",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:tents",
+          "line": 37,
+          "line_text": "\\begin{equation}\\label{eq:tents}",
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5",
+          "bytes": 6858
+        },
+        {
+          "id": "RX-C/eq:ports",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:ports",
+          "line": 43,
+          "line_text": "\\begin{equation}\\label{eq:ports}",
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5",
+          "bytes": 6858
+        },
+        {
+          "id": "RX-C/eq:storages",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:storages",
+          "line": 48,
+          "line_text": "\\begin{equation}\\label{eq:storages}",
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5",
+          "bytes": 6858
+        },
+        {
+          "id": "RX-C/eq:system",
+          "source_key": "RX-C",
+          "path": "inputs/sources/RX/candidate.tex",
+          "locator": "eq:system",
+          "line": 57,
+          "line_text": "\\begin{equation}\\label{eq:system}",
+          "sha256": "babb811ccf53415dc77c19c3f00c7a281924713728d6816f9478f2522e2c43e5",
+          "bytes": 6858
+        },
+        {
+          "id": "RX-P/eq:jacobian",
+          "source_key": "RX-P",
+          "path": "inputs/sources/RX/power.tex",
+          "locator": "eq:jacobian",
+          "line": 4,
+          "line_text": "\\begin{equation}\\label{eq:jacobian}",
+          "sha256": "2d302fb32d0a5e825ae4929e7cc1e7aceb4772937cc5457bed951e717a2cfc89",
+          "bytes": 3133
+        },
+        {
+          "id": "RX-P/eq:localwork",
+          "source_key": "RX-P",
+          "path": "inputs/sources/RX/power.tex",
+          "locator": "eq:localwork",
+          "line": 24,
+          "line_text": "\\begin{equation}\\label{eq:localwork}",
+          "sha256": "2d302fb32d0a5e825ae4929e7cc1e7aceb4772937cc5457bed951e717a2cfc89",
+          "bytes": 3133
+        },
+        {
+          "id": "RX-P/eq:balances",
+          "source_key": "RX-P",
+          "path": "inputs/sources/RX/power.tex",
+          "locator": "eq:balances",
+          "line": 28,
+          "line_text": "\\begin{equation}\\label{eq:balances}",
+          "sha256": "2d302fb32d0a5e825ae4929e7cc1e7aceb4772937cc5457bed951e717a2cfc89",
+          "bytes": 3133
+        },
+        {
+          "id": "RX-A/eq:baselinewindow",
+          "source_key": "RX-A",
+          "path": "inputs/sources/RX/accounts.tex",
+          "locator": "eq:baselinewindow",
+          "line": 19,
+          "line_text": "\\begin{equation}\\label{eq:baselinewindow}",
+          "sha256": "b681f113ce3e484b35674212ceec4ab42ccb1ac13d8d5b306bf2e92f7c2e60ad",
+          "bytes": 4490
+        },
+        {
+          "id": "RX-A/eq:windowbalances",
+          "source_key": "RX-A",
+          "path": "inputs/sources/RX/accounts.tex",
+          "locator": "eq:windowbalances",
+          "line": 24,
+          "line_text": "\\begin{equation}\\label{eq:windowbalances}",
+          "sha256": "b681f113ce3e484b35674212ceec4ab42ccb1ac13d8d5b306bf2e92f7c2e60ad",
+          "bytes": 4490
+        },
+        {
+          "id": "RX-H/eq:tuple",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:tuple",
+          "line": 3,
+          "line_text": "\\begin{equation}\\label{eq:tuple}",
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+          "bytes": 7084
+        },
+        {
+          "id": "RX-H/eq:nativemap",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:nativemap",
+          "line": 12,
+          "line_text": " &F_i(\\Omega)&=e^{i\\delta_i}\\widetilde\\Omega_i.\\label{eq:nativemap}",
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+          "bytes": 7084
+        },
+        {
+          "id": "RX-H/eq:hybrid",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:hybrid",
+          "line": 32,
+          "line_text": "\\begin{equation}\\label{eq:hybrid}",
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+          "bytes": 7084
+        },
+        {
+          "id": "RX-H/eq:hybridbalance",
+          "source_key": "RX-H",
+          "path": "inputs/sources/RX/hybrid.tex",
+          "locator": "eq:hybridbalance",
+          "line": 36,
+          "line_text": "\\begin{equation}\\label{eq:hybridbalance}",
+          "sha256": "b66cdd8d07b26abe870c76b05876141d8d150c3864de8eca16f5bf19254b2b3e",
+          "bytes": 7084
+        },
+        {
+          "id": "CAD/limits",
+          "source_key": "CAD",
+          "path": "inputs/accepted/cadence/CORRECTIONS_AND_LIMITS.md",
+          "locator": "limits",
+          "line": 27,
+          "line_text": "## Remaining gaps",
+          "sha256": "5689a7ebf5daa8d863f8ab16dc7844a4481849f3fa010e5cb696d4cec1e1a0ad",
+          "bytes": 3472
+        },
+        {
+          "id": "CAD/status",
+          "source_key": "CAD",
+          "path": "inputs/accepted/cadence/CADENCE_STATUS.md",
+          "locator": "status",
+          "line": 1,
+          "line_text": "# Native stepping and exchange cadence: current status",
+          "sha256": "a88965174b44879d736c294de34fec2e44e18f65ffd190b7f6a6f0dfea30fa0c",
+          "bytes": 2919
+        }
+      ],
+      "depends_on_new_claims": [
+        "W03"
+      ],
+      "findings": [
+        "Euler factor and B/B* cancellation give p F_p+r_c F_r.",
+        "Native jump sum counted exactly on 0<t_j<=T.",
+        "Delta H_base+W_test-B_N=W_pre proved for geometry-dependent delays.",
+        "Short-window case and exact signed/cancelling examples checked."
+      ],
+      "computation": {
+        "groups": [
+          "A03",
+          "A04"
+        ],
+        "code": "checks/exact_checks.py",
+        "record": "logs/EXACT_CHECKS.json"
+      },
+      "correction": null,
+      "limits": [
+        "Conditional sufficient regularity and integrable work; no new well-posedness theorem.",
+        "Original ports, native/old receiver equations and F-first order retained.",
+        "Finite native jumps, post-jump endpoints, no new impulses.",
+        "Prehistory pairing has a plus sign but is not necessarily nonnegative.",
+        "Zero prehistory is sufficient but not necessary for cancellation.",
+        "Formal adjoint loading is generally advanced on longer windows.",
+        "No adopted physical load/units, receiver or nonnegative transit state."
+      ]
+    }
+  ],
+  "mathematical_corrections": [],
+  "accepted_foundations": [
+    "C01-C05 with Q01",
+    "S01-S05",
+    "native F/cadence qualifications"
+  ],
+  "scope": "Local independent proof review only; no manuscript, kernel or publication work."
+}

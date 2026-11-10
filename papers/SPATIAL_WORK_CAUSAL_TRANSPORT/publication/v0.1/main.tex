@@ -1,0 +1,66 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\DeclareMathAlphabet{\mathsf}{OT1}{lmr}{m}{n}
+\usepackage[margin=25mm,headheight=15pt]{geometry}
+\usepackage{graphicx,booktabs,array,tabularx,longtable}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{microtype,enumitem,fancyhdr,needspace}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{bookmark}
+\hypersetup{pdftitle={Spatial Observation and Causal Transport with Storage in the Reciprocal Chiral Exchange Candidate},pdfauthor={Hilmir Frímann Halldórsson (pzychozen)},pdfsubject={Research edition v0.1 — project-internal review complete; author-authorized for repository publication.},pdfkeywords={C6 observation, causal transport, positive storage, reciprocal exchange, 10 November 2026}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}
+\setlist{nosep,leftmargin=*}\numberwithin{equation}{section}
+\theoremstyle{definition}\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\CC}{\mathbb C}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\ip}[2]{\left\langle#1,#2\right\rangle}
+\newcommand{\dd}{\,\mathrm d}\newcommand{\Bcal}{\mathcal B}\newcommand{\KG}{\mathcal K_G}
+\newcommand{\KGz}{\mathcal K_{G,0}}\newcommand{\FF}{\mathcal F}\newcommand{\Dcal}{\mathcal D}
+\newcommand{\Wcal}{\mathcal W}\newcommand{\Hcal}{\mathcal H}\newcommand{\Ycal}{\mathcal Y}
+\newcommand{\ccar}{c_{\rm car}}\newcommand{\Fn}{F_{\rm native}}\newcommand{\Gmat}{\mathbf G}
+\newcommand{\Rb}{R_{\rm ball}}\newcommand{\RG}{R_\Gamma}\newcommand{\ii}{\mathbf1}
+\newcommand{\sourcepath}[1]{\texttt{\detokenize{#1}}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Spatial observation and causal transport}\fancyhead[R]{\small v0.1}\fancyfoot[C]{\thepage}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}\centering
+\vspace*{10mm}
+{\LARGE\bfseries Spatial Observation and Causal\\[3mm]Transport with Storage in the\\[3mm]Reciprocal Chiral Exchange Candidate\par}
+\vspace{10mm}
+{\large Hilmir Frímann Halldórsson (pzychozen)\par}\vspace{4mm}
+{10 November 2026\par}\vspace{5mm}
+{\small Research edition v0.1\par Project-internal review complete; author-authorized for repository publication\par}
+\vspace{9mm}
+\begin{minipage}{0.94\textwidth}
+\textbf{Abstract.}
+The inherited C6 formula observes a periodic carrier at six central broken boundaries through retarded, distance-weighted histories. We establish its bounded causal action on a complete space-time history domain, distinguish that estimate from point records, and derive its finite-window temporal adjoint. On sufficiently long windows the forward part of that adjoint is advanced; a formal negative-adjoint force leaves a signed prehistory term in the work account. We then declare one stateful causal extension of the reciprocal chiral exchange candidate. Two traveling fields on static delay intervals and a separate receiving field have nonnegative quadratic stocks. Spatial effort/flow coupling yields exact matched work without requiring the mixing operator to be contractive. A method-of-steps argument proves unique global forward mild evolution for every finite-energy preparation, with locally square-integrable boundary signals and exact augmented exchange conservation. C6 remains the direct component of the loaded receiving equation, whose return, loading and arbitrary-profile startup terms are retained explicitly. The original native map retains its finite-window baseline accounting formula. Empty added states impose positive receiving and return delays; a constant carrier preload produces strict receiving and a nonzero incoming return on specified short intervals. This witness is carrier-funded and does not establish native recovery. The result is a mathematical transport/storage connection; its physical curved-route, material and clock correspondence remains open.
+\end{minipage}
+\vfill
+\begin{minipage}{0.94\textwidth}\small
+\textbf{Preparation and status.} Hilmir Frímann Halldórsson provides authorship and geometric direction. GPT contributed formulation and project-internal mathematical review; Codex performed independent verification and manuscript preparation. W01--W05 and T01--T07 are accepted at their stated hypotheses, with documentary clarification D01. The author has authorized repository publication of this internally reviewed research edition. No external peer review or formal machine verification is claimed.
+\end{minipage}
+\end{titlepage}
+\hypersetup{pageanchor=true}\setcounter{page}{2}
+\setcounter{tocdepth}{1}\tableofcontents
+\vspace{7mm}
+\textbf{Reading guide.} Sections~\ref{sec:observation}--\ref{sec:conditional} explain what a delayed observation and its temporal dual do establish. Sections~\ref{sec:transport}--\ref{sec:evolution} declare and analyze a different, stateful connection. Sections~\ref{sec:preparation}--\ref{sec:activity} identify its exact observation, preparation and activity scope. The physical correspondence is discussed in Section~\ref{sec:discussion}; appendices record notation and accepted-claim coverage.
+\clearpage
+\input{sections/01_question}
+\input{sections/02_setting}
+\input{sections/03_observation}
+\input{sections/04_work}
+\input{sections/05_transport}
+\input{sections/06_evolution}
+\input{sections/07_preparation}
+\input{sections/08_activity}
+\input{sections/09_discussion}
+\appendix
+\input{sections/10_appendices}
+\input{references}
+\end{document}

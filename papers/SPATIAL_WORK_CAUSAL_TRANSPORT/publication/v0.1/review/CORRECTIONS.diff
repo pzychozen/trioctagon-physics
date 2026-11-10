@@ -1,0 +1,124 @@
+--- submitted/BUILD.md
++++ corrected/BUILD.md
+@@ -1,9 +1,9 @@
+-# Building the review manuscript
++# Building the research edition
+ 
+ Title: Spatial Observation and Causal Transport with Storage in the Reciprocal Chiral Exchange Candidate  
+ Author: Hilmir Frímann Halldórsson (pzychozen)  
+ Version: v0.1, prepared 10 November 2026, Atlantic/Reykjavik  
+-Status: Research manuscript v0.1 — accepted mathematics; manuscript and author review pending.
++Status: Research edition v0.1 — project-internal review complete; author-authorized for repository publication.
+ 
+ The complete manuscript content is self-contained in this edition: `main.tex`, `sections/`, the editable `references.tex` bibliography, and the two vector figures in `figures/`. Compilation reads no content from Downloads or unrelated historical workspaces.
+ 
+@@ -16,7 +16,7 @@
+ 
+ Use an existing cached Tectonic installation elsewhere if needed; quote paths containing spaces when typing directly in Command Prompt. Omitting `--build-dir` creates a fresh system temporary directory. The helper rejects intermediates inside the edition. Its recorded version is Tectonic 0.17.0. It uses `--only-cached --untrusted --keep-logs --keep-intermediates`; it does not fetch TeX packages or enable shell escape. An existing populated TeX cache is required.
+ 
+-The canonical output is `SPATIAL_WORK_CAUSAL_TRANSPORT_v0.1.pdf`. `SOURCE_DATE_EPOCH` is fixed to 10 November 2026; the external receipt records actual UTC build times separately. It also hashes every TeX file and figure PDF consumed. The final delivered build is `verification/build08/` in the complete package. Fonts use available Latin Modern assets; theorem bodies and equation prose are upright, with a bold Gram matrix and upright dimensional symbols. All final font resources are embedded.
++The canonical output is `SPATIAL_WORK_CAUSAL_TRANSPORT_v0.1.pdf`. `SOURCE_DATE_EPOCH` is fixed to 10 November 2026; the external receipt records actual UTC build times separately. It also hashes every TeX file and figure PDF consumed. The original submission build is retained as `verification/build08/` in the unchanged review archive. Publication requires a fresh corrected build and a new hash-bound document/visual record; the original build08 receipt does not certify revised bytes. Fonts use available Latin Modern assets; theorem bodies and equation prose are upright, with a bold Gram matrix and upright dimensional symbols. All final font resources are embedded.
+ 
+ The supplied figures are sufficient for compilation. To regenerate the editable PDF/SVG figures and PNG previews in the same activated environment:
+ 
+@@ -26,4 +26,4 @@
+ 
+ This uses existing Matplotlib 3.10.9 and deterministic metadata/hash salt. It draws abstract account and support diagrams; it performs no trajectory simulation or scientific-suite replay. The recorded Python is 3.11.15 in `torment`, with pypdf 7.0.0 for document inspection. No dependency was installed for this task.
+ 
+-From the complete package root, `run_python.cmd scripts\audit_document.py build08` checks the actual final PDF, source hashes, metadata, fonts, labels and citations, then renders every page with Poppler 26.07.0. The script records local renderer paths, which may need adjustment on another machine. A rebuild belongs in a fresh external directory; pass its directory name to the audit helper. Rendering is not visual inspection: any content-changing rebuild requires a new individual inspection of every final page and an updated hash-bound receipt. The delivered inspection applies only to the PDF digest recorded in `verification/VISUAL_INSPECTION.json`.
++The original document-check scripts and Windows environment records are preserved in the unchanged review archive. For publication, refresh their status expectations and working/output paths, run them against the new corrected build, then render and individually inspect every final page. Do not reuse build08 or its page-inspection record to certify revised bytes. Record the actual compiler, renderer, PDF digest, page count, reference checks and visual disposition in the new publication verification records. Rendering alone is not visual inspection.
+--- submitted/README.md
++++ corrected/README.md
+@@ -1,10 +1,10 @@
+-# Review edition v0.1
++# Research edition v0.1
+ 
+ **Spatial Observation and Causal Transport with Storage in the Reciprocal Chiral Exchange Candidate**  
+ Hilmir Frímann Halldórsson (pzychozen)  
+ Prepared 10 November 2026, Atlantic/Reykjavik  
+-**Research manuscript v0.1 — accepted mathematics; manuscript and author review pending.**
++**Research edition v0.1 — project-internal review complete; author-authorized for repository publication.**
+ 
+ Open `SPATIAL_WORK_CAUSAL_TRANSPORT_v0.1.pdf` for the 25-page manuscript. `main.tex` includes ten editable section files and the editable `references.tex` bibliography. `figures/` holds both vector PDFs/SVGs, previews and deterministic Python source. `BUILD.md` gives the cached, untrusted Tectonic build and Command Prompt/conda `torment` instructions. All compilation content is contained in this directory.
+ 
+-The full review package also includes the exact accepted inputs, claim/source mapping, notation crosswalk and hash-bound final-page inspection. The mathematical claims are accepted at their specified hypotheses; this manuscript awaits GPT and author review.
++The full review package also includes the exact accepted inputs, claim/source mapping, notation crosswalk and hash-bound final-page inspection. The mathematical claims and manuscript have project-internal acceptance at their specified hypotheses. Repository publication is author-authorized; the publication receipt, not this status label, records the actual commit and remote verification. No external peer review is claimed.
+--- submitted/build.py
++++ corrected/build.py
+@@ -37,7 +37,7 @@
+ shutil.copyfile(build/'main.pdf',pdf)
+ record={'title':'Spatial Observation and Causal Transport with Storage in the Reciprocal Chiral Exchange Candidate',
+  'author':'Hilmir Frímann Halldórsson (pzychozen)', 'edition':'v0.1',
+- 'status':'Research manuscript v0.1 — accepted mathematics; manuscript and author review pending.',
++ 'status':'Research edition v0.1 — project-internal review complete; author-authorized for repository publication.',
+  'preparation_date':'2026-11-10','timezone':'Atlantic/Reykjavik',
+  'started_utc':started,'built_utc':datetime.now(timezone.utc).isoformat(),
+  'compiler_version':version,'command':cmd,'python':sys.executable,'python_version':sys.version,
+--- submitted/main.tex
++++ corrected/main.tex
+@@ -8,7 +8,7 @@
+ \usepackage{microtype,enumitem,fancyhdr,needspace}
+ \usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+ \usepackage{bookmark}
+-\hypersetup{pdftitle={Spatial Observation and Causal Transport with Storage in the Reciprocal Chiral Exchange Candidate},pdfauthor={Hilmir Frímann Halldórsson (pzychozen)},pdfsubject={Research manuscript v0.1 — accepted mathematics; manuscript and author review pending.},pdfkeywords={C6 observation, causal transport, positive storage, reciprocal exchange, 10 November 2026}}
++\hypersetup{pdftitle={Spatial Observation and Causal Transport with Storage in the Reciprocal Chiral Exchange Candidate},pdfauthor={Hilmir Frímann Halldórsson (pzychozen)},pdfsubject={Research edition v0.1 — project-internal review complete; author-authorized for repository publication.},pdfkeywords={C6 observation, causal transport, positive storage, reciprocal exchange, 10 November 2026}}
+ \setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}
+ \setlist{nosep,leftmargin=*}\numberwithin{equation}{section}
+ \theoremstyle{definition}\newtheorem{theorem}{Theorem}[section]
+@@ -35,15 +35,15 @@
+ \vspace{10mm}
+ {\large Hilmir Frímann Halldórsson (pzychozen)\par}\vspace{4mm}
+ {10 November 2026\par}\vspace{5mm}
+-{\small Research manuscript v0.1\par Accepted mathematics; manuscript and author review pending\par}
++{\small Research edition v0.1\par Project-internal review complete; author-authorized for repository publication\par}
+ \vspace{9mm}
+ \begin{minipage}{0.94\textwidth}
+ \textbf{Abstract.}
+-The inherited C6 formula observes a periodic carrier at six central broken boundaries through retarded, distance-weighted histories. We establish its bounded causal action on a complete space-time history domain, distinguish that estimate from point records, and derive its finite-window temporal adjoint. On sufficiently long windows the forward part of that adjoint is advanced; a formal negative-adjoint force leaves a signed prehistory term in the work account. We then declare one stateful causal extension of the reciprocal chiral exchange candidate. Two traveling fields on static delay intervals and a separate receiving field have nonnegative quadratic stocks. Spatial effort/flow coupling yields exact matched work without requiring the mixing operator to be contractive. A method-of-steps argument proves unique global forward mild evolution for every finite-energy preparation, with locally square-integrable boundary signals and exact augmented exchange conservation. C6 remains the direct component of the loaded receiving equation, whose return, loading and arbitrary-profile startup terms are retained explicitly. The original native map gives the same finite-window baseline increment. Empty added states impose positive receiving and return delays; a constant carrier preload produces strict receiving and a nonzero incoming return on specified short intervals. This witness is carrier-funded and does not establish native recovery. The result is a mathematical transport/storage connection; its physical curved-route, material and clock correspondence remains open.
++The inherited C6 formula observes a periodic carrier at six central broken boundaries through retarded, distance-weighted histories. We establish its bounded causal action on a complete space-time history domain, distinguish that estimate from point records, and derive its finite-window temporal adjoint. On sufficiently long windows the forward part of that adjoint is advanced; a formal negative-adjoint force leaves a signed prehistory term in the work account. We then declare one stateful causal extension of the reciprocal chiral exchange candidate. Two traveling fields on static delay intervals and a separate receiving field have nonnegative quadratic stocks. Spatial effort/flow coupling yields exact matched work without requiring the mixing operator to be contractive. A method-of-steps argument proves unique global forward mild evolution for every finite-energy preparation, with locally square-integrable boundary signals and exact augmented exchange conservation. C6 remains the direct component of the loaded receiving equation, whose return, loading and arbitrary-profile startup terms are retained explicitly. The original native map retains its finite-window baseline accounting formula. Empty added states impose positive receiving and return delays; a constant carrier preload produces strict receiving and a nonzero incoming return on specified short intervals. This witness is carrier-funded and does not establish native recovery. The result is a mathematical transport/storage connection; its physical curved-route, material and clock correspondence remains open.
+ \end{minipage}
+ \vfill
+ \begin{minipage}{0.94\textwidth}\small
+-\textbf{Preparation and status.} Hilmir Frímann Halldórsson provides authorship and geometric direction. GPT contributed formulation and project-internal mathematical review; Codex performed independent verification and manuscript preparation. W01--W05 and T01--T07 are accepted at their stated hypotheses, with documentary clarification D01. This actual manuscript awaits GPT and author review. No external peer review, formal machine verification or publication approval is claimed.
++\textbf{Preparation and status.} Hilmir Frímann Halldórsson provides authorship and geometric direction. GPT contributed formulation and project-internal mathematical review; Codex performed independent verification and manuscript preparation. W01--W05 and T01--T07 are accepted at their stated hypotheses, with documentary clarification D01. The author has authorized repository publication of this internally reviewed research edition. No external peer review or formal machine verification is claimed.
+ \end{minipage}
+ \end{titlepage}
+ \hypersetup{pageanchor=true}\setcounter{page}{2}
+--- submitted/sections/02_setting.tex
++++ corrected/sections/02_setting.tex
+@@ -61,7 +61,7 @@
+ The strict inequality follows by squaring positive quantities: $72>49$. A lower elbow has smaller squared norm than a lower tip by
+ $D^2(r_g^2-a_g^2)+(H_0^2-h_g^2)>0$; the upper comparison uses $D=1$. Norm convexity extends the endpoint bound along every segment. The lower-tip bound is attained at $\tau_g=h_g$, but this does not assert attainment of the later distance ceiling.
+ 
+-Each adjacent horizontal pair has dot product $1/2$, including $T_5$ to $U_0$ and $B_5$ to $L_0$. Its squared horizontal edge length is
++The underlying adjacent unit directions satisfy $e_i\cdot e_{i+1}=1/2$, including the wraparound pair $e_5,e_0$ for the $T_5$--$U_0$ and $B_5$--$L_0$ edges. The upper horizontal edge has squared length
+ $v_0^2=(r_g-a_g/2)^2+3a_g^2/4>0$.
+ There are six upper edges with squared length $v_0^2+d_g^2$ and six lower edges with squared length $D^2v_0^2+d_g^2$. Only horizontal lengths gain D; the vertical difference remains $d_g$. Summing proves~\eqref{eq:Glength}, maximized at $\tau_g=h_g$. At zero it is twelve equal edge lengths. Scaling and full orthogonal reflection preserve these statements.
+ 
+--- submitted/sections/09_discussion.tex
++++ corrected/sections/09_discussion.tex
+@@ -13,4 +13,4 @@
+ 
+ The accepted W record contains four scoped exact-algebra groups and the T record five separate groups. They corroborate specified algebra; they are not numerical substitutes for the functional, trace and positive-measure proofs reproduced here. The present preparation preserves those code/log records and acceptance decisions without adding a scientific rerun. Document compilation, source integrity and page inspection are recorded separately from mathematical acceptance.
+ 
+-The resulting mathematical connection is ready for manuscript review. The next spatial task is to justify an embedding and physical account that relates the declared transport coordinate, product metric and receiving field to the intended route while preserving the proved work identities. That is a subsequent correspondence problem, not a missing step in the forward solution theorem established here.
++This completes the mathematical observation and declared transport/storage assessment. A physical embedding and account relating the transport coordinate, product metric and receiving field to the intended route remain open correspondence questions. They are not missing steps in the forward solution theorem established here.
+--- submitted/sections/10_appendices.tex
++++ corrected/sections/10_appendices.tex
+@@ -25,7 +25,7 @@
+ \bottomrule
+ \end{longtable}
+ 
+-For a dimensional check let $[s]=[\ell]=\mathsf L$, $[\xi]=[t]=\mathsf T$, $[Q]=\mathsf U$ and $[g_o]=\mathsf G_o$, so $a_o=g_o/(4\pi)$. The inherited conventions then give
++For a dimensional check let $[s]=[\ell]=\mathsf L$, $[\xi]=[t]=\mathsf T$, $[Q]=\mathsf U$ and $[g_o]=\mathsf G_o$, so $a_o=g_o/(4\pi)$. A compatible dimensional assignment for the declared extension is
+ \begin{align}
+ [\kappa]&=\mathsf T^{-1/2},&
+ [a]=[b]=[c]=[d]&=\mathsf U\mathsf L^{-1/2}\mathsf T^{-1/2},\notag\\
+@@ -74,6 +74,6 @@
+ D01 & Empty added preparation sufficient, not necessary & Remark~\ref{rem:D01}\\\bottomrule
+ \end{longtable}
+ 
+-The edition contains all TeX content and both deterministic vector figures needed to build the PDF. The build helper uses cached Tectonic in untrusted mode with intermediates outside the edition. Figure source, environment records, build receipts, extracted text, document checks and individual final-page renders are delivered with the review archive. The final-page inspection is bound to the exact PDF digest. Document checks establish fidelity of this artifact; acceptance of the underlying mathematics and pending review of the manuscript remain separate dispositions.
++The edition contains all TeX content and both deterministic vector figures needed to build the PDF. The build helper uses cached Tectonic in untrusted mode with intermediates outside the edition. Figure source, environment records, build receipts, extracted text, document checks and individual final-page renders are delivered with the review archive. The final-page inspection is bound to the exact PDF digest. Document checks establish artifact fidelity; mathematical acceptance, internal manuscript review and the repository publication receipt remain distinct records.
+ 
+ The source ledger distinguishes preserved equations and accepted proofs from layout/build precedents. Original acceptance archives and current readable dispositions are retained unchanged. W's four exact-algebra groups and T's five are preserved as separate historical corroboration, not described as new tests of this edition. The external wave-variable citation below supplies methodological context from the publisher's indexed abstract and metadata; no unread external theorem is invoked in place of the explicit proofs.

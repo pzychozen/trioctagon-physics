@@ -1,0 +1,85 @@
+\section{Global forward evolution and augmented conservation}\label{sec:evolution}
+The component algebra does not by itself prove a solution theorem. Here the strictly positive minimum delay makes the incoming signals known on each sufficiently short time slab. A local input-energy estimate then continues that slab before total conservation is invoked.
+
+\subsection{Standing assumptions and the solution class}
+Fix one admitted positive-width static geometry and hand, finite L,M, positive finite delay bounds $\theta_-,\theta_+$, the retained finite-width H1 profiles, and fixed finite allowed RX coefficients. Let $\kappa\ge0$, $\beta_G>0$. The full state space is
+\begin{equation}\label{eq:fullspace}
+\mathcal E=\R^6\times U\times\R^2\times\Wcal\times Y.
+\end{equation}
+The weighted squared norm $2H_{\rm total}$ is equivalent to its product norm at these fixed positive weights. A mild solution means the retained native/old-receiver equations and carrier Duhamel formula, the Hilbert-space receiving ODE, and the characteristic transport formulas, with boundary laws in locally L2 time spaces.
+
+\begin{theorem}[Forward energy-space dynamics]\label{thm:global}
+Every finite-energy initial state in $\mathcal E$ has a unique global forward mild solution of~\eqref{eq:closedmodel} with the retained x,z equations and~\eqref{eq:transportPDE}. The full energy state is continuous, x and old z are C1 during exchange, $\zeta$ is locally absolutely continuous, and a,b,c,d are locally L2 in time with values in V. For every exchange-only interval,
+\begin{equation}\label{eq:conservation}
+\boxed{H_{\rm total}(T)=H_{\rm total}(0),}
+\end{equation}
+with integrated component identities $\dot H_{\rm RX}=-P_N$, $\dot H_G=P_G$ and~\eqref{eq:linebalance}. The solution depends continuously, in fact locally Lipschitzly on bounded energy sets over each finite horizon, on its initial state in $\mathcal E$.
+\end{theorem}
+
+\subsection{Construction before conservation}
+\begin{proof}
+\textit{Known incoming traces.}
+Choose $0<h\le\theta_-$. On $[0,h]$, formulas~\eqref{eq:cstartup}--\eqref{eq:bstartup} give b,c from initial profiles alone up to null endpoints. On $[nh,(n+1)h]$, every delayed boundary argument satisfies $t-\theta_X(s)\le nh$. Thus the incoming b,c are determined by initial profiles or already constructed a,d. The trace estimates~\eqref{eq:tracebounds}, also restricted to subintervals, make them L2 on the current slab. Equality at a slab endpoint changes no L2 class. There is no simultaneous algebraic loop to solve for a current outflow.
+
+\textit{Local forced subsystem.}
+Write $X=(x,Q,z)$, and let $\mathcal S(t)=\operatorname{diag}(I,S_c(t),I)$ on the original RX energy space. The source bounds
+\begin{equation}\label{eq:localLipschitz}
+|f(x)|\le\tfrac12\norm K|x|^2,\qquad
+\norm{J_f(x)}\le\norm K|x|,\qquad
+|\Bcal^*p|\le\norm\Bcal\norm p_2
+\end{equation}
+show that the retained polynomial vector field, together with the bounded damping $-\kappa^2Q$, is bounded and locally Lipschitz on every bounded product ball~\cite{RXwellposed}. Denote it by $N_\kappa$. On a slab starting at r, with known b, seek
+\begin{equation}\label{eq:newduhamel}
+X(t)=\mathcal S(t-r)X(r)+\int_r^t\mathcal S(t-v)
+\left[N_\kappa(X(v))+(0,\sqrt2\kappa J^*b(v),0)\right]\dd v.
+\end{equation}
+The added input is L2 and hence L1 on the finite slab. Its integral can be made small on a short subinterval. On a closed ball in continuous product-space paths, choose that length so the bounded nonlinear term remains in the ball and its local Lipschitz constant times the length is less than one. The integral map is then a contraction. This proves a unique local mild solution without a conservation assumption.
+
+Independently, $-CC^*/\beta_G$ is a bounded nonpositive self-adjoint operator. Its exponential is a contraction. The known c gives
+\begin{equation}\label{eq:zetaVOC}
+\zeta(t)=e^{-(t-r)CC^*/\beta_G}\zeta(r)
++\frac{\sqrt2}{\beta_G}\int_r^t e^{-(t-v)CC^*/\beta_G}Cc(v)\dd v.
+\end{equation}
+This unique receiving solution is continuous and absolutely continuous, indeed H1 in time on each finite slab. Its finiteness follows directly from the bounded generator and L1 input.
+
+\textit{Legitimate work for an L2 carrier.}
+For the local carrier put $v(t)=S_c(-(t-r))Q(t)$. Duhamel's formula makes this interaction variable absolutely continuous in U, with a.e. derivative
+\begin{equation}\label{eq:interactionderivative}
+\dot v(t)=S_c(-(t-r))\left[(\Bcal q(t),0)-\kappa^2Q(t)+\sqrt2\kappa J^*b(t)\right].
+\end{equation}
+The Hilbert norm chain rule and unitarity compute the derivative of $\norm Q^2=\norm v^2$ by pairing Q with the bracket. No differentiation of the unbounded $A_cQ$ is required for L2 preparation. The finite-dimensional right sides depend continuously on x,Q,z through bounded ports, so x,z are C1 and satisfy their usual chain rules. The original reciprocal cancellation and~\eqref{eq:componentpowers} now give the local identity and inequality
+\begin{equation}\label{eq:slabenergy}
+H_{\rm RX}(t)-H_{\rm RX}(r)
+=\frac12\int_r^t\left(\norm{b(v)}_V^2-\norm{a(v)}_V^2\right)\dd v
+\le\frac12\int_r^t\norm{b(v)}_V^2\dd v.
+\end{equation}
+
+\textit{Continuation on the slab.}
+The right side is already known and finite, and $H_{\rm RX}$ controls every component of X. Hence a local solution cannot become unbounded before the slab endpoint. More explicitly, on the resulting bounded ball $N_\kappa(X)$ is bounded and the known forcing is L1. The full interaction variable $\mathcal S(-(t-r))X(t)$ has an integrable derivative, so it has a limit at a putative finite maximal endpoint. Strong continuity of the group gives a limit for X. Restarting the local integral construction there contradicts maximality. This continues X through the slab without presupposing total conservation or carrier H1 regularity.
+
+\textit{Transport and the global account.}
+The outgoing laws make $a=\sqrt2\kappa JQ-b$ and $d=\sqrt2C^*\zeta-c$ L2 on the slab. Lemma~\ref{lem:transport} constructs a continuous transport state and proves its integrated work. The receiving norm chain rule in~\eqref{eq:zetaVOC} gives $\dot H_G=P_G$ a.e. Adding these established component identities to~\eqref{eq:slabenergy} proves~\eqref{eq:conservation}. The next slab has known incoming traces, so induction covers every finite forward horizon. Adjacent states join continuously; x,z right sides also join continuously. $\zeta$ is locally absolutely continuous across the finitely many slab joins on any finite horizon. General boundary signals remain only L2 in time.
+
+\textit{Uniqueness and dependence.}
+Identical preparations give identical first incoming traces and unique forced subsystem solutions; the outgoing histories and characteristic states then agree. Induction proves uniqueness. For two preparations in a common bounded energy ball, the proved conservation keeps both states in a common bounded ball. Duhamel and a scalar integral inequality on a slab yield
+\begin{align}
+\norm{\Delta X}_{C([r,r+h])}&\le K_h\left[\norm{\Delta X(r)}+\sqrt h\norm{\Delta b}_{L^2([r,r+h];V)}\right],\notag\\
+\norm{\Delta\zeta}_{C([r,r+h];Y)}&\le\norm{\Delta\zeta(r)}_Y
++\frac{\sqrt{2h}\norm C}{\beta_G}\norm{\Delta c}_{L^2([r,r+h];V)}.\label{eq:dependence}
+\end{align}
+The outgoing differences are bounded by these suprema and the incoming L2 differences. Equation~\eqref{eq:tracebounds} bounds incoming differences by initial-profile differences and previous outgoing-history differences. The characteristic energy identity for differences also gives
+\begin{equation}\label{eq:lineDifference}
+\sup_{t\le H}\norm{\Delta(u_+,u_-)(t)}_{\Wcal}^2
+\le\norm{\Delta(u_{+,0},u_{-,0})}_{\Wcal}^2
++\int_0^H(\norm{\Delta a}_V^2+\norm{\Delta d}_V^2)\dd t.
+\end{equation}
+Only finitely many slabs occur for fixed H and positive $\theta_-$. Induction gives a finite Lipschitz bound for the continuous energy state and boundary L2 histories in terms of the initial energy-space difference. Its constants depend on the energy bound, fixed parameters and horizon, as asserted.
+\end{proof}
+
+The theorem makes no global H1 or backward-flow assertion and no estimate uniform in a zero-delay limit or over unbounded parameter families. Arbitrary L2 initial profiles need no classical boundary-corner compatibility. The energy bound controls states, not instantaneous traces. These restrictions are essential distinctions from the temporary H1 argument used later for one chosen activity preparation.
+
+\begin{remark}[Receiving is reversible]\label{rem:nonmonotone}
+The new receiving stock need not be monotone. With empty lines and $C^*\zeta_0\ne0$, c is zero initially. The bounded receiving ODE gives
+$H_G'(0+)=-\norm{C^*\zeta_0}_V^2<0$.
+The released stock enters the backward-traveling field, consistently with total conservation. This is not irreversible disposal.
+\end{remark}

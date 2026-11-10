@@ -1,0 +1,30 @@
+{
+  "entry_command": "run_python.cmd checks\\run_checks.py",
+  "activation": "Command Prompt: conda activate torment",
+  "executions": [
+    {
+      "check": "validate_inputs",
+      "command": [
+        "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+        "C:\\TORMENT\\TRIOCTAGON_new\\research\\NATIVE_CAUSAL_TRANSPORT_STORAGE_01\\checks\\validate_inputs.py"
+      ],
+      "started_utc": "2026-11-10T10:18:53.570195+00:00",
+      "completed_utc": "2026-11-10T10:18:54.269463+00:00",
+      "exit_status": 0,
+      "stdout": "logs/validate_inputs.stdout.txt",
+      "stderr": "logs/validate_inputs.stderr.txt"
+    },
+    {
+      "check": "exact_checks",
+      "command": [
+        "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+        "C:\\TORMENT\\TRIOCTAGON_new\\research\\NATIVE_CAUSAL_TRANSPORT_STORAGE_01\\checks\\exact_checks.py"
+      ],
+      "started_utc": "2026-11-10T10:18:54.269463+00:00",
+      "completed_utc": "2026-11-10T10:18:55.164490+00:00",
+      "exit_status": 0,
+      "stdout": "logs/exact_checks.stdout.txt",
+      "stderr": "logs/exact_checks.stderr.txt"
+    }
+  ]
+}
