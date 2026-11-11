@@ -1,0 +1,107 @@
+\section{Question and scope}\label{sec:introduction}
+
+The retained coordinates of the coherent triad distinguish the component amplitudes and relative phases, but discard a common phase. Relative phase describes how the channels differ from one another. Common phase rotates all three complex components together while preserving their pair coherences. Once the original common phase is supplied, the existing native map determines its subsequent evolution; there is no additional phase law to choose.
+
+This distinction becomes spatial through the adopted face decoder. Each complex channel supplies the two coefficients of an arrow in a fixed tangent plane. A common complex rephasing rotates these arrows in their respective planes. Whether the resulting axes coincide with existing stationary supports, and whether the three vector changes form one common proper ambient rotation, are precise questions about the adopted definitions. They do not require a material-motion interpretation.
+
+The published predecessor establishes the retained coordinates, their exact image, autonomous evolution and energy retention \cite{potential}. We combine the accepted phase and spatial investigations \cite{phase,spatial}: exact state reconstruction, the nontrivial overlap-angle correction, positioned-axis correspondence, and a quantified proper-rotation test. Their continuous-domain arguments are presented here. The inherited invariant-domain and convergence results \cite{relaxation}, decoder \cite{nrg}, fixed-gap geometry \cite{fixedgap}, and observation definitions \cite{zmethods} retain their own hypotheses. No unrestricted coordinate-minimality or external priority claim is made.
+
+\section{Native setting and inherited retained dynamics}\label{sec:setting}
+
+\subsection{The ordered map and its regular domain}
+Let \(\Omega\in\C^3\), and fix
+\begin{equation}
+\eps=\frac1{10},\quad g=\frac1{60},\quad\lambda=\frac1{300},\quad
+k=\left(\frac{999}{1000},1,\frac{1001}{1000}\right),\qquad
+L=\one\one^T-3I.
+\label{eq:parameters}
+\end{equation}
+With \(s_i=|\Omega_i|^2\), the complex prestage and complete update are
+\begin{align}
+M&=I+\eps\diag(k-s)+gL,&\widetilde\Omega&=M\Omega,\label{eq:nativepre}\\
+\delta_i&=\lambda\sum_{j\ne i}\sin\bigl(3(\Argz\widetilde\Omega_j-
+\Argz\widetilde\Omega_i)\bigr),&F(\Omega)&=U_\delta\widetilde\Omega,
+\quad U_\delta=\diag(e^{i\delta_i}).\label{eq:nativefull}
+\end{align}
+All kicks use the same prestage. The native convention is \(\Argz(0)=0\); at \(\lambda=0\), the synchronizer bypasses phase extraction and returns the prestage. Neither convention is modified here.
+
+Set \(D_0=\pi/12\). The closed domain \(\D\) has component amplitudes in \([9/10,11/10]\) and ordinary phases contained in one interval of width at most \(D_0\), with arbitrary common orientation. These are ordinary full-turn phases, not phases modulo \(2\pi/3\). The following are inherited from \cite[Sections 6--7]{relaxation} and restated in \cite[Section 4]{potential}:
+\begin{enumerate}
+\item Positive prestage mixing preserves the input phase interval, and
+\begin{equation}
+a_*:=\frac{88701}{100000}+\frac3{100}\cos D_0
+\le|\widetilde\Omega_i|\le\frac{107701}{100000},\qquad
+\frac9{10}<a_*\le|\widetilde\Omega_i|<\frac{11}{10}.
+\label{eq:prebounds}
+\end{equation}
+\item The simultaneous phase stage preserves that interval. The domain is forward invariant, with nonzero prestages at every iterate.
+\item For consistent ordinary lifts and their enclosing intervals \(I_n\),
+\begin{equation}
+I_{n+1}\subseteq I_n,\qquad
+\Delta_n:=|I_n|\le c^n\Delta_{\rm init},\qquad
+c=1-\frac{3\sqrt2}{200}\in(0,1).
+\label{eq:inheritednesting}
+\end{equation}
+There is a unique positive aligned fixed profile \(r_*\) in the amplitude cube, and
+\begin{equation}
+\Omega_n\longrightarrow e^{i\theta_\infty}r_* ,\qquad
+|\theta_{i,n}-\theta_\infty|\le\Delta_{\rm init}c^n.
+\label{eq:inheritedlimit}
+\end{equation}
+\end{enumerate}
+We use these results without re-proving convergence. Regular common-phase equivariance is also inherited: at nonzero prestages, \(F(u\Omega)=uF(\Omega)\) for \(|u|=1\). The harmonic sine is unchanged by the principal-argument wraps. The native zero stratum does not support an unrestricted extension of this assertion \cite{nrg}.
+
+\begin{table}[htbp]\centering\small
+\caption{Notation. The spatial support lines and native graph matrix are different objects.}\label{tab:notation}
+\begin{tabularx}{\textwidth}{@{}lY@{}}\toprule
+Symbol & Meaning\\\midrule
+\(\widetilde\Omega,\ v_i\) & Complex prestage; decoded real face vector\\
+\(y,\ z(y),\ G\) & Retained tuple, canonical representative, closed retained update\\
+\(\Psi,\widehat F,\kappa\) & Full-state reconstruction, lifted update, unit phase multiplier\\
+\(A_{ij},\eta_i,\vartheta\) & Signed pair areas, relative phases, canonical ordinary increment\\
+\(H,\ C_{\rm ch}\) & Raw complex coherence; raw channel chirality\\
+\(n_i,t_i,\ell_i,L_k\) & Oriented face normal, tangent, positioned normal line, support line\\
+\(\theta_n,\theta_{\rm obs},t,n,\tau\) & Native anchor phase, observer angle, observer time, update index, static geometry parameter\\
+\(N_\Omega\) & Observer norm \(\sqrt{\sum_i s_i}\), never the multiplier \(\kappa\)\\\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Representative, exact image and closed map}
+Retain the source convention
+\begin{equation}
+\overline\Omega_i\Omega_j=S_{ij}+iA_{ij},\qquad
+H=\Omega\Omega^\dagger=S_G-iA_G,
+\qquad y=\RR(\Omega)=(s_1,s_2,s_3,A_{12},A_{13}).
+\label{eq:coordinates}
+\end{equation}
+The inherited reconstruction and fibre theorem \cite[Section 5]{potential} gives
+\begin{align}
+b_2&=+\sqrt{s_1s_2-A_{12}^2},&b_3&=+\sqrt{s_1s_3-A_{13}^2},\notag\\
+z(y)&=\left(\sqrt{s_1},\frac{b_2+iA_{12}}{\sqrt{s_1}},
+\frac{b_3+iA_{13}}{\sqrt{s_1}}\right)^T,&H(y)&=z(y)z(y)^\dagger,\label{eq:representative}\\
+S_{23}&=\frac{b_2b_3+A_{12}A_{13}}{s_1},&
+A_{23}&=\frac{b_2A_{13}-A_{12}b_3}{s_1}.
+\label{eq:thirdpair}
+\end{align}
+Its fibres are exactly common-phase orbits. In particular \(H_{12}=b_2-iA_{12}\), not \(b_2+iA_{12}\).
+
+The exact image \(\Y=\RR(\D)\) consists of
+\begin{gather}
+\frac{81}{100}\le s_i\le\frac{121}{100},\qquad
+\eta_1=0,\quad
+\eta_2=\arcsin\frac{A_{12}}{\sqrt{s_1s_2}},\quad
+\eta_3=\arcsin\frac{A_{13}}{\sqrt{s_1s_3}},\notag\\
+\Delta(y):=\max(0,\eta_2,\eta_3)-\min(0,\eta_2,\eta_3)\le D_0,
+\label{eq:jointimage}
+\end{gather}
+where the arcsines are real principal values. They equal \(\Arg z_i(y)\). Separate area bounds would not impose the required joint span. The radicands in \eqref{eq:representative} are at least \((81/100)^2\cos^2D_0>0\), and \(s_1\ge81/100\). Thus closed boundaries, coincident phases, equal amplitudes and zero individual areas are regular; no area is a denominator.
+
+For completeness the inherited retained map can be written entirely in these data:
+\begin{align}
+\widetilde H&=M(y)H(y)M(y)^T,&\rho_i&=\sqrt{\widetilde H_{ii}}>0,\notag\\
+\delta_i(y)&=\lambda\sum_{j\ne i}\im\left[
+\left(\frac{\widetilde H_{ji}}{\rho_j\rho_i}\right)^3\right],&
+H^+&=U_\delta\widetilde H U_\delta^\dagger,\label{eq:coherenceupdate}\\
+Gy&=(H^+_{11},H^+_{22},H^+_{33},-\im H^+_{12},-\im H^+_{13}).&&\notag
+\end{align}
+The \(ji\) index and extraction minus signs preserve \eqref{eq:coordinates}. We use the accepted statements \(\RR F=G\RR\) and \(G\Y\subseteq\Y\), including all subsequent mathematical iterates. No coordinate-minimality result is required below.

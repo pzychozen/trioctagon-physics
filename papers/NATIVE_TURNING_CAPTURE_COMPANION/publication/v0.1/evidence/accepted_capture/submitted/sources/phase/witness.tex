@@ -1,0 +1,36 @@
+\section{An analytic witness for the overlap correction}\label{app:witness}
+
+We retain the local sign witness of \cite[Section 5.3]{phase} to show that \(\gamma\) in Theorem~\ref{thm:overlap} is not identically zero. This calculation analytically differentiates the native map. It is not a numerical native-step evaluation, sampled trajectory, parameter scan or new continuation problem.
+
+Take the canonical family \(z(t)=(1,e^{it},e^{it})\), \(|t|\le D_0\). Its amplitudes are one and its phase width is \(|t|\), so every input is admitted. The intensities and hence \(M\) are constant on this family. At \(t=0\), its prestage is the positive vector
+\begin{equation}
+w_i=1+\eps(k_i-1),\qquad
+w=\left(\frac{9999}{10000},1,\frac{10001}{10000}\right),\qquad \sum_i w_i=3.
+\label{eq:witnessw}
+\end{equation}
+Differentiating the prestage at zero gives \(i(2g,w_2-g,w_3-g)\), so its phase derivatives are
+\begin{equation}
+\tau_1=\frac{2g}{w_1},\qquad \tau_2=1-\frac g{w_2},\qquad
+\tau_3=1-\frac g{w_3}.
+\label{eq:witnesstau}
+\end{equation}
+Write \(d=1-9\lambda>0\), \(T=\sum_i\tau_i\). Differentiating the simultaneous kicks at the aligned prestage gives output phase derivatives
+\begin{equation}
+\sigma_i=\tau_i+3\lambda\sum_{j\ne i}(\tau_j-\tau_i)
+=d\tau_i+3\lambda T.
+\label{eq:witnesssigma}
+\end{equation}
+The output modulus derivatives vanish: the baseline vector is real positive and its derivative is imaginary. Removing the output channel-1 phase therefore gives derivatives \(i w_i(\sigma_i-\sigma_1)\) for the next canonical representative. The current conjugate input derivatives are \((0,-i,-i)\). Thus
+\begin{equation}
+B_{\rm sec}(0)=3,\qquad
+\im B_{\rm sec}'(0)=\sum_i w_i\sigma_i-3\sigma_1-(w_2+w_3).
+\label{eq:witnessB}
+\end{equation}
+Since \(\sum_iw_i\tau_i=w_2+w_3\), substitution cancels the \(T\) terms and yields
+\begin{equation}
+\im B_{\rm sec}'(0)=-9\lambda(w_2+w_3)-3d\tau_1,
+\qquad
+\boxed{\gamma'(0)=-3\lambda(w_2+w_3)-d\tau_1<0.}
+\label{eq:witnesssign}
+\end{equation}
+The established right-half-plane branch justifies differentiating its argument and dividing by \(B_{\rm sec}(0)=3\). Therefore \(\gamma(t)\ne0\) for sufficiently small positive \(t\), and \(\alpha_{\rm ov}\ne\vartheta\) there. The conclusion is local nonidentity, not a classification of all states where the angles agree or a verdict on endpoint-difference representations.

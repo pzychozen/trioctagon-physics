@@ -1,0 +1,133 @@
+The complete measurements, including every stored high-precision digit and
+all exact rational fixtures, are retained in \texttt{retained\_evidence.json}.
+The following tables round values for print only. Maxima below compare like
+quantities within a stated checkpoint, never across error types. The 429
+retained exact/source predicates are enumerated separately; none is replaced
+by these residuals. Paper-local checks are an additional bounded algebra and
+reference audit, with their own machine-readable result.
+
+\subsection*{Native complex128 finite differences}
+For GR0 the error is the maximum entrywise error of the complete real
+Jacobian. For GR1 it is separated into phase and radial blocks; for GR2 only
+phase response was tested. These are different quantities.
+
+\begin{center}\begin{tabular}{@{}lrr@{}}
+\toprule
+GR0 ring & Step & Complete Jacobian error\\\midrule
+C3 & \(1.00000\times10^{-4}\) & \(5.00211\times10^{-10}\)\\
+C3 & \(1.00000\times10^{-5}\) & \(1.33778\times10^{-11}\)\\
+C3 & \(1.00000\times10^{-6}\) & \(6.12623\times10^{-11}\)\\
+C12 & \(1.00000\times10^{-4}\) & \(5.02309\times10^{-10}\)\\
+C12 & \(1.00000\times10^{-5}\) & \(2.87038\times10^{-11}\)\\
+C12 & \(1.00000\times10^{-6}\) & \(1.62148\times10^{-10}\)\\
+\bottomrule\end{tabular}\end{center}
+
+\begin{center}\begin{tabular}{@{}lrrr@{}}
+\toprule
+GR1 N & Step & Phase error & Radial error\\\midrule
+3 & \(1.00000\times10^{-4}\) & \(1.62181\times10^{-10}\) & \(5.00302\times10^{-10}\)\\
+3 & \(1.00000\times10^{-5}\) & \(1.62181\times10^{-12}\) & \(7.91794\times10^{-12}\)\\
+3 & \(1.00000\times10^{-6}\) & \(1.62093\times10^{-14}\) & \(1.63248\times10^{-10}\)\\
+12 & \(1.00000\times10^{-4}\) & \(1.61339\times10^{-10}\) & \(5.00302\times10^{-10}\)\\
+12 & \(1.00000\times10^{-5}\) & \(1.61340\times10^{-12}\) & \(5.35114\times10^{-12}\)\\
+12 & \(1.00000\times10^{-6}\) & \(1.61537\times10^{-14}\) & \(1.63248\times10^{-10}\)\\
+\bottomrule\end{tabular}\end{center}
+
+\begin{center}\begin{tabular}{@{}lrr@{}}
+\toprule
+GR2 N & Step & Phase error\\\midrule
+3 & \(1.00000\times10^{-6}\) & \(1.62093\times10^{-14}\)\\
+6 & \(1.00000\times10^{-6}\) & \(1.61537\times10^{-14}\)\\
+12 & \(1.00000\times10^{-6}\) & \(1.61537\times10^{-14}\)\\
+\bottomrule\end{tabular}\end{center}
+
+GR0 uses \(\eps=1/20,g=1/5,\lambda=1/1000\), with
+\((k,\chi)=(1,0)\) on C3 and \((4,\pi/7)\) on C12. GR1/GR2 use the
+weak positive branch at \(k=1,\kappa=(-1,0,1),\eta=.01\) and the same
+parameters. Native fixed residuals are zero in GR0, and at most
+\(1.11023\times10^{-16}\) in the two GR1 tests.
+GR0's native frame/transport comparison and potential comparison each give
+\(1.11023\times10^{-16}\), as two separate quantities.
+
+\subsection*{100-digit transcription finite differences}
+These checks use the mathematical transcription with mpmath, not a
+100-digit execution of the complex128 native kernel.
+
+\begin{center}\begin{tabular}{@{}lrr@{}}
+\toprule
+Method/domain & Step & Maximum error\\\midrule
+GR0 C3 & \(1.00000\times10^{-10}\) & \(5.00000\times10^{-22}\)\\
+GR0 C3 & \(1.00000\times10^{-20}\) & \(5.00000\times10^{-42}\)\\
+GR0 C12 & \(1.00000\times10^{-10}\) & \(5.00000\times10^{-22}\)\\
+GR0 C12 & \(1.00000\times10^{-20}\) & \(5.00000\times10^{-42}\)\\
+GR1 phase & \(1.00000\times10^{-10}\) & \(1.62181\times10^{-22}\)\\
+GR1 phase & \(1.00000\times10^{-20}\) & \(1.62181\times10^{-42}\)\\
+\bottomrule\end{tabular}\end{center}
+
+\subsection*{Weak-branch residuals and asymptotic coefficients}
+
+\begin{center}\begin{tabular}{@{}lrr@{}}
+\toprule
+\(\eta\) & \(\|r-r_0-\eta u\|_\infty/\eta^2\) & \(\mathcal C_{\rm cyc}/\eta^3\)\\\midrule
+0.01 & \(2.00516\times10^{-2}\) & \(-6.95490\times10^{-8}\)\\
+0.005 & \(2.00477\times10^{-2}\) & \(-6.95491\times10^{-8}\)\\
+0.0025 & \(2.00457\times10^{-2}\) & \(-6.95491\times10^{-8}\)\\
+\bottomrule\end{tabular}\end{center}
+
+GR1 fixed-equation residual has maximum \(1.00858\times10^{-99}\).
+
+GR1 cycle-factorization error has maximum \(1.11591\times10^{-103}\).
+
+GR1 pre-stage balance residual has maximum \(3.57184\times10^{-102}\).
+
+The proved leading cycle coefficient is \(-6.95491\times10^{-8}\).
+
+\begin{center}\begin{tabular}{@{}lrrr@{}}
+\toprule
+\(\eta\) & \(\mathcal D_3/\eta^2\) & \(\max|\im\rho|,\ z=i\) & \(\max|\im\rho|/\eta^3\)\\\midrule
+0.01 & \(2.40509\times10^{-3}\) & \(4.21737\times10^{-13}\) & \(4.21737\times10^{-7}\)\\
+0.005 & \(2.40510\times10^{-3}\) & \(5.27172\times10^{-14}\) & \(4.21738\times10^{-7}\)\\
+0.0025 & \(2.40510\times10^{-3}\) & \(6.58966\times10^{-15}\) & \(4.21738\times10^{-7}\)\\
+\bottomrule\end{tabular}\end{center}
+
+GR2 fixed-equation residual has maximum \(1.01215\times10^{-99}\).
+
+GR2 characteristic residual has maximum \(1.82317\times10^{-101}\).
+
+The constructed triad SPD matrix has minimum eigenvalue \(9.98841\times10^{-1}\), balance residual \(1.60733\times10^{-101}\), and a simultaneous nonzero cycle obstruction \(-6.95490\times10^{-14}\). Its complete entries and all block eigenvalues are retained separately. These 100-digit quantities resolve the small imaginary parts; the native finite-difference residuals alone would not certify them.
+
+\subsection*{Observable, quotient and preparation evidence}
+
+\begin{center}\begin{tabular}{@{}lrr@{}}
+\toprule
+CM0 observable derivative & Step & Maximum over 12 observables\\\midrule
+equal & \(1.00000\times10^{-5}\) & \(3.06800\times10^{-11}\)\\
+weak unequal & \(1.00000\times10^{-5}\) & \(1.12197\times10^{-11}\)\\
+\bottomrule\end{tabular}\end{center}
+
+The separate CM0 partial-zero chirality formula error is \(1.78351\times10^{-17}\). The native decoder identity passed as a Boolean check, with no numerical residual invented.
+
+\begin{center}\begin{tabular}{@{}p{.52\linewidth}rr@{}}
+\toprule
+SA0 identity & Residual & Tolerance\\\midrule
+Complex coherence quotient identity & \(1.67250\times10^{-16}\) & \(2.00000\times10^{-13}\)\\
+real Gram closure under phase & \(5.55112\times10^{-17}\) & \(2.00000\times10^{-13}\)\\
+real Gram closure under conjugation & 0 & \(2.00000\times10^{-13}\)\\
+zero-stratum witness formula & \(1.11022\times10^{-16}\) & \(2.00000\times10^{-13}\)\\
+canonical FaceState step & 0 & \(1.00000\times10^{-15}\)\\
+decoded view after step & 0 & \(1.00000\times10^{-15}\)\\
+SRG handoff direct product n=0 & 0 & \(2.00000\times10^{-13}\)\\
+SRG handoff direct product n=1 & \(1.09714\times10^{-17}\) & \(2.00000\times10^{-13}\)\\
+SRG handoff direct product n=2 & \(3.12732\times10^{-18}\) & \(2.00000\times10^{-13}\)\\
+SRG handoff direct product n=3 & \(6.60563\times10^{-18}\) & \(2.00000\times10^{-13}\)\\
+\bottomrule\end{tabular}\end{center}
+
+The SA0 zero-stratum real-Gram output gap is \(1.99334\times10^{-2}\). It is a nonclosure signal, not an approximation error.
+
+\paragraph{Separation of evidence classes.}
+Exact rational signs at the six-ring unfolding, integer symmetry dimensions,
+and source-dependency predicates belong to the retained exact inventory.
+Finite differences, nonlinear equation residuals, eigenvalue residuals,
+constructed-metric residuals and quotient comparisons are numerical evidence.
+The written proofs in the main text do not depend on interpreting one type
+of measurement as another.

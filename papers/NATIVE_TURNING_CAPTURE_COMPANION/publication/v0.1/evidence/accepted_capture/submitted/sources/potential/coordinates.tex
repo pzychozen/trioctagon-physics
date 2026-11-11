@@ -1,0 +1,160 @@
+\section{Closed coherence coordinates}\label{sec:coordinates}
+
+An autonomous retained description assigns the same next retained data to any two states with the same current retained data. This is the fibre criterion of \cite{nrg}, \texttt{thm:closure}. Full complex coherence and the real Gram already satisfy it on their regular domains. The question here is whether fewer existing raw pair entries suffice throughout the particular invariant domain \(\D\).
+
+Define
+\begin{equation}
+s_i=|\Omega_i|^2,\qquad
+C_{ij}=\overline{\Omega_i}\Omega_j=S_{ij}+iA_{ij}.
+\label{eq:pairs}
+\end{equation}
+Choose channel \(1\) as a coordinate anchor and retain
+\begin{equation}
+y=\RR(\Omega)=(s_1,s_2,s_3,x,y_a),\qquad
+x=A_{12},\quad y_a=A_{13}.
+\label{eq:retained}
+\end{equation}
+The subscript distinguishes the second area from the tuple \(y\). The anchor is bookkeeping, not a physical attachment or a symmetry assumption about the fixed unequal \(k\).
+
+\begin{theorem}[Reconstruction and common-phase fibres]\label{thm:reconstruction}
+On \(\D\), the tuple \eqref{eq:retained} determines full rank-one Hermitian coherence. With \(p=S_{12}\) and \(q=S_{13}\),
+\begin{align}
+p&=+\sqrt{s_1s_2-x^2},&
+q&=+\sqrt{s_1s_3-y_a^2},\label{eq:roots}\\
+S_{23}&=\frac{pq+xy_a}{s_1},&
+A_{23}&=\frac{py_a-xq}{s_1}.
+\label{eq:thirdpair}
+\end{align}
+Its fibres on \(\D\) are exactly common-phase orbits. These statements include all closed boundaries and zero-area cases.
+\end{theorem}
+
+\begin{proof}
+Write \(\Omega_i=r_i e^{i\theta_i}\) in an interval of width at most \(D_0\). Every cosine of a relative phase is positive, so
+\[
+S_{ij}=r_ir_j\cos(\theta_j-\theta_i)>0,\qquad
+A_{ij}=r_ir_j\sin(\theta_j-\theta_i).
+\]
+This fixes the positive roots in \eqref{eq:roots}. Their radicands satisfy
+\begin{equation}
+s_1s_2-x^2,\ s_1s_3-y_a^2
+\ \ge\left(\frac{81}{100}\right)^2\cos^2D_0>0.
+\label{eq:radicands}
+\end{equation}
+Furthermore,
+\[
+C_{23}=\frac{\overline{C_{12}}C_{13}}{s_1}
+=\frac{(p-ix)(q+iy_a)}{s_1},
+\]
+which gives both signs in \eqref{eq:thirdpair}. The denominator \(s_1\ge81/100\) never vanishes.
+
+The source's matrix convention is
+\begin{equation}
+\HH=\Omega\Omega^\dagger=S_G-iA_G,\qquad
+\HH_{ij}=\overline{C_{ij}},\qquad A_{ij}=-\im\HH_{ij}.
+\label{eq:Hconvention}
+\end{equation}
+Thus the reconstruction is
+\begin{equation}
+\HH(y)=
+\begin{pmatrix}
+s_1&p-ix&q-iy_a\\
+p+ix&s_2&S_{23}-iA_{23}\\
+q+iy_a&S_{23}+iA_{23}&s_3
+\end{pmatrix}.
+\label{eq:Hreconstructed}
+\end{equation}
+A convenient representative is
+\begin{equation}
+z(y)=
+\left(\sqrt{s_1},\frac{p+ix}{\sqrt{s_1}},
+\frac{q+iy_a}{\sqrt{s_1}}\right)^T.
+\label{eq:representative}
+\end{equation}
+It has squared moduli \(s_i\), and \(z(y)z(y)^\dagger=\HH(y)\), proving rank-one positive semidefiniteness. For an original state,
+\(z(\RR(\Omega))=e^{-i\theta_1}\Omega\).
+Equal retained tuples therefore give states differing by a common phase. Conversely every common rotation preserves the tuple and \(\D\), proving the fibre statement.
+\end{proof}
+
+No area or phase difference is a denominator. Equal amplitudes and coincident phases do not cause singularities. Within this sector, \(x=0\) forces \(\theta_2=\theta_1\), and \(y_a=0\) forces \(\theta_3=\theta_1\); either can vanish without the other. If both vanish, all phases align and all reconstructed real coherences are the positive products \(r_ir_j\). A rank-one real Gram means that the nonzero planar channel vectors are collinear; the narrow sector then forces the same ray, exactly this aligned case. The complex coherence is rank one everywhere, also at nonaligned states. Formula \eqref{eq:representative} recovers only a representative, not the discarded native common phase or its accumulated advance.
+
+\subsection{The exact image, rather than separate area bounds}
+Define first \(\Y=\RR(\D)\).
+
+\begin{proposition}[Retained-domain characterization]\label{prop:image}
+A real tuple \(y=(s_1,s_2,s_3,x,y_a)\) belongs to \(\Y\) exactly when
+\begin{equation}
+\frac{81}{100}\le s_i\le\frac{121}{100},
+\label{eq:sinterval}
+\end{equation}
+the principal arcsines
+\begin{equation}
+\alpha_2=\arcsin\frac{x}{\sqrt{s_1s_2}},\qquad
+\alpha_3=\arcsin\frac{y_a}{\sqrt{s_1s_3}}
+\label{eq:arcsines}
+\end{equation}
+are real, and
+\begin{equation}
+\boxed{\max(0,\alpha_2,\alpha_3)-\min(0,\alpha_2,\alpha_3)\le D_0.}
+\label{eq:span}
+\end{equation}
+\end{proposition}
+\begin{proof}
+For a state in \(\D\), subtract its channel-1 phase from the consistent lifts. Relative phases lie in \([-D_0,D_0]\), where principal arcsine inverts sine. The numbers in \eqref{eq:arcsines} are exactly those relative phases, proving necessity.
+
+Conversely, under the stated conditions
+\[
+(\sqrt{s_1},\sqrt{s_2}e^{i\alpha_2},\sqrt{s_3}e^{i\alpha_3})
+\]
+belongs to \(\D\) and has retained areas \(x,y_a\). Its positive cosines identify it with \eqref{eq:representative}, proving sufficiency. In particular, every tuple in this characterized image has the valid coherence \eqref{eq:Hreconstructed}.
+\end{proof}
+
+Real arcsines require \(|x|\le\sqrt{s_1s_2}\) and \(|y_a|\le\sqrt{s_1s_3}\); the span condition strengthens both normalized bounds to \(\sin D_0\). Even these separate stronger bounds would be insufficient: normalized areas \(\sin D_0\) and \(-\sin D_0\) recover phases spanning \(2D_0\). The joint condition \eqref{eq:span} excludes this unintended enlargement.
+
+\subsection{The induced map and repeated regularity}
+\begin{theorem}[Autonomous retained evolution]\label{thm:autonomy}
+For reconstructed \(\HH(y)\), define
+\begin{align}
+M(y)&=I+\eps\diag(k-s)+gL,\notag\\
+\widetilde{\HH}&=M\HH M^T,\qquad
+\rho_i=\sqrt{\widetilde{\HH}_{ii}}>0,\label{eq:Hpre}\\
+\delta_i&=\lambda\sum_{j\ne i}\im\left[
+\left(\frac{\widetilde{\HH}_{ji}}{\rho_j\rho_i}\right)^3\right],
+\qquad U_\delta=\diag(e^{i\delta_i}),\notag\\
+\HH^+&=U_\delta\widetilde{\HH}U_\delta^\dagger.
+\label{eq:Hpost}
+\end{align}
+Then
+\begin{equation}
+F_{\RR}(y)=
+(\HH^+_{11},\HH^+_{22},\HH^+_{33},
+-\im\HH^+_{12},-\im\HH^+_{13})
+\label{eq:reducedmap}
+\end{equation}
+is well defined on \(\Y\), with
+\begin{gather}
+\RR(F\Omega)=F_{\RR}(\RR(\Omega))\qquad(\Omega\in\D),\notag\\
+F_{\RR}(\Y)\subseteq\Y.
+\label{eq:semiconjugacy}
+\end{gather}
+All subsequent mathematical iterates are justified on that image.
+\end{theorem}
+
+\begin{proof}
+For any representative \(\Omega\in\D\), \(M\Omega=v\) and
+\(\widetilde{\HH}=vv^\dagger\). Thus \(\rho_i=|v_i|>0\) by the actual inherited prestage bounds \eqref{eq:prebounds}. The transposed entry gives
+\[
+\frac{\widetilde{\HH}_{ji}}{\rho_j\rho_i}
+=\frac{v_j\overline v_i}{|v_j||v_i|}
+=e^{i(\psi_j-\psi_i)}.
+\]
+Cubing and taking its imaginary part produces the native kick with the correct sign. Equations \eqref{eq:Hpre}--\eqref{eq:Hpost} are precisely the regular coherence update of \cite{nrg}, \texttt{thm:Hclosure}. Extraction using \eqref{eq:Hconvention} proves the first part of \eqref{eq:semiconjugacy}. Equivalently, equal tuples are common-phase orbits and the regular map is equivariant, so the fibre criterion proves representative independence.
+
+For \(y\in\Y\), choose \(\Omega\in\D\) with \(\RR(\Omega)=y\). Invariance of \(\D\) gives \(F\Omega\in\D\), hence \(F_{\RR}y\in\Y\). Repeating this argument proves
+\begin{equation}
+F_{\RR}^{n}(\RR(\Omega))=\RR(F^n\Omega),\qquad n\ge0,
+\label{eq:iterates}
+\end{equation}
+with positive prestages at every step. This is an induction, not a computed trajectory.
+\end{proof}
+
+The \(ji\) index and the minus signs in \eqref{eq:reducedmap} must be preserved. Replacing \(\HH_{ij}\) by \(C_{ij}\) would reverse the phase reconstruction. The native zero convention is untouched: this proof avoids zero prestages by a proved invariant domain, not by changing the map. The lambda-zero bypass is consistent with the identity phase stage, although the present tuple has \(\lambda=1/300\).

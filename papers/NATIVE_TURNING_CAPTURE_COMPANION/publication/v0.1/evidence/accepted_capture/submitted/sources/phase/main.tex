@@ -1,0 +1,66 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=25mm,headheight=15pt]{geometry}
+\usepackage{booktabs,array,tabularx,longtable}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{microtype,enumitem,fancyhdr}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{bookmark}
+\hypersetup{pdftitle={Phase Reconstruction and Stationary Support Axes in the Tri-Octagon Map - Research edition v0.1},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={Author-authorized repository research edition v0.1. Project-internal scientific and manuscript review completed; author publication approval granted. No external peer review is claimed.}}
+\setlength{\parskip}{4pt}\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{3em}
+\setlist{itemsep=2pt,topsep=4pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Phase reconstruction and stationary axes}
+\fancyhead[R]{\small Research edition v0.1}
+\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0.3pt}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\U}{\mathrm U(1)}\newcommand{\one}{\mathbf1}
+\newcommand{\eps}{\varepsilon}\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\tr}{\operatorname{tr}}\newcommand{\re}{\operatorname{Re}}
+\newcommand{\im}{\operatorname{Im}}\newcommand{\Arg}{\operatorname{Arg}}\newcommand{\Argz}{\operatorname{Arg}_0}
+\newcommand{\D}{\mathcal D}\newcommand{\Y}{\mathcal Y}\newcommand{\RR}{\mathcal R}
+\newcommand{\V}{\mathcal V}\newcommand{\DD}{\mathcal D_{\rm face}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\vspace*{8mm}
+{\small\color{MidnightBlue} TRI-OCTAGON MATHEMATICAL RESEARCH\par}
+\vspace{8mm}
+{\LARGE\bfseries\raggedright Phase Reconstruction and Stationary\\
+Support Axes in the Tri-Octagon Map\par}
+\vspace{8mm}
+{\large Hilmir Fr\'imann Halld\'orsson\par}
+\vspace{4mm}
+{\normalsize Author-authorized repository research edition v0.1\\2 November 2026\par}
+\vspace{6mm}
+{\small Author-authorized repository research edition v0.1. Project-internal scientific and manuscript review completed; author publication approval granted. No external peer review is claimed.\par}
+\vspace{4mm}
+\begin{abstract}
+On an accepted invariant coherent domain of the native Tri-Octagon map, five real retained coordinates determine the full complex state up to common phase. We recover the complete native history from their closed evolution and one initial common phase. A canonical representative gives an explicit unit multiplier and a continuous ordinary increment with absolute-summability control and the inherited limiting-phase bound. The adjacent-state overlap is retained-data dependent and nonvanishing, but its angle differs from the canonical increment by the angle of the inner product of consecutive representatives. We prove the branch-resolved correction, its accumulation rule and its change under a different representative; an analytic family shows that the correction is not identically zero. Composing reconstruction with the adopted lossless face decoder yields exact vector histories. Pure rephasing rotates each face vector about its fixed normal line, and those positioned axes coincide with the existing stationary support lines, with reversed directed-angle convention. In contrast, a single proper ambient rotation representing that action for every admitted state and every fixed channel label exists only for whole-turn phases. The complete native step can also change amplitudes and relative phases. We separate these results from staged observations, memory updates and observations from current memory, and from any assignment of a material feature or rigid-body pose.
+\end{abstract}
+\vfill
+{\small Author's research questions and programme: Hilmir Fr\'imann Halld\'orsson.
+GPT supplied scientific direction and completed project-internal scientific and manuscript review.
+Codex supplied the underlying investigations' independent mathematical checks and this manuscript's preparation, finalization and document verification.
+The present document build does not rerun scientific helpers.}
+\end{titlepage}
+\setcounter{page}{2}\hypersetup{pageanchor=true}
+\input{setting}
+\input{reconstruction}
+\input{overlap}
+\input{spatial}
+\input{rotation}
+\input{observations}
+\appendix
+\input{witness}
+\input{references}
+\end{document}

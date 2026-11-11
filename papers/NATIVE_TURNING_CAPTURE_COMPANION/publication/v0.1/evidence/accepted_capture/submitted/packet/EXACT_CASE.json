@@ -1,0 +1,51 @@
+{
+  "task": "NATIVE_TURNING_CAPTURE_01",
+  "status": "investigation specification, not a proved result",
+  "model": "unchanged simultaneous three-channel native map, no exchange extension",
+  "parameters_exact": {
+    "epsilon": "1/10",
+    "g": "1/60",
+    "lambda": "1/300",
+    "k": [
+      "999/1000",
+      "1",
+      "1001/1000"
+    ]
+  },
+  "initial_state_exact": [
+    {
+      "real": "1",
+      "imag": "1"
+    },
+    {
+      "real": "1",
+      "imag": "1"
+    },
+    {
+      "real": "1",
+      "imag": "-2"
+    }
+  ],
+  "phase_zero_convention": "Arg0(0)=0; zero prestage remains zero",
+  "update_order": "all prestages from old state, all phase kicks from shared prestage",
+  "target_domain": {
+    "modulus_lower": "9/10",
+    "modulus_upper": "11/10",
+    "ordinary_common_phase_arc_width_max": "pi/12",
+    "width_is_not_modulo_2pi_over_3": true
+  },
+  "primary_objective": "certify finite entry of this exact seed, or report a justified obstruction/unresolved outcome",
+  "optional_objective": "same-coefficient initial-condition neighborhood with inherited early turning and certified/continuity-based capture",
+  "initial_exploration_step_cap": 512,
+  "permitted_justified_single_seed_extension_cap": 4096,
+  "caps_are_administrative_not_scientific": true,
+  "mandatory_prior_work_gate": [
+    "ALREADY_ESTABLISHED",
+    "DISTINCT_GAP",
+    "SOURCE_BLOCKED"
+  ],
+  "new_claims_accepted": false,
+  "publication_authorized": false,
+  "git_operations_authorized": false,
+  "reading_checkpoint": "564810272703403af413e60ee2d44b32effbd79a"
+}

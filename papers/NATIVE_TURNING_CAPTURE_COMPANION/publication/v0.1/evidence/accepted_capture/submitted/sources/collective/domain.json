@@ -1,0 +1,118 @@
+{
+  "result": "PASS",
+  "purpose": "Check constants only; analytical proofs establish the theorem.",
+  "fixed_parameters": {
+    "epsilon": "1/10",
+    "g": "1/60",
+    "lambda": "1/300",
+    "k": [
+      "999/1000",
+      "1",
+      "1001/1000"
+    ]
+  },
+  "domain": {
+    "radius_lower": "9/10",
+    "radius_upper": "11/10",
+    "ordinary_phase_width": "pi/12"
+  },
+  "coefficient_min": "28367/30000",
+  "coefficient_max": "29573/30000",
+  "radial_magnitude_derivative_min": "21107/30000",
+  "cos_D": {
+    "exact_rational_lower": "965925826289068286749743/1000000000000000000000000",
+    "exact_rational_upper": "1931851652578136573499487/2000000000000000000000000",
+    "decimal_lower": "0.96592582628906",
+    "decimal_upper": "0.96592582628907"
+  },
+  "convex_hull_radius_squared_lower_bound": {
+    "exact_rational_lower": "159239991929414531226729183/200000000000000000000000000",
+    "exact_rational_upper": "318479983858829062453458447/400000000000000000000000000",
+    "decimal_lower": "0.79619995964707",
+    "decimal_upper": "0.79619995964708"
+  },
+  "prestage_lower_modulus_bound": {
+    "exact_rational_lower": "91598777478867204860249229/100000000000000000000000000",
+    "exact_rational_upper": "183197554957734409720498461/200000000000000000000000000",
+    "decimal_lower": "0.91598777478867",
+    "decimal_upper": "0.91598777478868"
+  },
+  "prestage_upper_modulus_bound": "107701/100000",
+  "H_derivative_radial_lower_bound": "687/1000",
+  "H_lipschitz_constant": {
+    "exact_rational_lower": "3881520016141170937546541553/4000000000000000000000000000",
+    "exact_rational_upper": "1940760008070585468773270817/2000000000000000000000000000",
+    "decimal_lower": "0.97038000403529",
+    "decimal_upper": "0.97038000403530"
+  },
+  "q": {
+    "exact_rational_lower": "3881920016141170937546541553/4000000000000000000000000000",
+    "exact_rational_upper": "1940960008070585468773270817/2000000000000000000000000000",
+    "decimal_lower": "0.97048000403529",
+    "decimal_upper": "0.97048000403530"
+  },
+  "phase_separation_factor": {
+    "exact_rational_lower": "195757359312880714853594933/200000000000000000000000000",
+    "exact_rational_upper": "24469669914110089356699367/25000000000000000000000000",
+    "decimal_lower": "0.97878679656440",
+    "decimal_upper": "0.97878679656441"
+  },
+  "sigma_k": {
+    "exact_rational_lower": "176776695296636881100211/125000000000000000000000000",
+    "exact_rational_upper": "1414213562373095048801689/1000000000000000000000000000",
+    "decimal_lower": "0.00141421356237",
+    "decimal_upper": "0.00141421356238"
+  },
+  "uniform_forcing_epsilon_R_sigma_k": {
+    "exact_rational_lower": "1944543648263005692102321/12500000000000000000000000000",
+    "exact_rational_upper": "15556349186104045536818579/100000000000000000000000000000",
+    "decimal_lower": "0.00015556349186",
+    "decimal_upper": "0.00015556349187"
+  },
+  "E_residual_upper_bound_value": {
+    "exact_rational_lower": "5185449728701348512272856/983999865490242187112153725",
+    "exact_rational_upper": "15556349186104045536818579/2951999596470726561336459150",
+    "decimal_lower": "0.00526976670481",
+    "decimal_upper": "0.00526976670482"
+  },
+  "S_residual_upper_bound_value": {
+    "exact_rational_lower": "26888888888888888888888861349633684443254994396736/968255735284814717111665412543002193860971608031375625",
+    "exact_rational_upper": "242000000000000000000000094386385254278296759579241/8714301617563332454004976757288654038306171059618722500",
+    "decimal_lower": "0.00002777044112",
+    "decimal_upper": "0.00002777044113"
+  },
+  "rigorous_coarse_bounds": {
+    "E_limsup_less_than": "5270/1000000",
+    "S_limsup_less_than": "2778/100000000"
+  },
+  "proof_scope": {
+    "state_updates": 0,
+    "parameter_sweeps": 0,
+    "old_certificate_replays": 0,
+    "repository_writes": 0,
+    "git_status_and_branch_unchanged": true
+  },
+  "sources": [
+    {
+      "path": "kernel_physics/dynamics.py",
+      "commit": "ad8a6e88b4a78d8b1955b34d5ff80b6c21713ade",
+      "sha256": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4"
+    },
+    {
+      "path": "papers/NATIVE_RESPONSE_GEOMETRY/manuscript/response.tex",
+      "commit": "ad8a6e88b4a78d8b1955b34d5ff80b6c21713ade",
+      "sha256": "785e343ce5e057b325d450a0dc36c94aff1f79b13a0b55b59525384c34dc870a"
+    },
+    {
+      "path": "papers/NATIVE_RESPONSE_GEOMETRY/manuscript/spectral.tex",
+      "commit": "ad8a6e88b4a78d8b1955b34d5ff80b6c21713ade",
+      "sha256": "c992d951f5d452ebb62fdd5133447ddfdc3007142579d7ca44b41d3ab1766c87"
+    },
+    {
+      "path": "papers/MEASUREMENT_AND_CHIRAL_DRIFT/v0.1/drift/manuscript.tex",
+      "commit": "ad8a6e88b4a78d8b1955b34d5ff80b6c21713ade",
+      "sha256": "19b5cf6566035655792dccb658fe55370b5a4814daf48ce1e30b85c1c7dece92"
+    }
+  ],
+  "checker_sha256": "877777406019bdfd0b8ba1d26c885d8557d67e2f25ae7bfb1952f3b911f34a51"
+}

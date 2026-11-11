@@ -1,0 +1,72 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=25mm,headheight=15pt]{geometry}
+\usepackage{booktabs,array,tabularx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{microtype,enumitem,fancyhdr}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{bookmark}
+\hypersetup{pdftitle={Native Potential Descent and Closed Coherence Coordinates in the Tri-Octagon Map},pdfauthor={Hilmir Frimann Halldorsson},pdfsubject={Author-authorized repository research edition v0.1; project-internal scientific review completed and author publication approval granted, 2 November 2026}}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{3em}
+\setlist{itemsep=2pt,topsep=4pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Native potential and closed coherence}
+\fancyhead[R]{\small Research edition v0.1}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\one}{\mathbf1}\newcommand{\eps}{\varepsilon}
+\newcommand{\diag}{\operatorname{diag}}\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\re}{\operatorname{Re}}\newcommand{\im}{\operatorname{Im}}
+\newcommand{\Argz}{\operatorname{Arg}_0}
+\newcommand{\V}{\mathcal V}\newcommand{\HH}{\mathcal H}
+\newcommand{\D}{\mathcal D}\newcommand{\Y}{\mathcal Y}
+\newcommand{\RR}{\mathcal R}
+\newcommand{\mathscr}[1]{\mathcal{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\vspace*{8mm}
+{\small\color{MidnightBlue} TRI-OCTAGON MATHEMATICAL RESEARCH\par}
+\vspace{8mm}
+{\LARGE\bfseries\raggedright Native Potential Descent and Closed\\
+Coherence Coordinates in the Tri-Octagon Map\par}
+\vspace{8mm}
+{\large Hilmir Fr\'imann Halld\'orsson\par}
+\vspace{3mm}
+{\normalsize Author-authorized repository research edition v0.1\\2 November 2026\par}
+\vspace{6mm}
+{\small\bfseries Author-authorized repository research edition v0.1. Project-internal scientific review completed; author publication approval granted. No external peer review is claimed.\par}
+\vspace{5mm}
+\begin{abstract}
+The native Tri-Octagon map combines a quartic-potential gradient prestage with simultaneous harmonic-three phase synchronization. We establish two distinct descent statements for its existing potential. On the admitted positive in-phase triad branch with \(g>0\), strict normal stability implies strict local descent modulo common phase. The proof identifies the actual potential Hessian and shows that the triad quotient response contracts this form, even when positive diagonal balance fails. Separately, at a fixed rational coefficient tuple, an inherited invariant domain with amplitudes between \(0.9\) and \(1.1\) and ordinary phase width at most \(\pi/12\) admits the explicit decrease bound \(16869/20000\) times the squared prestage increment. Equality in monotonicity occurs exactly on the unique aligned fixed circle. On that same finite domain, the three intensities and two signed pair areas reconstruct full complex coherence, define an autonomous map on their exact image, and retain every matched edge energy, the potential, and the descent quantity. Two additional real pair entries are minimal within the prescribed raw-entry dictionary; restricting the dictionary to real coherences requires three. Static same-data families prove these lower bounds by failure of current energy retention. The results concern the ideal mathematical recurrence and do not identify the potential with physical energy or reconstruct the discarded common-phase history.
+\end{abstract}
+\vfill
+{\small Author's research questions and programme: Hilmir Fr\'imann Halld\'orsson.
+GPT supplied scientific direction and project-internal review of the two underlying investigations and this manuscript.
+Codex supplied independent proof verification, retained exact-algebra checks, and manuscript preparation.
+The document build does not execute those scientific checks.}
+\end{titlepage}
+\setcounter{page}{2}
+\hypersetup{pageanchor=true}
+\input{setting}
+\input{local}
+\input{finite}
+\input{coordinates}
+\input{retention}
+\input{minimum}
+\input{discussion}
+\appendix
+\input{appendix}
+\input{references}
+\end{document}

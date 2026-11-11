@@ -1,0 +1,151 @@
+{
+  "task": "NATIVE_TURNING_CAPTURE_PAPER_01_GPT_MANUSCRIPT_REVIEW",
+  "completed_utc": "2026-11-11T01:07:31.649944+00:00",
+  "review_environment": {
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41"
+  },
+  "status": "PASS",
+  "scope": "Read-only artifact audit and manuscript transcription checks; no scientific or historical-suite rerun; no source edit, rebuild or Git operation.",
+  "checks": [
+    {
+      "check": "input_archive",
+      "status": "PASS",
+      "detail": {
+        "members": 176,
+        "bytes": 5213983,
+        "sha256": "a38ef21cd1ec5fc532cee70a1342b259df98438e0c54998bca699a8c1acf8e68",
+        "sidecar_and_external_audit": "match"
+      }
+    },
+    {
+      "check": "self_excluding_manifest",
+      "status": "PASS",
+      "detail": 175
+    },
+    {
+      "check": "preserved_commission_inputs",
+      "status": "PASS",
+      "detail": 136
+    },
+    {
+      "check": "accepted_evidence_exact_extract",
+      "status": "PASS",
+      "detail": 127
+    },
+    {
+      "check": "source_inventory",
+      "status": "PASS",
+      "detail": 18
+    },
+    {
+      "check": "manuscript_claim_crosswalk",
+      "status": "PASS",
+      "detail": {
+        "original_ids": 16,
+        "manuscript_locations": 37,
+        "accepted_source_locators": 39
+      }
+    },
+    {
+      "check": "source_reference_consistency",
+      "status": "PASS",
+      "detail": {
+        "labels": 39,
+        "reference_uses": 24,
+        "citations": 4
+      }
+    },
+    {
+      "check": "supplied_build_evidence",
+      "status": "PASS",
+      "detail": {
+        "sources_match": true,
+        "warnings": [],
+        "rebuild_executed_by_this_review": false
+      }
+    },
+    {
+      "check": "pdf_identity_fonts_metadata",
+      "status": "PASS",
+      "detail": {
+        "sha256": "df45295a944f88ef6db3b5b037d924705180df5f2fca61253c6f512299892a8f",
+        "bytes": 92027,
+        "pages": 7,
+        "embedded_fonts": 17,
+        "status": "submitted pending-review label retained; this review supersedes GPT-pending status only"
+      }
+    },
+    {
+      "check": "relative_source_links",
+      "status": "PASS",
+      "detail": 7
+    },
+    {
+      "check": "pdf_text_page_bounds",
+      "status": "PASS",
+      "detail": [
+        {
+          "page": 1,
+          "no_text_outside_page": true,
+          "text_characters": 2944,
+          "render_sha256": "e788a40f325586f60ee336639f7e239154c16d6310262c1f6f79aaa605cec0fd"
+        },
+        {
+          "page": 2,
+          "no_text_outside_page": true,
+          "text_characters": 2075,
+          "render_sha256": "ac37c9424e7036ceb4160847ca28b127b0d25670deecd2289af61243136b230e"
+        },
+        {
+          "page": 3,
+          "no_text_outside_page": true,
+          "text_characters": 2647,
+          "render_sha256": "4101a68adb8982612f3b0e9f36473140f16d0a13d8334be846d820c78159de41"
+        },
+        {
+          "page": 4,
+          "no_text_outside_page": true,
+          "text_characters": 2529,
+          "render_sha256": "7d20d3cc3ed0ab5eaf1b85de578fd3e0d099c6702885760fc938c4f482cd9fce"
+        },
+        {
+          "page": 5,
+          "no_text_outside_page": true,
+          "text_characters": 1946,
+          "render_sha256": "1b158997d379fc0bbafbc0e33c00faf74361b30fa5054408dee6fdb89f72f0e5"
+        },
+        {
+          "page": 6,
+          "no_text_outside_page": true,
+          "text_characters": 2993,
+          "render_sha256": "3aaa37cd7107d878d471279bd9bb45022a03b8721d722f68dba3dd86d525a83e"
+        },
+        {
+          "page": 7,
+          "no_text_outside_page": true,
+          "text_characters": 3747,
+          "render_sha256": "c5701fbb48cf9577bf19e3950feffbb803278af1d8b83792e1e6154175b87239"
+        }
+      ]
+    },
+    {
+      "check": "accepted_number_transcription",
+      "status": "PASS",
+      "detail": {
+        "amplitude_endpoints": 6,
+        "cone_margins": 3,
+        "tail_coefficients": "exact rational matches",
+        "scientific_checker_rerun": false
+      }
+    },
+    {
+      "check": "submitted_payload_unchanged_after_review",
+      "status": "PASS",
+      "detail": 175
+    }
+  ],
+  "scientific_executions": 0,
+  "submitted_archive_sha256": "a38ef21cd1ec5fc532cee70a1342b259df98438e0c54998bca699a8c1acf8e68",
+  "script_sha256": "2c4e47bbab37cf2745e825d48a53a183bf0c33039c69d9f8407628a878f9f4c2"
+}

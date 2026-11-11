@@ -1,0 +1,30 @@
+{
+  "scope": "Initial scientific preparation/exploration invocations before execute.py was created; tool-observed exit results, not reconstructed automatic logs",
+  "shell": "Windows Command Prompt",
+  "activation": "run_python.cmd calls conda.bat activate torment",
+  "commands": [
+    {
+      "wrapper_invocation": "run_python.cmd scripts\\prepare.py",
+      "exit_status_observed": 0,
+      "stdout": "Tool output, not separately persisted",
+      "process_start_utc": null,
+      "process_finish_utc": null,
+      "internal_records": [
+        "logs/ENVIRONMENT.json",
+        "logs/INPUT_CHECKS.json",
+        "SOURCE_IDENTITIES.json"
+      ]
+    },
+    {
+      "wrapper_invocation": "run_python.cmd scripts\\explore.py > logs\\explore.stdout.txt 2> logs\\explore.stderr.txt",
+      "exit_status_observed": 0,
+      "stdout": "logs/explore.stdout.txt",
+      "stderr": "logs/explore.stderr.txt",
+      "process_start_utc": null,
+      "process_finish_utc": null,
+      "internal_gate_timestamp": "2026-11-10T19:33:13.699670+00:00",
+      "internal_completion_timestamp": "2026-11-10T19:33:13.752741+00:00"
+    }
+  ],
+  "timestamp_note": "Internal script timestamps are not claimed to be measured shell process start/end times."
+}

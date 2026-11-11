@@ -1,0 +1,89 @@
+\section{Overlap angle and representative correction}\label{sec:overlap}
+
+The adjacent-state overlap is the scalar \(\mathcal O(\Omega)=\Omega^\dagger F(\Omega)\), distinct from the placed-Z observer. Its conjugation order is essential.
+
+\begin{theorem}[A branch-resolved overlap correction]\label{thm:overlap}
+The overlap depends only on retained data and satisfies
+\begin{equation}
+\mathcal O(y)=\tr(U_\delta M H(y))
+=\sum_i e^{i\delta_i}(MH(y))_{ii}
+=\kappa(y)B_{\rm sec}(y),\qquad B_{\rm sec}(y)=z(y)^\dagger z(Gy).
+\label{eq:overlapfactor}
+\end{equation}
+Its principal argument \(\alpha_{\rm ov}=\Arg\mathcal O\) and \(\gamma=\Arg B_{\rm sec}\) are continuous on \(\Y\). With \(\Delta=\Delta(y)\),
+\begin{align}
+\re\mathcal O(y)&\ge\frac{243}{100}\cos\Delta\ge\frac{243}{100}\cos D_0>0,
+&|\alpha_{\rm ov}|&\le\Delta,\label{eq:overlapbound}\\
+\re B_{\rm sec}(y)&\ge\frac{243}{100}\cos(2\Delta)
+\ge\frac{243\sqrt3}{200}>0,
+&|\gamma|&\le2\Delta.\label{eq:sectionbound}
+\end{align}
+The real principal values obey the exact equality
+\begin{equation}
+\boxed{\alpha_{\rm ov}(y)=\vartheta(y)+\gamma(y).}
+\label{eq:anglecorrection}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Using \(H=\Omega\Omega^\dagger\) and trace cyclicity gives
+\(\Omega^\dagger U_\delta M\Omega=\tr(U_\delta MH)\).
+All factors are determined by \eqref{eq:coherenceupdate}. Equivariance also directly proves common-rephasing invariance of this overlap. Applying Theorem~\ref{thm:reconstruction} to the canonical representative gives the last equality in \eqref{eq:overlapfactor}.
+
+The inherited input and output phase lifts lie in the same interval of width \(\Delta\). Thus, writing \(r_i=|\Omega_i|\),
+\[
+\mathcal O=\sum_i r_i\rho_i e^{id_i},\qquad
+d_i=\theta_i^+-\theta_i\in[-\Delta,\Delta].
+\]
+Each weight is positive, and their sum is at least \(3(9/10)^2=243/100\). This proves the real-part bound in \eqref{eq:overlapbound}. The sector \(|\arg w|\le\Delta<\pi/2\) is convex: it is given by \(|\im w|\le\tan\Delta\,\re w\), \(\re w\ge0\). Adding the positive-weight terms gives the angle bound as well.
+
+For the canonical representatives, \(|\eta_i(y)|\le\Delta\) and \(|\eta_i(Gy)|\le\Delta(Gy)\le\Delta\). Hence
+\[
+B_{\rm sec}=\sum_i r_i\rho_i
+e^{i(\eta_i(Gy)-\eta_i(y))},\qquad
+|\eta_i(Gy)-\eta_i(y)|\le2\Delta\le\pi/6.
+\]
+The same sector argument proves \eqref{eq:sectionbound}. Both scalar functions are continuous and uniformly inside the open right half-plane, giving the claimed principal branches. Factorization first gives \(\alpha_{\rm ov}\equiv\vartheta+\gamma\pmod{2\pi}\); but \(|\vartheta+\gamma|\le3\Delta\le\pi/4<\pi\). Thus the principal values agree as real numbers, proving \eqref{eq:anglecorrection}.
+\end{proof}
+
+Consequently reconstructing the anchor phase by overlap requires
+\begin{equation}
+\theta_N-\theta_0=\sum_{j=0}^{N-1}\alpha_{\rm ov}(y_j)
+-\sum_{j=0}^{N-1}\gamma(y_j).
+\label{eq:correctedsum}
+\end{equation}
+Both series converge absolutely, with respective absolute tails at most
+\(\Delta_{\rm init}c^n/(1-c)\) and \(2\Delta_{\rm init}c^n/(1-c)\).
+Their difference has the sharper net-tail estimate in \eqref{eq:phasetails}. That estimate is not separately assigned to the uncorrected overlap sum. On the aligned subset all three angles vanish, even during amplitude relaxation.
+
+The correction is not identically zero. Appendix~\ref{app:witness} analytically differentiates the native map on \(z(t)=(1,e^{it},e^{it})\) at the fixed coefficients and obtains \(\gamma'(0)<0\). This is distinct from a numerical native-step evaluation. It establishes a local difference of the two angles, without classifying their agreement set. We neither assume that \(\gamma\) is an endpoint difference nor prove that such a representation is impossible.
+
+\subsection{Changing the representative}
+For a specified \(h:\Y\to\U\), let \(z_h(y)=h(y)z(y)\). Equivariance gives
+\begin{equation}
+\kappa_h(y)=\frac{h(y)}{h(Gy)}\kappa(y),\qquad
+B_{{\rm sec},h}(y)=\overline{h(y)}h(Gy)B_{\rm sec}(y).
+\label{eq:sectionchange}
+\end{equation}
+Indeed \(Fz_h(y)=h(y)\kappa(y)z(Gy)=\kappa_h(y)z_h(Gy)\), while the second expression is the inner product of the new representatives. Their factors cancel in \(\mathcal O=\kappa_h B_{{\rm sec},h}\). For \(h_j=h(y_j)\), finite cancellation gives
+\begin{equation}
+\prod_{j<N}\kappa_h(y_j)=\frac{h_0}{h_N}\prod_{j<N}\kappa(y_j),\qquad
+\prod_{j<N}B_{{\rm sec},h}(y_j)=\frac{h_N}{h_0}\prod_{j<N}B_{\rm sec}(y_j).
+\label{eq:sectionproducts}
+\end{equation}
+Taking \(u_{h,0}=u_0/h_0\) gives \(u_{h,N}=u_N/h_N\) and
+\begin{equation}
+u_{h,N}z_h(y_N)=u_Nz(y_N)=\Omega_N.
+\label{eq:statecancellation}
+\end{equation}
+These identities hold at the unit-complex level without selecting a real argument of \(h\).
+
+If a real lift \(h=e^{i\xi}\) has been specified, the corresponding real increment lifts are
+\begin{align}
+\vartheta_h^{\rm lift}&=\vartheta+\xi(y)-\xi(Gy),&
+\gamma_h^{\rm lift}&=\gamma-\xi(y)+\xi(Gy),\label{eq:gaugelifts}\\
+e^{i\vartheta_h^{\rm lift}}&=\kappa_h,&
+e^{i\gamma_h^{\rm lift}}&=\frac{B_{{\rm sec},h}}{|B_{{\rm sec},h}|}.\notag
+\end{align}
+Their principal arguments are only congruent to these real lifts unless further branch bounds apply. The two increment lifts sum pointwise to \(\alpha_{\rm ov}\). Their finite sums acquire opposite endpoint terms \(\xi(y_0)-\xi(y_N)\), which cancel. For example, \(h=e^{-i\eta_2}\) is a specified continuous channel-2 anchor with real lift \(-\eta_2\). Its reconstruction increment is \(\vartheta+\eta_2(Gy)-\eta_2(y)\), the ordinary increment of channel 2.
+
+Arbitrary continuous representative changes need not retain the canonical pointwise increment bounds or absolute-variation bounds. Even if \(h(y_n)\) converges, continuity alone does not control the total variation of its successive values. These endpoint changes of convention do not establish an endpoint formula for the original correction \(\gamma\), and do not supply geometric holonomy.

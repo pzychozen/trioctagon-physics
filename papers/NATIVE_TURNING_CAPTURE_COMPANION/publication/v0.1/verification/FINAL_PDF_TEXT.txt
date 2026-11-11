@@ -1,0 +1,325 @@
+PAGE 1
+Certiﬁed Capture of the Collective-Turning Trajectory
+in the Native Triad
+A companion note to Transient Collective Turning and Coherent Relaxation in the Native Triad
+Hilmir Frímann Halldórsson (pzychozen)
+Research edition v0.1 11 November 2026
+Project-internal manuscript review complete; author-authorized for repository publication.
+Abstract
+The original collective-turning example of the native triad was known to have a strict
+early turn, while a separate theorem established coherent relaxation for states in an invariant
+annulus and ordinary phase sector. We connect these results for the unchanged recurrence,
+rational coeﬃcients and original exact entrance. A retained certiﬁcate encloses 50 full updates
+in one connected chain, starting from an exact singleton. A separate exact-fraction checker
+veriﬁes the chain, nonzero prestages and strict terminal annulus and cone inequalities. These
+imply inclusion in the inherited coherent domain at update 50, a suﬃcient index rather
+than a certiﬁed earliest entry. The inherited theorem then gives convergence of the same
+turning trajectory to its positive unequal amplitude proﬁle, up to a limiting common phase.
+Continuity also supplies an open neighborhood of entrances with both properties at the same
+coeﬃcients, without an explicit radius. No parameter robustness, global basin or physical
+identiﬁcation is asserted.
+1 The missing ﬁnite connection
+The parent paper [ 1] established two distinct results at one native parameter point: a certiﬁed
+nonzero turn of the complex channel mean over its ﬁrst two increments, and convergence for
+states already admitted to an explicit coherent domain. The turning entrance had amplitudes
+outside that domain. Accordingly, the earlier edition did not assert that its particular turning
+trajectory eventually entered the convergence region.
+The accepted investigation [ 2, 4] supplies that missing ﬁnite link. For the original seed, its
+unchanged full evolution is strictly inside the same domain at update 50. This is a supplementary
+result: the parent paper’s statement of the then-open gap was accurate, and the earlier edition
+remains unchanged.
+The contribution is the certiﬁed ﬁnite connection and its qualitative initial-condition corollary.
+The early turn, invariant domain, convergence estimates and limiting proﬁle are inherited. Nei-
+ther interval certiﬁcation nor the implication from ﬁnite entry to an invariant convergence the-
+orem is claimed as a new method. The accepted prior-source comparison found a distinct gap
+within the inspected project corpus; it is not a worldwide novelty claim or an additional mathe-
+matical theorem.
+The argument below is readable without executing the evidence archive. We state the exact
+object, explain the ﬁnite enclosure induction and its terminal tests, and apply the inherited
+theorem at the correct index. Full rational endpoints and the historical execution records remain
+available as supporting evidence.
+1
+
+PAGE 2
+Certiﬁed native capture Research edition v0.1
+2 Frozen recurrence and inherited result
+Let Ωn = (Ω A,n, ΩB,n, ΩC,n) ∈ C3. With real coeﬃcients, the simultaneous ordered native map
+is
+vi,n = Ω i,n + εΩi,n(ki − |Ωi,n|2) + g ∑
+ℓ̸=i
+(Ωℓ,n − Ωi,n), (2.1)
+δi,n = λ
+∑
+ℓ̸=i
+sin
+(
+3[Arg0 vℓ,n − Arg0 vi,n]
+)
+, (2.2)
+Ωi,n+1 = vi,neiδi,n, Ωn+1 = F (Ωn). (2.3)
+All prestages use the same old triple; all kicks use the same completed prestage triple. The con-
+vention is Arg0(0) = 0 , and a zero prestage stays zero. This agrees with the primary recurrence
+and its implementation [ 1, 3]. No normalization, sequential phase update, observer feedback or
+added state is introduced. The implementation’s separate λ = 0 bypass is immaterial to the
+ﬁxed nonzero value used here.
+Throughout this note the coeﬃcients and seed are exactly
+ε = 1 10 , g = 1 60 , λ = 1 300 , k = ( 999 1000 , 1, 1001 1000 ) , (2.4)
+Ω0 = (1 + i, 1 + i, 1 − 2i). (2.5)
+The index n counts native updates, not calibrated physical time. Exact rational coeﬃcients
+control the mathematical map; binary64 evaluation is a numerical comparison only.
+The inherited domain is
+D = {Ω : 9 /10 ≤ |Ωi| ≤ 11/10 for every i,
+Ωi = |Ωi|eiθi, θ i ∈ [α, α + π/12] for some α ∈ R}. (2.6)
+The phases have a common ordinary lift, allowing a common full turn. They are not identiﬁed
+modulo 2π/3. The initial moduli
+√
+2,
+√
+2,
+√
+5 show that Ω0 /∈ D .
+Proposition 2.1 (Inherited domain theorem) . At (2.4), D is forward invariant. Every state
+admitted to D converges under F to eiθ∞r∗, where r∗ is the unique positive ﬁxed amplitude
+proﬁle in Q = [0.9, 1.1]3. Its entries are pairwise unequal; the common phase can depend on the
+entrance.
+This is the parent paper’s invariant-domain result and thm:convergence [1], used here without
+re-proving it. Uniqueness is conﬁned to the stated cube.
+For mn = 1 3 ∑ i Ωi,n, the inherited early-turn statistic is
+Km = Im
+[
+(m1 − m0)(m2 − m1)
+]
+, 0.0110760731 ≤ Km ≤ 0.0110760732. (2.7)
+Its positive sign proves noncollinear mean increments. This is an existing turning witness, not
+a new turn calculation in the present manuscript.
+2
+
+PAGE 3
+Certiﬁed native capture Research edition v0.1
+3 The connected ﬁnite certiﬁcate
+Theorem 3.1 (Strict ﬁnite inclusion) . For the exact map (2.1)–(2.3), coeﬃcients (2.4) and seed
+(2.5),
+F 50(Ω0) ∈ int D. (3.1)
+Every one of the 150 prestage components in the preceding 50 updates has modulus strictly greater
+than 87/100.
+The proof is the accepted ﬁnite certiﬁcate [ 2], interpreted in this section and completed by the
+terminal inequalities in Section 4. The index 50 is suﬃcient; it is not asserted to be the earliest
+entry.
+3.1 A regular formula without argument branches
+For nonzero vi, vℓ, the polar-product identity gives
+sin
+(
+3[arg vℓ − arg vi]
+)
+= Im((vℓvi)3) |vℓ|3|vi|3 . (3.2)
+This is the same sine as in the native phase rule, independent of argument cuts. The certiﬁcate
+veriﬁes a positive lower bound before every division. An interval containing zero would be
+inconclusive, not permission to regularize the recurrence. Here all checked moduli exceed 87/100,
+so no zero convention is bypassed.
+There are 51 rectangular complex state boxes B0, . . . , B50 and 50 full update records. Each
+of the six real coordinates in B0 is the exact singleton speciﬁed in ( 2.5). A record contains
+enclosures for the prestage, its moduli, the kicks, their sines and cosines, and the next state. No
+intermediate box is replaced by an exploratory point value.
+3.2 Two arithmetic organizations
+The generator uses integer endpoints divided by S = 2 512. Rational constants are rounded down
+and up. Products take the extreme endpoint products and round outward; positive reciprocals
+reverse the endpoints before outward division. Squares include zero if appropriate, and square
+roots use integer square-root bounds. The documented padding only widens boxes. Its purpose
+does not supply proof by itself: the separate checker must verify the required containments.
+The checker uses exact fractions rather than importing the generator’s dyadic arithmetic. It
+evaluates the prestage in the combined form
+(
+1 − 2g + εki − ε|Ωi|2) Ωi + g(Ωℓ + Ωh), {i, ℓ, h} = {A, B, C}. (3.3)
+For vℓvi = u + iv, it expands the numerator in ( 3.2) as 3u2v − v3 instead of cubing a complex
+interval. A positive modulus witness [l, u] is checked by the exact inequalities l > 0, l2 ≤ q−
+and u2 ≥ q+, where [q−, q+] encloses the squared modulus. Thus the checker does not copy the
+generator’s square-root algorithm.
+These distinct interval evaluations may enclose diﬀerent sets. Acceptance requires that every
+independently computed interval lie inside the corresponding supplied interval. Agreement of
+numerical centers, a large precision setting or a checksum is not that containment argument.
+3
+
+PAGE 4
+Certiﬁed native capture Research edition v0.1
+3.3 Trigonometric bounds and induction
+Every kick interval is checked to satisfy |δ| < 1/100. Set
+Ps(x) =
+23∑
+q=0
+(−1)qx2q+1
+(2q + 1)! , P c(x) =
+24∑
+q=0
+(−1)qx2q
+(2q)! . (3.4)
+The sine polynomial also has Taylor order 48, and the cosine polynomial order 49, because the
+next respective coeﬃcient is zero. Taylor’s theorem therefore gives, on |x| < 1/100,
+| sin x − Ps(x)| ≤ Es := 100−49 49! , | cos x − Pc(x)| ≤ Ec := 100−50 50! . (3.5)
+The generator evaluates interval Horner polynomials and rounds the remainders upward. The
+checker instead evaluates scalar polynomials exactly at a kick interval’s midpoint m. If its radius
+is r and M is the larger absolute endpoint, | sin′ | ≤ 1 and | cos′ | = | sin | ≤ | x| give the enclosures
+Ps(m) + [−Es − r, Es + r], P c(m) + [−Ec − M r, Ec + M r]. (3.6)
+The supplied trigonometric boxes must contain these bounds. Finally, exact interval complex
+multiplication must put the rotated prestage inside the next state box.
+This proves the ﬁnite chain by induction. The exact seed belongs to B0. Given an exact state
+in Bn, the veriﬁed prestage, modulus and kick operations enclose its native update ingredients;
+(3.5)–(3.6) enclose the true rotation, and next-box containment gives F (Ωn) ∈ Bn+1. Hence
+F 50(Ω0) ∈ B50. It remains to show that the entire terminal box lies in the strict target region.
+4 Terminal annulus and common cone
+Table 1 transcribes the recorded exact checker bounds. The decimal endpoints are terminat-
+ing rationals, not rounded estimates of the trajectory. Squared rational inequalities prove the
+modulus intervals. With
+wi = (987395 − 158274i)Ωi,50, (4.1)
+the checker also veriﬁes Re wi > 0 and the tabulated positive lower bounds for Re wi − 8| Im wi|.
+Table 1: Strict terminal amplitude bounds and conservative cone margins at update 50. The
+last column bounds Re wi − 8| Im wi| from below. All values concern native state coordinates;
+no physical units are assigned.
+Channel Lower amplitude Upper amplitude Cone margin
+A 0.997219 0.997220 492851
+B 0.997622 0.997623 492769
+C 0.996782 0.996783 492356
+Relative to the ﬁxed direction, every ordinary argument lies strictly between − arctan(1/8) and
+arctan(1/8). Their common containing width satisﬁes
+∆50 < 2 arctan(1/8) < 1 4 < π 12 , (4.2)
+using arctan x < x for x > 0 and π > 3. The multiplier is a diagnostic scaling and rotation, not
+an additional update or a physical direction. The strict annulus and cone conditions deﬁne an
+open set contained in D, proving Theorem 3.1.
+4
+
+PAGE 5
+Certiﬁed native capture Research edition v0.1
+5 The same trajectory relaxes
+Corollary 5.1 (Inherited relaxation after admission) . The original trajectory with the positive
+early turn (2.7) converges to eiθ∞r∗, with the cube-qualiﬁed proﬁle of Proposition 2.1. For the
+integer tail counter j = n − 50 ≥ 0, set
+c = 1 − 3
+√
+2
+200 , β = 8571 10000 . (5.1)
+Then
+∥Ω50+j − eiθ∞r∗∥∞ ≤ 1 5 βj + 107701 12800000 c2j − βj c2 − β + 11 40 cj. (5.2)
+Proof. Apply the parent theorem at Ω50, admitted by Theorem 3.1. Write e0 = ∥ |Ω50| −
+r∗∥∞, where |Ω| denotes the componentwise modulus. The inherited full-state estimate [ 1,
+eq:fullbound], with the index shifted to admission, is
+βje0 + 1.07701∆2 50 8 c2j − βj c2 − β + 1.1∆50cj. (5.3)
+Both amplitude triples lie in Q, giving e0 ≤ 1/5, while ( 4.2) gives ∆50 < 1/4. Substitution
+yields ( 5.2). The inherited constants satisfy c2 > β and 0 < c, β < 1, so the bound tends to zero.
+No rate constant or new proﬁle has been ﬁtted.
+For complex triples, ∥z∥∞ = max i |zi|. The limiting amplitudes solve the inherited ﬁxed equa-
+tions
+εr∗,i(ki − r2 ∗,i) + g ∑
+ℓ̸=i
+(r∗,ℓ − r∗,i) = 0 . (5.4)
+Their uniqueness is in Q, not among all positive proﬁles everywhere, and absolute limiting phase
+is not unique across entrances.
+5.1 Mean, dispersion and area attachments
+Let P = I − 11T /3, En = ∥P Ωn∥2 and ¯r∗ = (1/3) ∑ i r∗,i. The inherited limits give
+mn − →eiθ∞ ¯r∗, E n − →E∗ := ∥P r∗∥2 > 0, E ∗ < 0.005270. (5.5)
+The last number is an inherited upper bound, not the actual limiting spread. Deﬁne x = Re Ω,
+y = Im Ω and C = x × y in channel order (A, B, C). The parent’s ﬁxed attachments are
+T =
+
+
+−1/2 1 −1/2
+−
+√
+3/2 0
+√
+3/2
+0 0 0
+
+ , W = T C, Γ = 1T C. (5.6)
+For cyclic (i, ℓ, h), Ci = rℓrh sin(θh − θℓ), with no factor 1/2. The inherited phase bound gives
+|Ci,50+j| ≤ 1.21∆50cj, so C, W, Γ → 0 [1, eq:area, eq:attach, eq:Cdecay]. Unequal aligned
+vectors retain amplitude spread while their signed areas vanish; these remain passive observables.
+5
+
+PAGE 6
+Certiﬁed native capture Research edition v0.1
+6 Nearby entrances at the same coeﬃcients
+Corollary 6.1 (Qualitative initial-condition neighborhood) . At the ﬁxed coeﬃcients (2.4), there
+is an open neighborhood U ⊂ C3 of (2.5) such that every entrance in U has Km > 0 for its ﬁrst
+two mean increments and belongs to int D at update 50. Every such trajectory converges to the
+same amplitude proﬁle r∗, up to an entrance-dependent limiting common phase.
+Proof. Identify C3 with R6. Every prestage on the certiﬁed ﬁnite orbit is nonzero, with the strict
+lower bound in Theorem 3.1. Near each visited state, the polynomial prestage and normalized-
+product expression ( 3.2) give a smooth real representation of the native map. Positive moduli
+permit the square roots and reciprocal operations. Agreement with the native phase rule holds
+even across a principal-argument cut.
+Because only ﬁnitely many updates are involved, repeated continuity gives an open initial neigh-
+borhood V of Ω0 on which all prestages through update 49 remain nonzero and F 50 is continuous.
+On V , the ﬁrst two mean increments and their statistic Km are continuous. Equation ( 2.7) is
+strict at Ω0, so {z ∈ V : Km(z) > 0} is an open neighborhood of that seed.
+Let O be the open terminal set deﬁned by 0.9 < |zi| < 1.1 and
+Re((987395 − 158274i)zi) > 8| Im((987395 − 158274i)zi)| for every i.
+Section 4 proves F 50(Ω0) ∈ O ⊂ int D. Thus
+U = V ∩ {z : Km(z) > 0} ∩ (F 50|V )−1(O) (6.1)
+is open and contains Ω0. The same U satisﬁes ﬁnite-path regularity, strict early turning and
+terminal admission. Proposition 2.1 applies to each admitted state, proving the conclusion.
+The result supplies some positive-radius neighborhood by openness, but no numerical radius or
+uniform quantitative perturbation allowance. Coeﬃcients remain ﬁxed. It does not establish
+parameter robustness, a complete basin, stability of an earliest-entry index or identical limiting
+phases throughout U .
+7 Interpretation and limits
+The ﬁnite certiﬁcate connects two known behaviors along one unchanged native evolution: the
+documented early turn is followed by entry into the known aligned regime. It does not attribute
+capture to one term based on a single history. In the inherited exact mean accounting, mn+1 −
+mn = Bn +Sn, the onsite contribution is Bn = (ε/3) ∑ i Ωi,n(ki −|Ωi,n|2) and the synchronization
+contribution is Sn = (1 /3) ∑ i vi,n(eiδi,n − 1). Graph corrections cancel directly in the prestage
+mean but change the individual states supplied to later operations [ 1, eq:budget].
+The parent’s delayed-graph comparison uses λ = 0; it is not an ablation establishing a sole cause
+of the present nonzero- λ capture. No physical position, force, gravity, magnetism, receiver,
+transport channel, clock or moving-shell law follows from this note. Nor does convergence prove
+that only ﬁnitely many diminishing directional changes remain. The certiﬁed index is suﬃcient
+rather than earliest, and the qualitative neighborhood is not a global attraction claim.
+6
+
+PAGE 7
+Certiﬁed native capture Research edition v0.1
+8 Evidence, execution and manuscript status
+The accepted record preserves the certiﬁcate, generator, separate checker and original executions
+[2]. The checker validates 50 links, 150 positive prestages and the inherited early-turn sign on
+the connected chain. Five damaged certiﬁcates were rejected: a wrong initial singleton, zero
+modulus witness, zeroed kicks, broken next-state link and false terminal amplitude bounds.
+These are dependency and rejection-path checks, not new turning results or formal veriﬁcation
+of Python.
+Codex’s original scientiﬁc execution used Windows Python 3.11.15 in torment. GPT’s cor-
+roborating replay used Linux Python 3.13.5, replacing only the conda-name guard in memory
+with a check that assertion optimization was disabled. Mathematical functions, assertions and
+archived ﬁles were unchanged. This replay of the submitted independent checker was neither a
+third independent implementation nor a Windows rerun [ 4, Section 5].
+The exploratory apparent ﬁrst hit at 41 remains numerical only. This document build repeats
+neither that search nor certiﬁcate generation, validation, damaged-input controls or historical
+suites. New helpers read saved values, generate the table, check transcription and ﬁle identity,
+compile and inspect the document. Full identities and execution records accompany the note.
+The certiﬁcate denominator is an arithmetic choice, not a physical scale.
+Authorship and status. Hilmir Frímann Halldórsson supplies authorship and research di-
+rection. GPT provided scientiﬁc steering and internal acceptance; Codex conducted the in-
+vestigation, implemented its independent checker and prepared this note. The mathematics
+was accepted at its stated scope on 10 November 2026. Research edition v0.1 completed GPT
+project-internal manuscript review on 11 November 2026 and is author-authorized for repository
+publication. No journal acceptance, external peer review, proof-assistant certiﬁcation or new
+DOI is claimed.
+The acceptance ﬁles retain their historical wording; a separate status record explains the later 11
+November manuscript commission. The parent edition remains unchanged. Relative evidence
+links below refer to the ﬁles distributed with this note.
+References
+[1] H. F. Halldórsson, Transient Collective Turning and Coherent Relaxation in the Native Triad , re-
+search edition v0.1, 28 October 2026. Primary source: preserved manuscript source ; original repos-
+itory location papers/COLLECTIVE_TURNING_AND_COHERENT_RELAXATION/v0.1/main.tex. Relevant
+labels: eq:parameters, eq:entrance, eq:certturn, sec:domain, thm:convergence, eq:fullbound.
+Recorded publication checkpoint 7cc1fa03af589818bcdcfaaac51838cc36c84253; later inspected
+context 564810272703403af413e60ee2d44b32effbd79a. These identify the reading edition, not cur-
+rent repository state.
+[2] H. F. Halldórsson, research direction; Codex, investigation, NATIVE_TURNING_CAPTURE_01:
+Same-trajectory connection from native collective turning to coherent relaxation , 10 November 2026.
+Accepted proof report , R4–R7; exact certiﬁcate ; recorded independent checks . Complete source and
+execution evidence accompany the note.
+[3] Tri-Octagon project, Native deterministic recurrence, kernel_physics/dynamics.py, functions arg0,
+phase_sync and _advance. Preserved implementation source ; exact identity in SOURCE_INVENTORY.
+json. Read for formula and order correspondence; not executed in this manuscript task.
+[4] GPT, NATIVE_TURNING_CAPTURE_01 scientiﬁc review and acceptance , 10 November 2026,
+Sections 1–6. Unchanged internal review and machine-readable acceptance ; corroborating replay
+records under evidence/accepted_capture/reviewer/. Project-internal investigation acceptance,
+not manuscript or external peer-review acceptance.
+7

@@ -1,0 +1,145 @@
+--- accepted/main.tex
++++ publication/main.tex
+@@ -6,13 +6,13 @@
+ \usepackage[dvipsnames]{xcolor}
+ \usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+ \usepackage{bookmark}
+-\hypersetup{pdftitle={Certified Capture of the Collective-Turning Trajectory in the Native Triad},pdfauthor={Hilmir Frímann Halldórsson (pzychozen)},pdfsubject={Research manuscript v0.1; accepted underlying mathematics; manuscript and author review pending; 11 November 2026},pdfkeywords={native triad, certified finite entry, coherent relaxation, companion note}}
++\hypersetup{pdftitle={Certified Capture of the Collective-Turning Trajectory in the Native Triad},pdfauthor={Hilmir Frímann Halldórsson (pzychozen)},pdfsubject={Research edition v0.1; project-internal manuscript review complete; author-authorized for repository publication; 11 November 2026},pdfkeywords={native triad, certified finite entry, coherent relaxation, companion note}}
+ \setlength{\parindent}{0pt}
+ \setlength{\parskip}{5pt}
+ \setlength{\emergencystretch}{2em}
+ \pagestyle{fancy}\fancyhf{}
+ \fancyhead[L]{\small Certified native capture}
+-\fancyhead[R]{\small Research manuscript v0.1}
++\fancyhead[R]{\small Research edition v0.1}
+ \fancyfoot[C]{\thepage}
+ \renewcommand{\headrulewidth}{0.3pt}
+ \numberwithin{equation}{section}
+@@ -32,8 +32,8 @@
+ {\normalsize A companion note to \emph{Transient Collective Turning and Coherent Relaxation in the Native Triad}\par}
+ \vspace{8pt}
+ {\large Hilmir Fr\'imann Halld\'orsson (pzychozen)\par}
+-{\small Research manuscript v0.1 \quad 11 November 2026\par}
+-{\small\bfseries Accepted underlying mathematics; manuscript and author review pending.\par}
++{\small Research edition v0.1 \quad 11 November 2026\par}
++{\small\bfseries Project-internal manuscript review complete; author-authorized for repository publication.\par}
+ \vspace{5pt}
+ \begin{abstract}
+ The original collective-turning example of the native triad was known to have a strict early turn, while a separate theorem established coherent relaxation for states in an invariant annulus and ordinary phase sector. We connect these results for the unchanged recurrence, rational coefficients and original exact entrance. A retained certificate encloses 50 full updates in one connected chain, starting from an exact singleton. A separate exact-fraction checker verifies the chain, nonzero prestages and strict terminal annulus and cone inequalities. These imply inclusion in the inherited coherent domain at update 50, a sufficient index rather than a certified earliest entry. The inherited theorem then gives convergence of the same turning trajectory to its positive unequal amplitude profile, up to a limiting common phase. Continuity also supplies an open neighborhood of entrances with both properties at the same coefficients, without an explicit radius. No parameter robustness, global basin or physical identification is asserted.
+@@ -249,7 +249,7 @@
+ 
+ The exploratory apparent first hit at 41 remains numerical only. This document build repeats neither that search nor certificate generation, validation, damaged-input controls or historical suites. New helpers read saved values, generate the table, check transcription and file identity, compile and inspect the document. Full identities and execution records accompany the note. The certificate denominator is an arithmetic choice, not a physical scale.
+ 
+-\textbf{Authorship and status.} Hilmir Fr\'imann Halld\'orsson supplies authorship and research direction. GPT provided scientific steering and internal acceptance; Codex conducted the investigation, implemented its independent checker and prepared this note. The mathematics was accepted at its stated scope on 10 November 2026. Research manuscript v0.1 remains pending manuscript and author review. No journal acceptance, external peer review, proof-assistant certification, new DOI or publication is implied.
++\textbf{Authorship and status.} Hilmir Fr\'imann Halld\'orsson supplies authorship and research direction. GPT provided scientific steering and internal acceptance; Codex conducted the investigation, implemented its independent checker and prepared this note. The mathematics was accepted at its stated scope on 10 November 2026. Research edition v0.1 completed GPT project-internal manuscript review on 11 November 2026 and is author-authorized for repository publication. No journal acceptance, external peer review, proof-assistant certification or new DOI is claimed.
+ 
+ The acceptance files retain their historical wording; a separate status record explains the later 11 November manuscript commission. The parent edition remains unchanged. Relative evidence links below refer to the files distributed with this note.
+ 
+--- accepted/build.py
++++ publication/build.py
+@@ -22,7 +22,7 @@
+ start=datetime.now(timezone.utc).isoformat();run=subprocess.run(cmd,cwd=ROOT,env=env,capture_output=True)
+ (B/'compiler.txt').write_bytes(run.stdout+run.stderr)
+ sources=[ROOT/'main.tex',ROOT/'references.tex',ROOT/'tables/terminal_bounds.tex']
+-record={'title':'Certified Capture of the Collective-Turning Trajectory in the Native Triad','author':'Hilmir Frímann Halldórsson (pzychozen)','edition':'v0.1','status':'Research manuscript v0.1; accepted underlying mathematics; manuscript and author review pending.','preparation_date':'2026-11-11','timezone':'Atlantic/Reykjavik','started_utc':start,'finished_utc':datetime.now(timezone.utc).isoformat(),'command':cmd,'cwd':str(ROOT),'compiler_version':version,'exit_status':run.returncode,'python':sys.executable,'python_version':sys.version,'conda_environment':os.environ['CONDA_DEFAULT_ENV'],'source_date_epoch':env['SOURCE_DATE_EPOCH'],'sources':{x.relative_to(ROOT).as_posix():hashlib.sha256(x.read_bytes()).hexdigest() for x in sources},'build_helper_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'scientific_runs':0,'protection':'--only-cached --untrusted; no shell escape, package downloads or persistent configuration changes'}
++record={'title':'Certified Capture of the Collective-Turning Trajectory in the Native Triad','author':'Hilmir Frímann Halldórsson (pzychozen)','edition':'v0.1','status':'Research edition v0.1; Project-internal manuscript review complete; author-authorized for repository publication.','preparation_date':'2026-11-11','timezone':'Atlantic/Reykjavik','started_utc':start,'finished_utc':datetime.now(timezone.utc).isoformat(),'command':cmd,'cwd':str(ROOT),'compiler_version':version,'exit_status':run.returncode,'python':sys.executable,'python_version':sys.version,'conda_environment':os.environ['CONDA_DEFAULT_ENV'],'source_date_epoch':env['SOURCE_DATE_EPOCH'],'sources':{x.relative_to(ROOT).as_posix():hashlib.sha256(x.read_bytes()).hexdigest() for x in sources},'build_helper_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'scientific_runs':0,'protection':'--only-cached --untrusted; no shell escape, package downloads or persistent configuration changes'}
+ if run.returncode==0:
+     shutil.copyfile(B/'main.pdf',ROOT/NAME)
+     record.update(pdf_filename=NAME,pdf_sha256=hashlib.sha256((ROOT/NAME).read_bytes()).hexdigest(),pdf_bytes=(ROOT/NAME).stat().st_size)
+--- accepted/helpers/verify_document.py
++++ publication/helpers/verify_document.py
+@@ -24,11 +24,11 @@
+ assert not warnings,warnings
+ pages=[page.extract_text() for page in reader.pages]
+ assert 6<=len(pages)<=9 and all('??' not in t for t in pages)
+-assert 'manuscript and author review pending' in pages[0].lower()
+-assert 'Research manuscript v0.1' in str(reader.metadata.subject)
++assert 'project-internal manuscript review complete' in ' '.join(pages[0].lower().split())
++assert 'Research edition v0.1' in str(reader.metadata.subject)
+ assert reader.metadata.title=='Certified Capture of the Collective-Turning Trajectory in the Native Triad'
+ assert reader.metadata.author=='Hilmir Frímann Halldórsson (pzychozen)'
+-assert 'accepted underlying mathematics' in reader.metadata.subject and 'manuscript and author review pending' in reader.metadata.subject
++assert 'project-internal manuscript review complete' in reader.metadata.subject and 'author-authorized for repository publication' in reader.metadata.subject
+ font_records={}
+ for page in reader.pages:
+     for tag,ref in page['/Resources'].get('/Font',{}).items():
+--- accepted/README.md
++++ publication/README.md
+@@ -1,8 +1,8 @@
+ # Certified Capture of the Collective-Turning Trajectory in the Native Triad
+ 
+-Author: **Hilmir Frímann Halldórsson (pzychozen)**. Research manuscript v0.1, 11 November 2026, Atlantic/Reykjavik.
++Author: **Hilmir Frímann Halldórsson (pzychozen)**. Research edition v0.1, 11 November 2026, Atlantic/Reykjavik.
+ 
+-**Accepted underlying mathematics; manuscript and author review pending.** This seven-page companion note supplies the accepted finite connection between the original collective-turning entrance and its inherited coherent-relaxation domain. Strict inclusion is certified at update 50, which is a sufficient index rather than a certified earliest entry. The neighborhood corollary is qualitative and keeps the coefficients fixed.
++**Project-internal manuscript review complete; author-authorized for repository publication.** This seven-page companion note supplies the accepted finite connection between the original collective-turning entrance and its inherited coherent-relaxation domain. Strict inclusion is certified at update 50, which is a sufficient index rather than a certified earliest entry. The neighborhood corollary is qualitative and keeps the coefficients fixed.
+ 
+ Open [the manuscript](NATIVE_TURNING_CAPTURE_COMPANION_v0.1.pdf). Its editable source is [main.tex](main.tex), with [references.tex](references.tex) and the [generated terminal-bound table](tables/terminal_bounds.tex). The table is the sole visual; no new trajectory or optional figure was generated.
+ 
+@@ -12,6 +12,6 @@
+ 
+ See [BUILD.md](BUILD.md) for the cached, untrusted TeX build. This was document preparation only: no trajectory search, certificate generation, scientific checker, damaged-input controls or historical suite was rerun. The original Windows scientific execution and GPT's later Linux replay are described separately in the manuscript and retained evidence.
+ 
+-Document checks are in `verification/`: the final build receipt and messages, TeX log, resolved reference map, font embedding checks, table transcription, PDF metadata/text, rendered pages and [final page inspection](verification/FINAL_PAGE_INSPECTION.json). All seven final pages were visually inspected. The final build has no compiler warnings, unresolved references/citations or unembedded fonts. Intermediate layout fixes and document-helper discovery issues are recorded honestly in the execution history; there are no outstanding mathematical discrepancies.
++Document checks are in `verification/`: the final build receipt and messages, TeX log, resolved reference map, font embedding checks, table transcription, PDF metadata/text, rendered pages and [final page inspection](verification/FINAL_PAGE_INSPECTION.json). All seven final pages were visually inspected. The final build has no compiler warnings, unresolved references/citations or unembedded fonts. Intermediate layout fixes and document-helper discovery issues remain in the original review archive; current publication executions are recorded separately; there are no outstanding mathematical discrepancies.
+ 
+-The final review manifest excludes only itself. The included delivery audit records an actual preseal member audit; the external final-delivery audit verifies every member of the completed ZIP, including that audit and the manifest. The external `.zip.sha256` binds the final archive. No fonts, caches or temporary TeX outputs are distributed separately. The earlier published edition remains unchanged, and no publication or Git operation occurred.
++The fresh `PUBLICATION_MANIFEST.json` inventories the final edition and excludes itself. The incoming review manifest and audit remain preserved inside the original review ZIP under `provenance/publication/received/`; they do not inventory this finalized edition. The external publication receipt and closeout audit record the actual commit, push, complete remote-byte verification and archive checksum. No fonts, caches or temporary TeX outputs are distributed separately. The earlier published edition remains unchanged. GPT manuscript acceptance and the author's explicit publication instruction are preserved under `provenance/publication/`. This is an authorized publication payload; actual remote outcomes are recorded in the external publication receipt.
+--- accepted/CURRENT_STATUS.md
++++ publication/CURRENT_STATUS.md
+@@ -1,13 +1,13 @@
+-# Current manuscript status
++# Current research edition status
+ 
+-Research manuscript v0.1, commissioned 11 November 2026 (Atlantic/Reykjavik).
++Research edition v0.1, publication authorized 11 November 2026 (Atlantic/Reykjavik).
+ 
+ Title: **Certified Capture of the Collective-Turning Trajectory in the Native Triad**. Author: **Hilmir Frímann Halldórsson (pzychozen)**.
+ 
+-**Accepted underlying mathematics; manuscript and author review pending.** The internal GPT acceptance dated 10 November applies to the investigation at its stated scope. Its statement that no manuscript had yet been commissioned is historical and remains unchanged. The later work order authorizes this companion manuscript and document checks, not another scientific investigation or publication.
++**Project-internal manuscript review complete; author-authorized for repository publication.** The internal GPT acceptance dated 10 November applies to the investigation at its stated scope. Its statement that no manuscript had yet been commissioned is historical and remains unchanged. The subsequent publication order and direct author approval authorize status-only finalization, one scoped ordinary commit and normal push to main, followed by fresh remote-byte and CI verification. They do not authorize another scientific investigation.
+ 
+ The accepted result is strict admission of the original exact native trajectory to the inherited coherent domain at update 50, followed by the existing convergence theorem. At the same coefficients, a qualitative open neighborhood also has strict early turning and admission at that index. Neither earliest entry nor a numerical perturbation radius is claimed.
+ 
+ GPT supplied scientific steering and project-internal acceptance. Codex performed the investigation, implemented its independent certificate checker and prepared this manuscript. GPT's later reviewer execution was a corroborating replay of that checker under Linux, not another independent checker. No external peer review, proof-assistant certification, journal acceptance or DOI is claimed.
+ 
+-The seven-page document is returned for GPT and author review. There are no outstanding mathematical discrepancies identified in this editorial consolidation. Earlier publications and accepted evidence were preserved; no repository operation, kernel/application edit, dependency installation or publication was performed.
++The seven-page document completed GPT manuscript review with no scientific or layout corrections, and the author explicitly approved publication. There are no outstanding mathematical discrepancies identified in this editorial consolidation. Earlier publications and accepted evidence remain preserved. No kernel/application edit or dependency installation is included. Actual publication operations and outcomes are documented in the external publication receipt.
+--- accepted/HANDOFF.md
++++ publication/HANDOFF.md
+@@ -1,11 +1,11 @@
+-# Manuscript handoff
++# Publication handoff
+ 
+-The companion note **Certified Capture of the Collective-Turning Trajectory in the Native Triad**, research manuscript v0.1, is complete at **seven pages including references**.
++The companion note **Certified Capture of the Collective-Turning Trajectory in the Native Triad**, research edition v0.1, is complete at **seven pages including references**.
+ 
+ Its contribution is the accepted finite connection: the original exact turning entrance is strictly inside the inherited coherent domain at update 50. The manuscript exposes the connected enclosure induction, independent arithmetic and Taylor bounds, the exact terminal table, correctly shifted convergence estimates and the complete qualitative neighborhood proof. It keeps inherited results distinct and retains the accepted limits on earliest entry, neighborhood size, parameter changes, global basins and physical interpretation.
+ 
+ Every final page was inspected after the last rebuild. The final compiler log has no warnings; all references and citations resolve; all 17 fonts are embedded. The claim crosswalk covers all 16 historical records. Accepted evidence and source snapshots are unchanged. No mathematical discrepancies remain identified; the table placement and an intermediate overfull line were corrected before final inspection.
+ 
+-This was document preparation, with **zero new scientific executions**. The PDF is supplied separately and inside the review ZIP, together with editable LaTeX, bibliography, table helper, accepted evidence and document-verification records. The manifest and archive audits are integrity checks, not scientific proofs.
++This finalization is a document-only publication task, with **zero new scientific executions**. The PDF is supplied separately and inside the publication closeout ZIP, together with editable LaTeX, bibliography, table helper, accepted evidence and document-verification records. The manifest and archive audits are integrity checks, not scientific proofs.
+ 
+-The underlying mathematics has project-internal acceptance; **manuscript and author review remain pending**. No publication has occurred.
++The underlying mathematics and manuscript have project-internal acceptance, and the author has approved repository publication. The external receipt records the actual commit, push, remote-byte verification and CI outcome; this payload does not predeclare those outcomes.
+--- accepted/BUILD.md
++++ publication/BUILD.md
+@@ -1,4 +1,4 @@
+-# Document build and verification
++# Research edition build and verification
+ 
+ Run from **Windows Command Prompt**, using the existing environment. No package installation or persistent configuration change is needed. The editable bibliography uses `thebibliography` in `references.tex`; no separate BibTeX invocation is needed.
+ 
+@@ -18,8 +18,8 @@
+ 
+ `make_tables.py` compares saved terminal values as exact fractions and transcribes them to LaTeX. It never executes the scientific checker. `verify_document.py` reads the finished PDF and TeX records, verifies references, metadata, embedded fonts, relative evidence links, input hashes and transcription, then uses the available Poppler `pdftoppm` to render all pages at 145 dpi. It must run without Python's `-O` flag. Render checks complement manual inspection; they do not replace it.
+ 
+-For a new build, use a fresh extracted copy or move the prior `verification/pages/` directory outside the edition before rendering a document with fewer pages. After any source change, rerender and inspect **every page of the actual final PDF**, then renew hashes and inspection records. The supplied final inspection applies only to the exact delivered PDF hash. Rebuilding a review copy changes its verification records, so its original payload manifest will no longer describe that working copy.
++For a new build, use a fresh extracted copy or move the prior `verification/pages/` directory outside the edition before rendering a document with fewer pages. After any source change, rerender and inspect **every page of the actual final PDF**, then renew hashes and inspection records. The supplied final inspection applies only to the exact finalized PDF hash. Rebuilding a copy changes its verification records, so its publication manifest will no longer describe that working copy.
+ 
+-The actual final execution used Tectonic 0.17.0, Windows Python 3.11.15 in `torment`, and the build command preserved in `verification/BUILD_RECEIPT.json`. The actual final PDF has seven A4 pages, 39 resolved labels, four cited bibliography entries and 17 embedded fonts. The delivery includes compiler messages and the final TeX log as text records, rather than temporary compiler outputs.
++The finalized research edition is author-authorized for repository publication. The actual final execution used Tectonic 0.17.0, Windows Python 3.11.15 in `torment`, and the build command preserved in `verification/BUILD_RECEIPT.json`. The actual final PDF has seven A4 pages, 39 resolved labels, four cited bibliography entries and 17 embedded fonts. The delivery includes compiler messages and the final TeX log as text records, rather than temporary compiler outputs.
+ 
+ Historical scientific code in the evidence tree is preserved for provenance. It is not part of this document build and was not rerun for the note.

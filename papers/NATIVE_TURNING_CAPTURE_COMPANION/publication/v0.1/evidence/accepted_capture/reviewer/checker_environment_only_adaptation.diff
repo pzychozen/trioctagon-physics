@@ -1,0 +1,2 @@
+- assert os.environ.get('CONDA_DEFAULT_ENV')=='torment'
++ assert not sys.flags.optimize  # Reviewer runtime; do not disable proof assertions.

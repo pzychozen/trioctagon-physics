@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "purpose": "Checker falsification controls, not additional trajectories/theorems",
+  "controls": [
+    {
+      "mutation": "wrong exact initial state",
+      "rejected": true,
+      "reason": ""
+    },
+    {
+      "mutation": "zero prestage modulus",
+      "rejected": true,
+      "reason": "root witness 0/0"
+    },
+    {
+      "mutation": "wrong kick sign",
+      "rejected": true,
+      "reason": "kick 0/0"
+    },
+    {
+      "mutation": "broken trajectory linkage",
+      "rejected": true,
+      "reason": "linked state 1/0/0"
+    },
+    {
+      "mutation": "false terminal amplitude bound",
+      "rejected": true,
+      "reason": "Terminal modulus 0"
+    }
+  ],
+  "checked_utc": "2026-11-10T19:40:52.162352+00:00",
+  "certificate_sha256": "1244cafe2e8aa6b646aa25b4784102f4ce085c90464e5087b3cf01bde43782a1",
+  "checker_sha256": "f7b01f38bd897399812c1adb748dd88de6d90a08da7d77136267350d49c6b32e",
+  "arithmetic": "Exact fractions and integer comparisons only; no generator import, float, native module or mpmath.",
+  "independence": "Unrounded Fraction interval operations with combined prestages/expanded cube identity; sqrt witnesses checked by exact squared inequalities; midpoint power-series plus Lipschitz/remainder bounds instead of dyadic interval Horner evaluation."
+}

@@ -1,0 +1,368 @@
+{
+  "task": "NATIVE_TURNING_CAPTURE_01",
+  "status": "Investigation completed and returned for scientific review; no external acceptance asserted",
+  "counts_are_not_theorem_counts": true,
+  "claims": [
+    {
+      "id": "I01",
+      "status": "inherited",
+      "statement": "Exact simultaneous ordered native map, fixed rational coefficients and original seed.",
+      "locators": [
+        {
+          "path": "sources/collective/main.tex",
+          "locator": "\\label{eq:parameters}",
+          "line": 164,
+          "sha256": "40b6ca84ca136453b045386e2dead012fc8fcd7984b845d159ae6d6c8a6c2292"
+        },
+        {
+          "path": "sources/collective/main.tex",
+          "locator": "\\label{eq:entrance}",
+          "line": 168,
+          "sha256": "40b6ca84ca136453b045386e2dead012fc8fcd7984b845d159ae6d6c8a6c2292"
+        },
+        {
+          "path": "sources/dynamics.py",
+          "locator": "def _advance",
+          "line": 87,
+          "sha256": "ed1af486a2de5176057d49a795bf32f83705f91507a7f108402623a095d535c4"
+        },
+        {
+          "path": "NATIVE_TURNING_CAPTURE_01_PROOF_REVIEW.md",
+          "locator": "## R2.",
+          "line": 19,
+          "sha256": "7f57b3e87272a6be822ed8e1f211e62de56d6556224a136193347b1108da8f72"
+        }
+      ]
+    },
+    {
+      "id": "I02",
+      "status": "inherited",
+      "statement": "Strict positive two-step collective turning at the original entrance.",
+      "locators": [
+        {
+          "path": "sources/collective/main.tex",
+          "locator": "\\label{eq:turn}",
+          "line": 174,
+          "sha256": "40b6ca84ca136453b045386e2dead012fc8fcd7984b845d159ae6d6c8a6c2292"
+        },
+        {
+          "path": "sources/collective/main.tex",
+          "locator": "\\label{eq:certturn}",
+          "line": 186,
+          "sha256": "40b6ca84ca136453b045386e2dead012fc8fcd7984b845d159ae6d6c8a6c2292"
+        },
+        {
+          "path": "scripts/check_certificate.py",
+          "locator": "turn=sub",
+          "line": 92,
+          "sha256": "f7b01f38bd897399812c1adb748dd88de6d90a08da7d77136267350d49c6b32e"
+        }
+      ],
+      "qualification": "Fresh early-step evaluation is a dependency check inside the connected certificate, not rediscovery."
+    },
+    {
+      "id": "I03",
+      "status": "inherited",
+      "statement": "D is forward invariant and every orbit admitted to D converges to an aligned positive amplitude profile unique in the stated cube.",
+      "locators": [
+        {
+          "path": "sources/collective/main.tex",
+          "locator": "\\label{sec:domain}",
+          "line": 314,
+          "sha256": "40b6ca84ca136453b045386e2dead012fc8fcd7984b845d159ae6d6c8a6c2292"
+        },
+        {
+          "path": "sources/collective/main.tex",
+          "locator": "\\label{thm:convergence}",
+          "line": 414,
+          "sha256": "40b6ca84ca136453b045386e2dead012fc8fcd7984b845d159ae6d6c8a6c2292"
+        },
+        {
+          "path": "sources/collective/main.tex",
+          "locator": "\\label{eq:fixed}",
+          "line": 446,
+          "sha256": "40b6ca84ca136453b045386e2dead012fc8fcd7984b845d159ae6d6c8a6c2292"
+        }
+      ]
+    },
+    {
+      "id": "I04",
+      "status": "inherited",
+      "statement": "Quantitative convergence, unequal residual amplitude spread and decay of C,W,Gamma after D admission.",
+      "locators": [
+        {
+          "path": "sources/collective/main.tex",
+          "locator": "\\label{eq:radialbound}",
+          "line": 469,
+          "sha256": "40b6ca84ca136453b045386e2dead012fc8fcd7984b845d159ae6d6c8a6c2292"
+        },
+        {
+          "path": "sources/collective/main.tex",
+          "locator": "\\label{eq:fullbound}",
+          "line": 475,
+          "sha256": "40b6ca84ca136453b045386e2dead012fc8fcd7984b845d159ae6d6c8a6c2292"
+        },
+        {
+          "path": "sources/collective/main.tex",
+          "locator": "\\label{eq:limits}",
+          "line": 488,
+          "sha256": "40b6ca84ca136453b045386e2dead012fc8fcd7984b845d159ae6d6c8a6c2292"
+        },
+        {
+          "path": "sources/collective/main.tex",
+          "locator": "\\label{eq:Cdecay}",
+          "line": 495,
+          "sha256": "40b6ca84ca136453b045386e2dead012fc8fcd7984b845d159ae6d6c8a6c2292"
+        }
+      ],
+      "qualification": "The residual bound below .005270 is not the actual limiting value."
+    },
+    {
+      "id": "I05",
+      "status": "inherited",
+      "statement": "Exact mean accounting separates onsite and synchronization contributions; graph cancellation does not imply graph independence of full dynamics.",
+      "locators": [
+        {
+          "path": "sources/collective/main.tex",
+          "locator": "\\label{eq:budget}",
+          "line": 147,
+          "sha256": "40b6ca84ca136453b045386e2dead012fc8fcd7984b845d159ae6d6c8a6c2292"
+        },
+        {
+          "path": "NATIVE_TURNING_CAPTURE_01_PROOF_REVIEW.md",
+          "locator": "## R8.",
+          "line": 184,
+          "sha256": "7f57b3e87272a6be822ed8e1f211e62de56d6556224a136193347b1108da8f72"
+        }
+      ],
+      "qualification": "The phase-off delayed-graph comparison is not a causal ablation of this nonzero-lambda orbit."
+    },
+    {
+      "id": "N01",
+      "status": "newly proved/certified",
+      "statement": "DISTINCT_GAP in the bounded inspected source corpus; gate completed before new trajectory evaluation.",
+      "locators": [
+        {
+          "path": "PRIOR_WORK_COMPARISON.md",
+          "locator": "Outcome:",
+          "line": 3,
+          "sha256": "a01100de3e8f4853adc97ff0594ca3e0e14ebf5e851e100853fdec093659ad94"
+        },
+        {
+          "path": "logs/PRIOR_GATE.json",
+          "locator": "frozen_utc",
+          "line": 3,
+          "sha256": "c4ea8c701bcec98276d1f11dd01bbe801e1306d3912ceb2c310350b1718c5ff6"
+        },
+        {
+          "path": "NATIVE_TURNING_CAPTURE_01_PROOF_REVIEW.md",
+          "locator": "## R2.",
+          "line": 19,
+          "sha256": "7f57b3e87272a6be822ed8e1f211e62de56d6556224a136193347b1108da8f72"
+        }
+      ],
+      "qualification": "A source-comparison disposition, not an exhaustive novelty theorem or revalidation of old proofs."
+    },
+    {
+      "id": "E01",
+      "status": "numerical only",
+      "statement": "One-seed exploration found a first numerical D hit at 41 and selected the comfortably interior target 50.",
+      "locators": [
+        {
+          "path": "data/EXPLORATION.json",
+          "locator": "first_numerical_D_entry",
+          "line": 7,
+          "sha256": "90bbd76d3ee34814a92277d041e8703022fe24cb3ec2245b19e4360d6cefb818"
+        },
+        {
+          "path": "scripts/explore.py",
+          "locator": "def arc",
+          "line": 15,
+          "sha256": "92842d902b42b173a2d99e36859f5d3ad1cdf50ec8e016c8df5c93d57d3b4f78"
+        },
+        {
+          "path": "NATIVE_TURNING_CAPTURE_01_PROOF_REVIEW.md",
+          "locator": "## R3.",
+          "line": 44,
+          "sha256": "7f57b3e87272a6be822ed8e1f211e62de56d6556224a136193347b1108da8f72"
+        }
+      ],
+      "qualification": "90-digit and binary64 results are neither enclosures nor certified earliest-entry claims."
+    },
+    {
+      "id": "N02",
+      "status": "newly proved/certified",
+      "statement": "All 50 updates from the original exact seed are connected by valid enclosures; all 150 prestages have modulus greater than 87/100.",
+      "locators": [
+        {
+          "path": "scripts/check_certificate.py",
+          "locator": "def validate",
+          "line": 41,
+          "sha256": "f7b01f38bd897399812c1adb748dd88de6d90a08da7d77136267350d49c6b32e"
+        },
+        {
+          "path": "data/CERTIFICATE_CHECK.json",
+          "locator": "linked_updates_verified",
+          "line": 4,
+          "sha256": "9331b67fcfd0a86ed1a6aba7bfc80181182f27cd6feee474ff14e4241686d795"
+        },
+        {
+          "path": "NATIVE_TURNING_CAPTURE_01_PROOF_REVIEW.md",
+          "locator": "## R4.",
+          "line": 52,
+          "sha256": "7f57b3e87272a6be822ed8e1f211e62de56d6556224a136193347b1108da8f72"
+        }
+      ],
+      "qualification": "Computational proof checked by a separate exact-rational implementation; no claim of formal interpreter verification."
+    },
+    {
+      "id": "N03",
+      "status": "newly proved/certified",
+      "statement": "F^50 of the exact entrance lies strictly inside D, with the three listed rational amplitude intervals and a common ordinary phase width below 1/4 < pi/12.",
+      "locators": [
+        {
+          "path": "NATIVE_TURNING_CAPTURE_01_PROOF_REVIEW.md",
+          "locator": "## R5.",
+          "line": 116,
+          "sha256": "7f57b3e87272a6be822ed8e1f211e62de56d6556224a136193347b1108da8f72"
+        },
+        {
+          "path": "data/CERTIFICATE_CHECK.json",
+          "locator": "terminal",
+          "line": 10,
+          "sha256": "9331b67fcfd0a86ed1a6aba7bfc80181182f27cd6feee474ff14e4241686d795"
+        },
+        {
+          "path": "scripts/check_certificate.py",
+          "locator": "margin=real",
+          "line": 101,
+          "sha256": "f7b01f38bd897399812c1adb748dd88de6d90a08da7d77136267350d49c6b32e"
+        }
+      ]
+    },
+    {
+      "id": "N04",
+      "status": "newly proved/certified",
+      "statement": "The same original trajectory exhibits inherited early turning and subsequently converges to exp(i theta_infinity) r_star, with inherited estimates reindexed from update 50.",
+      "locators": [
+        {
+          "path": "NATIVE_TURNING_CAPTURE_01_PROOF_REVIEW.md",
+          "locator": "## R6.",
+          "line": 142,
+          "sha256": "7f57b3e87272a6be822ed8e1f211e62de56d6556224a136193347b1108da8f72"
+        },
+        {
+          "path": "sources/collective/main.tex",
+          "locator": "\\label{thm:convergence}",
+          "line": 414,
+          "sha256": "40b6ca84ca136453b045386e2dead012fc8fcd7984b845d159ae6d6c8a6c2292"
+        }
+      ],
+      "qualification": "New application enabled by finite entry; the theorem and elementary finite-entry implication are inherited."
+    },
+    {
+      "id": "N05",
+      "status": "newly proved/certified",
+      "statement": "An open neighborhood of the original entrance at the same coefficients has strict early turning and D membership at update 50.",
+      "locators": [
+        {
+          "path": "NATIVE_TURNING_CAPTURE_01_PROOF_REVIEW.md",
+          "locator": "## R7.",
+          "line": 176,
+          "sha256": "7f57b3e87272a6be822ed8e1f211e62de56d6556224a136193347b1108da8f72"
+        },
+        {
+          "path": "data/CERTIFICATE_CHECK.json",
+          "locator": "early_turn_enclosure",
+          "line": 42,
+          "sha256": "9331b67fcfd0a86ed1a6aba7bfc80181182f27cd6feee474ff14e4241686d795"
+        }
+      ],
+      "qualification": "Qualitative continuity proof only; limiting common phases can differ."
+    },
+    {
+      "id": "U01",
+      "status": "unresolved",
+      "statement": "The exact earliest entry time was not certified.",
+      "locators": [
+        {
+          "path": "NATIVE_TURNING_CAPTURE_01_PROOF_REVIEW.md",
+          "locator": "## R1.",
+          "line": 5,
+          "sha256": "7f57b3e87272a6be822ed8e1f211e62de56d6556224a136193347b1108da8f72"
+        },
+        {
+          "path": "NATIVE_TURNING_CAPTURE_01_PROOF_REVIEW.md",
+          "locator": "## R8.",
+          "line": 184,
+          "sha256": "7f57b3e87272a6be822ed8e1f211e62de56d6556224a136193347b1108da8f72"
+        }
+      ]
+    },
+    {
+      "id": "U02",
+      "status": "unresolved",
+      "statement": "No explicit radius or box size for the initial-condition neighborhood was computed.",
+      "locators": [
+        {
+          "path": "NATIVE_TURNING_CAPTURE_01_PROOF_REVIEW.md",
+          "locator": "## R7.",
+          "line": 176,
+          "sha256": "7f57b3e87272a6be822ed8e1f211e62de56d6556224a136193347b1108da8f72"
+        }
+      ]
+    },
+    {
+      "id": "X01",
+      "status": "excluded",
+      "statement": "No global basin, new coefficient regime, replacement seed, parameter scan or all-state convergence claim.",
+      "locators": [
+        {
+          "path": "NATIVE_TURNING_CAPTURE_01_PROOF_REVIEW.md",
+          "locator": "## R8.",
+          "line": 184,
+          "sha256": "7f57b3e87272a6be822ed8e1f211e62de56d6556224a136193347b1108da8f72"
+        }
+      ]
+    },
+    {
+      "id": "X02",
+      "status": "excluded",
+      "statement": "Convergence does not establish finitely many remaining changes of direction.",
+      "locators": [
+        {
+          "path": "NATIVE_TURNING_CAPTURE_01_PROOF_REVIEW.md",
+          "locator": "## R8.",
+          "line": 184,
+          "sha256": "7f57b3e87272a6be822ed8e1f211e62de56d6556224a136193347b1108da8f72"
+        },
+        {
+          "path": "sources/collective/main.tex",
+          "locator": "finitely many diminishing directional changes",
+          "line": 499,
+          "sha256": "40b6ca84ca136453b045386e2dead012fc8fcd7984b845d159ae6d6c8a6c2292"
+        }
+      ]
+    },
+    {
+      "id": "X03",
+      "status": "excluded",
+      "statement": "No new physical force, position, gravity, magnetism, clock, transport, receiver or geometry-feedback correspondence.",
+      "locators": [
+        {
+          "path": "NATIVE_TURNING_CAPTURE_01_PROOF_REVIEW.md",
+          "locator": "## R8.",
+          "line": 184,
+          "sha256": "7f57b3e87272a6be822ed8e1f211e62de56d6556224a136193347b1108da8f72"
+        }
+      ]
+    }
+  ],
+  "administrative_checks_separate_from_claims": [
+    "input/source hashes",
+    "five invalid-certificate controls",
+    "execution exit codes",
+    "review manifest",
+    "archive reopening audit"
+  ]
+}
