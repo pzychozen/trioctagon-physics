@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "recorded_utc": "2026-11-13T02:13:16.013803+00:00",
+  "e01_applied_from_supplied_replacement": true,
+  "original_helper_sha256": "d5f3a028f3029d499aaa3f2de0ffc5f96e2803a5babb755cb0d5af0c5a095b67",
+  "supplied_e01_helper_sha256": "2321b16b6d38f73d3d87b119443e92613eaba7da098a97ef7f9e7c4c44fbdc1c",
+  "final_helper_sha256": "84a56e74c3eccdeace4a3502a0c01f92cd28ef0150dc5eaa898ef283e4d0488d",
+  "status_replacements": [
+    {
+      "file": "main.tex",
+      "old": "Research manuscript v0.1; accepted mathematical investigation; manuscript and author review pending; 12 November 2026",
+      "new": "Research edition v0.1; project-internal manuscript review complete; author-authorized for repository publication; manuscript dated 12 November 2026",
+      "occurrences": 1
+    },
+    {
+      "file": "main.tex",
+      "old": "\\small Manuscript v0.1",
+      "new": "\\small Research edition v0.1",
+      "occurrences": 1
+    },
+    {
+      "file": "main.tex",
+      "old": "Research manuscript v0.1 \\quad 12 November 2026",
+      "new": "Research edition v0.1 \\quad 12 November 2026",
+      "occurrences": 1
+    },
+    {
+      "file": "main.tex",
+      "old": "Accepted mathematical investigation; manuscript and author review pending. Project-internal research manuscript, not externally peer reviewed.",
+      "new": "Project-internal manuscript review complete; author-authorized for repository publication. No external peer review or proof-assistant verification is claimed.",
+      "occurrences": 1
+    },
+    {
+      "file": "main.tex",
+      "old": "The mathematical investigation was internally accepted on 11 November 2026, without corrections \\cite{Review}. This manuscript was commissioned and prepared on 12 November 2026. Its manuscript and author review remain pending. The earlier submission's pending-review wording and the acceptance archive's earlier absence of a manuscript commission are preserved as historical records.",
+      "new": "The mathematical investigation was internally accepted on 11 November 2026, without corrections \\cite{Review}. This companion manuscript was prepared and completed GPT project-internal manuscript review on 12 November 2026. The author has authorized repository publication of research edition v0.1. Historical submission and acceptance statuses remain unchanged in the preserved evidence.",
+      "occurrences": 1
+    },
+    {
+      "file": "main.tex",
+      "old": "The mathematical acceptance is distinct from review of this manuscript. Neither is represented as external peer review or proof-assistant verification. No publication, repository adoption or DOI is claimed by this manuscript return.",
+      "new": "The mathematical investigation and manuscript have completed project-internal review. The author has authorized repository publication of research edition v0.1. No external peer review, proof-assistant verification or DOI registration is claimed.",
+      "occurrences": 1
+    },
+    {
+      "file": "build.py",
+      "old": "'edition':'Research manuscript v0.1'",
+      "new": "'edition':'Research edition v0.1'",
+      "occurrences": 1
+    },
+    {
+      "file": "build.py",
+      "old": "'status':'Accepted mathematical investigation; manuscript and author review pending. Project-internal research manuscript, not externally peer reviewed.'",
+      "new": "'status':'Project-internal manuscript review complete; author-authorized for repository publication. No external peer review or proof-assistant verification is claimed.'",
+      "occurrences": 1
+    },
+    {
+      "file": "build.py",
+      "old": "'preparation_date':'2026-11-12'",
+      "new": "'preparation_date':'2026-11-12','author_authorization_date':'2026-11-13','publication_finalization_date':'2026-11-13'",
+      "occurrences": 1
+    },
+    {
+      "file": "helpers/verify_document.py",
+      "old": "assert 'pending' in metadata['/Subject'] and 'v0.1' in metadata['/Subject']",
+      "new": "assert 'Research edition v0.1' in metadata['/Subject'] and 'author-authorized for repository publication' in metadata['/Subject'] and 'pending' not in metadata['/Subject']",
+      "occurrences": 1
+    }
+  ],
+  "numbered_equation_align_environments_unchanged": 43,
+  "theorem_and_proof_environments_unchanged": 10,
+  "all_other_main_tex_bytes_unchanged": true,
+  "frozen_files": {
+    "references.tex": "c3b4d9755384f0a0ccfa19d5a747446a743c436ad13a6b2f056c4eb613004f08",
+    "tables/certificate.tex": "b4e92700ab9024be91c88891bdb982b27f9424ec330ad33bf635ffdf84968b56",
+    "helpers/make_tables.py": "d16f2a73d1333763aca567a99d0ed69c09db37b4978b681cf589c18312c2603b"
+  },
+  "scientific_executions": 0
+}

@@ -1,0 +1,15 @@
+# Completed prior-work gate
+
+Disposition: **DISTINCT_GAP**, within the bounded inspected project corpus. Recorded before new continuation calculations, 11 November 2026.
+
+The exact question is identity of the nontrivial H-exchanged branch between the accepted M2 flip and the repaired M3 endpoint at exact mu=1/200, with the same host, basis and critical value. It is not entrance capture, local persistence near M3, or a different parameter family's aligned equilibrium.
+
+Paper G Sections 4–6 (packet source lines 191–405) establish the local flip, the separate fixed-parameter capture, and explicitly retain the missing connection (line 399). The final M2 joint acceptance and its correction/assent records give no explicit positive-mu interval. Paper G's current landing page, v0.1.1 claim/source map (including the explicit unproved row), and supplement authority guide preserve this boundary. All five mandatory source files have been copied from the existing publication worktree and authenticated against the supplied identities and the recorded commit's blobs; no old verifier was run.
+
+NCM-DUAL-02's comparison (packet report lines 127–131; corresponding local bridge report) explicitly keeps the M2 branch distinct from M3. The later coherence-return source's M3 comparison (lines 309–310) uses only the fixed endpoint. The inspected later local Natural Core Motion research reports do not supply the missing branch certificate. Their coherence/phase-return statements, local relative equilibria and readout obstructions answer other questions. The collective-turning positive-profile continuation varies another coefficient tuple and concerns fixed points; the published turning-capture companion is an initial-condition-to-equilibrium connection. The chiral-drift continuation starts at a twisted reference under a different parameterization. None is an anchor or finite continuation certificate for this question.
+
+The local M3 implicit-function/symmetry assertion described in the supplied comparison is treated only as local persistence, not as a quantitative bridge. Its original Library-only handoff is not falsely listed as a retrieved source. Both mandatory numerical anchors and all indispensable final authorities are available.
+
+Search coverage and actual commands/hits are retained in logs/PRIOR_SEARCH_RECORDS.json and prior_search_*.stdout. The search used both branch terminology and mathematical statements across the supplied sources, the current Paper G subtree, and targeted later local Natural Core Motion research directories. The supplied current catalog and atlas were also inspected as navigation, not as proofs. This is not an exhaustive external novelty claim. No existing explicit near-onset interval, full-corridor branch certificate or common-uniqueness endpoint identification was found in this bounded corpus.
+
+Proceed only with the newly commissioned fixed-family connection. Reuse the accepted host, local jet/sign/spectrum and M3 endpoint/trapping claims at their stated scope.

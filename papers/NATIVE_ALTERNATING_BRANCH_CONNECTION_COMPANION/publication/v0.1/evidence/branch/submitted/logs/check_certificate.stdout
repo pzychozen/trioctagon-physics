@@ -1,0 +1,49 @@
+checked patch 0
+checked patch 32
+checked patch 64
+checked patch 96
+{
+  "status": "PASS",
+  "checked_utc": "2026-11-11T08:17:50.635368+00:00",
+  "elapsed_seconds": 42.33486270904541,
+  "connection_coverage": [
+    "0",
+    "1/200"
+  ],
+  "zero_is_anchor_only": true,
+  "patches": 128,
+  "shared_uniqueness_joins": 127,
+  "onset_and_endpoint_refinements": 2,
+  "fresh_analytic_interval_replay": "PASS; shared new engine, not independent implementation",
+  "independent_fraction_containment_norm_and_coverage_audit": "PASS",
+  "exact_M3_Up_identification": "PASS; positive parity",
+  "stability_full_corridor": "UNRESOLVED by these broad bounds; no loss certified",
+  "stability_explicit_interval": [
+    "4999/1000000",
+    "1/200"
+  ],
+  "stability_norm_upper_display": 0.9600371642733128,
+  "rejection_controls": [
+    {
+      "control": "false_coverage",
+      "rejected": true,
+      "reason": "False parameter coverage"
+    },
+    {
+      "control": "broken_join",
+      "rejected": true,
+      "reason": "Broken shared-uniqueness join"
+    },
+    {
+      "control": "substituted_host",
+      "rejected": true,
+      "reason": "Invalid endpoint inclusion / substituted host"
+    },
+    {
+      "control": "invalid_endpoint_trap",
+      "rejected": true,
+      "reason": "Endpoint trap substituted"
+    }
+  ],
+  "historical_scientific_replays": 0
+}

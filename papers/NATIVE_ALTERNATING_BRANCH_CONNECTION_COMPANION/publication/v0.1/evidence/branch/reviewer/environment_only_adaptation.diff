@@ -1,0 +1,11 @@
+--- submitted/scripts/common.py
++++ reviewer_replay/scripts/common.py
+@@ -4,7 +4,7 @@
+ R=Path(__file__).resolve().parents[1]; P=R/'packet'; S=R/'sources'; D=R/'data'; L=R/'logs'
+ REPO=Path(r'C:\TORMENT\TRIOCTAGON_new\wt-ntc-pub01')
+ USER=Path(r'C:\TORMENT\TRIOCTAGON_new\trioctagon-physics')
+-assert os.environ.get('CONDA_DEFAULT_ENV')=='torment'
++assert sys.platform.startswith('linux'), 'Reviewer replay environment must be disclosed'
+ assert not sys.flags.optimize
+ def now():return datetime.now(timezone.utc).isoformat()
+ def sha(b):return hashlib.sha256(b).hexdigest()

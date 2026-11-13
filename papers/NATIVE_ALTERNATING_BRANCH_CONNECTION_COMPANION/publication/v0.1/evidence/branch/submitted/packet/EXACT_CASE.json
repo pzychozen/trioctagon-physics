@@ -1,0 +1,41 @@
+{
+  "task": "NATIVE_ALTERNATING_BRANCH_CONNECTION_01",
+  "status": "Investigation specification; no new theorem or numerical result",
+  "native_model": "Simultaneous amplitude/graph prestage, then simultaneous harmonic-three phase synchronization",
+  "epsilon": "1/20",
+  "g": "1/5",
+  "k": [
+    "1",
+    "1.2208964704604097",
+    "6.35310346037241"
+  ],
+  "decimal_semantics": "Exact terminating rational coefficients, not floating-point definitions",
+  "u": "Unique positive host in accepted M2 box; epsilon*u*(k-u^2)+g*L*u=0",
+  "V": "Fixed source orthonormal basis of u-perpendicular space",
+  "m1": "Larger eigenvalue of V^T [I+epsilon*diag(k-u^2)+g*L] V",
+  "lambda_c": "(1+1/m1)/9",
+  "lambda": "lambda_c+mu",
+  "mu_target_interval": {
+    "lower": "0",
+    "lower_included": false,
+    "upper": "1/200",
+    "upper_included": true
+  },
+  "host_at_mu_zero": "Used only as the bifurcation anchor; not a nontrivial two-cycle",
+  "quotient_state": [
+    "xi_A",
+    "xi_B",
+    "xi_C",
+    "eta_1",
+    "eta_2"
+  ],
+  "symmetry": "H(xi,eta)=(xi,-eta)",
+  "root_equation": "Fhat_mu(z)-H(z)=0",
+  "nontriviality": "eta != 0, with verified regular quotient chart",
+  "endpoint": "Exact values.exact_receipts.Up in m3_accepted_support.json; H parity allowed if explicitly matched",
+  "parameter_semantics": "One fixed autonomous map at each mu, not a time-dependent parameter schedule",
+  "not_this_case": {
+    "turning_capture": "epsilon=1/10, g=1/60, lambda=1/300, k=(999/1000,1,1001/1000); already closed"
+  },
+  "new_results_preparation": "None; no trajectory or continuation executed while preparing this packet"
+}

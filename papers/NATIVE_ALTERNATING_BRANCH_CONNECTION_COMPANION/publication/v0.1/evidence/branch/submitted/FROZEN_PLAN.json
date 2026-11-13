@@ -1,0 +1,26 @@
+{
+  "task": "NATIVE_ALTERNATING_BRANCH_CONNECTION_01",
+  "prior_gate": "DISTINCT_GAP",
+  "created_before_continuation": true,
+  "date": "2026-11-11",
+  "family": "Exact packet family only; 0 <= mu <= 1/200; zero is an onset anchor",
+  "nominal_budget": {
+    "maximum_root_solves": 600,
+    "maximum_newton_iterations_per_solve": 30,
+    "maximum_planning_parameter_nodes": 513,
+    "trajectories": 0,
+    "broad_parameter_scans": 0
+  },
+  "validation_budget": {
+    "maximum_continuation_patches": 512,
+    "maximum_patch_refinement_attempts": 2048,
+    "maximum_full_validation_passes": 4,
+    "maximum_endpoint_refinements": 8,
+    "purpose": "Allow bounded numerical design/repair; retain all actual failed attempts and do not infer dynamical obstructions from them"
+  },
+  "preferred_chart": "Derive an analytic divided system in X,y,nu with t=mu/nu, xi=t X, eta=sqrt(t)(e+t y e_perp). Validate at mu=0 by removable formulas and connect to M2 by normalization and uniqueness.",
+  "patch_proof": "Uniform preconditioned contraction in unknown boxes, exact parameter coverage, shared uniqueness at joins, exact endpoint containment in Up or its declared H parity",
+  "stability": "Separate actual two-step derivative assessment if inexpensive; never infer from root contraction",
+  "fallback": "Return rigorously established portions and the exact unresolved condition; no forced PASS",
+  "not_authorized": ["historical scientific replay", "entrance propagation", "repository changes", "publication", "new physical model"]
+}

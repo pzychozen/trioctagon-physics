@@ -1,0 +1,593 @@
+=== PAGE 1 ===
+Certiﬁed Connection from Local Period-Doubling to
+the Captured Alternating Cycle in the Native Triad
+A companion to Geometry-Attached Axial Observables, Period-Doubling, and Certiﬁed Entrance Capture
+in the Tri-Octagon Map
+Hilmir Frímann Halldórsson (pzychozen)
+Research edition v0.1 12 November 2026
+Status. Project-internal manuscript review complete; author-authorized for repository publication. No
+external peer review or proof-assistant veriﬁcation is claimed.
+Abstract
+Paper G established a local supercritical period-doubling branch and, separately, capture
+by an alternating cycle at a speciﬁed ﬁnite parameter. We explain the accepted connection
+between those particular objects for the unchanged exact native-triad family. An amplitude
+formulation removes the apparent singularity at onset and ﬁxes a nontrivial phase orientation.
+Its ﬁrst uniform patch includes the bifurcation parameter. A ﬁnite certiﬁcate then covers
+0 < µ ≤ 1/200 with 128 patches and 127 common-uniqueness joins. The entire reﬁned
+endpoint enclosure lies strictly inside the exact inherited M3 trap, identifying the continued
+root with its unique two-step ﬁxed point. The branch is a graph over µ, continuous to
+the host and smooth for positive parameters. Inherited symmetry lifts every member to a
+primitive full-state two-cycle. A separate derivative bound proves local attraction modulo
+common phase only on 4999/1000000 ≤ µ ≤ 1/200. Attraction throughout the connected
+interval remains unresolved. These are mathematical statements about a ﬁxed discrete map,
+with no physical-ﬁeld identiﬁcation or parameter ramp imposed on an orbit.
+1 The missing connection
+Existence near a bifurcation and capture at a distant parameter answer diﬀerent questions.
+Paper G’s M2 theorem supplies a locally attracting alternating branch for suﬃciently small
+positive µ. Its repaired M3 theorem supplies a captured two-cycle at the exact value µ = 1/200.
+Neither theorem, by itself, identiﬁes that captured cycle with the local branch. Paper G explicitly
+retained this non-continuation boundary [ 1]. The present companion supplements that correct
+earlier edition; it does not revise its equations or evidence.
+The accepted investigation closes precisely this gap [ 4, 5]. Its proof must reach the actual onset,
+keep roots identiﬁed while the parameter varies, and identify the whole endpoint enclosure with
+the exact M3 trap. A small residual or a plausible amplitude plot would not provide those steps.
+The contribution is the connection of previously established objects, rather than discovery of
+period doubling or validated continuation methods. The retained prior-work comparison is
+a bounded comparison within the inspected project corpus, not a worldwide priority claim.
+The diﬀerent turning-to-alignment family and its update-50 certiﬁcate concern initial-condition
+evolution toward an equilibrium, not this parameter branch [ 6].
+1
+
+=== PAGE 2 ===
+Certiﬁed alternating-branch connection Research edition v0.1
+Record Mathematical content Status in this companion
+I01 M2 host, compression, local ﬂip and corrected
+normalization
+Inherited accepted premise
+I02 M3 trap, unique endpoint, H exchange and
+repaired capture
+Inherited accepted premise
+N01/N02 Actual onset anchor, connected graph and
+endpoint identity
+New accepted connection
+N03 Primitive full-state two-cycles and scoped sign
+reversal
+Inherited symmetry applied
+to the connected family
+N04 Direct two-step attraction bound on the explicit
+endpoint strip
+Separate narrow result
+Table 1: Contribution and premise boundary. All six source-ledger records are mapped to ﬁnal
+manuscript locations in the supplied crosswalk.
+2 Exact family and inherited premises
+2.1 The simultaneous ordered map
+For Ω ∈ C3, the native update ﬁrst forms the complete prestage v, then applies the phase kicks:
+vi = Ω i + εΩi(ki − |Ωi|2) + g ∑
+j⁄=i
+(Ωj − Ωi), (2.1)
+δi = λ
+∑
+j⁄=i
+sin(3[Arg0 vj − Arg0 vi]) , Fλ(Ω)i = vieiδi. (2.2)
+Every prestage uses the same old state and every kick uses the same complete prestage. The
+convention is Arg0(0) = 0 . The implementation separately returns the prestage unchanged
+when λ = 0 ; our family has positive λ and never needs that special branch. No amplitude
+normalization, sequential channel update, extra state, receiver, feedback or physical time is
+added.
+Throughout the connection, ﬁx
+ε = 1 20 , g = 1 5 , k = (1, 1.2208964704604097, 6.35310346037241), λ = λc + µ. (2.3)
+The terminating decimals in k are exact rationals. Let L = 11T − 3I3 and let u be the positive
+root selected by the accepted M2 box:
+εu ⊙ (k − u2) + gLu = 0. (2.4)
+The host is this exact root, not its printed center or the midpoint of an enclosure. The inherited
+Krawczyk image encloses it and is an accepted numerical input. No new host theorem is required
+here.
+Set a12 = (u2 A + u2 B)1/2 and ru = ‖u‖2. The source basis is
+v1 = (uB, −uA, 0)T a12 , v 2 = (uAuC, uBuC, −a2 12)T a12ru , V = (v1 v2). (2.5)
+Thus V T V = I 2 and V T u = 0. All occurrences of u, V and the critical value below refer to these
+same exact objects. Repeated interval occurrences may widen an enclosure but do not select
+diﬀerent hosts.
+2
+
+=== PAGE 3 ===
+Certiﬁed alternating-branch connection Research edition v0.1
+2.2 Slice, gauge and critical data
+Use the positive slice
+s(z) = u + ξ + iV η, z = (ξ, η) ∈ R3 × R2, u T (u + ξ) > 0. (2.6)
+For h = uT Ψ ⁄= 0 , multiply Ψ by h/|h| and read the real displacement from u and the V -
+projected imaginary part. Denote this operation by Q. It gives the same positive gauge as
+rotation by − arg h, and
+ˆFµ = Q ◦ Fλc+µ ◦ s, H (ξ, η) = ( ξ, −η). (2.7)
+The gauge is a coordinate representation, not an extra native update. We work where all
+prestages and the gauge denominator are nonzero. Common-phase and conjugation equivariance
+hold on this regular domain; in quotient coordinates, HˆFµ = ˆFµH.
+Deﬁne the inherited real and imaginary linear data by
+Mu = I 3 + ε diag(k − u2) + gL, JR = Mu − 2ε diag(u2), (2.8)
+B0 = V T MuV, B(λ) = (1 − 9λ)B0. (2.9)
+Let m1 > m 2 be the eigenvalues of B0. M2 veriﬁes 0 < m 2 < m 1 < 1, spec(JR) ⊂ (0, 0.7), and
+λc = 1 + 1/m1 9 , σ = 9m1 > 0. (2.10)
+The critical multiplier is −1 at λc, with derivative −σ; the other imaginary multiplier is −m2/m1.
+A rounded decimal for λc is never used as a new exact parameter.
+For the critical sign and normalization, take
+e = (B0,12, m 1 − B0,11)T
+‖(B0,12, m 1 − B0,11)‖2
+, e ⊥ = (−e2, e1)T . (2.11)
+The normalizing denominator is certiﬁed nonzero. This ﬁxes orientation consistently with the
+accepted M2 data.
+2.3 What is inherited from M2 and M3
+In the accepted Taylor convention, let qc = (0, e), and let B, C be the second and third derivative
+tensors of the quotient at criticality. With J = DˆF0(0) and the H-even slaving vector wR in its
+real block,
+wR = (I 3 − JR)−1BR(qc, qc), c nf = 1 6 eT CI (qc, qc, qc) + 1 2 eT BI (qc, (wR, 0)). (2.12)
+The amplitude slaving term is included. M2 certiﬁes
+0.0865248497217 < c nf < 0.0865248497219, (2.13)
+and a unique local H-exchanged cycle, up to its parity, for all suﬃciently small positive µ [2, 1].
+Its normalized leading amplitude and corrected cycle multiplier satisfy
+a2 = σ cnf µ + O(µ2), ρ cycle = 1 − 4σµ + O(µ2). (2.14)
+The multiplier is for the second iterate at the emerging cycle, not at the persistent host. The
+local attraction is modulo common phase. M2 supplies neither an explicit admissible positive- µ
+interval nor a numerical neighborhood radius.
+At exact µ = 1 /200, repaired M3 supplies a closed quotient box U+, deﬁned by the rational
+strings at
+3
+
+=== PAGE 4 ===
+Certiﬁed alternating-branch connection Research edition v0.1
+evidence/branch/submitted/sources/m3_accepted_support.json
+values.exact_receipts.Up.
+Its positive weights are stored at values.exact_receipts.positive_weights. In the inherited
+weighted norm, ˆF 2 1/200 maps U+ strictly into itself and contracts with bound 4789/5000. It has
+a unique ﬁxed point p ∈ U+, and the separate symmetry certiﬁcate gives ˆF1/200(p) = Hp ⁄= p
+[3, 1].
+The normalized Fourier entrance (1, −1/2 − i
+√
+3/2, −1/2 + i
+√
+3/2), of squared norm three, en-
+ters the trap at certiﬁed update 301. This is a suﬃcient entry index, not a ﬁrst-entry claim.
+Subsequent full-state convergence is to one common-phase rotation of the two-cycle. Historical
+Um is only an outer enclosure of the one-step image; it is not a second trapping set or an exact
+image. We use neither it nor a new entrance computation for endpoint identiﬁcation.
+Notation Meaning in this note
+z = (ξ, η) Original ﬁve quotient coordinates
+x = (X, y, ν) Five normalized unknowns ( X ∈ R3), not the state z
+t = a2 Squared amplitude, not a native update index; updates use n
+m1, m2; ¯µ Compression eigenvalues; a patch’s parameter midpoint
+C, S; Carea Entire scalar functions; channel-area vector
+Q; Q Positive gauge; a matrix for the separate stability norm
+qroot; qdyn Root-equation contraction bound; dynamical derivative bound
+Table 2: Notation distinctions needed to compare the sources.
+3 A removable equation for the nontrivial branch
+The host z = 0 solves G(z, µ) = ˆFµ(z) − Hz = 0 for every µ. A root ﬁnder for G can therefore
+return the equilibrium rather than the desired cycle. The accepted formulation ﬁxes the critical
+projection before continuation.
+For ν > 0, put
+t = µ ν , a = √ t, ξ = tX, η = a(e + tye⊥), x = (XA, XB, XC, y, ν). (3.1)
+For µ > 0, eT η = a > 0, excluding the host. Reversing a gives the H partner. At ﬁxed positive
+µ, the determinant of x ↦→ z in the oriented imaginary basis (e, e⊥) is
+det Dxz = t5 2ν > 0. (3.2)
+Indeed the real X block contributes t3, while the derivative of (a, aty) with respect to (y, ν) has
+determinant a2t/(2ν) = t2/(2ν). Thus this chart is invertible for ﬁxed positive parameter. No
+claim of invertibility at the collapsed native state µ = 0 is made.
+With ˆFR denoting displacement from u and ˆFI its two imaginary quotient coordinates, the
+normalized residual is
+RR(x, µ) =
+ˆFR(tX, a(e + tye⊥); tν) − tX
+t , (3.3)
+RI (x, µ) =
+ˆFI (tX, a(e + tye⊥); tν) + a(e + tye⊥)
+a3 . (3.4)
+The last argument here is the oﬀset µ = tν, not λ. For positive µ, R = 0 is equivalent to
+G = 0 . At onset, equations ( 3.3)–(3.4) are evaluated through the exact continuation described
+next, never as 0/0.
+4
+
+=== PAGE 5 ===
+Certiﬁed alternating-branch connection Research edition v0.1
+3.1 Prestage, phase and gauge without argument jumps
+Write the native input as u + tX + iab, where b = V (e + tye⊥). Its complete prestage is p + iaq,
+with
+pi = ui + t
+{
+(JRX)i − ε[3uitX 2 i + uib2 i + t2X 3 i + tXib2 i ] } , (3.5)
+qi = (Mub)i − ε(2uitXibi + t2X 2 i bi + tb3 i ). (3.6)
+These are exact cubic expansions. The constant term p(0) = u uses the exact host equation, not
+a small computed residual. Deﬁne
+Pji = pjpi + tqjqi, Q ji = qjpi − pjqi, r i = (p2 i + tq2 i )1/2. (3.7)
+Cubing vjvi = Pji + iaQji gives the harmonic identity
+sin(3[arg vj − arg vi]) = a 3P 2 jiQji − tQ3 ji r3 j r3 i . (3.8)
+The denominators stay positive. The integer harmonic makes this expression independent of
+principal-argument branch changes. Set
+di = (λc + tν)
+∑
+j⁄=i
+3P 2 jiQji − tQ3 ji
+r3 j r3 i , δ i = adi. (3.9)
+Introduce the entire functions, by their power series,
+C(w) =
+∑
+n≥0
+(−w)n
+(2n)! , S(w) =
+∑
+n≥0
+(−w)n
+(2n + 1)! . (3.10)
+For nonnegative w these are cos √w and sin √w/√w, with the removable value at zero under-
+stood. Their deﬁnition does not require a square root of a negative auxiliary argument. The
+post-sync output is o + iaj, where
+oi = piC(td2 i ) − tqidiS(td2 i ),
+ji = pidiS(td2 i ) + qiC(td2 i ). (3.11)
+Let hR = uT o, hI = uT j and D = (h2 R + th2 I )1/2. The exact gauged components are
+~oi = oihR + tjihI D , ~ji = jihR − oihI D . (3.12)
+Here D = |uT Fλ(s(z))|. The multiplication is precisely h/|h|; its u-projection is positive. Thus
+(3.12) agrees with the inherited quotient and its derivatives on the certiﬁed chart.
+3.2 Exact divided diﬀerences and explicit tails
+An arithmetic pair (f0, f1(t)) represents the identity f (t) = f0 + tf1(t). Its second component
+is retained as a function, not discarded as a Taylor remainder. For example,
+(f g)1 = f1g0 + f0g1 + tf1g1, (3.13)
+(f /g)1 = f1g0 − f0g1 g0g(t) , ( √ f )1 = f1√f0 + √ f (t) . (3.14)
+5
+
+=== PAGE 6 ===
+Certiﬁed alternating-branch connection Research edition v0.1
+The positive denominator conditions are checked. At t = 0 , the inherited host and critical
+compression give the exact identities
+~o(0) = u, V T~j(0) = −e. (3.15)
+Consequently the residual can be read without subtraction of rounded constants:
+RR =~o1 − X, R I = V T~j1 + ye⊥. (3.16)
+The subscript 1 denotes the exact divided component. This construction removes both apparent
+singularities in ( 3.3)–(3.4).
+For numerical enclosures write C(w) = 1 + wC1(w) and S(w) = 1 + wS1(w). Their coeﬃcients
+are respectively (−1)n+1/(2n + 2)! and (−1)n+1/(2n + 3)!, for n ≥ 0. Retaining n = 0 , . . . ,17
+gives the uniform omitted-tail bounds
+value tail derivative tail
+C1 2/38! 36/38!
+S1 2/39! 36/39!
+(|w| ≤ 1). (3.17)
+The ﬁrst omitted denominators are 38! and 39!. Successive absolute-term ratios are below
+1/2, also after diﬀerentiation, yielding these geometric-tail estimates. The derivative tail is
+multiplied by the derivative of its argument in automatic diﬀerentiation. The accepted boxes
+satisfy δ2 i < 0.0823, safely within the suﬃcient domain. This bound belongs to the present exact
+family; it is not the unrelated turning-capture short-kick bound.
+Lemma 3.1 (Removable normalized equation) . The formulas above extend R real-analytically
+to a neighborhood of µ = 0 , ν > 0 near the accepted onset root. For positive µ on the certiﬁed
+chart, their zeros are exactly the oriented nontrivial solutions represented by (3.1) of ˆFµ(z) = Hz .
+Proof. The cubic expressions, entire functions and exact divided identities remove the zero-
+amplitude quotients. At onset the square-root and gauge denominators are positive; positivity
+persists locally. Composition and division by those nonzero denominators therefore give an
+analytic extension, using t = µ/ν. The cancellations ( 3.15) identify that extension with ( 3.3)–
+(3.4) for t > 0. The state chart is invertible by ( 3.2), and the equation scalings t and a3 are
+nonzero. An auxiliary extension to negative t near zero establishes regularity only; it is not a
+computed native family with negative squared amplitude.
+4 Anchoring the actual M2 germ
+The limit of the real equation at zero is
+RR(x, 0) = ( JR − I3)X + 1 2 BR(qc, qc). (4.1)
+The imaginary limit retains the noncritical component and the unfolding:
+RI (x, 0) = ( B(λc) + I2)ye⊥ − σνe + BI (qc, (X, 0)) + 1 6 CI (qc, qc, qc). (4.2)
+These coeﬃcients are those of the accepted full quotient, including real-amplitude slaving. From
+(2.12) the limiting solution obeys
+X0 = wR 2 , ν 0 = cnf σ > 0, y 0 = − eT ⊥T0 γ , (4.3)
+where
+T0 = BI (qc, (X0, 0)) + 1 6 CI (qc, qc, qc), γ = 1 − m2/m1 > 0. (4.4)
+6
+
+=== PAGE 7 ===
+Certiﬁed alternating-branch connection Research edition v0.1
+The exact projection eT T0 = cnf gives the normalization of ν0. In the order (X, y, ν) the complete
+limiting Jacobian has block form
+DxR(x0, 0) =
+(
+JR − I3 0 0
+L γe⊥ −σe
+)
+, Lh = BI (qc, (h, 0)). (4.5)
+The lower-left coupling is generally nonzero and has not been omitted. The real block is invertible
+by the inherited spectrum, and the two lower-right columns are independent because γ, σ > 0.
+Hence the full ﬁve-dimensional Jacobian is nonsingular.
+The accepted onset reﬁnement encloses a root at µ = 0 strictly inside the ﬁrst uniform patch.
+The saved enclosures for wR/2 and cnf /σ lie inside its corresponding coordinate enclosures,
+consistent with ( 4.3). For orientation only, the latter ratio is approximately 0.022181967628; its
+displayed digits are not a deﬁning constant. The uniform ﬁrst interval is exactly
+I0 = [0, 1/25600]. (4.6)
+The implicit-function argument for the normalized system, together with the uniform validation
+of Section 5, produces a unique continuous normalized solution on I0, with ν > 0. Reconstruction
+gives
+z(µ) − →0, η/a − →e, ξ/a 2 − →wR/2 ( µ ↓ 0). (4.7)
+This identiﬁes the branch’s onset direction and positive unfolding. To identify the germ itself,
+use M2’s local uniqueness up to H exchange. Its odd/even expansion can be reparameterized
+by the exact critical projection a = eT η; then its normalized variables have the limits ( 4.3).
+The noncritical part of ( 4.2) ﬁxes y0, as well as X0 and ν0. The local uniqueness region for R
+therefore contains that same M2 germ, with the selected positive parity. Both descriptions agree
+there.
+The uniform interval ( 4.6) carries this identiﬁcation to a positive numerical endpoint. No nu-
+merical starting oﬀset is assumed to lie in M2’s unspeciﬁed suﬃciently-small interval. The
+asymptotic identities identify the germ, while the exact removable-system certiﬁcate supplies
+the ﬁnite range; an unspeciﬁed O(µ2) term is never used as a numerical error bar.
+5 Uniform continuation and common-uniqueness joins
+5.1 The parameter-uniform contraction argument
+Let I be a closed parameter interval, B = c + [−r, r] ⊂ R5 an exact rational box with ri > 0, and
+A a ﬁxed rational matrix. The normalized unknowns use the weighted norm ‖x‖r = max i |xi|/ri.
+Let J enclose DxR on B × I and E = I 5 − AJ .
+Lemma 5.1 (Uniform root validation and shared uniqueness) . Suppose R is continuously dif-
+ferentiable on a neighborhood of the box and parameter interval. If
+qroot := max i
+∑
+j
+sup |Eij| rj ri < 1 (5.1)
+and Tµ(x) = x − AR(x, µ) maps B strictly into itself for every µ ∈ I, then there is a unique zero
+in B for each parameter. It depends continuously on the parameter, and smoothly wherever R is
+smooth. Both A and DxR are nonsingular on the evaluated region. At a ﬁxed shared parameter,
+a bound of the same form on a convex region containing two already-known roots identiﬁes those
+roots; a separate self-map on that region is unnecessary.
+7
+
+=== PAGE 8 ===
+Certiﬁed alternating-branch connection Research edition v0.1
+Proof. The derivative bound makes Tµ a contraction in the complete closed box, so Banach’s
+argument gives its unique ﬁxed point. Since ‖I5 − ADxR‖r < 1, the matrix ADxR is invertible
+by its convergent Neumann series. Both square factors are therefore nonsingular. A ﬁxed point
+of Tµ is a zero of R, and local smooth dependence follows from the implicit-function theorem.
+The contraction estimate also proves continuity: changes in Tµ at a ﬁxed state bound root
+displacement after division by 1 − qroot. On a shared convex region, applying the mean-value
+inequality to two zeros gives ‖x − y‖r ≤ qroot ‖x − y‖r, hence equality of the roots. Their
+existence is already supplied by the adjacent patches.
+To check the self-map uniformly, let ¯µ be the midpoint of I and let ∆ = I − ¯µ. With A ﬁxed,
+integrate A∂µR(c, µ) to enclose the center defect. The recorded oﬀset is
+K − c ⊆ − AR(c, ¯µ) − [A∂µR(c, I)]∆ + E[−r, r]. (5.2)
+Preconditioning precedes multiplication by ∆, preserving valid cancellations. Strict coordinate
+inequalities sup |(K −c)i| < r i prove the self-map. Approximate inverses select the ﬁnite decimal
+entries of A, subsequently treated as exact rationals; they do not establish nonsingularity by
+themselves.
+The arithmetic evaluates derivatives on outward dyadic supersets of the exact rational box. The
+enclosure and positivity tests are therefore valid on a slightly larger convex region, while the
+self-map is tested against the original rational radii. Roots lie in the exact box and hence in its
+evaluated outer box. The derivative contraction also gives uniqueness in the outer evaluation
+region. This distinction is used in the connector and reﬁnement inclusions.
+5.2 The ﬁnite cover and its proof margins
+The accepted certiﬁcate uses the exact partition
+Ii = [i/25600, (i + 1)/25600], i = 0, . . . ,127, (5.3)
+which covers [0, 1/200] without gaps. The normalized box radii are
+r = (0.0005, 0.0005, 0.0006, 0.001, 0.0001). (5.4)
+These are exact rational choices, not estimated uncertainties. Each patch has its own rational
+center and preconditioner. All 128 pass the strict self-map test and satisfy qroot < 0.614. Pos-
+itivity bounds keep ν, the slice projection, the prestage real parts and moduli, and the gauge
+denominator away from zero. Table 3 collects the coarsened accepted bounds. Their full rational
+values remain in the retained certiﬁcate and summary; the manuscript’s checks only transcribe
+those saved results.
+At the shared endpoint of Ii and Ii+1, a convex connector contains both adjacent evaluated
+outer boxes. Its weighted derivative defect is below 0.583. The existing endpoint roots are in
+that common uniqueness region, so Lemma 5.1 identiﬁes them. There are 127 such separate
+identiﬁcation checks. Two boxes merely intersecting would not suﬃce, since their respective
+roots could lie in disjoint parts of the boxes. The argument uses common uniqueness, not
+overlap.
+Parameter coverage and root identity are thus diﬀerent veriﬁed ingredients. Local smooth graphs
+for x(µ) agree at the joins, including their locally unique continuations. Reconstruction yields
+a continuous family at zero and a smooth family for µ > 0. On positive parameters, the
+coordinate determinant ( 3.2) and the nonzero equation scalings transfer regularity to G in the
+original quotient coordinates. This proves a graph over µ for the selected family; it does not
+classify all other roots in state space.
+8
+
+=== PAGE 9 ===
+Certiﬁed alternating-branch connection Research edition v0.1
+Quantity Bound / count Source key
+Uniform patches / joins 128 / 127 E.patches, E.joins
+Patch root norm < 0.614 E.max_patch_q
+Common-uniqueness join norm < 0.583 E.max_join_q
+Unfolding variable ν > 0.02209 E.nu_global[0]
+Slice projection uT (u + ξ) > 8.884 E.minimum_slice
+Each prestage real part > 1.504 E.minimum_prestage_real
+Gauge modulus |uT F | > 8.882 E.minimum_gauge_modulus
+Squared kick δ2 i < 0.0823 E.maximum_squared_kick
+Each endpoint U+ margin > 0.00001098 E.endpoint_Up_
+coordinate_margins
+Two-step dynamical norm (strip only) < 0.9601 S.stability.norm_upper
+E: EVIDENCE_SUMMARY.json; S: ENDPOINT_STABILITY_STRIP.json. Both are under the accepted
+submitted/data/ directory.
+Table 3: Certiﬁcate summary. Counts are exact. All displayed decimal bounds are exact rational,
+conservative comparisons with the saved rational values, not ﬂoating estimates. The ﬁnal row
+applies only to Proposition 7.1; the ﬁrst two norms validate roots, not native dynamical rates.
+6 Endpoint identity and the connection theorem
+At exact µ = 1 /200, the accepted reﬁnement uses a smaller normalized box whose entire eval-
+uated enclosure lies inside the last patch’s uniqueness region. It selects the same continued
+root. Reconstruction through ( 3.1) produces an interval in the original ﬁve quotient coordinates
+which lies strictly inside the exact stored U+. The smallest coordinate margin is greater than
+0.00001098. No reconstruction from rounded center/radius displays deﬁnes this trap.
+The accepted positive critical parity already lies in U+; no H swap is needed. Because the
+root satisﬁes ˆF (z) = Hz and the quotient commutes with H, it is a two-step ﬁxed point in
+U+. Inherited M3 uniqueness identiﬁes it with p. This uses whole-enclosure containment and
+uniqueness. An intersection, matching amplitude, close nominal coordinates or a small residual
+would not identify the endpoint. The outer image enclosure Um is not used.
+Theorem 6.1 (Connection of the M2 germ to the exact M3 cycle) . For the exact family (2.3),
+with the host, basis and critical data selected by (2.4)–(2.11), the positively oriented M2 alternat-
+ing germ extends to a graph z(µ) for every 0 < µ ≤ 1/200. It is smooth at positive parameters,
+continuous to the host z = 0 as µ ↓ 0, and satisﬁes
+ˆFµ(z(µ)) = Hz (µ), e T η(µ) > 0, z (1/200) = p. (6.1)
+Here p is the exact repaired M3 point in U+. The family remains in the certiﬁed regular chart.
+Uniqueness is in the stated certiﬁed regions, not among all remote state-space solutions. Zero is
+an onset anchor, not a nontrivial two-cycle. The theorem does not assert attraction throughout
+the parameter interval.
+Proof. Lemma 3.1 and Section 4 identify the normalized onset root with the actual M2 germ,
+with ν0 > 0. The ﬁrst uniform patch includes zero. Lemma 5.1, the exact partition ( 5.3) and
+the common-uniqueness connectors extend that root without a gap or ambiguity. The certiﬁed
+positive margins permit the original quotient representation throughout. For µ > 0, the state
+coordinate transformation is nonsingular and eT η = √ µ/ν > 0. Smoothness and the host limit
+follow as above. The endpoint reﬁnement and strict inclusion in U+ identify M3 by its inherited
+uniqueness theorem.
+Corollary 6.2 (Primitive full-state two-cycles) . For every positive parameter in Theorem 6.1,
+the quotient cycle and its lifted native-state cycle have primitive period two. Common-phase
+9
+
+=== PAGE 10 ===
+Certiﬁed alternating-branch connection Research edition v0.1
+rotations give a neutral family of the lifted cycles. The phase-invariant observables Carea, W
+and Γ reverse sign under the H exchange, at their inherited deﬁnitions.
+Proof. Since η ⁄= 0 , Hz ⁄= z, and H equivariance gives ˆF 2 µ (z) = z. Thus the quotient period is
+two. If A = s(z), the gauge relation gives F (A) = eiθA. Regular common-phase covariance and
+conjugation equivariance imply
+F 2(A) = eiθF (A) = A. (6.2)
+A full ﬁxed point would project to a quotient ﬁxed point, so the full period is primitive two. This
+is the inherited M2/M3 lift algebra applied along the newly connected family. Phase invariance
+and conjugation oddness give the stated sign reversal.
+Sign reversal does not establish a nonzero magnitude at every intermediate parameter; no such
+all-interval claim for W or Γ is made. M3’s repaired entrance now lands on a cycle identiﬁed with
+the M2 branch, but no entrance theorem at another µ follows. Each branch member belongs to
+a separate autonomous map at its ﬁxed parameter. Continuation describes a family of solutions,
+not an orbit whose parameter changes at each native update.
+7 A separate, limited attraction theorem
+The contraction of x ↦→ x−AR(x, µ) validates roots of an auxiliary equation. It is not contraction
+of the native dynamics. The stability calculation instead diﬀerentiates the original cubic prestage,
+phase formula and positive gauge in the original quotient coordinates. At an H-exchanged root,
+diﬀerentiating equivariance gives
+Pµ = DˆFµ(Hz )DˆFµ(z) = ( HDˆFµ(z))2. (7.1)
+Here H also denotes the diagonal linear involution on the tangent coordinates. The identity is
+evaluated at the exact symmetric cycle, not at an arbitrary root of the host equation.
+Let Q be a selected ﬁxed rational basis matrix and RQ its selected rational approximate inverse.
+The accepted exact inverse-defect test proves
+ϵQ = ‖I5 − RQQ‖∞ < 1. (7.2)
+Hence Q is nonsingular and
+‖Q−1PµQ‖∞ ≤ ‖RQPµQ‖∞ 1 − ϵQ . (7.3)
+This follows from Q−1 = (RQQ)−1RQ and the Neumann bound for (RQQ)−1. The matrices are
+validated as chosen rationals; their numerical origin is not an inverse proof.
+Proposition 7.1 (Attraction on the explicit endpoint strip) . For the connected cycle of Theo-
+rem 6.1, the actual two-step quotient derivative satisﬁes
+‖Q−1PµQ‖∞ < 0.9601, 4999 1000000 ≤ µ ≤ 1 200 . (7.4)
+The cycle is locally attracting in the quotient throughout this strip, and attracting modulo common
+phase in the full state. This is not a new trapping-neighborhood or uniform-basin theorem.
+Proof. The strip’s separate normalized root box is contained in the last continuation patch’s
+uniqueness region. Its uniform root validation therefore identiﬁes the same branch. The accepted
+direct-derivative enclosure and ( 7.2)–(7.3) yield the strict rational comparison with 0.9601; the
+bound’s approximate display is 0.9600371642733128. A derivative norm strictly below one at
+10
+
+=== PAGE 11 ===
+Certiﬁed alternating-branch connection Research edition v0.1
+the two-step ﬁxed point gives local quotient attraction by continuity of the derivative. The full
+common-phase direction is neutral, so the contraction is stated in the quotient. The inherited
+regular lift transfers the local conclusion to the cycle family modulo common phase.
+Result Parameter scope What it does not supply
+Connected branch identity 0 < µ ≤ 1/200 Attraction over that whole
+interval
+Inherited M2 attraction Suﬃciently small µ > 0, upper
+extent unspeciﬁed
+A numerical endpoint to join
+to the strip
+New explicit attraction 4999/1000000 ≤ µ ≤ 1/200 A uniform basin or new trap
+Inherited M3 capture Exact µ = 1/200; suﬃcient entry
+301
+Capture at other parameters
+Table 4: Connection and attraction have distinct domains. The explicit new strip has width
+10−6; no numerical length is assigned to M2’s qualitative neighborhood.
+The 128 broad stability-box estimates in the retained investigation are inconclusive suﬃcient
+bounds. They do not prove instability or a bifurcation. One narrow endpoint-strip check es-
+tablishes Proposition 7.1; it was not an optimized threshold search. The unknown extent of
+M2 attraction is not silently joined to this strip. In particular, attraction throughout the full
+connected interval remains unresolved, even though the branch-identity question is closed.
+8 Evidence, reproducibility and review scope
+The mathematical investigation was internally accepted on 11 November 2026, without cor-
+rections [ 5]. This companion manuscript was prepared and completed GPT project-internal
+manuscript review on 12 November 2026. The author has authorized repository publication of
+research edition v0.1. Historical submission and acceptance statuses remain unchanged in the
+preserved evidence.
+8.1 Trusted basis and what was actually checked
+The accepted arithmetic uses outward dyadic intervals at scale 2−240, exact rational conversion,
+outward products and reciprocals, integer square-root bounds, exact divided diﬀerences and
+the explicit entire-function tails. Derivatives are forward-mode derivatives of these expressions,
+with their tail enclosures; ﬂoating ﬁnite diﬀerences do not deﬁne any certiﬁed derivative. The
+inherited host is constrained by its accepted box and exact equation. A rounded host midpoint
+is not substituted into the mathematical premises.
+The investigation’s generator and checker share the new interval and automatic-diﬀerentiation
+engine. The checker separately organizes exact Fraction comparisons for decisive containment,
+norm, coverage, join, inverse and endpoint inequalities. This distinction matters: shared-engine
+replay corroborates execution but is not a second independent interval implementation. The
+basic dyadic rounding design and the earlier M3 derivative design were consulted as documented
+references; those historical scripts were not imported or executed for the new investigation.
+The accepted original Windows run records 128 validated patches, 127 common-uniqueness
+joins, the onset and endpoint reﬁnements, four rejected controls and 31 supporting exact alge-
+bra/source checks. The controls test false coverage, a broken connector, substitution of the host
+and an invalid endpoint trap. These are veriﬁcation counts, not new theorem counts. Nominal
+planning selected centers and preconditioners in 130 root solves, with 389 Newton iterations in
+total and at most three at any node. No trajectory was used to bridge the parameter interval.
+11
+
+=== PAGE 12 ===
+Certiﬁed alternating-branch connection Research edition v0.1
+The subsequent GPT review replayed the submitted checker on Linux Python 3.13.5, changing
+only the environment guard in a separate replay copy. It did not repeat a Windows execution or
+implement another interval engine. Five separately formulated high-precision direct-form resid-
+ual/Jacobian spot checks were numerical diagnostics; they did not certify unsampled parameters.
+The reviewer artifacts, environment adaptation and unchanged submitted bytes remain in the
+supplement. No new scientiﬁc execution was performed for this manuscript: current Python
+work only veriﬁes ﬁle identities, reads saved data for tables, checks rational transcription and
+builds or inspects the document.
+8.2 A readable and executable evidence path
+The complete acceptance extraction is at evidence/branch/, with the unchanged frozen accep-
+tance ZIP and sidecar at archives/. The current PRESERVED_INPUTS.json maps all supplied
+paths to their delivery paths without changing bytes. The source/claim crosswalk records all
+six I/N records, actual ﬁnal equation and theorem labels, pages, and accepted source locations.
+For the central evidence, use the following relative entry points; the printed argument above
+does not require executing them:
+• Accepted proof report , Sections 2–5: removable formulation, anchor, continuation, joins
+and endpoint identity.
+• Connection certiﬁcate : constants, onset, patches, joins, endpoint.
+• Narrow stability certiﬁcate : root_certificate, parent_patch, stability.
+• Original checker record and algebra/source record; scripts are retained with their historical
+execution logs.
+• GPT acceptance review and machine-readable disposition ; reviewer evidence is under ev
+idence/branch/reviewer/.
+Full machine-readable endpoints stay in those records, rather than a printed fraction dump.
+Saved failed trial bounds and all inconclusive broad stability records are retained. Checksums
+bind ﬁle identities; they do not replace the mathematical argument. The repository checkpoint
+recorded by the sources is a reading locator, not an instruction to reset a checkout or a fresh
+claim about its current state.
+The new document helpers and build guide are separate from historical scientiﬁc scripts. The de-
+livery contains the selectable-text PDF, editable LaTeX, table source and its exact transcription
+record, reference and font checks, ﬁnal-page inspection records, source inventories and archive
+audit. It distributes no font binaries or build caches. Paper G v0.1.1 and all earlier published
+editions remain unchanged.
+9 Conclusion
+The removable onset formulation reaches the actual M2 germ, uniform patches extend it across
+the full speciﬁed interval, common-uniqueness regions identify neighboring roots, and strict
+endpoint containment identiﬁes the exact M3 cycle. These steps now connect the previously
+separate local and captured alternating regimes of the same native triad. Inherited symmetry
+supplies the primitive full-state two-cycles along that family.
+The separate attraction result covers only 0.004999 ≤ µ ≤ 0.005, in addition to the inherited
+qualitative near-onset result and endpoint trap at their own scopes. Full-range attraction re-
+mains unresolved and is not an additional task concealed in this paper. No global uniqueness or
+12
+
+=== PAGE 13 ===
+Certiﬁed alternating-branch connection Research edition v0.1
+basin, new entrance theorem away from the endpoint, connection to the separate λ = 0.5 orbit,
+all-interval nonzero observable magnitude, physical ﬁeld, calibrated time or material-motion law
+follows.
+Authorship and review. Hilmir Frímann Halldórsson is the research author. GPT provided
+scientiﬁc steering and project-internal acceptance review; Codex performed the investigation,
+implementation and manuscript preparation. The mathematical investigation and manuscript
+have completed project-internal review. The author has authorized repository publication of
+research edition v0.1. No external peer review, proof-assistant veriﬁcation or DOI registration
+is claimed.
+References
+[1] Hilmir Frímann Halldórsson (2026). Geometry-Attached Axial Observables, Period-Doubling,
+and Certiﬁed Entrance Capture in the Tri-Octagon Map . Paper G v0.1.1, 4 October 2026.
+Retained source text and publication disposition . Sections 4–6 contain the inherited M2/M3
+statements and the earlier non-continuation boundary.
+[2] GPT, with Claude and Codex review (2026). Trioctagon Magnetism M2: Joint Acceptance
+Record v0.1. 2 October 2026. Final joint record , with retained correction and assent records.
+Internal acceptance of the local theorem; no external peer-review claim.
+[3] GPT, with Claude and Codex review (2026). Trioctagon Magnetism M3: Joint Acceptance
+Record v0.1. 4 October 2026. Repaired ﬁxed-parameter acceptance , with exact trap and
+supporting receipts .
+[4] Hilmir Frímann Halldórsson; Codex investigation under GPT scientiﬁc steering (2026). Na-
+tive Alternating-Branch Connection: Proof and Veriﬁcation Report . 11 November 2026. Ac-
+cepted investigation report , original claim ledger, certiﬁcate, source inputs and execution
+records, task NATIVE_ALTERNATING_BRANCH_CONNECTION_01.
+[5] GPT (2026). Native Alternating-Branch Connection: Scientiﬁc Review and Acceptance . 11
+November 2026. Internal review , acceptance disposition and retained reviewer evidence. No
+mathematical correction required; narrow attraction scope and shared-engine qualiﬁcations
+retained.
+[6] Hilmir Frímann Halldórsson (2026). Certiﬁed Capture of the Collective-Turning Trajectory in
+the Native Triad . Research edition v0.1, 11 November 2026. Retained source and publication
+receipt. Diﬀerent coeﬃcient family and initial-condition question.
+13

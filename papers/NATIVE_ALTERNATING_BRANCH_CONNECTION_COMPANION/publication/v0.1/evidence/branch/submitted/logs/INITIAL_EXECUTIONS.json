@@ -1,0 +1,44 @@
+{
+  "note": "These three top-level commands preceded the final execute.py logging wrapper. Their successful exits were observed directly; no replay was performed merely to manufacture logs.",
+  "records": [
+    {
+      "command": [
+        "run_python.cmd",
+        "scripts\\load_inputs.py"
+      ],
+      "shell": "Windows Command Prompt",
+      "exit_status": 0,
+      "record_basis": "Observed tool completion; environment and identities were persisted by the run",
+      "outputs": [
+        "logs/ENVIRONMENT.json",
+        "logs/INPUT_IDENTITIES.json"
+      ]
+    },
+    {
+      "command": [
+        "run_python.cmd",
+        "scripts\\prior_search.py"
+      ],
+      "shell": "Windows Command Prompt",
+      "exit_status": 0,
+      "record_basis": "Observed tool completion; child rg commands and complete outputs logged",
+      "outputs": [
+        "logs/PRIOR_SEARCH_RECORDS.json"
+      ]
+    },
+    {
+      "command": [
+        "run_python.cmd",
+        "scripts\\nominal.py"
+      ],
+      "shell": "Windows Command Prompt",
+      "exit_status": 0,
+      "record_basis": "Observed tool completion; complete iteration histories and node results persisted",
+      "started_utc": "2026-11-11T08:06:26.718461+00:00",
+      "finished_utc": "2026-11-11T08:06:28.148453+00:00",
+      "outputs": [
+        "data/NOMINAL_PLAN_128.json"
+      ]
+    }
+  ]
+}

@@ -51,6 +51,14 @@ Paper G has a separate [author publication disposition](papers/PAPER_G/repositor
 Its approved v0.1.1 PDF/source retain their review labels and exact bytes;
 that later disposition authorizes repository publication without changing the science.
 
+## Certified alternating-branch connection
+
+[Certified Connection from Local Period-Doubling to the Captured Alternating Cycle in the Native Triad](papers/NATIVE_ALTERNATING_BRANCH_CONNECTION_COMPANION/README.md), by **Hilmir Frímann Halldórsson**, research edition v0.1. Companion to Paper G, with completed project-internal manuscript review and author-authorized repository publication.
+
+Certified M2-to-M3 alternating-branch connection throughout `0 < mu <= 1/200`, with a separate explicit local-attraction result only on `0.004999 <= mu <= 0.005`. Full-range attraction remains unresolved. No kernel changes; Paper G and all earlier editions remain unchanged.
+
+[Final PDF](papers/NATIVE_ALTERNATING_BRANCH_CONNECTION_COMPANION/publication/v0.1/NATIVE_ALTERNATING_BRANCH_CONNECTION_COMPANION_v0.1.pdf) | [Editable source and evidence](papers/NATIVE_ALTERNATING_BRANCH_CONNECTION_COMPANION/publication/v0.1/README.md).
+
 ## Strength-to-pattern identifiability
 
 [Strength-to-Pattern Conversion and Readout Identifiability in the Tri-Octagon Native Kernel](papers/STRENGTH_PATTERN_IDENTIFIABILITY/README.md) by **Hilmir Frímann Halldórsson**.

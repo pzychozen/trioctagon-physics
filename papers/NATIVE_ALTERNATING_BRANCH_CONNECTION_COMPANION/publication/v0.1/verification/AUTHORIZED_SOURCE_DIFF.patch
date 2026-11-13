@@ -1,0 +1,73 @@
+--- reviewed/main.tex
++++ publication/main.tex
+@@ -9,13 +9,13 @@
+ \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+ \renewcommand{\labelitemi}{$\bullet$}
+ \expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks\do\_\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z}
+-\hypersetup{pdftitle={Certified Connection from Local Period-Doubling to the Captured Alternating Cycle in the Native Triad},pdfauthor={Hilmir Frímann Halldórsson (pzychozen)},pdfsubject={Research manuscript v0.1; accepted mathematical investigation; manuscript and author review pending; 12 November 2026},pdfkeywords={native triad, period doubling, validated continuation, alternating two-cycle, Paper G companion}}
++\hypersetup{pdftitle={Certified Connection from Local Period-Doubling to the Captured Alternating Cycle in the Native Triad},pdfauthor={Hilmir Frímann Halldórsson (pzychozen)},pdfsubject={Research edition v0.1; project-internal manuscript review complete; author-authorized for repository publication; manuscript dated 12 November 2026},pdfkeywords={native triad, period doubling, validated continuation, alternating two-cycle, Paper G companion}}
+ \setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+ \setlength{\emergencystretch}{2em}
+ \raggedbottom\clubpenalty=10000\widowpenalty=10000\displaywidowpenalty=10000
+ \pagestyle{fancy}\fancyhf{}
+ \fancyhead[L]{\small Certified alternating-branch connection}
+-\fancyhead[R]{\small Manuscript v0.1}\fancyfoot[C]{\thepage}
++\fancyhead[R]{\small Research edition v0.1}\fancyfoot[C]{\thepage}
+ \renewcommand{\headrulewidth}{0.3pt}
+ \numberwithin{equation}{section}
+ \newtheorem{theorem}{Theorem}[section]
+@@ -36,9 +36,9 @@
+ {\small A companion to \emph{Geometry-Attached Axial Observables, Period-Doubling, and Certified Entrance Capture in the Tri-Octagon Map}\par}
+ \vspace{7pt}
+ {\large Hilmir Fr\'imann Halld\'orsson (pzychozen)\par}
+-{\small Research manuscript v0.1 \quad 12 November 2026\par}
++{\small Research edition v0.1 \quad 12 November 2026\par}
+ \vspace{5pt}
+-{\small\textbf{Status.} Accepted mathematical investigation; manuscript and author review pending. Project-internal research manuscript, not externally peer reviewed.\par}
++{\small\textbf{Status.} Project-internal manuscript review complete; author-authorized for repository publication. No external peer review or proof-assistant verification is claimed.\par}
+ 
+ \begin{abstract}
+ Paper G established a local supercritical period-doubling branch and, separately, capture by an alternating cycle at a specified finite parameter. We explain the accepted connection between those particular objects for the unchanged exact native-triad family. An amplitude formulation removes the apparent singularity at onset and fixes a nontrivial phase orientation. Its first uniform patch includes the bifurcation parameter. A finite certificate then covers $0<\mu\le1/200$ with 128 patches and 127 common-uniqueness joins. The entire refined endpoint enclosure lies strictly inside the exact inherited M3 trap, identifying the continued root with its unique two-step fixed point. The branch is a graph over $\mu$, continuous to the host and smooth for positive parameters. Inherited symmetry lifts every member to a primitive full-state two-cycle. A separate derivative bound proves local attraction modulo common phase only on $4999/1000000\le\mu\le1/200$. Attraction throughout the connected interval remains unresolved. These are mathematical statements about a fixed discrete map, with no physical-field identification or parameter ramp imposed on an orbit.
+@@ -433,7 +433,7 @@
+ The 128 broad stability-box estimates in the retained investigation are inconclusive sufficient bounds. They do not prove instability or a bifurcation. One narrow endpoint-strip check establishes Proposition~\ref{prop:stability}; it was not an optimized threshold search. The unknown extent of M2 attraction is not silently joined to this strip. In particular, attraction throughout the full connected interval remains unresolved, even though the branch-identity question is closed.
+ 
+ \section{Evidence, reproducibility and review scope}\label{sec:evidence}
+-The mathematical investigation was internally accepted on 11 November 2026, without corrections \cite{Review}. This manuscript was commissioned and prepared on 12 November 2026. Its manuscript and author review remain pending. The earlier submission's pending-review wording and the acceptance archive's earlier absence of a manuscript commission are preserved as historical records.
++The mathematical investigation was internally accepted on 11 November 2026, without corrections \cite{Review}. This companion manuscript was prepared and completed GPT project-internal manuscript review on 12 November 2026. The author has authorized repository publication of research edition v0.1. Historical submission and acceptance statuses remain unchanged in the preserved evidence.
+ 
+ \subsection{Trusted basis and what was actually checked}\label{sec:trust}
+ The accepted arithmetic uses outward dyadic intervals at scale $2^{-240}$, exact rational conversion, outward products and reciprocals, integer square-root bounds, exact divided differences and the explicit entire-function tails. Derivatives are forward-mode derivatives of these expressions, with their tail enclosures; floating finite differences do not define any certified derivative. The inherited host is constrained by its accepted box and exact equation. A rounded host midpoint is not substituted into the mathematical premises.
+@@ -464,7 +464,7 @@
+ 
+ The separate attraction result covers only $0.004999\le\mu\le0.005$, in addition to the inherited qualitative near-onset result and endpoint trap at their own scopes. Full-range attraction remains unresolved and is not an additional task concealed in this paper. No global uniqueness or basin, new entrance theorem away from the endpoint, connection to the separate $\lambda=0.5$ orbit, all-interval nonzero observable magnitude, physical field, calibrated time or material-motion law follows.
+ 
+-\textbf{Authorship and review.} Hilmir Fr\'imann Halld\'orsson is the research author. GPT provided scientific steering and project-internal acceptance review; Codex performed the investigation, implementation and manuscript preparation. The mathematical acceptance is distinct from review of this manuscript. Neither is represented as external peer review or proof-assistant verification. No publication, repository adoption or DOI is claimed by this manuscript return.
++\textbf{Authorship and review.} Hilmir Fr\'imann Halld\'orsson is the research author. GPT provided scientific steering and project-internal acceptance review; Codex performed the investigation, implementation and manuscript preparation. The mathematical investigation and manuscript have completed project-internal review. The author has authorized repository publication of research edition v0.1. No external peer review, proof-assistant verification or DOI registration is claimed.
+ 
+ \input{references.tex}
+ \end{document}
+--- reviewed/build.py
++++ publication/build.py
+@@ -21,7 +21,7 @@
+ version=subprocess.run([a.tectonic,'--version'],capture_output=True,text=True,check=True).stdout.strip()
+ start=datetime.now(timezone.utc).isoformat();result=subprocess.run(cmd,cwd=ROOT,env=env,capture_output=True)
+ (B/'compiler.stdout').write_bytes(result.stdout);(B/'compiler.stderr').write_bytes(result.stderr)
+-record={'title':'Certified Connection from Local Period-Doubling to the Captured Alternating Cycle in the Native Triad','author':'Hilmir Frímann Halldórsson (pzychozen)','edition':'Research manuscript v0.1','status':'Accepted mathematical investigation; manuscript and author review pending. Project-internal research manuscript, not externally peer reviewed.','preparation_date':'2026-11-12','timezone':'Atlantic/Reykjavik','started_utc':start,'finished_utc':datetime.now(timezone.utc).isoformat(),'command':cmd,'cwd':str(ROOT),'compiler_version':version,'exit_status':result.returncode,'python':sys.executable,'python_version':sys.version,'conda_environment':os.environ['CONDA_DEFAULT_ENV'],'source_date_epoch':env['SOURCE_DATE_EPOCH'],'sources':{x.relative_to(ROOT).as_posix():hashlib.sha256(x.read_bytes()).hexdigest() for x in sorted(ROOT.rglob('*.tex')) if not x.is_relative_to(ROOT/'evidence')},'build_helper_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'scientific_runs':0,'protection':'--only-cached --untrusted; no shell escape, package downloads or persistent configuration changes'}
++record={'title':'Certified Connection from Local Period-Doubling to the Captured Alternating Cycle in the Native Triad','author':'Hilmir Frímann Halldórsson (pzychozen)','edition':'Research edition v0.1','status':'Project-internal manuscript review complete; author-authorized for repository publication. No external peer review or proof-assistant verification is claimed.','preparation_date':'2026-11-12','author_authorization_date':'2026-11-13','publication_finalization_date':'2026-11-13','timezone':'Atlantic/Reykjavik','started_utc':start,'finished_utc':datetime.now(timezone.utc).isoformat(),'command':cmd,'cwd':str(ROOT),'compiler_version':version,'exit_status':result.returncode,'python':sys.executable,'python_version':sys.version,'conda_environment':os.environ['CONDA_DEFAULT_ENV'],'source_date_epoch':env['SOURCE_DATE_EPOCH'],'sources':{x.relative_to(ROOT).as_posix():hashlib.sha256(x.read_bytes()).hexdigest() for x in sorted(ROOT.rglob('*.tex')) if not x.is_relative_to(ROOT/'evidence')},'build_helper_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'scientific_runs':0,'protection':'--only-cached --untrusted; no shell escape, package downloads or persistent configuration changes'}
+ if result.returncode==0:
+     shutil.copyfile(B/'main.pdf',ROOT/NAME)
+     record.update(pdf_filename=NAME,pdf_sha256=hashlib.sha256((ROOT/NAME).read_bytes()).hexdigest(),pdf_bytes=(ROOT/NAME).stat().st_size)
+--- reviewed/helpers/verify_document.py
++++ publication/helpers/verify_document.py
+@@ -65,9 +65,9 @@
+ metadata={str(k):str(v) for k,v in reader.metadata.items()}
+ assert metadata['/Title']=='Certified Connection from Local Period-Doubling to the Captured Alternating Cycle in the Native Triad'
+ assert metadata['/Author']=='Hilmir Frímann Halldórsson (pzychozen)'
+-assert 'pending' in metadata['/Subject'] and 'v0.1' in metadata['/Subject']
++assert 'Research edition v0.1' in metadata['/Subject'] and 'author-authorized for repository publication' in metadata['/Subject'] and 'pending' not in metadata['/Subject']
+ base={'status':'PASS','recorded_utc':datetime.now(timezone.utc).isoformat(),'pdf_sha256':sha(PDF.read_bytes()),'pdf_bytes':PDF.stat().st_size,'page_count':N,'scientific_runs':0}
+ save('FONT_CHECK.json',dict(base,method='pypdf inspection of every page font and descendant FontDescriptor; nonempty embedded font streams required',fonts=fonts))
+ save('REFERENCE_CHECK.json',dict(base,labels=labels,bibliography=bib,referenced_labels=sorted(set(refs)),cited_keys=sorted(set(cites)),source_links=links,pdf_link_annotations=pdf_links,final_log_warning_failures=failures))
+-save('DOCUMENT_CHECK.json',dict(base,metadata=metadata,selectable_text_characters_by_page=list(map(len,texts)),embedded_fonts=len(fonts),named_destinations=len(destinations),warning_lines=[line for line in log.splitlines() if 'warning' in line.lower()],source_hashes={n:sha(t.encode('utf-8')) for n,t in sources.items()},helper_sha256=sha(Path(__file__).read_bytes()),inspection='Visual inspection is a separate record; not inferred from these automatic checks.'))
++save('DOCUMENT_CHECK.json',dict(base,metadata=metadata,selectable_text_characters_by_page=list(map(len,texts)),embedded_fonts=len(fonts),named_destinations=len(destinations),warning_lines=[line for line in log.splitlines() if 'warning' in line.lower()],source_hashes={n:sha((ROOT/n).read_bytes()) for n in sources},source_hash_basis='SHA-256 of raw file bytes',helper_sha256=sha(Path(__file__).read_bytes()),inspection='Visual inspection is a separate record; not inferred from these automatic checks.'))
+ print(json.dumps({'status':'PASS','pages':N,'fonts':len(fonts),'labels':len(labels),'bibliography':len(bib),'local_source_links':len(links),'pdf_link_annotations':len(pdf_links),'metadata':metadata},ensure_ascii=False))

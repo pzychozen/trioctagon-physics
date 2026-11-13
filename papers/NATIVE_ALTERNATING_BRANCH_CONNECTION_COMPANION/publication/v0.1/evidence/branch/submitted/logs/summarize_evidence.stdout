@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "recorded_utc": "2026-11-11T08:22:51.599553+00:00",
+  "prior_gate": "DISTINCT_GAP",
+  "connection": "Full M2-to-M3 connection certified for review",
+  "coverage": [
+    "0",
+    "1/200"
+  ],
+  "positive_branch_range": "0 < mu <= 1/200; mu=0 only the normalized onset anchor",
+  "patches": 128,
+  "joins": 127,
+  "max_patch_q": 0.6135413573622612,
+  "max_join_q": 0.5826522859389861,
+  "coarse_verified_bounds": {
+    "max_patch_q": "< 0.614",
+    "max_join_q": "< 0.583"
+  },
+  "nu_global": [
+    "39043424984394465496482179171789084942132403935638541680547120752464341/1766847064778384329583297500742918515827483896875618958121606201292619776",
+    "46331540319848641903455239827667251952039883998891956367112479898724317/1766847064778384329583297500742918515827483896875618958121606201292619776"
+  ],
+  "minimum_slice": 8.884454386248594,
+  "minimum_prestage_real": 1.5044748770377065,
+  "minimum_gauge_modulus": 8.882661790783267,
+  "maximum_squared_kick": 0.08228034702813843,
+  "nominal_budget_used": {
+    "root_solves": 130,
+    "newton_iterations": 389,
+    "maximum_iterations_at_one_node": 3,
+    "native_trajectories": 0,
+    "maximum_original_map_residual_nominal_only": 1.0408340855860843e-15
+  },
+  "validation_budget_used": {
+    "preliminary_patch_design_attempts": 6,
+    "full_generation_patch_tests": 128,
+    "shared_uniqueness_tests": 127,
+    "onset_endpoint_refinements": 2,
+    "extra_endpoint_stability_root_patch": 1,
+    "full_certificate_passes_including_replay": 2,
+    "broad_stability_boxes": 128,
+    "narrow_stability_boxes": 1,
+    "no_optimized_stability_threshold": true
+  },
+  "failed_attempts": [
+    "VALIDATION_TRIAL_01.json: two of three preliminary boxes failed sufficient bounds; all records retained",
+    "STABILITY_CERTIFICATE.json: all 128 broad dynamical bounds inconclusive, not instability"
+  ],
+  "stability_explicit_range": [
+    "4999/1000000",
+    "1/200"
+  ],
+  "stability_bound": "< 0.9601",
+  "stability_remaining": "Full-range stability unresolved; inherited local near-onset attraction has no explicit numerical range",
+  "endpoint_margin_display": [
+    3.532259008882793e-05,
+    3.64418968198775e-05,
+    4.251489404235601e-05,
+    1.0984693497393353e-05,
+    9.999999999986148e-05
+  ],
+  "nu_display": [
+    0.02209779542480757,
+    0.02622272252276685
+  ]
+}

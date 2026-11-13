@@ -1,0 +1,92 @@
+diff --git a/apps/scientific_ui/README.md b/apps/scientific_ui/README.md
+index 9b1ea93..589c5c8 100644
+--- a/apps/scientific_ui/README.md
++++ b/apps/scientific_ui/README.md
+@@ -7,6 +7,35 @@ certified kernel through `kernel_physics.api`. It does not bundle or modify the
+ kernel, Qt, Matplotlib, papers, research or scientific fixtures. The application
+ source/version and kernel source/version are distinct identities.
+ 
++## Natural Core Motion - source candidate v0.1 (29 October 2026)
++
++**B - Observers & Diagnostics -> Natural Core Motion** adds an explicit passive
++observation of a selected, validated three-channel Core RunRecord. Analyze the
++stored history, then inspect attached face vectors and their collective turn,
++conditional Z with frozen and staged observer settings, and separate native,
++envelope and clock displacement contributions. A common-phase probe transforms
++a display copy. The accepted host wire and declared refined PLUS tau=0 surface
++stay fixed.
++
++This is a separately identified application observation component; it computes
++the displayed correspondences from stored states without stepping the native
++recurrence or changing the kernel, worker, clocks, records or artifact locks.
++The staged display observer is explicitly recomputed and remains separate from
++recorded staged/EMA outputs. Source and edit guards qualify retained caches;
++JSON export preserves the completed observation's parent and configuration.
++
++Read the [feature guide](NATURAL_CORE_MOTION_v0.1.md) for controls, numerical
++limits, exact-value inspection and export behaviour, and the accompanying
++[research draft source](../../papers/NATURAL_CORE_MOTION_CORRESPONDENCE/v0.1/main.tex)
++for the correspondence and its limits. The candidate has 23 passing component/
++mathematical checks and 13 passing offscreen Qt panel checks. Its MainWindow
++smoke used a test-only installed-kernel-lock stub. These Linux source checks do
++not certify the Windows CPython 3.11 locked installation or real Windows export.
++
++**This is an uninstalled source candidate, not a package release or an accepted
++material-core motion law.** Earlier release and certification statements below
++retain their original scope.
++
+ 
+ ## Paper G axial observations (APP-G1 / APP-G2 / APP-G3)
+ 
+diff --git a/apps/scientific_ui/src/trioctagon_ui/app.py b/apps/scientific_ui/src/trioctagon_ui/app.py
+index 0e96cdc..c675383 100644
+--- a/apps/scientific_ui/src/trioctagon_ui/app.py
++++ b/apps/scientific_ui/src/trioctagon_ui/app.py
+@@ -16,6 +16,7 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFileDialog,
+ from trioctagon_ui import requests
+ from trioctagon_ui.artifact_panel import ArtifactsPanel
+ from trioctagon_ui.axial_views import AxialPanel
++from trioctagon_ui.motion_panel import MotionPanel
+ from trioctagon_ui.axial_artifacts import AxialAnalysisView
+ from trioctagon_ui.geometry_view import GeometryView
+ from trioctagon_ui.shell_panel import ShellPanel
+@@ -171,6 +172,7 @@ class MainWindow(QMainWindow):
+ 
+     def _artifact_context_changed(self, *unused):
+         self._validity(); self._identity()
++        self.motion_panel.context_changed()
+ 
+     def _load_artifact_core(self, candidate):
+         # Explicit closed routing to the unchanged v2 Core loader.
+@@ -376,11 +378,14 @@ class MainWindow(QMainWindow):
+         self.axial_panel.requested.connect(self._submit)
+         self.axial_panel.loaded.connect(self._accept_axial_saved)
+         self.observer_tabs.addTab(self.axial_panel, 'Axial Observables')
++        self.motion_panel = MotionPanel(self._analysis_source_record)
++        self.motion_panel.sample_selected.connect(self.sample.setValue)
++        self.observer_tabs.addTab(self.motion_panel, 'Natural Core Motion')
+         self.analysis_table = QTableWidget(0, 3); self.analysis_table.setHorizontalHeaderLabels(["Detached result / input / lineage", "Display value", "Exact stored spelling"])
+         self.analysis_table.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers)
+         self.analysis_table.setAccessibleName("Detached analysis table including every returned history coordinate and normalization field")
+         layout.addWidget(self.analysis_table, 1)
+-        self.observer_tabs.currentChanged.connect(lambda _: self.analysis_table.setVisible(self.observer_tabs.currentWidget() is not self.axial_panel))
++        self.observer_tabs.currentChanged.connect(lambda _: self.analysis_table.setVisible(self.observer_tabs.currentWidget() not in (self.axial_panel, self.motion_panel)))
+         self.tabs.addTab(page, "B — Observers & Diagnostics")
+ 
+     def _geometry(self):
+@@ -738,6 +743,7 @@ class MainWindow(QMainWindow):
+             self._failed({"exception_class": type(exc).__name__, "message": str(exc), "operation": "presentation", "qualification": "Record remains accepted; exact inspector and save remain available"})
+         self._validity()
+         self._analysis_context()
++        self.motion_panel.context_changed()
+ 
+     def _sample_changed(self, index):
+         view = self.current_run
+@@ -754,6 +760,7 @@ class MainWindow(QMainWindow):
+         fill_tree(self.passive_tree, {k: sample[k] for k in ("observer_states", "observer_results", "diagnostics", "raw_readouts")}, self.precision.value())
+         self.plots.select_sample(index)
+         self.axial_panel.select_sample(view.digest, index)
++        self.motion_panel.select_sample(view.digest, index)
+         if self.analysis_current and self.analysis_current.result["parent_digest"] == view.digest: self.history_plot.select_sample(index)
+         self._analysis_context()
+ 

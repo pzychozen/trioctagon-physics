@@ -1,0 +1,2287 @@
+{
+  "status": "PASS",
+  "date": "2026-11-11T18:11:37.801605+00:00",
+  "archive_members": 149,
+  "manifest_entries": 148,
+  "external_audit_entries": 149,
+  "source_inventory_entries": 34,
+  "packet_source_entries": 13,
+  "copied_source_identity_entries": 8,
+  "original_packet_members": 23,
+  "ledger_records": 6,
+  "patches": 128,
+  "uniqueness_joins": 127,
+  "quantitative_display": {
+    "patch_max": 0.6135413573622612,
+    "join_max": 0.5826522859389861,
+    "minimum_endpoint_clearance": 1.0984693497393353e-05,
+    "stability_norm_bound": 0.9600371642733128
+  },
+  "stable_replays_match": true,
+  "submitted_bytes_unchanged": true,
+  "checks": {
+    "archive_hash": {
+      "passed": true,
+      "detail": "a8394bea8d2a39a5124e1308e2bcc654a5401996f19a062f765548982abb0149"
+    },
+    "safe_unique_names": {
+      "passed": true,
+      "detail": null
+    },
+    "archive_crc": {
+      "passed": true,
+      "detail": null
+    },
+    "149_archive_members": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:CLAIM_LEDGER.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:FROZEN_PLAN.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:PRIOR_WORK_COMPARISON.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:PROOF_REPORT.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:README.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:RESULT_SUMMARY.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:REVIEW_MANIFEST.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:SOURCE_INVENTORY.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:data/ALGEBRA_AND_SOURCE_CHECKS.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:data/CERTIFICATE_CHECK.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:data/CONNECTION_CERTIFICATE.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:data/ENDPOINT_STABILITY_STRIP.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:data/EVIDENCE_SUMMARY.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:data/NOMINAL_PLAN_128.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:data/STABILITY_CERTIFICATE.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:data/VALIDATION_TRIAL_01.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:data/VALIDATION_TRIAL_02.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/ENVIRONMENT.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/EXECUTIONS.jsonl": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/FINAL_PRESERVATION_AND_CLAIM_AUDIT.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/IMPLEMENTATION_ATTRIBUTION.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/INITIAL_EXECUTIONS.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/INPUT_IDENTITIES.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/OPERATOR_BEFORE.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/PACKAGE_EXECUTION.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/PRIOR_SEARCH_RECORDS.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/algebra_and_source_checks.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/algebra_and_source_checks.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/check_certificate.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/check_certificate.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/endpoint_stability_strip.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/endpoint_stability_strip.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/final_audit.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/final_audit.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/generate_certificate.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/generate_certificate.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_after_branch.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_after_branch.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_after_head.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_after_head.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_after_staged.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_after_staged.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_after_status.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_after_status.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_after_unstaged.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_after_unstaged.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_before_branch.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_before_branch.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_before_head.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_before_head.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_before_staged.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_before_staged.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_before_status.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_before_status.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_before_unstaged.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_before_unstaged.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_index.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/operator_index.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_0.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_0.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_1.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_1.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_10.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_10.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_2.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_2.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_3.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_3.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_4.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_4.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_5.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_5.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_6.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_6.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_7.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_7.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_8.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_8.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_9.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/prior_search_9.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/source_M2_CLAUDE_CORRECTIONS.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/source_M2_CLAUDE_CORRECTIONS.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/source_M2_CODEX_ASSENT.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/source_M2_CODEX_ASSENT.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/source_M2_JOINT_ACCEPTANCE.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/source_M2_JOINT_ACCEPTANCE.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/source_m2_accepted_certificate.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/source_m2_accepted_certificate.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/source_m3_accepted_support.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/source_m3_accepted_support.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/stability_certificate.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/stability_certificate.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/summarize_evidence.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/summarize_evidence.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/validation_trial_01.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/validation_trial_01.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/validation_trial_02.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:logs/validation_trial_02.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/CURRENT_SCOPE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/EXACT_CASE.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/GPT_ANALYTICAL_GUIDE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/NATIVE_ALTERNATING_BRANCH_CONNECTION_01_CODEX_WORK_ORDER.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/PACKET_MANIFEST.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/PRIOR_WORK_COMPARISON.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/README_START_HERE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/REQUIRED_LOCAL_INPUTS.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/SOURCE_GUIDE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/SOURCE_IDENTITIES.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/inputs/current/CAPTURE_COMPANION_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/inputs/current/CAPTURE_PUBLICATION_RECEIPT.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/inputs/current/REPOSITORY_CATALOG.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/inputs/native/dynamics.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/inputs/paper_g/M3_JOINT_ACCEPTANCE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/inputs/paper_g/paper_g.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/inputs/prior/ATLAS_09.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/inputs/prior/CHIRAL_DRIFT_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/inputs/prior/COHERENCE_RETURNS_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/inputs/prior/COLLECTIVE_TURNING_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/inputs/prior/NCM_DUAL_02_REPORT.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/inputs/prior/NRG_THEOREM_LEDGER.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:packet/inputs/provenance/INHERITED_SOURCE_IDENTITIES.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:received/NATIVE_ALTERNATING_BRANCH_CONNECTION_01_CODEX_PACKET.zip": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:run_python.cmd": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:scripts/algebra_checks.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:scripts/arithmetic.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:scripts/check_certificate.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:scripts/common.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:scripts/dynamics_check.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:scripts/execute.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:scripts/final_audit.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:scripts/generate_certificate.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:scripts/load_inputs.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:scripts/model.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:scripts/nominal.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:scripts/package_review.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:scripts/prior_search.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:scripts/stability_endpoint_strip.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:scripts/summarize_evidence.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:scripts/validation.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:sources/CLAIM_SOURCE_MAP.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:sources/M2_CLAUDE_CORRECTIONS.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:sources/M2_CODEX_ASSENT.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:sources/M2_JOINT_ACCEPTANCE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:sources/PAPER_G_README.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:sources/SUPPLEMENT_README.md": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:sources/m2_accepted_certificate.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:sources/m3_accepted_support.json": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:sources/reference_implementations/gpt_m2_analytic_interval_review.py": {
+      "passed": true,
+      "detail": null
+    },
+    "member_bytes:sources/reference_implementations/m3_claude_review_v0_2.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest_set": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:CLAIM_LEDGER.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:data/ALGEBRA_AND_SOURCE_CHECKS.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:data/CERTIFICATE_CHECK.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:data/CONNECTION_CERTIFICATE.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:data/ENDPOINT_STABILITY_STRIP.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:data/EVIDENCE_SUMMARY.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:data/NOMINAL_PLAN_128.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:data/STABILITY_CERTIFICATE.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:data/VALIDATION_TRIAL_01.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:data/VALIDATION_TRIAL_02.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:FROZEN_PLAN.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/algebra_and_source_checks.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/algebra_and_source_checks.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/check_certificate.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/check_certificate.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/endpoint_stability_strip.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/endpoint_stability_strip.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/ENVIRONMENT.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/EXECUTIONS.jsonl": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/final_audit.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/final_audit.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/FINAL_PRESERVATION_AND_CLAIM_AUDIT.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/generate_certificate.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/generate_certificate.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/IMPLEMENTATION_ATTRIBUTION.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/INITIAL_EXECUTIONS.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/INPUT_IDENTITIES.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_after_branch.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_after_branch.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_after_head.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_after_head.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_after_staged.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_after_staged.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_after_status.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_after_status.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_after_unstaged.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_after_unstaged.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/OPERATOR_BEFORE.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_before_branch.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_before_branch.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_before_head.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_before_head.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_before_staged.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_before_staged.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_before_status.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_before_status.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_before_unstaged.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_before_unstaged.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_index.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/operator_index.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/PACKAGE_EXECUTION.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_0.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_0.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_1.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_1.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_10.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_10.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_2.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_2.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_3.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_3.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_4.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_4.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_5.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_5.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_6.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_6.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_7.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_7.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_8.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_8.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_9.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/prior_search_9.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/PRIOR_SEARCH_RECORDS.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/source_m2_accepted_certificate.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/source_m2_accepted_certificate.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/source_M2_CLAUDE_CORRECTIONS.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/source_M2_CLAUDE_CORRECTIONS.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/source_M2_CODEX_ASSENT.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/source_M2_CODEX_ASSENT.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/source_M2_JOINT_ACCEPTANCE.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/source_M2_JOINT_ACCEPTANCE.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/source_m3_accepted_support.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/source_m3_accepted_support.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/stability_certificate.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/stability_certificate.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/summarize_evidence.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/summarize_evidence.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/validation_trial_01.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/validation_trial_01.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/validation_trial_02.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:logs/validation_trial_02.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/CURRENT_SCOPE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/EXACT_CASE.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/GPT_ANALYTICAL_GUIDE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/inputs/current/CAPTURE_COMPANION_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/inputs/current/CAPTURE_PUBLICATION_RECEIPT.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/inputs/current/REPOSITORY_CATALOG.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/inputs/native/dynamics.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/inputs/paper_g/M3_JOINT_ACCEPTANCE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/inputs/paper_g/paper_g.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/inputs/prior/ATLAS_09.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/inputs/prior/CHIRAL_DRIFT_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/inputs/prior/COHERENCE_RETURNS_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/inputs/prior/COLLECTIVE_TURNING_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/inputs/prior/NCM_DUAL_02_REPORT.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/inputs/prior/NRG_THEOREM_LEDGER.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/inputs/provenance/INHERITED_SOURCE_IDENTITIES.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/NATIVE_ALTERNATING_BRANCH_CONNECTION_01_CODEX_WORK_ORDER.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/PACKET_MANIFEST.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/PRIOR_WORK_COMPARISON.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/README_START_HERE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/REQUIRED_LOCAL_INPUTS.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/SOURCE_GUIDE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:packet/SOURCE_IDENTITIES.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:PRIOR_WORK_COMPARISON.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:PROOF_REPORT.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:README.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:received/NATIVE_ALTERNATING_BRANCH_CONNECTION_01_CODEX_PACKET.zip": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:RESULT_SUMMARY.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:run_python.cmd": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:scripts/algebra_checks.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:scripts/arithmetic.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:scripts/check_certificate.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:scripts/common.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:scripts/dynamics_check.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:scripts/execute.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:scripts/final_audit.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:scripts/generate_certificate.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:scripts/load_inputs.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:scripts/model.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:scripts/nominal.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:scripts/package_review.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:scripts/prior_search.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:scripts/stability_endpoint_strip.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:scripts/summarize_evidence.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:scripts/validation.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:SOURCE_INVENTORY.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:sources/CLAIM_SOURCE_MAP.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:sources/m2_accepted_certificate.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:sources/M2_CLAUDE_CORRECTIONS.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:sources/M2_CODEX_ASSENT.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:sources/M2_JOINT_ACCEPTANCE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:sources/m3_accepted_support.json": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:sources/PAPER_G_README.md": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:sources/reference_implementations/gpt_m2_analytic_interval_review.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:sources/reference_implementations/m3_claude_review_v0_2.py": {
+      "passed": true,
+      "detail": null
+    },
+    "manifest:sources/SUPPLEMENT_README.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit_set": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:CLAIM_LEDGER.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:FROZEN_PLAN.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:PRIOR_WORK_COMPARISON.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:PROOF_REPORT.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:README.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:RESULT_SUMMARY.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:REVIEW_MANIFEST.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:SOURCE_INVENTORY.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:data/ALGEBRA_AND_SOURCE_CHECKS.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:data/CERTIFICATE_CHECK.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:data/CONNECTION_CERTIFICATE.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:data/ENDPOINT_STABILITY_STRIP.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:data/EVIDENCE_SUMMARY.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:data/NOMINAL_PLAN_128.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:data/STABILITY_CERTIFICATE.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:data/VALIDATION_TRIAL_01.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:data/VALIDATION_TRIAL_02.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/ENVIRONMENT.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/EXECUTIONS.jsonl": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/FINAL_PRESERVATION_AND_CLAIM_AUDIT.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/IMPLEMENTATION_ATTRIBUTION.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/INITIAL_EXECUTIONS.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/INPUT_IDENTITIES.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/OPERATOR_BEFORE.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/PACKAGE_EXECUTION.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/PRIOR_SEARCH_RECORDS.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/algebra_and_source_checks.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/algebra_and_source_checks.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/check_certificate.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/check_certificate.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/endpoint_stability_strip.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/endpoint_stability_strip.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/final_audit.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/final_audit.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/generate_certificate.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/generate_certificate.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_after_branch.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_after_branch.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_after_head.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_after_head.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_after_staged.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_after_staged.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_after_status.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_after_status.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_after_unstaged.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_after_unstaged.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_before_branch.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_before_branch.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_before_head.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_before_head.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_before_staged.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_before_staged.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_before_status.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_before_status.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_before_unstaged.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_before_unstaged.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_index.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/operator_index.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_0.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_0.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_1.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_1.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_10.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_10.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_2.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_2.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_3.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_3.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_4.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_4.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_5.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_5.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_6.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_6.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_7.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_7.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_8.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_8.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_9.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/prior_search_9.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/source_M2_CLAUDE_CORRECTIONS.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/source_M2_CLAUDE_CORRECTIONS.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/source_M2_CODEX_ASSENT.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/source_M2_CODEX_ASSENT.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/source_M2_JOINT_ACCEPTANCE.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/source_M2_JOINT_ACCEPTANCE.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/source_m2_accepted_certificate.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/source_m2_accepted_certificate.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/source_m3_accepted_support.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/source_m3_accepted_support.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/stability_certificate.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/stability_certificate.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/summarize_evidence.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/summarize_evidence.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/validation_trial_01.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/validation_trial_01.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/validation_trial_02.stderr": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:logs/validation_trial_02.stdout": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/CURRENT_SCOPE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/EXACT_CASE.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/GPT_ANALYTICAL_GUIDE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/NATIVE_ALTERNATING_BRANCH_CONNECTION_01_CODEX_WORK_ORDER.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/PACKET_MANIFEST.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/PRIOR_WORK_COMPARISON.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/README_START_HERE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/REQUIRED_LOCAL_INPUTS.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/SOURCE_GUIDE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/SOURCE_IDENTITIES.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/inputs/current/CAPTURE_COMPANION_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/inputs/current/CAPTURE_PUBLICATION_RECEIPT.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/inputs/current/REPOSITORY_CATALOG.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/inputs/native/dynamics.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/inputs/paper_g/M3_JOINT_ACCEPTANCE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/inputs/paper_g/paper_g.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/inputs/prior/ATLAS_09.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/inputs/prior/CHIRAL_DRIFT_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/inputs/prior/COHERENCE_RETURNS_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/inputs/prior/COLLECTIVE_TURNING_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/inputs/prior/NCM_DUAL_02_REPORT.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/inputs/prior/NRG_THEOREM_LEDGER.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:packet/inputs/provenance/INHERITED_SOURCE_IDENTITIES.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:received/NATIVE_ALTERNATING_BRANCH_CONNECTION_01_CODEX_PACKET.zip": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:run_python.cmd": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:scripts/algebra_checks.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:scripts/arithmetic.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:scripts/check_certificate.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:scripts/common.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:scripts/dynamics_check.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:scripts/execute.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:scripts/final_audit.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:scripts/generate_certificate.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:scripts/load_inputs.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:scripts/model.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:scripts/nominal.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:scripts/package_review.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:scripts/prior_search.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:scripts/stability_endpoint_strip.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:scripts/summarize_evidence.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:scripts/validation.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:sources/CLAIM_SOURCE_MAP.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:sources/M2_CLAUDE_CORRECTIONS.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:sources/M2_CODEX_ASSENT.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:sources/M2_JOINT_ACCEPTANCE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:sources/PAPER_G_README.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:sources/SUPPLEMENT_README.md": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:sources/m2_accepted_certificate.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:sources/m3_accepted_support.json": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:sources/reference_implementations/gpt_m2_analytic_interval_review.py": {
+      "passed": true,
+      "detail": null
+    },
+    "external_audit:sources/reference_implementations/m3_claude_review_v0_2.py": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/CURRENT_SCOPE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/EXACT_CASE.json": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/GPT_ANALYTICAL_GUIDE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/inputs/current/CAPTURE_COMPANION_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/inputs/current/CAPTURE_PUBLICATION_RECEIPT.json": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/inputs/current/REPOSITORY_CATALOG.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/inputs/native/dynamics.py": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/inputs/paper_g/M3_JOINT_ACCEPTANCE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/inputs/paper_g/paper_g.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/inputs/prior/ATLAS_09.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/inputs/prior/CHIRAL_DRIFT_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/inputs/prior/COHERENCE_RETURNS_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/inputs/prior/COLLECTIVE_TURNING_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/inputs/prior/NCM_DUAL_02_REPORT.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/inputs/prior/NRG_THEOREM_LEDGER.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/inputs/provenance/INHERITED_SOURCE_IDENTITIES.json": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/NATIVE_ALTERNATING_BRANCH_CONNECTION_01_CODEX_WORK_ORDER.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/PACKET_MANIFEST.json": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/PRIOR_WORK_COMPARISON.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/README_START_HERE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/REQUIRED_LOCAL_INPUTS.json": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/SOURCE_GUIDE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:packet/SOURCE_IDENTITIES.json": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:sources/CLAIM_SOURCE_MAP.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:sources/m2_accepted_certificate.json": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:sources/M2_CLAUDE_CORRECTIONS.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:sources/M2_CODEX_ASSENT.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:sources/M2_JOINT_ACCEPTANCE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:sources/m3_accepted_support.json": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:sources/PAPER_G_README.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:sources/reference_implementations/gpt_m2_analytic_interval_review.py": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:sources/reference_implementations/m3_claude_review_v0_2.py": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:sources/SUPPLEMENT_README.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_inventory:received/NATIVE_ALTERNATING_BRANCH_CONNECTION_01_CODEX_PACKET.zip": {
+      "passed": true,
+      "detail": null
+    },
+    "source_registry:inputs/paper_g/paper_g.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "source_blob:inputs/paper_g/paper_g.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "source_registry:inputs/paper_g/M3_JOINT_ACCEPTANCE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_blob:inputs/paper_g/M3_JOINT_ACCEPTANCE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_registry:inputs/native/dynamics.py": {
+      "passed": true,
+      "detail": null
+    },
+    "source_blob:inputs/native/dynamics.py": {
+      "passed": true,
+      "detail": null
+    },
+    "source_registry:inputs/prior/NCM_DUAL_02_REPORT.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_blob:inputs/prior/NCM_DUAL_02_REPORT.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_registry:inputs/prior/COHERENCE_RETURNS_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "source_blob:inputs/prior/COHERENCE_RETURNS_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "source_registry:inputs/prior/COLLECTIVE_TURNING_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "source_blob:inputs/prior/COLLECTIVE_TURNING_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "source_registry:inputs/prior/CHIRAL_DRIFT_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "source_blob:inputs/prior/CHIRAL_DRIFT_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "source_registry:inputs/prior/NRG_THEOREM_LEDGER.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_blob:inputs/prior/NRG_THEOREM_LEDGER.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_registry:inputs/prior/ATLAS_09.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_blob:inputs/prior/ATLAS_09.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_registry:inputs/provenance/INHERITED_SOURCE_IDENTITIES.json": {
+      "passed": true,
+      "detail": null
+    },
+    "source_blob:inputs/provenance/INHERITED_SOURCE_IDENTITIES.json": {
+      "passed": true,
+      "detail": null
+    },
+    "source_registry:inputs/current/CAPTURE_COMPANION_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "source_blob:inputs/current/CAPTURE_COMPANION_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "source_registry:inputs/current/REPOSITORY_CATALOG.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_blob:inputs/current/REPOSITORY_CATALOG.md": {
+      "passed": true,
+      "detail": null
+    },
+    "source_registry:inputs/current/CAPTURE_PUBLICATION_RECEIPT.json": {
+      "passed": true,
+      "detail": null
+    },
+    "source_blob:inputs/current/CAPTURE_PUBLICATION_RECEIPT.json": {
+      "passed": true,
+      "detail": null
+    },
+    "copied_source:sources/m2_accepted_certificate.json": {
+      "passed": true,
+      "detail": null
+    },
+    "copied_blob:sources/m2_accepted_certificate.json": {
+      "passed": true,
+      "detail": null
+    },
+    "copied_source:sources/m3_accepted_support.json": {
+      "passed": true,
+      "detail": null
+    },
+    "copied_blob:sources/m3_accepted_support.json": {
+      "passed": true,
+      "detail": null
+    },
+    "copied_source:sources/M2_JOINT_ACCEPTANCE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "copied_blob:sources/M2_JOINT_ACCEPTANCE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "copied_source:sources/M2_CLAUDE_CORRECTIONS.md": {
+      "passed": true,
+      "detail": null
+    },
+    "copied_blob:sources/M2_CLAUDE_CORRECTIONS.md": {
+      "passed": true,
+      "detail": null
+    },
+    "copied_source:sources/M2_CODEX_ASSENT.md": {
+      "passed": true,
+      "detail": null
+    },
+    "copied_blob:sources/M2_CODEX_ASSENT.md": {
+      "passed": true,
+      "detail": null
+    },
+    "copied_source:sources/CLAIM_SOURCE_MAP.md": {
+      "passed": true,
+      "detail": null
+    },
+    "copied_source:sources/SUPPLEMENT_README.md": {
+      "passed": true,
+      "detail": null
+    },
+    "copied_source:sources/PAPER_G_README.md": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_hash": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:CURRENT_SCOPE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:EXACT_CASE.json": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:GPT_ANALYTICAL_GUIDE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:NATIVE_ALTERNATING_BRANCH_CONNECTION_01_CODEX_WORK_ORDER.md": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:PACKET_MANIFEST.json": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:PRIOR_WORK_COMPARISON.md": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:README_START_HERE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:REQUIRED_LOCAL_INPUTS.json": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:SOURCE_GUIDE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:SOURCE_IDENTITIES.json": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:inputs/current/CAPTURE_COMPANION_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:inputs/current/CAPTURE_PUBLICATION_RECEIPT.json": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:inputs/current/REPOSITORY_CATALOG.md": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:inputs/native/dynamics.py": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:inputs/paper_g/M3_JOINT_ACCEPTANCE.md": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:inputs/paper_g/paper_g.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:inputs/prior/ATLAS_09.md": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:inputs/prior/CHIRAL_DRIFT_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:inputs/prior/COHERENCE_RETURNS_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:inputs/prior/COLLECTIVE_TURNING_main.tex": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:inputs/prior/NCM_DUAL_02_REPORT.md": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:inputs/prior/NRG_THEOREM_LEDGER.md": {
+      "passed": true,
+      "detail": null
+    },
+    "original_packet_member:inputs/provenance/INHERITED_SOURCE_IDENTITIES.json": {
+      "passed": true,
+      "detail": null
+    },
+    "standalone:PROOF_REPORT.md": {
+      "passed": true,
+      "detail": null
+    },
+    "standalone:RESULT_SUMMARY(4).md": {
+      "passed": true,
+      "detail": null
+    },
+    "patch_bound": {
+      "passed": true,
+      "detail": "10840337463756569693832320179524716951852578728489129779311950942755849677/17668470647783843295832975007429185158274838968756189581216062012926197760"
+    },
+    "join_bound": {
+      "passed": true,
+      "detail": "1819098131333470159133274845534392580529116675880663469793770641999105520125056028597166524698043860258787525040402646154882509942558449172431/3122099020690981158127594425344932862423723224985103552938221640735384206662553143106211675981822735932210502806875639544670352237086159929344"
+    },
+    "closed_cover": {
+      "passed": true,
+      "detail": null
+    },
+    "coarse_slice": {
+      "passed": true,
+      "detail": "15697472154500768674074784413962254560135916313060370718554015351538265279/1766847064778384329583297500742918515827483896875618958121606201292619776"
+    },
+    "coarse_prestage_real": {
+      "passed": true,
+      "detail": "1329088510263446257814926950754832739048973527022314532586253089872131989/883423532389192164791648750371459257913741948437809479060803100646309888"
+    },
+    "coarse_gauge_modulus": {
+      "passed": true,
+      "detail": "1961788114058065131796914024908612805702525944122986598418336033339513225/220855883097298041197912187592864814478435487109452369765200775161577472"
+    },
+    "coarse_nu": {
+      "passed": true,
+      "detail": "39043424984394465496482179171789084942132403935638541680547120752464341/1766847064778384329583297500742918515827483896875618958121606201292619776"
+    },
+    "squared_kick_bound": {
+      "passed": true,
+      "detail": "145376789635613231204938067158993368846958313976048182498633393524334867/1766847064778384329583297500742918515827483896875618958121606201292619776"
+    },
+    "endpoint_clearance": {
+      "passed": true,
+      "detail": [
+        "4605016754448540141351249833935409068980914562037992648676897159083911695344846204869097/130370302485407109521180524058200202307293977194619920040712988758680403184853549195737432064",
+        "1187735277887356312747005464238993725241398259262544987008939726648686588873489101080319/32592575621351777380295131014550050576823494298654980010178247189670100796213387298934358016",
+        "692834949554623205963100437237273041615173375831258982589951216215580874431973411421039/16296287810675888690147565507275025288411747149327490005089123594835050398106693649467179008",
+        "1432077813964655964006395047033096545530243448214329638503924819435170797995000695305405/130370302485407109521180524058200202307293977194619920040712988758680403184853549195737432064",
+        "1629628781065331572725485882104551319446838045385834623212124315879205080142118867626995/16296287810675888690147565507275025288411747149327490005089123594835050398106693649467179008"
+      ]
+    },
+    "strip_stability_bound": {
+      "passed": true,
+      "detail": "1696238845774465660549795385829121460367632158398874340529235604171099357/1766847064778383701938945588933206010149732454613936272107078303528817768"
+    },
+    "broad_stability_not_proved": {
+      "passed": true,
+      "detail": null
+    },
+    "stable_replay:CERTIFICATE_CHECK.json": {
+      "passed": true,
+      "detail": null
+    },
+    "stable_replay:ALGEBRA_AND_SOURCE_CHECKS.json": {
+      "passed": true,
+      "detail": null
+    }
+  },
+  "scope": "File identities and exact certificate-report comparisons; independent reviewer organization. Not a new interval engine, old theorem replay, remote audit or repository operation."
+}

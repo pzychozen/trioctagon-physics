@@ -1,0 +1,9 @@
+--- submitted/helpers/verify_document.py
++++ corrected/helpers/verify_document.py
+@@ -69,5 +69,5 @@
+ base={'status':'PASS','recorded_utc':datetime.now(timezone.utc).isoformat(),'pdf_sha256':sha(PDF.read_bytes()),'pdf_bytes':PDF.stat().st_size,'page_count':N,'scientific_runs':0}
+ save('FONT_CHECK.json',dict(base,method='pypdf inspection of every page font and descendant FontDescriptor; nonempty embedded font streams required',fonts=fonts))
+ save('REFERENCE_CHECK.json',dict(base,labels=labels,bibliography=bib,referenced_labels=sorted(set(refs)),cited_keys=sorted(set(cites)),source_links=links,pdf_link_annotations=pdf_links,final_log_warning_failures=failures))
+-save('DOCUMENT_CHECK.json',dict(base,metadata=metadata,selectable_text_characters_by_page=list(map(len,texts)),embedded_fonts=len(fonts),named_destinations=len(destinations),warning_lines=[line for line in log.splitlines() if 'warning' in line.lower()],source_hashes={n:sha(t.encode('utf-8')) for n,t in sources.items()},helper_sha256=sha(Path(__file__).read_bytes()),inspection='Visual inspection is a separate record; not inferred from these automatic checks.'))
++save('DOCUMENT_CHECK.json',dict(base,metadata=metadata,selectable_text_characters_by_page=list(map(len,texts)),embedded_fonts=len(fonts),named_destinations=len(destinations),warning_lines=[line for line in log.splitlines() if 'warning' in line.lower()],source_hashes={n:sha((ROOT/n).read_bytes()) for n in sources},source_hash_basis='SHA-256 of raw file bytes',helper_sha256=sha(Path(__file__).read_bytes()),inspection='Visual inspection is a separate record; not inferred from these automatic checks.'))
+ print(json.dumps({'status':'PASS','pages':N,'fonts':len(fonts),'labels':len(labels),'bibliography':len(bib),'local_source_links':len(links),'pdf_link_annotations':len(pdf_links),'metadata':metadata},ensure_ascii=False))

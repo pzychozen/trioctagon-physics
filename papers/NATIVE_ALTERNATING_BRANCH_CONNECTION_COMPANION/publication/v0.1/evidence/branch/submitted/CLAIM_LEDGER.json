@@ -1,0 +1,62 @@
+{
+  "task": "NATIVE_ALTERNATING_BRANCH_CONNECTION_01",
+  "disposition": "New connection result checked by Codex; returned for GPT/author review",
+  "records": [
+    {
+      "id": "I01",
+      "classification": "INHERITED_ACCEPTED",
+      "claim": "Exact M2 host, spectrum, critical normalization, positive cubic coefficient and local supercritical H-cycle",
+      "sources": ["sources/m2_accepted_certificate.json", "sources/M2_JOINT_ACCEPTANCE.md", "sources/M2_CLAUDE_CORRECTIONS.md", "sources/M2_CODEX_ASSENT.md", "packet/inputs/paper_g/paper_g.tex:191-278"],
+      "verification": "Authenticated bytes and exact-normalization consistency; historical theorem not rerun",
+      "limits": "M2 supplies no explicit positive-mu interval or global basin"
+    },
+    {
+      "id": "I02",
+      "classification": "INHERITED_ACCEPTED",
+      "claim": "Unique two-step fixed point in the exact M3 Up, its H symmetry and repaired entrance capture at mu=1/200",
+      "sources": ["sources/m3_accepted_support.json:values.exact_receipts.Up", "packet/inputs/paper_g/M3_JOINT_ACCEPTANCE.md:sections 2-3", "packet/inputs/paper_g/paper_g.tex:285-391"],
+      "verification": "Authenticated data, exact Up endpoints and positive norm weights loaded",
+      "limits": "No repeated entrance propagation; Um remains an outer enclosure"
+    },
+    {
+      "id": "N01",
+      "classification": "NEW_ANALYTICAL_DEDUCTION_AND_CERTIFICATE",
+      "claim": "Removable amplitude system with exact e^T eta=sqrt(mu/nu), regular at onset, and a verified M2 branch anchor on 0<=mu<=1/25600",
+      "assumptions": ["I01", "fixed exact family", "positive regular chart"],
+      "proof": "PROOF_REPORT.md sections 2-3; exact divided identities and complete limiting Jacobian",
+      "evidence": ["scripts/model.py", "scripts/arithmetic.py", "data/CONNECTION_CERTIFICATE.json:onset,patches[0]", "data/ALGEBRA_AND_SOURCE_CHECKS.json"],
+      "limits": "Zero is the anchor only; the nontrivial physical family has mu>0"
+    },
+    {
+      "id": "N02",
+      "classification": "NEW_COMPUTER_ASSISTED_CONNECTION",
+      "claim": "The anchored branch is a regular graph for 0<mu<=1/200, with 128 patches, 127 common-uniqueness joins and endpoint strictly inside exact Up",
+      "assumptions": ["I01", "I02", "N01", "correct interval/derivative implementation"],
+      "proof": "PROOF_REPORT.md sections 4-5; uniform contraction, convex shared uniqueness and inherited endpoint uniqueness",
+      "evidence": ["data/CONNECTION_CERTIFICATE.json", "data/CERTIFICATE_CHECK.json", "scripts/check_certificate.py"],
+      "limits": "Uniqueness in certified regions only; no global branch classification or entrance theorem at other parameters"
+    },
+    {
+      "id": "N03",
+      "classification": "NEW_APPLICATION_OF_INHERITED_SYMMETRY",
+      "claim": "Every positive-mu branch member has quotient and full primitive period two; H-odd phase-invariant observables reverse sign",
+      "assumptions": ["N02", "regular-domain U(1) and conjugation equivariance", "e^T eta>0"],
+      "proof": "PROOF_REPORT.md section 5; F(A)=exp(i theta) conjugate(A) implies F^2(A)=A",
+      "limits": "The lift algebra is inherited; no all-interval nonvanishing claim for W or Gamma"
+    },
+    {
+      "id": "N04",
+      "classification": "NEW_BOUNDED_STABILITY_CERTIFICATE",
+      "claim": "Local quotient attraction on 4999/1000000<=mu<=1/200 with actual two-step transformed derivative norm below 0.9601",
+      "assumptions": ["N02", "direct quotient derivative enclosure", "verified rational similarity basis"],
+      "proof": "PROOF_REPORT.md section 6; P=(H D_Fhat)^2 and inverse-defect bound",
+      "evidence": ["data/ENDPOINT_STABILITY_STRIP.json", "scripts/dynamics_check.py", "data/CERTIFICATE_CHECK.json"],
+      "limits": "Full-interval attraction unresolved. All 128 broad bounds were inconclusive, not certified losses. Common phase remains neutral."
+    }
+  ],
+  "nominal_evidence": {"file": "data/NOMINAL_PLAN_128.json", "role": "Centers and preconditioners only; not a proof from residuals"},
+  "verification_not_theorem_counts": {"rejection_controls": 4, "supporting_exact_checks": 31},
+  "engine_independence": "Shared new analytic interval engine for generation/replay; independent organization of decisive Fraction comparisons, not a second interval implementation",
+  "remaining_question": "Stability along the full now-connected branch; no successor investigation commissioned",
+  "publication_authorized": false
+}
