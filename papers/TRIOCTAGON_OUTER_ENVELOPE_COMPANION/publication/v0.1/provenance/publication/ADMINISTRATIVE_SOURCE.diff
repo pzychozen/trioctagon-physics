@@ -1,0 +1,62 @@
+--- reviewed/main.tex
++++ publication/main.tex
+@@ -3,8 +3,8 @@
+ \usepackage[T1]{fontenc}
+ \usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,array,tabularx,longtable,graphicx,xcolor,fancyhdr,hyperref}
+ \definecolor{ink}{HTML}{16394D}
+-\hypersetup{colorlinks=true,linkcolor=ink,citecolor=ink,urlcolor=ink,pdftitle={Noncollision Facet Transition and Exact Outer-Envelope Classification in the Folded Tri-Octagon},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={Research manuscript v0.1; accepted mathematical investigation; manuscript and author review pending; project-internal, not externally peer reviewed.},pdfkeywords={Tri-Octagon, convex hull, noncollision facet transition, exact classification}}
+-\pagestyle{fancy}\fancyhf{}\lhead{\small Folded Tri-Octagon: outer envelopes}\rhead{\small Research manuscript v0.1}\cfoot{\thepage}
++\hypersetup{colorlinks=true,linkcolor=ink,citecolor=ink,urlcolor=ink,pdftitle={Noncollision Facet Transition and Exact Outer-Envelope Classification in the Folded Tri-Octagon},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={Research edition v0.1; project-internal manuscript review complete; author-authorized for repository publication; not externally peer reviewed.},pdfkeywords={Tri-Octagon, convex hull, noncollision facet transition, exact classification}}
++\pagestyle{fancy}\fancyhf{}\lhead{\small Folded Tri-Octagon: outer envelopes}\rhead{\small Research edition v0.1}\cfoot{\thepage}
+ \setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+ \setlength{\emergencystretch}{2em}
+ \newcommand{\xs}{x_*}
+@@ -25,10 +25,10 @@
+ {\small\itshape A companion to Spherical Edge Extensions of the Folded Tri-Octagon: Exact Incidence Events, Natural Terminations, and Convex Envelopes\par}
+ \vspace{7pt}
+ {\large Hilmir Frímann Halldórsson}\par
+-Research manuscript v0.1 \quad 14 November 2026\par
++Research edition v0.1 \quad 14 November 2026\par
+ \vspace{3pt}
+-{\footnotesize Accepted mathematical investigation; manuscript and author review pending.\par
+-Project-internal research manuscript, not externally peer reviewed.}
++{\footnotesize Project-internal manuscript review complete; author-authorized for repository publication.\par
++Project-internal research edition, not externally peer reviewed.}
+ \begin{abstract}
+ The existing folded Tri-Octagon determines 21 supporting lines and 42 signed exits on a concentric observer sphere. We study their explicitly declared convex envelope across the closed interval from Crossing A to Crossing B. The accepted coincidence catalogue fixes the endpoint mergers but does not determine all intervening supporting faces. There is exactly one interior change of the labelled maximal-face lattice: at midpoint-to-exit distance $t=3h$, all 42 vertices remain distinct while six symmetry-related face patches become maximal hexagons. The two open chambers have 56 and 50 facets, and the transition has 44. Each affected patch changes from two triangles and a quadrilateral to one hexagon, then to two quadrilaterals. Exact supporting-plane and polygon-side signs hold throughout each chamber; closure under true ridge adjacency proves that no facet or interior combinatorial transition is omitted. The limiting polygons recover the inherited A/B hulls. The complete closed-interval list has no ten-vertex maximal facet. These are consequences of the fixed exit family and convexification convention, without selecting a physical boundary, preferred observer radius, or dynamical law.
+ \end{abstract}
+@@ -243,9 +243,9 @@
+ \end{table}\par
+ Historical scripts remain available for later reproduction in a fresh copy; none ran during authoring. This task used only raw-byte preservation, saved-data transcription, typesetting and document checks. The parent paper, accepted evidence and repository remain unchanged.
+ 
+-The investigation was internally accepted on 13 November 2026; this manuscript was commissioned and prepared on 14 November. Manuscript and author review remain pending. Historical status fields are preserved. This commission authorizes no publication.
+-
+-\textbf{Authorship and assistance.} Hilmir Frímann Halldórsson supplies authorship and geometric/research direction; GPT supplies scientific steering and internal scientific review; Codex supplies investigation, verification and manuscript preparation. Internal acceptance is distinct from author approval, manuscript review and publication. No external peer review or journal acceptance is claimed.
++The investigation was internally accepted on 13 November 2026; this manuscript was commissioned and prepared on 14 November. GPT manuscript review was completed on 14 November 2026. The author has authorized repository publication of this research edition. Historical status fields are preserved.
++
++\textbf{Authorship and assistance.} Hilmir Frímann Halldórsson supplies authorship and geometric/research direction; GPT supplies scientific steering and internal scientific and manuscript review; Codex supplies investigation, verification and manuscript preparation. Internal acceptance is distinct from author approval, manuscript review and publication. No external peer review or journal acceptance is claimed.
+ 
+ \input{references.tex}
+ 
+--- reviewed/build.py
++++ publication/build.py
+@@ -13,7 +13,7 @@
+ cmd=[args.tectonic,'--only-cached','--untrusted','--keep-logs','--keep-intermediates','--outdir',str(B),'main.tex'];version=subprocess.run([args.tectonic,'--version'],capture_output=True,check=True).stdout.decode().strip();start=datetime.now(timezone.utc).isoformat()
+ q=subprocess.run(cmd,cwd=ROOT,env=env,capture_output=True,timeout=240);(B/'compiler.stdout').write_bytes(q.stdout);(B/'compiler.stderr').write_bytes(q.stderr)
+ sources=[ROOT/'main.tex',ROOT/'references.tex',*sorted((ROOT/'tables').glob('*.tex')),*sorted((ROOT/'figures').glob('local_facet_transition.*'))]
+-rec={'started_utc':start,'finished_utc':datetime.now(timezone.utc).isoformat(),'client_date':'2026-11-14','status':'Manuscript and author review pending; no publication authorized.','command':cmd,'cwd':str(ROOT),'compiler_version':version,'exit_status':q.returncode,'source_date_epoch':epoch,'python':sys.executable,'python_version':sys.version,'conda_environment':os.environ['CONDA_DEFAULT_ENV'],'raw_source_hashes':{p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sources},'build_helper_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'new_scientific_runs':0,'protection':'Existing cached compiler, --only-cached --untrusted, external intermediates; no package download or global configuration change.'}
++rec={'started_utc':start,'finished_utc':datetime.now(timezone.utc).isoformat(),'client_date':datetime.now(timezone.utc).date().isoformat(),'status':'Project-internal manuscript review complete; author-authorized for repository publication.','command':cmd,'cwd':str(ROOT),'compiler_version':version,'exit_status':q.returncode,'source_date_epoch':epoch,'python':sys.executable,'python_version':sys.version,'conda_environment':os.environ['CONDA_DEFAULT_ENV'],'raw_source_hashes':{p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sources},'build_helper_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'new_scientific_runs':0,'protection':'Existing cached compiler, --only-cached --untrusted, external intermediates; no package download or global configuration change.'}
+ if q.returncode==0:
+     shutil.copyfile(B/'main.pdf',ROOT/NAME);rec.update(pdf_sha256=hashlib.sha256((ROOT/NAME).read_bytes()).hexdigest(),pdf_bytes=(ROOT/NAME).stat().st_size)
+ (B/'BUILD_RECEIPT.json').write_text(json.dumps(rec,indent=2)+'\n',encoding='utf-8');print((q.stdout+q.stderr).decode(errors='replace'));sys.exit(q.returncode)
+--- reviewed/helpers/verify_document.py
++++ publication/helpers/verify_document.py
+@@ -43,7 +43,7 @@
+             links+=1
+ meta={str(k):str(v) for k,v in reader.metadata.items()}
+ assert meta['/Title']=='Noncollision Facet Transition and Exact Outer-Envelope Classification in the Folded Tri-Octagon'
+-assert meta['/Author']=='Hilmir Frímann Halldórsson' and 'review pending' in meta['/Subject']
++assert meta['/Author']=='Hilmir Frímann Halldórsson' and meta['/Subject']=='Research edition v0.1; project-internal manuscript review complete; author-authorized for repository publication; not externally peer reviewed.'
+ aux=(B/'main.aux').read_text(encoding='utf-8');labels={k:{'number':n,'pdf_page':int(p)} for k,n,p in re.findall(r'\\newlabel\{([^}]+)\}\{\{([^}]*)\}\{(\d+)\}',aux)}
+ sources=[ROOT/'main.tex',ROOT/'references.tex',*sorted((ROOT/'tables').glob('*.tex'))];tex='\n'.join(p.read_text(encoding='utf-8') for p in sources)
+ declared=re.findall(r'\\label\{([^}]+)\}',tex);refs=re.findall(r'\\(?:ref|eqref|pageref)\{([^}]+)\}',tex);bib=re.findall(r'\\bibitem\{([^}]+)\}',tex);cites=[k.strip() for c in re.findall(r'\\cite(?:\[[^\]]*\])?\{([^}]+)\}',tex) for k in c.split(',')]

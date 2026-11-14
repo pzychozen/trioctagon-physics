@@ -1,0 +1,613 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=24mm,headheight=15pt,headsep=7mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array,longtable,tabularx,graphicx,xcolor,fancyhdr}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black,breaklinks=true]{hyperref}
+\definecolor{ink}{HTML}{173247}
+\hypersetup{pdftitle={Spherical Edge Extensions of the Folded Tri-Octagon},pdfauthor={Hilmir Frimann Halldorsson},pdfsubject={Proposed v0.1 mathematical synthesis; internal review draft},pdfkeywords={exact geometry, spherical edge extensions, convex hulls, Tri-Octagon}}
+\pagestyle{fancy}\fancyhf{}\lhead{\small Spherical edge extensions}\rhead{\small Proposed edition v0.1}\cfoot{\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\setcounter{tocdepth}{1}
+\raggedbottom
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\R}{\mathbb R}\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\diag}{\operatorname{diag}}\newcommand{\Rot}{\operatorname{Rot}_z}
+\newcommand{\ez}{\mathbf e_z}\newcommand{\ph}{\varphi}
+\newcommand{\source}[1]{\par{\small\emph{Accepted source:} #1}\par}
+\newcommand{\plate}[4]{\begin{figure}[htbp]\centering\includegraphics[width=\linewidth,height=.72\textheight,keepaspectratio]{figures/#1.png}\caption{#2}\label{#3}\end{figure}\clearpage #4}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+{\color{ink}\Huge\bfseries Spherical Edge Extensions\par of the Folded Tri-Octagon\par}
+\vspace{7mm}
+{\Large Exact Incidence Events, Natural Terminations,\par and Convex Envelopes\par}
+\vspace{12mm}
+{\large Hilmir Fr\'imann Halld\'orsson\par}
+16 October 2026 \quad Proposed edition v0.1
+\vspace{10mm}
+\begin{abstract}
+Three welded regular octagonal panels determine 21 straight supporting lines. We give a unified account of the accepted BOUNDARY-10, BOUNDARY-11 and BOUNDARY-12 investigations of this fixed arrangement. Every line is tangent at its original edge midpoint to one concentric sphere. Extension to an observer sphere therefore has a common along-line parameter. Exactly three finite radii produce coincidences: each has 18 distinct points carrying 42 branch labels, whereas all other allowed finite radii have 42 distinct positions. The full finite symmetry is exactly $D_{3h}$.
+
+The two nonoriginal events are, on every outward ray, respectively the first subsequent meeting and the last finite meeting with another original line. At the first, the entire clipped segment equals the original panel width; at the last, each endpoint's added extension equals that width. Splitting at all spatial intersections produces three connected frameworks with 21, 63 and 105 edges. Their separately defined convex envelopes have 11, 32 and 20 maximal faces. We give proofs, coordinates, incidence conventions and exact supporting-plane representatives, and explain why the later frameworks lie inside their envelopes instead of tracing their surfaces.
+
+Uniform similarity, display units and variation of observer radius are separated. A centred decagonal prism and previously documented scalar identities involving $10$ and $\pi e\ph$ provide optional context; no fitted correspondence or physical boundary is adopted. The accompanying research edition preserves the accepted evidence, complete internal reviews and unchanged observation prototype, including its known numerical-input limitation V01.
+\end{abstract}
+\vfill
+\small Human research author and geometric motivation: Hilmir Fr\'imann Halld\'orsson. Codex assisted with the original investigations and this manuscript preparation; GPT supplied direction and subsequent internal reviews. These roles do not constitute external peer review. This edition synthesizes saved accepted results: no new scientific computation, experiment or application integration was performed during authoring.
+\end{titlepage}
+\hypersetup{pageanchor=true}\pagenumbering{roman}
+\tableofcontents\clearpage\pagenumbering{arabic}
+
+\section{The construction and the question it answers}\label{sec:intro}
+The motivating questions were geometric: what can surround the three folded panels, what happens if their actual straight edges are extended to a sphere, and where might those extensions naturally stop? The useful answer is a sequence of precisely defined objects. The original panels determine a line arrangement; a concentric sphere observes it; exact intersections distinguish finite clipping rules; convexification supplies enclosing surfaces. Each step has its own mathematical content.
+
+Paper C fixes the welded module and its material indexing \cite{PC}. BOUNDARY-10 identifies a minimum enclosing ball and studies a decagonal comparison \cite{B10}. BOUNDARY-11 classifies the edge-line exits on concentric spheres \cite{B11}. BOUNDARY-12 uses that classification to identify first and last meetings and to construct the finite graphs and their convex hulls \cite{B12}. The two subsequent GPT reviews are separate records \cite{G11,G12}. In particular, the three-term octagonal ratio is attributed to the later BOUNDARY-11 review, not retroactively to the original report.
+
+\begin{definition}[Four different geometric roles]\label{def:roles}
+The \emph{shell} $S$ is the union of the three original filled, zero-thickness octagons. The \emph{framework} $G_k$ consists of clipped straight support lines split at all actual spatial intersections. The \emph{observer sphere} is the level set $\|x\|=R$ in centred coordinates. The \emph{convex envelope} $H_k$ is the convex hull of the unique outer exit points. A proposed physical wall would require additional state, coupling or boundary-condition definitions; it is none of these objects by definition.
+\end{definition}
+
+The shell has two nonplanar nine-edge rims. Those rim counts, historical ninth-identity labels and a proposed tenth closing boundary are separate notions. The present construction uses only the accepted welded geometry. It does not assign historical labels to new faces.
+
+\begin{table}[ht]\centering
+\caption{The three accepted configurations. Graph vertices include inner meetings; hull vertices are the outer points only.}\label{tab:overview}
+\begin{tabular}{@{}lccc@{}}\toprule
+ & Original & Crossing A & Crossing B\\\midrule
+Outer unique points &18&18&18\\
+Whole chord $C/w$ &$\sqrt2-1$&$1$&$1+\sqrt2$\\
+Per-end addition $\ell/w$ &$0$&$1-\sqrt2/2$&$1$\\
+Graph $V/E$ &$18/21$&$36/63$&$54/105$\\
+Hull $V/E/F$ &$18/27/11$&$18/48/32$&$18/36/20$\\\bottomrule
+\end{tabular}
+\end{table}
+The result is finite and exact. One can choose either first or last meeting as an observation preset without changing the panels, and one can display a convex envelope without mistaking it for the straight-line framework. This gives a useful static reference construction even while physical interpretations remain undefined.
+
+\section{Notation and the unchanged welded module}\label{sec:native}
+\begin{table}[ht]\centering\small
+\caption{Notation. Coordinates $x$ are centred unless explicitly called global.}\label{tab:notation}
+\begin{tabularx}{\linewidth}{@{}lX@{}}\toprule
+$w>0$ & Original panel flat-to-flat width.\\
+$s=(\sqrt2-1)w$, $h=s/2$ & Original edge and half-edge lengths.\\
+$o=(0,\sqrt3w/6,0)$ & Centre in Paper C's global frame.\\
+$p=w/(2\sqrt3)$, $R_8$ & Centre-to-panel distance and panel circumradius.\\
+$\rho$, $a_m=w/\sqrt3$ & Original vertex-sphere and edge-tangent-sphere radii.\\
+$R\geq\rho$ & Observer radius; no physical size is inferred.\\
+$m_e,D_e,u_e=D_e/h$ & Centred midpoint, oriented half-edge vector, unit direction.\\
+$t=\sqrt{R^2-a_m^2}$, $\tau=t/h$ & Midpoint-to-exit distance and dimensionless parameter.\\
+$C=2t$, $\ell=t-h$ & Complete clipped chord and added length at each endpoint.\\
+$P_k,G_k,H_k$ & Outer points, split graph and convex hull; $k=0,1,2$.\\
+$\sigma=1+\sqrt2$ & Octagonal along-line ratio, not the golden ratio.\\
+$\ph=(1+\sqrt5)/2$, $\gamma_*$, $T$ & Golden ratio, defined scalar target, $T=\pi e\ph$.\\
+$B_{\rm scale}=10$ & Proposed scalar label, distinct from Crossing B.\\\bottomrule
+\end{tabularx}
+\end{table}
+Our $a_m$ is the quantity denoted $a$ in BOUNDARY-11/12. We reserve $a_{10}$ for the decagon apothem. $C$ denotes a chord, while ``Paper C'' names a source. These changes of notation change no length or coordinate.
+
+In a local panel frame $(u,z)$, the material-ordered octagon vertices are
+\begin{equation}\label{eq:local}
+\begin{split}
+v_0&=(-w/2,-h),\quad v_1=(-h,-w/2),\quad v_2=(h,-w/2),\quad v_3=(w/2,-h),\\
+v_4&=(w/2,h),\quad v_5=(h,w/2),\quad v_6=(-h,w/2),\quad v_7=(-w/2,h).
+\end{split}
+\end{equation}
+Their global fold maps are
+\begin{equation}\label{eq:fold}
+\begin{aligned}
+F_1(u,z)&=(-w/4-u/2,\ \sqrt3w/4-\sqrt3u/2,\ z),\\
+F_2(u,z)&=(u,0,z),\\
+F_3(u,z)&=(w/4-u/2,\ \sqrt3w/4+\sqrt3u/2,\ z).
+\end{aligned}
+\end{equation}
+Each is an affine isometry. The two outer panels begin in reversed local orientation and rotate by magnitude $60^\circ$ around their attachment hinges. In the final shell the interior dihedral is $60^\circ$ and the outward-normal angle is $120^\circ$. Although two of these numerical values agree, they describe different angles. The construction asserts no collision-free folding motion from the overlapping stacked start.
+
+Three octagons initially carry 24 material vertices and 24 edges. Each of the three seams identifies two endpoint pairs and one edge pair. Thus the welded structure has $18$ vertices, $21$ unique edges and three panel faces. Three edges are vertical seams, six are horizontal and twelve are chamfers. The unwelded boundary edges form one nine-edge cycle above and one below $z=0$. Panel interiors have disk neighbourhoods; seam interiors join two half-disks; boundary points have half-disk neighbourhoods, including boundary vertices after their incident wedges are joined. The face orientations in Appendix~\ref{app:coordinates} agree across seams. Consequently the connected compact shell is an orientable surface with two boundary components. Its Euler characteristic is $18-21+3=0$, hence $0=2-2g-2$ and $g=0$: it is an annulus, not a closed solid.
+\source{Paper C, Sections 2--5 and 7; BOUNDARY-11, Section 1.}
+
+\section{Two intrinsic spheres and the minimum ball}\label{sec:spheres}
+Each panel centre lies distance $p=w/(2\sqrt3)$ from $o$. The local vertices in \eqref{eq:local} have squared distance $R_8^2=w^2/4+h^2$ from the panel centre. The normal displacement is perpendicular to the panel, so every centred welded vertex has squared norm
+\begin{equation}\label{eq:rho}
+\rho^2=p^2+R_8^2
+=w^2\left(\frac{13}{12}-\frac{\sqrt2}{2}\right).
+\end{equation}
+This is a sphere through the actual 18 vertices, not the circumcircle of a single panel.
+
+\begin{theorem}[Unique minimum enclosing ball]\label{thm:minball}
+The closed ball of radius $\rho$ centred at $o$ is the unique smallest ball containing the whole three-panel shell.
+\end{theorem}
+\begin{proof}
+Each panel is the convex hull of its vertices. A closed ball is convex, so the radius-$\rho$ ball contains all three panels. The average of the 18 global vertices is $o$: threefold rotation eliminates the centred horizontal average and horizontal reflection eliminates the vertical average. For an arbitrary proposed ball centre $c$, expand the squares and use $\sum_i(v_i-o)=0$ to obtain
+\begin{equation}\label{eq:minball}
+\frac1{18}\sum_{i=0}^{17}\|v_i-c\|^2
+=\rho^2+\|c-o\|^2.
+\end{equation}
+Any ball containing the vertices has squared radius at least this average. The centred ball attains $\rho$, whereas $c\ne o$ requires a strictly larger radius. Thus both the optimum radius and its centre are fixed.
+\end{proof}
+
+\begin{theorem}[Common edge-tangent sphere]\label{thm:midsphere}
+Every original edge midpoint lies on $\|x\|=a_m$, where $a_m=w/\sqrt3$. Its entire supporting line is tangent there to that sphere.
+\end{theorem}
+\begin{proof}
+For centred endpoints $v_i,v_j$, put $m_e=(v_i+v_j)/2$ and $D_e=(v_j-v_i)/2$. Equal endpoint norms and the common edge length give
+\begin{equation}\label{eq:midpoint}
+m_e\cdot D_e=\frac{\|v_j\|^2-\|v_i\|^2}{4}=0,
+\qquad \|D_e\|^2=h^2,
+\qquad \|m_e\|^2=\rho^2-h^2=\frac{w^2}{3}.
+\end{equation}
+Since $u_e=D_e/h$ is unit, $\|m_e+\lambda u_e\|^2=a_m^2+\lambda^2$. The line has its unique closest point to the centre at $\lambda=0$, and its distance is $a_m$. This is exactly tangency at the midpoint.
+\end{proof}
+The sphere is not a face-tangent insphere. Indeed $p=a_m/2<a_m$, so each panel plane cuts it in a circle. The radius of that circle is $\sqrt{a_m^2-p^2}=w/2$, the panel incircle radius. Its circumference touches panel edges at their midpoints while the sphere intersects the interior region of each panel plane. No material cavity is defined by this reference sphere. The original surface still has its open rims.
+\source{BOUNDARY-10, Section 4; BOUNDARY-11, Section 1.}
+
+\section{Extending the original lines to an observer sphere}\label{sec:lines}
+\begin{definition}[Labelled exits]\label{def:exits}
+For $R\geq\rho$, let $t=\sqrt{R^2-a_m^2}\geq h$ and $\tau=t/h\geq1$. On original edge $e$, the two sphere intersections are
+\begin{equation}\label{eq:exits}
+q_e^\pm(R)=m_e\pm t u_e=m_e\pm\tau D_e.
+\end{equation}
+E01--E21 are the lexicographically ordered original endpoint pairs. The plus direction goes from the lower V-index to the higher one. Both labels persist at every coincidence.
+\end{definition}
+The formula follows directly by solving $a_m^2+\lambda^2=R^2$ on each tangent line. The permitted range ensures that both exits are at or beyond the original endpoints. Returning to the global frame adds $o$; it does not rotate or reassign any edge.
+
+An explicit family representation makes the geometry legible without a 42-row expansion. Let
+\[
+n_k=\Rot(2\pi k/3)(0,-1,0),\qquad b_k=\Rot(2\pi k/3)(1,0,0),\qquad k=0,1,2.
+\]
+Using independent signs $\epsilon,\nu,\eta\in\{-1,1\}$, all centred exits are
+\begin{align}
+\text{seams: }& (a_m\cos\theta_j,a_m\sin\theta_j,0)\pm t\ez,
+&&\theta_j=\frac\pi2+\frac{2\pi j}{3},\label{eq:seams}\\
+\text{horizontal: }&p n_k+\epsilon t b_k+\nu\frac w2\ez,\label{eq:horizontal}\\
+\text{chamfer: }&p n_k+\eta\frac{w/2+\epsilon t}{\sqrt2}b_k
++\nu\frac{w/2-\epsilon t}{\sqrt2}\ez.\label{eq:chamfer}
+\end{align}
+There are respectively 6, 12 and 24 labelled points. The sign $\eta$ here replaces the sign called $\sigma$ in BOUNDARY-11's compressed formula; $\sigma$ in this paper is reserved for $1+\sqrt2$. Original E/branch labels are recovered from Appendix~\ref{app:edges} and \eqref{eq:exits}, rather than inferred from signs in this compressed representation.
+
+\subsection{Why radial projection is a different operation}
+Radially projecting the original vertices gives $r_i(R)=(R/\rho)(v_i-o)$ in the centred frame. Its 18 angular positions are independent of $R$, and it agrees with the line exits at $R=\rho$. For larger $R$, however, a radial image of an endpoint has component $(R/\rho)m_e$ perpendicular to its edge direction. Every point of the original supporting line has that component equal to $m_e\ne0$. Thus a radial image cannot remain on its own line for $R>\rho$. Radial projection of the entire edge traces a great-circle arc; literal extension traces a straight line in space. These constructions may be displayed together, but their labels and meanings must stay separate.
+\source{BOUNDARY-11, Sections 2 and 6; exact inventory, edges and point formulas.}
+
+\plate{01_static_views}{The actual three-dimensional construction at the already studied illustrative radius $R/w=1$. Dark lines are original edges; red, teal and violet distinguish added seam, horizontal and chamfer portions. Green, blue and grey indicate the edge-tangent, vertex and observer spheres. Orange crosses in the comparison panel are radial projections. Axial and side views are projections: apparent crossings are not necessarily spatial intersections. Original BOUNDARY-11 plate, unchanged.}{fig:construction}{}
+
+\section{The complete finite incidence classification}\label{sec:events}
+\begin{theorem}[Exactly three coincidence radii]\label{thm:events}
+For finite $R\geq\rho$, distinct branch positions coincide only at the original radius, Crossing A or Crossing B in Table~\ref{tab:events}. Each has twelve double points and six triple points. At every other allowed finite radius, all 42 positions are distinct.
+\end{theorem}
+\begin{table}[ht]\centering
+\caption{Exhaustive finite events. The observer parameter is not time.}\label{tab:events}
+\begin{tabular}{@{}lccc@{}}\toprule
+Event & $t/w$ & $\tau$ & $R^2/w^2$\\\midrule
+Original $(k=0)$ & $(\sqrt2-1)/2$ & $1$ & $13/12-\sqrt2/2$\\
+A $(k=1)$ & $1/2$ & $1+\sqrt2$ & $7/12$\\
+B $(k=2)$ & $(1+\sqrt2)/2$ & $3+2\sqrt2$ & $13/12+\sqrt2/2$\\\bottomrule
+\end{tabular}
+\end{table}
+\begin{proof}
+In one panel plane, all eight support lines are tangent to its incircle of radius $w/2$. Their normals have successive increments $\pi/4$. For two nonparallel lines whose smaller normal separation is $\delta$, their intersection lies on a normal bisector at distance $L=(w/2)\sec(\delta/2)$ from the panel centre. The possible separations are $\pi/4,\pi/2,3\pi/4$. Their distances are therefore
+\begin{equation}\label{eq:paneldist}
+L=\frac w2\sec\frac\pi8,\quad \frac w2\sec\frac\pi4,\quad
+\frac w2\sec\frac{3\pi}8.
+\end{equation}
+The squared distance to the shell centre is $p^2+L^2$. Substitution gives precisely the three squared radii in Table~\ref{tab:events}.
+
+Lines in different panel planes can meet only on the intersection of those planes, their shared vertical seam. Use local coordinates with that seam at $u=w/2$. The horizontal support lines give $z=\pm w/2$. The chamfer lines have $u\pm z=\pm(w/2+h)$ and meet the seam at $z=\pm h$ or $z=\pm(w+h)$. Since $w+h=(1+\sqrt2)w/2$, these are exactly the six signed heights $\pm t_0,\pm t_1,\pm t_2$. The other vertical support line is parallel to the seam. Applying the same argument to all three seam lines covers every possible cross-panel meeting and introduces no further radius.
+
+For a count check that also describes the exhaustion, each panel has $\binom82=28$ line pairs: four parallel and 24 intersecting. No line pair is shared by two panel lists, since two panels share only one support line. Thus 72 intersecting and 12 parallel pairs occur within panels. At each of the three seams, the two non-seam lines, one from each adjacent panel, meet at each of the six signed heights; these are 18 additional intersecting pairs. The remaining $210-72-12-18=108$ pairs are skew. This agrees with the accepted complete 210-pair classification: 90 intersecting, 108 skew, 12 distinct parallel.
+
+At each selected radius a panel contributes eight distinct points on its sphere-section circle. Six seam points belong to two panel circles, leaving $3\cdot8-6=18$ distinct positions. At a non-seam point exactly two of the panel's support lines meet. At each seam point those two panels contribute one non-seam line each, together with the common seam itself, making three distinct incident lines. There are twelve double points and six triple points, with $12\cdot2+6\cdot3=42$ labelled incidences. Outside the three radii, the exhaustion excludes every distinct-line coincidence, and a line's opposite exits cannot coincide because $t\geq h>0$.
+\end{proof}
+
+The accepted branch catalogue has $\binom{42}{2}=861$ pairs: four sign combinations for each of 210 distinct-line pairs, plus 21 same-line opposite-branch pairs. The latter meet only at the excluded parameter $t=0$. The catalogue corroborates the written exhaustion; a numerical radius sweep is neither used nor needed. It retains the E/branch identities of every double or triple meeting.
+\source{BOUNDARY-11, Section 3, and its complete branch inventory; subsequent review, Section 3. No catalogue was rerun for this edition.}
+
+\plate{02_coincidence_spheres}{The original, A and B configurations in a common viewing orientation. Each has 18 unique exits carrying 42 labels. Each panel of this plate is normalized to its own observer sphere; it does not show their relative physical sizes at one common scale. The fixed original shell consequently appears at different relative sizes. Original BOUNDARY-11 plate, unchanged.}{fig:events}{}
+
+\section{Angular information and the full spatial symmetry}\label{sec:symmetry}
+For branches $(e,\epsilon)$ and $(f,\delta)$, their central angle $\gamma\in[0,\pi]$ is specified exactly by
+\begin{equation}\label{eq:angle}
+\cos\gamma=\frac{m_e\cdot m_f+t(\epsilon u_e\cdot m_f+\delta u_f\cdot m_e)
++\epsilon\delta t^2u_e\cdot u_f}{R^2}.
+\end{equation}
+The spherical arc length is $R\gamma$. At coincidence the angle is zero even though the branch labels remain different. The saved catalogue groups the 861 expressions into 60 symbolic functions of $\tau$. At width one they have form
+\[
+\frac{A+B\tau+C_2\tau^2}{1/3+h_1^2\tau^2},\qquad h_1=(\sqrt2-1)/2.
+\]
+Here $C_2$ is a polynomial coefficient, not the whole chord $C$. Function values can agree at particular radii; 60 is not a fixed count of evaluated distinct angles.
+
+Two useful special cases are
+\begin{equation}\label{eq:angleexamples}
+\gamma(q_e^+,q_e^-)=2\arctan(t/a_m),\qquad
+\cos\gamma_{\rm seam}=1-\frac{w^2}{2R^2}.
+\end{equation}
+The first follows from a right triangle with legs $a_m,t$. The second follows because neighbouring same-height seam exits have chord distance $w$: their horizontal radius is $a_m$ and their azimuthal difference is $120^\circ$. That azimuthal difference is generally not their spherical central angle. Azimuth, planar polygon angle, central angle and arc length are separate quantities.
+
+\begin{theorem}[Exact finite symmetry]\label{thm:symmetry}
+The complete unique exit set has precisely $D_{3h}$ symmetry, of order 12, at every finite $R\geq\rho$, including all three events.
+\end{theorem}
+\begin{proof}
+Rotation by $120^\circ$ about $z$, reflection $x\mapsto-x$, and reflection $z\mapsto-z$ preserve the original edge family and the explicit formulas \eqref{eq:seams}--\eqref{eq:chamfer}. Thus all twelve elements of $D_{3h}$ are present. To exclude more symmetry, first note that the unique finite set has average zero under these existing operations; any isometry preserving the set therefore fixes its centre and is orthogonal.
+
+For a generic 42-point configuration, summing $qq^{\mathsf T}$ over the family formulas gives the accepted exact second moment
+\begin{equation}\label{eq:moment}
+M=\diag(12t^2+4w^2,\ 12t^2+4w^2,\ 18t^2+6w^2).
+\end{equation}
+One obtains this diagonal form by adding independent signs, which cancel mixed terms, and threefold directions, whose horizontal second moments are equal. The vertical eigenvalue exceeds either horizontal eigenvalue. At an event the sum must instead be over unique positions, not repeated labels; the corresponding accepted value is $M_{zz}-M_{xx}=3w^2/2>0$. Thus every possible symmetry preserves the vertical axis as an unoriented line.
+
+The positive seam level $z=t$ contains exactly its three seam positions. Equality with a horizontal or chamfer level is possible only at the already listed events, where the additional labels coincide with those same positions. A symmetry preserving the sign of $z$ must therefore act on that equilateral triangle by an element of $D_3$. If it reverses the sign, composing with the already available horizontal reflection gives a sign-preserving action. There can be at most $6\cdot2=12$ symmetries, all of which have already been exhibited.
+\end{proof}
+The generic point-orbit sizes are $(6,12,12,12)$. At Original, A and B they are respectively $(6,12)$, $(6,6,6)$ and $(6,12)$. A locally regular polygon or a count of twenty objects does not alter this full spatial group.
+\source{BOUNDARY-11, Sections 3--4; angular inventory and polygon-pattern inventory; subsequent review, Section 3.}
+
+\section{Rings, panel sections and the directional limit}\label{sec:sections}
+Set $f_\pm=(w/2\pm t)/\sqrt2$. The generic signed height levels are $\pm t$ for the seams, $\pm w/2$ for horizontal edges, and $\pm f_+$, $\pm f_-$ for chamfers. There are respectively three, six, six and six points at each signed level. Latitude is $\arcsin(z/R)$. There are generically eight levels, but $f_-$ can be negative, and levels meet at the three incidence events. The middle event includes an equatorial level. Equal height does not itself prove equal position.
+
+\subsection{Two exact latitude-hexagon occurrences}
+A six-point ring $p n_k\pm u b_k$ consists of two threefold triangles with an angular offset. It is a regular hexagon when $|u|=p/\sqrt3=w/6$: relative to each normal direction the offset is then $\arctan(|u|/p)=\pi/6$, so successive azimuths differ by $\pi/3$. For the $z=\pm f_+$ chamfer rings the transverse parameter is $u=f_-$. Therefore the two occurrences are
+\begin{equation}\label{eq:hexagons}
+\frac tw=\frac12\pm\frac{\sqrt2}{6},\qquad
+\frac{R^2}{w^2}=\frac{23}{36}\pm\frac{\sqrt2}{6}.
+\end{equation}
+Each hexagon's circumradius and chord side are $w/3$. The two $R/w$ displays transcribed from the saved pattern records are \input{tables/hexagon_decimals.tex}. Neither is a global coincidence event: the whole set has 42 points and $D_{3h}$ symmetry. In the allowed range the horizontal-family transverse distance $t$ is too large for this hexagon condition; the other chamfer transverse distance $f_+$ is also too large.
+
+\subsection{Complete circles in the original panel planes}
+Each panel plane cuts the observer sphere in a small circle of radius $L=\sqrt{R^2-p^2}$. Its eight tangent support lines meet that circle at angles
+\begin{equation}\label{eq:beta}
+\theta_0+k\pi/4\pm\beta,\qquad
+\beta=\arccos\frac{w}{2L},\qquad \pi/8\leq\beta<\pi/2.
+\end{equation}
+At $\beta=\pi/8,\pi/4,3\pi/8$ the sixteen labels reduce to eight regularly spaced positions. Connecting the two ends on each original support line makes respectively a step-1 octagon, step-2 paired squares and a step-3 octagram $\{8/3\}$. This concerns endpoint connections on the given lines, not new shell faces. In particular, actual interior intersections of square outlines remain relevant when constructing the split spatial graph.
+
+Away from those values there are sixteen points in each panel circle. The two shifted octagonal grids interlace uniformly if $2\beta$ is an odd multiple of $\pi/8$ modulo $\pi/4$. In the allowed range this gives precisely
+\begin{equation}\label{eq:16gons}
+\beta\in\{3\pi/16,5\pi/16,7\pi/16\},\qquad
+\frac{R^2}{w^2}=\frac1{12}+\frac1{4\cos^2\beta}.
+\end{equation}
+The recorded $R/w$ values are \input{tables/panel16_decimals.tex}. A regular 16-gon uses consecutive circular positions as polygon adjacency; that adjacency is not a replacement for the original support-line connections. These section events are inherited results, not extra comparison radii selected during manuscript preparation.
+
+\subsection{Twenty directions only in the infinite-radius limit}\label{sub:limit}
+Dividing \eqref{eq:exits} by $R$ and letting $R\to\infty$ gives $q_e^\pm/R\to\pm u_e$. Parallel lines then lose their midpoint offsets. The accepted limiting set consists of two poles, six equatorial directions and six at each latitude $\pm45^\circ$: twenty directions in all. Its second moment is $\diag(6,6,8)$, preserving the vertical-axis upper bound, while its equatorial regular hexagon and both reflection types give $D_{6h}$. This limit has more symmetry than every finite member. It is not a fourth finite coincidence event and establishes no tenfold global structure. No classification of arbitrarily selected point subsets is claimed.
+\source{BOUNDARY-11, Section 5; saved polygon-pattern keys for hexagons, panel 16-gons and limiting directions.}
+
+\plate{03_latitude_families}{Signed latitude families as the observer radius varies. These curves evaluate a static coordinate family; they are not trajectories of particles or of model state. Vertical guides mark the three finite coincidence events. The per-level counts are generic and do not count repeated labels as separate event positions. Original BOUNDARY-11 plate, unchanged.}{fig:latitudes}{}
+
+\section{First and last meetings, and two meanings of unit length}\label{sec:termination}
+\begin{theorem}[Raywise natural terminations]\label{thm:termination}
+Starting at each original endpoint and proceeding outward on its original supporting line, Crossing A is the first strictly later meeting with another distinct original line. Crossing B is its last finite such meeting. Every one of the 42 outward rays participates in both events.
+\end{theorem}
+\begin{proof}
+Suppose two distinct original lines meet at $x$, with signed along-line parameters $t_e,t_f$. Their common perpendicular distance $a_m$ from the centre implies
+\begin{equation}\label{eq:meetingnorm}
+\|x\|^2=a_m^2+t_e^2=a_m^2+t_f^2,
+\qquad |t_e|=|t_f|.
+\end{equation}
+Thus the common-parameter branch catalogue captures every possible meeting; there is no hidden intersection with unequal magnitudes. A line's two parameterizations meeting each other at zero do not meet the requirement of a different line.
+
+By Theorem~\ref{thm:events}, the only nonzero meeting magnitudes in the permitted range are $t_0=h$, $t_1=w/2$ and $t_2=(1+\sqrt2)w/2$. At each event the double/triple incidence groups partition all 42 branch labels. Hence every outward ray has a distinct-line meeting at all three distances. Excluding its starting endpoint removes $t_0$; $h<t_1<t_2$ makes $t_1$ first and $t_2$ last. Skew or parallel pairs supply no additional meetings.
+\end{proof}
+Because each choice uses a common $t$, it also assembles into a common sphere. The rules select $R_A^2=7w^2/12$ and $R_B^2=(13/12+\sqrt2/2)w^2$. Infinite supporting lines remain infinite: the incidence property supplies finite clipping conventions, without asserting that anything reflects or stops dynamically.
+
+\begin{theorem}[Equal lengths and the two unit results]\label{thm:lengths}
+At every fixed $R\geq\rho$, all 21 complete clipped segments have length $C=2t$, and all 42 outward additions have length $\ell=t-h$. Consequently
+\begin{equation}\label{eq:lengths}
+2\ell=C-s,\qquad C_A=w,\qquad \ell_B=w.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Subtract the exits $m_e\pm t u_e$ and use $\|u_e\|=1$. Likewise subtract the original endpoint $m_e\pm h u_e$ from its corresponding exit. Since $t\geq h$, the added distance is $t-h$, independent of the edge. Substitution of the accepted event parameters gives Table~\ref{tab:lengths}.
+\end{proof}
+\begin{table}[ht]\centering\caption{Lengths in original panel-width units.}\label{tab:lengths}
+\begin{tabular}{@{}lccc@{}}\toprule Event & $C/w$ & $\ell/w$ & $2\ell/w$\\\midrule
+Original&$\sqrt2-1$&$0$&$0$\\
+A&$1$&$1-\sqrt2/2$&$2-\sqrt2$\\
+B&$1+\sqrt2$&$1$&$2$\\\bottomrule\end{tabular}
+\end{table}
+The A addition is $(1-\sqrt2/2)w=s/\sqrt2$, precisely the existing panel chamfer cutback. The equal lengths are forced by the common tangent sphere, not an extra condition imposed on the edge family.
+
+\begin{corollary}[A finite three-term relation]\label{cor:ratio}
+Writing $\sigma=1+\sqrt2$, the three event distances obey
+\begin{equation}\label{eq:progression}
+(t_0,t_1,t_2)=h(1,\sigma,\sigma^2),\qquad t_0t_2=t_1^2=w^2/4.
+\end{equation}
+\end{corollary}
+This follows by dividing the three exact entries by $h$ and rationalizing $1/(\sqrt2-1)$. It was explicitly identified in the subsequent BOUNDARY-11 GPT review. Because $R^2=a_m^2+t^2$ contains an additive term, the sphere radii do not form the same progression. Because the incidence classification is exhaustive, appending more powers does not append more meeting events. A recursive operation would need a separately defined map.
+\source{BOUNDARY-12, Section 2 and all 42 termination records; BOUNDARY-11 subsequent review, Section 4.}
+
+\section{Three connected straight-line frameworks}\label{sec:graphs}
+\begin{definition}[Split graph]
+At event $k\in\{0,1,2\}$, clip all 21 support lines to the observer ball. Take every actual spatial intersection as a vertex and every consecutive straight subsegment as an edge. Deduplicate positions and positive-length geometric segments exactly, retaining a second provenance layer of original E/branch labels. Degree-two outer corners remain vertices.
+\end{definition}
+On any original line, the ordered vertices are
+\begin{equation}\label{eq:lineorder}
+q_e^-(t_k),\ldots,q_e^-(t_0),q_e^+(t_0),\ldots,q_e^+(t_k).
+\end{equation}
+Distinct lines cannot share a positive-length segment. Each event has a distinct radius, so it adds 18 positions not previously present. There are $2(k+1)$ ordered points on each line and $2k+1$ consecutive intervals. This proves
+\begin{equation}\label{eq:graphcounts}
+V_k=18(k+1),\qquad E_k=21(2k+1),\qquad k=0,1,2.
+\end{equation}
+The original welded edge graph is connected. Every later interval attaches to an existing endpoint as the clipped family grows; therefore all three graphs are connected. Their cycle ranks, the dimensions of graph cycle spaces, are
+\begin{equation}\label{eq:cycles}
+b_1(G_k)=E_k-V_k+1=4+24k,\qquad k=0,1,2.
+\end{equation}
+An outer meeting of two or three distinct lines has degree two or three. When that meeting lies inside a later ball, each incident line continues in both directions, so its degree becomes four or six. Table~\ref{tab:graphs} follows and records the actual distributions rather than just their averages.
+\begin{table}[ht]\centering\caption{Accepted connected graph inventories.}\label{tab:graphs}
+\input{tables/graphs.tex}
+\end{table}
+The exact data give adjacency lists, connected components, signed parameter intervals, lengths and original source rays for every graph edge. They distinguish an actual meeting from a crossing in a view. In a panel at A, the two square outlines meet at actual inner intersections; the graph includes these intersections. Hence ``two squares'' in an endpoint-connection description does not mean two disconnected components of the split framework.
+
+The formulas above have only three allowed index values. They are not predictions for a new sequence of enclosing radii. Likewise, graph cycles represent closed combinatorial paths in a static structure, not time-periodic dynamics or a material surface.
+\source{BOUNDARY-12, Section 3; graph\_original.json, graph\_A.json and graph\_B.json; subsequent review, Section 2.}
+
+\section{The three convex envelopes}\label{sec:hulls}
+\begin{definition}[Enclosure convention]
+For each accepted event let $P_k$ be its 18 unique outer exits and let $H_k=\conv(P_k)$. Its boundary is assembled from maximal supporting polygon faces. Convexification is a declared mathematical enclosure convention; it is not implicit in extending a line.
+\end{definition}
+\begin{proposition}[All outer points are exposed vertices]\label{prop:exposed}
+The vertex set of $H_k$ is exactly $P_k$.
+\end{proposition}
+\begin{proof}
+For $p\in P_k$ and every $x\in P_k$, Cauchy--Schwarz gives $p\cdot x\leq R_k^2$, with equality only for $x=p$ because both have norm $R_k$ and are distinct otherwise. The plane $p\cdot x=R_k^2$ therefore exposes $p$ alone. Every outer point is a vertex; a convex hull of a finite set has no other vertices.
+\end{proof}
+
+\begin{table}[ht]\centering\small
+\caption{Maximal coplanar facets, not rendering triangles.}\label{tab:hulls}
+\begin{tabularx}{\linewidth}{@{}lcccX@{}}\toprule
+Event&V&E&F&Face types\\\midrule
+Original&18&27&11&3 regular octagons; 6 isosceles triangles; 2 nonregular hexagons\\
+A&18&48&32&30 isosceles triangles; 2 equilateral triangles\\
+B&18&36&20&6 isosceles triangles; 6 isosceles trapezoids; 6 rectangles; 2 equilateral triangles\\\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Why the supporting-plane description is complete}\label{sub:certificates}
+The accepted construction examines each of the $\binom{18}{3}=816$ triples at an event. A noncollinear triple gives a plane with normal $n$ and offset $d$. Proportional equations are merged. Evaluating $n\cdot p-d$ for all outer points in $\mathbb Q(\sqrt2,\sqrt3)$ determines whether the plane supports the set. A mixed sign rejects the plane. Otherwise orient it as $n\cdot x\leq d$, with $d>0$, and retain its entire zero set as one maximal coplanar face.
+
+This is an exhaustive certificate method: every facet of a full-dimensional finite convex hull contains three noncollinear vertices and hence appears among those triples. Conversely, every retained supporting plane with a two-dimensional zero set defines a facet. The saved distinct noncollinear-plane counts are 397, 488 and 397; the retained face counts are 11, 32 and 20. These are accepted enumeration records, not new Stage A executions. Appendix~\ref{app:planes} supplies a compact exact plane description for all 63 facets through their symmetry orbits.
+
+A numerical angle ordering was used in BOUNDARY-12 only to nominate the cyclic order within each face. Exact cross-product tests then placed every other face vertex on the inward side of every directed boundary side and checked orientation. Thus the final polygon order does not depend on a floating hull tolerance. The full zero sets prevent the triangle fans used by a renderer from being mistaken for independent faces.
+
+Consecutive polygon sides yield the true hull edges. The accepted certificates verify that every edge is incident with exactly two facets and every vertex link is a connected cycle. With outward face orientation and $V-E+F=2$, these are closed convex polyhedral surfaces. All original panel vertices satisfy every halfspace inequality, so convexity contains each filled panel. The later clipped segments are also contained because their endpoints lie in the hull. The original shell's Euler characteristic zero and the hull boundary's Euler characteristic two concern different surfaces.
+
+\subsection{Face types and symmetry}
+The B trapezoids are isosceles, with three side lengths $w$ and the fourth $(1+\sqrt2/2)w$. Their opposite parallel pair and equal legs are recorded explicitly. The six B rectangles occupy two distinct three-member $D_{3h}$ orbits. The exact squared-side and turn-dot sequences in the face inventories distinguish congruence data from a shared face name. Twenty facets do not make B an icosahedron: its triangles, trapezoids and rectangles are the actual facets.
+
+Every symmetry of $P_k$ acts on $\conv(P_k)$. Conversely every symmetry of $H_k$ permutes its exposed vertex set, exactly $P_k$. The finite point-set theorem therefore proves that each hull's full symmetry is precisely $D_{3h}$, not just that some $D_{3h}$ operations work. The graph is $D_{3h}$-invariant and has that same hull, so its possible symmetry group is bounded in the same way.
+\source{BOUNDARY-12, Sections 4 and 9; three hull files, face-orbit records and exact certificates; subsequent review, Sections 2--3.}
+
+\plate{event_networks_and_hulls}{Three connected spatial frameworks and their separately filled convex envelopes. Original edges are dark; added portions retain their edge-family colours; gold denotes actual maximal-face hull edges. Each event view uses its own radius scale. Interior graph crossings are spatial only when present in the exact split inventory. Transparent facets express convexification, not an existing material wall. Original BOUNDARY-12 plate, unchanged.}{fig:graphs}{}
+
+\section{Where the framework lies, and why the envelopes are nested}\label{sec:locus}
+Let an oriented supporting inequality be $f(x)=n\cdot x-d\leq0$. On a segment $x(\lambda)=(1-\lambda)v+\lambda z$, $0<\lambda<1$,
+\begin{equation}\label{eq:affine}
+f(x(\lambda))=(1-\lambda)f(v)+\lambda f(z).
+\end{equation}
+Since both endpoint residuals are nonpositive, equality in the open interval occurs exactly when both are zero. This gives a whole-segment classification, stronger than a sampled midpoint image. Two independent common supporting planes put the segment on a hull edge; one puts it inside a facet; none put its relative interior strictly inside the hull.
+
+The exact accepted active-plane tests give Table~\ref{tab:locus}. At A and B the earlier event vertices have strictly negative residual against every facet, while only the current 18 outer vertices meet the boundary. All open graph segments are interior. The entire segment can have boundary endpoints without its open part being a boundary edge.
+\begin{table}[ht]\centering\small
+\caption{Framework placement in its corresponding convex envelope.}\label{tab:locus}
+\begin{tabular}{@{}lrrrr@{}}\toprule
+ & On hull edges & In one facet & Interior & Boundary/interior vertices\\\midrule
+Original&21&0&0&18/0\\
+A&0&0&63&18/18\\
+B&0&0&105&18/36\\\bottomrule\end{tabular}
+\end{table}
+At the original sphere, the 21 framework edges form a proper subset of the hull's 27 edges. Its three octagonal panels account for only three of eleven facets. Convexification adds six edges and eight faces. At A and B the line framework does not even trace the hull edges, much less fill its facets. A finite union of segments has one-dimensional geometry; assigning filled polygonal regions supplies additional geometric content.
+
+\begin{proposition}[Nested, but not mutually similar]\label{prop:nesting}
+$H_0\subset H_1\subset H_2$, and the three hulls are not mutually similar.
+\end{proposition}
+\begin{proof}
+For $t_j<t_k$, the point $m_e+t_j u_e$ is the convex combination of $m_e+t_k u_e$ and $m_e-t_k u_e$ with weights $(1+t_j/t_k)/2$ and $(1-t_j/t_k)/2$. The analogous relation holds for the minus branch. Thus every earlier outer point belongs to a later clipped segment, and hence to the later hull. Taking convex hulls proves nesting. Similarity preserves polyhedral edge and facet incidence; the three distinct edge/facet counts in Table~\ref{tab:hulls} exclude mutual similarity. The inclusions are proper, since otherwise the hulls and their extreme sets would agree.
+\end{proof}
+This distinction makes a practical observation choice possible: a viewer can show the connected line network and the envelope as separate layers, without treating either as a new law of evolution.
+\source{BOUNDARY-12, Section 4 and FINAL\_GEOMETRY\_CERTIFICATES.json; subsequent review, Section 3.}
+
+\plate{B_four_views}{The last-meeting configuration from several orientations. These are views of one three-dimensional arrangement, not different enclosures. Transparent hull facets and gold hull edges surround the original panels and the interior split framework. A planar projection can superpose distinct spatial edges. The original BOUNDARY-12 plate is retained without changing geometry, annotations or image bytes.}{fig:Bviews}{}
+
+\section{Similarity, units and seven fixed observation choices}\label{sec:scaling}
+For $\lambda>0$, scale the panel width and all centred positions by $\lambda$. The quantities $s,h,p,a_m,\rho,m_e$ scale by the same factor, and each $u_e$ remains a unit direction. Substituting $\lambda R$ and $\lambda t$ in \eqref{eq:exits} proves
+\begin{equation}\label{eq:similarity}
+(w,R,t,C,\ell,x)\longmapsto\lambda(w,R,t,C,\ell,x),\qquad
+q'_e=\lambda m_e\pm\lambda t u_e=\lambda q_e.
+\end{equation}
+Ratios, dot-product angles, branch identities, coincidence equations and graph incidences are unchanged. Convexification commutes with this scaling, so face incidences and symmetry are unchanged. Areas and volumes of similar copies scale by $\lambda^2$ and $\lambda^3$. This is a statement about the geometric objects defined here, not about complex amplitudes or the covariance of a nonlinear kernel.
+
+Increasing only $R$ while holding $w$ fixed changes $t/w$ and the exit pattern. It leaves the original panels in place and can change hull combinatorics, as the three event hulls demonstrate. Changing a displayed unit does neither: it divides all reported lengths by one chosen positive unit.
+\begin{table}[ht]\centering\small
+\caption{Four display units and their domains.}\label{tab:units}
+\begin{tabularx}{\linewidth}{@{}lllX@{}}\toprule
+Unit $U$ & Domain & $w/U$ & Quantity displayed as one\\\midrule
+$w$ &$R\geq\rho$&$1$&Original panel width\\
+$s$ &$R\geq\rho$&$1+\sqrt2$&Every original edge\\
+$C$ &$R\geq\rho$&$w/(2t)$&Whole clipped chord\\
+$\ell$ &$R>\rho$&$w/(t-h)$&Added length per endpoint\\\bottomrule
+\end{tabularx}
+\end{table}
+The extension unit is undefined at Original because $\ell=0$. Calling the original edge one rescales every length, including the width; it does not lengthen just that edge. Likewise $t/w=1$ gives $R/w=2/\sqrt3$, $C/w=2$ and $\ell/w=(3-\sqrt2)/2$, while $R/w=1$ gives $t/w=\sqrt{2/3}$. These are different choices.
+
+Table~\ref{tab:presets} transcribes the seven previously prescribed comparisons. Event rows use exact identities; the other rows are assigned observations. The $10$ and $T$ rows are scalar comparisons, not physical calibration. The decimal formatting ledger points to the actual saved JSON cells; no new coordinates or scalar values were calculated during authoring.
+\begin{table}[ht]\centering\small
+\caption{Saved seven-preset displays, $w=1$. Exact radius definitions accompany the row names.}\label{tab:presets}
+\input{tables/presets.tex}
+\end{table}
+\source{BOUNDARY-12, Sections 5--6 and fixed\_presets.json.}
+
+\section{The observation prototype and its evidence boundary}\label{sec:viewer}
+The research companion contains the exact submitted BOUNDARY-12 HTML, with the same embedded Plotly library, data, labels and notices. Its default observation is A because A is the first new meeting and has $C=w$. Original and B remain explicit choices. This is a useful interface default, not a decision about a material wall.
+
+The controls separate $R/w$, $C/w$ and $\ell/w$ through the shared along-line parameter. Units, original panels, added segments, reference spheres, split graph and convex envelope have distinct roles. Graph and hull overlays are defined only at the three exact events. Rendering may triangulate a maximal face internally, but the gold edges show the polygon boundary rather than fan diagonals. The exporter retains all 42 branch records separately from the unique-dot identities. Numeric proximity alone does not certify an event.
+
+\subsection{V01 is retained, with its original disposition}\label{sub:V01}
+The subsequent BOUNDARY-12 review found that a custom-radius request exactly equal to the stored floating approximation of $\rho$ can return
+\[
+\ell/w=-2.220446049250313\times10^{-16}
+\]
+with no exact-event tag. The lower-bound comparison passes, but conversion from radius to $t$ and then to $t-h$ incurs roundoff. The mathematical domain remains $\ell\geq0$. The explicit Original preset is correct; none of the exact event, graph or hull results changes.
+
+V01 is a nonblocking prototype limitation for this paper and a requirement to address before live integration. The HTML is not patched here. A future specification must preserve raw input and exact-event provenance rather than snapping nearby values into a proved event by tolerance. The research notice gives the original reproduction input and reviewer locator.
+
+\subsection{Which validation belongs to whom}
+The original Codex BOUNDARY-12 construction recorded 441 named exact predicates and 114 deterministic viewer checks. Its browser record covers actual controls, screenshots and prepared exports, with the final download workflow and a separately automated drag gesture left untested. The subsequent GPT review independently recorded 2,120 exact/static predicates and 434 pure-evaluator checks. Those counts are source-attributed execution accounting, not numbers of mathematical discoveries or tests newly performed for this edition.
+
+GPT's independent live-browser navigation was blocked before the page loaded; inspecting inherited screenshots and testing a pure evaluator are not live WebGL certification. Stage A performs no new browser test. To use the unchanged viewer, download the HTML and open it locally in a WebGL-capable browser. A repository file-page link does not imply that GitHub renders the interactive page in place.
+
+The unchanged observer-interface proposal belongs under separately labelled future work. No application architecture, model state, RNG state or clock is inspected to make this manuscript's prototype fit a live system.
+\source{BOUNDARY-12 subsequent review, Sections 5--6; original BROWSER\_QA.json and APP\_OBSERVER\_DESIGN.md.}
+
+\section{Optional decagonal and scalar context}\label{sec:context}
+The initial decagon question usefully separates a shape's combinatorics from an enclosing metric. A regular decagon has $36^\circ$ turns and $144^\circ$ interior angles, compared with $45^\circ$ and $135^\circ$ for an octagon. Its circumradius-to-side ratio is $\ph$. Appendix~\ref{app:decagon} reproduces the accepted centred-prism containment proof and its three equivalent optimal orientations. The decagon is an optional comparison with an independent orientation choice, not a unique consequence of the threefold shell.
+
+The scalar discussion has a different source lineage. The Geometry--Zeta account and the historical SRG source pages, as recovered and reviewed in BOUNDARY-12, distinguish a defined target
+\begin{equation}\label{eq:target}
+\gamma_* = \frac{\zeta(3)}{\pi e\ph},\qquad T=\frac{\zeta(3)}{\gamma_*}=\pi e\ph
+\end{equation}
+from a run-dependent or unspecified estimator and from Euler--Mascheroni's constant. An exact target inserted by definition is not an independent measurement. The same account contains the analytic integral coefficient
+\begin{equation}\label{eq:integral}
+I_2=\int_0^{\ln\ph}x^2\coth x\,dx=\frac{\zeta(3)}{10},\qquad
+\frac T{10}=\frac{I_2}{\gamma_*}.
+\end{equation}
+Appendix~\ref{app:scalar} displays the inherited algebra and its attribution. The final equality is a rearrangement, not another derivation of a spatial boundary.
+
+The four predeclared geometric ratios in Table~\ref{tab:ratios} fail to equal the stored value $T/10=\input{tables/T10.tex}$. All signed discrepancies are retained. This statement concerns those candidates; it does not claim to exclude every conceivable correspondence.
+\begin{table}[ht]\centering\small
+\caption{The four accepted comparisons, transcribed from saved scalar records. Differences are ratio minus $T/10$.}\label{tab:ratios}
+\input{tables/ratios.tex}
+\end{table}
+If $B_{\rm scale}=10$ and $T$ are assigned to the same positive measure of two nested \emph{similar} objects, their linear-scale ratio is conditionally $T/10$ for a length measure, $\sqrt{T/10}$ for area, or $(T/10)^{1/3}$ for volume. This dimensional conversion does not identify the three nonsimilar event hulls. A tensor norm first requires a tensor space, norm and normalization. The recollected aggregate of constants approaching ten remains unrecovered; no substitute sum, exponent fit or matching search is supplied.
+\source{BOUNDARY-10, Sections 2--6; BOUNDARY-12, Sections 7--8 and scalar-comparison records.}
+
+\clearpage\section{Completed results and the next decisions}\label{sec:conclusion}
+The fixed welded module supplies a unique minimum enclosing ball and a smaller edge-tangent sphere. The tangent-line structure makes all support-line exits share one parameter. The finite coincidence classification is complete, so first and last meetings are well-defined on every outward ray. Two distinct unit-length statements follow exactly. The split frameworks are connected; their separately defined convex hulls are closed surfaces with certified polygon facets. Nesting does not make them similar, and extending a framework does not fill its envelope.
+
+These are completed geometric results. A neutral reference sphere, a first-meeting observation, a last-meeting observation and a convex surface overlay can all be discussed on those terms. The optional decagonal prism requires an orientation convention; assigning a physical boundary, recursive rule or tensor scale requires additional definitions. None is a missing mathematical lemma that prevents the present static synthesis from being complete.
+
+The companion edition separates accepted reports and exact evidence, complete later internal reviews, the known-limitation prototype, and deferred questions. Future engineering must address V01 and establish observation without state, RNG or time mutation under its own authorization. Future physical interpretations would need a specified state and coupling or boundary condition. The remembered near-ten expression needs its original equation or sequence. Recording those questions does not execute them.
+
+This manuscript is a detailed synthesis of accepted local work. Its new operations are editorial transcription, typesetting, source mapping and file-integrity checks. It makes no claim of a fresh scientific replication, external peer review, institutional affiliation or established worldwide novelty. The mathematical statements are presented with proofs so that a reader can assess them independently of their implementation history.
+
+\clearpage\appendix
+\section{Exact coordinates and face cycles}\label{app:coordinates}
+Table~\ref{tab:coords} transcribes the global width-one coordinates from the accepted BOUNDARY-11 inventory, matching Paper C's material indexing. For arbitrary $w>0$, multiply all three entries by $w$. To obtain centred coordinates, subtract $o=(0,\sqrt3w/6,0)$ after scaling. The maps \eqref{eq:fold} and the local vertices \eqref{eq:local} provide an independent written reconstruction recipe without executing a script.
+\input{tables/coordinates.tex}
+The unchanged outward-oriented material face cycles are
+\begin{equation}\label{eq:cyclesfaces}
+\begin{aligned}
+F_1&=(0,1,2,3,4,5,6,7),\\
+F_2&=(3,8,9,10,11,12,13,4),\\
+F_3&=(10,14,15,0,7,16,17,11).
+\end{aligned}
+\end{equation}
+The shared vertical edges are $(0,7)$, $(3,4)$ and $(10,11)$. In the central band $|z|\leq h$, the shell section is the perimeter of an equilateral triangle of side $w$; its filled region is a different set. Its axial projection is that triangle's perimeter. These facts also explain the centre and the three panel distances used in the sphere proofs.
+\source{Paper C, Section 4; BOUNDARY-11 geometry inventory, /vertices and /faces.}
+
+\clearpage\section{All 21 edge identities and oriented branches}\label{app:edges}
+The table retains the original E-numbering and lower-to-higher endpoint orientation. For every row $(i,j)$, centred coordinates determine
+\[
+m_e=\frac{v_i+v_j}{2},\quad D_e=\frac{v_j-v_i}{2},\quad u_e=D_e/h.
+\]
+Here $v_i,v_j$ mean the centred versions of Appendix~\ref{app:coordinates}'s global entries. E$e-$ starts at V$i$ and extends in direction $-u_e$; E$e+$ starts at V$j$ and extends in direction $u_e$. No branch is discarded at a meeting.
+\input{tables/edges.tex}
+The exact inventories supply $m_e,D_e,u_e$ explicitly for every edge. They also map each of the 42 labels to its Original/A/B dot identities. The termination file records its original endpoint, outward direction and first/last coincident labels. A branch ID and a unique spatial point ID are different keys; their many-to-one relation at an event is part of the evidence.
+\source{BOUNDARY-11 geometry inventory, /edges; BOUNDARY-12 termination inventory, /rays.}
+
+\clearpage\section{Complete supporting-plane representatives}\label{app:planes}
+Use centred coordinates and width-normalized $X=x/w$. Every representative in Table~\ref{tab:planes} is the inequality $n\cdot X\leq d$. Apply the twelve operations generated by rotation through $120^\circ$, $x\mapsto-x$ and $z\mapsto-z$, and remove duplicate planes. The orbit sizes give all maximal faces. Plane normals are not required to be unit vectors; scaling $n,d$ together does not change a halfspace.
+\input{tables/planes.tex}
+``Triangle'' in the compact table distinguishes isosceles (iso.) and equilateral (eq.) cases. The original hexagons are nonregular. A combinatorial type can occupy several orbits: A's isosceles triangles occupy four, and B's rectangles occupy two. The saved complete facet files retain every vertex index, oriented boundary cycle, exact side-square sequence, adjacent-side dot products, and all outer-point residuals. Those values certify which face is meant by each orbit representative.
+
+To use the table without a mesh renderer, generate its symmetry orbit, intersect the resulting halfspaces, and compare the outer points using the stated exact signs. The completeness proof in Section~\ref{sub:certificates} explains why there are no omitted facets. An internal fan triangulation has no authority to alter these maximal polygon faces.
+\source{BOUNDARY-12 hull\_face\_orbits.json and hull\_original/A/B.json. The copied representative values are unchanged.}
+
+\clearpage\section{The optional centred decagonal prism}\label{app:decagon}
+For a regular decagon with side $s_{10}$, circumradius $R_{10}$ and apothem $a_{10}$, bisecting a centre-side triangle gives
+\begin{equation}\label{eq:decagon}
+s_{10}=2R_{10}\sin(\pi/10)=R_{10}/\ph,
+\quad a_{10}=R_{10}\cos(\pi/10),\quad
+P_{10}=10s_{10},\quad A_{10}=P_{10}a_{10}/2.
+\end{equation}
+For completeness, putting $x=2\cos36^\circ$ in the double/triple-angle relation $\cos108^\circ=-\cos72^\circ$ gives $(x+2)(x^2-x-1)=0$. The positive root is $x=\ph$, hence $\sin18^\circ=1/(2\ph)$ and the ratio above. Its tenfold planar dihedral group has order twenty. Side count ten is invariant under scaling and is not a length.
+
+Let $K$ be the native filled triangular footprint, centred on the shell axis, with corner directions $\alpha_k=\alpha_0+2\pi k/3$ and circumradius $r_c=w/\sqrt3$. A centred decagon specified by its side normals is
+\[
+D_{10}(a_{10},\theta)=\{r\in\R^2:\ (\cos(\theta+j\pi/5),\sin(\theta+j\pi/5))\cdot r\leq a_{10},\ 0\leq j<10\}.
+\]
+Its prism over $|z|\leq w/2$ contains the shell exactly when it contains the three seam footprints. Necessity holds because those footprints belong to the shell; sufficiency follows from linearity on their convex hull $K$. For fixed orientation the minimum apothem is therefore
+\begin{equation}\label{eq:apothem}
+a_*(\theta)=r_c\max_{j,k}\cos(\theta+j\pi/5-\alpha_k).
+\end{equation}
+The angular offsets $36j-120k$ run over all multiples of $12^\circ$ modulo $360^\circ$: the thirty residues $3j-10k$ are distinct modulo 30. The closest offset to zero has magnitude $d\in[0,6^\circ]$. Consequently $a_*=r_c\cos d$, minimized when $d=6^\circ$:
+\begin{equation}\label{eq:decmin}
+\min_\theta a_*(\theta)=\frac w{\sqrt3}\cos6^\circ,
+\qquad \theta-\alpha_0=6^\circ\pmod{12^\circ}.
+\end{equation}
+There are three equivalent optimal orientations modulo the decagon's $36^\circ$ period, exchanged by the shell's $120^\circ$ rotation. This result is restricted to decagons centred on the native axis with free axial orientation; it is not an optimization over translated or tilted objects.
+
+A unique symmetry-respecting enclosure chosen only from the unlabelled shell must preserve its $120^\circ$ rotation. A regular axial decagon cannot do so because $120/36$ is not an integer: $C_3\cap C_{10}=\{1\}$. Containment remains possible, but a single orientation requires independent selection. The complete decagonal prism has ten lateral faces and two caps, twelve faces in total. A planar decagon, an open prism sidewall and that closed prism boundary are distinct objects. None defines a recursive operation or a physical stopping rule.
+\source{BOUNDARY-10, Sections 2--5. The original report's referenced trigonometric background is retained as attribution; no new literature search or enclosure optimization was performed.}
+
+\clearpage\section{Scalar identities, source roles and unresolved meanings}\label{app:scalar}
+The source account preserved in BOUNDARY-12 identifies the Geometry--Zeta investigation, Section 1, as defining $\gamma_*=\zeta(3)/(\pi e\ph)$. Its recovered URF source, physical pages 8--9, describes a run-dependent coupling tuned toward a lock relation. The defined target, an independent estimator, and Euler--Mascheroni $\gamma$ are different quantities. This manuscript inherits those locators and their internal review; it does not execute an estimator or grant a physical meaning to the target.
+
+\subsection{The golden-interval coefficient ten}
+Let $L=\ln\ph$ and $q=1/\ph$. The integrand $x^2\coth x$ is integrable at zero because it is asymptotic to $x$. The accepted expansion, obtained from $\coth x=1+2/(e^{2x}-1)$, is
+\begin{equation}\label{eq:polyexpand}
+I_2=\frac{L^3}{3}+\frac{\zeta(3)}2
+-\frac12\operatorname{Li}_3(q^2)-L\operatorname{Li}_2(q^2)-L^2\operatorname{Li}_1(q^2).
+\end{equation}
+The recorded golden polylogarithm identities are
+\begin{equation}\label{eq:goldenpoly}
+\begin{aligned}
+\operatorname{Li}_1(q^2)&=L,\\
+\operatorname{Li}_2(q^2)&=\pi^2/15-L^2,\\
+\operatorname{Li}_3(q^2)&=4\zeta(3)/5-2\pi^2L/15+2L^3/3.
+\end{aligned}
+\end{equation}
+Substitution cancels the $\pi^2L$ and $L^3$ terms, leaving $(1/2-2/5)\zeta(3)=\zeta(3)/10$. Thus \eqref{eq:integral} follows from this existing analytic identity and the definition of $\gamma_*$. The source note attributes the integral to the Hjortnaes/Markov literature, specifically Markov's 2024 article \cite{Markov}. This is inherited attribution, not a fresh examination of the external paper. The former investigations' scalar quadratures are evidence records; no quadrature is rerun here.
+
+\clearpage\subsection{A separate static frequency family}
+The recovered SRG paper, physical page 7, Section 7.3 equation (12), gives
+\begin{equation}\label{eq:frequency}
+T\gamma(\omega)=\zeta\left(2\log_\ph(\omega/\omega_0)+3\right).
+\end{equation}
+For positive $\omega_0,\omega$, the ordinary zeta-series requires its exponent to exceed one, equivalently $\omega>\omega_0/\ph$. Equality gives the pole. At $\omega=\omega_0$, this family equals $\gamma_*$. On the assigned tower $\omega_n=\omega_0\ph^n$, $\gamma_n=\zeta(2n+3)/T\to1/T$. The source calls the map static. This is not a sequence approaching ten and supplies no geometric width rule.
+
+\subsection{What the scalar roles do and do not identify}
+The coefficient ten in \eqref{eq:integral} is an exact analytic coefficient. A decagon's ten is a side count. $R/w=10$ and $R/w=T$ are assigned observation parameters. The historical real-space box length ten noted in the recovered SRG account is another parameter with its own source role. None is silently identified with the other. Table~\ref{tab:ratios} retains the prescribed failures of geometric matching; it selects no closest value as a discovery.
+
+The previous bounded source pass did not recover a specified aggregate of constants approaching ten. The missing evidence is narrow: an original equation/table or sequence identifying its terms, operation, index or limit and normalization. No new sum or search is needed to finish the finite geometry. Likewise $\Delta=T-B_{\rm scale}$ can be a difference of numbers, but identifying it as an outside length, area or volume requires the same specified measure and unit for both. A tensor interpretation additionally requires the space, components and norm. No unproved assertion about the algebraic or transcendental nature of $\pi e\ph$ is used to decide these questions.
+\source{BOUNDARY-12, Section 7; numbered S01 lines 11--17, 201--220 and 274, S02 Sections 4.1--4.2, P18 page 7, P19 pages 8--9. The public access guide provides source identities without republishing external PDF page images.}
+
+\clearpage\section{Evidence access, attribution and edition scope}\label{app:evidence}
+The manuscript is the written mathematical account. Its claim/source map identifies exact original sections, equations and JSON pointers. The coordinate, edge and support-plane tables are transcriptions of accepted records; the local formatting ledger preserves the input strings and selected displays. Original PNG and SVG figure plates are unchanged, including their existing annotations and scale conventions.
+
+The repository candidate has two new roots. The paper edition contains this PDF, editable TeX, included table fragments, original figure plates and claim/access/disposition manifests. The research companion contains the accepted report sources and selected exact evidence, complete later review trees, one unchanged HTML entry point and separately labelled future questions. Original full submission archives remain locally intact. Public curation omits workstation inventories, preparation logs/caches, whole external source PDFs and their rendered page images, and redundant nested archives. No retained source is silently redacted.
+
+The old analytical and review scripts are included as inert evidence where needed to understand reproduction. Their exact paths and dependencies refer to the original workspaces; relocating them does not make a turnkey executable distribution. The access guide maps the retained files and explains which prerequisites remain local. No old script, checker or figure builder was executed for this edition.
+
+Original execution, subsequent internal review and present editorial work have separate roles. Codex prepared the original investigations; GPT subsequently supplied internal mathematical reviews, including the finite ratio observation and V01. The current work writes a synthesis, compiles its new TeX, inspects the PDF pages and verifies the proposed package's file identities. It does not relabel inherited check counts as current scientific validation. External peer review, independent laboratory verification and a new research lane are not asserted.
+
+The author's name is the requested byline; no institutional affiliation is supplied. Existing software notices remain with Plotly. The repository's Apache-2.0 software licence does not automatically license scientific papers, data or figures. This edition adds no licence or rights grant. A disclosure inventory records account-path and similar strings that remain in exact retained evidence for GPT/owner review before any publication authorization.
+
+\subsection*{Reading the companion}
+From the edition directory, the research entry point is four levels up and then under \texttt{research/spherical\_edge\_extensions/README.md}. The paper-root README supplies the corresponding relative link. For a repository-hosted view, the proposed research location is
+\begin{flushleft}\small
+\href{https://github.com/pzychozen/trioctagon-physics/tree/main/research/spherical_edge_extensions}{the proposed research companion on GitHub}.
+\end{flushleft}
+This is a destination for a later authorized publication, not a claim that this candidate has been pushed or that the page already exists. The candidate ZIP can be inspected locally now. The claim map and exact path manifest are the authoritative proposed-file lists.
+
+\clearpage
+\begin{thebibliography}{9}
+\bibitem{PC} H. Fr\'imann Halld\'orsson. \emph{Exact Geometry of the Folded Tri-Octagon Module}. Paper C, publication v1.0.1. Coordinate authority, Sections 2--5, 7 and 9. Repository source anchor \texttt{e1f5115402a05965834493c1254b03118a531c92}. The exact Markdown SHA-256 is recorded in the claim/access map.
+\bibitem{B10} H. Fr\'imann Halld\'orsson, with Codex assistance. \emph{Can a decagon close the Tri-Octagon?} BOUNDARY-10, 16 October 2026. Accepted four-page report and unchanged TeX. Enclosing-ball, decagon and normalization arguments.
+\bibitem{B11} H. Fr\'imann Halld\'orsson, with Codex assistance. \emph{Three-dimensional spherical edge extension}. BOUNDARY-11, 16 October 2026. Accepted original report, data and evidence in \texttt{BOUNDARY11\_REVIEW\_PACKAGE.zip}.
+\bibitem{G11} GPT. \emph{BOUNDARY-11 scientific review}. 16 October 2026. Separate subsequent internal review in \texttt{BOUNDARY11\_GPT\_REVIEW\_v0.1.zip}, especially Section 4. Not external peer review.
+\bibitem{B12} H. Fr\'imann Halld\'orsson, with Codex assistance. \emph{BOUNDARY-12: Natural terminations, unit lengths and scale meaning}. 16 October 2026. Accepted Markdown report and exact inventories in \texttt{BOUNDARY12\_GPT\_REVIEW.zip}.
+\bibitem{G12} GPT. \emph{BOUNDARY-12 mathematical and observation-prototype review}. 16 October 2026. Separate subsequent internal review in \texttt{BOUNDARY12\_GPT\_SCIENTIFIC\_REVIEW\_v0.1.zip}. V01 and browser qualification retained.
+\bibitem{GZ} \emph{Geometry--Zeta Investigation 01}. 9 October 2026. Existing source account recovered as S01 in BOUNDARY-12, Sections 1 and 7 and reference list. Historical SRG/URF locators are carried by BOUNDARY-12's source ledger and this edition's access guide; not newly retrieved here.
+\bibitem{Markov} L. Markov. \emph{Hjortnaes Integrals Involving the Di- and Trilogarithms}. International Journal of Applied Mathematics 37(3), 305--310 (2024). \url{https://doi.org/10.12732/ijam.v37i3.2}. Attribution inherited from Geometry--Zeta S01 line 274 and accepted BOUNDARY-12; no fresh external-paper review is claimed.
+\end{thebibliography}
+\end{document}

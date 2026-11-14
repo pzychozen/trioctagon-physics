@@ -51,6 +51,14 @@ Paper G has a separate [author publication disposition](papers/PAPER_G/repositor
 Its approved v0.1.1 PDF/source retain their review labels and exact bytes;
 that later disposition authorizes repository publication without changing the science.
 
+## Noncollision outer-envelope transition
+
+[Noncollision Facet Transition and Exact Outer-Envelope Classification in the Folded Tri-Octagon](papers/TRIOCTAGON_OUTER_ENVELOPE_COMPANION/README.md), by **Hilmir Frímann Halldórsson**, research edition v0.1. Companion to *Spherical Edge Extensions of the Folded Tri-Octagon*, with completed project-internal manuscript review and author-authorized repository publication.
+
+Complete static A-B maximal-face classification with a unique noncollision transition at `t=3h`. All 42 vertices stay distinct there; the interior facet counts are 56/44/50. No ten-vertex maximal facet occurs in this closed family. No kernel changes or physical-boundary adoption. Earlier papers and accepted evidence remain unchanged.
+
+[Final PDF](papers/TRIOCTAGON_OUTER_ENVELOPE_COMPANION/publication/v0.1/TRIOCTAGON_OUTER_ENVELOPE_COMPANION_v0.1.pdf) | [Editable source and evidence](papers/TRIOCTAGON_OUTER_ENVELOPE_COMPANION/publication/v0.1/README.md).
+
 ## Certified alternating-branch connection
 
 [Certified Connection from Local Period-Doubling to the Captured Alternating Cycle in the Native Triad](papers/NATIVE_ALTERNATING_BRANCH_CONNECTION_COMPANION/README.md), by **Hilmir Frímann Halldórsson**, research edition v0.1. Companion to Paper G, with completed project-internal manuscript review and author-authorized repository publication.

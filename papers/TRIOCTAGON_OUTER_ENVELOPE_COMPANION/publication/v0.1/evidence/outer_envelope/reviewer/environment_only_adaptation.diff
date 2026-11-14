@@ -1,0 +1,11 @@
+--- submitted/scripts/common.py
++++ replay/scripts/common.py
+@@ -4,7 +4,7 @@
+ R=Path(__file__).resolve().parents[1];P=R/'packet';S=R/'sources';D=R/'data';L=R/'logs'
+ REPO=Path(r'C:\TORMENT\TRIOCTAGON_new\trioctagon-physics')
+ CHECKPOINT='46bf10808b8694476b61b359be305a66a46d4614'
+-assert os.environ.get('CONDA_DEFAULT_ENV')=='torment' and not sys.flags.optimize
++assert not sys.flags.optimize  # GPT Linux replay: environment-name guard only.
+ for p in [D,L]:p.mkdir(exist_ok=True)
+ def now():return datetime.now(timezone.utc).isoformat()
+ def sha(b):return hashlib.sha256(b).hexdigest()

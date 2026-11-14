@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "command": [
+    "/opt/pyvenv/bin/python",
+    "-B",
+    "/mnt/data/outer_envelope_gpt_review/replay/scripts/report_data.py"
+  ],
+  "exit_status": 0,
+  "elapsed_seconds": 1.8585580010000058,
+  "records": [
+    {
+      "path": "FACE_REPRESENTATIVES.json",
+      "raw_bytes_equal": false,
+      "content_equal": true,
+      "comparison": "parsed JSON",
+      "submitted_sha256": "1299b869c7c4f1a779c6a86825828d25fe253d488b723100004515530dd87370",
+      "replay_sha256": "1b94c52f044172d5b216da19344c1d014933d01b7bc69c0924c2e60851f7b554"
+    },
+    {
+      "path": "FACE_REPRESENTATIVES.md",
+      "raw_bytes_equal": false,
+      "content_equal": true,
+      "comparison": "text after CRLF/LF normalization for comparison only",
+      "submitted_sha256": "3bc0f92f7e27d7aee2fc7b1d7c78f252739bdb5c645f9348ebb297ef01ab76db",
+      "replay_sha256": "67af08ae48667da9d24118aa5b5c673f6be53f33c45782d536b5e48a05dc2795"
+    },
+    {
+      "path": "CANDIDATE_RESIDUAL_TABLE.md",
+      "raw_bytes_equal": false,
+      "content_equal": true,
+      "comparison": "text after CRLF/LF normalization for comparison only",
+      "submitted_sha256": "b6f38e6e59225a3ebd300e93bc8c3f9cd2219c9b6a81a0cce6acc7a8f1a09147",
+      "replay_sha256": "6c7ea5a9bed7ffbdef8e4da0d7300aaa6f26dc0c6124b60eaecd358c3370bcef"
+    },
+    {
+      "path": "TRANSITION_READOUT.json",
+      "raw_bytes_equal": false,
+      "content_equal": true,
+      "comparison": "parsed JSON",
+      "submitted_sha256": "ea26a44e9ef7e04fa2e1592bccd4b0422ef8e5e8460f4f7e3f14477d84df52f3",
+      "replay_sha256": "a3ea647130b97aa507859a8c05f6ba9d49fbbde5958bd55b62cf723c2bdab2c8"
+    },
+    {
+      "path": "FACE_INCIDENCE_RECORDS.json",
+      "raw_bytes_equal": false,
+      "content_equal": true,
+      "comparison": "parsed JSON",
+      "submitted_sha256": "dbcb01bb76504bc77a848e6da7b04f2e4237c397da262587d57f6dc9a22f89cc",
+      "replay_sha256": "16f9ee4483da2177929c50b11db856d9e04c7e9ed17aa460e3399e855ecc6ddc"
+    }
+  ],
+  "scope": "Recomputed derived records from replayed certificate; no new geometry nomination, original evidence unchanged.",
+  "endpoint_full_dimensional_images_equal_endpoint_facets_once": true
+}

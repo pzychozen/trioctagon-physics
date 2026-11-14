@@ -1,0 +1,703 @@
+{
+  "status": "PASS",
+  "method": "Reviewed document-only make_tables.py run in separate scratch; no scientific evidence script imported or executed.",
+  "helper_sha256": "3cacb6ad4beb937f29441194bdd87cbb67e0879b1bfe1d7ec705dfc8ea9aba1a",
+  "exit_status": 0,
+  "table_files": [
+    {
+      "path": "tables/classification.tex",
+      "exact_bytes_match": false,
+      "text_match_ignoring_CRLF_LF": true,
+      "submitted_sha256": "70a08347d7851adc4169d29e77607532aa07cf4f339bac1cf4d4f3d8d33878db",
+      "scratch_sha256": "e0dbda4324aa7523a8308ebcb26468eb3928f23236e9d9ec0a6e4848a61bc31b"
+    },
+    {
+      "path": "tables/limits.tex",
+      "exact_bytes_match": false,
+      "text_match_ignoring_CRLF_LF": true,
+      "submitted_sha256": "573c14e7d0a7d96f43b2be8a8f2c88e90874c122b7f812affe291a00df948024",
+      "scratch_sha256": "918a809ceee61e36d52c68af9cba77ffbf7b7501f8e7f482d392b71d8eaa78e7"
+    },
+    {
+      "path": "tables/orbits_c1.tex",
+      "exact_bytes_match": false,
+      "text_match_ignoring_CRLF_LF": true,
+      "submitted_sha256": "26414fd948bbfa2daff081d76253d2f3b05adbab68ec7b412481a2bfa7023279",
+      "scratch_sha256": "a380341b9e260767f0a2c7a4d7593ffda5cf828b37ec886f079ab37f10771f39"
+    },
+    {
+      "path": "tables/orbits_c2.tex",
+      "exact_bytes_match": false,
+      "text_match_ignoring_CRLF_LF": true,
+      "submitted_sha256": "1e950f213dead780b13172b1387e45d24a4b303835131fa41121ae9c0ad62dc7",
+      "scratch_sha256": "b31b18e158acaa19018977e01d4a0b7edeba34f21f8cafe35b207fe218705e20"
+    },
+    {
+      "path": "tables/orbits_star.tex",
+      "exact_bytes_match": false,
+      "text_match_ignoring_CRLF_LF": true,
+      "submitted_sha256": "9124f20ca01c017dcb14da153400750a7984684a9fd3d90df6738c6df8fdbd62",
+      "scratch_sha256": "33a6f81f5db88cc9749f6b269eeb515a3303e2c967391b1bc1a106e8afe5b938"
+    },
+    {
+      "path": "tables/patch.tex",
+      "exact_bytes_match": false,
+      "text_match_ignoring_CRLF_LF": true,
+      "submitted_sha256": "554954c7422a1b94e0b144f75cf7583d1b7903f585b8e2150b418ab92e517943",
+      "scratch_sha256": "ca4c6e3accb1e4af546e769c2278542ec4acd8c59d7b47b0efcc94c9b3a2f170"
+    },
+    {
+      "path": "tables/residuals.tex",
+      "exact_bytes_match": false,
+      "text_match_ignoring_CRLF_LF": true,
+      "submitted_sha256": "a801d7f890870d5cac3826e48ce0381bbb2c8d0aaed0c50abb53185f8d72aa3f",
+      "scratch_sha256": "bb1318675a3adb08c41563bb3cd553be1104c08c75e38d4a8a6cab2bf62f33ed"
+    }
+  ],
+  "scope": "Saved-value transcription and expression formatting only; no recomputation of hulls, sign proofs, incidence classification or certificate replay.",
+  "line_ending_note": "Linux writes LF; Windows generated table files use CRLF. Content comparisons ignore only this declared platform newline difference. Original files unchanged.",
+  "transcription_records": {
+    "status": "PASS",
+    "checked_utc": "2026-11-14T03:45:39.403516+00:00",
+    "scope": "Saved-data transcription and expression formatting only; no geometry, root, sign-proof, hull, scientific checker or reviewer code executed.",
+    "sympy_use": "Parse saved exact expression strings, compare their coefficients with saved arrays, and emit LaTeX. No scientific engine imported.",
+    "sympy_version": "1.14.0",
+    "records": [
+      {
+        "type": "classification",
+        "domain": "A",
+        "VEF": [
+          18,
+          48,
+          32
+        ],
+        "histogram": {
+          "3": 32
+        }
+      },
+      {
+        "type": "classification",
+        "domain": "C1",
+        "VEF": [
+          42,
+          96,
+          56
+        ],
+        "histogram": {
+          "3": 36,
+          "4": 18,
+          "6": 2
+        }
+      },
+      {
+        "type": "classification",
+        "domain": "T",
+        "VEF": [
+          42,
+          84,
+          44
+        ],
+        "histogram": {
+          "3": 24,
+          "4": 12,
+          "6": 8
+        }
+      },
+      {
+        "type": "classification",
+        "domain": "C2",
+        "VEF": [
+          42,
+          90,
+          50
+        ],
+        "histogram": {
+          "3": 24,
+          "4": 24,
+          "6": 2
+        }
+      },
+      {
+        "type": "classification",
+        "domain": "B",
+        "VEF": [
+          18,
+          36,
+          20
+        ],
+        "histogram": {
+          "3": 8,
+          "4": 12
+        }
+      },
+      {
+        "type": "orbit",
+        "domain": "C1",
+        "id": "F01",
+        "size": 2,
+        "cycle": [
+          "E01+",
+          "E05-",
+          "E16+",
+          "E03+",
+          "E07+",
+          "E14-"
+        ],
+        "source_display_formulas": [
+          "0",
+          "0",
+          "-1",
+          "sqrt(2)*(x + 1/2)/2"
+        ],
+        "printed_math": "n&=\\bigl(0,0,-1\\bigr),\\\\d&=\\frac{r \\left(x + \\frac{1}{2}\\right)}{2}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "C1",
+        "id": "F02",
+        "size": 6,
+        "cycle": [
+          "E01+",
+          "E09-",
+          "E12-",
+          "E05-"
+        ],
+        "source_display_formulas": [
+          "-1",
+          "1",
+          "-x - 1/2 + sqrt(2)/2",
+          "sqrt(2)*(x**2 + x*(1 - sqrt(2)/2) + sqrt(2)/12 + 1/4)/2"
+        ],
+        "printed_math": "n&=\\bigl(-1,1,- x - \\frac{1}{2} + \\frac{r}{2}\\bigr),\\\\d&=\\frac{r \\left(x^{2} + x \\left(1 - \\frac{r}{2}\\right) + \\frac{r}{12} + \\frac{1}{4}\\right)}{2}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "C1",
+        "id": "F03",
+        "size": 12,
+        "cycle": [
+          "E01+",
+          "E06-",
+          "E13-"
+        ],
+        "source_display_formulas": [
+          "-1",
+          "3 - 2*sqrt(2)",
+          "-1",
+          "x + sqrt(2)/3"
+        ],
+        "printed_math": "n&=\\bigl(-1,3 - 2 r,-1\\bigr),\\\\d&=x + \\frac{r}{3}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "C1",
+        "id": "F04",
+        "size": 6,
+        "cycle": [
+          "E01+",
+          "E14-",
+          "E06-"
+        ],
+        "source_display_formulas": [
+          "-1",
+          "-1",
+          "-sqrt(2) - 1",
+          "(1 + sqrt(2))*(x - 2/3 + 2*sqrt(2)/3)"
+        ],
+        "printed_math": "n&=\\bigl(-1,-1,- r - 1\\bigr),\\\\d&=\\left(1 + r\\right) \\left(x - \\frac{2}{3} + \\frac{2 r}{3}\\right).",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "C1",
+        "id": "F05",
+        "size": 12,
+        "cycle": [
+          "E01+",
+          "E13-",
+          "E09-"
+        ],
+        "source_display_formulas": [
+          "x - sqrt(2)/2 - 1/2",
+          "x - 5*sqrt(2)/2 + 7/2",
+          "(-1 + sqrt(2))*(x - sqrt(2)/2 - 1/2)",
+          "-x**2 + 5*x/6 - 1/3 + 5*sqrt(2)/12"
+        ],
+        "printed_math": "n&=\\bigl(x - \\frac{r}{2} - \\frac{1}{2},x - \\frac{5 r}{2} + \\frac{7}{2},\\left(-1 + r\\right) \\left(x - \\frac{r}{2} - \\frac{1}{2}\\right)\\bigr),\\\\d&=- x^{2} + \\frac{5 x}{6} - \\frac{1}{3} + \\frac{5 r}{12}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "C1",
+        "id": "F06",
+        "size": 6,
+        "cycle": [
+          "E01-",
+          "E03-",
+          "E21-",
+          "E10+"
+        ],
+        "source_display_formulas": [
+          "0",
+          "1",
+          "(-1 + sqrt(2))/2",
+          "(x - 1/3 + sqrt(2)/2)/2"
+        ],
+        "printed_math": "n&=\\bigl(0,1,- \\frac{1}{2} + \\frac{r}{2}\\bigr),\\\\d&=\\frac{x}{2} - \\frac{1}{6} + \\frac{r}{4}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "C1",
+        "id": "F07",
+        "size": 3,
+        "cycle": [
+          "E01-",
+          "E11+",
+          "E12-",
+          "E03-"
+        ],
+        "source_display_formulas": [
+          "0",
+          "1",
+          "0",
+          "sqrt(2)*(x + sqrt(2)/6 + 1/2)/4"
+        ],
+        "printed_math": "n&=\\bigl(0,1,0\\bigr),\\\\d&=\\frac{r \\left(x + \\frac{r}{6} + \\frac{1}{2}\\right)}{4}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "C1",
+        "id": "F09",
+        "size": 3,
+        "cycle": [
+          "E01-",
+          "E14+",
+          "E17-",
+          "E11+"
+        ],
+        "source_display_formulas": [
+          "1",
+          "1",
+          "0",
+          "sqrt(2)*(x - sqrt(2)/6 + 1/2)/2"
+        ],
+        "printed_math": "n&=\\bigl(1,1,0\\bigr),\\\\d&=\\frac{r \\left(x - \\frac{r}{6} + \\frac{1}{2}\\right)}{2}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "C1",
+        "id": "F14",
+        "size": 6,
+        "cycle": [
+          "E02+",
+          "E10+",
+          "E21-"
+        ],
+        "source_display_formulas": [
+          "0",
+          "1",
+          "1/2",
+          "(x + 2/3)/2"
+        ],
+        "printed_math": "n&=\\bigl(0,1,\\frac{1}{2}\\bigr),\\\\d&=\\frac{x}{2} + \\frac{1}{3}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "T",
+        "id": "F01",
+        "size": 2,
+        "cycle": [
+          "E01+",
+          "E05-",
+          "E16+",
+          "E03+",
+          "E07+",
+          "E14-"
+        ],
+        "source_display_formulas": [
+          "0",
+          "0",
+          "-1",
+          "(3 - sqrt(2))/2"
+        ],
+        "printed_math": "n&=\\bigl(0,0,-1\\bigr),\\\\d&=\\frac{3}{2} - \\frac{r}{2}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "T",
+        "id": "F02",
+        "size": 6,
+        "cycle": [
+          "E01+",
+          "E13-",
+          "E09-",
+          "E12-",
+          "E20+",
+          "E05-"
+        ],
+        "source_display_formulas": [
+          "-1",
+          "1",
+          "1 - sqrt(2)",
+          "(-13 + 12*sqrt(2))/6"
+        ],
+        "printed_math": "n&=\\bigl(-1,1,1 - r\\bigr),\\\\d&=- \\frac{13}{6} + 2 r.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "T",
+        "id": "F03",
+        "size": 12,
+        "cycle": [
+          "E01+",
+          "E06-",
+          "E13-"
+        ],
+        "source_display_formulas": [
+          "-1",
+          "3 - 2*sqrt(2)",
+          "-1",
+          "(-9 + 11*sqrt(2))/6"
+        ],
+        "printed_math": "n&=\\bigl(-1,3 - 2 r,-1\\bigr),\\\\d&=- \\frac{3}{2} + \\frac{11 r}{6}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "T",
+        "id": "F04",
+        "size": 6,
+        "cycle": [
+          "E01+",
+          "E14-",
+          "E06-"
+        ],
+        "source_display_formulas": [
+          "-1",
+          "-1",
+          "-sqrt(2) - 1",
+          "13/6"
+        ],
+        "printed_math": "n&=\\bigl(-1,-1,- r - 1\\bigr),\\\\d&=\\frac{13}{6}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "T",
+        "id": "F05",
+        "size": 6,
+        "cycle": [
+          "E01-",
+          "E03-",
+          "E21-",
+          "E10+"
+        ],
+        "source_display_formulas": [
+          "0",
+          "1",
+          "(-1 + sqrt(2))/2",
+          "(-11 + 12*sqrt(2))/12"
+        ],
+        "printed_math": "n&=\\bigl(0,1,- \\frac{1}{2} + \\frac{r}{2}\\bigr),\\\\d&=- \\frac{11}{12} + r.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "T",
+        "id": "F06",
+        "size": 3,
+        "cycle": [
+          "E01-",
+          "E11+",
+          "E12-",
+          "E03-"
+        ],
+        "source_display_formulas": [
+          "0",
+          "1",
+          "0",
+          "(10 - 3*sqrt(2))/12"
+        ],
+        "printed_math": "n&=\\bigl(0,1,0\\bigr),\\\\d&=\\frac{5}{6} - \\frac{r}{4}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "T",
+        "id": "F08",
+        "size": 3,
+        "cycle": [
+          "E01-",
+          "E14+",
+          "E17-",
+          "E11+"
+        ],
+        "source_display_formulas": [
+          "1",
+          "1",
+          "0",
+          "(8 - 3*sqrt(2))/6"
+        ],
+        "printed_math": "n&=\\bigl(1,1,0\\bigr),\\\\d&=\\frac{4}{3} - \\frac{r}{2}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "T",
+        "id": "F12",
+        "size": 6,
+        "cycle": [
+          "E02+",
+          "E10+",
+          "E21-"
+        ],
+        "source_display_formulas": [
+          "0",
+          "1",
+          "1/2",
+          "(-5 + 9*sqrt(2))/12"
+        ],
+        "printed_math": "n&=\\bigl(0,1,\\frac{1}{2}\\bigr),\\\\d&=- \\frac{5}{12} + \\frac{3 r}{4}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "C2",
+        "id": "F01",
+        "size": 2,
+        "cycle": [
+          "E01+",
+          "E05-",
+          "E16+",
+          "E03+",
+          "E07+",
+          "E14-"
+        ],
+        "source_display_formulas": [
+          "0",
+          "0",
+          "-1",
+          "sqrt(2)*(x + 1/2)/2"
+        ],
+        "printed_math": "n&=\\bigl(0,0,-1\\bigr),\\\\d&=\\frac{r \\left(x + \\frac{1}{2}\\right)}{2}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "C2",
+        "id": "F02",
+        "size": 6,
+        "cycle": [
+          "E01+",
+          "E13-",
+          "E20+",
+          "E05-"
+        ],
+        "source_display_formulas": [
+          "-x - 1/2 + sqrt(2)/2",
+          "x - sqrt(2)/2 + 1/2",
+          "-sqrt(2)*(x - 1/2)",
+          "x**2 + x/3 - sqrt(2)/6 - 1/12"
+        ],
+        "printed_math": "n&=\\bigl(- x - \\frac{1}{2} + \\frac{r}{2},x - \\frac{r}{2} + \\frac{1}{2},- r \\left(x - \\frac{1}{2}\\right)\\bigr),\\\\d&=x^{2} + \\frac{x}{3} - \\frac{r}{6} - \\frac{1}{12}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "C2",
+        "id": "F03",
+        "size": 12,
+        "cycle": [
+          "E01+",
+          "E06-",
+          "E13-"
+        ],
+        "source_display_formulas": [
+          "-1",
+          "3 - 2*sqrt(2)",
+          "-1",
+          "x + sqrt(2)/3"
+        ],
+        "printed_math": "n&=\\bigl(-1,3 - 2 r,-1\\bigr),\\\\d&=x + \\frac{r}{3}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "C2",
+        "id": "F04",
+        "size": 6,
+        "cycle": [
+          "E01+",
+          "E14-",
+          "E06-"
+        ],
+        "source_display_formulas": [
+          "-1",
+          "-1",
+          "-sqrt(2) - 1",
+          "(1 + sqrt(2))*(x - 2/3 + 2*sqrt(2)/3)"
+        ],
+        "printed_math": "n&=\\bigl(-1,-1,- r - 1\\bigr),\\\\d&=\\left(1 + r\\right) \\left(x - \\frac{2}{3} + \\frac{2 r}{3}\\right).",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "C2",
+        "id": "F05",
+        "size": 6,
+        "cycle": [
+          "E01-",
+          "E03-",
+          "E21-",
+          "E10+"
+        ],
+        "source_display_formulas": [
+          "0",
+          "1",
+          "(-1 + sqrt(2))/2",
+          "(x - 1/3 + sqrt(2)/2)/2"
+        ],
+        "printed_math": "n&=\\bigl(0,1,- \\frac{1}{2} + \\frac{r}{2}\\bigr),\\\\d&=\\frac{x}{2} - \\frac{1}{6} + \\frac{r}{4}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "C2",
+        "id": "F06",
+        "size": 3,
+        "cycle": [
+          "E01-",
+          "E11+",
+          "E12-",
+          "E03-"
+        ],
+        "source_display_formulas": [
+          "0",
+          "1",
+          "0",
+          "sqrt(2)*(x + sqrt(2)/6 + 1/2)/4"
+        ],
+        "printed_math": "n&=\\bigl(0,1,0\\bigr),\\\\d&=\\frac{r \\left(x + \\frac{r}{6} + \\frac{1}{2}\\right)}{4}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "C2",
+        "id": "F07",
+        "size": 6,
+        "cycle": [
+          "E01-",
+          "E10+",
+          "E19-",
+          "E14+"
+        ],
+        "source_display_formulas": [
+          "1",
+          "1",
+          "-1 + sqrt(2)",
+          "x - 2/3 + sqrt(2)/2"
+        ],
+        "printed_math": "n&=\\bigl(1,1,-1 + r\\bigr),\\\\d&=x - \\frac{2}{3} + \\frac{r}{2}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "C2",
+        "id": "F08",
+        "size": 3,
+        "cycle": [
+          "E01-",
+          "E14+",
+          "E17-",
+          "E11+"
+        ],
+        "source_display_formulas": [
+          "1",
+          "1",
+          "0",
+          "sqrt(2)*(x - sqrt(2)/6 + 1/2)/2"
+        ],
+        "printed_math": "n&=\\bigl(1,1,0\\bigr),\\\\d&=\\frac{r \\left(x - \\frac{r}{6} + \\frac{1}{2}\\right)}{2}.",
+        "raw_coefficients_match": true
+      },
+      {
+        "type": "orbit",
+        "domain": "C2",
+        "id": "F12",
+        "size": 6,
+        "cycle": [
+          "E02+",
+          "E10+",
+          "E21-"
+        ],
+        "source_display_formulas": [
+          "0",
+          "1",
+          "1/2",
+          "(x + 2/3)/2"
+        ],
+        "printed_math": "n&=\\bigl(0,1,\\frac{1}{2}\\bigr),\\\\d&=\\frac{x}{2} + \\frac{1}{3}.",
+        "raw_coefficients_match": true
+      }
+    ],
+    "residual_classes": 13,
+    "residual_labels": 42,
+    "patch_cycle_rows": 5,
+    "transition_counts": {
+      "six_patches": 6,
+      "persistent_label_sets": 38,
+      "lost_edges": 12,
+      "gained_edges": 6
+    },
+    "endpoint_images": [
+      [
+        32,
+        18,
+        6
+      ],
+      [
+        20,
+        24,
+        6
+      ]
+    ],
+    "historical_submitted_counts": [
+      6300,
+      972,
+      254
+    ],
+    "historical_reviewer_counts": [
+      6300,
+      972,
+      255
+    ],
+    "printed_formulas_match_saved_values": true,
+    "new_scientific_runs": 0,
+    "source_hashes": {
+      "evidence/outer_envelope/submitted/data/exact_certificate.json": "7826f6fc9906f3678f0278edcb704cf0ff67d90039d80496db40571bc7d60386",
+      "evidence/outer_envelope/submitted/data/FACE_REPRESENTATIVES.json": "1299b869c7c4f1a779c6a86825828d25fe253d488b723100004515530dd87370",
+      "evidence/outer_envelope/submitted/data/CHECKER_RESULT.json": "8f5e75fe7caa9ed814bbccf3140b95b777ad8a22aa3e1bd3bd99091f86470406",
+      "evidence/outer_envelope/submitted/data/TRANSITION_READOUT.json": "ea26a44e9ef7e04fa2e1592bccd4b0422ef8e5e8460f4f7e3f14477d84df52f3",
+      "evidence/outer_envelope/submitted/data/CANDIDATE_RESIDUAL_TABLE.md": "b6f38e6e59225a3ebd300e93bc8c3f9cd2219c9b6a81a0cce6acc7a8f1a09147"
+    },
+    "generated_table_hashes": {
+      "tables/classification.tex": "e0dbda4324aa7523a8308ebcb26468eb3928f23236e9d9ec0a6e4848a61bc31b",
+      "tables/limits.tex": "918a809ceee61e36d52c68af9cba77ffbf7b7501f8e7f482d392b71d8eaa78e7",
+      "tables/orbits_c1.tex": "a380341b9e260767f0a2c7a4d7593ffda5cf828b37ec886f079ab37f10771f39",
+      "tables/orbits_c2.tex": "b31b18e158acaa19018977e01d4a0b7edeba34f21f8cafe35b207fe218705e20",
+      "tables/orbits_star.tex": "33a6f81f5db88cc9749f6b269eeb515a3303e2c967391b1bc1a106e8afe5b938",
+      "tables/patch.tex": "ca4c6e3accb1e4af546e769c2278542ec4acd8c59d7b47b0efcc94c9b3a2f170",
+      "tables/residuals.tex": "bb1318675a3adb08c41563bb3cd553be1104c08c75e38d4a8a6cab2bf62f33ed"
+    }
+  },
+  "new_scientific_runs": 0
+}

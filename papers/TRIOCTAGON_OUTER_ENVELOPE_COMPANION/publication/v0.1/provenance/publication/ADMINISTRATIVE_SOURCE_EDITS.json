@@ -1,0 +1,80 @@
+{
+  "status": "CONDITIONAL_PLAN_NOT_APPLIED",
+  "activation": "Explicit author approval/instruction to publish is required before applying these proposed administrative changes.",
+  "mathematics_changes": 0,
+  "original_source_untouched": true,
+  "files": [
+    {
+      "path": "main.tex",
+      "original_sha256": "662e14e00bb98476af7245e10d989627bb6ff133995a572ba71017900fb4b0f6",
+      "edits": [
+        {
+          "old": "Research manuscript v0.1; accepted mathematical investigation; manuscript and author review pending; project-internal, not externally peer reviewed.",
+          "new_after_author_activation": "Research edition v0.1; project-internal manuscript review complete; author-authorized for repository publication; not externally peer reviewed.",
+          "expected_count": 1
+        },
+        {
+          "old": "\\rhead{\\small Research manuscript v0.1}",
+          "new_after_author_activation": "\\rhead{\\small Research edition v0.1}",
+          "expected_count": 1
+        },
+        {
+          "old": "Research manuscript v0.1 \\quad 14 November 2026\\par",
+          "new_after_author_activation": "Research edition v0.1 \\quad 14 November 2026\\par",
+          "expected_count": 1
+        },
+        {
+          "old": "Accepted mathematical investigation; manuscript and author review pending.\\par",
+          "new_after_author_activation": "Project-internal manuscript review complete; author-authorized for repository publication.\\par",
+          "expected_count": 1
+        },
+        {
+          "old": "Project-internal research manuscript, not externally peer reviewed.",
+          "new_after_author_activation": "Project-internal research edition, not externally peer reviewed.",
+          "expected_count": 1
+        },
+        {
+          "old": "The investigation was internally accepted on 13 November 2026; this manuscript was commissioned and prepared on 14 November. Manuscript and author review remain pending. Historical status fields are preserved. This commission authorizes no publication.",
+          "new_after_author_activation": "The investigation was internally accepted on 13 November 2026; this manuscript was commissioned and prepared on 14 November. GPT manuscript review was completed on 14 November 2026. The author has authorized repository publication of this research edition. Historical status fields are preserved.",
+          "expected_count": 1
+        },
+        {
+          "old": "GPT supplies scientific steering and internal scientific review;",
+          "new_after_author_activation": "GPT supplies scientific steering and internal scientific and manuscript review;",
+          "expected_count": 1
+        }
+      ],
+      "inverse_restores_original": true
+    },
+    {
+      "path": "build.py",
+      "original_sha256": "cd11762468d02a8eb222fdfbc1671733f49d4fce1be1ae5c3bea5e654a99c1b9",
+      "edits": [
+        {
+          "old": "'status':'Manuscript and author review pending; no publication authorized.'",
+          "new_after_author_activation": "'status':'Project-internal manuscript review complete; author-authorized for repository publication.'",
+          "expected_count": 1
+        },
+        {
+          "old": "'client_date':'2026-11-14'",
+          "new_after_author_activation": "'client_date':datetime.now(timezone.utc).date().isoformat()",
+          "expected_count": 1
+        }
+      ],
+      "inverse_restores_original": true
+    },
+    {
+      "path": "helpers/verify_document.py",
+      "original_sha256": "9c1a27e8ab44496637ced622951c98c2655c37395c5c5e85b7fd3d8d7c9ddada",
+      "edits": [
+        {
+          "old": "assert meta['/Author']=='Hilmir Frímann Halldórsson' and 'review pending' in meta['/Subject']",
+          "new_after_author_activation": "assert meta['/Author']=='Hilmir Frímann Halldórsson' and meta['/Subject']=='Research edition v0.1; project-internal manuscript review complete; author-authorized for repository publication; not externally peer reviewed.'",
+          "expected_count": 1
+        }
+      ],
+      "inverse_restores_original": true
+    }
+  ],
+  "other_current_records": "Update current README/HANDOFF/status/claim/PDF verification fields; preserve original records in the unchanged submitted ZIP. No inherited evidence edit is allowed."
+}

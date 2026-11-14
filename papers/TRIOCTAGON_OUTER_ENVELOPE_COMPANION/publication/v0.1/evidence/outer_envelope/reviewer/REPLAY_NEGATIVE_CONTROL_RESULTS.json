@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-11-13T23:05:34.823504+00:00",
+  "certificate_sha256": "7826f6fc9906f3678f0278edcb704cf0ff67d90039d80496db40571bc7d60386",
+  "controls": [
+    {
+      "name": "false_transition",
+      "mutation": "Change rational part of x* from -3/2 to -149/100.",
+      "expected_rejection_contains": "false transition parameter",
+      "observed_rejection": "false transition parameter",
+      "result": "REJECTED_AS_REQUIRED",
+      "mutated_canonical_json_sha256": "5b59b6d22ad1afe86b4380ae1294b1a90f9985f68c58200a6d13078f2d0effca"
+    },
+    {
+      "name": "wrong_support_sign",
+      "mutation": "Reverse an outward cycle and coherently rebuild the inward plane and residuals; stored formulas agree but the required support sign is false.",
+      "expected_rejection_contains": "face fails support",
+      "observed_rejection": "face fails support C1/F01/E01-",
+      "result": "REJECTED_AS_REQUIRED",
+      "mutated_canonical_json_sha256": "83ec261278c7b6bc164b3cb28afcfb3d019abf2be4180ea7c6c4dadbe7ccdfb5"
+    },
+    {
+      "name": "omitted_facet",
+      "mutation": "Omit F50 from C2, leaving a genuine hull edge without its second facet.",
+      "expected_rejection_contains": "ridge closure",
+      "observed_rejection": "ridge closure: edge ('E15+', 'E21+') does not have exactly two distinct facets",
+      "result": "REJECTED_AS_REQUIRED",
+      "mutated_canonical_json_sha256": "71fb4e715c64835af503712c357d7900b35768bea8cfdf29b88298d4fec9c54f"
+    },
+    {
+      "name": "incomplete_zero_set",
+      "mutation": "Remove E21+ from both the six-point face declaration and cycle; rebuild its plane and every residual consistently so only the complete-zero-set test exposes the omission.",
+      "expected_rejection_contains": "incomplete or incorrect full zero set",
+      "observed_rejection": "incomplete or incorrect full zero set",
+      "result": "REJECTED_AS_REQUIRED",
+      "mutated_canonical_json_sha256": "2dc026b31dad9f41a0f9cf1bf0736b2aa1b69775d073811b02e1574d52e5ec2d"
+    },
+    {
+      "name": "broken_endpoint_label_mapping",
+      "mutation": "Swap one branch label between two distinct A endpoint positions.",
+      "expected_rejection_contains": "broken endpoint label mapping",
+      "observed_rejection": "broken endpoint label mapping",
+      "result": "REJECTED_AS_REQUIRED",
+      "mutated_canonical_json_sha256": "cb20e0cc6ce9689235ba11d1cd35e509e62f3a4de59306200da4aa9efa84cc17"
+    },
+    {
+      "name": "coverage_gap",
+      "mutation": "Start C2 at x*+1/1000, leaving a coverage gap.",
+      "expected_rejection_contains": "coverage gap",
+      "observed_rejection": "coverage gap or overlapping/wrong interval C2",
+      "result": "REJECTED_AS_REQUIRED",
+      "mutated_canonical_json_sha256": "c2af981f6a4c9daba45600c0e1a0c01b14f297632e07e129b8af9fd8079f300f"
+    },
+    {
+      "name": "even_multiplicity_hidden_root",
+      "mutation": "Use (x-(A+x*)/2)^2: positive on both sides but zero in the chamber.",
+      "result": "REJECTED_AS_REQUIRED",
+      "observed_rejection": "Interior polynomial root: ((Q('11/8','-3/4'), Q('1','-3/2'), Q('1','0')), Q('1/2','0'), Q('-3/2','3/2'), 1)"
+    }
+  ],
+  "positive_endpoint_root_control": "PASS: (x-A)^2(x-x*) is strictly negative in (A,x*) while vanishing only at its endpoints.",
+  "original_certificate_unchanged": true,
+  "scope": "New certificate/checker controls only, no historical scientific replay."
+}
