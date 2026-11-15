@@ -1,0 +1,185 @@
+\section{Local descent and diagonal balance}\label{sec:local}
+
+The positive branch and its complete derivative are inherited from \cite{nrg}, response chapter, \texttt{thm:branch}, \texttt{eq:weighted}, and \texttt{eq:SP}. Start from a strictly normally stable equal triad and continue the positive in-phase branch only within its admitted neighborhood. At a chosen profile \(r>0\),
+\begin{equation}
+\eps r_i(k_i-r_i^2)+g(Lr)_i=0.
+\label{eq:fixedbranch}
+\end{equation}
+Write
+\begin{align}
+R&=\diag(r),&
+H_r&=I+\eps\diag(k-r^2)+gL,\qquad H_rr=r,\notag\\
+P_{\rm resp}&=R^{-1}H_rR,&
+A_r&=H_r-2\eps R^2,\notag\\
+J&=(I+3\lambda L)P_{\rm resp}.&&
+\label{eq:response}
+\end{align}
+The order in \(J\) is synchronization after prestage. The common phase satisfies \(P_{\rm resp}\one=J\one=\one\).
+
+\begin{theorem}[Strict local native-potential descent]\label{thm:local}
+Fix an admitted positive profile \eqref{eq:fixedbranch} with \(g>0\). Assume every eigenvalue \(\alpha_j\) of \(A_r\) has \(|\alpha_j|<1\), and both quotient phase multipliers \(\rho_\pm\) defined in \eqref{eq:quotientspectrum} have \(|\rho_\pm|<1\). There is a regular open neighborhood \(U\) of
+\(\mathcal C_r=\{e^{i\theta}r:\theta\in\R\}\) such that
+\[
+\V(F\Omega)<\V(\Omega)\quad(\Omega\in U\setminus\mathcal C_r).
+\]
+Every point of \(\mathcal C_r\) is fixed. No explicit radius or maximal basin is asserted.
+\end{theorem}
+
+\subsection{The actual potential Hessian}
+In the polar chart
+\(\Omega=e^{i\theta}(r+a)\odot e^{i\phi}\), put \(q=r+a>0\). Direct substitution gives
+\begin{align}
+\V={}&\eps\sum_i\left(\frac{q_i^4}{4}-\frac{k_iq_i^2}{2}\right)
++\frac g2\sum_{i<j}(q_i-q_j)^2\notag\\
+&+g\sum_{i<j}q_iq_j[1-\cos(\phi_i-\phi_j)].
+\label{eq:polar}
+\end{align}
+The radial first variation vanishes by \eqref{eq:fixedbranch}. Its Hessian is
+\begin{equation}
+B_a=\eps\diag(3r^2-k)-gL=I-A_r.
+\label{eq:Ba}
+\end{equation}
+The phase term begins at degree two. Varying an amplitude in its coefficient contributes degree at least three; equivalently, its mixed second derivatives contain a sine vanishing at alignment. Thus there is no mixed quadratic amplitude--phase term.
+
+The phase Hessian has off-diagonal entries \(-gr_ir_j\) and diagonal entries \(gr_i\sum_{j\ne i}r_j\). Using \eqref{eq:fixedbranch},
+\begin{align}
+K_\phi&=R(I-H_r)R=R^2(I-P_{\rm resp}),&
+K_\phi\one&=0,\notag\\
+\phi^TK_\phi\phi&=g\sum_{i<j}r_ir_j(\phi_i-\phi_j)^2.&&
+\label{eq:Kphi}
+\end{align}
+Since \(g>0\), this form is positive on \(\R^3/\operatorname{span}\{\one\}\) and has exactly the common-phase kernel. In any fixed local quotient section,
+\begin{equation}
+\V(\Omega)-\V(r)
+=\frac12a^TB_aa+\frac12\phi^TK_\phi\phi
++O(\|(a,[\phi])\|^3).
+\label{eq:hessianexp}
+\end{equation}
+Both factors \(1/2\) are essential. Symmetry of \(A_r\) and \(|\alpha_j|<1\) make \(B_a\) positive definite.
+
+\subsection{Ordered response in the potential form}
+Differentiating the prestage at \(r\) gives
+\(\delta v=A_ra+iH_rR\phi\). Its phase derivative is \(P_{\rm resp}\); differentiating the simultaneous kicks adds \(3\lambda L\). Since synchronization preserves moduli, the complete derivative is \(\diag(A_r,J)\) in amplitude/phase coordinates, with no first-order mixing.
+
+Set \(d=1-9\lambda\). The triad identity for \(L\) gives
+\begin{equation}
+J=dP_{\rm resp}+3\lambda\one(\one^TP_{\rm resp}).
+\label{eq:Jdecomp}
+\end{equation}
+The inherited weighted balance \(P_{\rm resp}^TR^2=R^2P_{\rm resp}\) implies
+\begin{equation}
+P_{\rm resp}^TK_\phi
+=R^2P_{\rm resp}(I-P_{\rm resp})=K_\phi P_{\rm resp}.
+\label{eq:PK}
+\end{equation}
+Since \(K_\phi\one=0\), all common-phase terms disappear from the quadratic form:
+\begin{equation}
+J^TK_\phi J=d^2P_{\rm resp}^TK_\phi P_{\rm resp}.
+\label{eq:JKJ}
+\end{equation}
+These are full-space identities; strict positivity or negativity is interpreted on the quotient. The Euclidean sum-zero plane is not assumed invariant under \(J\).
+
+For the exact inherited triad reduction \cite{nrg}, spectral chapter, \texttt{thm:triad}, let \(\sigma=\sum_i r_i\) and
+\begin{equation}
+M_3=\sigma R^{-1}-\one\one^T,\qquad H_r=I-gM_3.
+\label{eq:M3}
+\end{equation}
+The second identity follows from the fixed equations. Weighted Cauchy--Schwarz gives
+\[
+z^TM_3z=\sigma\sum_i z_i^2/r_i-(\sum_i z_i)^2\ge0,
+\]
+with equality exactly when \(z\parallel r\). Its other eigenvalues \(\mu_\pm\) are positive. Choose Euclidean-orthonormal eigenvectors \(w_\pm\perp r\), and put
+\begin{equation}
+f_\pm=R^{-1}w_\pm,\qquad
+p_\pm=1-g\mu_\pm,\qquad
+\rho_\pm=dp_\pm.
+\label{eq:quotientspectrum}
+\end{equation}
+Then \(P_{\rm resp}f_\pm=p_\pm f_\pm\), and \eqref{eq:Jdecomp} makes their classes eigenvectors of \(J\) on the quotient. Moreover,
+\begin{equation}
+f_\beta^TK_\phi f_\alpha
+=g\,w_\beta^TM_3w_\alpha
+=g\mu_\alpha\delta_{\alpha\beta}.
+\label{eq:Korthogonal}
+\end{equation}
+Writing \([\phi]=c_+[f_+]+c_-[f_-]\), we obtain the exact decrement
+\begin{equation}
+\boxed{\phi^T(J^TK_\phi J-K_\phi)\phi
+=g\sum_{\alpha=\pm}\mu_\alpha(\rho_\alpha^2-1)c_\alpha^2.}
+\label{eq:phasedecrement}
+\end{equation}
+It is strictly negative on every nonzero quotient direction under the theorem's assumptions. Repeated positive eigenvalues at equal radii allow any orthonormal basis of their eigenspace; \(d=0\) also causes no difficulty.
+
+\subsection{Nonlinear completion}
+\begin{proof}[Proof of Theorem~\ref{thm:local}]
+In a Euclidean-orthonormal eigenbasis of the symmetric \(A_r\), write \(a\) with coefficients \(t_j\). Since \(B_a=I-A_r\),
+\begin{equation}
+a^T(A_r^TB_aA_r-B_a)a
+=\sum_{j=1}^3(1-\alpha_j)(\alpha_j^2-1)t_j^2.
+\label{eq:amplitudedecrement}
+\end{equation}
+Every coefficient is negative when \(|\alpha_j|<1\). This uses the actual potential Hessian, not an arbitrary energy form.
+
+A legitimate quotient section is \(E=\operatorname{span}\{f_+,f_-\}\): it complements \(\one\), since \(\one^TR^2f_\pm=r^Tw_\pm=0\). Choose \(\phi=c_+f_++c_-f_-\), and after the complete update remove its local common phase to return to this section. Possible common-phase components of \(Jf_\pm\) are thereby removed; invariance of \(E\) under \(J\) is unnecessary.
+
+For \(u=(t_1,t_2,t_3,c_+,c_-)\), the induced smooth map is
+\[
+u^+=Tu+O(\|u\|^2),\qquad
+T=\diag(\alpha_1,\alpha_2,\alpha_3,\rho_+,\rho_-).
+\]
+At the profile, input, prestage, and output moduli are \(r_i>0\). A sufficiently small chart preserves this regularity and the smooth output section. Substituting into \eqref{eq:hessianexp} yields
+\begin{align}
+\V(F\Omega)-\V(\Omega)
+={}&-\frac12\left[
+\sum_j(1-\alpha_j)(1-\alpha_j^2)t_j^2\right.\notag\\
+&\left.\hspace{13mm}
++g\sum_{\alpha=\pm}\mu_\alpha(1-\rho_\alpha^2)c_\alpha^2
+\right]+O(\|u\|^3).
+\label{eq:nonlineardecrement}
+\end{align}
+Let \(m>0\) be the minimum of the five bracket coefficients. Bound the absolute remainder by \(C\|u\|^3\) on a smaller chart and shrink until \(C\|u\|\le m/4\). Then the change is at most \(-m\|u\|^2/4\), strictly negative unless \(u=0\). The coordinate norm only bounds the remainder; the decreased scalar is still \(\V\).
+
+Common-phase equivariance of the regular map and invariance of \(\V\) rotate this neighborhood around the entire fixed circle with the same conclusion. A sufficiently small rotation-saturated open neighborhood is regular. Its equality states have \(u=0\), exactly \(\mathcal C_r\).
+\end{proof}
+
+Unit-modulus normal multipliers are excluded. A semidefinite quadratic decrement alone would not justify this nonlinear conclusion.
+
+\subsection{Coexistence with failed diagonal balance}
+The inherited balance criterion asks for a positive \emph{diagonal} \(W\) satisfying \(WJ=J^TW\). Near a strictly stable equal triad, all off-diagonal entries of \(J\) are positive. At equality they are \(q_0=g+\ell-3g\ell\), where \(\ell=3\lambda\); the transverse multiplier \(1-3q_0\in(-1,1)\) gives \(0<q_0<2/3\), and positivity persists nearby.
+
+In this neighborhood the criterion is exactly
+\begin{equation}
+\mathcal C_{\rm cyc}=J_{12}J_{23}J_{31}-J_{21}J_{32}J_{13}=0.
+\label{eq:cyclecriterion}
+\end{equation}
+Necessity follows by multiplying the three pair-balance relations. For sufficiency the positive weights
+\((J_{21}J_{31},J_{12}J_{31},J_{13}J_{21})\) balance two edges identically and leave the cycle difference on the third \cite{nrg}, \texttt{thm:cycle}.
+
+For \(\sigma_1=r_1+r_2+r_3\), \(\sigma_2=r_1r_2+r_1r_3+r_2r_3\), \(\sigma_3=r_1r_2r_3\), and \(d=1-3\ell\), the source factorization is
+\begin{align}
+\mathcal C_{\rm cyc}
+&=\frac{g\ell d(r_1-r_2)(r_1-r_3)(r_2-r_3)}{\sigma_3^2}\,\mathcal K,
+\label{eq:cyclefactor}\\
+\mathcal K
+&=g^2\ell\sigma_1^3+[g^2(1-2\ell)-g\ell]\sigma_1\sigma_2
++(3g\ell-g+\ell)\sigma_3.\notag
+\end{align}
+The scalar \(\mathcal K\) is not the phase form \(K_\phi\).
+
+Along the inherited weak branch \(k_i=k+\eta\kappa_i\), with \(k>0\) and \(\sum_i\kappa_i=0\),
+\[
+r_i=\sqrt{k}+\eta\frac{\eps\sqrt{k}}{2\eps k+3g}\kappa_i+O(\eta^2).
+\]
+Substitution in \eqref{eq:cyclefactor} gives
+\begin{align}
+\mathcal C_{\rm cyc}&=C_3\eta^3+O(\eta^4),\notag\\
+C_3&=g\ell dK_0\left(\frac{\eps}{2\eps k+3g}\right)^3
+\prod_{i<j}(\kappa_i-\kappa_j),&
+K_0&=g(9g-1)+\ell(1-3g)^2.
+\label{eq:weakcycle}
+\end{align}
+If \(C_3\ne0\), all sufficiently small nonzero \(\eta\) have nonzero cycle difference while branch positivity and strict normal stability persist. Theorem~\ref{thm:local} therefore gives local potential descent despite failed diagonal balance. An unspecified sufficiently small interval does not certify any particular numerical heterogeneity.
+
+This comparison separates four properties. Diagonal balance is a nodewise weighting condition. General SPD self-adjointness allows a dense positive metric and is equivalent to a real semisimple full spectrum \cite{nrg}, \texttt{thm:spd}. In the stable triad, the real semisimple quotient spectrum is separated from the common eigenvalue \(1\), so such a full SPD symmetrizer exists. Strict normal spectral stability bounds multiplier moduli. Contraction of this specified potential requires the additional identities \eqref{eq:Ba} and \eqref{eq:phasedecrement}, followed by the remainder argument. These claims are not interchangeable.
+
+Indeed \(J^TK_\phi=K_\phi J=dK_\phi P_{\rm resp}\), but \(K_\phi\) is singular on the full phase space and positive only on the quotient. It is not a full-space SPD metric, and no independently selected metric replaces the native potential in the proof.

@@ -1,0 +1,7 @@
+{
+  "stage": "first reviewer archive audit before checker execution",
+  "issue": "Reviewer wrapper incorrectly expected the external per-file list to include the self-excluding manifest.",
+  "actual": "70 payload rows plus a separately recorded manifest hash, comprising all 71 ZIP members.",
+  "correction": "Check payload path union with MANIFEST.json and separately verify the manifest hash.",
+  "scientific_changes": false
+}

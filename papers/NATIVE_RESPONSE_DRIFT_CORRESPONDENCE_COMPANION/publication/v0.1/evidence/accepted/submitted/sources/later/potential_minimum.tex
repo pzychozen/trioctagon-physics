@@ -1,0 +1,120 @@
+\section{Attained minimum raw-entry counts}\label{sec:minimum}
+
+All three intensities are now compulsory, and only the number of additional entries selected from
+\begin{equation}
+\mathscr E=\{S_{12},S_{13},S_{23},A_{12},A_{13},A_{23}\}
+\label{eq:dictionary}
+\end{equation}
+is minimized. A complex pair entry counts as two real entries. A selected tuple must have an autonomous update on its actual image of \(\D\), determine the current potential and all three individual edge energies, and determine \(\|v-\Omega\|_2^2\) so that the accepted descent and equality statements are expressible from retained data alone.
+
+For a subdictionary \(\mathscr A\), let \(m(\mathscr A)\) be the smallest cardinality of a subset satisfying this joint objective throughout \(\D\). This is not minimization over arbitrary encodings, histories, clocks, observer states, or special strata. A tuple can be excluded by failing any one requirement.
+
+\begin{theorem}[Minimum with signed entries allowed]\label{thm:minimum}
+For the fixed coefficients and entire domain of Section~\ref{sec:finite},
+\[
+m(\mathscr E)=2,
+\]
+attained by \(A_{12},A_{13}\) together with the three intensities.
+\end{theorem}
+\begin{proof}
+Theorems~\ref{thm:reconstruction}, \ref{thm:autonomy}, and \ref{thm:retention}, with Corollary~\ref{cor:retaineddescent}, establish sufficiency.
+
+For the lower bound, let a proposed singleton concern pair \(\{i,j\}\), and let \(\ell\) be the remaining channel. Fix arbitrary labelled amplitudes \(r_a\in[9/10,11/10]\) and keep all labelled coefficients \(k_a\) and all other parameters unchanged. Consider the static family
+\begin{equation}
+\Omega_i(t)=r_i,\qquad\Omega_j(t)=r_j,\qquad
+\Omega_\ell(t)=r_\ell e^{it},\qquad 0\le t\le D_0.
+\label{eq:singlewitness}
+\end{equation}
+Every state belongs to \(\D\). Intensities are constant, and both possible types of entry on the retained pair are constant:
+\[
+S_{ij}(t)=r_ir_j,\qquad A_{ij}(t)=0.
+\]
+The other edge energies obey
+\begin{align}
+E_{i\ell}(t)&=(r_i-r_\ell)^2+2r_ir_\ell(1-\cos t),\notag\\
+E_{j\ell}(t)&=(r_j-r_\ell)^2+2r_jr_\ell(1-\cos t).
+\end{align}
+The onsite potential and the \(ij\) edge are unchanged, hence
+\begin{equation}
+\V(\Omega(t))-\V(\Omega(0))
+=g r_\ell(r_i+r_j)(1-\cos t)>0
+\quad(0<t\le D_0).
+\label{eq:singleobstruction}
+\end{equation}
+This excludes any of the six singleton choices by current-energy retention. It also excludes retaining only intensities. Relabelling the displayed static family does not permute \(k\) or assert a permutation symmetry of the dynamics.
+\end{proof}
+
+The aligned retained pair in \eqref{eq:singlewitness} is a valid part of the required domain, not a removable generic-chart exception. The lower bound does not claim that each special stratum separately needs two entries.
+
+\subsection{Real coherences alone}
+Let
+\[
+\mathscr E_{\rm real}=\{S_{12},S_{13},S_{23}\}.
+\]
+The objective is unchanged; recovering signed complex coherence is \emph{not} an extra requirement in this comparison.
+
+\begin{theorem}[Real-only minimum]\label{thm:realminimum}
+On the same domain and at the same coefficients,
+\[
+m(\mathscr E_{\rm real})=3.
+\]
+The full real Gram attains this minimum, although it discards signed orientation.
+\end{theorem}
+\begin{proof}
+All three real coherences and the intensities determine \(S_G\). The inherited real-Gram closure theorem \cite{nrg}, \texttt{thm:Sclosure}, applies wherever \((MS_GM^T)_{ii}>0\), including rank-deficient factors. On the actual image of \(\D\), the bounds \eqref{eq:prebounds} and invariance supply persistent regularity and an invariant image. Equal Gram factors differ by an \(O(2)\) transformation, meaning common phase and/or conjugation; both preserve \(\D\) and have the required regular-map equivariance. Thus the update is autonomous on that image.
+
+All three edge energies and the potential are read directly from \(S_G\), and the prestage norm is \(\tr(NS_GN^T)\) by \eqref{eq:traceidentity}. The same descent and equality statement transfers, with the fixed circle represented by \(r_*r_*^T\).
+
+To exclude two real entries, note that any two triad edges share one channel \(h\). Let the other labels be \(j,\ell\). Fix amplitudes as before and choose \(u,v>0\) with \(u+v\le D_0\). Compare the static states
+\begin{equation}
+\Omega_h^\pm=r_h,\qquad
+\Omega_j^\pm=r_j e^{iu},\qquad
+\Omega_\ell^\pm=r_\ell e^{\pm iv}.
+\label{eq:realwitness}
+\end{equation}
+The plus state's width is \(\max(u,v)\), and the minus state's width is \(u+v\); both are in \(\D\). Their intensities agree, as do the retained entries:
+\[
+S_{hj}^\pm=r_hr_j\cos u,\qquad
+S_{h\ell}^\pm=r_hr_\ell\cos v.
+\]
+The omitted entry differs:
+\begin{align}
+S_{j\ell}^+&=r_jr_\ell\cos(u-v),&
+S_{j\ell}^-&=r_jr_\ell\cos(u+v),\notag\\
+S_{j\ell}^+-S_{j\ell}^-&=2r_jr_\ell\sin u\sin v>0.&&
+\label{eq:missingreal}
+\end{align}
+Therefore
+\begin{align}
+E_{j\ell}^- -E_{j\ell}^+&=4r_jr_\ell\sin u\sin v>0,\notag\\
+\V(\Omega^-)-\V(\Omega^+)&=2g r_jr_\ell\sin u\sin v>0.
+\label{eq:realobstruction}
+\end{align}
+All other edge and onsite contributions agree. The labelled cases are
+\[
+\begin{array}{c|c|c}
+h&(j,\ell)&\mathrm{retained\ entries}\\ \hline
+1&(2,3)&S_{12},S_{13}\\
+2&(1,3)&S_{12},S_{23}\\
+3&(1,2)&S_{13},S_{23}
+\end{array}
+\]
+and every case keeps the original unequal \(k\) fixed. Counts zero and one are already excluded by Theorem~\ref{thm:minimum}.
+\end{proof}
+
+\begin{table}[htbp]
+\centering\small
+\caption{Comparison for the joint objective, always retaining all three intensities. Failed rows assert energy-retention failure, not dynamic nonclosure.}\label{tab:comparison}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{.23\textwidth}YY@{}}
+\toprule
+Additional entries & Autonomous and energy-retaining status & Count conclusion\\\midrule
+None & Same intensities, different current potential in \eqref{eq:singlewitness} & Insufficient\\
+Any single entry & Same retained pair, different current potential in \eqref{eq:singleobstruction} & Insufficient\\
+\(A_{12},A_{13}\) & Full coherence reconstruction, invariant update, all required energies & Attains minimum \(2\) in \(\mathscr E\)\\
+Any two real entries & Omitted edge energy and potential differ in \eqref{eq:realobstruction} & Insufficient\\
+All three real entries & Inherited real-Gram closure; all required energies & Attains minimum \(3\) in \(\mathscr E_{\rm real}\)\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The mechanism is elementary but domain-dependent. Two anchor cosines do not tell on which side of the anchor each other phase lies; changing one side alters the missing relative cosine. Signed sines retain that side information, and the narrow interval makes them invertible. The signed candidate can therefore use fewer raw entries while retaining orientation that the real Gram discards. It is not thereby the coarsest sufficient energy quotient. No classification of all mixed two-entry subsets is required for either attained minimum.

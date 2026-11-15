@@ -1,0 +1,399 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[left=25mm,right=25mm,top=24mm,bottom=24mm,headheight=14pt]{geometry}
+\usepackage{booktabs,array,tabularx,longtable,microtype,fancyhdr}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{bookmark}
+\hypersetup{pdftitle={Local Correspondence Between In-Phase Response Asymmetry and Chiral Common-Phase Drift in the Native Triad},pdfauthor={Hilmir Frímann Halldórsson (pzychozen)},pdfsubject={Project-internal manuscript review complete; author-authorized repository research edition v0.1; 15 November 2026},pdfkeywords={native triad, response asymmetry, relative equilibrium, analytic divisibility, branch selection}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}\setlength{\emergencystretch}{2em}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Local response--drift correspondence}
+\fancyhead[R]{\small Research edition v0.1}
+\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0.3pt}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}\newcommand{\one}{\mathbf1}
+\newcommand{\iu}{\mathrm i}\newcommand{\Id}{I}\newcommand{\Argz}{\operatorname{Arg}_0}
+\newcommand{\cyc}{\operatorname{cyc}}\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\calA}{\mathcal A}\newcommand{\calC}{\mathcal C}\newcommand{\Cbar}{\overline{\mathcal C}}
+\newcommand{\Br}{\mathbf B_r}\newcommand{\Gr}{\mathbf G_r}\newcommand{\mathscr}{\mathcal}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\begin{document}
+\thispagestyle{plain}
+{\LARGE\bfseries\raggedright Local Correspondence Between In-Phase Response Asymmetry and Chiral Common-Phase Drift in the Native Triad\par}
+\vspace{6pt}
+{\normalsize A companion to \emph{Native Response Geometry} and \emph{Cubic Common-Phase Drift}\par}
+\vspace{7pt}
+{\large Hilmir Fr\'imann Halld\'orsson (pzychozen)\par}
+{\small Research edition v0.1 \quad 15 November 2026\par}
+{\small\bfseries\raggedright Project-internal manuscript review complete.\par Author-authorized for repository publication.\par}
+\begin{abstract}
+Two established native-triad quantities contain an alternating factor in the channel coefficients: the cycle-product obstruction of an in-phase response matrix and the common-phase rate on a distinct chiral branch. We compare them at identical parameters, with $(\epsilon,g,\lambda)=h(1,1/6,1/30)$ and mean-zero weak coefficient heterogeneity. On one qualitative neighborhood valid for every $0\le h\le1/4$, the normalized response product and the selected positive-label chiral rate factor by the same oriented coefficient product with positive symmetric real-analytic quotients. Their complete local zero sets and signs therefore agree; the conjugate branch has the opposite rate. The quotient between these functions extends through equal coefficients, although only its leading value is explicitly evaluated. The response product has nonzero leading order $h^3$, whereas the per-update chiral advance has order $h$, at fixed sufficiently small pairwise-distinct coefficients. At $h=0$ these statements concern analytic generator extensions; the discrete map is the identity. A three-state comparison explains the limit: the assigned in-phase diagnostic does not select the realized signed advance without the actual state or branch. No attraction, physical-force law or calibrated spatial motion is inferred.
+\end{abstract}
+
+\section{Question and contribution}\label{sec:question}
+An alternating symmetry factor constrains two quantities without making them equal or causally related. The earlier response study determines a diagonal-balance obstruction at positive aligned states \cite{nrg}. D0--D1 establish common-phase relative equilibria near twisted chiral references and compute their cubic rate \cite{drift,d0d1}. The present question is whether these particular functions admit a quantitative local correspondence at the same ordered coefficients.
+
+The accepted investigation RD01--RD05 answers that question \cite{rd,review}. Its contribution is the matched factorization, common local sign and zero theorem, normalized limit and precise state-selection qualification. The native map, positive branch, D1 branch and its rate coefficient are inherited. Full-state reconstruction on its admitted coherent domain is also prior work \cite{phase}; it is not contradicted by comparing different full states. The bounded source comparison supports this project-level distinction, not a claim of worldwide priority.
+
+\clearpage
+\section{The native family and its three backgrounds}\label{sec:setting}
+Let $L_3=\one\one^T-3I$ and use channel labels $0,1,2$. The fixed family is
+\begin{equation}
+0<h\le\frac14,\qquad (\epsilon,g,\lambda)=h(1,1/6,1/30),\qquad
+k_i=1+\xi_i,\quad \xi\in\Pi:=\{\xi\in\R^3:\one^T\xi=0\}.
+\label{eq:family}
+\end{equation}
+The notation \texttt{h\_step} is used in prose and code for h. It is a mathematical step scale, distinct from a shell half-edge length and from physical time. A weak heterogeneity neighborhood will be proved to exist; no numerical radius is supplied.
+
+The simultaneous prestage and subsequent simultaneous synchronization are
+\begin{align}
+v_i&=z_i+h z_i(1+\xi_i-|z_i|^2)+\frac h6(L_3z)_i,\label{eq:pre}\\
+\delta_i&=\frac h{30}\sum_{j\ne i}\sin3(\Argz v_j-\Argz v_i),
+&F_h(z)_i&=v_i e^{\iu\delta_i}.\label{eq:post}
+\end{align}
+Every kick uses the same completed prestage. The native convention $\Argz(0)=0$ is unchanged; at $\lambda=0$ the implementation returns the prestage directly. We use derivatives and common-phase equivariance only on regular domains with nonzero relevant entries. Unit complex factors express the harmonic sines analytically there, without a principal-argument cut \cite[D5--D7]{drift}.
+
+The aligned state is the positive real profile $r(\xi)$ near $\one$. Its common-phase rotations are fixed states. The two other backgrounds are the D1 branches selected from
+\begin{equation}
+z^*_{+,j}=2^{-1/2}e^{2\pi\iu j/3},\qquad
+z^*_- =\overline{z^*_+}.
+\label{eq:references}
+\end{equation}
+Both reference prestages equal their states. The positive label refers to this reference chirality; it does not mean the rate is positive for every ordered perturbation.
+
+The D1 states and their small unwrapped rates satisfy
+\begin{equation}
+F_h(z_\pm)=e^{\iu h\nu_\pm}z_\pm,
+\qquad \omega_\pm=h\nu_\pm,
+\qquad z_- =\overline{z_+},\quad \nu_-=-\nu_+.
+\label{eq:relative}
+\end{equation}
+The gauge uses the relevant reference:
+\begin{equation}
+\gamma_\pm(z)=\frac{\Im\langle z^*_\pm,z\rangle}{\|z^*_\pm\|^2}=0,
+\qquad \Re\langle z^*_\pm,z\rangle>0.
+\label{eq:gauge}
+\end{equation}
+A channel-mean phase gauge would fail at the twisted reference because its channel sum is zero. Common phase restores this slice without changing a relative-equilibrium rate.
+
+These are different states at the same parameters. The aligned and twisted reference orbits are disjoint; sufficiently small neighborhoods retain that separation. The D1 reference is a saddle, and no attraction of either continued chiral branch is claimed. Nor is there a proved trajectory joining these backgrounds. At $h=0$, $F_0=\mathrm{id}$; only the divided equations below select particular analytic extensions.
+
+\clearpage
+\section{A common qualitative coefficient neighborhood}\label{sec:domain}
+\begin{proposition}[Matched local domains]\label{prop:domain}
+There is a permutation-invariant neighborhood of zero in $\Pi$ on which the aligned branch and the two gauge-fixed D1 branches are jointly defined for every $h\in[0,1/4]$, with regular state/prestage entries. The aligned profile is independent of h and
+\begin{equation}
+r_i(\xi)=1+\frac25\xi_i+O(\|\xi\|^2).
+\label{eq:tangent}
+\end{equation}
+The claim is qualitative; it supplies neither a numerical coefficient radius nor an attraction basin.
+\end{proposition}
+\begin{proof}
+For positive aligned states all kicks vanish. Dividing the fixed prestage equation by h gives
+\begin{equation}
+E_i(r,\xi)=r_i(1+\xi_i-r_i^2)+\frac16(L_3r)_i=0.
+\label{eq:fixed}
+\end{equation}
+Its radius derivative at $(\one,0)$ is $-2I+L_3/6$, with eigenvalues $-2,-5/2,-5/2$. Analytic implicit existence, positivity and local uniqueness follow. Uniqueness gives permutation equivariance. Differentiating on $\Pi$, where $L_3d\xi=-3d\xi$, gives \eqref{eq:tangent}. This specializes the inherited NRG branch \cite[\texttt{thm:branch}, \texttt{eq:screen}]{nrg}. Equation \eqref{eq:fixed}, not the identity map alone, selects its h-zero extension.
+
+For D1, use its inherited seven-real-variable residual and border:
+\begin{align}
+\mathcal H(h,z,\xi,\nu)&=\frac{F_h(z;\one+\xi)-e^{\iu h\nu}z}{h},\label{eq:divided}\\
+\det\mathcal B_h&=-\frac{(3h-1)^2}{1600},
+&|\det\mathcal B_h|&\ge\frac1{25600}.\label{eq:border}
+\end{align}
+The gauge is the seventh equation. The border retains all transverse state directions, including unstable ones \cite[D23--D27]{drift}. Near the compact reference interval, state and prestage components have a common nonzero margin. The numerator of \eqref{eq:divided} is jointly analytic and vanishes identically at h=0. Division of its convergent series by h gives the analytic extension $X_k(z)-\iu\nu z$.
+
+To justify a \emph{common} neighborhood, let $R(h,y,\xi)$ be this extended seven-row system in displacement variables, and $A(h)=D_yR(h,0,0)$. Its inverse is continuous and bounded on the compact interval. A determinant lower bound is not itself a numerical inverse-norm estimate. Uniform continuity on a fixed regular box allows radii $\rho,\delta>0$ such that
+\begin{equation}
+\|I-A(h)^{-1}D_yR(h,y,\xi)\|\le\tfrac12,
+\qquad \|A(h)^{-1}R(h,0,\xi)\|\le\tfrac\rho2
+\label{eq:uniform}
+\end{equation}
+for all h in the interval, $\|y\|\le\rho$ and $\|\xi\|<\delta$. The associated fixed-point map is a contraction of the closed radius-$\rho$ ball into itself. Unique roots coincide with local analytic implicit branches, so those branches glue. Regularity and invertibility persist slightly beyond the h endpoints. Conjugation gives the second branch. Intersect with the aligned domain and shrink to an invariant coefficient ball.
+\end{proof}
+This argument does not take an unjustified minimum of unrelated pointwise radii. At $h>0$ the aligned reference is normally stable: its amplitude multipliers are $1-2h,1-5h/2,1-5h/2$, and its noncommon phase multipliers are $(1-3h/10)(1-h/2)$. Their approach to one at h=0 gives no uniform attraction assertion.
+
+\clearpage
+\section{The complete ordered response and its cycle factor}\label{sec:response}
+At the positive aligned profile, let $R=\diag(r_i)$. An imaginary Cartesian perturbation has the form $\iu R\phi$. Its prestage derivative and phase-coordinate version are
+\begin{align}
+H_r&=I+h\diag(1+\xi_i-r_i^2)+hL_3/6,
+&H_rr&=r,\label{eq:cartesian}\\
+P_h&=R^{-1}H_rR=I+h\Br,\label{eq:pre-response}\\
+(\Br)_{ij}&=\frac{r_j}{6r_i}\quad(i\ne j),
+&(\Br)_{ii}&=-\frac16\sum_{j\ne i}\frac{r_j}{r_i}.\label{eq:B}
+\end{align}
+The synchronizer differentiates to $I+3\lambda L_3=I+hL_3/10$. It follows the prestage, giving the inherited ordered response in its specialized form
+\begin{equation}
+\boxed{J_h=(I+hL_3/10)(I+h\Br)
+=I+h\Gr+\frac{h^2}{10}L_3\Br},\qquad \Gr=\Br+L_3/10.
+\label{eq:J}
+\end{equation}
+This is a derivative at r, not at either chiral state \cite[\texttt{eq:P}, \texttt{eq:SP}]{nrg}.
+
+Freeze the orientation
+\begin{equation}
+\cyc(M)=M_{01}M_{12}M_{20}-M_{02}M_{21}M_{10},
+\quad \calC=\cyc(J_h).
+\label{eq:orientation}
+\end{equation}
+With $D_h=\Gr+hL_3\Br/10$, every off-diagonal J entry is h times the corresponding D entry. Therefore
+\begin{equation}
+\calC=h^3\Cbar,\qquad \Cbar:=\cyc(D_h).
+\label{eq:normalization}
+\end{equation}
+The right side defines the analytic continuation at h=0 without evaluating $0/0$.
+
+For $r=(a,b,c)>0$, set $s_1=a+b+c$, $s_2=ab+ac+bc$, $s_3=abc$, $V_r=(a-b)(a-c)(b-c)$ and $d=1-3h/10$. The accepted exact specialization of the corrected GR1 factorization is
+\begin{align}
+\Cbar&=\frac{dV_r}{60s_3^2}\mathcal K_h(r),\label{eq:cycle-factor}\\
+\mathcal K_h(r)&=\frac{h^2s_1^3}{360}
++\left(\frac h{90}-\frac{h^2}{180}\right)s_1s_2
++\left(\frac h{20}-\frac1{15}\right)s_3.\label{eq:Kh}
+\end{align}
+One can see the algebra directly from the off-diagonal entries
+\begin{equation}
+(D_h)_{ij}=\frac{d r_j}{6r_i}
++\frac1{10}\left[1+\frac h6\left(r_j\sum_k\frac1{r_k}-\frac{s_1}{r_j}\right)\right].
+\label{eq:Dentries}
+\end{equation}
+Expand the two products, clear their denominator and divide the alternating numerator by $V_r$. The remaining symmetric cubic, after removal of $d/(60s_3^2)$, has basis $s_1^3,s_1s_2,s_3$ and precisely the coefficients in \eqref{eq:Kh}. Alternatively substitute $g=h/6$, $\ell=h/10$ into NRG's corrected \texttt{eq:K}; its $\mathcal K$ is $h\mathcal K_h$. The accepted exact checker corroborates both organizations \cite[\S3]{rd}. Its saved values are transcribed here without rerunning it.
+
+\clearpage
+\section{Coefficient differences and the matched leading terms}\label{sec:coefficients}
+The fixed equation supplies more than a tangent approximation. Rearranging \eqref{eq:fixed} and subtracting a pair gives
+\begin{align}
+1+\xi_i&=r_i^2+\frac12-\frac{s_1}{6r_i},\label{eq:k-radius}\\
+\xi_i-\xi_j&=(r_i-r_j)D_{ij},
+&D_{ij}&=r_i+r_j+\frac{s_1}{6r_ir_j}>0.\label{eq:pair}
+\end{align}
+Thus equality of two coefficients is equivalent to equality of their two radii on this positive branch. The difference quotient is analytic through equality, with $D_{ij}=5/2$ at $\xi=0$. Define
+\begin{equation}
+\calA(\xi)=(\xi_0-\xi_1)(\xi_1-\xi_2)(\xi_2-\xi_0),
+\quad Q_r=D_{01}D_{02}D_{12}.
+\label{eq:A}
+\end{equation}
+The increasing-pair product has the opposite orientation:
+\begin{equation}
+\prod_{i<j}(\xi_i-\xi_j)=-\calA(\xi),\qquad V_r=-\calA(\xi)/Q_r.
+\label{eq:minus}
+\end{equation}
+Combining \eqref{eq:cycle-factor}--\eqref{eq:minus} gives an exact analytic factor on the actual selected branch:
+\begin{equation}
+\boxed{\Cbar=\calA S_C,\qquad
+S_C(h,\xi)=-\frac{d\,\mathcal K_h(r(\xi))}{60s_3(r(\xi))^2Q_{r(\xi)}}}.\label{eq:SC}
+\end{equation}
+It is symmetric because r is permutation equivariant and every factor remaining in \eqref{eq:SC} is symmetric. At equality,
+\begin{equation}
+\mathcal K_h(\one)=\frac{3h^2+18h-8}{120},\qquad
+\boxed{a_C(h):=S_C(h,0)=\frac{(1-3h/10)(8-18h-3h^2)}{112500}}.
+\label{eq:aC}
+\end{equation}
+
+For the fixed positive chirality label, D1 already proves analytic alternating divisibility and its nonzero coefficient \cite[D28--D30, D36--D37]{drift}:
+\begin{equation}
+\nu_+=\calA S_D,\qquad
+\boxed{c_+(h):=S_D(h,0)=\frac{\sqrt3(33h^2-240h+688)}{6(1-3h)^3}}.
+\label{eq:cD}
+\end{equation}
+No D1 state jet is recalculated here. For either symmetric quotient, a linear Taylor term is proportional to $\sum_i\xi_i$, hence vanishes on $\Pi$. Consequently
+\begin{equation}
+S_C=a_C+O(\|\xi\|^2),\qquad S_D=c_++O(\|\xi\|^2).
+\label{eq:quotient-taylor}
+\end{equation}
+Along $\xi=(-\eta,0,\eta)$, $\calA=2\eta^3$. Thus the leading cubic coefficients of $\Cbar$ and $\nu_+$ are respectively $2a_C(h)$ and $2c_+(h)$, with rate remainders $O(\eta^5)$. Raw $\calC$ additionally carries $h^3$, while $\omega_+=h\nu_+$. A truncated state is not an exact finite-$\eta$ branch. Exact oddness in $\eta$ uses this reflected direction; a sixth-degree term is not excluded along general coefficient directions.
+
+\clearpage
+\section{The local correspondence theorem}\label{sec:theorem}
+\begin{theorem}[Local zero, sign and ratio correspondence]\label{thm:correspondence}
+There is a permutation-invariant ball U about zero in $\Pi$, with one positive but unspecified radius for $I=[0,1/4]$, such that the selected branches satisfy
+\begin{equation}
+\Cbar=\calA S_C,\qquad \nu_+=\calA S_D,
+\qquad \nu_-=-\calA S_D,\qquad S_C,S_D>0
+\label{eq:positive-factors}
+\end{equation}
+on $I\times U$. Both factors are symmetric and real analytic on an open neighborhood of that set. Their three common local zero lines are exactly
+\begin{equation}
+Z=\{\xi\in U:\xi_0=\xi_1\}\cup
+\{\xi\in U:\xi_1=\xi_2\}\cup
+\{\xi\in U:\xi_2=\xi_0\}.
+\label{eq:zeros}
+\end{equation}
+Off Z, $\operatorname{sgn}\Cbar=\operatorname{sgn}\nu_+=\operatorname{sgn}\calA$, and $\nu_-$ has the opposite sign. There is a symmetric positive analytic function $\Theta$ across Z such that
+\begin{equation}
+\nu_\pm=\pm\Theta(h,\xi)\Cbar(h,\xi),
+\qquad \Theta=S_D/S_C.
+\label{eq:ratio}
+\end{equation}
+For h>0 the same local zeros hold for raw $\calC$ and both actual per-update advances. At h=0, raw $\calC$ and $\omega_\pm$ vanish for every xi; the asserted zero set then applies only to the normalized or extended quantities.
+\end{theorem}
+
+\subsection{Analytic division before a ratio}\label{sec:division}
+The response factor is already analytic by \eqref{eq:pair}--\eqref{eq:SC}. For drift, D1's symmetries explain the necessary division. Cyclic channel permutation preserves the fixed-label rate. Conjugation combined with a reflection preserves the reference label but reverses the rate, after carrying the coefficients and restoring the gauge. Local uniqueness gives alternation under odd coefficient permutations. The rate therefore vanishes whenever two coefficients coincide \cite[D28--D29]{drift}.
+
+An analytic function vanishing on a linear hyperplane is divisible by its defining linear form: take that form as one coordinate and factor its convergent Taylor series. After the first division, the quotient vanishes on a second hyperplane away from the intersection, where the first factor is nonzero. Continuity supplies vanishing at the intersection too, so a second division is legitimate. Repeat for the third. On $\Pi$ these sets are three distinct lines; h remains an analytic parameter throughout. Uniqueness of analytic continuation makes the divisions agree on overlapping neighborhoods.
+
+Both the rate and $\calA$ transform by the sign of a permutation, so the resulting quotient $S_D$ is symmetric. This argument establishes a genuine analytic quotient at the intersections as well as away from them. It does not divide a bare $O(\|\xi\|^5)$ remainder by $\calA$: near an equality line, that cubic product can be arbitrarily small relative to $\|\xi\|^3$. Such an unqualified division would not establish \eqref{eq:quotient-taylor} uniformly near the zero set.
+
+\clearpage
+\subsection{Uniform positivity and the explicit leading ratio}\label{sec:positivity}
+On the entire closed step interval,
+\begin{align}
+1-3h/10&\ge37/40,&8-18h-3h^2&\ge53/16,\notag\\
+a_C(h)&\ge\frac{1961}{72000000}>0.\label{eq:aCbound}
+\end{align}
+The second inequality is also certified by the elementary identity
+\begin{equation}
+8-18h-3h^2-\frac{53}{16}
+=\left(\frac14-h\right)\left(\frac{75}{4}+3h\right).
+\label{eq:bound-identity}
+\end{equation}
+For the inherited D1 coefficient, $33h^2-240h+688\ge628$ and $0<(1-3h)^3\le1$, so
+\begin{equation}
+c_+(h)\ge\frac{314\sqrt3}{3}>0.
+\label{eq:cDbound}
+\end{equation}
+These conservative estimates are sufficient; no coefficient-radius optimization is involved.
+
+By Proposition~\ref{prop:domain}, the quotients are jointly analytic on a neighborhood of the compact set $I\times\{0\}$. Their continuity therefore permits one further shrinking of the coefficient ball so that each differs from its positive value at xi=0 by less than half its corresponding lower bound. Both complete factors are then positive throughout that common ball. This proves \eqref{eq:positive-factors}; the zero and sign assertions follow from the explicit product $\calA$.
+
+Since $S_C$ never vanishes there, division by $S_C$ in \eqref{eq:ratio} is legitimate, including on Z. This proves the analytic ratio claim and completes the theorem. In particular, the extension is not obtained merely by naming $\nu_+/\Cbar$ on the complement of Z.
+
+Only the coefficient-space leading value of this exact function is explicit:
+\begin{equation}
+\boxed{\Theta(h,0)=\frac{c_+(h)}{a_C(h)}
+=\frac{18750\sqrt3(33h^2-240h+688)}
+{(1-3h)^3(1-3h/10)(8-18h-3h^2)}}.
+\label{eq:theta-leading}
+\end{equation}
+This varies with h. The theorem defines the full function $\Theta(h,\xi)$ through the exact branch quotients; it does not evaluate all its xi dependence or claim that the value in \eqref{eq:theta-leading} is an all-orders constant of proportionality.
+
+\begin{remark}[What the neighborhood means]\label{rem:radius}
+The conclusion holds for every coefficient direction in a single sufficiently small ball, including its equal-coefficient lines. It is not restricted to $(-1,0,1)$. The radius is existential. The earlier finite D1 fixture ladder does not supply a numerical radius for this theorem. Other cancellation loci outside the ball, other branches and larger rings remain outside the classification.
+\end{remark}
+
+The upper step endpoint is $1/4$. The D1 border degeneracy at $1/3$ is outside the domain and cannot be crossed using this local argument. Nor do the positivity bounds certify attraction, a global basin, or a state-selection mechanism.
+
+\clearpage
+\section{Small-step limits and distinct normalizations}\label{sec:limit}
+The radius selected by \eqref{eq:fixed} is h independent. This makes the three response objects in Table~\ref{tab:generator} directly comparable, while preserving the native cross term.
+\begin{table}[htbp]\centering\small
+\begin{tabularx}{\textwidth}{@{}lYY@{}}\toprule
+Object & Definition & Oriented off-diagonal cycle\\\midrule
+Generator & $\Gr=\Br+L_3/10$ & $\cyc(\Gr)$\\[5pt]
+Additive step & $I+h\Gr$ & $h^3\cyc(\Gr)$\\[5pt]
+Native ordered response & $I+h\Gr+h^2L_3\Br/10$ & $h^3\Cbar(h,\xi)$\\\bottomrule
+\end{tabularx}
+\caption{A generator, its additive step and the native product are distinct.}\label{tab:generator}
+\end{table}
+
+Setting h=0 in \eqref{eq:cycle-factor}--\eqref{eq:Kh}, or multiplying the generator off-diagonal entries $r_j/(6r_i)+1/10$, gives
+\begin{equation}
+\boxed{\Cbar(0,\xi)=\cyc(\Gr)
+=-\frac{(r_0-r_1)(r_0-r_2)(r_1-r_2)}{900r_0r_1r_2}}.
+\label{eq:generator-limit}
+\end{equation}
+The additive/generator distinction and its corrected coefficient accounting are inherited from D0 and D1 D15--D18 \cite{drift,d0d1}; the present result identifies this scalar with the normalized native limit. It is not the GR2 Bloch coefficient or a spectral phase. Failure of diagonal balance is also different from failure of all dense positive-definite symmetrizers \cite{nrg}.
+
+At the coefficient origin the two cubic coefficients and their leading ratio are
+\begin{equation}
+a_C(0)=\frac2{28125},\qquad c_+(0)=\frac{344\sqrt3}{3},
+\qquad \Theta(0,0)=1612500\sqrt3.
+\label{eq:hzero-values}
+\end{equation}
+For a \emph{fixed} sufficiently small pairwise-distinct xi, Theorem~\ref{thm:correspondence} makes both normalized leading quantities nonzero. Analyticity gives
+\begin{align}
+\calC(h,\xi)&=h^3\Cbar(0,\xi)+O(h^4),\label{eq:C-scaling}\\
+\nu_\pm(h,\xi)&=\nu_\pm(0,\xi)+O(h),\label{eq:nu-scaling}\\
+\omega_\pm(h,\xi)&=h\nu_\pm(0,\xi)+O(h^2).\label{eq:omega-scaling}
+\end{align}
+These are nonzero leading orders, not merely upper bounds, under that distinct-coefficient hypothesis. At the equal-coefficient loci the nonzero-leading assertion does not apply.
+
+At h=0, the extended relative-equilibrium equation is
+\begin{equation}
+X_k(z)_i=z_i(k_i-|z_i|^2)+\tfrac16(L_3z)_i
++\tfrac{\iu}{30}z_i\sum_{j\ne i}\sin3(\arg z_j-\arg z_i),
+\quad X_k(z_\pm)=\iu\nu_\pm z_\pm.
+\label{eq:generator-state}
+\end{equation}
+This is the selected generator equation, not an actual update of $F_0$. The identity map still has zero per-update advance. A nonzero normalized response scalar or generator rate does not make it move. Conversely, its zero raw values do not erase the nonzero analytic limits. No physical clock, continuum physical limit or universal physical constant is assigned by these mathematical normalizations.
+
+\clearpage
+\section{The diagnostic does not choose a state}\label{sec:selection}
+Fix h>0 and a pairwise-distinct xi in the theorem's neighborhood. Assign the single diagnostic
+\begin{equation}
+\mathscr D_r:=\calC(h,\xi),
+\label{eq:assigned}
+\end{equation}
+evaluated at the positive aligned profile r. This same assigned quantity is used in every row of Table~\ref{tab:states}; it is not each row's own response matrix.
+
+\begin{table}[htbp]\centering\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{.21\textwidth}Y>{\raggedright\arraybackslash}p{.18\textwidth}>{\raggedright\arraybackslash}p{.19\textwidth}@{}}\toprule
+Selected full state & Exact native relation & Assigned diagnostic & Unwrapped advance\\\midrule
+Aligned $r(\xi)$ & $F_h(r)=r$ & $\mathscr D_r\ne0$ & $0$\\[8pt]
+Positive-label $z_+(h,\xi)$ & $F_h(z_+)=e^{\iu h\nu_+}z_+$ & Same $\mathscr D_r$ & $\omega_+=h\calA S_D\ne0$\\[8pt]
+Conjugate $z_-(h,\xi)$ & $F_h(z_-)=e^{-\iu h\nu_+}z_-$ & Same $\mathscr D_r$ & $-\omega_+$\\\bottomrule
+\end{tabularx}
+\caption{Identical ordered coefficients and one diagnostic evaluated at r, but three different full states. Common-phase rotations of each state preserve its listed advance.}\label{tab:states}
+\end{table}
+
+The stationary state and conjugate relative equilibria are inherited constructions. The matched comparison places their distinct advances beside a common assigned diagnostic. Neither the coefficient tuple nor that diagnostic, even together, chooses which state is actually realized. The positive chirality label fixes a reference; its rate has the sign of $\calA$ and need not be positive for an arbitrary ordering of distinct coefficients.
+
+Conjugation leaves the ordered real coefficients and the positive real r fixed while reversing the chiral rate. Pure site reflection instead carries the coefficients and changes the chirality label while preserving the scalar rate of the reflected state. These transformations must not be interchanged. Gauge restoration by a common phase changes neither rate nor branch label \cite[D28--D30]{drift}.
+
+Once a chiral branch is specified, the exact relationship is compatible with this limitation. For h>0,
+\begin{equation}
+\nu_\pm=\pm\Theta\,\frac{\calC}{h^3},
+\qquad \omega_\pm=\pm\Theta\,\frac{\calC}{h^2}.
+\label{eq:conditioned}
+\end{equation}
+These are identities between functions on different selected backgrounds. They do not describe a force, transfer, state switch or trajectory from r to $z_\pm$. They are not state-independent laws for arbitrary native states.
+
+\subsection{Compatibility with deterministic reconstruction}\label{sec:reconstruction-limit}
+The full native state remains deterministic: one state at one parameter tuple has one next state. Table~\ref{tab:states} never holds the full state fixed. It also does not show that every possible state-dependent response observation is insufficient. In particular it does not identify the response matrix at a chiral state with $J_h$ at r.
+
+The accepted phase-reconstruction theorem recovers full state histories once the required retained coordinates and initial common phase are supplied on its admitted coherent domain \cite[\texttt{thm:reconstruction}, \texttt{thm:phasebranch}]{phase}. That narrow ordinary-phase domain does not contain the twisted references used here. Its established determinism is preserved, without extending its domain or substituting one scalar diagnostic for its data.
+
+\clearpage
+\section{Evidence, ownership and limits}\label{sec:evidence}
+The manuscript explains accepted RD01--RD05. The source investigation reconstructed the response from the Cartesian derivative, divided the alternating cycle numerator as an exact polynomial, derived the positive pair-difference factor, and checked the generator normalization \cite{rd}. Its 60 distinct exact algebra/control predicates detect the wrong Vandermonde sign, a dropped factor two, reversed stage order, confusion of raw and normalized quantities, and the qualified equal-coefficient and conjugation cases. They are not 60 theorems.
+
+The final portable checker reproduced the initial successful symbolic results after its output paths were made portable. GPT's subsequent scientific review replayed that same checker and verified the retained formulas, source bytes and archive records \cite{review}. Both use SymPy 1.14.0. This is corroboration with a shared arithmetic backend, not an independent implementation or machine-formal proof. The common-neighborhood, analytic-division and positivity arguments are written proofs; finite algebraic predicates do not replace them.
+
+The inherited D1 coefficient, border and local branch are mathematical premises with their own accepted evidence \cite{drift,d0d1}. Its finite numerical fixtures are a separate historical result and do not set this theorem's qualitative radius. No D1 state jet, continuation tube, native trajectory or historical scientific suite was rerun for this manuscript. Compilation, transcription, link checks, source integrity and page inspection are documentary work.
+
+\begin{table}[htbp]\centering\small
+\begin{tabularx}{\textwidth}{@{}lYY@{}}\toprule
+Claim & Manuscript location & Principal accepted proof location\\\midrule
+RD01 & Sections~\ref{sec:setting}--\ref{sec:domain}; Proposition~\ref{prop:domain} & Report \S2, equations (3)--(7)\\[4pt]
+RD02 & Sections~\ref{sec:response}--\ref{sec:coefficients} & Report \S3, equations (8)--(18)\\[4pt]
+RD03 & Theorem~\ref{thm:correspondence}; Sections~\ref{sec:division}--\ref{sec:positivity} & Report \S4, equations (19)--(22)\\[4pt]
+RD04 & Section~\ref{sec:limit}; Table~\ref{tab:generator} & Report \S5, equations (23)--(25)\\[4pt]
+RD05 & Section~\ref{sec:selection}; Table~\ref{tab:states} & Report \S6 and its three-state table\\\bottomrule
+\end{tabularx}
+\caption{Accepted claim ownership. The delivered machine-readable crosswalk adds final labels, pages, source lines and exact evidence paths.}\label{tab:crosswalk}
+\end{table}
+
+The accepted comparison closes its local mathematical question. It does not classify all coefficient values, all native states or all finite rings, and it supplies no physical clock, force, material receiver, spatial route or calibrated rotation. It does not establish that either D1 branch attracts. It also makes no claim about AI-memory performance, an architecture or a memory policy.
+
+There is a real local correspondence: on a common coefficient neighborhood, the normalized in-phase response asymmetry and selected chiral rate have positive analytic factors multiplying the same alternating product. Their zeros and signs are therefore controlled together. The state-selection limitation is equally exact: a response diagnostic assigned to one background does not determine which of the distinct native states is realized.
+
+\clearpage
+\section*{Source access, status and assistance}\label{sec:access}
+This research edition contains this PDF, editable LaTeX, the bibliography, accepted investigation and acceptance archive, a claim/source crosswalk, documentary build records and all-page inspection records. The starting point is \href{SOURCE_ACCESS_MAP.md}{\texttt{SOURCE\_ACCESS\_MAP.md}} at the package root. Package-relative evidence links below work with the complete extracted edition; the standalone PDF should be accompanied by that package.
+
+This research edition has \emph{completed project-internal manuscript review and author authorization for repository publication}. Historical review/pending sentences inside preserved source archives remain historical. They do not override the later scientific acceptance and do not constitute manuscript or publication approval. No DOI, journal acceptance or external peer review is claimed.
+
+Hilmir Fr\'imann Halld\'orsson is the research author and final design authority. GPT supplied scientific steering, proposed reasoning and project-internal scientific review; Codex performed the independent scoped investigation and prepared the explanatory manuscript, source crosswalk and documentary checks. GPT completed project-internal manuscript review on 15 November 2026; the author separately authorized repository publication.
+
+Original authorship and rights remain with their respective holders. Existing software licensing is not extended to manuscripts, research scripts, results or figures. This package grants no new redistribution rights and changes no earlier edition.
+
+\input{references.tex}
+\end{document}

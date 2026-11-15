@@ -1,0 +1,257 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[left=25mm,right=25mm,top=24mm,bottom=24mm,headheight=14pt]{geometry}
+\usepackage{booktabs,array,microtype,fancyhdr}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{bookmark}
+\hypersetup{pdftitle={Certified Capture of the Collective-Turning Trajectory in the Native Triad},pdfauthor={Hilmir Frímann Halldórsson (pzychozen)},pdfsubject={Research edition v0.1; project-internal manuscript review complete; author-authorized for repository publication; 11 November 2026},pdfkeywords={native triad, certified finite entry, coherent relaxation, companion note}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{2em}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Certified native capture}
+\fancyhead[R]{\small Research edition v0.1}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\C}{\mathbb C}\newcommand{\R}{\mathbb R}
+\newcommand{\one}{\mathbf 1}\newcommand{\eps}{\varepsilon}
+\newcommand{\re}{\operatorname{Re}}\newcommand{\im}{\operatorname{Im}}
+\newcommand{\Argz}{\operatorname{Arg}_0}
+\newcommand{\D}{\mathcal D}\newcommand{\Q}{\mathcal Q}
+\begin{document}
+\thispagestyle{plain}
+{\LARGE\bfseries Certified Capture of the Collective-Turning Trajectory in the Native Triad\par}
+\vspace{5pt}
+{\normalsize A companion note to \emph{Transient Collective Turning and Coherent Relaxation in the Native Triad}\par}
+\vspace{8pt}
+{\large Hilmir Fr\'imann Halld\'orsson (pzychozen)\par}
+{\small Research edition v0.1 \quad 11 November 2026\par}
+{\small\bfseries Project-internal manuscript review complete; author-authorized for repository publication.\par}
+\vspace{5pt}
+\begin{abstract}
+The original collective-turning example of the native triad was known to have a strict early turn, while a separate theorem established coherent relaxation for states in an invariant annulus and ordinary phase sector. We connect these results for the unchanged recurrence, rational coefficients and original exact entrance. A retained certificate encloses 50 full updates in one connected chain, starting from an exact singleton. A separate exact-fraction checker verifies the chain, nonzero prestages and strict terminal annulus and cone inequalities. These imply inclusion in the inherited coherent domain at update 50, a sufficient index rather than a certified earliest entry. The inherited theorem then gives convergence of the same turning trajectory to its positive unequal amplitude profile, up to a limiting common phase. Continuity also supplies an open neighborhood of entrances with both properties at the same coefficients, without an explicit radius. No parameter robustness, global basin or physical identification is asserted.
+\end{abstract}
+
+\section{The missing finite connection}\label{sec:question}
+The parent paper \cite{parent} established two distinct results at one native parameter point: a certified nonzero turn of the complex channel mean over its first two increments, and convergence for states already admitted to an explicit coherent domain. The turning entrance had amplitudes outside that domain. Accordingly, the earlier edition did not assert that its particular turning trajectory eventually entered the convergence region.
+
+The accepted investigation \cite{capture,acceptance} supplies that missing finite link. For the original seed, its unchanged full evolution is strictly inside the same domain at update 50. This is a supplementary result: the parent paper's statement of the then-open gap was accurate, and the earlier edition remains unchanged.
+
+The contribution is the certified finite connection and its qualitative initial-condition corollary. The early turn, invariant domain, convergence estimates and limiting profile are inherited. Neither interval certification nor the implication from finite entry to an invariant convergence theorem is claimed as a new method. The accepted prior-source comparison found a distinct gap within the inspected project corpus; it is not a worldwide novelty claim or an additional mathematical theorem.
+
+The argument below is readable without executing the evidence archive. We state the exact object, explain the finite enclosure induction and its terminal tests, and apply the inherited theorem at the correct index. Full rational endpoints and the historical execution records remain available as supporting evidence.
+
+\clearpage
+\section{Frozen recurrence and inherited result}\label{sec:setting}
+Let $\Omega_n=(\Omega_{A,n},\Omega_{B,n},\Omega_{C,n})\in\C^3$. With real coefficients, the simultaneous ordered native map is
+\begin{align}
+v_{i,n}&=\Omega_{i,n}+\eps\Omega_{i,n}(k_i-|\Omega_{i,n}|^2)
+       +g\sum_{\ell\ne i}(\Omega_{\ell,n}-\Omega_{i,n}),\label{eq:pre}\\
+\delta_{i,n}&=\lambda\sum_{\ell\ne i}
+ \sin\!\bigl(3[\Argz v_{\ell,n}-\Argz v_{i,n}]\bigr),\label{eq:kick}\\
+\Omega_{i,n+1}&=v_{i,n}e^{i\delta_{i,n}},\qquad\Omega_{n+1}=F(\Omega_n).
+\label{eq:post}
+\end{align}
+All prestages use the same old triple; all kicks use the same completed prestage triple. The convention is $\Argz(0)=0$, and a zero prestage stays zero. This agrees with the primary recurrence and its implementation \cite{parent,kernel}. No normalization, sequential phase update, observer feedback or added state is introduced. The implementation's separate $\lambda=0$ bypass is immaterial to the fixed nonzero value used here.
+
+Throughout this note the coefficients and seed are exactly
+\begin{gather}
+\eps=\frac1{10},\qquad g=\frac1{60},\qquad\lambda=\frac1{300},\qquad
+k=\left(\frac{999}{1000},1,\frac{1001}{1000}\right),\label{eq:parameters}\\
+\Omega_0=(1+i,1+i,1-2i).\label{eq:seed}
+\end{gather}
+The index $n$ counts native updates, not calibrated physical time. Exact rational coefficients control the mathematical map; binary64 evaluation is a numerical comparison only.
+
+The inherited domain is
+\begin{equation}
+\begin{split}
+\D=\{\Omega:\;&9/10\le|\Omega_i|\le11/10\ \text{for every }i,\\
+&\Omega_i=|\Omega_i|e^{i\theta_i},\quad
+\theta_i\in[\alpha,\alpha+\pi/12]\ \text{for some }\alpha\in\R\}.
+\end{split}\label{eq:domain}
+\end{equation}
+The phases have a common ordinary lift, allowing a common full turn. They are \emph{not} identified modulo $2\pi/3$. The initial moduli $\sqrt2,\sqrt2,\sqrt5$ show that $\Omega_0\notin\D$.
+
+\begin{proposition}[Inherited domain theorem]\label{prop:inherited}
+At \eqref{eq:parameters}, $\D$ is forward invariant. Every state admitted to $\D$ converges under $F$ to $e^{i\theta_\infty}r_*$, where $r_*$ is the unique positive fixed amplitude profile in $\Q=[0.9,1.1]^3$. Its entries are pairwise unequal; the common phase can depend on the entrance.
+\end{proposition}
+This is the parent paper's invariant-domain result and \texttt{thm:convergence} \cite{parent}, used here without re-proving it. Uniqueness is confined to the stated cube.
+
+For $m_n=\tfrac13\sum_i\Omega_{i,n}$, the inherited early-turn statistic is
+\begin{equation}
+K_m=\im\!\left[\overline{(m_1-m_0)}(m_2-m_1)\right],\qquad
+0.0110760731\le K_m\le0.0110760732.\label{eq:turn}
+\end{equation}
+Its positive sign proves noncollinear mean increments. This is an existing turning witness, not a new turn calculation in the present manuscript.
+
+\clearpage
+\section{The connected finite certificate}\label{sec:certificate}
+\begin{theorem}[Strict finite inclusion]\label{thm:capture}
+For the exact map \eqref{eq:pre}--\eqref{eq:post}, coefficients \eqref{eq:parameters} and seed \eqref{eq:seed},
+\begin{equation}
+F^{50}(\Omega_0)\in\operatorname{int}\D.\label{eq:capture}
+\end{equation}
+Every one of the 150 prestage components in the preceding 50 updates has modulus strictly greater than $87/100$.
+\end{theorem}
+The proof is the accepted finite certificate \cite{capture}, interpreted in this section and completed by the terminal inequalities in Section~\ref{sec:terminal}. The index 50 is sufficient; it is not asserted to be the earliest entry.
+
+\subsection{A regular formula without argument branches}\label{sec:regular}
+For nonzero $v_i,v_\ell$, the polar-product identity gives
+\begin{equation}
+\sin\!\bigl(3[\arg v_\ell-\arg v_i]\bigr)
+=\frac{\im((v_\ell\overline{v_i})^3)}{|v_\ell|^3|v_i|^3}.
+\label{eq:identity}
+\end{equation}
+This is the same sine as in the native phase rule, independent of argument cuts. The certificate verifies a positive lower bound before every division. An interval containing zero would be inconclusive, not permission to regularize the recurrence. Here all checked moduli exceed $87/100$, so no zero convention is bypassed.
+
+There are 51 rectangular complex state boxes $B_0,\ldots,B_{50}$ and 50 full update records. Each of the six real coordinates in $B_0$ is the exact singleton specified in \eqref{eq:seed}. A record contains enclosures for the prestage, its moduli, the kicks, their sines and cosines, and the next state. No intermediate box is replaced by an exploratory point value.
+
+\subsection{Two arithmetic organizations}\label{sec:arithmetic}
+The generator uses integer endpoints divided by $S=2^{512}$. Rational constants are rounded down and up. Products take the extreme endpoint products and round outward; positive reciprocals reverse the endpoints before outward division. Squares include zero if appropriate, and square roots use integer square-root bounds. The documented padding only widens boxes. Its purpose does not supply proof by itself: the separate checker must verify the required containments.
+
+The checker uses exact fractions rather than importing the generator's dyadic arithmetic. It evaluates the prestage in the combined form
+\begin{equation}
+\bigl(1-2g+\eps k_i-\eps|\Omega_i|^2\bigr)\Omega_i
+ +g(\Omega_\ell+\Omega_h),\qquad\{i,\ell,h\}=\{A,B,C\}.
+\label{eq:combined}
+\end{equation}
+For $v_\ell\overline{v_i}=u+iv$, it expands the numerator in \eqref{eq:identity} as $3u^2v-v^3$ instead of cubing a complex interval. A positive modulus witness $[l,u]$ is checked by the exact inequalities $l>0$, $l^2\le q_-$ and $u^2\ge q_+$, where $[q_-,q_+]$ encloses the squared modulus. Thus the checker does not copy the generator's square-root algorithm.
+
+These distinct interval evaluations may enclose different sets. Acceptance requires that every independently computed interval lie inside the corresponding supplied interval. Agreement of numerical centers, a large precision setting or a checksum is not that containment argument.
+
+\clearpage
+\subsection{Trigonometric bounds and induction}\label{sec:taylor}
+Every kick interval is checked to satisfy $|\delta|<1/100$. Set
+\begin{equation}
+P_s(x)=\sum_{q=0}^{23}\frac{(-1)^q x^{2q+1}}{(2q+1)!},\qquad
+P_c(x)=\sum_{q=0}^{24}\frac{(-1)^q x^{2q}}{(2q)!}.
+\label{eq:polynomials}
+\end{equation}
+The sine polynomial also has Taylor order 48, and the cosine polynomial order 49, because the next respective coefficient is zero. Taylor's theorem therefore gives, on $|x|<1/100$,
+\begin{equation}
+|\sin x-P_s(x)|\le E_s:=\frac{100^{-49}}{49!},\qquad
+|\cos x-P_c(x)|\le E_c:=\frac{100^{-50}}{50!}.
+\label{eq:remainders}
+\end{equation}
+The generator evaluates interval Horner polynomials and rounds the remainders upward. The checker instead evaluates scalar polynomials exactly at a kick interval's midpoint $m$. If its radius is $r$ and $M$ is the larger absolute endpoint, $|\sin'|\le1$ and $|\cos'|=|\sin|\le|x|$ give the enclosures
+\begin{equation}
+P_s(m)+[-E_s-r,E_s+r],\qquad
+P_c(m)+[-E_c-Mr,E_c+Mr].\label{eq:midpoint}
+\end{equation}
+The supplied trigonometric boxes must contain these bounds. Finally, exact interval complex multiplication must put the rotated prestage inside the next state box.
+
+This proves the finite chain by induction. The exact seed belongs to $B_0$. Given an exact state in $B_n$, the verified prestage, modulus and kick operations enclose its native update ingredients; \eqref{eq:remainders}--\eqref{eq:midpoint} enclose the true rotation, and next-box containment gives $F(\Omega_n)\in B_{n+1}$. Hence $F^{50}(\Omega_0)\in B_{50}$. It remains to show that the entire terminal box lies in the strict target region.
+
+\section{Terminal annulus and common cone}\label{sec:terminal}
+Table~\ref{tab:terminal} transcribes the recorded exact checker bounds. The decimal endpoints are terminating rationals, not rounded estimates of the trajectory. Squared rational inequalities prove the modulus intervals. With
+\begin{equation}
+w_i=(987395-158274i)\Omega_{i,50},\label{eq:multiplier}
+\end{equation}
+the checker also verifies $\re w_i>0$ and the tabulated positive lower bounds for $\re w_i-8|\im w_i|$.
+
+\input{tables/terminal_bounds.tex}
+
+Relative to the fixed direction, every ordinary argument lies strictly between $-\arctan(1/8)$ and $\arctan(1/8)$. Their common containing width satisfies
+\begin{equation}
+\Delta_{50}<2\arctan(1/8)<\frac14<\frac\pi{12},\label{eq:cone}
+\end{equation}
+using $\arctan x<x$ for $x>0$ and $\pi>3$. The multiplier is a diagnostic scaling and rotation, not an additional update or a physical direction. The strict annulus and cone conditions define an open set contained in $\D$, proving Theorem~\ref{thm:capture}.
+
+\clearpage
+\section{The same trajectory relaxes}\label{sec:tail}
+\begin{corollary}[Inherited relaxation after admission]\label{cor:relaxation}
+The original trajectory with the positive early turn \eqref{eq:turn} converges to $e^{i\theta_\infty}r_*$, with the cube-qualified profile of Proposition~\ref{prop:inherited}. For the integer tail counter $j=n-50\ge0$, set
+\begin{equation}
+c=1-\frac{3\sqrt2}{200},\qquad\beta=\frac{8571}{10000}.
+\label{eq:constants}
+\end{equation}
+Then
+\begin{equation}
+\begin{split}
+\|\Omega_{50+j}-e^{i\theta_\infty}r_*\|_\infty
+\le{}&\frac15\beta^j+
+\frac{107701}{12800000}\frac{c^{2j}-\beta^j}{c^2-\beta}
++\frac{11}{40}c^j.
+\end{split}\label{eq:tailbound}
+\end{equation}
+\end{corollary}
+\begin{proof}
+Apply the parent theorem at $\Omega_{50}$, admitted by Theorem~\ref{thm:capture}. Write $e_0=\|\,|\Omega_{50}|-r_*\|_\infty$, where $|\Omega|$ denotes the componentwise modulus. The inherited full-state estimate \cite[\texttt{eq:fullbound}]{parent}, with the index shifted to admission, is
+\begin{equation}
+\beta^j e_0+
+\frac{1.07701\Delta_{50}^2}{8}\frac{c^{2j}-\beta^j}{c^2-\beta}
++1.1\Delta_{50}c^j.\label{eq:inheritedbound}
+\end{equation}
+Both amplitude triples lie in $\Q$, giving $e_0\le1/5$, while \eqref{eq:cone} gives $\Delta_{50}<1/4$. Substitution yields \eqref{eq:tailbound}. The inherited constants satisfy $c^2>\beta$ and $0<c,\beta<1$, so the bound tends to zero. No rate constant or new profile has been fitted.
+\end{proof}
+For complex triples, $\|z\|_\infty=\max_i|z_i|$. The limiting amplitudes solve the inherited fixed equations
+\begin{equation}
+\eps r_{*,i}(k_i-r_{*,i}^2)+g\sum_{\ell\ne i}(r_{*,\ell}-r_{*,i})=0.
+\label{eq:fixed}
+\end{equation}
+Their uniqueness is in $\Q$, not among all positive profiles everywhere, and absolute limiting phase is not unique across entrances.
+
+\subsection{Mean, dispersion and area attachments}\label{sec:observables}
+Let $P=I-\one\one^T/3$, $E_n=\|P\Omega_n\|_2$ and $\bar r_*=(1/3)\sum_i r_{*,i}$. The inherited limits give
+\begin{equation}
+m_n\longrightarrow e^{i\theta_\infty}\bar r_*,\qquad
+E_n\longrightarrow E_*:=\|Pr_*\|_2>0,\qquad E_*<0.005270.
+\label{eq:limits}
+\end{equation}
+The last number is an inherited upper bound, not the actual limiting spread. Define $x=\re\Omega$, $y=\im\Omega$ and $C=x\times y$ in channel order $(A,B,C)$. The parent's fixed attachments are
+\begin{equation}
+T=\begin{pmatrix}-1/2&1&-1/2\\-\sqrt3/2&0&\sqrt3/2\\0&0&0\end{pmatrix},
+\qquad W=TC,\qquad\Gamma=\one^TC.\label{eq:attachments}
+\end{equation}
+For cyclic $(i,\ell,h)$, $C_i=r_\ell r_h\sin(\theta_h-\theta_\ell)$, with no factor $1/2$. The inherited phase bound gives $|C_{i,50+j}|\le1.21\Delta_{50}c^j$, so $C,W,\Gamma\to0$ \cite[\texttt{eq:area}, \texttt{eq:attach}, \texttt{eq:Cdecay}]{parent}. Unequal aligned vectors retain amplitude spread while their signed areas vanish; these remain passive observables.
+
+\clearpage
+\section{Nearby entrances at the same coefficients}\label{sec:neighborhood}
+\begin{corollary}[Qualitative initial-condition neighborhood]\label{cor:neighborhood}
+At the fixed coefficients \eqref{eq:parameters}, there is an open neighborhood $U\subset\C^3$ of \eqref{eq:seed} such that every entrance in $U$ has $K_m>0$ for its first two mean increments and belongs to $\operatorname{int}\D$ at update 50. Every such trajectory converges to the same amplitude profile $r_*$, up to an entrance-dependent limiting common phase.
+\end{corollary}
+\begin{proof}
+Identify $\C^3$ with $\R^6$. Every prestage on the certified finite orbit is nonzero, with the strict lower bound in Theorem~\ref{thm:capture}. Near each visited state, the polynomial prestage and normalized-product expression \eqref{eq:identity} give a smooth real representation of the native map. Positive moduli permit the square roots and reciprocal operations. Agreement with the native phase rule holds even across a principal-argument cut.
+
+Because only finitely many updates are involved, repeated continuity gives an open initial neighborhood $V$ of $\Omega_0$ on which all prestages through update 49 remain nonzero and $F^{50}$ is continuous. On $V$, the first two mean increments and their statistic $K_m$ are continuous. Equation~\eqref{eq:turn} is strict at $\Omega_0$, so $\{z\in V:K_m(z)>0\}$ is an open neighborhood of that seed.
+
+Let $O$ be the open terminal set defined by $0.9<|z_i|<1.1$ and
+\[
+\re((987395-158274i)z_i)>8|\im((987395-158274i)z_i)|
+\quad\text{for every }i.
+\]
+Section~\ref{sec:terminal} proves $F^{50}(\Omega_0)\in O\subset\operatorname{int}\D$. Thus
+\begin{equation}
+U=V\cap\{z:K_m(z)>0\}\cap(F^{50}|_V)^{-1}(O)\label{eq:neighborhood}
+\end{equation}
+is open and contains $\Omega_0$. The \emph{same} $U$ satisfies finite-path regularity, strict early turning and terminal admission. Proposition~\ref{prop:inherited} applies to each admitted state, proving the conclusion.
+\end{proof}
+
+The result supplies some positive-radius neighborhood by openness, but no numerical radius or uniform quantitative perturbation allowance. Coefficients remain fixed. It does not establish parameter robustness, a complete basin, stability of an earliest-entry index or identical limiting phases throughout $U$.
+
+\section{Interpretation and limits}\label{sec:scope}
+The finite certificate connects two known behaviors along one unchanged native evolution: the documented early turn is followed by entry into the known aligned regime. It does not attribute capture to one term based on a single history. In the inherited exact mean accounting, $m_{n+1}-m_n=B_n+S_n$, the onsite contribution is $B_n=(\eps/3)\sum_i\Omega_{i,n}(k_i-|\Omega_{i,n}|^2)$ and the synchronization contribution is $S_n=(1/3)\sum_i v_{i,n}(e^{i\delta_{i,n}}-1)$. Graph corrections cancel directly in the prestage mean but change the individual states supplied to later operations \cite[\texttt{eq:budget}]{parent}.
+
+The parent's delayed-graph comparison uses $\lambda=0$; it is not an ablation establishing a sole cause of the present nonzero-$\lambda$ capture. No physical position, force, gravity, magnetism, receiver, transport channel, clock or moving-shell law follows from this note. Nor does convergence prove that only finitely many diminishing directional changes remain. The certified index is sufficient rather than earliest, and the qualitative neighborhood is not a global attraction claim.
+
+\clearpage
+\section{Evidence, execution and manuscript status}\label{sec:evidence}
+The accepted record preserves the certificate, generator, separate checker and original executions \cite{capture}. The checker validates 50 links, 150 positive prestages and the inherited early-turn sign on the connected chain. Five damaged certificates were rejected: a wrong initial singleton, zero modulus witness, zeroed kicks, broken next-state link and false terminal amplitude bounds. These are dependency and rejection-path checks, not new turning results or formal verification of Python.
+
+Codex's original scientific execution used Windows Python 3.11.15 in \texttt{torment}. GPT's corroborating replay used Linux Python 3.13.5, replacing only the conda-name guard in memory with a check that assertion optimization was disabled. Mathematical functions, assertions and archived files were unchanged. This replay of the submitted independent checker was neither a third independent implementation nor a Windows rerun \cite[Section 5]{acceptance}.
+
+The exploratory apparent first hit at 41 remains numerical only. This document build repeats neither that search nor certificate generation, validation, damaged-input controls or historical suites. New helpers read saved values, generate the table, check transcription and file identity, compile and inspect the document. Full identities and execution records accompany the note. The certificate denominator is an arithmetic choice, not a physical scale.
+
+\textbf{Authorship and status.} Hilmir Fr\'imann Halld\'orsson supplies authorship and research direction. GPT provided scientific steering and internal acceptance; Codex conducted the investigation, implemented its independent checker and prepared this note. The mathematics was accepted at its stated scope on 10 November 2026. Research edition v0.1 completed GPT project-internal manuscript review on 11 November 2026 and is author-authorized for repository publication. No journal acceptance, external peer review, proof-assistant certification or new DOI is claimed.
+
+The acceptance files retain their historical wording; a separate status record explains the later 11 November manuscript commission. The parent edition remains unchanged. Relative evidence links below refer to the files distributed with this note.
+
+\input{references.tex}
+\end{document}

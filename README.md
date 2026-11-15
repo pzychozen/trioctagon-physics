@@ -51,6 +51,14 @@ Paper G has a separate [author publication disposition](papers/PAPER_G/repositor
 Its approved v0.1.1 PDF/source retain their review labels and exact bytes;
 that later disposition authorizes repository publication without changing the science.
 
+## Local response-drift correspondence
+
+[Local Correspondence Between In-Phase Response Asymmetry and Chiral Common-Phase Drift in the Native Triad](papers/NATIVE_RESPONSE_DRIFT_CORRESPONDENCE_COMPANION/README.md), by **Hilmir Frímann Halldórsson**, research edition v0.1. Companion to *Native Response Geometry* and *Cubic Common-Phase Drift*, with completed project-internal manuscript review and author-authorized repository publication.
+
+Matched local zero/sign and analytic-ratio correspondence on a common qualitative native-triad neighborhood. The assigned aligned-state diagnostic does not select signed drift without a state/branch choice. No numerical radius, attraction, global phase prediction or physical force/clock claim. Earlier papers and accepted evidence remain unchanged.
+
+[Final PDF](papers/NATIVE_RESPONSE_DRIFT_CORRESPONDENCE_COMPANION/publication/v0.1/NATIVE_RESPONSE_DRIFT_CORRESPONDENCE_COMPANION_v0.1.pdf) | [Editable source and evidence](papers/NATIVE_RESPONSE_DRIFT_CORRESPONDENCE_COMPANION/publication/v0.1/README.md).
+
 ## Noncollision outer-envelope transition
 
 [Noncollision Facet Transition and Exact Outer-Envelope Classification in the Folded Tri-Octagon](papers/TRIOCTAGON_OUTER_ENVELOPE_COMPANION/README.md), by **Hilmir Frímann Halldórsson**, research edition v0.1. Companion to *Spherical Edge Extensions of the Folded Tri-Octagon*, with completed project-internal manuscript review and author-authorized repository publication.

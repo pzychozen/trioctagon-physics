@@ -1,0 +1,67 @@
+\section{Question and contributions}\label{sec:intro}
+
+The native recurrence already selects a quartic onsite potential and a quadratic graph term. Its first stage is a unit negative-gradient increment of that potential. Its second stage rotates the three components by different phase kicks. Because these rotations preserve intensities but can change graph distances, the gradient identity alone does not prove descent of the complete map.
+
+The first question is therefore about a specified scalar, not the existence of some auxiliary Lyapunov function: when does the complete update decrease the native potential? The second asks how much of the existing pair information can be retained while preserving both autonomous evolution and that energy accounting.
+
+The response, transport, and closure results of \cite{nrg} and the coherent-domain results of \cite{relaxation} are inherited inputs. They establish the admitted positive branch, its exact derivative and triad spectrum, regular coherence closure, an invariant sector, and a unique aligned profile. The present paper assembles the accepted deductions of two subsequent investigations \cite{energy,information}:
+\begin{enumerate}
+\item strict nonlinear local descent in the potential's own Hessian, together with its coexistence with failed positive diagonal balance;
+\item an explicit finite-domain descent inequality and complete monotonicity-equality classification;
+\item five real closed coordinates preserving all required energy quantities, with attained minimum counts in two fixed raw-entry dictionaries.
+\end{enumerate}
+The proofs are included here. Inherited convergence is not used as a substitute for a monotonicity argument, and a current-energy obstruction is not described as dynamic nonclosure.
+
+\section{Native map, scalar, and distinct settings}\label{sec:setting}
+
+Let \(\Omega\in\C^3\), let the coefficients be real, and set
+\begin{equation}
+L=\one\one^T-3I=
+\begin{pmatrix}-2&1&1\\1&-2&1\\1&1&-2\end{pmatrix}.
+\end{equation}
+The prestage \(v\), increment \(b\), and complete map are
+\begin{align}
+v&=\Omega+\eps\Omega\odot(k-|\Omega|^2)+gL\Omega,
+&b&=v-\Omega,\label{eq:pre}\\
+\psi_i&=\Argz(v_i),&
+\delta_i&=\lambda\sum_{j\ne i}\sin3(\psi_j-\psi_i),\notag\\
+F_i(\Omega)&=v_i e^{i\delta_i}.\label{eq:full}
+\end{align}
+All kicks use the same prestage. The native convention is \(\Argz(0)=0\); at \(\lambda=0\), the implemented synchronizer returns the prestage directly. No normalization, added clock, or modified zero convention is introduced.
+
+The scalar throughout is
+\begin{equation}
+\V(\Omega)=\eps\sum_i\left(\frac{|\Omega_i|^4}{4}
+-\frac{k_i|\Omega_i|^2}{2}\right)
++\frac g2\sum_{i<j}|\Omega_i-\Omega_j|^2.
+\label{eq:potential}
+\end{equation}
+Each undirected edge appears once. In nodewise real coordinates \(x_i\in\R^2\),
+\begin{equation}
+\nabla_{x_i}\V=\eps(|x_i|^2-k_i)x_i
++g\sum_{j\ne i}(x_i-x_j),\qquad
+b=-\nabla_{\R^6}\V.
+\label{eq:gradient}
+\end{equation}
+This is the inherited normalization of \cite{nrg}, response chapter, \texttt{eq:potential}. The separate harmonic-three phase potential is a different function; descent of that function does not establish descent of \eqref{eq:potential}.
+
+Whenever all prestage components are nonzero, the sine in \eqref{eq:full} equals the imaginary part of
+\[
+\left(\frac{v_j\overline v_i}{|v_j||v_i|}\right)^3.
+\]
+The complete map is therefore smooth and common-phase equivariant on that regular domain without reliance on a principal-argument cut. The potential is common-phase invariant. Unrestricted quotient assertions at zero prestages would conflict with the native convention; the accepted counterexample in \cite{nrg}, \texttt{eq:zerocounter}, remains in force.
+
+\begin{table}[htbp]
+\centering\small
+\caption{The settings are separate. The finite-domain result does not require identifying that domain with an unspecified local neighborhood.}\label{tab:settings}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{.19\textwidth}YY@{}}
+\toprule
+Result & Hypotheses & Conclusion\\\midrule
+Local descent & Admitted positive in-phase triad branch; \(g>0\); all normal multipliers strictly inside the unit disk & Descent in some regular neighborhood of the fixed circle\\
+Finite-domain descent & Exact tuple \eqref{eq:parameters}; closed domain \eqref{eq:domain} & Explicit one-step inequality and equality circle\\
+Closed coordinates and minimum & The same tuple and domain; all intensities always retained & Invariant retained image, exact energy retention, restricted raw-entry minima\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The response matrix \(H_r\) and radial derivative \(A_r\) below are not the coherence matrix \(\HH=\Omega\Omega^\dagger\) or the signed areas \(A_{ij}\). The prestage \(v\) is likewise distinct from \(\V\).

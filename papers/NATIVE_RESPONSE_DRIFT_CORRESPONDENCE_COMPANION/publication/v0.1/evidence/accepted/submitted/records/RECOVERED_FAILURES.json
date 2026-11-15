@@ -1,0 +1,20 @@
+{
+  "failures": [
+    {
+      "stage": "local source recovery",
+      "command": "run_python.cmd source_gate.py",
+      "failure": "git show ae2c02c80c49dfcf266d3b27ebd21be76a938de1:docs/RESEARCH_INDEX.md returned 128",
+      "resolution": "Read the existing local docs/RESEARCH_INDEX.md; explicitly mark local-file origin, not checkpoint blob.",
+      "scientific_worker_started": false
+    },
+    {
+      "stage": "resource-monitor setup",
+      "command": "run_python.cmd run_exact.py",
+      "failure": "ModuleNotFoundError: No module named 'psutil'",
+      "resolution": "Use ctypes Windows GetProcessMemoryInfo, supplied by the OS; no install/update.",
+      "scientific_worker_started": false
+    }
+  ],
+  "mathematical_failures": [],
+  "inconclusive_scientific_checks": []
+}
