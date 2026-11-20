@@ -421,3 +421,8 @@ Author-authorized research edition v0.1, with completed internal manuscript and 
 ## Gravitational and magnetic source correspondence
 
 [Gravitational and magnetic source correspondence in the Tri-Octagon model: energy exchange and a switch-off test](papers/GRAVITY_MAGNETISM_SOURCE_CORRESPONDENCE/README.md), by **Hilmir Frímann Halldórsson**. Author-approved research edition v0.1 combining GM01–GM03: a sharp native source bound, an explicitly added gravitational/magnetic interaction, exact pair-plus-store accounting and a conditional matched-control switch-off test. Physical carrier, clock and experimental validation remain open. [PDF](papers/GRAVITY_MAGNETISM_SOURCE_CORRESPONDENCE/publication/v0.1/output/GM01_GM03_COMBINED_PAPER_v0.1.pdf) · [Edition and scientific evidence](papers/GRAVITY_MAGNETISM_SOURCE_CORRESPONDENCE/publication/v0.1/README.md).
+
+
+## Dipole fields and passive loop readout
+
+[Dipole Fields and Passive Loop Readout in the Tri-Octagon Model](papers/DIPOLE_FIELDS_PASSIVE_LOOP_READOUT/README.md), by **Hilmir Frímann Halldórsson**. Author-approved research edition v0.1 combining GM04–GM06: exact coaxial signed reception with a zero center vector, a proposed three-loop native source launch with explicit work, and a finite-radius sign certificate for R ≥ 100w. Source-energy supply and autonomous receiving-state dynamics remain open. [PDF](papers/DIPOLE_FIELDS_PASSIVE_LOOP_READOUT/publication/v0.1/output/pdf/GM04_GM06_COMBINED_PAPER_v0.1.pdf) · [Edition and scientific evidence](papers/DIPOLE_FIELDS_PASSIVE_LOOP_READOUT/publication/v0.1/README.md).

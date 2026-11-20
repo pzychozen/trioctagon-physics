@@ -1,0 +1,44 @@
+\section{Reciprocal power without singular normalization}\label{sec:power}
+\begin{proposition}[Homogeneous completion]\label{prop:euler}
+With $[v]_\times h=v\times h$,
+\begin{equation}\label{eq:jacobian}
+ J(x)=K\begin{bmatrix}-[b]_\times&[a]_\times\end{bmatrix},\qquad J(x)x=2f(x).
+\end{equation}
+If $w=K^Ty$ and $\mu=\eta_N/(2\alpha_N)$, the core equation is equivalently
+\begin{equation}\label{eq:core}
+ J^Ty=\binom{b\times w}{w\times a},\quad
+ \dot a=\mu w\times b,\quad \dot b=-\mu w\times a,\quad
+ \dot\Omega=-i\mu w\times\Omega.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Differentiation gives $D(a\times b)[\delta a,\delta b]=\delta a\times b+a\times\delta b$, proving the Jacobian and Euler identity. Transposing each skew cross-product matrix gives the two blocks in~\eqref{eq:core}. Consequently $x^TJ^Ty=2f^Ty$; the factor one-half in~\eqref{eq:system} is necessary for the account below.
+\end{proof}
+
+Define the signed powers, density and flux
+\begin{equation}\label{eq:powers}
+ P_{NC}=\eta_N f(x)^Ty,\qquad P_{CR}=\eta_R z^Ty,\qquad
+ e=\tfrac12(p^2+r_c^2),\quad j=cpr_c.
+\end{equation}
+At strong solution regularity, multiplication of the two carrier equations by $p,r_c$ gives the complete local identity
+\begin{equation}\label{eq:localwork}
+ \partial_t e+\partial_s j=p\B\{\eta_Nf(x)-\eta_Rz\}.
+\end{equation}
+Periodic integration removes $c\int\partial_s(pr_c)\dd s$. Adjointness and~\eqref{eq:jacobian} then give
+\begin{equation}\label{eq:balances}
+ \dot H_N=-P_{NC},\qquad \dot H_C=P_{NC}-P_{CR},\qquad
+ \dot H_R=P_{CR},\qquad \dot H_{\rm tot}=0.
+\end{equation}
+The receiver term is actual negative loading in the carrier equation, not a stock reconstructed from a residual. For every finite exchange window $[a_0,b_0]$, the integrated accounts are
+\begin{equation}\label{eq:integrated}
+\begin{aligned}
+ \Delta H_N&=-\int_{a_0}^{b_0}P_{NC}\dd t,\\
+ \Delta H_C&=\int_{a_0}^{b_0}(P_{NC}-P_{CR})\dd t,\\
+ \Delta H_R&=\int_{a_0}^{b_0}P_{CR}\dd t.
+\end{aligned}
+\end{equation}
+Section~\ref{sec:wellposed} justifies these identities for the coupled mild solution as well as the strong solution. At periodic $H^1$ regularity, the local identity is distributional and point-cut fluxes have continuous spatial representatives. For arbitrary $L^2$ preparations we claim the global account and bounded port averages, not unrestricted point traces.
+
+The feedback is polynomial in $x$ and bounded linear in the carrier ports. There is no division by intensity, chirality or a state/output norm. The all-zero state is stationary. At $x=0$, both $f$ and $J$ vanish, so even a preloaded carrier cannot charge native zero. At $p=r_c=z=0$ with $f(x)\ne0$, the carrier begins to change. At $z=0$, $\dot H_R=0$ at that instant although $\dot z$ can be nonzero and subsequent quadratic storage can grow. A vanishing port output at one instant need not remain zero.
+
+The power identity does not uniquely select the completion: an additional sufficiently regular core term $h$ satisfying $x\cdot h=0$ would leave $\dot H_N$ unchanged while potentially altering other dynamics. No such term is added, and no classification is claimed.

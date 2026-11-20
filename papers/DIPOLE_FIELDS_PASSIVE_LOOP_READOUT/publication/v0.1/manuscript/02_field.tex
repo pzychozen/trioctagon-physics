@@ -1,0 +1,71 @@
+\section{The curl and its dipole tensor}\label{sec:field}
+On every compact region separated from the source wire, differentiation under \eqref{eq:staticV} gives
+\begin{equation}\label{eq:curl}
+H(P)=\frac{g_oj}{4\pi}\oint_\Gamma
+\frac{\dd\gamma\times(P-\gamma)}{|P-\gamma|^3}.
+\end{equation}
+The sign follows from \(\nabla_P|P-\gamma|^{-1}=-(P-\gamma)/|P-\gamma|^3\). On the axis,
+\begin{equation}\label{eq:axis}
+V(Y+z\nu)=0,\qquad
+H(Y+z\nu)=\frac{g_oj a^2}{2(a^2+z^2)^{3/2}}\nu.
+\end{equation}
+Taking a curl after restricting V to its zero axial values would incorrectly discard the transverse derivatives. The spatial derivative must be taken first.
+
+For a general point \(P=Y+rn\), \(n\in S^2\), define
+\(m_\Gamma=\pi a^2j\nu\). The exact accepted field estimate is~\cite[sections 2--3]{GM04}
+\begin{equation}\label{eq:dipole}
+H(Y+rn)=\frac{g_o}{4\pi r^3}\{3n(n\cdot m_\Gamma)-m_\Gamma\}
++\mathcal R(r,n),
+\end{equation}
+\begin{equation}\label{eq:remainder}
+\norm{\mathcal R(r,n)}\le
+\frac{3g_o|j|a^4}{2(r-a)^5}\quad(r>a),\qquad
+\norm{\mathcal R(r,n)}\le\frac{48g_o|j|a^4}{r^5}\quad(r\ge2a).
+\end{equation}
+These are uniform absolute bounds, not relative smallness claims at \(r=2a\).
+
+To see the tensor and the order without differentiating an uncontrolled asymptotic series, use the filled source disk only as an integration device. For \(R=P-Y\), set
+\(\Phi(R)=\int_{D_a}|R-\rho|^{-1}\dd A_\rho\). Stokes' theorem componentwise gives, outside that disk,
+\begin{equation}\label{eq:diskH}
+V=\frac{g_oj}{4\pi}\nabla\Phi\times\nu,\qquad
+H=\frac{g_oj}{4\pi}\int_{D_a}\Hess(|R-\rho|^{-1})\nu\dd A_\rho.
+\end{equation}
+The center Hessian is
+\begin{equation}\label{eq:kernelG}
+G(R)=\Hess(|R|^{-1})=\frac{3nn^T-I}{r^3}.
+\end{equation}
+The disk's first moment vanishes. The bound
+\(\norm{D_v^2G(x)}_{\rm op}\le24|v|^2/|x|^5\), proved in Appendix~\ref{app:kernel}, and
+\(\int_{D_a}|\rho|^2\dd A=\pi a^4/2\) yield \eqref{eq:remainder} by Taylor's integral remainder. Centered symmetry removes the \(r^{-4}\) term.
+
+The leading angular factors are \(2m_\Gamma\) along either axial direction and \(-m_\Gamma\) in the equatorial plane, with general tensor \(3nn^T-I\). This is the magnetic-dipole pattern of the curl of the adopted vector observation. In inherited units,
+\([V]=\mathrm U,\ [H]=\mathrm U/\mathrm L,\ [m_\Gamma]=\mathrm U\mathrm L^2\).
+Neither the SI coupling nor a receiver law follows from that pattern.
+
+\subsection{Finite-area measurement and clearance}\label{sec:area}
+If V is \(C^1\) on a neighborhood of the entire receiving disk, the proposed readout obeys
+\begin{equation}\label{eq:stokes}
+S_b(X,u)=\frac1{\pi b^2}\int_{D_b}H(P)\cdot u\dd A.
+\end{equation}
+For stationary line sources, positive clearance of the \emph{whole disk} from every source wire ensures smoothness. Boundary clearance alone is insufficient when a wire pierces the interior. The disk is not an assumed physical surface.
+
+If \(M_2=\sup_{D_b}\norm{\nabla^2(H\cdot u)}_{\rm op}\), centered Taylor averaging gives
+\begin{equation}\label{eq:areaerror}
+|S_b-H(X)\cdot u|\le\frac{b^2M_2}{4}.
+\end{equation}
+The linear term averages to zero and the average of \(|P-X|^2\) is \(b^2/2\). For equal source radii a, write \(J_*=\sum_i|j_i|\). If the receiving disk is separated from the filled source disks by \(\delta_D>0\), \eqref{eq:diskH} and the same Hessian derivative bound imply
+\begin{equation}\label{eq:diskaveragebound}
+M_2\le\frac{6g_oa^2J_*}{\delta_D^5},\qquad
+|S_b-H(X)\cdot u|\le\frac{3g_oa^2b^2J_*}{2\delta_D^5}.
+\end{equation}
+The stronger filled-disk separation is a sufficient condition for this estimate. In the coaxial test it is at least \(|z|\). Table~\ref{tab:coax} keeps the actual finite radius rather than substituting a point receiver.
+
+\begin{table}[tbp]\centering\small
+\begin{tabular}{@{}rrrr@{}}\toprule
+\(z/w\)&\(S_b\)&\(H(X)\cdot\nu\)&Bound on their difference\\\midrule
+2&0.0148118125093&0.0162062684439&0.00388208527065\\
+4&0.00213341379003&0.00218896603617&0.000121315164708\\
+8&0.000277297390899&0.000279151038132&0.00000379109889712\\\bottomrule
+\end{tabular}
+\caption{Saved GM06 quadrature at \(w=g_o=j=1\) and \(a=b=R_\Gamma\). The bound is \(3g_o|j|a^2b^2/(2|z|^5)\). Single angular integration, double line integration and disk integration agree in the preserved evidence. These values corroborate the analytic sign proof; they do not establish it.}\label{tab:coax}
+\end{table}

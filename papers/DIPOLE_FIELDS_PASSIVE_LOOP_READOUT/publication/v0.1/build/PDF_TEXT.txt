@@ -1,0 +1,640 @@
+TRI-OCTAGON MATHEMATICAL RESEARCH
+Dipole Fields and Passive Loop Readout
+in the Tri-Octagon Model
+Hilmir Frímann Halldórsson
+Research edition v0.1 20 November 2026
+Author-approved repository research edition.
+Abstract
+A steady tangent-encoded circulation on an adopted Tri-Octagon carrier circle produces a
+vector observation whose spatial curl has the dipole angular tensor and inverse-cube leading
+decay. We develop two signed tests from that exterior kernel. In the coaxial test the vector
+observation vanishes at the receiving circle’s center, yet its oriented rim integral has the source
+sign at every positive pair of radii and nonzero axial separation. Rotational symmetry makes
+one ideal tangential rim sample suﬀicient in this special case.
+The native map does not itself assign the required carrier means. A proposed three-loop
+source impulse lifts the native planar observable 𝑊 to unique minimum-storage means under
+equal weights. Its exact Fourier launch costs 6.768750025 × 10 −9𝐿𝛼2; conjugation reverses
+the means at the same cost. A finite receiving circle on a registered rigid copy distinguishes
+the two launches for every 𝑅 ≥ 100𝑤 , with a relative error certificate below one third. At
+𝑅 = 100𝑤 , 1,024 additional exact contour samples also suﬀice. The circle center, body-center
+probe, finite-area component, source offsets and complete delay window remain distinct. The
+source impulse and contour readout are explicit additions. An internal source donor and a
+law changing a second native triad remain open.
+Status and provenance. This manuscript assembles the project-internally accepted GM04, corrected
+GM05 and reviewed GM06 investigations. It incorporates the common-offset and latest-delay corrections.
+After GPT review and the two wording corrections, the author approved repository publication. The tests
+are mathematical consequences of specified equations; no external peer review or physical validation is
+claimed. GPT supplied proposals and review; Codex supplied source verification, mathematical checks
+and manuscript preparation under the author’s direction.
+
+--- PAGE ---
+
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+1 A silent center and a signed rim
+The simplest test separates a point observation from a measurement around a loop. A steady
+source circle and a coaxial receiving circle can have a zero vector observation at the receiving
+circle’s center while the oriented rim integral is strictly signed. This is the first result to explain.
+We then ask how a native state can prepare the source and whether the signed signal survives at
+a receiver with the model’s actual finite radius.
+The preceding GM01–GM03 paper imposed Newtonian and magnetostatic field laws through an
+explicit source dictionary and studied interaction-driven feedback [4]. The present paper follows
+a different chain: the adopted C6 exterior kernel, a prepared carrier, a proposed native-to-mean
+impulse, and a passive contour readout [ 1, 2, 3]. A line circle has finite-radius corrections; it is
+not the radial magnetization profile for which the earlier paper obtained an exact external dipole
+interaction.
+1.1 The adopted observation and its orientation
+Write a source circle and its oriented unit tangent as
+𝛾(𝜙) = 𝑌 + 𝑎( cos 𝜙 𝑒1 + sin 𝜙 𝑒2), ̂𝑡(𝜙) = − sin 𝜙 𝑒1 + cos 𝜙 𝑒2, 𝜈 = 𝑒 1 × 𝑒2, (1.1)
+where 𝑒1, 𝑒2 are orthonormal, 𝑎 > 0 , and 𝐿 = 2𝜋𝑎 . C6 adopts a straight delay , tangent encoding
+and inverse-distance kernel [7, 8]:
+𝑈(𝑃, 𝑡) = 𝑔𝑜
+4𝜋 ∫
+𝐿
+0
+𝑝(𝑠, 𝑡 − 𝑑𝑃(𝑠)/𝑐𝑒)
+𝑑𝑃(𝑠) d𝑠,
+𝑉(𝑃, 𝑡) = 𝑔𝑜
+4𝜋 ∫
+𝐿
+0
+𝑟𝑐(𝑠, 𝑡 − 𝑑𝑃(𝑠)/𝑐𝑒) ̂𝑡(𝑠)
+𝑑𝑃(𝑠) d𝑠, 𝑑 𝑃(𝑠) = |𝑃 − 𝛾(𝑠)|. (1.2)
+Here 𝑔𝑜, 𝑐𝑒 > 0 . A registered point probe returns (𝑈, 𝐵𝑇𝑉) for a known orthonormal frame B.
+The tangent-encoded 𝑟𝑐 ̂𝑡 is not assigned material electric current, and C6 is a passive observation
+without loading.
+Prepare the steady source 𝑝 = 0, 𝑟 𝑐 = 𝑗 , with the corresponding constant history. Then
+𝑉(𝑃) = 𝑔𝑜𝑗 4𝜋 ∮ Γ d𝛾 |𝑃 − 𝛾| , 𝐻(𝑃) ∶= ∇ 𝑃 × 𝑉(𝑃). (1.3)
+The symbol H denotes this mathematical curl. Identifying it with a measured magnetic field
+would require calibration beyond the adopted kernel.
+1.2 The finite receiving circle
+Place the receiving contour at
+𝑋 = 𝑌 + 𝑧𝜈, 𝑞(𝜃) = 𝑋 + 𝑏( cos 𝜃 𝑒1 + sin 𝜃 𝑒2), 𝑡(𝜃) = − sin 𝜃 𝑒1 + cos 𝜃 𝑒2, (1.4)
+with 𝑏 > 0, 𝑧 ≠ 0 . Increasing theta fixes the measured orientation. Its area-normalized signed
+reading is
+𝑆𝑏(𝑋, 𝜈) = 1 𝜋𝑏2 ∮ 𝜕𝐷𝑏 𝑉 ⋅ dℓ = 1 𝜋𝑏 ∫ 2𝜋 0 𝑉(𝑞(𝜃)) ⋅ 𝑡(𝜃) d𝜃. (1.5)
+At X every source point has distance √𝑎2 + 𝑧2, and ∮ d𝛾 = 0 ; consequently 𝑈(𝑋) = 𝑉(𝑋) = 0 ,
+for both an empty source and every constant j.
+2
+
+--- PAGE ---
+
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+𝑧 ≠ 0
+𝑌 𝑋
+steady source receiving rim
+𝜈
+𝑟 = 𝑗, 𝑝 = 0
+radius 𝑎
+disk 𝐷𝑏
+radius 𝑏
+𝑂𝑅
+body-center probe
+𝑤𝐾𝑐
+𝑒1
+𝜈
+𝑉(𝑋) = 0 at the circle center
+𝑆𝑏 ≠ 0 for 𝑗 ≠ 0
+Figure 1: Coaxial test, shown schematically in an oblique projection; not to scale. Increasing
+source and receiver angles use the same oriented plane, with 𝜈 = 𝑒 1 × 𝑒 2 pointing along the
+common axis. The receiving disk center X is on that axis. Its body-center probe 𝑂𝑅 = 𝑋 − 𝑤𝐾 𝑐𝑒1
+is displaced and can already read a nonzero V . The disk is an integration device, not a material
+panel.
+Theorem 1.1 (Finite coaxial sign). With the orientation above,𝑆𝑏 has the sign of j for every 𝑎, 𝑏 > 0, 𝑧 ≠
+0. It vanishes at 𝑗 = 0 . Reversing j or the receiving traversal reverses the reading.
+Proof. The double line integral has tangent pairing 𝑎𝑏 cos(𝜙 − 𝜃) and squared distance 𝑎2 + 𝑏2 +
+𝑧2 − 2𝑎𝑏 cos(𝜙 − 𝜃). Rotational symmetry removes the theta integral, giving
+𝑆𝑏 = 𝑔𝑜𝑗𝑎 2𝜋𝑏 ∫ 2𝜋 0 cos 𝜙 √𝐶 − 𝑞0 cos 𝜙 d𝜙, 𝐶 = 𝑎 2 + 𝑏2 + 𝑧2, 𝑞 0 = 2𝑎𝑏. (1.6)
+Since 𝐶 − 𝑞0 = (𝑎 − 𝑏) 2 + 𝑧2 > 0, pairing opposite cosines rewrites the integral as
+∫
+𝜋/2
+−𝜋/2
+cos 𝜙 [(𝐶 − 𝑞0 cos 𝜙)−1/2 − (𝐶 + 𝑞 0 cos 𝜙)−1/2] d𝜙 > 0. (1.7)
+The integrand is positive in the interval interior. Linearity in j and orientation of the line integral
+prove the remaining statements.
+Corollary 1.2 (One rim sample in this control) . For this steady aligned coaxial source only, every rim
+point gives
+𝑆𝑏 = 2 𝑏 𝑉(𝑞(𝜃)) ⋅ 𝑡(𝜃). (1.8)
+Proof. Rotation about the common axis carries both 𝑉(𝑞(𝜃)) and 𝑡(𝜃) by the same rotation. Their
+dot product is constant; substitute it into ( 1.5).
+One ideal signed tangential sample thus suﬀices in this symmetric control. This is not a universal
+replacement for a contour or the later three-source sampling certificate.
+Integrating the derivative of 𝑥−1/2 in the paired expression gives, for 𝑗 > 0 ,
+𝑔𝑜𝑗𝑎2
+2[𝑧2 + (𝑎 + 𝑏)2]3/2 ≤ 𝑆 𝑏 ≤ 𝑔𝑜𝑗𝑎2 2[𝑧2 + (𝑎 − 𝑏)2]3/2 . (1.9)
+The positivity is exact at finite radii. The bounds are conservative.
+3
+
+--- PAGE ---
+
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+1.3 A circle on an actual copy
+The established geometry supplies [ 6]
+𝐾𝑐 =
+√3
+12 +
+√6
+4 , 𝑅 Γ =
+√7𝐾𝑐
+2(1 + √3/2)
+, 𝑎 = 𝑏 = 𝑤𝑅 Γ, 𝑅 Γ = 0.53645209718 … , (1.10)
+where w is common host width. In the published orientation, 𝑌 = 𝑂 + 𝑤𝐾 𝑐𝑒𝑦, 𝑒1 = 𝑒 𝑦, 𝑒2 =
+𝑒𝑧, 𝜈 = 𝑒 𝑥. Translate an unrotated same-width copy by 𝑧𝑒𝑥. Its circle center is 𝑋 = 𝑌 + 𝑧𝑒 𝑥, but its
+body center is 𝑂𝑅 = 𝑂 + 𝑧𝑒 𝑥 = 𝑋 − 𝑤𝐾 𝑐𝑒𝑦.
+This is an explicit rigid test placement, preserving the established circle and full-copy geometry;
+it is not one of the published H/R array fixtures. The zero reading is at the circle center , not
+generally at the existing body-center probe. At the benchmark 𝑧 = 4𝑤 , enclosing balls of radius
+𝑤(𝐾𝑐 + 𝑅Γ) < 2𝑤 separate the two full copies and all their circles. The all- 𝑧 ≠ 0 integral theorem
+alone does not assert full-body noncollision at small z.
+2 The curl and its dipole tensor
+On every compact region separated from the source wire, differentiation under ( 1.3) gives
+𝐻(𝑃) = 𝑔𝑜𝑗 4𝜋 ∮ Γ d𝛾 × (𝑃 − 𝛾) |𝑃 − 𝛾| 3 . (2.1)
+The sign follows from ∇𝑃|𝑃 − 𝛾| −1 = −(𝑃 − 𝛾)/|𝑃 − 𝛾| 3. On the axis,
+𝑉(𝑌 + 𝑧𝜈) = 0, 𝐻(𝑌 + 𝑧𝜈) = 𝑔𝑜𝑗𝑎2
+2(𝑎2 + 𝑧2)3/2 𝜈. (2.2)
+Taking a curl after restricting V to its zero axial values would incorrectly discard the transverse
+derivatives. The spatial derivative must be taken first.
+For a general point 𝑃 = 𝑌 + 𝑟𝑛 , 𝑛 ∈ 𝑆 2, define 𝑚Γ = 𝜋𝑎 2𝑗𝜈. The exact accepted field estimate
+is [1, sections 2–3]
+𝐻(𝑌 + 𝑟𝑛) = 𝑔𝑜
+4𝜋𝑟 3 {3𝑛(𝑛 ⋅ 𝑚Γ) − 𝑚Γ} + ℛ(𝑟, 𝑛), (2.3)
+∥ℛ(𝑟, 𝑛)∥ ≤ 3𝑔𝑜|𝑗|𝑎4
+2(𝑟 − 𝑎)5 (𝑟 > 𝑎), ∥ℛ(𝑟, 𝑛)∥ ≤ 48𝑔𝑜|𝑗|𝑎4 𝑟5 (𝑟 ≥ 2𝑎). (2.4)
+These are uniform absolute bounds, not relative smallness claims at 𝑟 = 2𝑎 .
+T o see the tensor and the order without differentiating an uncontrolled asymptotic series, use the
+filled source disk only as an integration device. For 𝑅 = 𝑃 − 𝑌 , set Φ(𝑅) = ∫𝐷𝑎 |𝑅 − 𝜌| −1 d𝐴𝜌.
+Stokes’ theorem componentwise gives, outside that disk,
+𝑉 = 𝑔𝑜𝑗 4𝜋 ∇Φ × 𝜈, 𝐻 = 𝑔𝑜𝑗 4𝜋 ∫ 𝐷𝑎 Hess(|𝑅 − 𝜌|−1)𝜈 d𝐴𝜌. (2.5)
+The center Hessian is
+𝐺(𝑅) = Hess(|𝑅|−1) = 3𝑛𝑛𝑇 − 𝐼 𝑟3 . (2.6)
+The disk’s first moment vanishes. The bound ∥𝐷2𝑣𝐺(𝑥)∥op ≤ 24|𝑣| 2/|𝑥|5, proved in Appendix A,
+and ∫𝐷𝑎 |𝜌|2 d𝐴 = 𝜋𝑎 4/2 yield (2.4) by Taylor’s integral remainder. Centered symmetry removes
+the 𝑟−4 term.
+The leading angular factors are 2𝑚Γ along either axial direction and −𝑚Γ in the equatorial plane,
+with general tensor 3𝑛𝑛𝑇 − 𝐼. This is the magnetic-dipole pattern of the curl of the adopted vector
+observation. In inherited units, [𝑉] = U, [𝐻] = U/L, [𝑚 Γ] = UL2. Neither the SI coupling nor
+a receiver law follows from that pattern.
+4
+
+--- PAGE ---
+
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+𝑧/𝑤 𝑆𝑏 𝐻(𝑋) ⋅ 𝜈 Bound on their difference
+2 0.0148118125093 0.0162062684439 0.00388208527065
+4 0.00213341379003 0.00218896603617 0.000121315164708
+8 0.000277297390899 0.000279151038132 0.00000379109889712
+Table 1: Saved GM06 quadrature at 𝑤 = 𝑔 𝑜 = 𝑗 = 1 and 𝑎 = 𝑏 = 𝑅 Γ. The bound is
+3𝑔𝑜|𝑗|𝑎2𝑏2/(2|𝑧|5). Single angular integration, double line integration and disk integration agree
+in the preserved evidence. These values corroborate the analytic sign proof; they do not establish
+it.
+2.1 Finite-area measurement and clearance
+If V is 𝐶1 on a neighborhood of the entire receiving disk, the proposed readout obeys
+𝑆𝑏(𝑋, 𝑢) = 1 𝜋𝑏2 ∫ 𝐷𝑏 𝐻(𝑃) ⋅ 𝑢 d𝐴. (2.7)
+For stationary line sources, positive clearance of the whole disk from every source wire ensures
+smoothness. Boundary clearance alone is insuﬀicient when a wire pierces the interior. The disk
+is not an assumed physical surface.
+If 𝑀2 = sup𝐷𝑏 ∥∇2(𝐻 ⋅ 𝑢)∥op, centered Taylor averaging gives
+|𝑆𝑏 − 𝐻(𝑋) ⋅ 𝑢| ≤ 𝑏2𝑀2 4 . (2.8)
+The linear term averages to zero and the average of|𝑃 − 𝑋|2 is 𝑏2/2. For equal source radii a, write
+𝐽∗ = ∑𝑖 |𝑗𝑖|. If the receiving disk is separated from the filled source disks by 𝛿𝐷 > 0, (2.5) and the
+same Hessian derivative bound imply
+𝑀2 ≤ 6𝑔𝑜𝑎2𝐽∗ 𝛿5 𝐷 , |𝑆 𝑏 − 𝐻(𝑋) ⋅ 𝑢| ≤ 3𝑔𝑜𝑎2𝑏2𝐽∗ 2𝛿5 𝐷 . (2.9)
+The stronger filled-disk separation is a suﬀicient condition for this estimate. In the coaxial test it
+is at least |𝑧|. Table 1 keeps the actual finite radius rather than substituting a point receiver.
+3 From a native moment to three carrier means
+The preceding field calculation starts from a steady circulation. It does not show that native
+evolution generates that circulation. This section states the two inherited obstructions and the
+particular source impulse assessed in GM05.
+3.1 Native observables and the old carrier interface
+Paper G defines the channel-space area C and its ambient axial attachment W [ 5]:
+𝐶 = ℜΩ × ℑΩ, 𝑊 = 𝑇𝐶, 𝑇 =
+⎛⎜⎜⎜⎜
+⎝
+−1/2 1 −1/2
+−√3/2 0 √3/2
+0 0 0
+⎞⎟⎟⎟⎟
+⎠
+. (3.1)
+W is planar; it is different from the host width w. In the geometric source order,
+𝑢𝑘 = 𝑅 𝑧(2𝜋𝑘/3)𝑒 𝑦, 𝑌 𝑘 = 𝑂 + 𝑤𝐾 𝑐𝑢𝑘, 𝜈 𝑘 = 𝑢 𝑘 × 𝑒𝑧, 𝑇 = [𝜈 2 𝜈0 𝜈1]. (3.2)
+5
+
+--- PAGE ---
+
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+The source weights A, B, C therefore correspond to circles 2, 0, 1. Geometry supplies three pos-
+sible circles with distinct centers; the retained C1/RX dynamics instantiates only circle 0.
+For the periodic adopted carrier [ 8, 9],
+𝑝𝑡 + 𝑐(𝑟𝑐)𝑠 = 𝑔 𝑐, (𝑟 𝑐)𝑡 + 𝑐𝑝𝑠 = 0, 𝑗 = 𝐿 −1 ∫ 𝐿 0 𝑟𝑐 d𝑠. (3.3)
+Periodic integration gives ̇𝑗 = 0 . RX’s native-first jump changes the native state only , leaving the
+carrier and old receiver unchanged. The mean is therefore invariant across inherited jumps as
+well. For every instantaneous profile on a circle,
+1
+2 ∫(𝛾 − 𝑌) × (𝑟 𝑐 ̂𝑡) d𝑠 = 𝜋𝑎 2𝑗𝜈. (3.4)
+Thus an initially empty retained circle cannot gain this centered moment under C1/RX. This does
+not imply that its whole state or exterior observation remains zero. The mean statement extends
+to periodic L2 mild solutions by the bounded mean functional.
+There is also an information obstruction. With positive fixed gains, the old source uses
+𝑓 = 𝐾𝐶, 𝐾 = 𝜅 in𝜆𝑔 (𝑛𝑇+ 𝑛𝑇− ) 𝑅𝑧(𝛿𝑔), 𝑛 ± = (2𝑒 𝑦 ± √3𝑒𝑧)/√7. (3.5)
+In channel coordinates take 𝑣 = ( cos 𝛿𝑔, − sin 𝛿𝑔, 0)𝑇. Then
+𝐾𝑣 = 0, |𝑇𝑣| 2 = 1 + 1 2 sin(2𝛿𝑔) ≥ 1 2 . (3.6)
+The exact states Ω± = 𝐸 3 ± i(𝑣 × 𝐸3), where 𝐸3 is the third channel basis vector, have intensity 2,
+𝐶± = ±𝑣, equal zero old ports and opposite nonzero W. No instantaneous function of those two
+ports determines W. These two states are not asserted to be adjacent native iterates or to retain
+equal ports after arbitrary later native jumps.
+WT changes the mean equation through its actual returning waves [ 10, 1]. If 𝑏𝑟 is the incoming
+backward component and M is total receiving-arc length, its equation is
+𝐿 ̇𝑗 = −𝜅 2𝐿𝑗 + √2𝜅
+√𝑀
+∫
+𝑆𝐿×𝐺
+𝑏𝑟(𝑠, 𝑋, 𝑡) d𝑠 dℓ𝑋. (3.7)
+This is history-dependent feedback, not a universal assignment from W. Entirely empty carrier,
+transport and receiver preparation has no return before 2𝜃−, so its initially zero mean stays zero
+in that startup interval. WT native jumps still leave carrier/transport stocks unchanged. A single
+fixed-normal circle also cannot represent W directions outside its normal line.
+3.2 The explicitly added source impulse
+GM05 instantiates three equal-radius carrier states and reads W directly. Define
+𝑒 = (1, 1, 1) 𝑇, 𝑃 = 𝐼 − 𝑒𝑒 𝑇/3, 𝐷 = 2 3 𝑇𝑇, 𝑇𝐷 = diag(1, 1, 0), 𝐷𝑇 = 𝑃. (3.8)
+For real symbolic 𝛼, the target is 𝑇𝑗 = 𝛼𝑊 . Its full family is
+𝑗 = 𝛼𝐷𝑊 + 𝛽𝑒, 𝐿 2 |𝑗|2 = 𝐿𝛼2 3 |𝑊|2 + 3𝐿 2 𝛽2. (3.9)
+Indeed 𝑇𝐷𝑊 = 𝑊 on Paper G’s plane and ker 𝑇 = ℝ𝑒 ; the two components of j are orthogonal.
+Equal positive lengths and storage weights select the unique minimum at 𝛽 = 0 :
+𝑗∗ = 𝛼𝐷𝑊 = 𝛼 3 (−𝑊𝑥 − √3𝑊𝑦, 2𝑊 𝑥, −𝑊 𝑥 + √3𝑊𝑦)𝑇. (3.10)
+6
+
+--- PAGE ---
+
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+The scale has units of loop mean per unit W and is not RX’s native-storage scale 𝛼𝑁. Its sign fixes
+alignment or reversal. Unequal weights would change the minimization problem.
+At an ordinary native update the hypothesis adds
+Δ𝑗 = 𝛼𝐷(𝑊 + − 𝑊 −), 𝑟 + 𝑖 (𝑠) = 𝑟 − 𝑖 (𝑠) + Δ𝑗𝑖, 𝑝 + 𝑖 = 𝑝 − 𝑖 . (3.11)
+This is a prescribed uniform, simultaneous actuation, not a consequence of the old p-source ports.
+It uses information those ports lose. Writing 𝑟𝑖 = 𝑗 𝑖 + ̃ 𝑟𝑖, with ∫ ̃ 𝑟𝑖 = 0, shows that every zero-mean
+profile is preserved at the jump.
+Proposition 3.1 (Tracking is conditional). The mismatch 𝑞 = 𝑗 −𝛼𝐷𝑊 , the visible mismatch 𝑇𝑗 −𝛼𝑊 ,
+and the common mean 𝑒𝑇𝑗/3 are unchanged by (3.11). Correct minimum initialization tracks across the
+jump. Existing mismatch is not repaired.
+Proof. Subtract 𝛼𝐷𝑊+ from 𝑗− + 𝛼𝐷(𝑊 + − 𝑊 −). The result is 𝑗− − 𝛼𝐷𝑊 −. Also 𝑒𝑇𝐷 = 0 .
+The increment is the minimum-norm increment with its required visible change, not an uncon-
+ditional reset to minimum endpoint storage. Empty carriers are matched only when 𝛼𝑊− = 0.
+Between jumps, active exchange can change W while preserving j. For an exact RX witness at
+unit source gains and yaw zero, take 𝑎𝑁 = 𝐸 3, 𝑏𝑁 = 𝐸 1, old port output 𝑦 = (1, 1) 𝑇, and 𝜇 =
+𝜂𝑁/(2𝛼𝑁) > 0 . Its actual native exchange equation gives
+𝐾𝑇𝑦 = 4𝐸 2/√7, ̇ 𝑎 𝑁 = −4𝜇𝐸 3/√7, ̇𝑏𝑁 = −4𝜇𝐸 1/√7, 𝑊 = 𝑒 𝑥, ̇𝑊 = −8𝜇𝑒 𝑥/√7. (3.12)
+The stated y is attained by 𝑝 = (𝑏 + + 𝑏 −)/‖𝑏+‖2 2 for the retained disjoint equal tents. A later
+jump preserves the resulting error. Full plateau tracking is therefore a source-off, native-held
+comparison, not a consequence of arbitrary loaded evolution.
+3.3 Exact Fourier launch and its cost
+Retain the ordinary native map, with simultaneous stages [ 9]:
+̃Ω𝑖 = Ω 𝑖 + 𝜖(𝑘𝑖 − |Ω𝑖|2)Ω𝑖 + 𝑔 ∑
+𝑗≠𝑖
+(Ω𝑗 − Ω𝑖),
+𝐹𝑖(Ω) = 𝑒 i𝛿𝑖 ̃Ω𝑖, 𝛿 𝑖 = 𝜆 ∑
+𝑗≠𝑖
+sin{3(Arg0 ̃Ω𝑗 − Arg0 ̃Ω𝑖)}. (3.13)
+Here Arg0(0) = 0 , and exact zero components stay zero. At
+𝜖 = 1 10 , 𝑔 = 1 60 , 𝜆 = 1 300 , 𝑘 = (999/1000, 1, 1001/1000), (3.14)
+take Ω− = (1, 𝜔, 𝜔2), 𝜔 = 𝑒 −2𝜋i/3. All prestage multipliers are positive and all triple-angle phase
+kicks vanish:
+Ω+ 𝑖 = (9499, 9500, 9501)𝑖 10000 Ω− 𝑖 , 𝑊 − = 0, 𝑊 + = 𝑊 0 = ⎛⎜⎜ ⎝ √3 200000000 , 57 400000 , 0⎞⎟⎟ ⎠
+𝑇
+. (3.15)
+Thus the empty matched carriers launch to
+𝑗+ = 𝛼√3 600000000 (−28501, 2, 28499)𝑇, 𝑚 tot = 𝜋𝑎 2𝑇𝑗 + = 𝜋𝑎 2𝛼𝑊0. (3.16)
+7
+
+--- PAGE ---
+
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+For positive alpha the circle-2 mean is negative and the circle-0 and circle-1 means are positive.
+These are orientation signs, not negative energies. Conjugating the native preparation conjugates
+its update and reverses every mean.
+For arbitrary square-integrable preprofiles, the exact inherited carrier-storage change is
+Δ𝐸𝐶 = 𝐿 (𝑗− ⋅ Δ𝑗 + 1 2 |Δ𝑗|2) . (3.17)
+Expand the square of 𝑟− 𝑖 + Δ𝑗𝑖, integrate, and use the definition of the means; p and all zero-mean
+profiles contribute zero jump change. For matched minimum endpoints,
+𝐸means = 𝐿𝛼2 3 |𝑊|2, Δ𝐸 𝐶 = 𝐿𝛼2 3 (|𝑊+|2 − |𝑊 −|2). (3.18)
+The empty Fourier launch has the strictly positive cost, for 𝛼 ≠ 0 ,
+Δ𝐸𝐶 = 270750001 40000000000000000 𝐿𝛼2 = 6.768750025 × 10 −9𝐿𝛼2. (3.19)
+The conjugate costs exactly the same. General signed work can be negative, in which case the
+actuation receives carrier energy.
+3.4 Common offsets and the unassigned payer
+The reviewed offset correction is essential [2, section 4, corrected]. If 𝑗− = 𝛼𝐷𝑊 − + 𝛽0𝑒, reversing
+W yields
+𝑗+ = −𝑗 − + 2𝛽0𝑒, Δ𝐸 𝐶 = 0. (3.20)
+Only the W-driven part reverses. Taking W to zero leaves 3𝐿𝛽2 0/2 stored. Separately adding 𝛽𝑒
+changes storage by
+Δ𝐸offset = 3𝐿𝛽 0𝛽 + 3 2 𝐿𝛽2. (3.21)
+For arbitrary mismatch q the work has the additional term 𝐿𝛼𝑞 ⋅ 𝐷(𝑊 + − 𝑊 −) relative to (3.18).
+The common mode also matters physically within the comparison: it leaves 𝑇𝑗 unchanged but
+changes the finite-distance field of separated loops. The raw alternative 𝑗 = 𝛼𝐶 differs from
+the minimum by 𝛼(𝑒𝑇𝐶)𝑒/3. At the Fourier entrance 𝐶 = −( √3/2)𝑒, W is zero: the minimum
+is empty , whereas the raw assignment stores 9𝐿𝛼2/8. Matching the aggregate dipole does not
+match the whole field.
+No inherited equation supplies the extra work in ( 3.17). The old hybrid changes only na-
+tive trial storage by 𝛼𝑁Δ𝐼/2; appending the impulse gives Δ𝐻tot = 𝛼 𝑁Δ𝐼/2 + Δ𝐸 𝐶, without
+an automatic cancellation. At the same tuple, the real aligned entrance Ω = (1, 1, 1) has
+𝐹Ω = (9999/10000, 1, 10001/10000) , zero W at both endpoints and Δ𝐼 = 1/50000000 > 0 . Its
+loop work is zero. The native account is not a universal donor identity. GM01–GM03 stores
+balance their specified pair interaction, not this newly added loop energy. A balancing ledger
+entry would not identify a material donor, finite reserve or feedback law.
+4 The native launch at a registered finite receiver
+Hold the three source profiles in ( 3.16) at their constant source-off endpoints, with p zero. The
+following result concerns that prepared plateau. Active later RX or WT evolution would require
+its actual histories and is not silently frozen by the mathematics.
+8
+
+--- PAGE ---
+
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+Source: horizontal projection
+𝑒𝑥
+𝑒𝑦
+𝑂
+𝑌0 (B)
+𝑌2 (A)𝑌1 (C)
+𝜈0
+𝜈2
+𝜈1
+Three vertical circles, seen edge-on
+centers at 𝑤𝐾𝑐𝑢𝑘
+Receiver: view in the 𝑥𝑧 plane
+𝑋 = 𝑂 + 𝑅𝑒 𝑧
+𝑢 = 𝑒 𝑦 into page
+⊗
+𝑂𝑅
+𝑤𝐾𝑐
+𝑂
+𝑒𝑥
+𝑒𝑧
+Figure 2: Geometry of the native-launch test. Left: the three source circles have distinct centers;
+their horizontal projections are radial segments because their planes are vertical. The arrows are
+the fixed oriented normals, not signs of the launched means. Right: the actual receiving circle
+lies in the xz plane with increasing theta clockwise in this view , normal +𝑒𝑦, and 𝑏 = 𝑤𝑅 Γ. The
+long R separation is broken schematically; the picture is not to scale. The body center is displaced
+by 𝑤𝐾𝑐 from the circle center.
+4.1 Placement and the measured component
+Choose a same-width receiving copy with the already defined proper frame
+𝑄 = 𝐵(𝜋/2) = [𝑒 𝑦, 𝑒𝑧, 𝑒𝑥], 𝑂 𝑅 = 𝑂 + (𝑅 − 𝑤𝐾 𝑐)𝑒𝑧. (4.1)
+Its local circle 0 has
+𝑋 = 𝑂 𝑅 +𝑤𝐾𝑐𝑄𝑒𝑦 = 𝑂+𝑅𝑒 𝑧, 𝑞(𝜃) = 𝑋 +𝑏( cos 𝜃 𝑒𝑧 +sin 𝜃 𝑒𝑥), 𝑏 = 𝑎 = 𝑤𝑅 Γ, 𝑢 = 𝑒 𝑦. (4.2)
+This rigid test placement uses a published orientation but not a published positive-radius H/R
+ring position. It changes neither the shell shape nor the loop radius. Circle-center X and body-
+center 𝑂𝑅 differ, as Figure 2 shows.
+Let ℓ0 = 𝑤𝐾 𝑐 and 𝐽∗ = ∑𝑖 |𝑗𝑖|. If 𝑅 > ℓ 0 + 𝑎 + 𝑏, the whole receiving disk is separated from every
+filled source disk by at least
+𝛿𝐷 ≥ 𝑅 − ℓ 0 − 𝑎 − 𝑏 > 0. (4.3)
+The full copies and their circles are also separated by enclosing balls in the range 𝑅 ≥ 100𝑤 . All
+three distinct source centers remain in the exact C6 integrals.
+Their aggregate leading moment about O is 𝜋𝑎2𝛼𝑊0. At 𝑋 = 𝑂 + 𝑅𝑒 𝑧, the leading curl field has
+y-component
+ℎlead = −
+𝑔𝑜𝑎2𝛼𝑊0𝑦
+4𝑅3 , 𝑊 0𝑦 = 57 400000 > 0. (4.4)
+The centered 𝑂(𝑟−5) error of one loop cannot be reused unchanged about O: translations of the
+three source centers can give an 𝑂(𝑅−4) correction.
+Theorem 4.1 (A signed finite-radius native readout) . For 𝛼 ≠ 0 , placement (4.1)–(4.2), and every
+𝑅 ≥ 100𝑤 ,
+|𝑆𝑏 − ℎlead| < 1 3 |ℎlead|. (4.5)
+For positive alpha the launch reading is negative; its conjugate is exactly the opposite and positive. The
+radius remains 𝑏 = 𝑤𝑅 Γ.
+9
+
+--- PAGE ---
+
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+𝑅/𝑤 Finite contour 𝑆𝑏 ℎlead ℰ(𝑅)
+100 −1.0251976124210 10−11 −1.0252192872890 10−11 2.2207690784546 10−12
+200 −1.2815173359258 10−12 −1.2815241091113 10−12 1.3656205101897 10−13
+Table 2: Saved numerical corroboration at 𝑔𝑜 = 𝛼 = 𝑤 = 1 , using all three source circles. Angular
+resolutions 64, 128 and 256 and a disk integration of H agree in the GM06 evidence. The all-
+distance guarantee is the analytic bound ( 4.9)–(4.10).
+Proof. The estimate has three contributions:
+|𝑆𝑏 − ℎlead| ≤ ℰ(𝑅), (4.6)
+ℰ(𝑅) = 𝑔 𝑜𝐽∗ [ 6𝑎2ℓ0 (𝑅 − ℓ0)4 + 3𝑎4 2(𝑅 − ℓ0 − 𝑎)5 + 3𝑎2𝑏2 2(𝑅 − ℓ0 − 𝑎 − 𝑏)5 ] .
+For the translation term, direct differentiation of ( 2.6) gives
+𝐷𝑣𝐺(𝑥) = |𝑥| −4{−15(𝑛 ⋅ 𝑣)𝑛𝑛𝑇 + 3(𝑛 ⋅ 𝑣)𝐼 + 3(𝑛𝑣 𝑇 + 𝑣𝑛𝑇)}, (4.7)
+so ∥𝐷𝑣𝐺(𝑥)∥op ≤ 24|𝑣|/|𝑥| 4. The segment from 𝑋 −𝑂 to 𝑋 −𝑌𝑖 stays outside radius 𝑅−ℓ 0; multiply
+by 𝑔𝑜|𝑗𝑖|𝑎2/4 and sum. The centered remainder ( 2.4) gives the second term. Disk averaging ( 2.9),
+with (4.3), gives the third. Equation ( 4.6) bounds the area-averaged reading relative to the central
+leading component; it is not a pointwise error bound replacing all disk points by the center.
+From the exact launched weights,
+𝐽∗
+|𝛼|𝑊0𝑦
+= 57002√3 85500 < 6 5 , 0 < 𝐾 𝑐 < 1, 1 2 < 𝑅 Γ < 1. (4.8)
+Put 𝑞 = 𝑤/𝑅 ≤ 1/100 . Dividing ( 4.6) by |ℎlead| yields
+ℰ(𝑅)
+|ℎlead| < 144𝑞 5(1 − 𝑞)4 + 36𝑞2 5 {(1 − 2𝑞)−5 + (1 − 3𝑞)−5}. (4.9)
+Each term increases on this interval. At 𝑞 = 1/100 the right side is
+7804605427237675733225000
+25890315358991719010197977 = 0.301448835945798 … < 1 3 . (4.10)
+This proves ( 4.5). The exact integral is linear in all three means; conjugation reverses them all
+and hence reverses the full finite-radius reading.
+The range is suﬀicient and configuration-specific, not an optimal threshold. This native place-
+ment does not generally have zero V at X; the zero-center result belongs to the separate coaxial
+control.
+4.2 The 1,024-sample statement has its own premises
+Suppose N additional equally spaced points on the receiving rim have exact signed vector records
+𝑣𝑘 = 𝐵 𝑇 𝑘 𝑉(𝑞(𝜃𝑘)). Reassemble the vectors before combining frames:
+𝑆𝑏,𝑁 = 2 𝑏𝑁 𝑁−1 ∑ 𝑘=0 𝑡(𝜃𝑘) ⋅ 𝐵𝑘𝑣𝑘, 𝜃 𝑘 = 2𝜋𝑘/𝑁. (4.11)
+10
+
+--- PAGE ---
+
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+If 𝐹(𝜃) = 𝑉(𝑞(𝜃)) ⋅ 𝑡(𝜃) is 𝐶2, the composite trapezoidal error is
+|𝑆𝑏,𝑁 − 𝑆𝑏| ≤ 2𝜋2 3𝑏𝑁2 sup |𝐹″|. (4.12)
+Using 𝑞′ = 𝑏𝑡, 𝑞″ = −𝑏(𝑒 1 cos 𝜃 + 𝑒2 sin 𝜃), and the kernel derivatives,
+sup |𝐹″| ≤ 𝑔𝑜𝑎𝐽∗
+2 ( 2𝑏2 𝛿3 + 3𝑏 𝛿2 + 1 𝛿 ) (4.13)
+for contour-wire clearance delta. Indeed |𝐹″| ≤ 𝑏 2𝑀2,𝑉 + 3𝑏𝑀1,𝑉 + 𝑀0,𝑉, while inverse-distance
+derivatives are bounded by 2/𝛿3, 1/𝛿2, 1/𝛿.
+At 𝑅 = 100𝑤 , use 𝛿 > 97𝑤 , 𝑎 = 𝑏 > 𝑤/2 , 𝑎 = 𝑏 < 𝑤 , (4.8) and 𝜋2 < 10. For N=1024,
+|𝑆𝑏,1024 − 𝑆𝑏|
+|ℎlead| < 64000000 10242 ( 2 973 + 3 972 + 1 97 ) < 2 3 . (4.14)
+The continuous reading has magnitude greater than 2|ℎlead|/3, so the discrete sum retains its
+sign. These are new contour samples, not the old array’s body-center sites. The result is for
+𝑅 = 100𝑤 , not fixed N at every larger R. Tangent measurement error at most epsilon per sample
+adds at most 2𝜖/𝑏; no instrument precision is presumed. The one-sample coaxial corollary has a
+separate symmetry premise.
+4.3 Arrival and completion of the steady reading
+For a source history that vanishes before 𝑡0 and is constant after the jump, define on the rim C
+𝜏𝐶 min = min 𝑃∈𝐶,𝑖,𝑠 |𝑃 − 𝛾𝑖(𝑠)| 𝑐𝑒 , 𝜏 𝐶max = max 𝑃∈𝐶,𝑖,𝑠 |𝑃 − 𝛾𝑖(𝑠)| 𝑐𝑒 . (4.15)
+The contour is silent before 𝑡0 + 𝜏 𝐶 min. Its whole static record is available after the strict time
+𝑡 > 𝑡 0 + 𝜏 𝐶max, provided the sources remain constant. Intermediate records need their actual
+delayed histories; the earliest permitted contribution does not guarantee a nonzero aggregate at
+the first-arrival instant.
+The reviewed timing correction is
+𝜏𝐷𝑏 max = 𝜏 𝐶max. (4.16)
+For a fixed source point, every interior disk point is a convex combination of two rim points on
+a chord. Convexity of distance bounds its distance by the larger endpoint distance. Maximizing
+over source points proves equality. Disk and rim minima can differ. The strict post-maximum
+inequality gives a neighborhood where all delayed arguments lie in the smooth plateau, justifying
+Stokes and differentiation over the disk.
+For coaxial circles the common latest delay is √𝑧2 + (𝑎 + 𝑏)2/𝑐𝑒, while the rim and disk min-
+ima are respectively √𝑧2 + (𝑎 − 𝑏)2/𝑐𝑒 and √𝑧2 + (𝑎 − 𝑏)2+/𝑐𝑒. For the native placement, suﬀicient
+bounds are
+𝜏𝐷𝑏 min ≥ 𝑅 − ℓ0 − 𝑎 − 𝑏 𝑐𝑒 , 𝜏 𝐷𝑏 max = 𝜏 𝐶max ≤ 𝑅 + ℓ0 + 𝑎 + 𝑏 𝑐𝑒 . (4.17)
+At 𝑅 = 100𝑤 the ceiling is 101.82961419736 𝑤/𝑐𝑒. This is the adopted straight-delay clock, not a
+derived electromagnetic speed or native physical duration.
+11
+
+--- PAGE ---
+
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+5 What reaches the receiver, and what remains open
+5.1 A scalar component, not a full vector
+The exact new observable is the disk average ( 2.7); ( 2.8) controls its difference from the center
+component. In the native test it is a signed y-component average. This already distinguishes the
+two launched preparations.
+Even hypothetical three-normal measurements at a common point would have only rank two:
+2
+∑
+𝑘=0
+𝜈𝑘𝜈𝑇 𝑘 = 3 2 (𝐼 − 𝑒 𝑧𝑒𝑇𝑧 ). (5.1)
+This is the body-local frame. For a copy rotated by Q, the ambient projector is 𝑄(𝐼 − 𝑒𝑧𝑒𝑇𝑧 )𝑄𝑇. In
+local coordinates the inverse recovers 𝐻⟂ = (2/3) ∑𝑘 𝜈𝑘(𝜈𝑘 ⋅ 𝐻) , not the third component. The
+actual receiving circles also have different centers 𝑂𝑅 + 𝑤𝐾𝑐𝑄𝑢𝑘; their finite-area averages are not
+components of one common pointwise vector. A common-point or uniform-field reconstruction
+needs a further experiment or controlled gradient approximation. None is used here.
+5.2 Existing probes and the two WT paths
+Published complete-copy probes are center-sampled, with frames 𝐵𝑘 = [𝑒 𝑟(𝜙𝑘), 𝑒𝑧, −𝑒𝜙(𝜙𝑘)] [6,
+7]. The H and R fixtures have 84 distinct sites after accounting for their shared twelve-site ring.
+Their local triples must be reassembled by B before comparing spatial directions. They are not
+the added receiving-rim samples in ( 4.11).
+WT’s six labeled broken arcs are specified by actual endpoints [ 10, setting, eq:actualG]:
+𝐺+ 𝑘 = [𝑈 𝑘, 𝑇2𝑘+1] ∪ [𝑇2𝑘+1, 𝑈𝑘+1], 𝐺 − 𝑘 = [𝐿 𝑘, 𝐵2𝑘+1] ∪ [𝐵2𝑘+1, 𝐿𝑘+1]. (5.2)
+With cyclic endpoints, the upper arcs concatenate as 𝑈0, 𝑇1, 𝑈1, 𝑇3, 𝑈2, 𝑇5, 𝑈0, and the lower as
+𝐿0, 𝐵1, 𝐿1, 𝐵3, 𝐿2, 𝐵5, 𝐿0. Thus they are two geometric six-edge closed paths, not one route inferred
+from the count six. Each is different from the tested receiving circle. The upper U vertices lie at
+height 1/2, while the T elbows lie at ℎ𝑔 = (√2 − 1)/2; they do not lie in one plane.
+The WT observation is a scalar-plus-vector field on the labeled arclength space 𝐺. Its loaded
+receiving state obeys
+𝛽𝐺 ̇𝜁 = √2𝐶sp𝑐in − 𝐶sp𝐶∗sp𝜁 , (𝐶 sp𝑣)(𝑋) = 𝑔𝑜√𝑀 4𝜋 ∫ (𝑣𝑝, ̂𝑡 𝑣𝑟)(𝑠, 𝑋) 𝑑𝑋(𝑠) d𝑠. (5.3)
+This mixes source labels at each X; it does not form an oriented receiving-path integral. Such
+an integral could be added as a bounded functional of a continuous arc record, with a chosen
+traversal. A flux interpretation would also require a clear spanning surface. The existing loaded
+𝜁 is not generally the passive C6 output and is not a second native complex triad.
+5.3 The completed correspondence
+Table 3 separates definitions, adopted comparison laws, proposed additions and deductions. The
+model’s fixed planes and chirality supply a precise geometric direction. They do not by them-
+selves provide a source, a magnetic instrument or a force on another native state.
+The two tests answer distinct parts of the source-to-readout question. The coaxial control proves
+that a zero center vector can coexist with a nonzero signed loop measurement. The native control
+proves that the specified source impulse can place the native planar moment into a resolvable
+12
+
+--- PAGE ---
+
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+Status Content and boundary
+Native and geometric The unchanged F, 𝐶 = ℜΩ × ℑΩ , 𝑊 = 𝑇𝐶 , three allowed circle normals and
+their distinct centers.
+Adopted comparison C1 carrier, C6 delayed vector observation and the already declared RX/WT
+extensions. C6 alone is passive.
+Proposed here Three simultaneous carriers with the mean impulse ( 3.11); signed tangent
+sampling and contour aggregation ( 1.5).
+Established
+conditionally
+Coaxial sign and its one-sample corollary; minimum means and exact launch
+work; finite-area native sign for 𝑅 ≥ 100𝑤 ; the specified finite-sample and
+delay certificates.
+Unprovided An internal source donor, physical calibration and clock, an input law
+changing a second native triad, and reciprocal receiving work or force.
+Table 3: Scope of the combined GM04–GM06 correspondence. The successful sensor is passive,
+and the benchmark source remains externally worked.
+signed finite-radius observation. Its cost is ( 3.19), and its readout is the scalar ( 2.7). An au-
+tonomous response of a second triad is a subsequent constitutive choice, not an unperformed
+step in either proof.
+Research provenance. Hilmir Frímann Halldórsson is the author. GPT supplied analytical pro-
+posals and project-internal review; Codex supplied source verification, mathematical checking
+and manuscript preparation. These tools are not coauthors. The accepted investigations and their
+corrections are preserved unchanged, with exact primary-source identities and a manuscript
+crosswalk. This publication introduces no new scientific run, native coeﬀicient or production
+change. Existing source-specific notices remain in force; no new blanket reuse licence is granted.
+A The differentiated-kernel certificate
+For completeness, the estimate used in ( 2.4) and ( 2.9) can be proved directly [ 1, section 3]:
+∥𝐷2𝑣 Hess(|𝑥|−1)∥op ≤ 24|𝑣|2 |𝑥|5 , 𝑥 ≠ 0. (A.1)
+By rotation and homogeneity , put𝑥/|𝑥| = 𝐸 3 and a unit v in the 𝐸1, 𝐸3 plane. Write 𝑞 = (𝑣 ⋅ 𝐸3)2 ∈
+[0, 1]. After multiplication by |𝑥|5, the matrix has the independent eigenvalue 3 − 15𝑞 ∈ [−12, 3]
+and the block
+𝑀(𝑞) = ( 9 − 21𝑞 −24 √𝑞(1 − 𝑞) −24√𝑞(1 − 𝑞) 36𝑞 − 12 ) . (A.2)
+The sign of the off-diagonal term can change with the sign of the components of v , without
+changing the following determinants.
+The diagonal entries of 24𝐼 −𝑀 are 15+21𝑞 and 36(1−𝑞) ; its determinant is 180(1−𝑞)(3 +𝑞) . The
+diagonal entries of 24𝐼 + 𝑀 are 33 − 21𝑞 ≥ 12 and 12 + 36𝑞 ≥ 12; its determinant is 396 + 180𝑞(2 −
+𝑞) ≥ 396 . Both matrices are positive semidefinite. Hence all eigenvalues of M lie between -24
+and 24, proving ( A.1). Taylor’s integral remainder contributes one half, and integration of |𝜌|2
+over the radius-a disk gives 𝜋𝑎4/2. Multiplication by 𝑔𝑜|𝑗|/(4𝜋) yields the coeﬀicient 3𝑔𝑜|𝑗|𝑎4/2 in
+(2.4).
+13
+
+--- PAGE ---
+
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+B Evidence and claim correspondence
+The public edition preserves the accepted GM04–GM06 scientific derivations, reviews, check pro-
+grams, saved results and exact primary sources. Complete original submission archives remain
+in the local record. Flat copies of 24 primary sources retain their SHA-256 and Git blob identities.
+The contextual GM01–GM03 manuscript is the author-approved edition [4]; its commit and PDF
+identity are retained in the preserved receipt.
+Manuscript claim Accepted evidence location
+(2.1)–(2.4); Appendix A GM04 (6)–(15), exact curl, dipole tensor and uniform
+derivative bound.
+(3.3)–(3.7) GM04 (16)–(26), invariant, Fourier witness, old-port null
+pair and WT returning-wave qualification.
+(3.8)–(3.19) Reviewed GM05 (7)–(17), (22)–(26), minimum lift, errors,
+exact native launch and signed work.
+(3.20)–(3.21) GM05 corrected section 4 and six review controls;
+persistent preloaded common offset.
+Theorem 1.1; Corollary 1.2 Reviewed GM06 (15)–(19); the GM06 review’s
+rotational-symmetry corollary.
+Theorem 4.1; (4.14) Reviewed GM06 (20)–(31), exact placement, area-average
+certificate and finite-sampling bound.
+(4.16); (5.1) Reviewed GM06 section 6 and section 5: equal latest delays
+and body-local projector clarification.
+Tables 1–2 GM06 saved check record; numerical corroboration only ,
+with source and disk quadratures.
+Table 4: Compact claim correspondence. The external crosswalk resolves these entries to
+manuscript labels, pages, exact files and primary equations.
+The prior scientific checks remain saved evidence, rather than new manuscript computations.
+GM04 has 78 heterogeneous checks, submitted GM05 has 62 with six additional review controls,
+and GM06 has 59 groups including its grouped review-control and byte checks. These counts are
+not theorem counts. The written proofs supply the continuum statements. Manuscript verifica-
+tion concerns transcription, source preservation, equation/citation resolution, embedded fonts,
+successful Windows compilation and visual inspection of every final page.
+References
+[1] H. F. Halldórsson, with GPT and Codex research assistance. Native magnetic field transfer
+assessment. GM04 accepted local investigation, 20 November 2026. Preserved derivation:
+GM04_DERIVATIONS.md; exact evidence path in the accompanying source crosswalk.
+[2] H. F. Halldórsson, with GPT and Codex research assistance.Native moment to loop circulation.
+GM05 accepted with the section 4 common-offset correction, 20 November 2026. Preserved
+authority: GM05_DERIVATIONS_REVIEWED.md and its acceptance note.
+[3] H. F. Halldórsson, with GPT and Codex research assistance. Passive signed loop reception .
+GM06 accepted with the latest-delay and frame clarifications, 20 November 2026. Preserved
+authority: GM06_DERIVATIONS_REVIEWED.md and its acceptance note.
+[4] H. F. Halldórsson. Gravitational and magnetic source correspondence in the T ri-Octagon model:
+energy exchange and a switch-off test . Research edition v0.1 (2026). Author-approved contex-
+tual paper, GM01–GM03.
+14
+
+--- PAGE ---
+
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+[5] H. F. Halldórsson. Geometry-Attached Axial Observables, Period-Doubling, and Certified En-
+trance Capture in the T ri-Octagon Map. Paper G, v0.1.1 (2026). Pinned source; labels eq:SA,
+eq:T, eq:W.
+[6] H. F. Halldórsson.Paired-Gap Geometry and T oroidal Observation Maps. Research edition v0.1.1
+(2026). Pinned geometry; labels eq:circle, eq:frames, eq:placement.
+[7] H. F. Halldórsson. Paired Driving and Exterior Identifiability . Research edition v0.1 (2026).
+Pinned exterior observation; eq:C6, thm:history.
+[8] H. F. Halldórsson. Native Intensity Accounting and Conditional Carrier Crossings . Research
+edition v0.1 (2026). Pinned carrier; labels eq:C1, eq:storage, eq:C6.
+[9] H. F. Halldórsson. A Reciprocal Chiral Exchange Extension of the T ri-Octagon Model . Research
+edition v0.1 (2026). Pinned candidate; native map and hybrid account .
+[10] H. F. Halldórsson. Spatial Observation and Causal T ransport with Storage in the Reciprocal Chi-
+ral Exchange Candidate . Research edition v0.1 (2026). Pinned geometry and retained state ;
+transport and receiving equations .
+15

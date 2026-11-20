@@ -1,0 +1,111 @@
+\section{Static geometry and the retained reciprocal exchange}\label{sec:setting}
+\subsection{The six actual arcs and the selected carrier}
+Use width-one centered coordinates relative to O and a static parameter $0\le\tau_g\le h_g$. Define
+\begin{equation}\label{eq:geomconstants}
+r_g=\frac{\sqrt3}{6},\quad d_g=1-\frac{\sqrt2}{2},\quad
+a_g=\frac{d_g}{2},\quad h_g=\frac{\sqrt2-1}{2},\quad H_0=\frac12=h_g+d_g.
+\end{equation}
+Let $e_i=(\cos(-\pi/2+i\pi/3),\sin(-\pi/2+i\pi/3))$, with indices modulo six. For the horizontal quarter-turn $J_\perp$, put
+\begin{equation}\label{eq:horizmap}
+A^\perp_{\tau_g}=I-\frac{\tau_g}{r_g}J_\perp,\qquad
+(A^\perp_{\tau_g})^TA^\perp_{\tau_g}=D(\tau_g)^2I,
+\quad D(\tau_g)^2=1+\frac{\tau_g^2}{r_g^2}\le D_*^2:=10-6\sqrt2.
+\end{equation}
+The vertices and actual broken arcs are~\cite{CCgeometry}
+\begin{align}
+T_i&=(a_ge_i,h_g),&B_i&=(a_gA^\perp_{\tau_g}e_i,-h_g),\notag\\
+U_k&=(r_ge_{2k},H_0),&L_k&=(r_gA^\perp_{\tau_g}e_{2k},-H_0),\label{eq:vertices}\\
+G_k^+&=[U_k,T_{2k+1}]\cup[T_{2k+1},U_{k+1}],&
+G_k^-&=[L_k,B_{2k+1}]\cup[B_{2k+1},L_{k+1}],\label{eq:actualG}
+\end{align}
+for $k=0,1,2$, with $U_3=U_0$ and $L_3=L_0$. A common width $w>0$ multiplies every centered coordinate before translation by O. MINUS reflects the entire registered construction by $S=\operatorname{diag}(-1,1,1)$ with labels retained. The labels identify arcs, not propagation directions. No tip-to-tip chord, aperture interior, normal or physical surface measure is added.
+
+Let G denote their disjoint labeled union at width w, equipped with ordinary arclength $d\ell_X$. Shared endpoints are null sets for this measure. The selected carrier is the one source circle $\Gamma_0$, not three instantiated carriers. With $u=(0,1,0)$ in PLUS,
+\begin{align}
+K_c&=\frac{\sqrt3}{12}+\frac{\sqrt6}{4},&
+a_c&=\frac{K_c}{1+\sqrt3/2},&\RG&=\frac{\sqrt7}{2}a_c,&L&=2\pi w\RG,\label{eq:circleconstants}\\
+\gamma_w(s)&=O+wK_cu+w\RG(\cos\chi\,u+\sin\chi\,e_z),\notag\\
+\chi&=\frac{s}{w\RG},\qquad \hat t(s)=-\sin\chi\,u+\cos\chi\,e_z.\label{eq:circle}
+\end{align}
+Here $s\in S_L:=\R/L\mathbb Z$ is physical arclength and $|\hat t|=1$. The reflected hand applies S to the full geometry. The accepted separation theorem gives the uniform input
+\begin{equation}\label{eq:clearance}
+d_X(s):=|X-\gamma_w(s)|>\delta_w:=\frac{297}{5000}w
+\qquad(X\in G,\ s\in S_L).
+\end{equation}
+It also covers each arc's individual convex enclosure, but those enclosures are mathematical bounding sets, not adopted apertures~\cite{centralpaper,SOreview}. Its proof is not repeated here.
+
+\begin{proposition}[Geometry and history bounds]\label{prop:geometry}
+Put $v_0^2=r_g^2+a_g^2-a_gr_g$ and $\Rb^2=13/12-\sqrt2/2$. Every actual G point lies in the ball $|X-O|\le w\Rb$. The total labeled length is
+\begin{align}
+M=M_w(\tau_g)&=6w\left[\sqrt{v_0^2+d_g^2}+\sqrt{D(\tau_g)^2v_0^2+d_g^2}\right]\label{eq:Glength}\\
+&\le M_{w,*}:=6w\left[\sqrt{v_0^2+d_g^2}+\sqrt{D_*^2v_0^2+d_g^2}\right].\notag
+\end{align}
+For an independent $c_e>0$, a sufficient history horizon is
+\begin{equation}\label{eq:horizon}
+\begin{gathered}
+\Theta=\frac{w(K_c+\RG+\Rb)}{c_e},\\
+0<\theta_-:=\min_{s,X}\frac{d_X(s)}{c_e}
+\le\theta_X(s):=\frac{d_X(s)}{c_e}
+\le\theta_+:=\max_{s,X}\frac{d_X(s)}{c_e}\le\Theta.
+\end{gathered}
+\end{equation}
+These statements hold for every admitted fixed static parameter and both hands under common scaling.
+\end{proposition}
+\begin{proof}
+Direct expansion gives
+\begin{equation}\label{eq:ballmargin}
+r_g^2+h_g^2+H_0^2=\Rb^2,\qquad
+r_g^2-a_g^2=\frac{6\sqrt2-7}{24}>0,\qquad
+\Rb^2-|L_k|^2=h_g^2-\tau_g^2\ge0.
+\end{equation}
+The strict inequality follows by squaring positive quantities: $72>49$. A lower elbow has smaller squared norm than a lower tip by
+$D^2(r_g^2-a_g^2)+(H_0^2-h_g^2)>0$; the upper comparison uses $D=1$. Norm convexity extends the endpoint bound along every segment. The lower-tip bound is attained at $\tau_g=h_g$, but this does not assert attainment of the later distance ceiling.
+
+The underlying adjacent unit directions satisfy $e_i\cdot e_{i+1}=1/2$, including the wraparound pair $e_5,e_0$ for the $T_5$--$U_0$ and $B_5$--$L_0$ edges. The upper horizontal edge has squared length
+$v_0^2=(r_g-a_g/2)^2+3a_g^2/4>0$.
+There are six upper edges with squared length $v_0^2+d_g^2$ and six lower edges with squared length $D^2v_0^2+d_g^2$. Only horizontal lengths gain D; the vertical difference remains $d_g$. Summing proves~\eqref{eq:Glength}, maximized at $\tau_g=h_g$. At zero it is twelve equal edge lengths. Scaling and full orthogonal reflection preserve these statements.
+
+Finally $|\gamma_w(s)-O|\le w(K_c+\RG)$, so the triangle inequality gives $d_X(s)\le w(K_c+\RG+\Rb)$. Compactness and the accepted strict clearance give the positive attained extrema in~\eqref{eq:horizon}. This ceiling is sufficient, not optimized.
+\end{proof}
+
+$\Rb$ is a full three-dimensional ball radius. Cylindrical radius would instead be $\rho_\perp(X)=\sqrt{(X_1-O_1)^2+(X_2-O_2)^2}$; it omits height and is not used for the enclosing-ball argument. Neither radius defines a material wall. The static $\tau_g$ is not a time coordinate.
+
+\subsection{State, profiles and original work metric}
+The native state is $\Omega=a_N+ib_N\in\CC^3$, or $x=(a_N,b_N)\in\R^6$, with $I=|x|^2$. The fixed rank-two source matrix K retains the original registration and gain. Define
+\begin{equation}\label{eq:drive}
+f(x)=K(a_N\times b_N),\quad J_f(x)=D_xf(x),\quad J_f(x)x=2f(x).
+\end{equation}
+The last identity is differentiation of the degree-two cross product in the direction x. Source orientation signs are already in K; contact labels do not insert new propagation signs.
+
+On the carrier let $Q=(p,r_c)$ and keep the two finite normalized periodic tents,
+\begin{equation}\label{eq:profiles}
+b_\sigma(s)=\epsilon_c^{-1}\left(1-\frac{|\operatorname{wrap}_L(s-s_\sigma)|}{\epsilon_c}\right)_+,
+\quad \sigma\in\{+,-\},\quad 0<\epsilon_c<\eta_{\rm geom}.
+\end{equation}
+Here $s_\pm=L/2\mp\eta_{\rm geom}$, with
+$\eta_{\rm geom}=w\RG\arctan(2/\sqrt3)$, and $\operatorname{wrap}_L$ takes values in $[-L/2,L/2)$. These disjoint profiles belong to periodic H1, have unit integral, and represent arclength width, not tube radius. Define
+\begin{equation}\label{eq:ports}
+\Bcal v=b_+v_++b_-v_-,\qquad
+y=\Bcal^*p=\left(\int b_+p\dd s,\int b_-p\dd s\right)^T.
+\end{equation}
+All unqualified s integrals cover one full circle. The retained reciprocal equations and stocks are~\cite{RXcandidate,RXpower}
+\begin{equation}\label{eq:RX}
+\begin{aligned}
+q&=\eta_N f(x)-\eta_Rz,&
+\dot x&=-\frac{\eta_N}{2\alpha_N}J_f(x)^Ty,&
+\dot z&=\frac{\eta_R}{\beta_R}y,\\
+p_t+\ccar(r_c)_s&=\Bcal q,&(r_c)_t+\ccar p_s&=0,
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eq:RXstocks}
+H_N=\frac{\alpha_N}{2}|x|^2,\quad
+H_C=\frac12\int(p^2+r_c^2)\dd s,\quad
+H_R=\frac{\beta_R}{2}|z|^2,\quad H_{\rm RX}=H_N+H_C+H_R.
+\end{equation}
+Here $\alpha_N,\beta_R,\ccar>0$ and $\eta_N,\eta_R\ge0$ are fixed finite allowed parameters. The old receiver $z\in\R^2$ has no assigned G or material location. Its two coordinates are not two additional physical holes. The later field $\zeta$ has a different state and metric.
+
+The tents give bounded maps $\Bcal:\R^2\to H^1_{\rm per}$ and $\Bcal^*:L^2\to\R^2$. The free generator
+\begin{equation}\label{eq:freegroup}
+A_c(p,r_c)=(-\ccar(r_c)_s,-\ccar p_s),\qquad D(A_c)=H^1_{\rm per}(S_L;\R^2)
+\end{equation}
+generates a unitary strongly continuous group $S_c(t)$: in $(p\pm r_c)/\sqrt2$ coordinates it translates in opposite directions. This elementary structure, not automatic reuse of the old nonlinear theorem, supports the new existence proof.

@@ -1,0 +1,45 @@
+\section{The differentiated-kernel certificate}\label{app:kernel}
+For completeness, the estimate used in \eqref{eq:remainder} and \eqref{eq:diskaveragebound} can be proved directly~\cite[section 3]{GM04}:
+\begin{equation}\label{eq:D2G}
+\norm{D_v^2\Hess(|x|^{-1})}_{\rm op}\le\frac{24|v|^2}{|x|^5},
+\qquad x\ne0.
+\end{equation}
+By rotation and homogeneity, put \(x/|x|=E_3\) and a unit v in the \(E_1,E_3\) plane. Write \(q=(v\cdot E_3)^2\in[0,1]\). After multiplication by \(|x|^5\), the matrix has the independent eigenvalue \(3-15q\in[-12,3]\) and the block
+\begin{equation}\label{eq:block}
+M(q)=
+\begin{pmatrix}
+9-21q&-24\sqrt{q(1-q)}\\
+-24\sqrt{q(1-q)}&36q-12
+\end{pmatrix}.
+\end{equation}
+The sign of the off-diagonal term can change with the sign of the components of v, without changing the following determinants.
+
+The diagonal entries of \(24I-M\) are \(15+21q\) and \(36(1-q)\); its determinant is \(180(1-q)(3+q)\). The diagonal entries of \(24I+M\) are \(33-21q\ge12\) and \(12+36q\ge12\); its determinant is \(396+180q(2-q)\ge396\). Both matrices are positive semidefinite. Hence all eigenvalues of M lie between -24 and 24, proving \eqref{eq:D2G}. Taylor's integral remainder contributes one half, and integration of \(|\rho|^2\) over the radius-a disk gives \(\pi a^4/2\). Multiplication by \(g_o|j|/(4\pi)\) yields the coefficient \(3g_o|j|a^4/2\) in \eqref{eq:remainder}.
+
+\section{Evidence and claim correspondence}\label{app:evidence}
+The public edition preserves the accepted GM04--GM06 scientific derivations, reviews, check programs, saved results and exact primary sources. Complete original submission archives remain in the local record. Flat copies of 24 primary sources retain their SHA-256 and Git blob identities. The contextual GM01--GM03 manuscript is the author-approved edition~\cite{GM123}; its commit and PDF identity are retained in the preserved receipt.
+
+\begin{table}[htbp]\centering\small
+\begin{tabularx}{\textwidth}{@{}p{.41\textwidth}Y@{}}\toprule
+Manuscript claim&Accepted evidence location\\\midrule
+\eqref{eq:curl}--\eqref{eq:remainder}; Appendix~\ref{app:kernel}&
+GM04 (6)--(15), exact curl, dipole tensor and uniform derivative bound.\\[3pt]
+\eqref{eq:C1}--\eqref{eq:WTmean}&
+GM04 (16)--(26), invariant, Fourier witness, old-port null pair and WT returning-wave qualification.\\[3pt]
+\eqref{eq:lift}--\eqref{eq:launchcost}&
+Reviewed GM05 (7)--(17), (22)--(26), minimum lift, errors, exact native launch and signed work.\\[3pt]
+\eqref{eq:offsetreversal}--\eqref{eq:offsetwork}&
+GM05 corrected section 4 and six review controls; persistent preloaded common offset.\\[3pt]
+Theorem~\ref{thm:coaxial}; Corollary~\ref{cor:onesample}&
+Reviewed GM06 (15)--(19); the GM06 review's rotational-symmetry corollary.\\[3pt]
+Theorem~\ref{thm:native}; \eqref{eq:1024}&
+Reviewed GM06 (20)--(31), exact placement, area-average certificate and finite-sampling bound.\\[3pt]
+\eqref{eq:delaymaxequal}; \eqref{eq:ranktwo}&
+Reviewed GM06 section 6 and section 5: equal latest delays and body-local projector clarification.\\[3pt]
+Tables~\ref{tab:coax}--\ref{tab:native}&
+GM06 saved check record; numerical corroboration only, with source and disk quadratures.\\\bottomrule
+\end{tabularx}
+\caption{Compact claim correspondence. The external crosswalk resolves these entries to manuscript labels, pages, exact files and primary equations.}\label{tab:crosswalk}
+\end{table}
+
+The prior scientific checks remain saved evidence, rather than new manuscript computations. GM04 has 78 heterogeneous checks, submitted GM05 has 62 with six additional review controls, and GM06 has 59 groups including its grouped review-control and byte checks. These counts are not theorem counts. The written proofs supply the continuum statements. Manuscript verification concerns transcription, source preservation, equation/citation resolution, embedded fonts, successful Windows compilation and visual inspection of every final page.

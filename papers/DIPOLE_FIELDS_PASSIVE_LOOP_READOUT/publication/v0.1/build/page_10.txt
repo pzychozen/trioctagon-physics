@@ -1,0 +1,36 @@
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+𝑅/𝑤 Finite contour 𝑆𝑏 ℎlead ℰ(𝑅)
+100 −1.0251976124210 10−11 −1.0252192872890 10−11 2.2207690784546 10−12
+200 −1.2815173359258 10−12 −1.2815241091113 10−12 1.3656205101897 10−13
+Table 2: Saved numerical corroboration at 𝑔𝑜 = 𝛼 = 𝑤 = 1 , using all three source circles. Angular
+resolutions 64, 128 and 256 and a disk integration of H agree in the GM06 evidence. The all-
+distance guarantee is the analytic bound ( 4.9)–(4.10).
+Proof. The estimate has three contributions:
+|𝑆𝑏 − ℎlead| ≤ ℰ(𝑅), (4.6)
+ℰ(𝑅) = 𝑔 𝑜𝐽∗ [ 6𝑎2ℓ0 (𝑅 − ℓ0)4 + 3𝑎4 2(𝑅 − ℓ0 − 𝑎)5 + 3𝑎2𝑏2 2(𝑅 − ℓ0 − 𝑎 − 𝑏)5 ] .
+For the translation term, direct differentiation of ( 2.6) gives
+𝐷𝑣𝐺(𝑥) = |𝑥| −4{−15(𝑛 ⋅ 𝑣)𝑛𝑛𝑇 + 3(𝑛 ⋅ 𝑣)𝐼 + 3(𝑛𝑣 𝑇 + 𝑣𝑛𝑇)}, (4.7)
+so ∥𝐷𝑣𝐺(𝑥)∥op ≤ 24|𝑣|/|𝑥| 4. The segment from 𝑋 −𝑂 to 𝑋 −𝑌𝑖 stays outside radius 𝑅−ℓ 0; multiply
+by 𝑔𝑜|𝑗𝑖|𝑎2/4 and sum. The centered remainder ( 2.4) gives the second term. Disk averaging ( 2.9),
+with (4.3), gives the third. Equation ( 4.6) bounds the area-averaged reading relative to the central
+leading component; it is not a pointwise error bound replacing all disk points by the center.
+From the exact launched weights,
+𝐽∗
+|𝛼|𝑊0𝑦
+= 57002√3 85500 < 6 5 , 0 < 𝐾 𝑐 < 1, 1 2 < 𝑅 Γ < 1. (4.8)
+Put 𝑞 = 𝑤/𝑅 ≤ 1/100 . Dividing ( 4.6) by |ℎlead| yields
+ℰ(𝑅)
+|ℎlead| < 144𝑞 5(1 − 𝑞)4 + 36𝑞2 5 {(1 − 2𝑞)−5 + (1 − 3𝑞)−5}. (4.9)
+Each term increases on this interval. At 𝑞 = 1/100 the right side is
+7804605427237675733225000
+25890315358991719010197977 = 0.301448835945798 … < 1 3 . (4.10)
+This proves ( 4.5). The exact integral is linear in all three means; conjugation reverses them all
+and hence reverses the full finite-radius reading.
+The range is suﬀicient and configuration-specific, not an optimal threshold. This native place-
+ment does not generally have zero V at X; the zero-center result belongs to the separate coaxial
+control.
+4.2 The 1,024-sample statement has its own premises
+Suppose N additional equally spaced points on the receiving rim have exact signed vector records
+𝑣𝑘 = 𝐵 𝑇 𝑘 𝑉(𝑞(𝜃𝑘)). Reassemble the vectors before combining frames:
+𝑆𝑏,𝑁 = 2 𝑏𝑁 𝑁−1 ∑ 𝑘=0 𝑡(𝜃𝑘) ⋅ 𝐵𝑘𝑣𝑘, 𝜃 𝑘 = 2𝜋𝑘/𝑁. (4.11)
+10

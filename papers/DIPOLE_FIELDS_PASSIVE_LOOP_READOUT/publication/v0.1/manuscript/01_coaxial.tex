@@ -1,0 +1,96 @@
+\section{A silent center and a signed rim}\label{sec:coaxial}
+The simplest test separates a point observation from a measurement around a loop. A steady source circle and a coaxial receiving circle can have a zero vector observation at the receiving circle's center while the oriented rim integral is strictly signed. This is the first result to explain. We then ask how a native state can prepare the source and whether the signed signal survives at a receiver with the model's actual finite radius.
+
+The preceding GM01--GM03 paper imposed Newtonian and magnetostatic field laws through an explicit source dictionary and studied interaction-driven feedback~\cite{GM123}. The present paper follows a different chain: the adopted C6 exterior kernel, a prepared carrier, a proposed native-to-mean impulse, and a passive contour readout~\cite{GM04,GM05,GM06}. A line circle has finite-radius corrections; it is not the radial magnetization profile for which the earlier paper obtained an exact external dipole interaction.
+
+\subsection{The adopted observation and its orientation}
+Write a source circle and its oriented unit tangent as
+\begin{equation}\label{eq:sourcecircle}
+\gamma(\phi)=Y+a(\cos\phi\,e_1+\sin\phi\,e_2),\quad
+\widehat t(\phi)=-\sin\phi\,e_1+\cos\phi\,e_2,\quad
+\nu=e_1\times e_2,
+\end{equation}
+where \(e_1,e_2\) are orthonormal, \(a>0\), and \(L=2\pi a\).
+C6 adopts a straight delay, tangent encoding and inverse-distance kernel~\cite{PAIRII,INT}:
+\begin{align}
+U(P,t)&=\frac{g_o}{4\pi}\int_0^L
+\frac{p(s,t-d_P(s)/c_e)}{d_P(s)}\dd s,\notag\\
+V(P,t)&=\frac{g_o}{4\pi}\int_0^L
+\frac{r_c(s,t-d_P(s)/c_e)\widehat t(s)}{d_P(s)}\dd s,
+\quad d_P(s)=|P-\gamma(s)|. \label{eq:C6}
+\end{align}
+Here \(g_o,c_e>0\). A registered point probe returns \((U,B^TV)\) for a known orthonormal frame B. The tangent-encoded \(r_c\widehat t\) is not assigned material electric current, and C6 is a passive observation without loading.
+
+Prepare the steady source \(p=0,r_c=j\), with the corresponding constant history. Then
+\begin{equation}\label{eq:staticV}
+V(P)=\frac{g_oj}{4\pi}\oint_{\Gamma}\frac{\dd\gamma}{|P-\gamma|},
+\qquad H(P):=\nabla_P\times V(P).
+\end{equation}
+The symbol H denotes this mathematical curl. Identifying it with a measured magnetic field would require calibration beyond the adopted kernel.
+
+\begin{figure}[tbp]
+\centering\input{figures/coaxial}
+\caption{Coaxial test, shown schematically in an oblique projection; not to scale. Increasing source and receiver angles use the same oriented plane, with \(\nu=e_1\times e_2\) pointing along the common axis. The receiving disk center X is on that axis. Its body-center probe \(O_R=X-wK_ce_1\) is displaced and can already read a nonzero V. The disk is an integration device, not a material panel.}\label{fig:coaxial}
+\end{figure}
+
+\subsection{The finite receiving circle}
+Place the receiving contour at
+\begin{equation}\label{eq:coaxreceiver}
+X=Y+z\nu,\qquad q(\theta)=X+b(\cos\theta\,e_1+\sin\theta\,e_2),
+\quad t(\theta)=-\sin\theta\,e_1+\cos\theta\,e_2,
+\end{equation}
+with \(b>0,z\ne0\). Increasing theta fixes the measured orientation. Its area-normalized signed reading is
+\begin{equation}\label{eq:sensor}
+S_b(X,\nu)=\frac1{\pi b^2}\oint_{\partial D_b}V\cdot\dd\ell
+=\frac1{\pi b}\int_0^{2\pi}V(q(\theta))\cdot t(\theta)\dd\theta.
+\end{equation}
+At X every source point has distance \(\sqrt{a^2+z^2}\), and \(\oint\dd\gamma=0\); consequently \(U(X)=V(X)=0\), for both an empty source and every constant j.
+
+\begin{theorem}[Finite coaxial sign]\label{thm:coaxial}
+With the orientation above, \(S_b\) has the sign of j for every \(a,b>0,z\ne0\). It vanishes at \(j=0\). Reversing j or the receiving traversal reverses the reading.
+\end{theorem}
+\begin{proof}
+The double line integral has tangent pairing \(ab\cos(\phi-\theta)\) and squared distance
+\(a^2+b^2+z^2-2ab\cos(\phi-\theta)\). Rotational symmetry removes the theta integral, giving
+\begin{equation}\label{eq:coaxexact}
+S_b=\frac{g_oj a}{2\pi b}\int_0^{2\pi}
+\frac{\cos\phi}{\sqrt{C-q_0\cos\phi}}\dd\phi,\qquad
+C=a^2+b^2+z^2,\quad q_0=2ab.
+\end{equation}
+Since \(C-q_0=(a-b)^2+z^2>0\), pairing opposite cosines rewrites the integral as
+\begin{equation}\label{eq:positivepair}
+\int_{-\pi/2}^{\pi/2}\cos\phi
+\left[(C-q_0\cos\phi)^{-1/2}-(C+q_0\cos\phi)^{-1/2}\right]\dd\phi>0.
+\end{equation}
+The integrand is positive in the interval interior. Linearity in j and orientation of the line integral prove the remaining statements.
+\end{proof}
+
+\begin{corollary}[One rim sample in this control]\label{cor:onesample}
+For this steady aligned coaxial source only, every rim point gives
+\begin{equation}\label{eq:onesample}
+S_b=\frac2b\,V(q(\theta))\cdot t(\theta).
+\end{equation}
+\end{corollary}
+\begin{proof}
+Rotation about the common axis carries both \(V(q(\theta))\) and \(t(\theta)\) by the same rotation. Their dot product is constant; substitute it into \eqref{eq:sensor}.
+\end{proof}
+One ideal signed tangential sample thus suffices in this symmetric control. This is not a universal replacement for a contour or the later three-source sampling certificate.
+
+Integrating the derivative of \(x^{-1/2}\) in the paired expression gives, for \(j>0\),
+\begin{equation}\label{eq:coaxbounds}
+\frac{g_oj a^2}{2[z^2+(a+b)^2]^{3/2}}
+\le S_b\le
+\frac{g_oj a^2}{2[z^2+(a-b)^2]^{3/2}}.
+\end{equation}
+The positivity is exact at finite radii. The bounds are conservative.
+
+\subsection{A circle on an actual copy}
+The established geometry supplies~\cite{PAIR}
+\begin{equation}\label{eq:geometryconstants}
+K_c=\frac{\sqrt3}{12}+\frac{\sqrt6}{4},\qquad
+R_\Gamma=\frac{\sqrt7K_c}{2(1+\sqrt3/2)},\qquad
+a=b=wR_\Gamma,\quad R_\Gamma=0.53645209718\ldots,
+\end{equation}
+where w is common host width. In the published orientation, \(Y=O+wK_c\ey\), \(e_1=\ey,e_2=\ez,\nu=\ex\). Translate an unrotated same-width copy by \(z\ex\). Its circle center is \(X=Y+z\ex\), but its body center is \(O_R=O+z\ex=X-wK_c\ey\).
+
+This is an explicit rigid test placement, preserving the established circle and full-copy geometry; it is not one of the published H/R array fixtures. The zero reading is at the \emph{circle center}, not generally at the existing body-center probe. At the benchmark \(z=4w\), enclosing balls of radius \(w(K_c+R_\Gamma)<2w\) separate the two full copies and all their circles. The all-\(z\ne0\) integral theorem alone does not assert full-body noncollision at small z.

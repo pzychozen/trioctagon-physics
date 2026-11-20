@@ -1,0 +1,39 @@
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+The scale has units of loop mean per unit W and is not RX’s native-storage scale 𝛼𝑁. Its sign fixes
+alignment or reversal. Unequal weights would change the minimization problem.
+At an ordinary native update the hypothesis adds
+Δ𝑗 = 𝛼𝐷(𝑊 + − 𝑊 −), 𝑟 + 𝑖 (𝑠) = 𝑟 − 𝑖 (𝑠) + Δ𝑗𝑖, 𝑝 + 𝑖 = 𝑝 − 𝑖 . (3.11)
+This is a prescribed uniform, simultaneous actuation, not a consequence of the old p-source ports.
+It uses information those ports lose. Writing 𝑟𝑖 = 𝑗 𝑖 + ̃ 𝑟𝑖, with ∫ ̃ 𝑟𝑖 = 0, shows that every zero-mean
+profile is preserved at the jump.
+Proposition 3.1 (Tracking is conditional). The mismatch 𝑞 = 𝑗 −𝛼𝐷𝑊 , the visible mismatch 𝑇𝑗 −𝛼𝑊 ,
+and the common mean 𝑒𝑇𝑗/3 are unchanged by (3.11). Correct minimum initialization tracks across the
+jump. Existing mismatch is not repaired.
+Proof. Subtract 𝛼𝐷𝑊+ from 𝑗− + 𝛼𝐷(𝑊 + − 𝑊 −). The result is 𝑗− − 𝛼𝐷𝑊 −. Also 𝑒𝑇𝐷 = 0 .
+The increment is the minimum-norm increment with its required visible change, not an uncon-
+ditional reset to minimum endpoint storage. Empty carriers are matched only when 𝛼𝑊− = 0.
+Between jumps, active exchange can change W while preserving j. For an exact RX witness at
+unit source gains and yaw zero, take 𝑎𝑁 = 𝐸 3, 𝑏𝑁 = 𝐸 1, old port output 𝑦 = (1, 1) 𝑇, and 𝜇 =
+𝜂𝑁/(2𝛼𝑁) > 0 . Its actual native exchange equation gives
+𝐾𝑇𝑦 = 4𝐸 2/√7, ̇ 𝑎 𝑁 = −4𝜇𝐸 3/√7, ̇𝑏𝑁 = −4𝜇𝐸 1/√7, 𝑊 = 𝑒 𝑥, ̇𝑊 = −8𝜇𝑒 𝑥/√7. (3.12)
+The stated y is attained by 𝑝 = (𝑏 + + 𝑏 −)/‖𝑏+‖2 2 for the retained disjoint equal tents. A later
+jump preserves the resulting error. Full plateau tracking is therefore a source-off, native-held
+comparison, not a consequence of arbitrary loaded evolution.
+3.3 Exact Fourier launch and its cost
+Retain the ordinary native map, with simultaneous stages [ 9]:
+̃Ω𝑖 = Ω 𝑖 + 𝜖(𝑘𝑖 − |Ω𝑖|2)Ω𝑖 + 𝑔 ∑
+𝑗≠𝑖
+(Ω𝑗 − Ω𝑖),
+𝐹𝑖(Ω) = 𝑒 i𝛿𝑖 ̃Ω𝑖, 𝛿 𝑖 = 𝜆 ∑
+𝑗≠𝑖
+sin{3(Arg0 ̃Ω𝑗 − Arg0 ̃Ω𝑖)}. (3.13)
+Here Arg0(0) = 0 , and exact zero components stay zero. At
+𝜖 = 1 10 , 𝑔 = 1 60 , 𝜆 = 1 300 , 𝑘 = (999/1000, 1, 1001/1000), (3.14)
+take Ω− = (1, 𝜔, 𝜔2), 𝜔 = 𝑒 −2𝜋i/3. All prestage multipliers are positive and all triple-angle phase
+kicks vanish:
+Ω+ 𝑖 = (9499, 9500, 9501)𝑖 10000 Ω− 𝑖 , 𝑊 − = 0, 𝑊 + = 𝑊 0 = ⎛⎜⎜ ⎝ √3 200000000 , 57 400000 , 0⎞⎟⎟ ⎠
+𝑇
+. (3.15)
+Thus the empty matched carriers launch to
+𝑗+ = 𝛼√3 600000000 (−28501, 2, 28499)𝑇, 𝑚 tot = 𝜋𝑎 2𝑇𝑗 + = 𝜋𝑎 2𝛼𝑊0. (3.16)
+7

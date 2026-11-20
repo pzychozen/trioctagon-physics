@@ -1,0 +1,87 @@
+\section{An added physical correspondence and its missing work}\label{sec:fields}
+\subsection{Dictionary and field premises}
+For each body \(a=1,2\), adopt fixed center \(X_a\), fixed proper pose \(R_a\in SO(3)\), and
+\begin{equation}
+ m_a=m_0+\alpha I_{\Om_a},\qquad \mub_a=\kappa R_aW(\Om_a),
+ \qquad m_0\ge0,\quad \alpha>0,\quad \kappa\in\R.
+ \label{eq:dictionary}
+\end{equation}
+Native amplitudes are dimensionless in the convention above. Thus \(\alpha\) has mass units, \(\kappa\) has magnetic-dipole units, and \(m_0\) is an added baseline mass. These choices give the conditional source bound
+\begin{equation}
+ |\mub_a|\le \frac{|\kappa|}{\alpha}\sqrt{\frac38}\,(m_a-m_0),
+ \qquad \mub_a\cdot R_ae_z=0. \label{eq:source-bound}
+\end{equation}
+The bound is exact mathematics; its interpretation as a mass--moment law depends on \eqref{eq:dictionary}.
+
+Let \(\chi_a\) be smooth, nonnegative, radial, normalized to integral one, and supported in a ball of radius \(\ell_a\). Set
+\[
+ \rho(X)=\sum_a m_a\chi_a(X-X_a),\qquad
+ \Mmag(X)=\sum_a\mub_a\chi_a(X-X_a).
+\]
+For the instantaneous frozen sources, impose Newton's potential law \cite{TongG} and the no-free-current magnetostatic laws \cite{TongM,TongMatter}:
+\begin{align}
+ \Delta\Phi=4\pi G_N\rho,\qquad &\Phi\longrightarrow0, \label{eq:gravity-field}\\
+ \nabla\cdot B=0,\qquad
+ \nabla\times(B/\mu_0-\Mmag)=0,\qquad &B\longrightarrow0
+ \quad\text{at infinity}. \label{eq:mag-field}
+\end{align}
+Here \(G_N\) is Newton's constant and \(\mu_0\) is vacuum permeability. The bound current is \(J_b=\nabla\times\Mmag\). Equivalently,
+\[
+ \Phi(X)=-G_N\int\frac{\rho(Y)}{|X-Y|}\dd Y,\qquad
+ A(X)=\frac{\mu_0}{4\pi}\int\frac{J_b(Y)}{|X-Y|}\dd Y,\qquad B=\nabla\times A.
+\]
+These are added static field laws, not consequences of \(F\) or of the axial type of \(W\). Applying them successively to changing sources is a quasistatic modeling prescription. No finite-speed field dynamics or physical update clock has been obtained.
+
+For frozen moments the standard external dipole force and torque are
+\begin{equation}
+ F_{\rm mag}=\nabla(\mub\cdot B_{\rm ext}),\qquad
+ \tau_{\rm mag}=\mub\times B_{\rm ext};\qquad
+ F_{\rm grav}=-m\nabla\Phi_{\rm ext}. \label{eq:force}
+\end{equation}
+The first two follow from the dipole interaction \(-\mub\cdot B_{\rm ext}\) \cite{TongM}; the last uses an additional equality of gravitational source and passive mass. Using the same \(m\) for inertia would be another premise. These laws describe frozen-source force and torque; centers and poses remain fixed in the update studied below.
+
+\subsection{Exact pair energy for disjoint radial profiles}
+Write
+\[
+ r=|X_1-X_2|,\qquad n=(X_1-X_2)/r,\qquad
+ \Q(n)=I_3-3nn^T,\qquad c_m=\frac{\mu_0}{4\pi}.
+\]
+\begin{proposition}[Radial pair reduction]\label{prop:radial}
+If \(r>\ell_1+\ell_2\), the single-counted interaction of the two extended sources is exactly
+\begin{equation}
+ U=-\frac{G_Nm_1m_2}{r}+\frac{c_m}{r^3}\mub_1^T\Q(n)\mub_2.
+ \label{eq:pair}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Every normalized radial average of a harmonic function on its support equals the value at the center: integrate the spherical mean identity over the radial weight. The kernel \(1/|X-Y|\) is harmonic on each source ball when the other is fixed in the other ball. Applying this identity in both variables gives \(1/r\). Its Hessian components are harmonic on the same disjoint domains, and
+\[
+ \nabla\nabla(1/r)=\frac{3nn^T-I_3}{r^3}.
+\]
+Applying the two averages to the magnetic dipole kernel gives the second term of \eqref{eq:pair}, with the sign from \(-\mub_1\cdot B_2\). This is GM02's radial reduction \cite{GM02}. Smooth disjoint supports justify differentiation and averaging.
+\end{proof}
+Thus \eqref{eq:pair} is not merely a far-field approximation under these assumptions. Overlapping or nonradial profiles are outside this exact reduction. Source self-interactions are separate; see Appendix~\ref{app:accounts}.
+
+\subsection{Why overwriting native sources leaves unbalanced work}
+The first obstruction already occurs with zero moments. At the real state \(\Om=e\), the native update is
+\[
+ F(e)=(9999/10000,\ 1,\ 10001/10000),\qquad
+ \Delta I=\frac1{50000000},\qquad W(e)=W(F(e))=0.
+\]
+For two identical bodies let \(M=m_0+3\alpha\) and \(b=\alpha/50000000>0\). Their gravitational interaction changes by
+\begin{equation}
+ \Delta U_g=-\frac{G_N}{r}(2Mb+b^2). \label{eq:gravity-obstruction}
+\end{equation}
+Any proposed compensating change computed only from the identical internal before/after states is independent of \(r\). It cannot cancel \eqref{eq:gravity-obstruction} at every separation. This is an obstruction to a state-only correction, not a prohibition on adding positioned energy or work \cite{GM01,GM02}.
+
+The Fourier preparation supplies a distinctly magnetic version. Give both bodies pose \(I_3\), the state \eqref{eq:fourier}, and the same separation. Initially both moments vanish; afterwards both equal \(\kappa w\). Compare the fixed center lines
+\[
+ n_\parallel=w/|w|,\qquad n_\perp=e_z.
+\]
+The magnetic energy changes are respectively
+\begin{equation}
+ \Delta U_{m,\parallel}=-\frac{2c_m\kappa^2|w|^2}{r^3},\qquad
+ \Delta U_{m,\perp}=+\frac{c_m\kappa^2|w|^2}{r^3}.
+ \label{eq:mag-obstruction}
+\end{equation}
+The difference is \(3c_m\kappa^2|w|^2/r^3\). The native states, gravitational work and radial self-energy changes are identical in the two placements. A correction depending solely on the two internal states cannot balance both arrangements. Taking \(\kappa=0\), or the equal-\(k_i\) preparation above, removes this magnetic contrast. The native update creates the source contrast under the dictionary; the surrounding spatial arrangement determines its interaction work.

@@ -1,0 +1,152 @@
+\section{From a native moment to three carrier means}\label{sec:source}
+The preceding field calculation starts from a steady circulation. It does not show that native evolution generates that circulation. This section states the two inherited obstructions and the particular source impulse assessed in GM05.
+
+\subsection{Native observables and the old carrier interface}
+Paper G defines the channel-space area C and its ambient axial attachment W~\cite{G}:
+\begin{equation}\label{eq:TC}
+C=\Re\Omega\times\Im\Omega,\qquad W=TC,\qquad
+T=\begin{pmatrix}-1/2&1&-1/2\\-\sqrt3/2&0&\sqrt3/2\\0&0&0\end{pmatrix}.
+\end{equation}
+W is planar; it is different from the host width w. In the geometric source order,
+\begin{equation}\label{eq:threegeometry}
+u_k=R_z(2\pi k/3)\ey,\quad
+Y_k=O+wK_cu_k,\quad
+\nu_k=u_k\times\ez,\quad T=[\nu_2\ \nu_0\ \nu_1].
+\end{equation}
+The source weights A, B, C therefore correspond to circles 2, 0, 1. Geometry supplies three possible circles with distinct centers; the retained C1/RX dynamics instantiates only circle 0.
+
+For the periodic adopted carrier~\cite{INT,RX},
+\begin{equation}\label{eq:C1}
+p_t+c(r_c)_s=g_c,\qquad (r_c)_t+cp_s=0,\qquad
+j=L^{-1}\int_0^Lr_c\dd s.
+\end{equation}
+Periodic integration gives \(\dot j=0\). RX's native-first jump changes the native state only, leaving the carrier and old receiver unchanged. The mean is therefore invariant across inherited jumps as well. For every instantaneous profile on a circle,
+\begin{equation}\label{eq:meanmoment}
+\frac12\int(\gamma-Y)\times(r_c\widehat t)\dd s=\pi a^2j\nu.
+\end{equation}
+Thus an initially empty retained circle cannot gain this centered moment under C1/RX. This does not imply that its whole state or exterior observation remains zero. The mean statement extends to periodic L2 mild solutions by the bounded mean functional.
+
+There is also an information obstruction. With positive fixed gains, the old source uses
+\begin{equation}\label{eq:ports}
+f=KC,\qquad
+K=\kappa_{\rm in}\lambda_g
+\begin{pmatrix}n_+^T\\n_-^T\end{pmatrix}R_z(\delta_g),
+\qquad n_\pm=(2\ey\pm\sqrt3\ez)/\sqrt7.
+\end{equation}
+In channel coordinates take \(v=(\cos\delta_g,-\sin\delta_g,0)^T\).
+Then
+\begin{equation}\label{eq:portnull}
+Kv=0,\qquad |Tv|^2=1+\tfrac12\sin(2\delta_g)\ge\tfrac12.
+\end{equation}
+The exact states \(\Omega_\pm=E_3\pm\ii(v\times E_3)\), where \(E_3\) is the third channel basis vector, have intensity 2, \(C_\pm=\pm v\), equal zero old ports and opposite nonzero W. No instantaneous function of those two ports determines W. These two states are not asserted to be adjacent native iterates or to retain equal ports after arbitrary later native jumps.
+
+WT changes the mean equation through its actual returning waves~\cite{WT,GM04}. If \(b_r\) is the incoming backward component and M is total receiving-arc length, its equation is
+\begin{equation}\label{eq:WTmean}
+L\dot j=-\kappa^2Lj+
+\frac{\sqrt2\kappa}{\sqrt M}\int_{S_L\times G}b_r(s,X,t)\dd s\dd\ell_X.
+\end{equation}
+This is history-dependent feedback, not a universal assignment from W. Entirely empty carrier, transport and receiver preparation has no return before \(2\theta_-\), so its initially zero mean stays zero in that startup interval. WT native jumps still leave carrier/transport stocks unchanged. A single fixed-normal circle also cannot represent W directions outside its normal line.
+
+\subsection{The explicitly added source impulse}
+GM05 instantiates three equal-radius carrier states and reads W directly. Define
+\begin{equation}\label{eq:lift}
+e=(1,1,1)^T,\quad P=I-ee^T/3,\quad
+D=\tfrac23T^T,\quad TD=\diag(1,1,0),\quad DT=P.
+\end{equation}
+For real symbolic \(\alpha\), the target is \(Tj=\alpha W\). Its full family is
+\begin{equation}\label{eq:family}
+j=\alpha DW+\beta e,\qquad
+\frac L2|j|^2=\frac{L\alpha^2}{3}|W|^2+\frac{3L}{2}\beta^2.
+\end{equation}
+Indeed \(TDW=W\) on Paper G's plane and \(\ker T=\R e\); the two components of j are orthogonal. Equal positive lengths and storage weights select the unique minimum at \(\beta=0\):
+\begin{equation}\label{eq:jstar}
+j_*=\alpha DW=\frac{\alpha}{3}
+(-W_x-\sqrt3W_y,\ 2W_x,\ -W_x+\sqrt3W_y)^T.
+\end{equation}
+The scale has units of loop mean per unit W and is not RX's native-storage scale \(\alpha_N\). Its sign fixes alignment or reversal. Unequal weights would change the minimization problem.
+
+At an ordinary native update the hypothesis adds
+\begin{equation}\label{eq:jump}
+\Delta j=\alpha D(W^+-W^-),\qquad
+r_i^+(s)=r_i^-(s)+\Delta j_i,\qquad p_i^+=p_i^- .
+\end{equation}
+This is a prescribed uniform, simultaneous actuation, not a consequence of the old p-source ports. It uses information those ports lose. Writing \(r_i=j_i+\widetilde r_i\), with \(\int\widetilde r_i=0\), shows that every zero-mean profile is preserved at the jump.
+
+\begin{proposition}[Tracking is conditional]\label{prop:tracking}
+The mismatch \(q=j-\alpha DW\), the visible mismatch \(Tj-\alpha W\), and the common mean \(e^Tj/3\) are unchanged by \eqref{eq:jump}. Correct minimum initialization tracks across the jump. Existing mismatch is not repaired.
+\end{proposition}
+\begin{proof}
+Subtract \(\alpha DW^+\) from \(j^-+\alpha D(W^+-W^-)\). The result is \(j^--\alpha DW^-\). Also \(e^TD=0\).
+\end{proof}
+The increment is the minimum-norm increment with its required visible change, not an unconditional reset to minimum endpoint storage. Empty carriers are matched only when \(\alpha W^-=0\).
+
+Between jumps, active exchange can change W while preserving j. For an exact RX witness at unit source gains and yaw zero, take \(a_N=E_3,b_N=E_1\), old port output \(y=(1,1)^T\), and \(\mu=\eta_N/(2\alpha_N)>0\). Its actual native exchange equation gives
+\begin{equation}\label{eq:interjump}
+K^Ty=4E_2/\sqrt7,\quad
+\dot a_N=-4\mu E_3/\sqrt7,\quad
+\dot b_N=-4\mu E_1/\sqrt7,\quad
+W=\ex,\quad \dot W=-8\mu\ex/\sqrt7.
+\end{equation}
+The stated y is attained by \(p=(b_++b_-)/\|b_+\|_2^2\) for the retained disjoint equal tents. A later jump preserves the resulting error. Full plateau tracking is therefore a source-off, native-held comparison, not a consequence of arbitrary loaded evolution.
+
+\subsection{Exact Fourier launch and its cost}
+Retain the ordinary native map, with simultaneous stages~\cite{RX}:
+\begin{align}
+\widetilde\Omega_i&=\Omega_i+\epsilon(k_i-|\Omega_i|^2)\Omega_i
++g\sum_{j\ne i}(\Omega_j-\Omega_i),\notag\\
+F_i(\Omega)&=e^{\ii\delta_i}\widetilde\Omega_i,\qquad
+\delta_i=\lambda\sum_{j\ne i}\sin\{3(\Argz\widetilde\Omega_j-\Argz\widetilde\Omega_i)\}.
+\label{eq:F}
+\end{align}
+Here \(\Argz(0)=0\), and exact zero components stay zero. At
+\begin{equation}\label{eq:tuple}
+\epsilon=\tfrac1{10},\quad g=\tfrac1{60},\quad\lambda=\tfrac1{300},
+\quad k=(999/1000,1,1001/1000),
+\end{equation}
+take \(\Omega^-=(1,\omega,\omega^2)\), \(\omega=e^{-2\pi\ii/3}\).
+All prestage multipliers are positive and all triple-angle phase kicks vanish:
+\begin{equation}\label{eq:Fourier}
+\Omega_i^+=\frac{(9499,9500,9501)_i}{10000}\Omega_i^-,
+\quad W^-=0,\quad
+W^+=W_0=\left(\frac{\sqrt3}{200000000},\frac{57}{400000},0\right)^T.
+\end{equation}
+Thus the empty matched carriers launch to
+\begin{equation}\label{eq:launch}
+\boxed{j^+=\frac{\alpha\sqrt3}{600000000}(-28501,2,28499)^T,\qquad
+m_{\rm tot}=\pi a^2Tj^+=\pi a^2\alpha W_0.}
+\end{equation}
+For positive alpha the circle-2 mean is negative and the circle-0 and circle-1 means are positive. These are orientation signs, not negative energies. Conjugating the native preparation conjugates its update and reverses every mean.
+
+For arbitrary square-integrable preprofiles, the exact inherited carrier-storage change is
+\begin{equation}\label{eq:work}
+\boxed{\Delta E_C=L\left(j^-\cdot\Delta j+\tfrac12|\Delta j|^2\right).}
+\end{equation}
+Expand the square of \(r_i^-+\Delta j_i\), integrate, and use the definition of the means; p and all zero-mean profiles contribute zero jump change. For matched minimum endpoints,
+\begin{equation}\label{eq:matchedwork}
+E_{\rm means}=\frac{L\alpha^2}{3}|W|^2,\qquad
+\Delta E_C=\frac{L\alpha^2}{3}(|W^+|^2-|W^-|^2).
+\end{equation}
+The empty Fourier launch has the strictly positive cost, for \(\alpha\ne0\),
+\begin{equation}\label{eq:launchcost}
+\boxed{\Delta E_C=
+\frac{270750001}{40000000000000000}L\alpha^2
+=6.768750025\times10^{-9}L\alpha^2.}
+\end{equation}
+The conjugate costs exactly the same. General signed work can be negative, in which case the actuation receives carrier energy.
+
+\subsection{Common offsets and the unassigned payer}
+The reviewed offset correction is essential~\cite[section 4, corrected]{GM05}. If
+\(j^-=\alpha DW^-+\beta_0e\), reversing W yields
+\begin{equation}\label{eq:offsetreversal}
+j^+=-j^-+2\beta_0e,\qquad \Delta E_C=0.
+\end{equation}
+Only the W-driven part reverses. Taking W to zero leaves \(3L\beta_0^2/2\) stored. Separately adding \(\beta e\) changes storage by
+\begin{equation}\label{eq:offsetwork}
+\Delta E_{\rm offset}=3L\beta_0\beta+\tfrac32L\beta^2.
+\end{equation}
+For arbitrary mismatch q the work has the additional term
+\(L\alpha q\cdot D(W^+-W^-)\) relative to \eqref{eq:matchedwork}.
+
+The common mode also matters physically within the comparison: it leaves \(Tj\) unchanged but changes the finite-distance field of separated loops. The raw alternative \(j=\alpha C\) differs from the minimum by \(\alpha(e^TC)e/3\). At the Fourier entrance \(C=-(\sqrt3/2)e\), W is zero: the minimum is empty, whereas the raw assignment stores \(9L\alpha^2/8\). Matching the aggregate dipole does not match the whole field.
+
+No inherited equation supplies the extra work in \eqref{eq:work}. The old hybrid changes only native trial storage by \(\alpha_N\Delta I/2\); appending the impulse gives \(\Delta H_{\rm tot}=\alpha_N\Delta I/2+\Delta E_C\), without an automatic cancellation. At the same tuple, the real aligned entrance \(\Omega=(1,1,1)\) has \(F\Omega=(9999/10000,1,10001/10000)\), zero W at both endpoints and \(\Delta I=1/50000000>0\). Its loop work is zero. The native account is not a universal donor identity. GM01--GM03 stores balance their specified pair interaction, not this newly added loop energy. A balancing ledger entry would not identify a material donor, finite reserve or feedback law.

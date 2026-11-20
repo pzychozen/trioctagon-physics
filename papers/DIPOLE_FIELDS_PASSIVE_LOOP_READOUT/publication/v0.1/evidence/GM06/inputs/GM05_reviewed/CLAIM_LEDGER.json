@@ -1,0 +1,263 @@
+{
+  "status": "proposed GM05 results returned for review; GM04 accepted",
+  "claims": [
+    {
+      "id": "GM05-01",
+      "status": "inherited audited boundary",
+      "statement": "No inspected C1/RX/WT law instantaneously assigns signed means from W; WT changes means through actual returns.",
+      "report": "GM05_DERIVATIONS.md",
+      "sections": [
+        1
+      ],
+      "source_equations": [
+        "GM04 (16)-(18), (22)-(26)",
+        "RX eq:system, eq:hybrid",
+        "WT eq:closedmodel"
+      ],
+      "check_ids": [
+        "K02",
+        "K03",
+        "T01"
+      ]
+    },
+    {
+      "id": "GM05-02",
+      "status": "conditional exact deduction",
+      "statement": "All three-loop target means are alpha D W + beta e; beta zero uniquely minimizes equal-weight mean storage.",
+      "report": "GM05_DERIVATIONS.md",
+      "sections": [
+        2
+      ],
+      "source_equations": [
+        "G eq:T, eq:W",
+        "GM04 (27)-(29)",
+        "INT eq:storage"
+      ],
+      "check_ids": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L08"
+      ]
+    },
+    {
+      "id": "GM05-03",
+      "status": "proposed source assumption",
+      "statement": "Three simultaneous carriers and uniform jump delta j=alpha D delta W are new actuation choices.",
+      "report": "GM05_DERIVATIONS.md",
+      "sections": [
+        2,
+        3
+      ],
+      "source_equations": [
+        "GM05 work order section 2"
+      ],
+      "check_ids": [
+        "P01",
+        "P02"
+      ]
+    },
+    {
+      "id": "GM05-04",
+      "status": "conditional exact deduction",
+      "statement": "Vector mismatch, visible mismatch and common offset persist; correct initialization is required.",
+      "report": "GM05_DERIVATIONS.md",
+      "sections": [
+        3
+      ],
+      "source_equations": [
+        "GM05 (7), (12)"
+      ],
+      "check_ids": [
+        "J01",
+        "J02",
+        "J03",
+        "J04",
+        "J05",
+        "J07"
+      ]
+    },
+    {
+      "id": "GM05-05",
+      "status": "counterexample",
+      "statement": "Actual RX exchange can change W with invariant carrier means; a later proposed jump does not repair the accumulated error.",
+      "report": "GM05_DERIVATIONS.md",
+      "sections": [
+        3
+      ],
+      "source_equations": [
+        "RX eq:system",
+        "RX eq:core",
+        "GM05 (13)"
+      ],
+      "check_ids": [
+        "T01",
+        "T02",
+        "T03"
+      ]
+    },
+    {
+      "id": "GM05-06",
+      "status": "conditional exact launch",
+      "statement": "The empty exact native Fourier control launches the signed minimum weights and aggregate moment in (17).",
+      "report": "GM05_DERIVATIONS.md",
+      "sections": [
+        4
+      ],
+      "source_equations": [
+        "RX eq:tuple, eq:prestage, eq:nativemap",
+        "GM04 (18)",
+        "GM05 (12)"
+      ],
+      "check_ids": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F08"
+      ]
+    },
+    {
+      "id": "GM05-07",
+      "status": "control and initialization boundary",
+      "statement": "Old-port-null opposite moments require opposite target initialization; zero change from an empty mismatched preparation launches nothing.",
+      "report": "GM05_DERIVATIONS.md",
+      "sections": [
+        4
+      ],
+      "source_equations": [
+        "GM04 (22)-(23)",
+        "GM05 (12)"
+      ],
+      "check_ids": [
+        "K01",
+        "K02",
+        "K03",
+        "K04",
+        "K05",
+        "K06",
+        "C01"
+      ]
+    },
+    {
+      "id": "GM05-08",
+      "status": "conditional field consequence",
+      "statement": "The steady constant endpoint has the aggregate dipole curl with O(r^-4) common-origin remainder after the full delay window.",
+      "report": "GM05_DERIVATIONS.md",
+      "sections": [
+        5
+      ],
+      "source_equations": [
+        "GM04 (14)-(15), (32)",
+        "INT eq:C6"
+      ],
+      "check_ids": [
+        "F06",
+        "G02"
+      ]
+    },
+    {
+      "id": "GM05-09",
+      "status": "conditional symmetry and nonuniqueness comparison",
+      "statement": "The minimum lift is covariant; energy and linearity impose stronger restrictions than the tested discrete symmetries alone.",
+      "report": "GM05_DERIVATIONS.md",
+      "sections": [
+        6
+      ],
+      "source_equations": [
+        "G eq:Ccov",
+        "GM04 (28)-(29)",
+        "GM05 (9)"
+      ],
+      "check_ids": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ]
+    },
+    {
+      "id": "GM05-10",
+      "status": "inequivalent preparation comparison",
+      "statement": "The raw-C lift differs by common means, storage and near field, despite the same leading aggregate dipole.",
+      "report": "GM05_DERIVATIONS.md",
+      "sections": [
+        6
+      ],
+      "source_equations": [
+        "GM05 (8)-(9), (21)",
+        "GM04 (29)"
+      ],
+      "check_ids": [
+        "L10",
+        "E09"
+      ]
+    },
+    {
+      "id": "GM05-11",
+      "status": "conditional exact work",
+      "statement": "Uniform source work is (22); the empty Fourier cost is positive 270750001/40000000000000000 times L alpha squared.",
+      "report": "GM05_DERIVATIONS.md",
+      "sections": [
+        7
+      ],
+      "source_equations": [
+        "INT eq:storage",
+        "GM05 (12)"
+      ],
+      "check_ids": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "F07"
+      ]
+    },
+    {
+      "id": "GM05-12",
+      "status": "scoped missing coupling and counterexample",
+      "statement": "No inspected inherited term supplies the extra jump work; ordinary native storage does not cancel it identically.",
+      "report": "GM05_DERIVATIONS.md",
+      "sections": [
+        7
+      ],
+      "source_equations": [
+        "RX eq:hybridbalance, eq:balances",
+        "WT eq:hybridbalance",
+        "CADENCE eq:a10-a16",
+        "GM02 (19)-(23)"
+      ],
+      "check_ids": [
+        "E07",
+        "E08"
+      ]
+    },
+    {
+      "id": "GM05-13",
+      "status": "open physical identification",
+      "statement": "Internal donor, physical clock/actuation and second-triad sensing remain unassigned; no SI or physical-law conclusion is established.",
+      "report": "GM05_DERIVATIONS.md",
+      "sections": [
+        3,
+        5,
+        7,
+        8
+      ],
+      "source_equations": [
+        "GM04 accepted boundary",
+        "GM05 work order scope"
+      ],
+      "check_ids": []
+    }
+  ]
+}

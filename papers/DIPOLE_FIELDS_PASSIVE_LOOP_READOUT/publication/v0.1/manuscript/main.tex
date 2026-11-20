@@ -1,0 +1,64 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,fontspec,unicode-math}
+\setmainfont{texgyrepagella-regular.otf}[BoldFont=texgyrepagella-bold.otf,ItalicFont=texgyrepagella-italic.otf,BoldItalicFont=texgyrepagella-bolditalic.otf]
+\setmathfont{texgyrepagella-math.otf}
+\setmonofont{lmmono10-regular.otf}
+\usepackage{booktabs,array,tabularx,xcolor,graphicx,fancyhdr,xurl,tikz}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{ink}{RGB}{25,54,76}
+\definecolor{teal}{RGB}{0,113,116}
+\definecolor{rust}{RGB}{164,73,38}
+\usepackage[colorlinks=true,linkcolor=ink,citecolor=ink,urlcolor=ink]{hyperref}
+\hypersetup{pdftitle={Dipole Fields and Passive Loop Readout in the Tri-Octagon Model},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={GM04--GM06; research edition v0.1; author-approved repository research edition; project-internal GPT review}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Tri-Octagon: dipole fields and loop readout}
+\fancyhead[R]{\small Research edition v0.1}
+\fancyfoot[C]{\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\setlength{\emergencystretch}{3em}\raggedbottom
+\clubpenalty=10000\widowpenalty=10000\displaywidowpenalty=10000
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\dd}{\,\mathrm d}\newcommand{\ii}{\mathrm i}
+\newcommand{\ex}{e_x}\newcommand{\ey}{e_y}\newcommand{\ez}{e_z}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\Hess}{\operatorname{Hess}}
+\newcommand{\Argz}{\operatorname{Arg}_0}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\begin{document}
+\begin{titlepage}
+{\small\color{ink} TRI-OCTAGON MATHEMATICAL RESEARCH\par}
+\vspace{10mm}
+{\LARGE\bfseries\raggedright Dipole Fields and Passive Loop Readout\\[2mm]
+in the Tri-Octagon Model\par}
+\vspace{8mm}
+{\large Hilmir Frímann Halldórsson\par}
+\vspace{3mm}
+{Research edition v0.1 \quad 20 November 2026\par}
+{\small Author-approved repository research edition.\par}
+\vspace{8mm}
+\begin{abstract}
+A steady tangent-encoded circulation on an adopted Tri-Octagon carrier circle produces a vector observation whose spatial curl has the dipole angular tensor and inverse-cube leading decay. We develop two signed tests from that exterior kernel. In the coaxial test the vector observation vanishes at the receiving circle's center, yet its oriented rim integral has the source sign at every positive pair of radii and nonzero axial separation. Rotational symmetry makes one ideal tangential rim sample sufficient in this special case.
+
+The native map does not itself assign the required carrier means. A proposed three-loop source impulse lifts the native planar observable \(W\) to unique minimum-storage means under equal weights. Its exact Fourier launch costs \(6.768750025\times10^{-9}L\alpha^2\); conjugation reverses the means at the same cost. A finite receiving circle on a registered rigid copy distinguishes the two launches for every \(R\ge100w\), with a relative error certificate below one third. At \(R=100w\), 1,024 additional exact contour samples also suffice. The circle center, body-center probe, finite-area component, source offsets and complete delay window remain distinct. The source impulse and contour readout are explicit additions. An internal source donor and a law changing a second native triad remain open.
+\end{abstract}
+\vfill
+{\small\textbf{Status and provenance.} This manuscript assembles the project-internally accepted GM04, corrected GM05 and reviewed GM06 investigations. It incorporates the common-offset and latest-delay corrections. After GPT review and the two wording corrections, the author approved repository publication. The tests are mathematical consequences of specified equations; no external peer review or physical validation is claimed. GPT supplied proposals and review; Codex supplied source verification, mathematical checks and manuscript preparation under the author's direction.}
+\end{titlepage}
+\setcounter{page}{2}
+\input{01_coaxial}
+\input{02_field}
+\input{03_source}
+\input{04_receiver}
+\input{05_scope}
+\appendix
+\input{06_appendix}
+\input{references}
+\end{document}

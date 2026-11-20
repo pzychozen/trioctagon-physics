@@ -1,0 +1,104 @@
+\section{Quantitative certificates and separate energy accounts}\label{app:bounds}
+\subsection{Gravity box}
+For the real preparation, the first path has
+\(m(z)=M+bz^2\) and \(W(z)=0\). Integrating its pair gradient gives
+\[
+ L_1=-\frac{G_N}{r}b s_1\left(M+\frac b2s_2^2\right),\qquad
+ s_1=1+\gamma s_1(1+\zeta s_2^2),
+\]
+and the analogous second equation. On \(\mathcal B\), the fixed-point shift and maximum row derivative are bounded by
+\begin{equation}
+ \frac3{20}\left(1+\frac94\zeta\right)<\frac12,\qquad
+ \frac1{10}\left(1+\frac{27}{4}\zeta\right)<1.
+ \label{eq:gravity-certificate}
+\end{equation}
+These prove the claimed nonzero gravity range. Symmetry and uniqueness imply equal gains. On the selected scalar interval, the denominator in \(\dd s/\dd\gamma\) is positive by the same derivative bound. The exact cubic sign argument in Section~\ref{sec:feedback} explains why this local certificate is essential.
+
+\subsection{Fourier box for every center-line direction}
+Put \(A=G_N/r\), \(D=c_m\kappa^2/r^3\), and \(M=m_0+3\alpha\). Along the segment \(0\le z\le3/2\), the accepted bounds \cite{GM02,GM03} are
+\begin{equation}
+\begin{gathered}
+ m(z)\le M,\quad |m'(z)|\le3\alpha/10,\quad |m''(z)|<\alpha/50,\\
+ |W(z)|<1/4000,\quad |W'(z)|<1/6000,\quad |W''(z)|<1/60000.
+\end{gathered}\label{eq:path-bounds}
+\end{equation}
+They follow directly from \eqref{eq:path-I}--\eqref{eq:path-W}. For every unit \(n\), \(\Q(n)\) has eigenvalues \((-2,1,1)\), so \(\|\Q(n)\|_2=2\). With
+\[
+ P(z_1,z_2)=-A m(z_1)m(z_2)+D W(z_1)^T\Q(n)W(z_2),
+\]
+define
+\begin{equation}
+ C_0=\frac3{10}A\alpha M+\frac{D}{12000000},\qquad
+ C_H=A\left(\frac{\alpha M}{50}+\frac{9\alpha^2}{100}\right)
+       +\frac{23D}{360000000}.
+ \label{eq:CH}
+\end{equation}
+The first partials of \(P\) have magnitude at most \(C_0\); each Hessian row has absolute sum at most \(C_H\). Since
+\[
+ L_a(s)=\int_0^1\partial_{z_a}P(\tau s_1,\tau s_2)\dd\tau,
+\]
+the row bound for \(\partial_sL\) is \(C_H/2\), from \(\int_0^1\tau\dd\tau=1/2\). Thus
+\[
+ 0\le\eta\le \min\left(\frac{S}{2C_0},\,\frac{S}{C_H}\right)
+\]
+is a sufficient nonzero range: its shift and contraction factor are at most \(1/4\).
+
+For \(m_0=0\), the wider convenient normalized range \eqref{eq:mag-box-range} gives the explicit bounds
+\begin{equation}
+ \frac{\eta C_0}{2S}
+ \le \frac9{20}a_{\rm L}+\frac{b_{\rm L}}{24000000}
+ \le\frac{37}{240}<\frac12,\qquad
+ \frac{\eta C_H}{4S}
+ \le\frac3{80}a_{\rm L}+\frac{23b_{\rm L}}{1440000000}
+ \le\frac{73}{2880}<1.
+ \label{eq:fourier-certificate}
+\end{equation}
+This proves existence, uniqueness, equal gains and \eqref{eq:positive-range}, uniformly in \(n\). It also proves that the derivative of the diagonal fixed-point map has magnitude below one, which justifies the monotonic residual used for the exact sign and neutral-placement conclusions.
+
+\subsection{Self-energy, native potential and mechanical energy}\label{app:accounts}
+The effective frozen-source field functionals can be written
+\[
+ \int\left(\frac{|\nabla\Phi|^2}{8\pi G_N}+\rho\Phi\right)\dd X,
+ \qquad
+ \int\left(\frac{|B|^2}{2\mu_0}-\Mmag\cdot B\right)\dd X.
+\]
+At their respective field solutions these reduce to
+\(\frac12\int\rho\Phi\) and \(-\frac12\int\Mmag\cdot B\). The latter is an effective prescribed-moment functional; it is not a statement that all magnetic matter and field energy is negative.
+
+For one radial profile define
+\[
+ J_\chi=\iint\frac{\chi(X)\chi(Y)}{|X-Y|}\dd X\dd Y,\qquad
+ K_\chi=\int\chi(X)^2\dd X.
+\]
+Its effective self-energies are
+\begin{equation}
+ U_{g,\rm self}=-\frac{G_NJ_\chi}{2}m^2,\qquad
+ U_{m,\rm self}=-\frac{\mu_0K_\chi}{3}|\mub|^2.
+ \label{eq:self}
+\end{equation}
+For the magnetic formula, in Fourier space
+\(\widehat B=\mu_0(I-\widehat k\widehat k^T)\widehat{\Mmag}\).
+The angular average of this transverse projector is \(2I_3/3\) for radial \(\widehat\chi\), and Parseval's identity gives the coefficient. The positive magnetic field term alone is \(+\mu_0K_\chi|\mub|^2/3\); the source term is indispensable for the effective sign. GM02 records these separate self-energy accounts \cite{GM02}. Changes in \eqref{eq:self} are absent from Theorem~\ref{thm:energy}; including them requires adding their work to the chosen model.
+
+The native potential of NPC is
+\begin{equation}
+ \V(\Om)=\varepsilon\sum_i\left(\frac{|\Om_i|^4}{4}
+                  -\frac{k_i|\Om_i|^2}{2}\right)
+              +\frac g2\sum_{i<j}|\Om_i-\Om_j|^2,
+ \qquad v-\Om=-\nabla_{\R^6}\V. \label{eq:native-V}
+\end{equation}
+It has no automatic physical energy calibration \cite{NPC}. Full-map descent, including the phase stage, is proved under NPC's stated hypotheses; the fixed-tuple domain has \(0.9\le|\Om_i|\le1.1\) and ordinary phase width at most \(\pi/12\). A gradient prestage alone is insufficient to assert descent everywhere.
+
+At the real zero-load witness used above, the accepted exact value per body is
+\[
+ \V(F(e))-\V(e)=-\frac{3499999999}{200000000000000000}\ne0.
+\]
+At \(\eta=0\), the GM stores are constant. Hence adding an unscaled nonzero multiple of native \(\V\) to the conserved account would already violate conservation at that witness. A different work reservoir or feedback law would be needed; none is adopted here.
+
+If positive dictionary mass is also assigned as inertial mass, kinetic energy at fixed canonical momentum \(P\) changes according to
+\begin{equation}
+ \Delta\left(\frac{|P|^2}{2m}\right)
+ =-\frac{|P|^2\Delta m}{2m\,m^+}.
+ \label{eq:kinetic}
+\end{equation}
+The main model has fixed centers and zero momenta, so this term vanishes there. Nonzero momenta, moving centers, rotating poses, assigned moments of inertia and their force/torque laws require separate mechanical accounts. These omissions are explicit boundaries of the theorem, not hidden contributions to its store.

@@ -1,0 +1,46 @@
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+1 A silent center and a signed rim
+The simplest test separates a point observation from a measurement around a loop. A steady
+source circle and a coaxial receiving circle can have a zero vector observation at the receiving
+circle’s center while the oriented rim integral is strictly signed. This is the first result to explain.
+We then ask how a native state can prepare the source and whether the signed signal survives at
+a receiver with the model’s actual finite radius.
+The preceding GM01–GM03 paper imposed Newtonian and magnetostatic field laws through an
+explicit source dictionary and studied interaction-driven feedback [4]. The present paper follows
+a different chain: the adopted C6 exterior kernel, a prepared carrier, a proposed native-to-mean
+impulse, and a passive contour readout [ 1, 2, 3]. A line circle has finite-radius corrections; it is
+not the radial magnetization profile for which the earlier paper obtained an exact external dipole
+interaction.
+1.1 The adopted observation and its orientation
+Write a source circle and its oriented unit tangent as
+𝛾(𝜙) = 𝑌 + 𝑎( cos 𝜙 𝑒1 + sin 𝜙 𝑒2), ̂𝑡(𝜙) = − sin 𝜙 𝑒1 + cos 𝜙 𝑒2, 𝜈 = 𝑒 1 × 𝑒2, (1.1)
+where 𝑒1, 𝑒2 are orthonormal, 𝑎 > 0 , and 𝐿 = 2𝜋𝑎 . C6 adopts a straight delay , tangent encoding
+and inverse-distance kernel [7, 8]:
+𝑈(𝑃, 𝑡) = 𝑔𝑜
+4𝜋 ∫
+𝐿
+0
+𝑝(𝑠, 𝑡 − 𝑑𝑃(𝑠)/𝑐𝑒)
+𝑑𝑃(𝑠) d𝑠,
+𝑉(𝑃, 𝑡) = 𝑔𝑜
+4𝜋 ∫
+𝐿
+0
+𝑟𝑐(𝑠, 𝑡 − 𝑑𝑃(𝑠)/𝑐𝑒) ̂𝑡(𝑠)
+𝑑𝑃(𝑠) d𝑠, 𝑑 𝑃(𝑠) = |𝑃 − 𝛾(𝑠)|. (1.2)
+Here 𝑔𝑜, 𝑐𝑒 > 0 . A registered point probe returns (𝑈, 𝐵𝑇𝑉) for a known orthonormal frame B.
+The tangent-encoded 𝑟𝑐 ̂𝑡 is not assigned material electric current, and C6 is a passive observation
+without loading.
+Prepare the steady source 𝑝 = 0, 𝑟 𝑐 = 𝑗 , with the corresponding constant history. Then
+𝑉(𝑃) = 𝑔𝑜𝑗 4𝜋 ∮ Γ d𝛾 |𝑃 − 𝛾| , 𝐻(𝑃) ∶= ∇ 𝑃 × 𝑉(𝑃). (1.3)
+The symbol H denotes this mathematical curl. Identifying it with a measured magnetic field
+would require calibration beyond the adopted kernel.
+1.2 The finite receiving circle
+Place the receiving contour at
+𝑋 = 𝑌 + 𝑧𝜈, 𝑞(𝜃) = 𝑋 + 𝑏( cos 𝜃 𝑒1 + sin 𝜃 𝑒2), 𝑡(𝜃) = − sin 𝜃 𝑒1 + cos 𝜃 𝑒2, (1.4)
+with 𝑏 > 0, 𝑧 ≠ 0 . Increasing theta fixes the measured orientation. Its area-normalized signed
+reading is
+𝑆𝑏(𝑋, 𝜈) = 1 𝜋𝑏2 ∮ 𝜕𝐷𝑏 𝑉 ⋅ dℓ = 1 𝜋𝑏 ∫ 2𝜋 0 𝑉(𝑞(𝜃)) ⋅ 𝑡(𝜃) d𝜃. (1.5)
+At X every source point has distance √𝑎2 + 𝑧2, and ∮ d𝛾 = 0 ; consequently 𝑈(𝑋) = 𝑉(𝑋) = 0 ,
+for both an empty source and every constant j.
+2

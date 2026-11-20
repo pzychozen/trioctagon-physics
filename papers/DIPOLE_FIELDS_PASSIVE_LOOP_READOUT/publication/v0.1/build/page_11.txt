@@ -1,0 +1,37 @@
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+If 𝐹(𝜃) = 𝑉(𝑞(𝜃)) ⋅ 𝑡(𝜃) is 𝐶2, the composite trapezoidal error is
+|𝑆𝑏,𝑁 − 𝑆𝑏| ≤ 2𝜋2 3𝑏𝑁2 sup |𝐹″|. (4.12)
+Using 𝑞′ = 𝑏𝑡, 𝑞″ = −𝑏(𝑒 1 cos 𝜃 + 𝑒2 sin 𝜃), and the kernel derivatives,
+sup |𝐹″| ≤ 𝑔𝑜𝑎𝐽∗
+2 ( 2𝑏2 𝛿3 + 3𝑏 𝛿2 + 1 𝛿 ) (4.13)
+for contour-wire clearance delta. Indeed |𝐹″| ≤ 𝑏 2𝑀2,𝑉 + 3𝑏𝑀1,𝑉 + 𝑀0,𝑉, while inverse-distance
+derivatives are bounded by 2/𝛿3, 1/𝛿2, 1/𝛿.
+At 𝑅 = 100𝑤 , use 𝛿 > 97𝑤 , 𝑎 = 𝑏 > 𝑤/2 , 𝑎 = 𝑏 < 𝑤 , (4.8) and 𝜋2 < 10. For N=1024,
+|𝑆𝑏,1024 − 𝑆𝑏|
+|ℎlead| < 64000000 10242 ( 2 973 + 3 972 + 1 97 ) < 2 3 . (4.14)
+The continuous reading has magnitude greater than 2|ℎlead|/3, so the discrete sum retains its
+sign. These are new contour samples, not the old array’s body-center sites. The result is for
+𝑅 = 100𝑤 , not fixed N at every larger R. Tangent measurement error at most epsilon per sample
+adds at most 2𝜖/𝑏; no instrument precision is presumed. The one-sample coaxial corollary has a
+separate symmetry premise.
+4.3 Arrival and completion of the steady reading
+For a source history that vanishes before 𝑡0 and is constant after the jump, define on the rim C
+𝜏𝐶 min = min 𝑃∈𝐶,𝑖,𝑠 |𝑃 − 𝛾𝑖(𝑠)| 𝑐𝑒 , 𝜏 𝐶max = max 𝑃∈𝐶,𝑖,𝑠 |𝑃 − 𝛾𝑖(𝑠)| 𝑐𝑒 . (4.15)
+The contour is silent before 𝑡0 + 𝜏 𝐶 min. Its whole static record is available after the strict time
+𝑡 > 𝑡 0 + 𝜏 𝐶max, provided the sources remain constant. Intermediate records need their actual
+delayed histories; the earliest permitted contribution does not guarantee a nonzero aggregate at
+the first-arrival instant.
+The reviewed timing correction is
+𝜏𝐷𝑏 max = 𝜏 𝐶max. (4.16)
+For a fixed source point, every interior disk point is a convex combination of two rim points on
+a chord. Convexity of distance bounds its distance by the larger endpoint distance. Maximizing
+over source points proves equality. Disk and rim minima can differ. The strict post-maximum
+inequality gives a neighborhood where all delayed arguments lie in the smooth plateau, justifying
+Stokes and differentiation over the disk.
+For coaxial circles the common latest delay is √𝑧2 + (𝑎 + 𝑏)2/𝑐𝑒, while the rim and disk min-
+ima are respectively √𝑧2 + (𝑎 − 𝑏)2/𝑐𝑒 and √𝑧2 + (𝑎 − 𝑏)2+/𝑐𝑒. For the native placement, suﬀicient
+bounds are
+𝜏𝐷𝑏 min ≥ 𝑅 − ℓ0 − 𝑎 − 𝑏 𝑐𝑒 , 𝜏 𝐷𝑏 max = 𝜏 𝐶max ≤ 𝑅 + ℓ0 + 𝑎 + 𝑏 𝑐𝑒 . (4.17)
+At 𝑅 = 100𝑤 the ceiling is 101.82961419736 𝑤/𝑐𝑒. This is the adopted straight-delay clock, not a
+derived electromagnetic speed or native physical duration.
+11

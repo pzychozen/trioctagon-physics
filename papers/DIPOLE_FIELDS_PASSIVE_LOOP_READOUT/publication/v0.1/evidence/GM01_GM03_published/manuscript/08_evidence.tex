@@ -1,0 +1,28 @@
+\section{Evidence and manuscript verification}\label{app:evidence}
+Complete accepted GM01--GM03 archives remain preserved in the local review record. This public edition contains unchanged scientific derivations, check scripts, saved outputs, claim records and directly accessible primary sources. Their recorded suites contain 29, 47 and 39 checks, respectively. Those historical scientific suites were not rerun to prepare this manuscript. Their saved inputs and outputs were checked for byte identity, and 18 selected primary source files were checked against the pinned repository objects at commit
+\[
+ \texttt{ca22652dc000ca2b16419c1af4167918eab1ae94}.
+\]
+That identity is not a new proof or an assertion about the operator's working tree.
+
+Table~\ref{tab:claims} gives a compact reading crosswalk. The accompanying \texttt{CLAIM\_SOURCE\_CROSSWALK.json} supplies exact source file, section/equation, manuscript label and saved check identifiers; \texttt{SOURCE\_LOCATORS.json} adds pinned primary-source locators. The new manuscript checks verify the two measurement refinements, their stated nondegeneracy, and numerical transcription from existing certified intervals. The \(2r_0\) switch-off multipliers are obtained by applying \(s\mapsto2s-1\) to those intervals, not by another root calculation.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Claim families, original evidence and manuscript locations. All physical readings remain conditional on the added premises.}
+\label{tab:claims}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{.30\textwidth}>{\raggedright\arraybackslash}p{.30\textwidth}Y@{}}
+\toprule
+Claim family & Accepted source & This manuscript\\
+\midrule
+Sharp intensity--axial bound & GM01; Paper G identities & Proposition~\ref{prop:bound}, \eqref{eq:source-bound}\\
+Pair interaction and missing work & GM01; GM02 §§2--3 & Proposition~\ref{prop:radial}, \eqref{eq:gravity-obstruction}--\eqref{eq:finite-work}\\
+Store energy and local uniqueness & GM02 §§4--5 & Theorem~\ref{thm:energy}, Appendix~\ref{app:bounds}\\
+Spatial ordering, neutral locus and four gains & GM02 §§5--6; GM03 §2 & Section~\ref{sec:spatial}, Table~\ref{tab:benchmark}\\
+Switch-off, nonzero direction and work & GM03 §§3--4 & Section~\ref{sec:test}\\
+Measurement, rank and scale limits & GM03 §§5--7 & Section~\ref{sec:observation}\\
+Middle-channel refinements & Writing order; GM03 (1), (4), (20) & \eqref{eq:amplitude}, \eqref{eq:component-test}\\
+\bottomrule
+\end{tabularx}
+\end{table}
+The supplied one-page explanation is retained with its original wording. Its all-coordinate measurement wording is refined only in this new edition. Source preservation, document references, embedded fonts, numerical transcription, build logs and a page-by-page visual inspection are recorded separately. All numerical benchmark values are model predictions; no independent measurement, experimental rejection or empirical acceptance is reported.

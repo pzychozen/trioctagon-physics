@@ -1,0 +1,48 @@
+--- corrected-local/manuscript/05_scope.tex
++++ publication/manuscript/05_scope.tex
+@@ -56,4 +56,4 @@
+ The two tests answer distinct parts of the source-to-readout question. The coaxial control proves that a zero center vector can coexist with a nonzero signed loop measurement. The native control proves that the specified source impulse can place the native planar moment into a resolvable signed finite-radius observation. Its cost is \eqref{eq:launchcost}, and its readout is the scalar \eqref{eq:stokes}. An autonomous response of a second triad is a subsequent constitutive choice, not an unperformed step in either proof.
+ 
+ \paragraph{Research provenance.}
+-Hilmir Frímann Halldórsson is the author. GPT supplied analytical proposals and project-internal review; Codex supplied source verification, mathematical checking and manuscript preparation. These tools are not coauthors. The accepted investigations and their corrections are preserved unchanged, with exact primary-source identities and a manuscript crosswalk. This manuscript introduces no new scientific run, native coefficient, production change or publication decision. Existing source-specific notices remain in force; no new blanket reuse licence is granted.
++Hilmir Frímann Halldórsson is the author. GPT supplied analytical proposals and project-internal review; Codex supplied source verification, mathematical checking and manuscript preparation. These tools are not coauthors. The accepted investigations and their corrections are preserved unchanged, with exact primary-source identities and a manuscript crosswalk. This publication introduces no new scientific run, native coefficient or production change. Existing source-specific notices remain in force; no new blanket reuse licence is granted.
+--- corrected-local/manuscript/06_appendix.tex
++++ publication/manuscript/06_appendix.tex
+@@ -17,7 +17,7 @@
+ The diagonal entries of \(24I-M\) are \(15+21q\) and \(36(1-q)\); its determinant is \(180(1-q)(3+q)\). The diagonal entries of \(24I+M\) are \(33-21q\ge12\) and \(12+36q\ge12\); its determinant is \(396+180q(2-q)\ge396\). Both matrices are positive semidefinite. Hence all eigenvalues of M lie between -24 and 24, proving \eqref{eq:D2G}. Taylor's integral remainder contributes one half, and integration of \(|\rho|^2\) over the radius-a disk gives \(\pi a^4/2\). Multiplication by \(g_o|j|/(4\pi)\) yields the coefficient \(3g_o|j|a^4/2\) in \eqref{eq:remainder}.
+ 
+ \section{Evidence and claim correspondence}\label{app:evidence}
+-The accompanying local package preserves the complete GM06 submission, its review and corrected derivation, with the full earlier GM05/GM04 evidence nested unchanged. Flat copies of 24 primary sources retain their recorded SHA-256 and Git blob identities. The contextual GM01--GM03 manuscript is the author-approved edition~\cite{GM123}; its exact commit and PDF identity are retained in the preserved publication receipt.
++The public edition preserves the accepted GM04--GM06 scientific derivations, reviews, check programs, saved results and exact primary sources. Complete original submission archives remain in the local record. Flat copies of 24 primary sources retain their SHA-256 and Git blob identities. The contextual GM01--GM03 manuscript is the author-approved edition~\cite{GM123}; its commit and PDF identity are retained in the preserved receipt.
+ 
+ \begin{table}[htbp]\centering\small
+ \begin{tabularx}{\textwidth}{@{}p{.41\textwidth}Y@{}}\toprule
+--- corrected-local/manuscript/main.tex
++++ publication/manuscript/main.tex
+@@ -10,7 +10,7 @@
+ \definecolor{teal}{RGB}{0,113,116}
+ \definecolor{rust}{RGB}{164,73,38}
+ \usepackage[colorlinks=true,linkcolor=ink,citecolor=ink,urlcolor=ink]{hyperref}
+-\hypersetup{pdftitle={Dipole Fields and Passive Loop Readout in the Tri-Octagon Model},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={GM04--GM06; research edition v0.1; GPT-reviewed manuscript; author publication decision pending}}
++\hypersetup{pdftitle={Dipole Fields and Passive Loop Readout in the Tri-Octagon Model},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={GM04--GM06; research edition v0.1; author-approved repository research edition; project-internal GPT review}}
+ \pagestyle{fancy}\fancyhf{}
+ \fancyhead[L]{\small Tri-Octagon: dipole fields and loop readout}
+ \fancyhead[R]{\small Research edition v0.1}
+@@ -42,7 +42,7 @@
+ {\large Hilmir Frímann Halldórsson\par}
+ \vspace{3mm}
+ {Research edition v0.1 \quad 20 November 2026\par}
+-{\small GPT-reviewed local edition; author publication decision pending.\par}
++{\small Author-approved repository research edition.\par}
+ \vspace{8mm}
+ \begin{abstract}
+ A steady tangent-encoded circulation on an adopted Tri-Octagon carrier circle produces a vector observation whose spatial curl has the dipole angular tensor and inverse-cube leading decay. We develop two signed tests from that exterior kernel. In the coaxial test the vector observation vanishes at the receiving circle's center, yet its oriented rim integral has the source sign at every positive pair of radii and nonzero axial separation. Rotational symmetry makes one ideal tangential rim sample sufficient in this special case.
+@@ -50,7 +50,7 @@
+ The native map does not itself assign the required carrier means. A proposed three-loop source impulse lifts the native planar observable \(W\) to unique minimum-storage means under equal weights. Its exact Fourier launch costs \(6.768750025\times10^{-9}L\alpha^2\); conjugation reverses the means at the same cost. A finite receiving circle on a registered rigid copy distinguishes the two launches for every \(R\ge100w\), with a relative error certificate below one third. At \(R=100w\), 1,024 additional exact contour samples also suffice. The circle center, body-center probe, finite-area component, source offsets and complete delay window remain distinct. The source impulse and contour readout are explicit additions. An internal source donor and a law changing a second native triad remain open.
+ \end{abstract}
+ \vfill
+-{\small\textbf{Status and provenance.} This manuscript assembles the project-internally accepted GM04, corrected GM05 and reviewed GM06 investigations. It incorporates the common-offset and latest-delay corrections. The manuscript has passed GPT review with the two receiver-wording corrections; the author's publication decision is pending. The tests are mathematical consequences of specified equations; no external peer review or physical validation is claimed. GPT supplied proposals and review; Codex supplied source verification, mathematical checks and manuscript preparation under the author's direction.}
++{\small\textbf{Status and provenance.} This manuscript assembles the project-internally accepted GM04, corrected GM05 and reviewed GM06 investigations. It incorporates the common-offset and latest-delay corrections. After GPT review and the two wording corrections, the author approved repository publication. The tests are mathematical consequences of specified equations; no external peer review or physical validation is claimed. GPT supplied proposals and review; Codex supplied source verification, mathematical checks and manuscript preparation under the author's direction.}
+ \end{titlepage}
+ \setcounter{page}{2}
+ \input{01_coaxial}

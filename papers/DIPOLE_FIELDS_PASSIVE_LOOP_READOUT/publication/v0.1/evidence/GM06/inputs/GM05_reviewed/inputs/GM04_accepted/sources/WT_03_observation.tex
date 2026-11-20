@@ -1,0 +1,117 @@
+\section{Causal observation and its finite-window temporal adjoint}\label{sec:observation}
+The geometry now guarantees that the inherited C6 formula can be evaluated away from the carrier. This fact concerns observation, not loading. Set
+\begin{equation}\label{eq:spaces}
+U=L^2(S_L;\R^2),\qquad Y=L^2(G;\R^4),\qquad
+\Hcal_T=L^2([-\Theta,T];U),\qquad \Ycal_T=L^2([0,T];Y),
+\end{equation}
+where $0<T<\infty$. The measures are $ds\,du$ and $d\ell_X\,dt$, with sums implicit in the labeled G integral. For $a_o=g_o/(4\pi)>0$, let
+\begin{equation}\label{eq:As}
+A_s(p,r_c)=(p,r_c\hat t(s)),\qquad A_s^*A_s=I_2.
+\end{equation}
+The ambient C6 observation is~\cite{CCcarrier}
+\begin{equation}\label{eq:C6}
+(\KG Q)(X,t)=\binom{U_o(X,t)}{V_o(X,t)}
+=a_o\int_{S_L}\frac{A_sQ(s,t-\theta_X(s))}{d_X(s)}\dd s.
+\end{equation}
+Subscripts on $U_o,V_o$ distinguish output components from Hilbert spaces. A fixed orthonormal observation frame E would give $(U_o,E^TV_o)$ instead. E is not the profile operator $\Bcal$. The tangent vector $r_c\hat t$ is not the scalar carrier flux $\ccar p r_c$, and no squared observation norm is declared a receiving store.
+
+\subsection{A history-space bound and its limits}
+\begin{theorem}[Bounded causal history observation]\label{thm:observation}
+Formula~\eqref{eq:C6}, initially on smooth histories, extends uniquely to a bounded map $\KG:\Hcal_T\to\Ycal_T$, with
+\begin{equation}\label{eq:Kbound}
+\norm{\KG Q}_{\Ycal_T}\le\frac{a_o\sqrt{LM}}{\delta_w}\norm Q_{\Hcal_T}
+\le\frac{a_o\sqrt{LM_{w,*}}}{\delta_w}\norm Q_{\Hcal_T}.
+\end{equation}
+Its output is defined almost everywhere in space and time and is causal. For histories in $C([-\Theta,T];H^1_{\rm per})$, it has a continuous representative on each labeled arc times $[0,T]$. Evaluation at a single $(X,t)$ is not bounded in the weaker $\Hcal_T$ norm.
+\end{theorem}
+\begin{proof}
+The isometry of $A_s$ and Cauchy--Schwarz in s give
+\begin{equation}\label{eq:pointestimate}
+|\KG Q(X,t)|^2\le\frac{a_o^2L}{\delta_w^2}
+\int_{S_L}|Q(s,t-\theta_X(s))|^2\dd s.
+\end{equation}
+For fixed s,X substitute $u=t-\theta_X(s)$. The Jacobian is one and
+$[-\theta_X(s),T-\theta_X(s)]\subset[-\Theta,T]$. Tonelli and then integration over G give
+\begin{equation}\label{eq:translatedestimate}
+\int_G\int_0^T\int_{S_L}|Q(s,t-\theta_X(s))|^2\dd s\dd t\dd\ell_X
+\le M\norm Q_{\Hcal_T}^2.
+\end{equation}
+This proves~\eqref{eq:Kbound}. For a difference of representatives that is zero a.e. in $(s,u)$, the same nonnegative triple integral is zero; Fubini makes the s integral independent of representatives for a.e. $(X,t)$. Smooth periodic histories are dense in $\Hcal_T$, giving the unique bounded extension and its agreement with this integral. No single retarded graph through an arbitrary L2 function has been used as an independent trace theorem.
+
+Every input time is earlier than the output time by at least $\delta_w/c_e$. Thus equality of histories through a cutoff implies equality of observations through it, within the stated domains. The estimate needs no extra $\sqrt2$ because $A_s$ is an isometry and no extra $\sqrt T$ because time is already integrated in the history norm. It is an upper bound, not an assertion of an optimal operator norm. Since L and M scale as w while $\delta_w$ scales as w, its displayed uniform constant can be independent of width at fixed gain. The required horizon still scales as $w/c_e$.
+
+For the continuous-record statement, $H^1_{\rm per}\hookrightarrow C^0$ in one dimension is continuous. Time continuity in H1 therefore gives uniform-in-s continuity in time; together with the continuous spatial representatives it gives joint continuity on the compact history domain. Positive clearance and the continuous kernel imply continuity of the integral by dominated convergence, also at arc elbows and endpoints.
+
+To disprove bounded point evaluation, fix $X_0\in G$ and $0<t_0<T$. The smooth periodic graph $u_0(s)=t_0-\theta_{X_0}(s)$ lies strictly inside $[-\Theta,T]$: its lower margin is at least $t_0$, and its upper margin at least $T-t_0+\theta_-$. Choose nonzero smooth periodic $v\ge0$ and $\psi\in C_c^\infty((-1,1))$ with $\psi(0)>0$. For sufficiently small $\varepsilon>0$, put
+\begin{equation}\label{eq:narrowgraph}
+Q_\varepsilon(s,u)=\left(\varepsilon^{-1/2}v(s)
+\psi\!\left(\frac{u-u_0(s)}{\varepsilon}\right),0\right).
+\end{equation}
+Every bump lies inside the history interval, so direct time substitution gives
+$\norm{Q_\varepsilon}_{\Hcal_T}=\norm v_2\norm\psi_2$, independent of $\varepsilon$. But
+\begin{equation}\label{eq:pointunbounded}
+U_{o,\varepsilon}(X_0,t_0)=a_o\varepsilon^{-1/2}\psi(0)
+\int_{S_L}\frac{v(s)}{d_{X_0}(s)}\dd s\longrightarrow+\infty.
+\end{equation}
+Each history is smooth. This proves unboundedness already on that class and does not contradict continuity under the stronger history topology.
+\end{proof}
+
+All required negative-time history must be provided. A carrier value at time zero, even an empty value, does not by itself specify the past needed by C6.
+
+\subsection{The exact temporal adjoint}
+For $\lambda=(\lambda_0,\lambda_v)\in\Ycal_T$, extend it by zero outside $[0,T]$, writing $\widetilde\lambda$. The test is mathematical dual data; no physical load units or constitutive interpretation is implicit.
+
+\begin{proposition}[Complete finite-window duality]\label{prop:adjoint}
+The Hilbert adjoint $\KG^*:\Ycal_T\to\Hcal_T$ is
+\begin{equation}\label{eq:temporaladjoint}
+(\KG^*\lambda)(s,u)=a_o\int_G\frac{1}{d_X(s)}
+\binom{\widetilde\lambda_0(X,u+\theta_X(s))}
+{\hat t(s)\cdot\widetilde\lambda_v(X,u+\theta_X(s))}\dd\ell_X.
+\end{equation}
+It satisfies
+\begin{equation}\label{eq:duality}
+\ip{\lambda}{\KG Q}_{\Ycal_T}=\ip{Q}{\KG^*\lambda}_{\Hcal_T},
+\qquad\norm{\KG^*}=\norm{\KG},
+\end{equation}
+and can be supported only in $[-\theta_+,T-\theta_-]\subset[-\Theta,T]$. Its restriction to $u\in[0,T]$ is zero a.e. if $T\le\theta_-$; for $T>\theta_-$ that restriction is, in general, noncausal as an operator on the test history.
+\end{proposition}
+\begin{proof}
+Insert~\eqref{eq:C6} in the left pairing. Its absolute triple integral is bounded by
+\[
+(a_o/\delta_w)\sqrt{LM}\norm\lambda_{\Ycal_T}\norm Q_{\Hcal_T},
+\]
+using Cauchy--Schwarz on $(X,t,s)$ and~\eqref{eq:translatedestimate}. Fubini is legitimate. At fixed s,X translate time to $u=t-\theta_X(s)$. The indicator becomes exactly $0\le u+\theta_X(s)\le T$, retained by zero extension, and $A_s^*(\lambda_0,\lambda_v)=(\lambda_0,\hat t\cdot\lambda_v)$. This proves the displayed formula and pairing. No spatial variable changes, so no derivative of the delay or additional Jacobian appears.
+
+Conversely, Cauchy--Schwarz in X bounds the square of~\eqref{eq:temporaladjoint} by
+\[
+a_o^2M\delta_w^{-2}\int_G|\widetilde\lambda(X,u+\theta_X(s))|^2\dd\ell_X.
+\]
+Integration in u,s proves the same operator bound and representative independence. The norm equality follows by Hilbert duality; it does not say the bound in~\eqref{eq:Kbound} is sharp. In framed output coordinates the second component must instead contain $\hat t\cdot(E\widetilde\lambda_v)$.
+
+The translated indicator gives the support claim. For $T\le\theta_-$ it vanishes at every u>0; a possible equality at u=0 is a null time endpoint. The full adjoint can still be nonzero on prehistory.
+
+For $T>\theta_-$, choose a carrier point $s_*$ and a point $X_*$ in a segment interior with $\theta_*:=\theta_{X_*}(s_*)<T$. If a minimizer is a tip or elbow, continuity permits moving into a neighboring interior while preserving this strict inequality. Choose $0<u_*<T-\theta_*$ and
+\begin{equation}\label{eq:futureepsilon}
+0<\varepsilon<\min\{u_*/4,\theta_*/8,(T-u_*-\theta_*)/4\}.
+\end{equation}
+Shrink circle/arc neighborhoods until $|\theta_X(s)-\theta_*|<\varepsilon$. Take a nonnegative scalar test with a spatial bump positive on a smaller arc patch and a time bump positive for
+$|t-(u_*+\theta_*)|<2\varepsilon$, supported where that difference is less than $3\varepsilon$; set $\lambda_v=0$. Its entire support is later than $u_*$ and inside the window. For s in the smaller circle neighborhood and $u\in(u_*-\varepsilon,u_*)$, the shifted time lies in the positive part. Positivity of $a_o/d_X(s)$ makes the scalar adjoint strictly positive on this set of positive $ds\,du$ measure. The test and zero test agree through $u_*$ but their adjoints differ before it. This is noncausal dependence in L2, not an isolated point-value assertion.
+\end{proof}
+
+This is a limitation of using this particular temporal adjoint directly as forward feedback. It does not exclude causal systems with extra memory, propagation, storage or different ports. Integrated duality is not instantaneous physical power matching.
+
+\subsection{What present carrier data cannot determine}
+\begin{proposition}[An unrestricted-history witness]\label{prop:presenthistory}
+On the smooth history domain of C6, the present carrier value alone does not determine its observation.
+\end{proposition}
+\begin{proof}
+Fix an interior arc point $X_0$, $0<t_0<T$, and any $s_0$. The delayed time
+$u_*=t_0-\theta_{X_0}(s_0)$ belongs to $(-\Theta,t_0)$. Choose
+$0<\varepsilon<\frac12\min\{u_*+\Theta,t_0-u_*\}$ and a nonnegative smooth bump $\phi$ supported in $(u_*-\varepsilon,u_*+\varepsilon)$ with $\phi(u_*)>0$. For example use $\exp[-1/(1-((u-u_*)/\varepsilon)^2)]$ inside that interval and zero outside. The two histories $Q_0=0$ and $Q_1(s,u)=(\phi(u),0)$ are smooth and periodic and have identical zero carrier values at $t_0$. Delay continuity makes $\phi(t_0-\theta_{X_0}(s))>0$ on a circle neighborhood of $s_0$, so
+\begin{equation}\label{eq:historywitness}
+U_{o,1}(X_0,t_0)=a_o\int_{S_L}\frac{\phi(t_0-\theta_{X_0}(s))}{d_{X_0}(s)}\dd s>0=U_{o,0}(X_0,t_0).
+\end{equation}
+Continuous records give a difference on a nonempty observation neighborhood too.
+\end{proof}
+
+These are arbitrary histories, not two solutions of RX or C1. The proposition establishes no failure of reconstruction from a full $(x,Q,z)$ state, no native-map noninvertibility result and no universal obstruction under a prescribed launch/prehistory protocol. The separate accepted common-phase information result concerns an outlet rule that actually distinguishes common-phase-related native states while exchange outputs agree; it is not strengthened by this witness~\cite{centralpaper,Wreview}.

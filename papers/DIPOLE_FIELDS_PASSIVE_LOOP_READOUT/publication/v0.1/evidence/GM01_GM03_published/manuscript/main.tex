@@ -1,0 +1,66 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{texgyrepagella-regular.otf}[BoldFont=texgyrepagella-bold.otf,ItalicFont=texgyrepagella-italic.otf,BoldItalicFont=texgyrepagella-bolditalic.otf]
+\setmathfont{texgyrepagella-math.otf}
+\setmonofont{lmmono10-regular.otf}
+\usepackage{booktabs,array,tabularx,xcolor,graphicx,fancyhdr,xurl}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\hypersetup{pdftitle={Gravitational and magnetic source correspondence in the Tri-Octagon model: energy exchange and a switch-off test},pdfauthor={Hilmir Frímann Halldórsson},pdfsubject={GM01--GM03; research edition v0.1; author-approved repository publication}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Tri-Octagon: sources, exchange and switch-off}
+\fancyhead[R]{\small Research edition v0.1}
+\fancyfoot[C]{\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\setlength{\emergencystretch}{3em}\raggedbottom
+\clubpenalty=10000\widowpenalty=10000\displaywidowpenalty=10000
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\Om}{\Omega}\newcommand{\ii}{\mathrm i}
+\newcommand{\dd}{\,\mathrm d}\newcommand{\Argz}{\operatorname{Arg}_0}
+\newcommand{\diag}{\operatorname{diag}}\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\V}{\mathcal V}\newcommand{\E}{\mathcal E}
+\newcommand{\Q}{\mathsf Q}\newcommand{\Mmag}{\mathcal M}
+\newcommand{\mub}{\symbf{\mu}}
+\newcommand{\GM}{GM01--GM03}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\begin{document}
+\begin{titlepage}
+{\small\color{blue!45!black} TRI-OCTAGON MATHEMATICAL RESEARCH\par}
+\vspace{9mm}
+{\LARGE\bfseries\raggedright Gravitational and magnetic source correspondence in the Tri-Octagon model:\par}
+\vspace{3mm}
+{\LARGE\bfseries energy exchange and a switch-off test\par}
+\vspace{8mm}
+{\large Hilmir Frímann Halldórsson\par}
+\vspace{3mm}
+{Research edition v0.1 \quad 20 November 2026\par}
+{\small Author-approved repository research edition.\par}
+\vspace{7mm}
+\begin{abstract}
+The native Tri-Octagon state determines an intensity and a geometry-attached axial vector. We derive their sharp inequality and use them in an explicitly added mass--dipole dictionary. Newtonian gravity and magnetostatics are premises of this extension. For disjoint radial source profiles, harmonic averaging gives an exact two-body interaction. Native source updates alone do not balance its change: the same internal update produces different gravitational work at different separations and opposite magnetic work in parallel and transverse placements.
+
+A proposed nonnegative store changes the advance along each frozen native update direction. Its midpoint rule conserves the specified pair-plus-store energy exactly and has a unique solution in stated nonzero load ranges. An initially dipole-silent Fourier preparation yields certified spatial response and neutral-placement predictions. Most directly, after one loaded step with gain \(s_{\rm on}\), a verified switch to zero load predicts the next gain \(2s_{\rm on}-1\), relative to a neutral copy at the same reached state. This test can reject the feedback without identifying a physical carrier. In this preparation, one calibrated channel amplitude determines the first gain; the full registered state is needed for the full vector test. We separate mathematical predictions, parameter identifiability and independent energy measurements. A physical store, instrument, clock and switching procedure remain to be identified.
+\end{abstract}
+\vfill
+{\small\textbf{Status and provenance.} The three underlying investigations have project-internal mathematical acceptance recorded in the retained review evidence. The author approved this combined manuscript for repository publication; no external peer review or physical validation is claimed. The author's geometric programme and research direction are retained. GPT supplied analytical proposals and review; Codex supplied mathematical checks, source verification and manuscript preparation. Earlier papers and evidence remain unchanged.}
+\end{titlepage}
+\setcounter{page}{2}
+\input{01_native}
+\input{02_fields}
+\input{03_feedback}
+\input{04_spatial}
+\input{05_test}
+\input{06_observation}
+\appendix
+\input{07_bounds}
+\input{08_evidence}
+\input{references}
+\end{document}

@@ -1,0 +1,361 @@
+{
+  "status": "PASS",
+  "count": 39,
+  "checks": [
+    {
+      "id": "T01_gravity_r",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "Recheck stored rational signs and widths, without replaying the accepted GM02 suite."
+    },
+    {
+      "id": "T01_gravity_2r",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "Recheck stored rational signs and widths, without replaying the accepted GM02 suite."
+    },
+    {
+      "id": "T01_magnetic_parallel",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "Recheck stored rational signs and widths, without replaying the accepted GM02 suite."
+    },
+    {
+      "id": "T01_magnetic_transverse",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "Recheck stored rational signs and widths, without replaying the accepted GM02 suite."
+    },
+    {
+      "id": "T02_neutral_interior",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "Interior benchmark neutral angle."
+    },
+    {
+      "id": "T03_neutral_angle",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "Unloaded endpoint criterion only."
+    },
+    {
+      "id": "T04_neutral_distance",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "Fixed parameters: loads scale as inverse distance and inverse distance cubed."
+    },
+    {
+      "id": "T05_distance_certification",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "Critical distance and held-out 2r0 remain at or above r0; all angles slow at 2r0."
+    },
+    {
+      "id": "T06_reported_rounding",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "High precision decimal corroboration; exact formulas define the locus."
+    },
+    {
+      "id": "T07_direction_uniformity",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "Axial eigenvalue -2 for every nonzero center direction; orthogonal subspace eigenvalue +1."
+    },
+    {
+      "id": "T08_tensor_square",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "Spectral norm 2, hence the GM02 bound covers all directions."
+    },
+    {
+      "id": "T09_neutral_loaded_root",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "Unique certified root is exactly s=1; Qneutral is its restriction to the W plane."
+    },
+    {
+      "id": "T10_scan_plane_restriction",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "All path W lie in the body plane; a full physical n is specified for the scan."
+    },
+    {
+      "id": "T11_parallel_same_polynomial",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "Independently construct the residual and enclose its root in the GM02 bracket."
+    },
+    {
+      "id": "T12_parallel_next_rounding",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "Published 12-decimal next-step multiplier."
+    },
+    {
+      "id": "T13_parallel_store_scale",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "In-model consistency only; does not replace independently measured work."
+    },
+    {
+      "id": "T14_parallel_heldout_slows",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "Held-out geometry prediction using unchanged source/storage scales."
+    },
+    {
+      "id": "T11_transverse_same_polynomial",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "Independently construct the residual and enclose its root in the GM02 bracket."
+    },
+    {
+      "id": "T12_transverse_next_rounding",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "Published 12-decimal next-step multiplier."
+    },
+    {
+      "id": "T13_transverse_store_scale",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "In-model consistency only; does not replace independently measured work."
+    },
+    {
+      "id": "T14_transverse_heldout_slows",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "Held-out geometry prediction using unchanged source/storage scales."
+    },
+    {
+      "id": "T15_switch_off_doubling",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "Exact multiplier relation."
+    },
+    {
+      "id": "T16_neutral_off_control",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "No induced store difference at the neutral preparation."
+    },
+    {
+      "id": "T17_fixed_state_control",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "d=0 prevents a displacement-based identification of h."
+    },
+    {
+      "id": "T18_modulus_annulus",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "For all s in [1/2,3/2], each input modulus is between 0.9 and 1."
+    },
+    {
+      "id": "T19_native_gap_constant",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "Every second prestage modulus is at least this much below its input modulus."
+    },
+    {
+      "id": "T20_regular_second_prestage",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "Second prestages are nonzero; synchronization preserves their strict modulus deficit."
+    },
+    {
+      "id": "T21_sum_bound_identity",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "Magnitude is sqrt(3) a s < 3a on the certified box."
+    },
+    {
+      "id": "T22_projection_orthogonality",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "d nonzero; perpendicular residual tests response direction."
+    },
+    {
+      "id": "T23_projection_recovery",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "Exact registered state displacement."
+    },
+    {
+      "id": "T24_direction_negative_control",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "A transverse displacement cannot be hidden by fitting s."
+    },
+    {
+      "id": "T25_switching_work",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "q,h fixed across external switching."
+    },
+    {
+      "id": "T26_work_scale_inference",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "s not zero or one; unscaled pair work U."
+    },
+    {
+      "id": "T27_sensitivity",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "Diverging relative sensitivity near neutral advance."
+    },
+    {
+      "id": "T28_identifiability_rank",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "Independent source-work columns: positive gravity, negative parallel magnetic and positive transverse magnetic coefficients."
+    },
+    {
+      "id": "T29_two_ratio_fit",
+      "kind": "exact_predicate",
+      "pass_check": true,
+      "scope": "Interval recovery from model-generated state data, not independent validation."
+    },
+    {
+      "id": "T30_scale_degeneracy",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "Common source scaling and squared store scaling preserve state response."
+    },
+    {
+      "id": "T31_sign_degeneracy",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "Identical-body pair experiments do not recover the sign of kappa."
+    },
+    {
+      "id": "T32_zero_state_hidden_store",
+      "kind": "exact_identity",
+      "pass_check": true,
+      "scope": "Matched copies have different next displacements whenever s!=1 and d!=0."
+    }
+  ],
+  "benchmark": {
+    "I_F": "135375001/50000000",
+    "W_squared": "812250003/40000000000000000",
+    "gravity_work_coefficient": "4173609104249999/2500000000000000",
+    "neutral_ratio_xi": "4173609104249999/5076562518750000",
+    "neutral_cos_squared": "9250171622999999/15229687556250000",
+    "neutral_angle_degrees_approx": "38.7994149814675510099873711243",
+    "neutral_distance_ratio_approx": "1.55971044948195811846194426516",
+    "neutral_distance_squared_exact": "10153125037500000/4173609104249999"
+  },
+  "matched_trials": {
+    "parallel": {
+      "s_bracket": {
+        "lo": "637651207066292470573884753071/633825300114114700748351602688",
+        "hi": "1275302414132584941147769506143/1267650600228229401496703205376",
+        "decimal_lo": "1.006036216843172635657",
+        "decimal_hi": "1.006036216843172635657"
+      },
+      "next_off_bracket": {
+        "lo": "320738557009235120199708951727/316912650057057350374175801344",
+        "hi": "641477114018470240399417903455/633825300114114700748351602688",
+        "decimal_lo": "1.012072433686345271313",
+        "decimal_hi": "1.012072433686345271313"
+      },
+      "s_mid": "1.00603621684317263565658",
+      "next_off_mid": "1.01207243368634527131316",
+      "switching_work_over_S": {
+        "lo": "2497050403391778301091372681887326137968746768640790986315167045716816999103221072554809706213125535640407355571325458665159150159989123725664273/21848254908571261835507772046116707405555616179319314341503891675438740631303355483213052313445083473169019226485142368884359168000000000000000000",
+        "hi": "9988201613567113204365490727554191758955725915640009870713931667914197440064109226204623410985666702133059871475665989499089656694881194676811697/87393019634285047342031088184466829622222464717277257366015566701754962525213421932852209253780333892676076905940569475537436672000000000000000000",
+        "decimal_lo": "0.1142906110278017467030",
+        "decimal_hi": "0.1142906110278017467030"
+      },
+      "in_model_S_over_eta_fit": {
+        "lo": "530707461620364735895673197736822471468741312502052695579816794927330342285919079065634998003068023055195625187662645465566825039989123725664273/530707461620364735895673197794401993003376946260486178166155857661979849243183024426614932460002535618013918253020429399621632000000000000000000",
+        "hi": "2122829846481458943582692790952177092955704091085056707772530664756250812794901252247924578145436651792212949941014736700720356214881194676811697/2122829846481458943582692790898515086158225191319180673666117888701848362640785406254575024786414539326210143022797230635483136000000000000000000",
+        "decimal_lo": "1.000000000000000000000",
+        "decimal_hi": "1.000000000000000000000"
+      },
+      "heldout_2r0": {
+        "s_bracket": {
+          "lo": "316653186434366386299124964597/316912650057057350374175801344",
+          "hi": "1266612745737465545196499858389/1267650600228229401496703205376",
+          "decimal_lo": "0.9991812771669283320830",
+          "decimal_hi": "0.9991812771669283320830"
+        },
+        "s_mid": "0.999181277166928332082973",
+        "polynomial": "-1941783686015905875001*s**3/541500002000000000000000000 + 7919437497750003*s**2/54150000200000000000 + 5406471394198437497*s/5415000020000000000 - 3991/4000"
+      }
+    },
+    "transverse": {
+      "s_bracket": {
+        "lo": "19624594118441089475905441899/19807040628566084398385987584",
+        "hi": "1255974023580229726457948281537/1267650600228229401496703205376",
+        "decimal_lo": "0.9907888051755764486232",
+        "decimal_hi": "0.9907888051755764486232"
+      },
+      "next_off_bracket": {
+        "lo": "9721073804158047276712448107/9903520314283042199192993792",
+        "hi": "622148723466115025709596678849/633825300114114700748351602688",
+        "decimal_lo": "0.9815776103511528972464",
+        "decimal_hi": "0.9815776103511528972464"
+      },
+      "s_mid": "0.990788805175576448623219",
+      "next_off_mid": "0.981577610351152897246438",
+      "switching_work_over_S": {
+        "lo": "539595459406219064841447518998264505416080230865122680685684768851583594564461204632541799663084643325183441424790820436280505714589547/10086913586276986678343434265636765134100413253239154346994763111486904773503285916522052161250538404046496765518544896000000000000000000",
+        "hi": "131737172706596451377306523193048061674956527344898835046377792149297449319833725796025561642384039302642844679590326562989086609363/2462625387274654950767440006258975862817483704404090416746768337765357610718575663213391640930307227550414249394176000000000000000000",
+        "decimal_lo": "0.05349460514267974337078",
+        "decimal_hi": "0.05349460514267974337078"
+      },
+      "in_model_S_over_eta_fit": {
+        "lo": "89899112148122494191763077370259765978617006051469302460831358249584735644838083893179686041343611176894437765885513437010913390637/89899112148122494191763077375935133246778523481484103322681485632516078414125587561552662043710339181309140664320000000000000000000",
+        "hi": "40914084817634415134384618323227150739217440214044578949315990131359759450092725317160321649940423671000140830208691133746610476156717/40914084817634415134384618322222402072064276342468269258700759042706295948136461415103334356652815719760011569659904000000000000000000",
+        "decimal_lo": "1.000000000000000000000",
+        "decimal_hi": "1.000000000000000000000"
+      },
+      "heldout_2r0": {
+        "s_bracket": {
+          "lo": "632101131168840401254847618207/633825300114114700748351602688",
+          "hi": "1264202262337680802509695236415/1267650600228229401496703205376",
+          "decimal_lo": "0.9972797410501539178738",
+          "decimal_hi": "0.9972797410501539178738"
+        },
+        "s_mid": "0.997279741050153917873767",
+        "polynomial": "3375003937499*s**3/2000000000000000000 - 12937497*s**2/200000000000 + 20010687497*s/20000000000 - 3991/4000"
+      }
+    }
+  },
+  "second_native_step": {
+    "modulus_deficit_lower_bound": "5561/200000",
+    "prestage_modulus_lower_bound": "170981/200000",
+    "native_direction_norm_lower_bound": "5561*sqrt(3)/200000"
+  },
+  "identifiability": {
+    "design_determinant": {
+      "lo": "279581040084496627237861523035817495667704924208562290124334951906794150390925477589991150020702277750234275988465003566446498259570663846315655994935742443424106510465441432955885244244750726369291443014155646880907733508773145945632588220234578246563716903125514587173/2754768240921379055155905374782764189602968006762375574864494267168229513402040285006805175639962043899845221002352844916012013998018828963665380449725232371995687806318019136379841620443270771953096470409784414096724505634822845355314759965081600000000000000000000000000000000",
+      "hi": "2862909850465245462915701995893984681877717429543946168665375646984477970862120108638348577614545704761366952595004053807824345138293280184712304439900934355614164009860601516264377829796059695215103335127433024327067877078696674901816818014333888415010682536835437763943/28208826787034921524796471037775505301534392389246725886612421295802670217236892518469684998553211329534415063064093131939963023339712808587933495805186379489235843136696515956529578193339092704799707856996192400350458937700585936438423142042435584000000000000000000000000000000",
+      "decimal_lo": "1.014898589040601095840e-7",
+      "decimal_hi": "1.014898589040601095840e-7"
+    },
+    "a_load": {
+      "lo": "1060336981653794615894704442828787956772929768852642315243284781677929015564724845260315460137108024320377059007825926938512573993224040679909979962824947861692638995043983339491762436939048331692546916518372727456563207303415918665430914311266817697382400000000000000/106033698165379461589470444292369803032508052946072080320939838777202887809708152171790688059797989065235813059074224215104605375492343710544900164440775346504228296661503759861643623325779988711670493893608630530632143595507284255622845111641995867222617871734645843109",
+      "hi": "931936800281655424126205076885553589534939009261874475747887424931840456713790771596613894034198546661307741406935541508173689083838680404932632644258049882458306754715732851578808496940261477787957497254514518853707960757128458381403501306099751976960000000000000000/93193680028165542412620507678605831889234974736187430041444983968931383463641825863330383340234092583411425329488334522148832753190221282105218664978580814474702170155147144318628414748250242123097147671385215626969244502924381981877529406744859415521238967708504862391",
+      "decimal_lo": "0.01000000000000000000000",
+      "decimal_hi": "0.01000000000000000000000"
+    },
+    "b_load": {
+      "lo": "15147671166482780227067206327092167957247777502075455441712990860143038326438571346164959246501679960371362472430977517775934717766561898538504883542387300499383833395188309520710439769388657329654182620724647258671703951358583531885947148957168006123989290188800000000000000/15147671166482780227067206327481400433215436135153154331562834111028983972815450310255812579971141295033687579867746316443515053641763387220700023491539335214889756665929108551663374760825712673095784841944090075804591942215326322231835015948856552460373981676377977587",
+      "hi": "12155697394978114227733109698205677395459483821262672480937959991045423410404694629233721423068274151080429586141221353077561840841911493976245182138850519439509612604618560467310369738989393260543728467594328538573680454805507111193630400942945308821390622720000000000000000/12155697394978114227733109697209456333378474965589664788014563126382354364822846851738745653074012076097142434281087111584630359111767993318071999779814888844526370020236584041560228010641335929099627957137202038300336239511875910679677748705851228111465952309804982051",
+      "decimal_lo": "1000000.000000000000000",
+      "decimal_hi": "1000000.000000000000000"
+    }
+  },
+  "environment": {
+    "python": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+    "executable": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+    "sympy": "1.14.0",
+    "platform": "Windows-10-10.0.26300-SP0"
+  },
+  "empirical_status": "No independent physical measurements; all examples are consequences of the stated mathematical candidate.",
+  "script_sha256": "076d331078f947724061e96ff52e9ce86a3d953df4e47e19e082f28d2cd1ad36"
+}

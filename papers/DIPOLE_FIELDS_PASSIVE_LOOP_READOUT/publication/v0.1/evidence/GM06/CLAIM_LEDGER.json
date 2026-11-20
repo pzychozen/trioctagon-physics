@@ -1,0 +1,206 @@
+{
+  "status": "local GM06 review return; GM05 accepted with correction",
+  "claims": [
+    {
+      "id": "GM06-01",
+      "status": "inherited audit",
+      "statement": "C6 probes body centers in registered frames; mathematical evaluations over a continuous family are a distinct sampling choice.",
+      "sections": [
+        1
+      ],
+      "report": "GM06_DERIVATIONS.md",
+      "premises": [
+        "PAIR eq:placement",
+        "PAIRII eq:C6"
+      ],
+      "check_ids": [
+        "G03",
+        "G06"
+      ]
+    },
+    {
+      "id": "GM06-02",
+      "status": "new source-level observation",
+      "statement": "The actual upper and lower WT arcs each join into a closed six-edge walk, without an existing contour aggregator.",
+      "sections": [
+        1
+      ],
+      "report": "GM06_DERIVATIONS.md",
+      "premises": [
+        "WT eq:actualG",
+        "WT eq:closedmodel"
+      ],
+      "check_ids": [
+        "G07",
+        "G08",
+        "G09"
+      ]
+    },
+    {
+      "id": "GM06-03",
+      "status": "candidate readout",
+      "statement": "Add signed tangent sampling and integration around one receiving geometric circle; no active carrier is necessary.",
+      "sections": [
+        2
+      ],
+      "report": "GM06_DERIVATIONS.md",
+      "premises": [
+        "GM06 (5)-(6)"
+      ],
+      "check_ids": []
+    },
+    {
+      "id": "GM06-04",
+      "status": "conditional exact theorem",
+      "statement": "The contour is an area-average curl component with explicit disk-clearance, smoothness and finite-area error conditions.",
+      "sections": [
+        2
+      ],
+      "report": "GM06_DERIVATIONS.md",
+      "premises": [
+        "GM04 (10)-(12)",
+        "GM06 (6)-(9)"
+      ],
+      "check_ids": [
+        "D01",
+        "D02",
+        "D03"
+      ]
+    },
+    {
+      "id": "GM06-05",
+      "status": "conditional exact theorem",
+      "statement": "The coaxial finite-radius response has strictly the source sign for positive radii and nonzero axial separation.",
+      "sections": [
+        3
+      ],
+      "report": "GM06_DERIVATIONS.md",
+      "premises": [
+        "GM04 (6)-(7)",
+        "GM06 (15)-(17)"
+      ],
+      "check_ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "Q01",
+        "Q02",
+        "Q03"
+      ]
+    },
+    {
+      "id": "GM06-06",
+      "status": "placement qualification",
+      "statement": "The zero circle-center reading is distinct from the generally nonzero existing body-center reading.",
+      "sections": [
+        3
+      ],
+      "report": "GM06_DERIVATIONS.md",
+      "premises": [
+        "PAIR eq:circle, eq:placement",
+        "GM06 (19)"
+      ],
+      "check_ids": [
+        "Q05",
+        "Q13"
+      ]
+    },
+    {
+      "id": "GM06-07",
+      "status": "conditional exact theorem",
+      "statement": "At the specified proper receiving placement, every R>=100w has a signed contour response distinguishing the reviewed native launch and its conjugate.",
+      "sections": [
+        4
+      ],
+      "report": "GM06_DERIVATIONS.md",
+      "premises": [
+        "Reviewed GM05 (17)",
+        "GM04 (15)",
+        "GM06 (25)-(30)"
+      ],
+      "check_ids": [
+        "G04",
+        "G05",
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05",
+        "N06",
+        "N07",
+        "N08",
+        "Q09",
+        "Q10",
+        "Q11",
+        "Q12"
+      ]
+    },
+    {
+      "id": "GM06-08",
+      "status": "conditional finite sampling theorem",
+      "statement": "1024 added exact tangent samples at R=100w determine the same sign by a bounded quadrature error.",
+      "sections": [
+        2,
+        4
+      ],
+      "report": "GM06_DERIVATIONS.md",
+      "premises": [
+        "GM06 (11)-(12), (31)"
+      ],
+      "check_ids": [
+        "N09",
+        "Q14",
+        "Q15"
+      ]
+    },
+    {
+      "id": "GM06-09",
+      "status": "observability limitation",
+      "statement": "Three coplanar normals have rank two even at a common point; the actual loop centers also differ.",
+      "sections": [
+        5
+      ],
+      "report": "GM06_DERIVATIONS.md",
+      "premises": [
+        "PAIR eq:circle",
+        "GM06 (32)"
+      ],
+      "check_ids": [
+        "G01",
+        "G10"
+      ]
+    },
+    {
+      "id": "GM06-10",
+      "status": "history qualification",
+      "statement": "The steady contour and disk comparisons require complete source-to-domain delay windows after the source jump.",
+      "sections": [
+        6
+      ],
+      "report": "GM06_DERIVATIONS.md",
+      "premises": [
+        "INT eq:C6",
+        "GM06 (33)-(34)"
+      ],
+      "check_ids": []
+    },
+    {
+      "id": "GM06-11",
+      "status": "open coupling",
+      "statement": "No inspected equation feeds the proposed contour reading into a second native triad; active response, reciprocal work and the source donor remain separate.",
+      "sections": [
+        1,
+        7
+      ],
+      "report": "GM06_DERIVATIONS.md",
+      "premises": [
+        "WT eq:RX, eq:closedmodel",
+        "Reviewed GM05 section 7"
+      ],
+      "check_ids": []
+    }
+  ]
+}

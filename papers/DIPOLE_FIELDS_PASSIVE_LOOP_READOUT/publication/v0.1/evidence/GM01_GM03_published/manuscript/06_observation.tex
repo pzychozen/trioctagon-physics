@@ -1,0 +1,82 @@
+\section{Observations, identifiability and decisive failures}\label{sec:observation}
+\subsection{Registering an internal advance}
+Given the full registered initial and final real states, let
+\begin{equation}
+ s_{\rm obs}=\frac{(q^+-q)\cdot d}{d\cdot d},\qquad
+ r_\perp=(q^+-q)-s_{\rm obs}d,\qquad d=F(q)-q\ne0.
+ \label{eq:projection}
+\end{equation}
+The scalar feedback requires \(r_\perp=0\). A nonzero perpendicular residual beyond measurement error rejects its directional form; changing \(\alpha,\kappa,S\) cannot repair a direction error. If \(d\) is known exactly and the displacement error has norm at most \(\epsilon_{\rm obs}\), the gain error is at most \(\epsilon_{\rm obs}/\|d\|\). Near native fixed states this inference is poorly conditioned.
+
+Registration means retaining channel labels and their \(k_i\), handedness and pose conventions, amplitude calibration, and a consistent complex phase reference across the states being compared. One common phase choice on a regular native domain is harmless. Independently rephasing snapshots or matched copies changes the displacement test. Native update count alone does not provide physical time. Formula~\eqref{eq:amplitude} is a preparation-specific scalar shortcut, not an exception to these requirements for the full vector test.
+
+\subsection{What independent work would determine}
+For two identical neutral stores and a symmetric gain \(s\), the total store increment is
+\[
+ \Delta E_{\rm stores}
+ =S\big((2s-1)^2-1\big)=4Ss(s-1).
+\]
+Conservation at fixed load therefore gives
+\begin{equation}
+ \frac{S}{\eta}=-\frac{\Delta U_{\rm loaded}}{4s(s-1)}
+ \quad(\eta\ne0,\ s\ne0,1).
+ \label{eq:energy-scale}
+\end{equation}
+Here \(\Delta U_{\rm loaded}=u(s)-u_0\), not the ordinary-endpoint \(\Delta U_F\). If the independently measured energy change is already the weighted quantity \(\eta\Delta U\), the same quotient gives \(S\) directly. Values inferred across trials must be positive and consistent with one shared scale.
+
+Substituting a model-computed \(\Delta U\) into \eqref{eq:energy-scale} tests internal consistency only. Physical energy validation needs independently measured work or an independently calibrated energy store. Near neutrality the inference loses sensitivity: to first order, with \(R=S/\eta\),
+\[
+ \frac{\delta R}{R}\simeq
+ \frac{\delta(\Delta U)}{\Delta U}
+ -\frac{2s-1}{s(s-1)}\,\delta s.
+\]
+At exact neutrality it is a \(0/0\) expression, not a determination of \(S\).
+
+\subsection{Two ratios, not three absolute scales}
+Assume \(m_0=0\), calibrated geometry and load, and define the state/geometry functions
+\[
+ J_g=-\frac{I_1I_2}{r},\qquad
+ J_m=\frac{W_1^T\Q(n)W_2}{r^3}
+\]
+for the common fixed pose \(I_3\). Each symmetric trial gives
+\begin{equation}
+ \frac{G_N\alpha^2}{S}\Delta J_g+
+ \frac{c_m\kappa^2}{S}\Delta J_m
+ =-\frac{4s(s-1)}{\eta}.
+ \label{eq:ratios}
+\end{equation}
+Two or more trials identify these two ratios if the matrix of measured rows
+\((\Delta J_g,\Delta J_m)\) has rank two. In the parallel/transverse benchmark, both gravitational coefficients are positive and the magnetic coefficients have opposite signs. Their determinant is nonzero, as also checked using the accepted rational gain brackets in GM03. Reconstructing \(a_{\rm L}=0.01\), \(b_{\rm L}=10^6\) from model-generated data illustrates this identifiability; it is not empirical evidence.
+
+For any \(c>0\), the transformation
+\begin{equation}
+ \alpha\mapsto c\alpha,\qquad
+ \kappa\mapsto c\kappa,\qquad S\mapsto c^2S
+ \label{eq:scale}
+\end{equation}
+preserves the gains and the two ratios. Identical-pair data also leave the sign of \(\kappa\) unresolved. Unknown absolute length or load adds further ambiguity. Independent mass, moment or work measurements are needed to separate absolute scales. The neutral curve eliminates \(S\), so it constrains the relative source interaction without locating or calibrating the store.
+
+\subsection{What existing readouts and carriers supply}
+The prior papers already provide useful mathematical structures. They must be compared by their equations rather than by a shared word such as “memory” or “energy.”
+
+\textbf{Face decoding and reconstruction.} In PHASE, the fixed tangent-plane decoder and inverse are
+\[
+ D_i(x+\ii y)=x\,t_i+y\,e_z,\qquad
+ E_i(v)=t_i\cdot v+\ii e_z\cdot v,
+\]
+with the inverse asserted on the assigned plane \cite{PHASE}. This is a geometric representation, not an instrument or a material particle trajectory. PHASE's retained-coherence reconstruction theorem uses its near-aligned domain and an initial common phase. It does not automatically reconstruct the present Fourier or loaded histories.
+
+\textbf{Receiver and transport storage.} RX introduces native, carrier and receiver energies, including \(H_N=\alpha_N|x|^2/2\), \(H_C=\frac12\int(p^2+r_c^2)\), and \(H_R=\beta_R|z|^2/2\), with independent initial data \cite{RX}. Its hybrid construction performs the ordinary native map followed by reciprocal exchange. With its exchange couplings zero, receiver state can persist, but it does not multiply the native update by the GM store variable. WT adds a storage-bearing transport route and associated projected feedback \cite{WT}. Switching off that new transport coupling alone need not switch off RX's older couplings. Neither source identifies a variable with the initialization, energy calibration and zero-load multiplier law of \eqref{eq:feedback}.
+
+\textbf{Observation memory.} PHASE distinguishes raw readouts, staged quantities and an observer's exponential moving average, including its specified \(0.01\) innovation coefficient \cite{PHASE}. These require their own sampling order and initial observer state. They are not feedback in the native recurrence, have no automatic joule calibration, and are not automatically frozen by setting the present \(\eta\) to zero. An observer record may reveal history without being the physical energy store.
+
+These comparisons preserve possibilities for a future correspondence. They do not prove that every physical carrier is impossible. A candidate carrier must supply its own preparation, coupling, persistence and measurable energy relation.
+
+\subsection{What would reject this extension}
+A physical test requires a registered state readout, the stated initial preparation, a matched neutral copy at the reached state, and a controlled switch whose effect on \(q,h\) and external work is independently established. The nonzero-direction bound makes the proposed Fourier comparison nondegenerate in the model. Subject to experimental errors and those controls, any of the following observations is decisive for the indicated claim:
+\begin{enumerate}
+ \item A displacement outside the native direction rejects the scalar-advance form, even if an amplitude-only first-step estimate fits.
+ \item A next-step exposed/control difference inconsistent with \eqref{eq:vector-test}, including failure in channel \(B\), rejects the midpoint/persistent-store feedback. Refitting mass, moment or storage scales cannot alter its parameter-free multiplier once \(s_{\rm on}\) is measured.
+ \item Independently measured work inconsistent with \eqref{eq:energy-scale} across trials rejects the specified pair-plus-store energy account, even if the switch-off multiplier happens to agree.
+\end{enumerate}
+The source bound, the proposed source dictionary, the static field premises and this particular feedback are distinct claims. A failure of the last need not falsify the dictionary. Conversely, an axial observable or a fitted spatial response does not establish the feedback or its physical carrier. The combined result is a source-constrained, energy-balanced candidate with a concrete conditional test; physical identification of the store, clock and apparatus remains open.

@@ -1,0 +1,52 @@
+\section{Dark states and a restrictive exchange invariant}\label{sec:capacity}
+If $f(x_0)=0$ and $p_0=r_{c,0}=z_0=0$, the constant state solves~\eqref{eq:system} and is unique. Aligned common-phase cores $\Omega_0=e^{i\theta}q$ with real $q$ have zero chirality and do not launch from this empty preparation. Projection-dark cores with $a\times b\in\ker K$ have the same conclusion. No noise, background source or alternative readout is added. A nonzero core with zero drive at one instant and a preloaded carrier can still have $J^Ty\ne0$; it is not automatically permanently dark. Native zero is different: $J(0)=0$ makes it invariant under all allowed carrier/receiver preparations.
+
+\begin{theorem}[Invariant and net extraction capacity]\label{thm:capacity}
+The complex bilinear quantity
+\begin{equation}\label{eq:Z2}
+ Z_2(\Omega)=\sum_{i=1}^3\Omega_i^2
+           =|a|^2-|b|^2+2i\,a\cdot b
+\end{equation}
+is conserved throughout exchange. For every preparation of Theorem~\ref{thm:global},
+\begin{align}
+ I^2-|Z_2|^2&=4|a\times b|^2,\label{eq:chiralityidentity}\\
+ H_N(t)&\ge\frac{\alpha_N}{2}|Z_2(\Omega_0)|,\label{eq:floor}\\
+ H_N(0)-H_N(t)&\le\frac{\alpha_N}{2}\{I_0-|Z_2(\Omega_0)|\}.\label{eq:netcapacity}
+\end{align}
+If $I_0>0$ and the initial ordinary phase span is $\Delta_0\le\pi/12$, then
+\begin{equation}\label{eq:coherentcapacity}
+ \frac{H_N(0)-H_N(t)}{H_N(0)}
+ \le1-\cos\Delta_0
+ \le1-\frac{\sqrt6+\sqrt2}{4}\simeq0.0340741737109317.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Equation~\eqref{eq:core} gives
+\begin{equation}\label{eq:invariantderivatives}
+ \frac{\dd}{\dd t}(|a|^2-|b|^2)=0,\qquad
+ \frac{\dd}{\dd t}(a\cdot b)=0.
+\end{equation}
+Indeed $a\cdot(w\times b)=-w\cdot(a\times b)$ and $b\cdot(w\times a)=w\cdot(a\times b)$ cancel in the difference. Each term in the derivative of $a\cdot b$ contains a vector dotted with its own cross product. Thus $Z_2$ is invariant. Expanding its squared modulus gives
+$I^2-|Z_2|^2=4(|a|^2|b|^2-(a\cdot b)^2)=4|a\times b|^2\ge0$.
+Equivalently, $|\sum_i\Omega_i^2|\le\sum_i|\Omega_i|^2$ by the triangle inequality. Conservation of $Z_2$ now proves~\eqref{eq:floor}--\eqref{eq:netcapacity}.
+
+For phases in an ordinary interval $[\theta_{\min},\theta_{\max}]$ of width $\Delta_0$, rotate $Z_2$ by $e^{-i(\theta_{\min}+\theta_{\max})}$. Each doubled phase then lies within $\Delta_0$ of the new axis, so
+\begin{equation}\label{eq:phasebound}
+ \re\{e^{-i(\theta_{\min}+\theta_{\max})}Z_2(\Omega_0)\}
+ =\sum_i s_i\cos(2\theta_i-\theta_{\min}-\theta_{\max})
+ \ge I_0\cos\Delta_0.
+\end{equation}
+Combining this with~\eqref{eq:netcapacity} proves~\eqref{eq:coherentcapacity}.
+\end{proof}
+
+The ceiling is approximately \textbf{3.4074\% of initial core trial storage}, not a diversion share. It bounds net extraction $\int P_{NC}\dd t$ during an exchange-only interval. The signed native change can instead be a gain. The result is not an attainability theorem and does not bound gross repeated positive work while storage is returned and resupplied. The fixed projection and dynamics may further restrict accessible transfer.
+
+The initial phase-span restriction continues to imply the ceiling after the state leaves that sector, because $Z_2$ itself is conserved. At $I_0=0$ the normalized expression is undefined; the unnormalized statements and invariant zero state remain valid. At $\Delta_0=0$, $|Z_2|=I_0$, so positive net extraction is impossible; with empty carrier/receiver, total conservation forces complete inactivity. In Proposition~\ref{prop:launch}, $|Z_2|=\sqrt{9-8\sin^2\phi}<3$, consistent with positive short-time supply. Native $F$ jumps can change $Z_2$ and reset this exchange-only bound. No lifetime hybrid capacity or conservation follows. $Z_2$ is complex bilinear, not the historical spatial/staged Z observation.
+
+\begin{proposition}[Common-phase equivariance]\label{prop:phase}
+At fixed carrier and receiver state, exchange is equivariant under $\Omega\mapsto e^{i\theta}\Omega$; the drive and carrier/receiver evolution are unchanged by this common-phase transformation.
+\end{proposition}
+\begin{proof}
+The real-coordinate action $Q_\theta$ sends $(a,b)$ to $(\cos\theta\,a-\sin\theta\,b,\sin\theta\,a+\cos\theta\,b)$. Its cross product is $a\times b$, hence $f(Q_\theta x)=f(x)$ and $J(Q_\theta x)=J(x)Q_\theta^T$. Orthogonality makes the core vector field transform by $Q_\theta$ while the remaining right sides are unchanged. Uniqueness gives the flow claim. $Z_2$ transforms by $e^{2i\theta}$, preserving its modulus.
+\end{proof}
+This candidate deliberately uses common-phase-invariant chirality. It need not use all phase information recovered by the earlier reconstruction result and supplies no common-phase-sensitive outlet selector.~\cite{recirculation} Raw channel $C$, its ambient attachment, based face vectors and a spatial transfer law remain different objects.

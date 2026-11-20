@@ -1,0 +1,48 @@
+Tri-Octagon: dipole fields and loop readout Research edition v0.1
+1.3 A circle on an actual copy
+The established geometry supplies [ 6]
+𝐾𝑐 =
+√3
+12 +
+√6
+4 , 𝑅 Γ =
+√7𝐾𝑐
+2(1 + √3/2)
+, 𝑎 = 𝑏 = 𝑤𝑅 Γ, 𝑅 Γ = 0.53645209718 … , (1.10)
+where w is common host width. In the published orientation, 𝑌 = 𝑂 + 𝑤𝐾 𝑐𝑒𝑦, 𝑒1 = 𝑒 𝑦, 𝑒2 =
+𝑒𝑧, 𝜈 = 𝑒 𝑥. Translate an unrotated same-width copy by 𝑧𝑒𝑥. Its circle center is 𝑋 = 𝑌 + 𝑧𝑒 𝑥, but its
+body center is 𝑂𝑅 = 𝑂 + 𝑧𝑒 𝑥 = 𝑋 − 𝑤𝐾 𝑐𝑒𝑦.
+This is an explicit rigid test placement, preserving the established circle and full-copy geometry;
+it is not one of the published H/R array fixtures. The zero reading is at the circle center , not
+generally at the existing body-center probe. At the benchmark 𝑧 = 4𝑤 , enclosing balls of radius
+𝑤(𝐾𝑐 + 𝑅Γ) < 2𝑤 separate the two full copies and all their circles. The all- 𝑧 ≠ 0 integral theorem
+alone does not assert full-body noncollision at small z.
+2 The curl and its dipole tensor
+On every compact region separated from the source wire, differentiation under ( 1.3) gives
+𝐻(𝑃) = 𝑔𝑜𝑗 4𝜋 ∮ Γ d𝛾 × (𝑃 − 𝛾) |𝑃 − 𝛾| 3 . (2.1)
+The sign follows from ∇𝑃|𝑃 − 𝛾| −1 = −(𝑃 − 𝛾)/|𝑃 − 𝛾| 3. On the axis,
+𝑉(𝑌 + 𝑧𝜈) = 0, 𝐻(𝑌 + 𝑧𝜈) = 𝑔𝑜𝑗𝑎2
+2(𝑎2 + 𝑧2)3/2 𝜈. (2.2)
+Taking a curl after restricting V to its zero axial values would incorrectly discard the transverse
+derivatives. The spatial derivative must be taken first.
+For a general point 𝑃 = 𝑌 + 𝑟𝑛 , 𝑛 ∈ 𝑆 2, define 𝑚Γ = 𝜋𝑎 2𝑗𝜈. The exact accepted field estimate
+is [1, sections 2–3]
+𝐻(𝑌 + 𝑟𝑛) = 𝑔𝑜
+4𝜋𝑟 3 {3𝑛(𝑛 ⋅ 𝑚Γ) − 𝑚Γ} + ℛ(𝑟, 𝑛), (2.3)
+∥ℛ(𝑟, 𝑛)∥ ≤ 3𝑔𝑜|𝑗|𝑎4
+2(𝑟 − 𝑎)5 (𝑟 > 𝑎), ∥ℛ(𝑟, 𝑛)∥ ≤ 48𝑔𝑜|𝑗|𝑎4 𝑟5 (𝑟 ≥ 2𝑎). (2.4)
+These are uniform absolute bounds, not relative smallness claims at 𝑟 = 2𝑎 .
+T o see the tensor and the order without differentiating an uncontrolled asymptotic series, use the
+filled source disk only as an integration device. For 𝑅 = 𝑃 − 𝑌 , set Φ(𝑅) = ∫𝐷𝑎 |𝑅 − 𝜌| −1 d𝐴𝜌.
+Stokes’ theorem componentwise gives, outside that disk,
+𝑉 = 𝑔𝑜𝑗 4𝜋 ∇Φ × 𝜈, 𝐻 = 𝑔𝑜𝑗 4𝜋 ∫ 𝐷𝑎 Hess(|𝑅 − 𝜌|−1)𝜈 d𝐴𝜌. (2.5)
+The center Hessian is
+𝐺(𝑅) = Hess(|𝑅|−1) = 3𝑛𝑛𝑇 − 𝐼 𝑟3 . (2.6)
+The disk’s first moment vanishes. The bound ∥𝐷2𝑣𝐺(𝑥)∥op ≤ 24|𝑣| 2/|𝑥|5, proved in Appendix A,
+and ∫𝐷𝑎 |𝜌|2 d𝐴 = 𝜋𝑎 4/2 yield (2.4) by Taylor’s integral remainder. Centered symmetry removes
+the 𝑟−4 term.
+The leading angular factors are 2𝑚Γ along either axial direction and −𝑚Γ in the equatorial plane,
+with general tensor 3𝑛𝑛𝑇 − 𝐼. This is the magnetic-dipole pattern of the curl of the adopted vector
+observation. In inherited units, [𝑉] = U, [𝐻] = U/L, [𝑚 Γ] = UL2. Neither the SI coupling nor
+a receiver law follows from that pattern.
+4

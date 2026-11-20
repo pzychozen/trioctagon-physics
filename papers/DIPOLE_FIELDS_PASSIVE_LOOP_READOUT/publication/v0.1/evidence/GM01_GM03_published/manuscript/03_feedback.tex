@@ -1,0 +1,114 @@
+\section{Work and a storage-dependent native advance}\label{sec:feedback}
+\subsection{Finite simultaneous work}
+At fixed centers and poses, the partner potentials and fields are
+\[
+ \Phi_{-a}=-G_Nm_{-a}/r,\qquad
+ B_{-a}=\frac{c_m}{r^3}(3nn^T-I_3)\mub_{-a}.
+\]
+A bar denotes the arithmetic mean of the initial and final endpoints. Bilinearity of \eqref{eq:pair} gives the exact finite-step identity
+\begin{equation}
+ \Delta U=\sum_{a=1}^2
+ \left(\overline{\Phi}_{-a}\Delta m_a
+       -\overline B_{-a}\cdot\Delta\mub_a\right).
+ \label{eq:finite-work}
+\end{equation}
+Indeed, \(\Delta(ab)=\bar a\,\Delta b+\bar b\,\Delta a\), also for a symmetric bilinear form. There is no extra factor \(1/2\) in the sum: the partner means account for the simultaneous cross term. When both moments start at zero, charging only the initial fields would give zero work and miss \eqref{eq:mag-obstruction}. The endpoint means assign half the new partner field to each change \cite{GM02}.
+
+\subsection{The proposed rule}
+Fix a dimensionless load \(\eta\ge0\), positive energy scales \(S_a\), and additional real variables \(h_a\). The proposed stored energies are \(S_ah_a^2/2\), which are nonnegative even outside the positive-\(h\) branch. Neutral initialization means \(h_a=1\). Freeze the native directions
+\begin{equation}
+ d_a=F(q_a)-q_a,\qquad D_s=(s_1d_1,s_2d_2),\qquad
+ q_a^+=q_a+s_ad_a. \label{eq:frozen}
+\end{equation}
+The real gradient below differentiates the pair energy with respect to the six coordinates of body \(a\), with the geometric data fixed:
+\begin{align}
+ L_a(s)&=\int_0^1\nabla_{q_a}U(q+\tau D_s)\cdot d_a\dd\tau, \label{eq:linework}\\
+ h_a^+&=h_a-\frac{\eta}{S_a}L_a(s),\qquad
+ s_a=\frac{h_a+h_a^+}{2}. \label{eq:feedback}
+\end{align}
+These are new constitutive choices. The gain \(s_a\) is the multiplier of the \emph{ordinary internal displacement}; it can exceed one. The integration variable \(\tau\) is not a physical clock, and \(F\) is evaluated only at the initial state, not repeatedly along the segment.
+
+The integral in \eqref{eq:linework} is an average-vector-field discrete gradient. Such segment integrals and their energy identities are standard in energy-preserving integration \cite{AVF}. Here the proof applies to the specified frozen-direction/store rule; it does not identify the native map with a Hamiltonian flow, or assert a symplectic method. Under \eqref{eq:dictionary}, \(U\) is at most quartic in \(q\), so \(L_a\) is a cubic polynomial in \(s\), with exact polynomial integration available.
+
+\begin{theorem}[Specified energy balance]\label{thm:energy}
+Every solution of \eqref{eq:frozen}--\eqref{eq:feedback}, at fixed geometry and fixed \(\eta\), conserves
+\begin{equation}
+ \E=\eta U+\sum_{a=1}^2\frac{S_ah_a^2}{2}.
+ \label{eq:energy}
+\end{equation}
+\end{theorem}
+\begin{proof}
+The fundamental theorem of calculus yields
+\[
+ U(q+D_s)-U(q)=\sum_a s_aL_a(s).
+\]
+Meanwhile the change in the \(a\)-th store is
+\[
+ \frac{S_a}{2}\big((h_a^+)^2-h_a^2\big)
+ =S_as_a(h_a^+-h_a)=-\eta s_aL_a(s).
+\]
+Summing gives zero total change. This is the exact GM02 cancellation, using the pair energy once \cite{GM02}.
+\end{proof}
+For a computed gain, put
+\begin{equation}
+ {\cal R}_a(s)=s_a-h_a+\frac{\eta L_a(s)}{2S_a}.
+ \label{eq:residual}
+\end{equation}
+If the midpoint identity is imposed by \(h_a^+=2s_a-h_a\), its energy defect is exactly \(2\sum_a S_as_a{\cal R}_a\). This checks solver residuals without interpreting rounded values as exact conservation.
+
+At zero load, \(h_a^+=h_a\) and \(s_a=h_a\). Neutral stores give the ordinary map at every zero-load step. Nonneutral stores retain their multiplier. If \(d_a=0\), then \(L_a=0\) and the body cannot advance in its internal state under this rule; a nonzero gradient of \(U\) does not change that conclusion. For example, with all \(k_i=1\), the state \(e\) is native fixed while its dictionary mass need not have zero gradient.
+
+\subsection{Existence, uniqueness and the selected branch}
+At \(\eta=0\), \({\cal R}(s)=s-h\) and its Jacobian in \(s\) is the identity. The implicit-function theorem gives a branch near \(s=h\) for each fixed initial state. No derivative of \(F\) is needed for this statement, since \(d\) is frozen. Smooth dependence on the initial state requires a regular native domain.
+
+A quantitative certificate uses the map \(s_a\mapsto h_a-\eta L_a(s)/(2S_a)\). On a closed box \(|s_a-h_a|\le\delta\), it suffices that
+\begin{equation}
+ \frac{|\eta|}{2S_a}\sup|L_a|\le\delta,\qquad
+ \max_a\frac{|\eta|}{2S_a}\sum_b\sup|\partial_{s_b}L_a|<1.
+ \label{eq:contraction}
+\end{equation}
+The first condition maps the box to itself; the second is a contraction in the maximum norm. The accepted nonzero ranges below use equal \(S_a=S\), \(h_a=1\), and
+\(\mathcal B=[1/2,3/2]^2\). Appendix~\ref{app:bounds} supplies the quantitative estimates.
+
+For the real, dipole-silent state of \eqref{eq:gravity-obstruction}, let
+\begin{equation}
+ \gamma=\frac{\eta G_NbM}{2Sr},\qquad \zeta=\frac{b}{2M}\le\frac1{300000000}.
+ \label{eq:gravity-load}
+\end{equation}
+Every \(0\le\gamma\le1/10\), equivalently
+\(\eta\le Sr/(5G_NbM)\), has a unique solution in \(\mathcal B\). Symmetry makes it \(s_1=s_2=s\), with
+\begin{equation}
+ f(s):=s-1-\gamma s(1+\zeta s^2)=0.
+ \label{eq:gravity-cubic}
+\end{equation}
+For positive load the selected root exceeds one and increases as \(r\) decreases with other parameters fixed:
+\[
+ \frac{\dd s}{\dd\gamma}
+ =\frac{s(1+\zeta s^2)}{1-\gamma(1+3\zeta s^2)}>0
+ \quad\text{on the certified branch}.
+\]
+Uniqueness is explicitly \emph{not global}. For \(0<\gamma\le1/10\), \(f(0)<0\), \(f(2)>0\), and the cubic has limits \(+\infty\) at \(-\infty\), \(-\infty\) at \(+\infty\). It therefore has three distinct real roots: one negative, the selected one in \((0,2)\), and one above \(2\). The box and continuation from zero load select the root used here. With \(m_0=0\), accepted rational brackets give \(s\simeq1.111111111619\) at \(\gamma=0.1\) and \(s\simeq1.052631579152\) at \(\gamma=0.05\). These are model calculations, not measured accelerations.
+
+For the Fourier preparation, \(m_0=0\), equal poses \(I_3\), and arbitrary unit \(n\), define
+\begin{equation}
+ a_{\rm L}=\frac{\eta G_N\alpha^2}{Sr},\qquad
+ b_{\rm L}=\frac{\eta c_m\kappa^2}{Sr^3}.
+ \label{eq:loads}
+\end{equation}
+The range
+\begin{equation}
+ 0\le a_{\rm L}\le\frac14,\qquad 0\le b_{\rm L}\le10^6
+ \label{eq:mag-box-range}
+\end{equation}
+gives a unique solution in \(\mathcal B\) for every \(n\); it is again symmetric, and
+\begin{equation}
+ \frac{203}{240}\le s\le\frac{277}{240},\qquad
+ \frac{83}{120}\le h^+=2s-1\le\frac{157}{120}.
+ \label{eq:positive-range}
+\end{equation}
+All loads on the straight path to zero satisfy the same certificate, so this root is the neutral continuation branch.
+
+\subsection{Precisely which energy is conserved}
+Theorem~\ref{thm:energy} includes the weighted \emph{pair} interaction and the two proposed stores. It includes neither native \(\V\), source self-energies, nonzero translational momenta, rotational energy nor the energy of a physical switching apparatus. Fixed centers and poses exclude mechanical work from displacement during the loaded step. Appendix~\ref{app:accounts} gives separate accounts for these quantities rather than silently incorporating them.
+
+The parameter \(S_a\) is an energy scale, not a finite storage capacity; \(h_a\) has no imposed global bound. Although each store is nonnegative, the total energy need not be positive or bounded below. Exact conservation and a one-step contraction do not prove global stability or long-term capture. The real gravity example stays in NPC's amplitude and phase domain for this one step, but no loaded convergence theorem follows.

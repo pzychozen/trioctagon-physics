@@ -1,0 +1,138 @@
+\section{The native launch at a registered finite receiver}\label{sec:receiver}
+Hold the three source profiles in \eqref{eq:launch} at their constant source-off endpoints, with p zero. The following result concerns that prepared plateau. Active later RX or WT evolution would require its actual histories and is not silently frozen by the mathematics.
+
+\subsection{Placement and the measured component}
+Choose a same-width receiving copy with the already defined proper frame
+\begin{equation}\label{eq:receiverplacement}
+Q=B(\pi/2)=[\ey,\ez,\ex],\qquad
+O_R=O+(R-wK_c)\ez.
+\end{equation}
+Its local circle 0 has
+\begin{equation}\label{eq:nativecontour}
+X=O_R+wK_cQ\ey=O+R\ez,\qquad
+q(\theta)=X+b(\cos\theta\,\ez+\sin\theta\,\ex),\quad
+b=a=wR_\Gamma,\quad u=\ey.
+\end{equation}
+This rigid test placement uses a published orientation but not a published positive-radius H/R ring position. It changes neither the shell shape nor the loop radius. Circle-center X and body-center \(O_R\) differ, as Figure~\ref{fig:native} shows.
+
+\begin{figure}[tbp]
+\centering\resizebox{0.90\textwidth}{!}{\input{figures/native}}
+\caption{Geometry of the native-launch test. Left: the three source circles have distinct centers; their horizontal projections are radial segments because their planes are vertical. The arrows are the fixed oriented normals, not signs of the launched means. Right: the actual receiving circle lies in the xz plane with increasing theta clockwise in this view, normal \(+\ey\), and \(b=wR_\Gamma\). The long R separation is broken schematically; the picture is not to scale. The body center is displaced by \(wK_c\) from the circle center.}\label{fig:native}
+\end{figure}
+
+Let \(\ell_0=wK_c\) and \(J_*=\sum_i|j_i|\). If \(R>\ell_0+a+b\), the whole receiving disk is separated from every filled source disk by at least
+\begin{equation}\label{eq:clearance}
+\delta_D\ge R-\ell_0-a-b>0.
+\end{equation}
+The full copies and their circles are also separated by enclosing balls in the range \(R\ge100w\). All three distinct source centers remain in the exact C6 integrals.
+
+Their aggregate leading moment about O is \(\pi a^2\alpha W_0\). At \(X=O+R\ez\), the leading curl field has y-component
+\begin{equation}\label{eq:leadingcomponent}
+h_{\rm lead}=-\frac{g_oa^2\alpha W_{0y}}{4R^3},\qquad
+W_{0y}=\frac{57}{400000}>0.
+\end{equation}
+The centered \(O(r^{-5})\) error of one loop cannot be reused unchanged about O: translations of the three source centers can give an \(O(R^{-4})\) correction.
+
+\begin{theorem}[A signed finite-radius native readout]\label{thm:native}
+For \(\alpha\ne0\), placement \eqref{eq:receiverplacement}--\eqref{eq:nativecontour}, and every \(R\ge100w\),
+\begin{equation}\label{eq:thirdbound}
+|S_b-h_{\rm lead}|<\tfrac13|h_{\rm lead}|.
+\end{equation}
+For positive alpha the launch reading is negative; its conjugate is exactly the opposite and positive. The radius remains \(b=wR_\Gamma\).
+\end{theorem}
+\begin{proof}
+The estimate has three contributions:
+\begin{align}
+|S_b-h_{\rm lead}|&\le\mathcal E(R),\label{eq:Ebound}\\
+\mathcal E(R)&=g_oJ_*\left[
+\frac{6a^2\ell_0}{(R-\ell_0)^4}
++\frac{3a^4}{2(R-\ell_0-a)^5}
++\frac{3a^2b^2}{2(R-\ell_0-a-b)^5}
+\right].\notag
+\end{align}
+For the translation term, direct differentiation of \eqref{eq:kernelG} gives
+\begin{equation}\label{eq:DG}
+D_vG(x)=|x|^{-4}
+\{-15(n\cdot v)nn^T+3(n\cdot v)I+3(nv^T+vn^T)\},
+\end{equation}
+so \(\norm{D_vG(x)}_{\rm op}\le24|v|/|x|^4\). The segment from \(X-O\) to \(X-Y_i\) stays outside radius \(R-\ell_0\); multiply by \(g_o|j_i|a^2/4\) and sum. The centered remainder \eqref{eq:remainder} gives the second term. Disk averaging \eqref{eq:diskaveragebound}, with \eqref{eq:clearance}, gives the third. Equation~\eqref{eq:Ebound} bounds the \emph{area-averaged} reading relative to the central leading component; it is not a pointwise error bound replacing all disk points by the center.
+
+From the exact launched weights,
+\begin{equation}\label{eq:Jratio}
+\frac{J_*}{|\alpha|W_{0y}}=\frac{57002\sqrt3}{85500}<\frac65,\qquad
+0<K_c<1,\quad \tfrac12<R_\Gamma<1.
+\end{equation}
+Put \(q=w/R\le1/100\). Dividing \eqref{eq:Ebound} by \(|h_{\rm lead}|\) yields
+\begin{equation}\label{eq:rationalbound}
+\frac{\mathcal E(R)}{|h_{\rm lead}|}<
+\frac{144q}{5(1-q)^4}
++\frac{36q^2}{5}\{(1-2q)^{-5}+(1-3q)^{-5}\}.
+\end{equation}
+Each term increases on this interval. At \(q=1/100\) the right side is
+\begin{equation}\label{eq:rationalvalue}
+\frac{7804605427237675733225000}{25890315358991719010197977}
+=0.301448835945798\ldots<\frac13.
+\end{equation}
+This proves \eqref{eq:thirdbound}. The exact integral is linear in all three means; conjugation reverses them all and hence reverses the full finite-radius reading.
+\end{proof}
+The range is sufficient and configuration-specific, not an optimal threshold. This native placement does not generally have zero V at X; the zero-center result belongs to the separate coaxial control.
+
+\begin{table}[tbp]\centering\small
+\begin{tabular}{@{}rrrr@{}}\toprule
+\(R/w\)&Finite contour \(S_b\)&\(h_{\rm lead}\)&\(\mathcal E(R)\)\\\midrule
+100&\(-1.0251976124210\,10^{-11}\)&\(-1.0252192872890\,10^{-11}\)&\(2.2207690784546\,10^{-12}\)\\
+200&\(-1.2815173359258\,10^{-12}\)&\(-1.2815241091113\,10^{-12}\)&\(1.3656205101897\,10^{-13}\)\\\bottomrule
+\end{tabular}
+\caption{Saved numerical corroboration at \(g_o=\alpha=w=1\), using all three source circles. Angular resolutions 64, 128 and 256 and a disk integration of H agree in the GM06 evidence. The all-distance guarantee is the analytic bound \eqref{eq:rationalbound}--\eqref{eq:rationalvalue}.}\label{tab:native}
+\end{table}
+
+\subsection{The 1,024-sample statement has its own premises}
+Suppose N additional equally spaced points on the receiving rim have exact signed vector records \(v_k=B_k^TV(q(\theta_k))\). Reassemble the vectors before combining frames:
+\begin{equation}\label{eq:SN}
+S_{b,N}=\frac{2}{bN}\sum_{k=0}^{N-1}t(\theta_k)\cdot B_kv_k,\qquad
+\theta_k=2\pi k/N.
+\end{equation}
+If \(F(\theta)=V(q(\theta))\cdot t(\theta)\) is \(C^2\), the composite trapezoidal error is
+\begin{equation}\label{eq:quadratureerror}
+|S_{b,N}-S_b|\le\frac{2\pi^2}{3bN^2}\sup|F''|.
+\end{equation}
+Using \(q'=bt,q''=-b(e_1\cos\theta+e_2\sin\theta)\), and the kernel derivatives,
+\begin{equation}\label{eq:Fsecond}
+\sup|F''|\le\frac{g_oaJ_*}{2}
+\left(\frac{2b^2}{\delta^3}+\frac{3b}{\delta^2}+\frac1\delta\right)
+\end{equation}
+for contour-wire clearance delta. Indeed \(|F''|\le b^2M_{2,V}+3bM_{1,V}+M_{0,V}\), while inverse-distance derivatives are bounded by \(2/\delta^3,1/\delta^2,1/\delta\).
+
+At \(R=100w\), use \(\delta>97w\), \(a=b>w/2\), \(a=b<w\), \eqref{eq:Jratio} and \(\pi^2<10\). For N=1024,
+\begin{equation}\label{eq:1024}
+\frac{|S_{b,1024}-S_b|}{|h_{\rm lead}|}
+<
+\frac{64000000}{1024^2}
+\left(\frac2{97^3}+\frac3{97^2}+\frac1{97}\right)<\frac23.
+\end{equation}
+The continuous reading has magnitude greater than \(2|h_{\rm lead}|/3\), so the discrete sum retains its sign. These are new contour samples, not the old array's body-center sites. The result is for \(R=100w\), not fixed N at every larger R. Tangent measurement error at most epsilon per sample adds at most \(2\epsilon/b\); no instrument precision is presumed. The one-sample coaxial corollary has a separate symmetry premise.
+
+\subsection{Arrival and completion of the steady reading}\label{sec:delay}
+For a source history that vanishes before \(t_0\) and is constant after the jump, define on the rim C
+\begin{equation}\label{eq:delays}
+\tau_{\min}^{C}=\min_{P\in C,i,s}\frac{|P-\gamma_i(s)|}{c_e},
+\qquad
+\tau_{\max}^{C}=\max_{P\in C,i,s}\frac{|P-\gamma_i(s)|}{c_e}.
+\end{equation}
+The contour is silent before \(t_0+\tau_{\min}^C\). Its whole static record is available after the strict time \(t>t_0+\tau_{\max}^C\), provided the sources remain constant. Intermediate records need their actual delayed histories; the earliest permitted contribution does not guarantee a nonzero aggregate at the first-arrival instant.
+
+The reviewed timing correction is
+\begin{equation}\label{eq:delaymaxequal}
+\boxed{\tau_{\max}^{D_b}=\tau_{\max}^{C}.}
+\end{equation}
+For a fixed source point, every interior disk point is a convex combination of two rim points on a chord. Convexity of distance bounds its distance by the larger endpoint distance. Maximizing over source points proves equality. Disk and rim minima can differ. The strict post-maximum inequality gives a neighborhood where all delayed arguments lie in the smooth plateau, justifying Stokes and differentiation over the disk.
+
+For coaxial circles the common latest delay is
+\(\sqrt{z^2+(a+b)^2}/c_e\), while the rim and disk minima are respectively
+\(\sqrt{z^2+(a-b)^2}/c_e\) and \(\sqrt{z^2+(a-b)_+^2}/c_e\).
+For the native placement, sufficient bounds are
+\begin{equation}\label{eq:delaybounds}
+\tau_{\min}^{D_b}\ge\frac{R-\ell_0-a-b}{c_e},\qquad
+\tau_{\max}^{D_b}=\tau_{\max}^{C}\le\frac{R+\ell_0+a+b}{c_e}.
+\end{equation}
+At \(R=100w\) the ceiling is \(101.82961419736\,w/c_e\). This is the adopted straight-delay clock, not a derived electromagnetic speed or native physical duration.

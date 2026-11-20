@@ -1,0 +1,73 @@
+\section{The existing conditional carrier and exterior observation}
+\subsection{What the native-to-source interface actually supplies}
+The paired-driving paper \cite{pairedII} explicitly adopts C1 and C6 as comparison constructions. They are not part of native F. For one named readout family $v_{\rm in}=M_{\rm macro}$ or raw $C$, its input chain is
+\begin{equation}\label{eq:input}
+ \Omega,\text{ settings}\longmapsto v_{\rm in}\longmapsto
+ W_{\rm reg}=A_{\rm reg}v_{\rm in}\longmapsto
+ q_\pm=n_\pm^TW_{\rm reg}\longmapsto f_\pm=\kappa_{\rm in}q_\pm,
+\end{equation}
+where $A_{\rm reg}=\lambda_gR_z(\delta_g)$ is the fixed registration and $\kappa_{\rm in}>0$ converts data units to source strength. It is not energy efficiency. The normals are specified in Section~\ref{sec:geometry}. With $W_{\rm reg}=W_ru+W_av+W_z e_z$,
+\begin{equation}\label{eq:sectors}
+ f_s=\tfrac12(f_++f_-)=\frac{2\kappa_{\rm in}}{\sqrt7}W_r,
+ \qquad f_a=\tfrac12(f_+-f_-)=\frac{\sqrt3\kappa_{\rm in}}{\sqrt7}W_z.
+\end{equation}
+This projection loses $W_a$. Equal projected histories and equal carrier preparation give equal downstream states by the source's uniqueness theorem. Thus a genuine conditional native-to-drive map exists, but does not preserve every native observable.
+
+The same source provides a finite common hold and end gate for a specified record:
+\begin{equation}\label{eq:hold}
+ f_\pm(t)=\sum_{j=0}^{N_s-1}f_{\pm,j}\mathbf1_{[j\Delta t,(j+1)\Delta t)}(t),
+ \qquad \Delta t>0,
+\end{equation}
+with zero input outside that window. The cadence is symbolic comparison data, not a derived native physical time. No forcing record or schedule is instantiated here.
+
+\subsection{Storage, signed work and local flux}
+On an oriented circle of length $L_c$, let $s_\pm$ be its two registered contacts and $0<\eps_c<\eta$ the source's profile width. The periodic normalized tents and forcing are
+\begin{equation}\label{eq:forcing}
+ b_{\eps_c}(s)=\eps_c^{-1}\left(1-\frac{|\operatorname{wrap}_{L_c}(s)|}{\eps_c}\right)_+,
+ \quad b_\pm(s)=b_{\eps_c}(s-s_\pm),\quad g_c=b_+f_++b_-f_-.
+\end{equation}
+Here $\operatorname{wrap}_{L_c}$ takes values in $[-L_c/2,L_c/2)$; the profiles have unit integral and disjoint supports. The width is arclength, not tube radius, and is unrelated to native $\eps$.
+
+C1 is the separately adopted system
+\begin{equation}\label{eq:C1}
+ p_t+c(r_c)_s=g_c,\qquad (r_c)_t+c p_s=0,\qquad c>0,
+\end{equation}
+on $\R/L_c\mathbb Z$, with independently specified real initial data. Its variables $p,r_c$ are not native channel components. Define
+\begin{equation}\label{eq:storage}
+ e=\frac{p^2+r_c^2}{2},\quad j=cpr_c,\quad E=\int_0^{L_c}e\dd s,
+ \quad y_\pm=\int_0^{L_c}b_\pm p\dd s.
+\end{equation}
+The existing well-posedness and work theorem \cite[carrier section]{pairedII} gives, for periodic $H^1$ preparation and continuous real drives, a unique solution in
+$C_tH^1_s\cap C_t^1L^2_s$ on finite intervals, with
+\begin{equation}\label{eq:work}
+ \boxed{e_t+j_s=pg_c,\qquad \frac{dE}{dt}=f_+y_++f_-y_-.}
+\end{equation}
+The local identity is distributional. Multiplying the two equations by $p,r_c$ and adding gives its product rule; integration removes the periodic derivative. The source also gives a continuous $L^2$ mild solution for $L^2$ preparation and time-integrable spatial-$L^2$ forcing. In that setting the global balance is integrated in time, with derivative almost everywhere. Source-off E is conserved.
+
+In the normalized characteristics $w_\pm=(p\pm r_c)/\sqrt2$,
+\begin{equation}\label{eq:characteristic}
+ e=\tfrac12(w_+^2+w_-^2),\qquad
+ j=\tfrac c2(w_+^2-w_-^2),\qquad |j|\le ce.
+\end{equation}
+The inherited finite-time bound is
+\begin{equation}\label{eq:energybound}
+ \sqrt{E(t)}\le\sqrt{E(0)}+\frac1{\sqrt{3\eps_c}}
+                   \int_0^t\|f(u)\|_{\R^2}\dd u.
+\end{equation}
+These are valid model-internal energy and transport statements without an SI calibration. If $[p]=[r_c]=\mathrm U$ and $[s]=\mathrm L$, then $[E]=\mathrm U^2\mathrm L$ and $[j]=\mathrm U^2\mathrm L/\mathrm T$. The spatially integrated directional flux $\int j\dd s$ has another length factor; it is not power through a section.
+
+Source work is signed and depends on response as well as drive. Different allowed preparations at the same f can give different initial $f_+y_++f_-y_-$. Work is not $q_+^2+q_-^2$, $\|v_{\rm in}\|^2$, or a specified native loss. Superposition also introduces quadratic storage cross terms: the storage of $\alpha(p_1,r_1)+\beta(p_2,r_2)$ includes $\alpha\beta\int(p_1p_2+r_1r_2)\dd s$.
+
+For zero preparation, the source's fixed-clock macro comparison gives proportional real port histories and zero spatially integrated directional bias; this does not imply zero local j. Its clock-only and limited native chiral comparisons have their own scope and are not a generated six-opening trajectory. We reuse those distinctions without rerunning them. The C1 source explicitly includes no reciprocal debit in the unchanged native recurrence \cite[carrier and conclusion]{pairedII}. An equality between native loss and integrated source work would be an additional equation with matching units and time intervals, not a consequence of \eqref{eq:input}.
+
+\subsection{C6: exterior records without loading}
+For fixed $X\notin\Gamma$, known orthonormal frame B, $d_X(s)=\|X-\Gamma(s)\|$, independent speed $c_e>0$ and gain $g_o>0$, C6 adopts
+\begin{align}
+ U(X,t)&=\frac{g_o}{4\pi}\int_0^{L_c}\frac{p(s,t-d_X(s)/c_e)}{d_X(s)}\dd s,\notag\\
+ V_{\rm ext}(X,t)&=\frac{g_o}{4\pi}\int_0^{L_c}
+       \frac{r_c(s,t-d_X(s)/c_e)\hat t(s)}{d_X(s)}\dd s,
+ &Y_X&=(U,B^TV_{\rm ext}).\label{eq:C6}
+\end{align}
+Straight-line delay, $1/d$ weighting, tangent encoding, and absence of screening or loading are assumptions. The source proves a bounded causal history map; continuous time into $H^1$ supplies pointwise records \cite[exterior section]{pairedII}. The vector $r_c\hat t$ is not carrier flux j, raw native C, or an assigned material current.
+
+No C6 record feeds back into \eqref{eq:C1} or \eqref{eq:work}. The source separately identifies missing reciprocal core exchange, ambient source/energy accounting, and receiver loading. A formal outgoing line-source interpretation does not provide a global near-source energy or self-force construction. Neither E nor $|U|^2+\|V_{\rm ext}\|^2$ is declared native physical energy.

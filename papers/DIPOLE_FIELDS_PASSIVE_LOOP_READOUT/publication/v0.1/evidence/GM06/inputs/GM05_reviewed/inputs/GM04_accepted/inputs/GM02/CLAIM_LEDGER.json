@@ -1,0 +1,165 @@
+{
+  "status": "GM02_PREPARED_FOR_REVIEW",
+  "claims": [
+    {
+      "id": "GM02-P1",
+      "status": "inherited_premises",
+      "statement": "Native map, GM01 mass/moment dictionary, and static pair potential",
+      "report_section": "1",
+      "limits": "Dictionary and spatial laws are accepted mathematical premises for the assessment, not native derivations.",
+      "check_ids": [
+        "C01_fourier_prestage",
+        "C14_real_native_step"
+      ],
+      "premise_source": "GM01; Paper G; NPC"
+    },
+    {
+      "id": "GM02-A1",
+      "status": "added_modeling_choices",
+      "statement": "Quadratic stores, neutral initialization and frozen-direction feedback",
+      "report_section": "4",
+      "limits": "S is an energy scale, not a capacity; physical carrier unspecified.",
+      "check_ids": [],
+      "premise_source": "Supplied GM02 order"
+    },
+    {
+      "id": "GM02-01",
+      "status": "new_checked_result",
+      "statement": "Magnetic silent-to-active work and angular obstruction",
+      "report_section": "2.2",
+      "limits": "Full native state space outside the NPC coherent phase domain; fixed poses and equal distance.",
+      "check_ids": [
+        "C01_fourier_prestage",
+        "C02_positive_multipliers",
+        "C03_zero_triple_phase_kicks",
+        "C04_initial_silent",
+        "C05_emergent_W",
+        "C06_emergent_W_positive",
+        "C09_parallel_energy",
+        "C10_transverse_energy",
+        "C11_angular_difference",
+        "C12_equal_coefficient_control",
+        "C13_zero_moment_coupling_control"
+      ],
+      "premise_source": "Paper G; exact tuple"
+    },
+    {
+      "id": "GM02-02",
+      "status": "written_proof",
+      "statement": "Exact finite radial source cross energies",
+      "report_section": "2.3",
+      "limits": "Smooth normalized radial profiles, disjoint containing balls; excludes overlap and self-interaction.",
+      "check_ids": [],
+      "premise_source": "GM01 field solution; harmonic mean-value proof here"
+    },
+    {
+      "id": "GM02-03",
+      "status": "new_checked_result",
+      "statement": "Arithmetic endpoint fields give exact simultaneous work",
+      "report_section": "3",
+      "limits": "Single-counted bilinear pair potential; both sources may change.",
+      "check_ids": [
+        "C19_endpoint_mean_field_work",
+        "C20_silent_start_half_fields",
+        "C21_fixed_canonical_kinetic"
+      ],
+      "premise_source": "GM01 E9"
+    },
+    {
+      "id": "GM02-04",
+      "status": "new_checked_result",
+      "statement": "Exact declared energy conservation and residual accounting",
+      "report_section": "4",
+      "limits": "Every root conserves eta U_pair plus stores; no assertion of physical total energy.",
+      "check_ids": [
+        "C22_AVF_exact_work",
+        "C23_energy_residual_identity"
+      ],
+      "premise_source": "Supplied feedback proposal and written chain rule"
+    },
+    {
+      "id": "GM02-05",
+      "status": "new_checked_result",
+      "statement": "Neutral zero-load recovery and inability to move a native fixed state",
+      "report_section": "4",
+      "limits": "Recovery at every zero-load step assumes h initially one; d=0 blocks internal response.",
+      "check_ids": [
+        "C24_zero_load_recovery",
+        "C40_stationary_unresponsive_direction"
+      ],
+      "premise_source": "Feedback definition"
+    },
+    {
+      "id": "GM02-06",
+      "status": "written_proof_and_exact_bounds",
+      "statement": "Local existence and uniqueness on explicit boxes",
+      "report_section": "5.1-5.3",
+      "limits": "Fixed preparation and geometry; no global or repeated-step theorem.",
+      "check_ids": [
+        "C25_zero_load_jacobian",
+        "C30_W_uniform_bounds",
+        "C31_intensity_derivative_bounds",
+        "C32_magnetic_box_constants",
+        "C33_magnetic_contraction",
+        "C34_gravity_contraction",
+        "C35_real_domain_preservation",
+        "C36_magnetic_path_positivity"
+      ],
+      "premise_source": "IFT and Banach proof here"
+    },
+    {
+      "id": "GM02-07",
+      "status": "new_checked_result",
+      "statement": "Equal-body branch, leading correction and exact response order",
+      "report_section": "5.4",
+      "limits": "Equal stores and identical bodies; positive load inside common certificate.",
+      "check_ids": [
+        "C26_exchange_symmetry",
+        "C27_parallel_leading_coefficient",
+        "C28_parallel_diagonal_work",
+        "C27_transverse_leading_coefficient",
+        "C28_transverse_diagonal_work",
+        "C29_loaded_angular_gap",
+        "C43_magnetic_response_order",
+        "C44_gravity_response_order"
+      ],
+      "premise_source": "Exchange symmetry and monotone scalar residual"
+    },
+    {
+      "id": "GM02-08",
+      "status": "new_checked_limitation",
+      "statement": "Other roots outside the certified box",
+      "report_section": "5.5",
+      "limits": "Gravity cubic has three real roots for the stated positive load range; energy alone does not select the update.",
+      "check_ids": [
+        "C42_gravity_r_other_roots",
+        "C42_gravity_2r_other_roots"
+      ],
+      "premise_source": "Polynomial sign proof"
+    },
+    {
+      "id": "GM02-09",
+      "status": "conditional_energy_account",
+      "statement": "Self, native and kinetic terms need their own work",
+      "report_section": "7",
+      "limits": "Magnetic self formula is an effective fixed-moment potential; including native V conflicts with unchanged neutral zero-load accounting.",
+      "check_ids": [
+        "C21_fixed_canonical_kinetic",
+        "C37_self_energy_midpoints",
+        "C38_magnetic_self_midpoints",
+        "C39_native_V_zero_load_defect",
+        "C41_isotropic_projection_trace_average"
+      ],
+      "premise_source": "GM01 source functional; NPC potential"
+    },
+    {
+      "id": "GM02-O1",
+      "status": "unresolved_physical_correspondence",
+      "statement": "Source and storage calibration, physical carrier, clock, causal fields and motion",
+      "report_section": "7.3",
+      "limits": "No existing transport stock is identified as h; no publication or production adoption.",
+      "check_ids": [],
+      "premise_source": "Accepted WT interpretation boundaries"
+    }
+  ]
+}
