@@ -1,0 +1,757 @@
+TRI-OCTAGON MATHEMATICAL RESEARCH
+Gravitational and magnetic source correspondence in the
+Tri-Octagon model:
+energy exchange and a switch-off test
+Hilmir Frímann Halldórsson
+Research edition v0.1 20 November 2026
+Author-approved repository research edition.
+Abstract
+The native Tri-Octagon state determines an intensity and a geometry-attached axial vec-
+tor. We derive their sharp inequality and use them in an explicitly added mass–dipole dic-
+tionary. Newtonian gravity and magnetostatics are premises of this extension. For disjoint
+radial source profiles, harmonic averaging gives an exact two-body interaction. Native source
+updates alone do not balance its change: the same internal update produces different gravi-
+tational work at different separations and opposite magnetic work in parallel and transverse
+placements.
+A proposed nonnegative store changes the advance along each frozen native update direc-
+tion. Its midpoint rule conserves the specified pair-plus-store energy exactly and has a unique
+solution in stated nonzero load ranges. An initially dipole-silent Fourier preparation yields
+certified spatial response and neutral-placement predictions. Most directly , after one loaded
+step with gain 𝑠on, a verified switch to zero load predicts the next gain 2𝑠on − 1, relative to a
+neutral copy at the same reached state. This test can reject the feedback without identifying
+a physical carrier. In this preparation, one calibrated channel amplitude determines the first
+gain; the full registered state is needed for the full vector test. We separate mathematical pre-
+dictions, parameter identifiability and independent energy measurements. A physical store,
+instrument, clock and switching procedure remain to be identified.
+Status and provenance. The three underlying investigations have project-internal mathematical accep-
+tance recorded in the retained review evidence. The author approved this combined manuscript for
+repository publication; no external peer review or physical validation is claimed. The author’s geometric
+programme and research direction are retained. GPT supplied analytical proposals and review; Codex
+supplied mathematical checks, source verification and manuscript preparation. Earlier papers and evi-
+dence remain unchanged.
+
+--- PAGE ---
+
+Tri-Octagon: sources, exchange and switch-off Research edition v0.1
+1 Native state and the source constraint
+Three layers enter the argument. The existing recurrence and geometric attachment are inher-
+ited mathematical objects. The mass, magnetic moment, fields and store are added modeling
+premises. The resulting response and switch-off formulas are conditional predictions, with no in-
+dependent physical data supplied. GM01 establishes the source constraint and the missing-work
+obstruction; GM02 constructs and bounds the feedback; GM03 gives its spatial and observational
+tests [1, 2, 3]. This paper combines those results without extending their scientific scope.
+1.1 The recurrence, normalization and geometric attachment
+Write Ω = 𝑥 + i𝑦 ∈ ℂ 3, with channels 𝐴, 𝐵, 𝐶, real coordinate vector 𝑞 = (𝑥, 𝑦) ∈ ℝ 6, and
+𝑒 = (1, 1, 1) 𝑇. The native map 𝐹 first forms all prestages and then all phase kicks:
+𝑣 = Ω + 𝜀 Ω ⊙ (𝑘 − |Ω| 2) + 𝑔𝐿Ω, 𝐿 = 𝑒𝑒 𝑇 − 3𝐼3, (1.1)
+𝐹𝑖(Ω) = 𝑣 𝑖 exp(i𝛿𝑖), 𝛿 𝑖 = 𝜆 ∑
+𝑗≠𝑖
+sin(3(Arg0 𝑣𝑗 − Arg0 𝑣𝑖)) . (1.2)
+Here ⊙ and the squared modulus act componentwise, and Arg 0(0) = 0 . No normalization or
+extra rotation is inserted. We use the exact tuple
+𝜀 = 1 10 , 𝑔 = 1 60 , 𝜆 = 1 300 , 𝑘 = ( 999 1000 , 1, 1001 1000 ) . (1.3)
+The recurrence and potential premises are those of NPC [ 5]; the attachment below is Paper G’s
+fixed-frame construction [4]. Common-phase equivariance is used only where the prestages are
+nonzero. The zero-phase convention must not be suppressed when extending a regular-domain
+statement.
+Define the intensity , channel area, complementary scalar and ambient axial attachment by
+𝐼Ω = ∑
+𝑖
+|Ω𝑖|2, 𝐶 = 𝑥 × 𝑦, Γ = 𝑒 𝑇𝐶, 𝑊 = 𝑇𝐶, 𝑇 = ⎛⎜⎜⎜⎜
+⎝
+−1/2 1 −1/2
+−√3/2 0 √3/2
+0 0 0
+⎞⎟⎟⎟⎟
+⎠
+. (1.4)
+The letter 𝐶 in 𝐶 = 𝑥 × 𝑦 denotes a vector; a channel subscript 𝐶 denotes the third channel. Under
+Paper G’s declared 𝐷3ℎ action, 𝑊 is an ambient axial vector, determined up to a real scale among
+the admitted real-linear maps from 𝐶. This is not a uniqueness theorem for arbitrary nonlinear
+observables. The complementary Γ𝑒𝑧 has a different, polar-𝑧 transformation type. Neither parity
+statement supplies an electromagnetic field equation. Likewise, common phase is not automati-
+cally a rigid-body rotation [ 4, 6].
+Proposition 1.1 (Sharp native bound). For every complex triad,
+|𝑊|2 = 3 8 (𝐼2 Ω − |Ω ⋅ Ω|2) − 1 2 Γ2 ≤ 3 8 𝐼2 Ω. (1.5)
+The dot product in Ω⋅Ω = ∑𝑖 Ω2 𝑖 is bilinear. Equality holds exactly when Ω⋅Ω = 0 and Γ = 0 , including
+the zero state.
+Proof. Direct multiplication gives 𝑇𝑇𝑇 = 3 2 (𝐼3 − 𝑒𝑒𝑇/3), hence
+|𝐶|2 = 2 3 |𝑊|2 + 1 3 Γ2.
+2
+
+--- PAGE ---
+
+Tri-Octagon: sources, exchange and switch-off Research edition v0.1
+Also |𝑥 × 𝑦| 2 = |𝑥| 2|𝑦|2 − (𝑥 ⋅ 𝑦) 2, so
+𝐼2 Ω = |Ω ⋅ Ω| 2 + 4|𝐶|2.
+Eliminating |𝐶|2 proves (1.5) and its equality conditions. The state Ω = (1, 1, i√2) has 𝐼Ω = 4 ,
+Γ = 0 , Ω ⋅ Ω = 0 and |𝑊|2 = 6 , so the constant is attained. This is the GM01 deduction from
+Paper G’s identities [1, 4].
+1.2 An initially silent Fourier preparation
+Let
+𝜔 = 𝑒 −2𝜋i/3, Ω 0 = (1, 𝜔, 𝜔2). (1.6)
+This is the unnormalized Fourier preparation: 𝐼Ω0 = 3 . Paper G also uses a unit-norm Fourier
+vector with a factor 1/√3; the calculations here do not use that factor. The initial area is parallel
+to 𝑒, so 𝑊(Ω0) = 0 although the raw channel area and Γ are nonzero.
+At (1.3), the positive prestage multipliers are (9499, 9500, 9501)/10000. Their phase differences
+remain Fourier differences, making every harmonic-three kick zero. Introduce the dimensionless
+constants 𝛽 = 1/20 and 𝜉 = 1/10000 (called 𝑡, 𝑎 in GM02–GM03). The whole straight first-step
+path is
+Ω(𝑧) = diag(1 − (𝛽 + 𝜉 )𝑧, 1 − 𝛽𝑧, 1 − (𝛽 − 𝜉 )𝑧 ) Ω0, (1.7)
+where 𝑧 = 0 is the initial state and 𝑧 = 1 its ordinary native update. Along this path,
+𝐼(𝑧) = 3(1 − 𝛽𝑧) 2 + 2𝜉 2𝑧2, (1.8)
+𝑊(𝑧) = ⎛⎜⎜
+⎝
+√3
+2 𝜉 2𝑧2, 3 2 𝜉 𝑧(1 − 𝛽𝑧), 0 ⎞⎟⎟ ⎠ . (1.9)
+In particular,
+𝐼𝐹 = 135375001 50000000 , 𝑤 ∶= 𝑊(1) = ⎛⎜⎜ ⎝ √3 200000000 , 57 400000 , 0⎞⎟⎟ ⎠ , |𝑤| 2 = 812250003 40000000000000000 .
+(1.10)
+Thus one ordinary native update exposes a nonzero axial attachment [ 2]. If all 𝑘𝑖 are instead 1,
+the common multiplier is 19/20 and 𝑊 stays zero. This is a useful negative control. The Fourier
+phase spread lies outside NPC’s near-aligned descent domain; a theorem for that domain is not
+being used for this preparation.
+2 An added physical correspondence and its missing work
+2.1 Dictionary and field premises
+For each body 𝑎 = 1, 2 , adopt fixed center 𝑋𝑎, fixed proper pose 𝑅𝑎 ∈ 𝑆𝑂(3), and
+𝑚𝑎 = 𝑚 0 + 𝛼𝐼Ω𝑎, 𝝁 𝑎 = 𝜅𝑅 𝑎𝑊(Ω𝑎), 𝑚 0 ≥ 0, 𝛼 > 0, 𝜅 ∈ ℝ. (2.1)
+Native amplitudes are dimensionless in the convention above. Thus 𝛼 has mass units, 𝜅 has
+magnetic-dipole units, and 𝑚0 is an added baseline mass. These choices give the conditional
+source bound
+|𝝁𝑎| ≤ |𝜅| 𝛼 √ 3 8 (𝑚𝑎 − 𝑚0), 𝝁 𝑎 ⋅ 𝑅𝑎𝑒𝑧 = 0. (2.2)
+The bound is exact mathematics; its interpretation as a mass–moment law depends on ( 2.1).
+3
+
+--- PAGE ---
+
+Tri-Octagon: sources, exchange and switch-off Research edition v0.1
+Let 𝜒𝑎 be smooth, nonnegative, radial, normalized to integral one, and supported in a ball of
+radius ℓ𝑎. Set
+𝜌(𝑋) = ∑
+𝑎
+𝑚𝑎𝜒𝑎(𝑋 − 𝑋 𝑎), ℳ (𝑋) = ∑
+𝑎
+𝝁𝑎𝜒𝑎(𝑋 − 𝑋 𝑎).
+For the instantaneous frozen sources, impose Newton’s potential law [9] and the no-free-current
+magnetostatic laws [10, 11]:
+ΔΦ = 4𝜋𝐺 𝑁𝜌, Φ ⟶ 0, (2.3)
+∇ ⋅ 𝐵 = 0, ∇ × (𝐵/𝜇 0 − ℳ ) = 0, 𝐵 ⟶ 0 at infinity. (2.4)
+Here 𝐺𝑁 is Newton’s constant and 𝜇0 is vacuum permeability. The bound current is 𝐽𝑏 = ∇ × ℳ .
+Equivalently ,
+Φ(𝑋) = −𝐺 𝑁 ∫ 𝜌(𝑌) |𝑋 − 𝑌| d𝑌, 𝐴(𝑋) = 𝜇0 4𝜋 ∫ 𝐽𝑏(𝑌) |𝑋 − 𝑌| d𝑌, 𝐵 = ∇ × 𝐴.
+These are added static field laws, not consequences of 𝐹 or of the axial type of 𝑊. Applying
+them successively to changing sources is a quasistatic modeling prescription. No finite-speed
+field dynamics or physical update clock has been obtained.
+For frozen moments the standard external dipole force and torque are
+𝐹mag = ∇(𝝁 ⋅ 𝐵 ext), 𝜏 mag = 𝝁 × 𝐵 ext; 𝐹 grav = −𝑚∇Φ ext. (2.5)
+The first two follow from the dipole interaction −𝝁 ⋅ 𝐵ext [10]; the last uses an additional equality
+of gravitational source and passive mass. Using the same 𝑚 for inertia would be another premise.
+These laws describe frozen-source force and torque; centers and poses remain fixed in the update
+studied below.
+2.2 Exact pair energy for disjoint radial profiles
+Write
+𝑟 = |𝑋 1 − 𝑋2|, 𝑛 = (𝑋 1 − 𝑋2)/𝑟, Q(𝑛) = 𝐼 3 − 3𝑛𝑛𝑇, 𝑐 𝑚 = 𝜇0 4𝜋 .
+Proposition 2.1 (Radial pair reduction) . If 𝑟 > ℓ 1 + ℓ 2, the single-counted interaction of the two
+extended sources is exactly
+𝑈 = − 𝐺𝑁𝑚1𝑚2
+𝑟 + 𝑐𝑚 𝑟3 𝝁𝑇 1 Q(𝑛)𝝁2. (2.6)
+Proof. Every normalized radial average of a harmonic function on its support equals the value
+at the center: integrate the spherical mean identity over the radial weight. The kernel 1/|𝑋 − 𝑌|
+is harmonic on each source ball when the other is fixed in the other ball. Applying this identity
+in both variables gives 1/𝑟. Its Hessian components are harmonic on the same disjoint domains,
+and
+∇∇(1/𝑟) = 3𝑛𝑛𝑇 − 𝐼3
+𝑟3 .
+Applying the two averages to the magnetic dipole kernel gives the second term of ( 2.6), with
+the sign from −𝝁1 ⋅ 𝐵 2. This is GM02’s radial reduction [ 2]. Smooth disjoint supports justify
+differentiation and averaging.
+Thus ( 2.6) is not merely a far-field approximation under these assumptions. Overlapping or
+nonradial profiles are outside this exact reduction. Source self-interactions are separate; see Ap-
+pendix A.3.
+4
+
+--- PAGE ---
+
+Tri-Octagon: sources, exchange and switch-off Research edition v0.1
+2.3 Why overwriting native sources leaves unbalanced work
+The first obstruction already occurs with zero moments. At the real state Ω = 𝑒 , the native update
+is
+𝐹(𝑒) = (9999/10000, 1, 10001/10000), Δ𝐼 = 1 50000000 , 𝑊(𝑒) = 𝑊(𝐹(𝑒)) = 0.
+For two identical bodies let 𝑀 = 𝑚 0 + 3𝛼 and 𝑏 = 𝛼/50000000 > 0 . Their gravitational interaction
+changes by
+Δ𝑈𝑔 = − 𝐺𝑁 𝑟 (2𝑀𝑏 + 𝑏2). (2.7)
+Any proposed compensating change computed only from the identical internal before/after
+states is independent of 𝑟. It cannot cancel ( 2.7) at every separation. This is an obstruction to a
+state-only correction, not a prohibition on adding positioned energy or work [ 1, 2].
+The Fourier preparation supplies a distinctly magnetic version. Give both bodies pose 𝐼3, the
+state (1.6), and the same separation. Initially both moments vanish; afterwards both equal 𝜅𝑤.
+Compare the fixed center lines
+𝑛∥ = 𝑤/|𝑤|, 𝑛 ⟂ = 𝑒 𝑧.
+The magnetic energy changes are respectively
+Δ𝑈𝑚,∥ = − 2𝑐𝑚𝜅2|𝑤|2 𝑟3 , Δ𝑈 𝑚,⟂ = + 𝑐𝑚𝜅2|𝑤|2 𝑟3 . (2.8)
+The difference is 3𝑐𝑚𝜅2|𝑤|2/𝑟3. The native states, gravitational work and radial self-energy
+changes are identical in the two placements. A correction depending solely on the two internal
+states cannot balance both arrangements. Taking 𝜅 = 0 , or the equal- 𝑘𝑖 preparation above,
+removes this magnetic contrast. The native update creates the source contrast under the
+dictionary; the surrounding spatial arrangement determines its interaction work.
+3 Work and a storage-dependent native advance
+3.1 Finite simultaneous work
+At fixed centers and poses, the partner potentials and fields are
+Φ−𝑎 = −𝐺 𝑁𝑚−𝑎/𝑟, 𝐵 −𝑎 = 𝑐𝑚 𝑟3 (3𝑛𝑛𝑇 − 𝐼3)𝝁−𝑎.
+A bar denotes the arithmetic mean of the initial and final endpoints. Bilinearity of ( 2.6) gives the
+exact finite-step identity
+Δ𝑈 =
+2
+∑
+𝑎=1
+(Φ−𝑎Δ𝑚𝑎 − 𝐵−𝑎 ⋅ Δ𝝁𝑎) . (3.1)
+Indeed, Δ(𝑎𝑏) = ̄ 𝑎 Δ𝑏 + ̄𝑏 Δ𝑎, also for a symmetric bilinear form. There is no extra factor 1/2 in the
+sum: the partner means account for the simultaneous cross term. When both moments start at
+zero, charging only the initial fields would give zero work and miss ( 2.8). The endpoint means
+assign half the new partner field to each change [ 2].
+5
+
+--- PAGE ---
+
+Tri-Octagon: sources, exchange and switch-off Research edition v0.1
+3.2 The proposed rule
+Fix a dimensionless load 𝜂 ≥ 0 , positive energy scales 𝑆𝑎, and additional real variables ℎ𝑎. The
+proposed stored energies are 𝑆𝑎ℎ2𝑎/2, which are nonnegative even outside the positive- ℎ branch.
+Neutral initialization means ℎ𝑎 = 1. Freeze the native directions
+𝑑𝑎 = 𝐹(𝑞 𝑎) − 𝑞𝑎, 𝐷 𝑠 = (𝑠 1𝑑1, 𝑠2𝑑2), 𝑞 +𝑎 = 𝑞 𝑎 + 𝑠𝑎𝑑𝑎. (3.2)
+The real gradient below differentiates the pair energy with respect to the six coordinates of body
+𝑎, with the geometric data fixed:
+𝐿𝑎(𝑠) = ∫
+1
+0
+∇𝑞𝑎𝑈(𝑞 + 𝜏𝐷 𝑠) ⋅ 𝑑𝑎 d𝜏, (3.3)
+ℎ+𝑎 = ℎ 𝑎 − 𝜂 𝑆𝑎 𝐿𝑎(𝑠), 𝑠 𝑎 = ℎ𝑎 + ℎ+𝑎 2 . (3.4)
+These are new constitutive choices. The gain 𝑠𝑎 is the multiplier of the ordinary internal displace-
+ment; it can exceed one. The integration variable 𝜏 is not a physical clock, and 𝐹 is evaluated only
+at the initial state, not repeatedly along the segment.
+The integral in (3.3) is an average-vector-field discrete gradient. Such segment integrals and their
+energy identities are standard in energy-preserving integration [ 12]. Here the proof applies to
+the specified frozen-direction/store rule; it does not identify the native map with a Hamiltonian
+flow , or assert a symplectic method. Under ( 2.1), 𝑈 is at most quartic in 𝑞, so 𝐿𝑎 is a cubic poly-
+nomial in 𝑠, with exact polynomial integration available.
+Theorem 3.1 (Specified energy balance) . Every solution of (3.2)–(3.4), at fixed geometry and fixed
+𝜂, conserves
+ℰ = 𝜂𝑈 +
+2
+∑
+𝑎=1
+𝑆𝑎ℎ2𝑎
+2 . (3.5)
+Proof. The fundamental theorem of calculus yields
+𝑈(𝑞 + 𝐷 𝑠) − 𝑈(𝑞) = ∑
+𝑎
+𝑠𝑎𝐿𝑎(𝑠).
+Meanwhile the change in the 𝑎-th store is
+𝑆𝑎
+2 ((ℎ+𝑎 )2 − ℎ2𝑎) = 𝑆 𝑎𝑠𝑎(ℎ+𝑎 − ℎ𝑎) = −𝜂𝑠 𝑎𝐿𝑎(𝑠).
+Summing gives zero total change. This is the exact GM02 cancellation, using the pair energy once
+[2].
+For a computed gain, put
+𝑅𝑎(𝑠) = 𝑠 𝑎 − ℎ𝑎 + 𝜂𝐿𝑎(𝑠) 2𝑆𝑎 . (3.6)
+If the midpoint identity is imposed by ℎ+𝑎 = 2𝑠 𝑎 − ℎ𝑎, its energy defect is exactly 2 ∑𝑎 𝑆𝑎𝑠𝑎𝑅𝑎. This
+checks solver residuals without interpreting rounded values as exact conservation.
+At zero load, ℎ+𝑎 = ℎ 𝑎 and 𝑠𝑎 = ℎ 𝑎. Neutral stores give the ordinary map at every zero-load step.
+Nonneutral stores retain their multiplier. If 𝑑𝑎 = 0 , then 𝐿𝑎 = 0 and the body cannot advance in
+its internal state under this rule; a nonzero gradient of 𝑈 does not change that conclusion. For
+example, with all 𝑘𝑖 = 1 , the state 𝑒 is native fixed while its dictionary mass need not have zero
+gradient.
+6
+
+--- PAGE ---
+
+Tri-Octagon: sources, exchange and switch-off Research edition v0.1
+3.3 Existence, uniqueness and the selected branch
+At 𝜂 = 0 , 𝑅(𝑠) = 𝑠 − ℎ and its Jacobian in 𝑠 is the identity. The implicit-function theorem gives a
+branch near 𝑠 = ℎ for each fixed initial state. No derivative of 𝐹 is needed for this statement, since
+𝑑 is frozen. Smooth dependence on the initial state requires a regular native domain.
+A quantitative certificate uses the map 𝑠𝑎 ↦ ℎ 𝑎 − 𝜂𝐿𝑎(𝑠)/(2𝑆𝑎). On a closed box |𝑠𝑎 − ℎ𝑎| ≤ 𝛿 , it
+suﬀices that |𝜂|
+2𝑆𝑎
+sup |𝐿𝑎| ≤ 𝛿, max𝑎
+|𝜂|
+2𝑆𝑎
+∑
+𝑏
+sup |𝜕𝑠𝑏𝐿𝑎| < 1. (3.7)
+The first condition maps the box to itself; the second is a contraction in the maximum norm. The
+accepted nonzero ranges below use equal 𝑆𝑎 = 𝑆 , ℎ𝑎 = 1 , and ℬ = [1/2, 3/2] 2. Appendix A
+supplies the quantitative estimates.
+For the real, dipole-silent state of ( 2.7), let
+𝛾 = 𝜂𝐺𝑁𝑏𝑀 2𝑆𝑟 , 𝜁 = 𝑏 2𝑀 ≤ 1 300000000 . (3.8)
+Every 0 ≤ 𝛾 ≤ 1/10 , equivalently 𝜂 ≤ 𝑆𝑟/(5𝐺 𝑁𝑏𝑀), has a unique solution in ℬ. Symmetry
+makes it 𝑠1 = 𝑠 2 = 𝑠, with
+𝑓 (𝑠) ∶= 𝑠 − 1 − 𝛾𝑠(1 + 𝜁 𝑠 2) = 0. (3.9)
+For positive load the selected root exceeds one and increases as𝑟 decreases with other parameters
+fixed:
+d𝑠
+d𝛾 = 𝑠(1 + 𝜁 𝑠2) 1 − 𝛾(1 + 3𝜁 𝑠2) > 0 on the certified branch .
+Uniqueness is explicitly not global. For 0 < 𝛾 ≤ 1/10 , 𝑓 (0) < 0 , 𝑓 (2) > 0 , and the cubic has limits
++∞ at −∞, −∞ at +∞. It therefore has three distinct real roots: one negative, the selected one in
+(0, 2), and one above 2. The box and continuation from zero load select the root used here. With
+𝑚0 = 0, accepted rational brackets give 𝑠 ≃ 1.111111111619 at 𝛾 = 0.1 and 𝑠 ≃ 1.052631579152 at
+𝛾 = 0.05 . These are model calculations, not measured accelerations.
+For the Fourier preparation, 𝑚0 = 0, equal poses 𝐼3, and arbitrary unit 𝑛, define
+𝑎L = 𝜂𝐺𝑁𝛼2 𝑆𝑟 , 𝑏 L = 𝜂𝑐𝑚𝜅2 𝑆𝑟3 . (3.10)
+The range
+0 ≤ 𝑎 L ≤ 1 4 , 0 ≤ 𝑏 L ≤ 10 6 (3.11)
+gives a unique solution in ℬ for every 𝑛; it is again symmetric, and
+203
+240 ≤ 𝑠 ≤ 277 240 , 83 120 ≤ ℎ + = 2𝑠 − 1 ≤ 157 120 . (3.12)
+All loads on the straight path to zero satisfy the same certificate, so this root is the neutral con-
+tinuation branch.
+3.4 Precisely which energy is conserved
+Theorem 3.1 includes the weighted pair interaction and the two proposed stores. It includes
+neither native 𝒱, source self-energies, nonzero translational momenta, rotational energy nor the
+energy of a physical switching apparatus. Fixed centers and poses exclude mechanical work from
+displacement during the loaded step. Appendix A.3 gives separate accounts for these quantities
+rather than silently incorporating them.
+7
+
+--- PAGE ---
+
+Tri-Octagon: sources, exchange and switch-off Research edition v0.1
+The parameter 𝑆𝑎 is an energy scale, not a finite storage capacity;ℎ𝑎 has no imposed global bound.
+Although each store is nonnegative, the total energy need not be positive or bounded below.
+Exact conservation and a one-step contraction do not prove global stability or long-term capture.
+The real gravity example stays in NPC’s amplitude and phase domain for this one step, but no
+loaded convergence theorem follows.
+4 Spatial predictions with fixed centers
+Continue with the identical Fourier bodies, 𝑚0 = 0 , 𝑅𝑎 = 𝐼 3 and equal neutral stores. Write
+𝑢(𝑠) = 𝑈(Ω(𝑠), Ω(𝑠)) and 𝑢0 = 𝑢(0) . Symmetry of the two-body work integral gives 𝐿1 = 𝐿 2 =
+(𝑢(𝑠) − 𝑢0)/(2𝑠). Consequently the selected root obeys
+𝑓 (𝑠) = 𝑠 − 1 + 𝜂 [𝑢(𝑠) − 𝑢0] 4𝑆𝑠 = 0. (4.1)
+The contraction certificate implies 𝑓 ′ > 0 on [1/2, 3/2]. Thus for positive load the sign of 𝑠 − 1 is
+exactly the opposite of Δ𝑈𝐹 = 𝑢(1) − 𝑢 0. Infinitesimally ,
+𝑠 = 1 − 𝜂 4𝑆 Δ𝑈𝐹 + 𝑂(𝜂2).
+The exact sign statement uses the certified branch; it is not an assertion about all roots outside
+the box.
+For the parallel and transverse placements of ( 2.8),
+𝑢⟂(𝑠) − 𝑢∥(𝑠) = 3𝑐𝑚𝜅2 𝑟3 (𝑤 ⋅ 𝑊(𝑠)) 2 |𝑤|2 > 0 (𝜅 ≠ 0, 1/2 ≤ 𝑠 ≤ 3/2). (4.2)
+Comparing the increasing scalar residuals shows 𝑠∥ > 𝑠 ⟂ throughout the common positive-load
+range. The Fourier update reduces mass, so its gravitational work is positive. The transverse gain
+is therefore below one. The parallel gain exceeds one only when the magnetic decrease exceeds
+that gravitational increase; the sign of the magnetic term alone does not decide the loaded gain.
+4.1 One benchmark, two separations
+Choose 𝜂 = 1 and a disjoint-source distance 𝑟0 such that
+𝑎L(𝑟0) = 0.01, 𝑏 L(𝑟0) = 10 6.
+Hold all physical and storage scales fixed when changing distance. At 2𝑟0, the loads are 0.005
+and 125000. Table 1 transcribes the accepted rational enclosures from GM02–GM03 and rounds
+their values. The two 2𝑟0 entries were held out from the benchmark calibration in GM03; they
+are predictions from the same mathematical model, not independent experimental observations.
+Doubling the distance weakens magnetism faster than gravity in this pair model, so even the
+parallel placement slows the internal advance at 2𝑟0. This compares internal multipliers at fixed
+geometry , not trajectories of moving bodies.
+4.2 Neutral angle and neutral distance
+Let 𝜃 ∈ [0, 𝜋/2] be the acute angle of the center line to 𝑤, and define
+𝐴𝑔 = 𝐺 𝑁((3𝛼)2 − (𝛼𝐼𝐹)2) > 0, 𝐵 𝑚 = 𝑐 𝑚𝜅2|𝑤|2 > 0.
+8
+
+--- PAGE ---
+
+Tri-Octagon: sources, exchange and switch-off Research edition v0.1
+Table 1: Model predictions for the Fourier preparation. Each placement has its own matched
+neutral control at its own reached state. The final column is the next zero-load multiplier 2𝑠on −1;
+its 2𝑟0 entries are direct endpoint transformations of the accepted gain brackets. Centers do not
+move during a step.
+Distance Fixed center line Loaded gain 𝑠on Next gain after switch-off
+𝑟0 𝑛∥ = 𝑤/|𝑤| 1.006036217 1.012072434
+𝑟0 𝑛⟂ = 𝑒 𝑧 0.990788805 0.981577610
+2𝑟0 𝑛∥ = 𝑤/|𝑤| 0.999181277 0.998362554
+2𝑟0 𝑛⟂ = 𝑒 𝑧 0.997279741 0.994559482
+The ordinary-endpoint work is
+Δ𝑈𝐹 =
+𝐴𝑔
+𝑟 + 𝐵𝑚 𝑟3 (1 − 3 cos2 𝜃). (4.3)
+On the certified branch the exact neutral condition 𝑠 = 1 is therefore
+3 cos2 𝜃 − 1 = 𝐴𝑔
+𝐵𝑚
+𝑟2, 𝑟 ⋆ = √ 2𝐵𝑚 𝐴𝑔 . (4.4)
+For 0 < 𝑟 < 𝑟 ⋆, when disjointness and the load certificate also hold, there is an interior neutral
+angle. At 𝑟 = 𝑟 ⋆, only the end-to-end direction is neutral. For 𝑟 > 𝑟 ⋆, every direction gives 𝑠 < 1
+within the certificate. For the benchmark,
+cos2 𝜃⋆ = 9250171622999999 15229687556250000 , 𝑟⋆ 𝑟0 = √ 10153125037500000 4173609104249999 , (4.5)
+or 𝜃⋆ ≃ 38.7994149815 ∘ and 𝑟⋆/𝑟0 ≃ 1.55971044948 . All 𝑟 ≥ 𝑟 0 preserve the stated load bounds
+and disjointness.
+The vector 𝑤 = 𝑊(1) belongs only to the unloaded-endpoint criterion. In solving ( 4.1), the
+magnetic energy must use the actual 𝑊(𝑠). Its two components in ( 1.9) do not have a constant
+ratio: the vector turns along the path. Thus two center lines at the same angle to 𝑤 can have
+different loaded gains through their azimuth. A specified planar scan may use 𝑛 = cos 𝜃 𝑤/|𝑤| +
+sin 𝜃 𝑒𝑧. The neutral criterion itself is independent of that azimuth.
+5 A matched-control test of the proposed store
+The most direct falsifiable consequence compares an exposed body with a fresh neutral copy at
+the same reached native state . Let 𝑞1 = 𝑞 0 + 𝑠on𝑑0 follow one loaded step from ℎ0 = 1 , and define
+𝑑1 = 𝐹(𝑞 1) − 𝑞1. Switch to 𝜂 = 0 without changing 𝑞1 or ℎ1. If 𝐸 denotes the exposed copy and 𝐶
+its matched control, the rule predicts
+𝑞2,𝐸 − 𝑞1 = (2𝑠 on − 1)(𝑞2,𝐶 − 𝑞1), 𝑞 2,𝐶 = 𝐹(𝑞 1). (5.1)
+This is GM03’s central vector test [ 3]. End-to-end and side-by-side exposure generally reach
+different 𝑞1, so each arrangement requires its own control. Comparing the two exposed bodies
+directly does not implement the matched test.
+Proposition 5.1 (Persistent midpoint multiplier). Under the specified neutral initialization, midpoint
+update and zero-load switch,
+ℎ1 = 2𝑠 on − 1, 𝑠 next,off − 1 = 2(𝑠 on − 1). (5.2)
+Equation (5.1) follows even without identifying a physical carrier of ℎ.
+9
+
+--- PAGE ---
+
+Tri-Octagon: sources, exchange and switch-off Research edition v0.1
+Proof. The loaded midpoint identity is 𝑠on = (1 + ℎ 1)/2. At zero load, ℎ is unchanged and the
+next gain equals ℎ1. The fresh control has ℎ = 1 , hence its displacement is 𝑑1. These three
+equalities give both claims. No fitted mass, moment or storage scale remains after the observed
+𝑠on is supplied.
+It is the departure of a multiplier from unity that doubles. The ordinary native direction generally
+changes from 𝑑0 to 𝑑1, so absolute displacement need not double. Persistence at zero load gives
+a constant ℎ on subsequent steps, not a constant displacement or an asymptotic claim about the
+native states.
+5.1 The next direction is not accidentally zero
+For the whole first-step box 1/2 ≤ 𝑠 ≤ 3/2 , put 𝑏𝑖 = |Ω 𝑖(𝑠)|. Equation ( 1.7) gives 0.9 < 𝑏 𝑖 < 1 and
+∑
+𝑖
+Ω𝑖(𝑠) = 𝜉 𝑠(𝜔 2 − 1), ∣∣∣∣ ∑ 𝑖 Ω𝑖(𝑠)∣∣∣∣ = √3 𝜉 𝑠 < 3𝜉 .
+The next native prestage is
+𝑣𝑖 = 𝜌 𝑖Ω𝑖(𝑠) + 𝑔 ∑
+𝑗
+Ω𝑗(𝑠), 𝜌 𝑖 = 0.95 + 0.1(𝑘 𝑖 − 𝑏2 𝑖 ).
+Here 0.9499 ≤ 𝜌 𝑖 ≤ 0.9691 and the coupling remainder has magnitude < 1/200000 . Triangle
+inequalities give the GM03 bounds
+|𝑣𝑖| > 170981 200000 , 𝑏 𝑖 − |𝑣𝑖| > 5561 200000 , ‖𝑑 1‖2 > √3 5561 200000 . (5.3)
+The phase kick preserves the prestage modulus even when it no longer vanishes. Thus every
+component of 𝑑1, including channel 𝐵, is nonzero. The neutral-angle reached state and all four
+rows of Table 1 satisfy this bound.
+At neutral placement 𝑠on = 1 , the store remains neutral and the next update is ordinary despite
+both interactions being present. At a native fixed state 𝑑1 = 0 , in contrast, a state displacement
+cannot reveal the multiplier. This degeneracy explains why a nonzero-direction control matters.
+In the formal product state space (𝑞, ℎ), fresh preparation at any selected 𝑞1 with ℎ = 1 is allowed.
+Whether a physical apparatus can produce that control remains an experimental prerequisite.
+5.2 A channel measurement and a full vector test
+For the specific first Fourier path,
+Ω𝐵(𝑠) = 𝜔(1 − 𝑠/20), 1 − 𝑠/20 ≥ 37/40 > 0 (1/2 ≤ 𝑠 ≤ 3/2).
+It follows exactly that a single calibrated amplitude gives
+𝑠on = 20(1 − |Ω1,𝐵|). (5.4)
+The first subscript denotes step number. This uses the known preparation, amplitude normal-
+ization, channel label and first-step path. It does not establish that the other components follow
+that path. It refines the measurement wording of the earlier one-page GM03 explanation, which
+remains unchanged in the evidence archive.
+Taking channel 𝐵 of (5.1) gives a necessary registered complex-displacement test:
+Ω2,𝐸,𝐵 − Ω1,𝐵 = (2𝑠 on − 1)(Ω2,𝐶,𝐵 − Ω1,𝐵). (5.5)
+10
+
+--- PAGE ---
+
+Tri-Octagon: sources, exchange and switch-off Research edition v0.1
+Its control displacement is nonzero by ( 5.3). First-step amplitude and next-step complex dis-
+placement are different measurements: the latter requires common phase registration between
+the two copies. Failure in this one component suﬀices to reject the vector prediction under the
+controls. Agreement in one component leaves the other components unchecked. The full regis-
+tered state is needed for the full vector test. Both direct refinements were checked during manuscript
+preparation against GM03’s path, vector identity and nonzero bound.
+5.3 Switching requires an external work account
+Setting 𝜂 = 0 is an operation in the model, not a demonstrated physical switching procedure.
+With 𝑞, ℎ fixed during a load change, the work supplied to the specified system is
+𝑊switch = (𝜂 after − 𝜂before)𝑈(𝑞1). (5.6)
+For a switch from 1 to 0, this is −𝑈(𝑞1). The accepted benchmark gives
+𝑊switch/𝑆 ≃ 0.114290611028 (∥), 0.053494605143 (⟂).
+These positive values refer to the chosen pair-plus-store account. Changes in other energies re-
+quire their own accounting.
+Moving the geometry with 𝑞, ℎ, 𝜂 fixed instead costs
+𝑊geom = − 𝜂𝐺 𝑁𝑚1𝑚2 ⎛⎜ ⎝ 1 𝑟𝑓 − 1 𝑟𝑖 ⎞⎟ ⎠
++ 𝜂𝑐𝑚 ⎛⎜⎜
+⎝
+𝝁𝑇 1 Q(𝑛𝑓 )𝝁2
+𝑟3 𝑓 − 𝝁𝑇 1 Q(𝑛𝑖)𝝁2 𝑟3 𝑖 ⎞⎟⎟ ⎠ . (5.7)
+For both operations together, d (𝜂𝑈) = 𝑈 d𝜂 + 𝜂 dgeom𝑈. Moving to a finite neutral angle is not
+switching off: it cancels the ordinary-step work for this preparation, not the interaction or all
+its gradients. Sending 𝑟 formally to infinity gives 𝑈 → 0 and the corresponding work −𝜂𝑈𝑖; it
+supplies no finite experimental protocol.
+The two histories can therefore have the same current 𝑞1 and the same prescribed external condi-
+tions but different next advances. A single-valued function of that current state and those fields
+alone cannot represent their different ℎ. This does not identify what physically carries the his-
+tory. Passing (5.1) would be compatible with multiple hidden-state mechanisms and would not
+by itself validate the energy law.
+6 Observations, identifiability and decisive failures
+6.1 Registering an internal advance
+Given the full registered initial and final real states, let
+𝑠obs = (𝑞+ − 𝑞) ⋅ 𝑑 𝑑 ⋅ 𝑑 , 𝑟 ⟂ = (𝑞 + − 𝑞) − 𝑠obs𝑑, 𝑑 = 𝐹(𝑞) − 𝑞 ≠ 0. (6.1)
+The scalar feedback requires 𝑟⟂ = 0 . A nonzero perpendicular residual beyond measurement
+error rejects its directional form; changing 𝛼, 𝜅, 𝑆 cannot repair a direction error. If 𝑑 is known
+exactly and the displacement error has norm at most 𝜖obs, the gain error is at most 𝜖obs/‖𝑑‖. Near
+native fixed states this inference is poorly conditioned.
+Registration means retaining channel labels and their 𝑘𝑖, handedness and pose conventions, am-
+plitude calibration, and a consistent complex phase reference across the states being compared.
+11
+
+--- PAGE ---
+
+Tri-Octagon: sources, exchange and switch-off Research edition v0.1
+One common phase choice on a regular native domain is harmless. Independently rephasing
+snapshots or matched copies changes the displacement test. Native update count alone does not
+provide physical time. Formula ( 5.4) is a preparation-specific scalar shortcut, not an exception
+to these requirements for the full vector test.
+6.2 What independent work would determine
+For two identical neutral stores and a symmetric gain 𝑠, the total store increment is
+Δ𝐸stores = 𝑆((2𝑠 − 1)2 − 1) = 4𝑆𝑠(𝑠 − 1).
+Conservation at fixed load therefore gives
+𝑆
+𝜂 = − Δ𝑈loaded 4𝑠(𝑠 − 1) (𝜂 ≠ 0, 𝑠 ≠ 0, 1). (6.2)
+Here Δ𝑈loaded = 𝑢(𝑠)−𝑢 0, not the ordinary-endpointΔ𝑈𝐹. If the independently measured energy
+change is already the weighted quantity 𝜂Δ𝑈, the same quotient gives 𝑆 directly. Values inferred
+across trials must be positive and consistent with one shared scale.
+Substituting a model-computed Δ𝑈 into ( 6.2) tests internal consistency only. Physical energy
+validation needs independently measured work or an independently calibrated energy store.
+Near neutrality the inference loses sensitivity: to first order, with 𝑅 = 𝑆/𝜂 ,
+𝛿𝑅
+𝑅 ≃ 𝛿(Δ𝑈) Δ𝑈 − 2𝑠 − 1 𝑠(𝑠 − 1) 𝛿𝑠.
+At exact neutrality it is a 0/0 expression, not a determination of 𝑆.
+6.3 Two ratios, not three absolute scales
+Assume 𝑚0 = 0, calibrated geometry and load, and define the state/geometry functions
+𝐽𝑔 = − 𝐼1𝐼2 𝑟 , 𝐽 𝑚 = 𝑊𝑇 1 Q(𝑛)𝑊2 𝑟3
+for the common fixed pose 𝐼3. Each symmetric trial gives
+𝐺𝑁𝛼2
+𝑆 Δ𝐽𝑔 + 𝑐𝑚𝜅2 𝑆 Δ𝐽𝑚 = − 4𝑠(𝑠 − 1) 𝜂 . (6.3)
+T wo or more trials identify these two ratios if the matrix of measured rows (Δ𝐽𝑔, Δ𝐽𝑚) has rank
+two. In the parallel/transverse benchmark, both gravitational coeﬀicients are positive and the
+magnetic coeﬀicients have opposite signs. Their determinant is nonzero, as also checked using
+the accepted rational gain brackets in GM03. Reconstructing 𝑎L = 0.01 , 𝑏L = 10 6 from model-
+generated data illustrates this identifiability; it is not empirical evidence.
+For any 𝑐 > 0 , the transformation
+𝛼 ↦ 𝑐𝛼, 𝜅 ↦ 𝑐𝜅, 𝑆 ↦ 𝑐 2𝑆 (6.4)
+preserves the gains and the two ratios. Identical-pair data also leave the sign of 𝜅 unresolved.
+Unknown absolute length or load adds further ambiguity. Independent mass, moment or work
+measurements are needed to separate absolute scales. The neutral curve eliminates 𝑆, so it con-
+strains the relative source interaction without locating or calibrating the store.
+12
+
+--- PAGE ---
+
+Tri-Octagon: sources, exchange and switch-off Research edition v0.1
+6.4 What existing readouts and carriers supply
+The prior papers already provide useful mathematical structures. They must be compared by
+their equations rather than by a shared word such as “memory” or “energy.”
+Face decoding and reconstruction. In PHASE, the fixed tangent-plane decoder and inverse are
+𝐷𝑖(𝑥 + i𝑦) = 𝑥 𝑡 𝑖 + 𝑦 𝑒𝑧, 𝐸 𝑖(𝑣) = 𝑡 𝑖 ⋅ 𝑣 + i𝑒𝑧 ⋅ 𝑣,
+with the inverse asserted on the assigned plane [ 6]. This is a geometric representation, not an
+instrument or a material particle trajectory. PHASE’s retained-coherence reconstruction theorem
+uses its near-aligned domain and an initial common phase. It does not automatically reconstruct
+the present Fourier or loaded histories.
+Receiver and transport storage. RX introduces native, carrier and receiver energies, including
+𝐻𝑁 = 𝛼 𝑁|𝑥|2/2, 𝐻𝐶 = 1 2 ∫(𝑝2 + 𝑟 2𝑐 ), and 𝐻𝑅 = 𝛽 𝑅|𝑧|2/2, with independent initial data [ 7]. Its
+hybrid construction performs the ordinary native map followed by reciprocal exchange. With
+its exchange couplings zero, receiver state can persist, but it does not multiply the native update
+by the GM store variable. WT adds a storage-bearing transport route and associated projected
+feedback [ 8]. Switching off that new transport coupling alone need not switch off RX’s older
+couplings. Neither source identifies a variable with the initialization, energy calibration and
+zero-load multiplier law of ( 3.4).
+Observation memory. PHASE distinguishes raw readouts, staged quantities and an observer’s
+exponential moving average, including its specified0.01 innovation coeﬀicient [6]. These require
+their own sampling order and initial observer state. They are not feedback in the native recur-
+rence, have no automatic joule calibration, and are not automatically frozen by setting the present
+𝜂 to zero. An observer record may reveal history without being the physical energy store.
+These comparisons preserve possibilities for a future correspondence. They do not prove that ev-
+ery physical carrier is impossible. A candidate carrier must supply its own preparation, coupling,
+persistence and measurable energy relation.
+6.5 What would reject this extension
+A physical test requires a registered state readout, the stated initial preparation, a matched neu-
+tral copy at the reached state, and a controlled switch whose effect on 𝑞, ℎ and external work is
+independently established. The nonzero-direction bound makes the proposed Fourier compar-
+ison nondegenerate in the model. Subject to experimental errors and those controls, any of the
+following observations is decisive for the indicated claim:
+1. A displacement outside the native direction rejects the scalar-advance form, even if an
+amplitude-only first-step estimate fits.
+2. A next-step exposed/control difference inconsistent with (5.1), including failure in channel
+𝐵, rejects the midpoint/persistent-store feedback. Refitting mass, moment or storage scales
+cannot alter its parameter-free multiplier once 𝑠on is measured.
+3. Independently measured work inconsistent with (6.2) across trials rejects the specified pair-
+plus-store energy account, even if the switch-off multiplier happens to agree.
+The source bound, the proposed source dictionary , the static field premises and this particular
+feedback are distinct claims. A failure of the last need not falsify the dictionary. Conversely ,
+an axial observable or a fitted spatial response does not establish the feedback or its physical
+carrier. The combined result is a source-constrained, energy-balanced candidate with a concrete
+conditional test; physical identification of the store, clock and apparatus remains open.
+13
+
+--- PAGE ---
+
+Tri-Octagon: sources, exchange and switch-off Research edition v0.1
+A Quantitative certificates and separate energy accounts
+A.1 Gravity box
+For the real preparation, the first path has 𝑚(𝑧) = 𝑀 + 𝑏𝑧 2 and 𝑊(𝑧) = 0 . Integrating its pair
+gradient gives
+𝐿1 = − 𝐺𝑁 𝑟 𝑏𝑠1 (𝑀 + 𝑏 2 𝑠2 2) , 𝑠 1 = 1 + 𝛾𝑠 1(1 + 𝜁 𝑠2 2),
+and the analogous second equation. On ℬ, the fixed-point shift and maximum row derivative
+are bounded by
+3
+20 (1 + 9 4 𝜁 ) < 1 2 , 1 10 (1 + 27 4 𝜁 ) < 1. (A.1)
+These prove the claimed nonzero gravity range. Symmetry and uniqueness imply equal gains.
+On the selected scalar interval, the denominator in d 𝑠/ d𝛾 is positive by the same derivative
+bound. The exact cubic sign argument in Section 3 explains why this local certificate is essential.
+A.2 Fourier box for every center-line direction
+Put 𝐴 = 𝐺 𝑁/𝑟, 𝐷 = 𝑐 𝑚𝜅2/𝑟3, and 𝑀 = 𝑚 0 + 3𝛼. Along the segment 0 ≤ 𝑧 ≤ 3/2 , the accepted
+bounds [2, 3] are
+𝑚(𝑧) ≤ 𝑀, |𝑚 ′(𝑧)| ≤ 3𝛼/10, |𝑚 ″(𝑧)| < 𝛼/50,
+|𝑊(𝑧)| < 1/4000, |𝑊 ′(𝑧)| < 1/6000, |𝑊 ″(𝑧)| < 1/60000. (A.2)
+They follow directly from ( 1.8)–(1.9). For every unit 𝑛, Q(𝑛) has eigenvalues (−2, 1, 1), so
+‖Q(𝑛)‖2 = 2. With
+𝑃(𝑧1, 𝑧2) = −𝐴𝑚(𝑧 1)𝑚(𝑧2) + 𝐷𝑊(𝑧 1)𝑇Q(𝑛)𝑊(𝑧2),
+define
+𝐶0 = 3 10 𝐴𝛼𝑀 + 𝐷 12000000 , 𝐶 𝐻 = 𝐴 ( 𝛼𝑀 50 + 9𝛼2 100 ) + 23𝐷 360000000 . (A.3)
+The first partials of 𝑃 have magnitude at most 𝐶0; each Hessian row has absolute sum at most
+𝐶𝐻. Since
+𝐿𝑎(𝑠) = ∫
+1
+0
+𝜕𝑧𝑎𝑃(𝜏𝑠1, 𝜏𝑠2) d𝜏,
+the row bound for 𝜕𝑠𝐿 is 𝐶𝐻/2, from ∫
+1
+0 𝜏 d𝜏 = 1/2 . Thus
+0 ≤ 𝜂 ≤ min ( 𝑆 2𝐶0 , 𝑆 𝐶𝐻 )
+is a suﬀicient nonzero range: its shift and contraction factor are at most 1/4.
+For 𝑚0 = 0, the wider convenient normalized range ( 3.11) gives the explicit bounds
+𝜂𝐶0
+2𝑆 ≤ 9 20 𝑎L + 𝑏L 24000000 ≤ 37 240 < 1 2 , 𝜂𝐶𝐻 4𝑆 ≤ 3 80 𝑎L + 23𝑏L 1440000000 ≤ 73 2880 < 1. (A.4)
+This proves existence, uniqueness, equal gains and ( 3.12), uniformly in 𝑛. It also proves that
+the derivative of the diagonal fixed-point map has magnitude below one, which justifies the
+monotonic residual used for the exact sign and neutral-placement conclusions.
+14
+
+--- PAGE ---
+
+Tri-Octagon: sources, exchange and switch-off Research edition v0.1
+A.3 Self-energy, native potential and mechanical energy
+The effective frozen-source field functionals can be written
+∫ ( |∇Φ|2
+8𝜋𝐺𝑁
++ 𝜌Φ) d𝑋, ∫ ( |𝐵|2
+2𝜇0
+− ℳ ⋅ 𝐵 ) d𝑋.
+At their respective field solutions these reduce to 1 2 ∫ 𝜌Φ and − 1 2 ∫ ℳ ⋅ 𝐵. The latter is an effective
+prescribed-moment functional; it is not a statement that all magnetic matter and field energy is
+negative.
+For one radial profile define
+𝐽𝜒 = ∬ 𝜒(𝑋)𝜒(𝑌) |𝑋 − 𝑌| d𝑋 d𝑌, 𝐾 𝜒 = ∫ 𝜒(𝑋) 2 d𝑋.
+Its effective self-energies are
+𝑈𝑔,self = −
+𝐺𝑁𝐽𝜒
+2 𝑚2, 𝑈 𝑚,self = − 𝜇0𝐾𝜒 3 |𝝁|2. (A.5)
+For the magnetic formula, in Fourier space ̂𝐵 = 𝜇 0(𝐼 − ̂𝑘 ̂𝑘𝑇) ̂ℳ. The angular average of this trans-
+verse projector is 2𝐼3/3 for radial ̂ 𝜒, and Parseval’s identity gives the coeﬀicient. The positive
+magnetic field term alone is +𝜇0𝐾𝜒|𝝁|2/3; the source term is indispensable for the effective sign.
+GM02 records these separate self-energy accounts [ 2]. Changes in ( A.5) are absent from Theo-
+rem 3.1; including them requires adding their work to the chosen model.
+The native potential of NPC is
+𝒱(Ω) = 𝜀 ∑
+𝑖
+( |Ω𝑖|4
+4 − 𝑘𝑖|Ω𝑖|2 2 ) + 𝑔 2 ∑ 𝑖<𝑗 |Ω𝑖 − Ω𝑗|2, 𝑣 − Ω = −∇ ℝ6𝒱. (A.6)
+It has no automatic physical energy calibration [ 5]. Full-map descent, including the phase stage,
+is proved under NPC’s stated hypotheses; the fixed-tuple domain has 0.9 ≤ |Ω 𝑖| ≤ 1.1 and or-
+dinary phase width at most 𝜋/12. A gradient prestage alone is insuﬀicient to assert descent
+everywhere.
+At the real zero-load witness used above, the accepted exact value per body is
+𝒱(𝐹(𝑒)) − 𝒱(𝑒) = − 3499999999 200000000000000000 ≠ 0.
+At 𝜂 = 0 , the GM stores are constant. Hence adding an unscaled nonzero multiple of native 𝒱
+to the conserved account would already violate conservation at that witness. A different work
+reservoir or feedback law would be needed; none is adopted here.
+If positive dictionary mass is also assigned as inertial mass, kinetic energy at fixed canonical
+momentum 𝑃 changes according to
+Δ ( |𝑃|2
+2𝑚 ) = − |𝑃|2Δ𝑚 2𝑚 𝑚+ . (A.7)
+The main model has fixed centers and zero momenta, so this term vanishes there. Nonzero mo-
+menta, moving centers, rotating poses, assigned moments of inertia and their force/torque laws
+require separate mechanical accounts. These omissions are explicit boundaries of the theorem,
+not hidden contributions to its store.
+15
+
+--- PAGE ---
+
+Tri-Octagon: sources, exchange and switch-off Research edition v0.1
+B Evidence and manuscript verification
+Complete accepted GM01–GM03 archives remain preserved in the local review record. This pub-
+lic edition contains unchanged scientific derivations, check scripts, saved outputs, claim records
+and directly accessible primary sources. Their recorded suites contain 29, 47 and 39 checks, re-
+spectively. Those historical scientific suites were not rerun to prepare this manuscript. Their
+saved inputs and outputs were checked for byte identity , and 18 selected primary source files
+were checked against the pinned repository objects at commit
+ca22652dc000ca2b16419c1af4167918eab1ae94.
+That identity is not a new proof or an assertion about the operator’s working tree.
+Table 2 gives a compact reading crosswalk. The accompanying CLAIM_SOURCE_CROSSWALK.json
+supplies exact source file, section/equation, manuscript label and saved check identifiers;
+SOURCE_LOCATORS.json adds pinned primary-source locators. The new manuscript checks
+verify the two measurement refinements, their stated nondegeneracy , and numerical transcrip-
+tion from existing certified intervals. The 2𝑟0 switch-off multipliers are obtained by applying
+𝑠 ↦ 2𝑠 − 1 to those intervals, not by another root calculation.
+Table 2: Claim families, original evidence and manuscript locations. All physical readings remain
+conditional on the added premises.
+Claim family Accepted source This manuscript
+Sharp intensity–axial bound GM01; Paper G identities Proposition 1.1, (2.2)
+Pair interaction and missing
+work
+GM01; GM02 §§2–3 Proposition 2.1, (2.7)–(3.1)
+Store energy and local
+uniqueness
+GM02 §§4–5 Theorem 3.1, Appendix A
+Spatial ordering, neutral locus
+and four gains
+GM02 §§5–6; GM03 §2 Section 4, Table 1
+Switch-off, nonzero direction
+and work
+GM03 §§3–4 Section 5
+Measurement, rank and scale
+limits
+GM03 §§5–7 Section 6
+Middle-channel refinements Writing order; GM03 (1), (4),
+(20)
+(5.4), (5.5)
+The supplied one-page explanation is retained with its original wording. Its all-coordinate mea-
+surement wording is refined only in this new edition. Source preservation, document references,
+embedded fonts, numerical transcription, build logs and a page-by-page visual inspection are
+recorded separately. All numerical benchmark values are model predictions; no independent
+measurement, experimental rejection or empirical acceptance is reported.
+References
+[1] H. F. Halldórsson, with GPT and Codex research assistance. Gravity and magnetism: native
+deductions and a conditional physical extension. GM01 local accepted investigation, 20 Novem-
+ber 2026. Exact derivation: evidence/GM01/GRAVITY_AND_MAGNETISM.md; 29 saved checks.
+Complete original archive preserved in the local review record.
+[2] H. F. Halldórsson, with GPT and Codex research assistance. Gravitational and magnetic work
+on an evolving triad . Local accepted investigation, 20 November 2026. Exact derivation: ev-
+idence/GM02/GM02_DERIVATIONS.md; 47 saved checks, including four rational root enclo-
+sures.
+16
+
+--- PAGE ---
+
+Tri-Octagon: sources, exchange and switch-off Research edition v0.1
+[3] H. F. Halldórsson, with GPT and Codex research assistance. Identifying the proposed store
+through spatial response and switch-off . Local accepted investigation, 20 November 2026. Ex-
+act derivation: evidence/GM03/GM03_DERIVATIONS.md; 39 saved check groups. These three
+local notes have project-internal acceptance, not external peer review.
+[4] H. F. Halldórsson. Geometry-Attached Axial Observables, Period-Doubling, and Certified En-
+trance Capture in the T ri-Octagon Map . Paper G, v0.1.1 (2026). Pinned source ; labels eq:T,
+eq:W, eq:hidden.
+[5] H. F. Halldórsson. Native Potential Descent and Closed Coherence Coordinates in the T ri-Octagon
+Map. Research edition v0.1 (2026). Pinned setting; finite-domain proof.
+[6] H. F. Halldórsson. Phase Reconstruction and Stationary Support Axes in the T ri-Octagon Map .
+Research edition v0.1 (2026). Pinned decoder, reconstruction and observation equations.
+[7] H. F. Halldórsson. A Reciprocal Chiral Exchange Extension of the T ri-Octagon Model . Research
+edition v0.1 (2026). Pinned candidate; hybrid reduction.
+[8] H. F. Halldórsson. Spatial Observation and Causal T ransport with Storage in the Reciprocal Chi-
+ral Exchange Candidate . Research edition v0.1 (2026). Pinned transport equations ; forward
+evolution.
+[9] D. T ong.General Relativity, introduction: a field theory of gravity. University of Cambridge
+lecture notes. https://www.damtp.cam.ac.uk/user/tong/gr/grhtml/S0.html . Accessed
+20 November 2026.
+[10] D. T ong.Electromagnetism, §3: Magnetostatics, especially magnetic dipoles and their force
+and torque. University of Cambridge lecture notes. https://www.damtp.cam.ac.uk/user
+/tong/em/em2.pdf. Accessed 20 November 2026.
+[11] D. T ong. Electromagnetism, §7: Electromagnetism in Matter, especially magnetization and
+bound current. University of Cambridge lecture notes. https://www.damtp.cam.ac.uk/us
+er/tong/em/el6.pdf. Accessed 20 November 2026.
+[12] E. Celledoni, V . Grimm, R. I. McLachlan, D. I. McLaren, D. O’Neale, B. Owren and
+G. R. W. Quispel. Preserving energy resp. dissipation in numerical PDEs using the “ Average V ec-
+tor Field” method . Journal of Computational Physics (2012). doi:10.1016/j.jcp.2012.06.022;
+arXiv:1202.4555, §2.
+17

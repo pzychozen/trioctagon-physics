@@ -1,0 +1,92 @@
+\section{A matched-control test of the proposed store}\label{sec:test}
+The most direct falsifiable consequence compares an exposed body with a fresh neutral copy at \emph{the same reached native state}. Let \(q_1=q_0+s_{\rm on}d_0\) follow one loaded step from \(h_0=1\), and define \(d_1=F(q_1)-q_1\). Switch to \(\eta=0\) without changing \(q_1\) or \(h_1\). If \(E\) denotes the exposed copy and \(C\) its matched control, the rule predicts
+\begin{equation}
+ \boxed{\quad q_{2,E}-q_1=(2s_{\rm on}-1)(q_{2,C}-q_1),
+ \qquad q_{2,C}=F(q_1).\quad}
+ \label{eq:vector-test}
+\end{equation}
+This is GM03's central vector test \cite{GM03}. End-to-end and side-by-side exposure generally reach different \(q_1\), so each arrangement requires its own control. Comparing the two exposed bodies directly does not implement the matched test.
+
+\begin{proposition}[Persistent midpoint multiplier]\label{prop:off}
+Under the specified neutral initialization, midpoint update and zero-load switch,
+\begin{equation}
+ h_1=2s_{\rm on}-1,\qquad
+ s_{\rm next,off}-1=2(s_{\rm on}-1).
+ \label{eq:doubling}
+\end{equation}
+Equation~\eqref{eq:vector-test} follows even without identifying a physical carrier of \(h\).
+\end{proposition}
+\begin{proof}
+The loaded midpoint identity is \(s_{\rm on}=(1+h_1)/2\). At zero load, \(h\) is unchanged and the next gain equals \(h_1\). The fresh control has \(h=1\), hence its displacement is \(d_1\). These three equalities give both claims. No fitted mass, moment or storage scale remains after the observed \(s_{\rm on}\) is supplied.
+\end{proof}
+It is the \emph{departure of a multiplier from unity} that doubles. The ordinary native direction generally changes from \(d_0\) to \(d_1\), so absolute displacement need not double. Persistence at zero load gives a constant \(h\) on subsequent steps, not a constant displacement or an asymptotic claim about the native states.
+
+\subsection{The next direction is not accidentally zero}
+For the whole first-step box \(1/2\le s\le3/2\), put \(b_i=|\Om_i(s)|\). Equation~\eqref{eq:path} gives \(0.9<b_i<1\) and
+\[
+ \sum_i\Om_i(s)=\xi s(\omega^2-1),\qquad
+ \left|\sum_i\Om_i(s)\right|=\sqrt3\,\xi s<3\xi.
+\]
+The next native prestage is
+\[
+ v_i=\rho_i\Om_i(s)+g\sum_j\Om_j(s),\qquad
+ \rho_i=0.95+0.1(k_i-b_i^2).
+\]
+Here \(0.9499\le\rho_i\le0.9691\) and the coupling remainder has magnitude \(<1/200000\). Triangle inequalities give the GM03 bounds
+\begin{equation}
+ |v_i|>\frac{170981}{200000},\qquad
+ b_i-|v_i|>\frac{5561}{200000},\qquad
+ \|d_1\|_2>\sqrt3\,\frac{5561}{200000}.
+ \label{eq:nonzero}
+\end{equation}
+The phase kick preserves the prestage modulus even when it no longer vanishes. Thus every component of \(d_1\), including channel \(B\), is nonzero. The neutral-angle reached state and all four rows of Table~\ref{tab:benchmark} satisfy this bound.
+
+At neutral placement \(s_{\rm on}=1\), the store remains neutral and the next update is ordinary despite both interactions being present. At a native fixed state \(d_1=0\), in contrast, a state displacement cannot reveal the multiplier. This degeneracy explains why a nonzero-direction control matters. In the formal product state space \((q,h)\), fresh preparation at any selected \(q_1\) with \(h=1\) is allowed. Whether a physical apparatus can produce that control remains an experimental prerequisite.
+
+\subsection{A channel measurement and a full vector test}
+For the specific first Fourier path,
+\[
+ \Om_B(s)=\omega(1-s/20),\qquad
+ 1-s/20\ge37/40>0 \quad (1/2\le s\le3/2).
+\]
+It follows exactly that a single calibrated amplitude gives
+\begin{equation}
+ s_{\rm on}=20\bigl(1-|\Om_{1,B}|\bigr).
+ \label{eq:amplitude}
+\end{equation}
+The first subscript denotes step number. This uses the known preparation, amplitude normalization, channel label and first-step path. It does not establish that the other components follow that path. It refines the measurement wording of the earlier one-page GM03 explanation, which remains unchanged in the evidence archive.
+
+Taking channel \(B\) of \eqref{eq:vector-test} gives a necessary registered complex-displacement test:
+\begin{equation}
+ \Om_{2,E,B}-\Om_{1,B}
+ =(2s_{\rm on}-1)(\Om_{2,C,B}-\Om_{1,B}).
+ \label{eq:component-test}
+\end{equation}
+Its control displacement is nonzero by \eqref{eq:nonzero}. First-step amplitude and next-step complex displacement are different measurements: the latter requires common phase registration between the two copies. Failure in this one component suffices to reject the vector prediction under the controls. Agreement in one component leaves the other components unchecked. The \emph{full registered state is needed for the full vector test}. Both direct refinements were checked during manuscript preparation against GM03's path, vector identity and nonzero bound.
+
+\subsection{Switching requires an external work account}
+Setting \(\eta=0\) is an operation in the model, not a demonstrated physical switching procedure. With \(q,h\) fixed during a load change, the work supplied to the specified system is
+\begin{equation}
+ W_{\rm switch}=(\eta_{\rm after}-\eta_{\rm before})U(q_1).
+ \label{eq:switch-work}
+\end{equation}
+For a switch from \(1\) to \(0\), this is \(-U(q_1)\). The accepted benchmark gives
+\[
+ W_{\rm switch}/S\simeq
+ 0.114290611028\quad(\parallel),\qquad
+ 0.053494605143\quad(\perp).
+\]
+These positive values refer to the chosen pair-plus-store account. Changes in other energies require their own accounting.
+
+Moving the geometry with \(q,h,\eta\) fixed instead costs
+\begin{equation}
+\begin{split}
+ W_{\rm geom}={}&-\eta G_Nm_1m_2\left(\frac1{r_f}-\frac1{r_i}\right)\\
+ &+\eta c_m\left(
+ \frac{\mub_1^T\Q(n_f)\mub_2}{r_f^3}
+ -\frac{\mub_1^T\Q(n_i)\mub_2}{r_i^3}\right).
+\end{split}\label{eq:geometry-work}
+\end{equation}
+For both operations together, \(\dd(\eta U)=U\dd\eta+\eta\dd_{\rm geom}U\). Moving to a finite neutral angle is not switching off: it cancels the ordinary-step work for this preparation, not the interaction or all its gradients. Sending \(r\) formally to infinity gives \(U\to0\) and the corresponding work \(-\eta U_i\); it supplies no finite experimental protocol.
+
+The two histories can therefore have the same current \(q_1\) and the same prescribed external conditions but different next advances. A single-valued function of that current state and those fields alone cannot represent their different \(h\). This does not identify what physically carries the history. Passing \eqref{eq:vector-test} would be compatible with multiple hidden-state mechanisms and would not by itself validate the energy law.

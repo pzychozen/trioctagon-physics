@@ -1,0 +1,81 @@
+\section{Native state and the source constraint}\label{sec:native}
+Three layers enter the argument. The existing recurrence and geometric attachment are inherited mathematical objects. The mass, magnetic moment, fields and store are added modeling premises. The resulting response and switch-off formulas are conditional predictions, with no independent physical data supplied. GM01 establishes the source constraint and the missing-work obstruction; GM02 constructs and bounds the feedback; GM03 gives its spatial and observational tests \cite{GM01,GM02,GM03}. This paper combines those results without extending their scientific scope.
+
+\subsection{The recurrence, normalization and geometric attachment}
+Write \(\Om=x+\ii y\in\C^3\), with channels \(A,B,C\), real coordinate vector \(q=(x,y)\in\R^6\), and \(e=(1,1,1)^T\). The native map \(F\) first forms all prestages and then all phase kicks:
+\begin{align}
+ v&=\Om+\varepsilon\,\Om\odot(k-|\Om|^2)+gL\Om,\qquad L=ee^T-3I_3, \label{eq:native-pre}\\
+ F_i(\Om)&=v_i\exp(\ii\delta_i),\qquad
+ \delta_i=\lambda\sum_{j\ne i}\sin\!\left(3(\Argz v_j-\Argz v_i)\right).
+ \label{eq:native-full}
+\end{align}
+Here \(\odot\) and the squared modulus act componentwise, and \(\Argz(0)=0\). No normalization or extra rotation is inserted. We use the exact tuple
+\begin{equation}
+ \varepsilon=\frac1{10},\qquad g=\frac1{60},\qquad
+ \lambda=\frac1{300},\qquad
+ k=\left(\frac{999}{1000},1,\frac{1001}{1000}\right).
+ \label{eq:tuple}
+\end{equation}
+The recurrence and potential premises are those of NPC \cite{NPC}; the attachment below is Paper G's fixed-frame construction \cite{G}. Common-phase equivariance is used only where the prestages are nonzero. The zero-phase convention must not be suppressed when extending a regular-domain statement.
+
+Define the intensity, channel area, complementary scalar and ambient axial attachment by
+\begin{equation}
+ I_\Om=\sum_i|\Om_i|^2,\quad C=x\times y,\quad \Gamma=e^TC,\quad
+ W=TC,\qquad
+ T=\begin{pmatrix}
+ -1/2&1&-1/2\\
+ -\sqrt3/2&0&\sqrt3/2\\
+ 0&0&0
+ \end{pmatrix}.
+ \label{eq:attachment}
+\end{equation}
+The letter \(C\) in \(C=x\times y\) denotes a vector; a channel subscript \(C\) denotes the third channel. Under Paper G's declared \(D_{3h}\) action, \(W\) is an ambient axial vector, determined up to a real scale among the admitted \emph{real-linear} maps from \(C\). This is not a uniqueness theorem for arbitrary nonlinear observables. The complementary \(\Gamma e_z\) has a different, polar-\(z\) transformation type. Neither parity statement supplies an electromagnetic field equation. Likewise, common phase is not automatically a rigid-body rotation \cite{G,PHASE}.
+
+\begin{proposition}[Sharp native bound]\label{prop:bound}
+For every complex triad,
+\begin{equation}
+ |W|^2=\frac38\left(I_\Om^2-|\Om\cdot\Om|^2\right)-\frac12\Gamma^2
+ \le \frac38 I_\Om^2. \label{eq:sharp}
+\end{equation}
+The dot product in \(\Om\cdot\Om=\sum_i\Om_i^2\) is bilinear. Equality holds exactly when \(\Om\cdot\Om=0\) and \(\Gamma=0\), including the zero state.
+\end{proposition}
+\begin{proof}
+Direct multiplication gives \(T^TT=\frac32(I_3-ee^T/3)\), hence
+\[
+ |C|^2=\frac23|W|^2+\frac13\Gamma^2.
+\]
+Also \(|x\times y|^2=|x|^2|y|^2-(x\cdot y)^2\), so
+\[
+ I_\Om^2=|\Om\cdot\Om|^2+4|C|^2.
+\]
+Eliminating \(|C|^2\) proves \eqref{eq:sharp} and its equality conditions. The state \(\Om=(1,1,\ii\sqrt2)\) has \(I_\Om=4\), \(\Gamma=0\), \(\Om\cdot\Om=0\) and \(|W|^2=6\), so the constant is attained. This is the GM01 deduction from Paper G's identities \cite{GM01,G}.
+\end{proof}
+
+\subsection{An initially silent Fourier preparation}
+Let
+\begin{equation}
+ \omega=e^{-2\pi\ii/3},\qquad \Om_0=(1,\omega,\omega^2).
+ \label{eq:fourier}
+\end{equation}
+This is the \emph{unnormalized} Fourier preparation: \(I_{\Om_0}=3\). Paper G also uses a unit-norm Fourier vector with a factor \(1/\sqrt3\); the calculations here do not use that factor. The initial area is parallel to \(e\), so \(W(\Om_0)=0\) although the raw channel area and \(\Gamma\) are nonzero.
+
+At \eqref{eq:tuple}, the positive prestage multipliers are
+\((9499,9500,9501)/10000\). Their phase differences remain Fourier differences, making every harmonic-three kick zero. Introduce the dimensionless constants
+\(\beta=1/20\) and \(\xi=1/10000\) (called \(t,a\) in GM02--GM03). The whole straight first-step path is
+\begin{equation}
+ \Om(z)=\diag\!\left(1-(\beta+\xi)z,\ 1-\beta z,\ 1-(\beta-\xi)z\right)\Om_0,
+ \label{eq:path}
+\end{equation}
+where \(z=0\) is the initial state and \(z=1\) its ordinary native update. Along this path,
+\begin{align}
+ I(z)&=3(1-\beta z)^2+2\xi^2z^2, \label{eq:path-I}\\
+ W(z)&=\left(\frac{\sqrt3}{2}\xi^2z^2,\ \frac32\xi z(1-\beta z),\ 0\right). \label{eq:path-W}
+\end{align}
+In particular,
+\begin{equation}
+ I_F=\frac{135375001}{50000000},\qquad
+ w:=W(1)=\left(\frac{\sqrt3}{200000000},\frac{57}{400000},0\right),
+ \quad |w|^2=\frac{812250003}{40000000000000000}.
+ \label{eq:endpoint}
+\end{equation}
+Thus one ordinary native update exposes a nonzero axial attachment \cite{GM02}. If all \(k_i\) are instead \(1\), the common multiplier is \(19/20\) and \(W\) stays zero. This is a useful negative control. The Fourier phase spread lies outside NPC's near-aligned descent domain; a theorem for that domain is not being used for this preparation.

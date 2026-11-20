@@ -1,0 +1,120 @@
+\section{Explicit descent on the coherent domain}\label{sec:finite}
+
+We now fix a parameter tuple and a finite domain independently of the preceding local continuation hypotheses:
+\begin{equation}
+\eps=\frac1{10},\qquad g=\frac1{60},\qquad
+\lambda=\frac1{300},\qquad
+k=\left(\frac{999}{1000},1,\frac{1001}{1000}\right).
+\label{eq:parameters}
+\end{equation}
+With \(D_0=\pi/12\), let
+\begin{equation}
+\D=\left\{\Omega\in\C^3:
+\frac9{10}\le|\Omega_i|\le\frac{11}{10},\
+\text{ordinary phase width}\le D_0\right\}.
+\label{eq:domain}
+\end{equation}
+The containing phase interval can have any common orientation. It is an ordinary full-turn interval, not phase modulo \(2\pi/3\).
+
+We use the following precise inherited facts from \cite{relaxation}, Sections 6--7, \texttt{lem:phase}, \texttt{eq:lower}, \texttt{eq:upper}, and \texttt{thm:convergence}:
+\begin{enumerate}
+\item Positive prestage mixing keeps its phases in the input interval, and
+\begin{equation}
+\frac{88701}{100000}+\frac3{100}\cos D_0
+\le |v_i|\le\frac{107701}{100000},\qquad
+\frac9{10}<|v_i|<\frac{11}{10}.
+\label{eq:prebounds}
+\end{equation}
+\item For positive-modulus prestages of ordinary phase width \(D_v<\pi/6\) and \(0\le\lambda\le1/9\), the simultaneous phase stage preserves its interval and satisfies
+\begin{equation}
+|\psi_i^+-\psi_j^+|
+\le(1-9\lambda\cos3D_v)|\psi_i-\psi_j|.
+\label{eq:phasebound}
+\end{equation}
+\item The domain \(\D\) is forward invariant. There is a unique aligned fixed amplitude profile \(r_*\in[9/10,11/10]^3\), satisfying \eqref{eq:fixedbranch} at \eqref{eq:parameters}. Its common rotations are fixed states.
+\end{enumerate}
+These inputs include positive \emph{prestage} bounds; positive input amplitudes alone would not justify the regularity needed later. No profile value is numerically computed.
+
+\begin{theorem}[Finite-domain native descent]\label{thm:finite}
+For every \(\Omega\in\D\) at \eqref{eq:parameters},
+\begin{equation}
+\boxed{\V(F\Omega)-\V(\Omega)
+\le-\frac{16869}{20000}\|v-\Omega\|_2^2.}
+\label{eq:finitedescent}
+\end{equation}
+Equality in monotonicity, \(\V(F\Omega)=\V(\Omega)\), holds exactly on
+\(\{e^{i\theta}r_*:\theta\in\R\}\). The coefficient is a valid bound, without an optimality claim, and multiplies the squared prestage increment.
+\end{theorem}
+
+\subsection{A whole-segment curvature estimate}
+\begin{proof}
+Both \(\Omega\) and \(v\) lie in the convex product of closed radius-\(11/10\) disks. For \(b=v-\Omega\),
+\begin{equation}
+|\Omega_i+tb_i|
+\le(1-t)|\Omega_i|+t|v_i|\le11/10,\qquad 0\le t\le1.
+\label{eq:segment}
+\end{equation}
+No convexity of the annulus is assumed. The potential is polynomial in real coordinates, so this segment argument needs no nonzero-phase condition at its interior points.
+
+The onsite Hessian at \(x_i\in\R^2\) is
+\begin{equation}
+\eps\big[(|x_i|^2-k_i)I_2+2x_ix_i^T\big],
+\label{eq:onsitehessian}
+\end{equation}
+and the graph Hessian is \(-gL\otimes I_2\). For any real vector \(z_i\), the onsite quadratic form is at most
+\(\eps(3|x_i|^2-k_i)\|z_i\|^2\), by Cauchy--Schwarz and \(\eps>0\). Since the largest eigenvalue of \(-gL\) is \(3g\), on every point of \eqref{eq:segment},
+\begin{equation}
+\nabla^2\V\preceq
+\left[\frac1{10}\left(3\frac{121}{100}-\frac{999}{1000}\right)
++\frac3{60}\right]I_6
+=\frac{3131}{10000}I_6.
+\label{eq:curvature}
+\end{equation}
+Only an upper Hessian bound is needed; no positive lower bound on the disk product is asserted.
+
+Taylor's integral formula and \(b=-\nabla\V(\Omega)\) now give
+\begin{align}
+\V(v)-\V(\Omega)
+&=-\|b\|_2^2+
+\int_0^1(1-t)b^T\nabla^2\V(\Omega+tb)b\,dt\notag\\
+&\le-\left(1-\frac12\frac{3131}{10000}\right)\|b\|_2^2
+=-\frac{16869}{20000}\|b\|_2^2.
+\label{eq:predecrease}
+\end{align}
+
+\paragraph{Synchronization and the equality states.}
+The prestage is nonzero by \eqref{eq:prebounds}, its phase width is \(D_v\le D_0<\pi/6\), and \(\lambda=1/300\) lies in the phase lemma's interval. The factor in \eqref{eq:phasebound} obeys
+\[
+0\le1-9\lambda\cos3D_v
+\le1-\frac{3\sqrt2}{200}<1.
+\]
+For the fixed prestage moduli \(\rho_i=|v_i|\),
+\begin{equation}
+|\rho_i e^{i\psi_i}-\rho_j e^{i\psi_j}|^2
+=(\rho_i-\rho_j)^2+
+2\rho_i\rho_j[1-\cos(\psi_i-\psi_j)].
+\label{eq:pairdistance}
+\end{equation}
+The function \(1-\cos t\) increases with \(|t|\) on this interval, so each pair distance is nonincreasing under the phase stage. Each onsite term is unchanged, and \(g>0\). Hence
+\begin{equation}
+\V(F\Omega)\le\V(v).
+\label{eq:syncdecrease}
+\end{equation}
+Combining with \eqref{eq:predecrease} proves \eqref{eq:finitedescent}, including the domain's closed boundaries. This uses the native first-harmonic graph distances, not merely the separate harmonic-three phase scalar.
+
+If \(\V(F\Omega)=\V(\Omega)\), the positive coefficient in \eqref{eq:finitedescent} forces \(b=0\). Write \(\Omega_i=r_i e^{i\theta_i}\) in a consistent interval and choose a channel \(m\) of minimal phase. The imaginary part of \(e^{-i\theta_m}b_m=0\) is
+\begin{equation}
+0=g\sum_{j\ne m}r_j\sin(\theta_j-\theta_m).
+\label{eq:minimumphase}
+\end{equation}
+Every summand is nonnegative, and any strictly larger phase makes its summand positive because the difference is at most \(D_0\). Thus all phases agree. The remaining real equations are \eqref{eq:fixedbranch} in the amplitude cube, whose unique solution is the inherited \(r_*\). Conversely, \(e^{i\theta}r_*\) has \(v=\Omega\) and zero kicks. Therefore
+\begin{equation}
+\V(F\Omega)=\V(\Omega)
+\quad\Longleftrightarrow\quad b=0
+\quad\Longleftrightarrow\quad
+\Omega\in\{e^{i\theta}r_*\},\qquad \Omega\in\D.
+\label{eq:finiteequality}
+\end{equation}
+\end{proof}
+
+The coefficient in \eqref{eq:finitedescent} is neither a percentage reduction of potential nor a bound using \(\|F\Omega-\Omega\|^2\). The result concerns the ideal mathematical map, not a certification of floating-point evaluation. It does not classify equality in every intermediate quantitative estimate.

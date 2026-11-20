@@ -1,0 +1,85 @@
+\section{Exact reconstruction of the native phase}\label{sec:reconstruction}
+
+\begin{theorem}[Full-state reconstruction]\label{thm:reconstruction}
+The map \(\Psi:\Y\times\U\to\D\), \(\Psi(y,u)=uz(y)\), is a homeomorphism with inverse
+\begin{equation}
+\Psi^{-1}(\Omega)=\left(\RR(\Omega),\frac{\Omega_1}{|\Omega_1|}\right).
+\label{eq:inverse}
+\end{equation}
+Define
+\begin{equation}
+\kappa(y)=\frac{F_1(z(y))}{|F_1(z(y))|}
+=e^{i\delta_1(y)}\frac{(M(y)H(y))_{11}}{\sqrt{s_1}\rho_1(y)}.
+\label{eq:kappa}
+\end{equation}
+Then \(F(z(y))=\kappa(y)z(Gy)\), and the lifted update
+\begin{equation}
+\widehat F(y,u)=(Gy,u\kappa(y))
+\quad\hbox{satisfies}\quad F\Psi=\Psi\widehat F.
+\label{eq:conjugacy}
+\end{equation}
+For \(u_0=\Omega_{1,0}/|\Omega_{1,0}|\), every admitted iterate is
+\begin{equation}
+\boxed{\Omega_n=u_0\left(\prod_{j=0}^{n-1}\kappa(G^jy_0)\right)z(G^ny_0),
+\qquad n\ge0.}
+\label{eq:statehistory}
+\end{equation}
+\end{theorem}
+\begin{proof}
+The inherited fibre theorem and positive real first component of \(z\) give \eqref{eq:inverse}, proving bijectivity. The formulas and positive denominators show continuity in both directions. Since \(H=zz^\dagger\),
+\[
+(MH)_{11}=(Mz)_1\overline z_1=\sqrt{s_1}(Mz)_1,
+\qquad |F_1(z)|=\rho_1>0
+\]
+by \eqref{eq:prebounds}; this proves \eqref{eq:kappa}. The states \(Fz(y)\) and \(z(Gy)\) have the same retained tuple, so differ by one common unit scalar. Their first components identify it as \(\kappa(y)\). Regular equivariance gives \eqref{eq:conjugacy} and induction gives \eqref{eq:statehistory}. Forward invariance keeps every step regular. The empty product is one.
+\end{proof}
+
+This is conjugacy of self-maps, requiring no invertibility of the dynamics. If only \(y_0\) is given, \eqref{eq:statehistory} is the family indexed by \(u_0\in\U\); invariant data do not determine the discarded initial common phase.
+
+\begin{theorem}[Canonical ordinary increment and accumulation]\label{thm:phasebranch}
+On the entire closed image \(\Y\), the principal argument
+\begin{equation}
+\vartheta(y)=\Arg F_1(z(y))
+\label{eq:vartheta}
+\end{equation}
+is continuous, satisfies \(\kappa=e^{i\vartheta}\), and obeys \(|\vartheta(y)|\le\Delta(y)\). For a chosen real lift \(e^{i\theta_0}=u_0\), set
+\begin{equation}
+\theta_{n+1}=\theta_n+\vartheta(y_n),\qquad y_n=G^ny_0.
+\label{eq:reallift}
+\end{equation}
+Then the full-state relation is \(\Omega_n=e^{i\theta_n}z(y_n)\). Its limiting phase is
+\begin{equation}
+\theta_\infty=\theta_0+\sum_{j=0}^\infty\vartheta(y_j),
+\label{eq:limitingphase}
+\end{equation}
+with the distinct bounds
+\begin{equation}
+\sum_{j\ge n}|\vartheta(y_j)|\le\frac{\Delta_{\rm init}c^n}{1-c},
+\qquad |\theta_\infty-\theta_n|\le\Delta_{\rm init}c^n.
+\label{eq:phasetails}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Put \(m=\min_i\eta_i(y)\), \(M_a=\max_i\eta_i(y)\). The canonical interval \([m,M_a]\) contains zero and has width \(\Delta\le D_0\). Inherited prestage mixing gives lifts \(\psi_i\in[m,M_a]\); inherited synchronization gives output lifts \(\beta_i=\psi_i+\delta_i\) in the same interval. Hence
+\begin{equation}
+\re F_1(z(y))=\rho_1\cos\beta_1
+\ge a_*\cos\Delta\ge a_*\cos D_0>0.
+\label{eq:anchorhalfplane}
+\end{equation}
+The continuous right-half-plane argument is therefore a single global branch, and \(\vartheta=\beta_1\in[m,M_a]\). Nonvanishing alone would not justify that branch. In particular \(\vartheta=\psi_1+\delta_1\): it includes the prestage phase change and is not generally only the kick.
+
+The output relative phases are \(\beta_i-\beta_1\in[-D_0,D_0]\). The principal arcsines in \eqref{eq:jointimage} recover these differences exactly, so
+\begin{equation}
+\eta_i(Gy)=\beta_i-\beta_1,\qquad \theta_{i,n}=\theta_n+\eta_i(y_n)
+\label{eq:ordinarychannels}
+\end{equation}
+propagates the inherited consistent ordinary lift. There is no later unresolved multiple of \(2\pi\). Now \(|\vartheta(y_n)|\le\Delta_n\le c^n\Delta_{\rm init}\) proves the absolute-series bound and \eqref{eq:limitingphase}. The same lift identifies the limit with the inherited \(\theta_\infty\). Both \(\theta_n\) and that limiting phase lie in \(I_n\), giving the stronger net bound \(|\theta_\infty-\theta_n|\le\Delta_n\), hence the second part of \eqref{eq:phasetails}.
+\end{proof}
+
+The absolute variation and net remaining adjustment in \eqref{eq:phasetails} are not interchangeable. The sharper net estimate is inherited phase control, not a new optimal-rate or smooth-asymptotic-phase theorem. Changing \(\theta_0\) by \(2\pi\ell\) changes all real lifts equally and leaves the complex history unchanged.
+
+On aligned input, \(A_{12}=A_{13}=0\), so \(z(y)=r>0\). The accepted aligned amplitude map is
+\[
+\mathcal A_i(r)=[1-2g+\eps(k_i-r_i^2)]r_i+g(r_j+r_k)>0.
+\]
+The kicks vanish, \(\kappa=1\) and \(\vartheta=0\), while \(\mathcal A(r)\) may differ from \(r\). The amplitudes converge toward \(r_*\). Zero phase increment therefore does not mean fixed full state or zero potential decrease.

@@ -1,0 +1,75 @@
+\section{Spatial predictions with fixed centers}\label{sec:spatial}
+Continue with the identical Fourier bodies, \(m_0=0\), \(R_a=I_3\) and equal neutral stores. Write \(u(s)=U(\Om(s),\Om(s))\) and \(u_0=u(0)\). Symmetry of the two-body work integral gives \(L_1=L_2=(u(s)-u_0)/(2s)\). Consequently the selected root obeys
+\begin{equation}
+ f(s)=s-1+\frac{\eta\,[u(s)-u_0]}{4Ss}=0.
+ \label{eq:scalar}
+\end{equation}
+The contraction certificate implies \(f'>0\) on \([1/2,3/2]\). Thus for positive load the sign of \(s-1\) is exactly the opposite of
+\(\Delta U_F=u(1)-u_0\). Infinitesimally,
+\[
+ s=1-\frac{\eta}{4S}\Delta U_F+O(\eta^2).
+\]
+The exact sign statement uses the certified branch; it is not an assertion about all roots outside the box.
+
+For the parallel and transverse placements of \eqref{eq:mag-obstruction},
+\begin{equation}
+ u_\perp(s)-u_\parallel(s)
+ =\frac{3c_m\kappa^2}{r^3}\frac{(w\cdot W(s))^2}{|w|^2}>0
+ \quad(\kappa\ne0,\ 1/2\le s\le3/2).
+ \label{eq:ordering}
+\end{equation}
+Comparing the increasing scalar residuals shows \(s_\parallel>s_\perp\) throughout the common positive-load range. The Fourier update reduces mass, so its gravitational work is positive. The transverse gain is therefore below one. The parallel gain exceeds one only when the magnetic decrease exceeds that gravitational increase; the sign of the magnetic term alone does not decide the loaded gain.
+
+\subsection{One benchmark, two separations}
+Choose \(\eta=1\) and a disjoint-source distance \(r_0\) such that
+\[
+ a_{\rm L}(r_0)=0.01,\qquad b_{\rm L}(r_0)=10^6.
+\]
+Hold all physical and storage scales fixed when changing distance. At \(2r_0\), the loads are \(0.005\) and \(125000\). Table~\ref{tab:benchmark} transcribes the accepted rational enclosures from GM02--GM03 and rounds their values. The two \(2r_0\) entries were held out from the benchmark calibration in GM03; they are predictions from the same mathematical model, not independent experimental observations.
+
+\begin{table}[htbp]
+\centering
+\caption{Model predictions for the Fourier preparation. Each placement has its own matched neutral control at its own reached state. The final column is the next zero-load multiplier \(2s_{\rm on}-1\); its \(2r_0\) entries are direct endpoint transformations of the accepted gain brackets. Centers do not move during a step.}
+\label{tab:benchmark}
+\begin{tabular}{@{}llrr@{}}
+\toprule
+Distance & Fixed center line & Loaded gain \(s_{\rm on}\) & Next gain after switch-off\\
+\midrule
+\(r_0\) & \(n_\parallel=w/|w|\) & \(1.006036217\) & \(1.012072434\)\\
+\(r_0\) & \(n_\perp=e_z\)       & \(0.990788805\) & \(0.981577610\)\\
+\(2r_0\) & \(n_\parallel=w/|w|\) & \(0.999181277\) & \(0.998362554\)\\
+\(2r_0\) & \(n_\perp=e_z\)       & \(0.997279741\) & \(0.994559482\)\\
+\bottomrule
+\end{tabular}
+\end{table}
+Doubling the distance weakens magnetism faster than gravity in this pair model, so even the parallel placement slows the internal advance at \(2r_0\). This compares internal multipliers at fixed geometry, not trajectories of moving bodies.
+
+\subsection{Neutral angle and neutral distance}
+Let \(\theta\in[0,\pi/2]\) be the acute angle of the center line to \(w\), and define
+\[
+ A_g=G_N\big((3\alpha)^2-(\alpha I_F)^2\big)>0,\qquad
+ B_m=c_m\kappa^2|w|^2>0.
+\]
+The ordinary-endpoint work is
+\begin{equation}
+ \Delta U_F=\frac{A_g}{r}+\frac{B_m}{r^3}(1-3\cos^2\theta).
+ \label{eq:neutral-work}
+\end{equation}
+On the certified branch the exact neutral condition \(s=1\) is therefore
+\begin{equation}
+ 3\cos^2\theta-1=\frac{A_g}{B_m}r^2,\qquad
+ r_\star=\sqrt{\frac{2B_m}{A_g}}.
+ \label{eq:neutral}
+\end{equation}
+For \(0<r<r_\star\), when disjointness and the load certificate also hold, there is an interior neutral angle. At \(r=r_\star\), only the end-to-end direction is neutral. For \(r>r_\star\), every direction gives \(s<1\) within the certificate. For the benchmark,
+\begin{equation}
+ \cos^2\theta_\star=\frac{9250171622999999}{15229687556250000},
+ \quad
+ \frac{r_\star}{r_0}=
+ \sqrt{\frac{10153125037500000}{4173609104249999}},
+ \label{eq:neutral-exact}
+\end{equation}
+or \(\theta_\star\simeq38.7994149815^\circ\) and
+\(r_\star/r_0\simeq1.55971044948\). All \(r\ge r_0\) preserve the stated load bounds and disjointness.
+
+The vector \(w=W(1)\) belongs only to the unloaded-endpoint criterion. In solving \eqref{eq:scalar}, the magnetic energy must use the actual \(W(s)\). Its two components in \eqref{eq:path-W} do not have a constant ratio: the vector turns along the path. Thus two center lines at the same angle to \(w\) can have different loaded gains through their azimuth. A specified planar scan may use \(n=\cos\theta\,w/|w|+\sin\theta\,e_z\). The neutral criterion itself is independent of that azimuth.

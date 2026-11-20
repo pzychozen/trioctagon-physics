@@ -1,0 +1,372 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "C01_fourier_prestage",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Actual native tuple; input amplitudes are one."
+    },
+    {
+      "id": "C02_positive_multipliers",
+      "passed": true,
+      "kind": "exact_inequality_or_predicate",
+      "scope": "All prestage phases equal their original root-of-unity phases."
+    },
+    {
+      "id": "C03_zero_triple_phase_kicks",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Positive multipliers leave the phases; every native kick vanishes."
+    },
+    {
+      "id": "C04_initial_silent",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Full native state space; outside the NPC aligned sector."
+    },
+    {
+      "id": "C05_emergent_W",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Unnormalized Fourier entrance used in the supplied order."
+    },
+    {
+      "id": "C06_emergent_W_positive",
+      "passed": true,
+      "kind": "exact_inequality_or_predicate",
+      "scope": "The proposed source moment is nonzero for nonzero kappa."
+    },
+    {
+      "id": "C07_path_intensity",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Exact interpolation along the single unloaded native direction."
+    },
+    {
+      "id": "C08_path_moment",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Moment direction need not stay parallel to W at s=1."
+    },
+    {
+      "id": "C09_parallel_energy",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Actual GM01 pair potential tensor."
+    },
+    {
+      "id": "C10_transverse_energy",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Line of centers chosen along e_z, perpendicular to every path W."
+    },
+    {
+      "id": "C11_angular_difference",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Gravity and internal-only terms cancel at equal distance."
+    },
+    {
+      "id": "C12_equal_coefficient_control",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Equal k makes all three multipliers equal, so the moment stays zero."
+    },
+    {
+      "id": "C13_zero_moment_coupling_control",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Kappa=0 removes the angular work."
+    },
+    {
+      "id": "C14_real_native_step",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "GM01 D5."
+    },
+    {
+      "id": "C15_intensity_increment",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Exact nonzero increment in the NPC domain."
+    },
+    {
+      "id": "C16_real_path_silent",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "No dipole contribution for any real interpolation."
+    },
+    {
+      "id": "C17_gravity_work",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "A=G_N/r, b=alpha/50000000."
+    },
+    {
+      "id": "C18_gravity_AVF",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Two independently loaded bodies, before restricting to the diagonal."
+    },
+    {
+      "id": "C19_endpoint_mean_field_work",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "General symmetric dipole tensor and gravitational product."
+    },
+    {
+      "id": "C20_silent_start_half_fields",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Initial-field charging would give zero; endpoint means give the full interaction."
+    },
+    {
+      "id": "C21_fixed_canonical_kinetic",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Positive initial and final mass; canonical P held fixed."
+    },
+    {
+      "id": "C22_AVF_exact_work",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Generic polynomial of degree at most two in each body's path parameter."
+    },
+    {
+      "id": "C23_energy_residual_identity",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Exact conservation at any root; exact residual-to-energy relation otherwise."
+    },
+    {
+      "id": "C24_zero_load_recovery",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "h remains fixed at eta=0; neutral h=1 recovers F at every step."
+    },
+    {
+      "id": "C25_zero_load_jacobian",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "IFT in s at fixed preparation; no derivative of F needed."
+    },
+    {
+      "id": "C26_exchange_symmetry",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Identical bodies, poses and stores; forces equal s on the local branch."
+    },
+    {
+      "id": "C27_parallel_leading_coefficient",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "s=1-eta Delta U_F/(4S)+O(eta^2)."
+    },
+    {
+      "id": "C28_parallel_diagonal_work",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "No spurious multiplication by s in the branch equation."
+    },
+    {
+      "id": "C27_transverse_leading_coefficient",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "s=1-eta Delta U_F/(4S)+O(eta^2)."
+    },
+    {
+      "id": "C28_transverse_diagonal_work",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "No spurious multiplication by s in the branch equation."
+    },
+    {
+      "id": "C29_loaded_angular_gap",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Fixed center line parallel to W(1); W(s) is allowed to turn."
+    },
+    {
+      "id": "C30_W_uniform_bounds",
+      "passed": true,
+      "kind": "exact_inequality_or_predicate",
+      "scope": "Componentwise bounds use sqrt(3)<2 on 0<=z<=3/2."
+    },
+    {
+      "id": "C31_intensity_derivative_bounds",
+      "passed": true,
+      "kind": "exact_inequality_or_predicate",
+      "scope": "I decreases, |I'|<=3/10, I''<1/50 on the segment."
+    },
+    {
+      "id": "C32_magnetic_box_constants",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "0<=a_load<=1/4 and 0<=b_load<=10^6."
+    },
+    {
+      "id": "C33_magnetic_contraction",
+      "passed": true,
+      "kind": "exact_inequality_or_predicate",
+      "scope": "Full two-variable map, both arrangements."
+    },
+    {
+      "id": "C34_gravity_contraction",
+      "passed": true,
+      "kind": "exact_inequality_or_predicate",
+      "scope": "0<=gamma<=1/10, zeta<=1/300000000."
+    },
+    {
+      "id": "C35_real_domain_preservation",
+      "passed": true,
+      "kind": "exact_inequality_or_predicate",
+      "scope": "Positive real output remains in NPC finite domain for the specified one step."
+    },
+    {
+      "id": "C36_magnetic_path_positivity",
+      "passed": true,
+      "kind": "exact_inequality_or_predicate",
+      "scope": "All phases fixed along the segment; the Fourier phase sector stays outside NPC."
+    },
+    {
+      "id": "C37_self_energy_midpoints",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Gravity self effective potential -C_g m^2."
+    },
+    {
+      "id": "C38_magnetic_self_midpoints",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Magnetic fixed-moment effective self potential -C_m |mu|^2."
+    },
+    {
+      "id": "C39_native_V_zero_load_defect",
+      "passed": true,
+      "kind": "exact_inequality_or_predicate",
+      "scope": "Adding a nonzero energy scale times native V breaks the benchmark's zero-load conservation."
+    },
+    {
+      "id": "C40_stationary_unresponsive_direction",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Equal k=1 and Omega=e have d=0 despite a nonzero gravitational mass gradient."
+    },
+    {
+      "id": "C41_isotropic_projection_trace_average",
+      "passed": true,
+      "kind": "exact_identity",
+      "scope": "Rotational symmetry gives angular average kk^T/|k|^2=I/3; Parseval proof is in the report."
+    },
+    {
+      "id": "C42_gravity_r_other_roots",
+      "passed": true,
+      "kind": "exact_inequality_or_predicate",
+      "scope": "Cubic has an additional positive root beyond 2 and a negative root; uniqueness is restricted to the certified box."
+    },
+    {
+      "id": "C42_gravity_2r_other_roots",
+      "passed": true,
+      "kind": "exact_inequality_or_predicate",
+      "scope": "Cubic has an additional positive root beyond 2 and a negative root; uniqueness is restricted to the certified box."
+    },
+    {
+      "id": "C43_magnetic_response_order",
+      "passed": true,
+      "kind": "exact_inequality_or_predicate",
+      "scope": "Certified example with gravity active: end-to-end advances farther, transverse advances less."
+    },
+    {
+      "id": "C44_gravity_response_order",
+      "passed": true,
+      "kind": "exact_inequality_or_predicate",
+      "scope": "Same sources and stores, doubled separation."
+    }
+  ],
+  "count": 47,
+  "meanings": "Exact identities, rational bounds and root brackets; not physical experiments or independent review.",
+  "W_plus": [
+    "sqrt(3)/200000000",
+    "57/400000",
+    "0"
+  ],
+  "W_plus_squared": "812250003/40000000000000000",
+  "magnetic_I_plus": "135375001/50000000",
+  "native_V_zero_load_change_per_body": "-3499999999/200000000000000000",
+  "certified_examples": [
+    {
+      "case": "gravity_r",
+      "lo": "704250333782144059096786319941/633825300114114700748351602688",
+      "hi": "1408500667564288118193572639883/1267650600228229401496703205376",
+      "width": "1/1267650600228229401496703205376",
+      "decimal_mid": "1.11111111161916374606094",
+      "root_residual_at_mid": "-131160470551608864808257442254944698228500920405026651930170674008177/391110907456221328563541572174600606921881931583859760122138966276041209554560647587212296192000000",
+      "scaled_energy_defect_at_mid": "-73895844131994895645797720500590977348406852015999846623272305314102386058327326942973259712527681/49579197659268644921393648102457827987130351222321091446348659645580434342723350936889190782978646363569340901876751872819200000",
+      "scaled_energy_defect_decimal": "-1.4904607e-30",
+      "h_plus": "1.22222222323832749212187",
+      "normalized_total_storage_change": "0.493827162977640043503223",
+      "polynomial": "-s**3/3000000000 + 9*s/10 - 1",
+      "method": "100 rational bisections; uniqueness from the written contraction theorem"
+    },
+    {
+      "case": "gravity_2r",
+      "lo": "1334369053131210820382881755971/1267650600228229401496703205376",
+      "hi": "333592263282802705095720438993/316912650057057350374175801344",
+      "width": "1/1267650600228229401496703205376",
+      "decimal_mid": "1.05263157915199136503110",
+      "root_residual_at_mid": "23514321243016963347145796422408596784993308310789657939261856072721193/97777726864055332140885393043650151730470482895964940030534741569010302388640161896803074048000000000",
+      "scaled_energy_defect_at_mid": "62753565144135323251019052535586742775809000896100854626147695196843128916060743821164102352364707999/61973997074085806151742060128072284983912939027901364307935824556975542928404188671111488478723307954461676127345939841024000000000",
+      "scaled_energy_defect_decimal": "1.0125790e-30",
+      "h_plus": "1.10526315830398273006220",
+      "normalized_total_storage_change": "0.221606649104094788504424",
+      "polynomial": "-s**3/6000000000 + 19*s/20 - 1",
+      "method": "100 rational bisections; uniqueness from the written contraction theorem"
+    },
+    {
+      "case": "magnetic_parallel",
+      "lo": "637651207066292470573884753071/633825300114114700748351602688",
+      "hi": "1275302414132584941147769506143/1267650600228229401496703205376",
+      "width": "1/1267650600228229401496703205376",
+      "decimal_mid": "1.00603621684317263565658",
+      "root_residual_at_mid": "8865339665743518399162470641263683360107307963638190207543497482166368526209990862007/35297759528294277388266736409938228832900046632737320545642961747125707920979501629599458927065432064000000000000000",
+      "scaled_energy_defect_at_mid": "4522395631131229062857162143714203903190903696436562858617093930646238725686832936597677222035377261406084902551199/4474522605275394423911991715044701676657790193524595577139997015129854081290927202962033113793553095305015137584157157147516757606400000000000000",
+      "scaled_energy_defect_decimal": "1.0106990e-30",
+      "h_plus": "1.01207243368634527131316",
+      "normalized_total_storage_change": "0.0242906110278017467029786",
+      "polynomial": "-7652911478203434000001*s**3/270750001000000000000000000 + 30763966300875003*s**2/27075000100000000000 + 2676126852990624997*s/2707500010000000000 - 1991/2000",
+      "method": "100 rational bisections; uniqueness from the written contraction theorem",
+      "unloaded_pair_work_over_S": "-5979515933250001/250000000000000000",
+      "unloaded_pair_work_over_S_decimal": "-0.023918063733000004000"
+    },
+    {
+      "case": "magnetic_transverse",
+      "lo": "19624594118441089475905441899/19807040628566084398385987584",
+      "hi": "1255974023580229726457948281537/1267650600228229401496703205376",
+      "width": "1/1267650600228229401496703205376",
+      "decimal_mid": "0.990788805175576448623219",
+      "root_residual_at_mid": "-2895054285512913975625524000817956696561529355466380080307835885614778743070017/16296287810675888690147565507275025288411747149327490005089123594835050398106693649467179008000000000000000000",
+      "scaled_energy_defect_at_mid": "-7272225958917683481166764602669343230074928090730774480672269557320724616058182683086171737883851486895682241/10328999512347634358623676688012047497318823171316894051322637426162590488067364778518581413120551325743612687890989973504000000000000000000",
+      "scaled_energy_defect_decimal": "-7.0405909e-31",
+      "h_plus": "0.981577610351152897246438",
+      "normalized_total_storage_change": "-0.0365053948573202566292231",
+      "polynomial": "13921892999999*s**3/1000000000000000000 - 55124997*s**2/100000000000 + 10052874997*s/10000000000 - 1991/2000",
+      "method": "100 rational bisections; uniqueness from the written contraction theorem",
+      "unloaded_pair_work_over_S": "9250171622999999/250000000000000000",
+      "unloaded_pair_work_over_S_decimal": "0.037000686491999996000"
+    }
+  ],
+  "normalized_box": {
+    "magnetic_image_shift": "37/240",
+    "magnetic_lipschitz": "73/2880",
+    "gravity_shift_upper": "1200000009/8000000000",
+    "gravity_lipschitz_upper": "400000009/4000000000"
+  },
+  "environment": {
+    "python": "3.11.15 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:12:15) [MSC v.1942 64 bit (AMD64)]",
+    "executable": "C:\\Users\\Notandi\\miniconda3\\envs\\torment\\python.exe",
+    "sympy": "1.14.0",
+    "platform": "Windows-10-10.0.26300-SP0"
+  },
+  "script_sha256": "28c1ee3b6fcff1de8adefd3dadaad932ccab0fee66b34befce3b3540c6ca6611"
+}

@@ -1,0 +1,127 @@
+\section{Decoded phase and positioned support axes}\label{sec:spatial}
+
+\subsection{The adopted frame}
+The existing shell decoder uses \(e_z=(0,0,1)\), \(r=\sqrt3/6\) and \(O=(0,r,0)\). Table~\ref{tab:frames} transcribes the defining NRG frame table \cite[Appendix, notation and conventions]{nrg} together with the reference/PLUS support convention of \cite[Sections 1 and 3]{fixedgap}. Native labels \(1,2,3\) correspond to faces A=P1, B=P2, C=P3; the implementation uses indices \(0,1,2\).
+
+\begin{table}[htbp]\centering\small
+\caption{Exact frame and support dictionary in the common right-handed ambient frame. Coordinates are triples; every displayed final coordinate is zero.}\label{tab:frames}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}lcccc@{}}\toprule
+Channel / face & \(c_i\) & \(n_i\) & \(t_i=e_z\times n_i\) & \(g_{i-1}\)\\\midrule
+1 / A=P1 & \((-\tfrac14,\tfrac{\sqrt3}4,0)\) & \((-\tfrac{\sqrt3}2,\tfrac12,0)\) & \((-\tfrac12,-\tfrac{\sqrt3}2,0)\) & \((\tfrac{\sqrt3}2,-\tfrac12,0)\)\\
+2 / B=P2 & \((0,0,0)\) & \((0,-1,0)\) & \((1,0,0)\) & \((0,1,0)\)\\
+3 / C=P3 & \((\tfrac14,\tfrac{\sqrt3}4,0)\) & \((\tfrac{\sqrt3}2,\tfrac12,0)\) & \((-\tfrac12,\tfrac{\sqrt3}2,0)\) & \((-\tfrac{\sqrt3}2,-\tfrac12,0)\)\\\bottomrule
+\end{tabular}
+\end{table}
+
+The fixed-gap source uses centered coordinates \((X,Y,w)\), with \(e_w=e_z\), about precisely this uncentered \(O\). Its directions are
+\[
+e_j=(\cos(-\pi/2+j\pi/3),\sin(-\pi/2+j\pi/3),0),\qquad g_k=e_{2k+1}.
+\]
+Thus its centered support \(\R g_k\) is the positioned line \(L_k=O+\R g_k\). The planar source operator \(J(X,Y)=(-Y,X)\) has the orientation of \(e_z\times\). No reflection, fit or channel permutation is used. The fixed-gap source's other symbol \(n_k=e_{2k}\) denotes hexagon directions, not the decoder normals.
+
+\begin{proposition}[Positioned axes and directed signs]\label{prop:axes}
+For the defining frames and support directions,
+\begin{equation}
+\boxed{n_i=-g_{i-1},\qquad c_i-O=r n_i,\qquad
+\ell_i:=c_i+\R n_i=O+\R g_{i-1}=L_{i-1}.}
+\label{eq:axismatch}
+\end{equation}
+For right-hand rotations, \(R_{n_i}(\chi)=R_{g_{i-1}}(-\chi)\). Their affine actions satisfy, for every ambient point \(X\),
+\begin{equation}
+c_i+R_{n_i}(\chi)(X-c_i)
+=O+R_{g_{i-1}}(-\chi)(X-O).
+\label{eq:affineaxis}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The table gives opposite normals and support directions. Subtracting \(O\) from the three centers gives
+\[
+(-1/4,\sqrt3/12,0),\quad (0,-\sqrt3/6,0),\quad
+(1/4,\sqrt3/12,0),
+\]
+which are exactly \(r n_i\). Hence \(c_i+\R n_i=O+(r+\R)n_i=O+\R g_{i-1}\). Rodrigues' formula
+\[
+R_n(\chi)=\cos\chi\,I+\sin\chi\,[n]_\times+(1-\cos\chi)nn^T,
+\qquad [n]_\times v=n\times v,
+\]
+gives the signed-angle identity. Since \(c_i-O\) lies on that axis, it is fixed by the rotation; expanding both sides gives \eqref{eq:affineaxis}.
+\end{proof}
+
+These are equal positioned, unoriented lines, not merely parallel directions. They are three different lines through \(O\), not a single common axis. Their accepted stationarity does not identify a material rod or specify what is attached to them \cite{fixedgap}.
+
+\subsection{Lossless vectors and pure phase action}
+Put \(W_i=n_i^\perp\). The adopted decoder and encoder are
+\begin{equation}
+D_i(q+ip)=q t_i+p e_z,\qquad
+E_i(v)=t_i\cdot v+i e_z\cdot v.
+\label{eq:decoder}
+\end{equation}
+The frame is orthonormal with
+\begin{equation}
+n_i\times t_i=e_z,\qquad n_i\times e_z=-t_i.
+\label{eq:handedness}
+\end{equation}
+Thus \(E_iD_i=I\), \(\|D_i\omega\|=|\omega|\), and \(D_iE_i=I-n_in_i^T\) on ambient vectors. In particular \(D_iE_i=I\) on \(W_i\). The combined maps \(D,E\) are inverse between \(\C^3\) and \(\bigoplus_iW_i\), not between arbitrary ambient arrays \cite[State--shell attachment, \texttt{eq:decoder}]{nrg}.
+
+\begin{theorem}[Spatial action of common phase]\label{thm:decoderphase}
+For all complex \(\omega\) and real \(\chi\),
+\begin{equation}
+\boxed{D_i(e^{i\chi}\omega)
+=\cos\chi\,D_i\omega+\sin\chi\,n_i\times D_i\omega
+=R_{n_i}(\chi)D_i\omega=R_{g_{i-1}}(-\chi)D_i\omega.}
+\label{eq:decoderphase}
+\end{equation}
+The endpoint based at \(c_i\) rotates about the positioned line \(\ell_i=L_{i-1}\).
+\end{theorem}
+\begin{proof}
+For \(\omega=q+ip\), the real and imaginary parts after multiplication are \(q\cos\chi-p\sin\chi\) and \(q\sin\chi+p\cos\chi\). Substitution in \eqref{eq:decoder} and \eqref{eq:handedness} proves the first identity. The normal term in Rodrigues' formula vanishes by tangency; Proposition~\ref{prop:axes} gives the last equality. For \(X=c_i+D_i\omega\), the new endpoint is \(c_i+R_{n_i}(\chi)(X-c_i)\), so \eqref{eq:affineaxis} identifies its positioned axis.
+\end{proof}
+
+The algebra includes \(\omega=0\); this does not extend the native reconstruction theorem to singular prestages or other coefficient histories. These based vectors lie in unbounded tangent planes. Their endpoints need not lie in the finite source faces, and are not automatically particle positions or material features.
+
+\subsection{The complete decoded update}
+The accepted matched transport is
+\[
+T_{ij}=t_it_j^T+e_ze_z^T:W_j\to W_i,\qquad T_{ij}D_j\omega=D_i\omega.
+\]
+It is an isometry on its tangent domain and rank two ambiently. The existing conjugate face update is \(F_{\rm face}=DFE\), explicitly
+\begin{align}
+\widetilde v_i&=v_i+\eps(k_i-\|v_i\|^2)v_i
++g\sum_{j\ne i}(T_{ij}v_j-v_i),\notag\\
+v_i^+&=\cos\delta_i\,\widetilde v_i+
+\sin\delta_i\,n_i\times\widetilde v_i.
+\label{eq:faceupdate}
+\end{align}
+The kicks are those of the encoded complex prestage, with the original conventions \cite[\texttt{eq:faceupdate}]{nrg}. No second dynamics or carrier motion is added.
+
+Define \(\DD(y,u)=D(uz(y))\). Then \(ED=I\) and Theorem~\ref{thm:reconstruction} give
+\begin{equation}
+F_{\rm face}\DD(y,u)=DF(uz(y))
+=D(u\kappa(y)z(Gy))=\DD\widehat F(y,u).
+\label{eq:facecommutation}
+\end{equation}
+This proves the commuting relation, and composition with \eqref{eq:statehistory} yields the exact history
+\begin{equation}
+v_{i,n}=D_i\!\left[u_0\left(\prod_{j=0}^{n-1}\kappa(G^jy_0)\right)z_i(G^ny_0)\right].
+\label{eq:facehistory}
+\end{equation}
+Losslessness is preserved: encoding these vectors recovers \(\Omega_n\), then \eqref{eq:inverse} recovers \((y_n,u_n)\).
+
+Pure rephasing changes \(u\) at fixed \(y\). An actual native step can change \(y\) as well. Using the accepted ordinary lifts \eqref{eq:ordinarychannels},
+\begin{equation}
+\theta_{i,n+1}-\theta_{i,n}
+=\vartheta(y_n)+\eta_i(Gy_n)-\eta_i(y_n),
+\label{eq:channelincrement}
+\end{equation}
+as an equality of real lifts. The vector has length \(\sqrt{s_{i,n}}\) and direction
+\(\cos\theta_{i,n}\,t_i+\sin\theta_{i,n}\,e_z\). Consequently the full decoded step is
+\begin{equation}
+\boxed{v_{i,n+1}=\sqrt{\frac{s_{i,n+1}}{s_{i,n}}}\,
+R_{n_i}\!\left[\vartheta(y_n)+\eta_i(Gy_n)-\eta_i(y_n)\right]v_{i,n}.}
+\label{eq:completestep}
+\end{equation}
+This combines amplitude change with anchor and relative-phase change; it is not a pure common rotation or a continuous interpolating path. Aligned amplitudes can relax while every angular increment vanishes. Closed-boundary and zero-area cases cause no singularity because \(s_{i,n}\ge81/100\).
+
+Finally, the representative change of \eqref{eq:statecancellation} gives
+\(D_i(u_hz_{h,i})=D_i(uz_i)\). Thus the decoded vectors are independent of that bookkeeping convention, although \(\vartheta\) is not. Changing a representative together with its inverse phase factor differs from actually rephasing the native state.
